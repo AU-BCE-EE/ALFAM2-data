@@ -1,0 +1,10 @@
+Created ALFAM_plot.csv on [1] "2018-11-08 14:29:35 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2018-11-08 14:44:21 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.

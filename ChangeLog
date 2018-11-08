@@ -1,0 +1,39 @@
+ALFAM2 database
+
+########################################
+## DETAILED DATA LOG ###################
+########################################
+
+8 November 2018 SDH
+Version 1.1
+
+Changes to data folder names and organization to more easily handle new data.
+Copying all files to new GitHub repository.
+
+18-19 October 2018 SDH
+Version 1.1
+
+New version, new directory structure for future additions and corrections.
+Re-created both files from original Excel files.
+
+General changes
+* Change file paths
+* pmid, pid, and oid all change, unfortunately, in order to have a repeatable
+approach to assigning keys
+* Added cta = cumulative time based on reported application time
+* Added rain.cum = cumulative rainfall
+
+main.R
+* Add database version to log
+
+ALFAM_functions.R and make_database.R
+* Switch wind.1m to wind.2m from start
+
+ALFAM_functions.R 
+* Change calculation of ct = cumsum(dt)
+
+-----------------------------------------
+
+Version 1.0
+
+Original version, as described in https://doi.org/10.1016/j.agrformet.2017.11.027
