@@ -1,6 +1,9 @@
 # ALFAM2-data
-The ALFAM2 dataset on ammonia loss from field-applied manure
+The ALFAM2 dataset on ammonia loss from field-applied manure. This repository contains the ALFAM dataset and the code used to generate it from original data files. It serves two purposes: code tracking (for me) and versioning (primarily for dataset users). 
 
 # Quick tips
-* Want the ALFAM2 data? Look in "data - ALFAM2 output" for both plot- and interval-level files.
+* Want the ALFAM2 dataset? Look in "data - ALFAM2 output" for both plot- and interval-level files.
+* Or the ALFAM2 database? You can download this same dataset, or some subset filtered by country, application method, or more, from the ALFAM2 database interface: www.alfam.dk. 
 * Looking for the ALFAM2 model R package? You want https://github.com/sashahafner/ALFAM2.
+
+
