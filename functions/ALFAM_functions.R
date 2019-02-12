@@ -20,6 +20,7 @@ summLogistic <- function(mod, eref, drop.inst = TRUE, drop.int = TRUE, show.app.
   app.effect <- 100*(emiseffect - eref)
   # Or next line, above easier to track
   #rel.effect <- (((tbeta*eref/(1-eref))/(1 + tbeta*eref/(1-eref))/eref) - 1)*100
+
   modsumm <- insertCol(rel.effect, modsumm, 1)
   if(show.app.effect) {
     modsumm <- insertCol(app.effect, modsumm, 2)
