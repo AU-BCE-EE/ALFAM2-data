@@ -92,6 +92,7 @@ wind.2m.6,"Average adjusted wind speed over first 6 h",numeric,m/s,"Wind speed e
 wind.2m.12,"Average adjusted wind speed over first 12 h",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.2m.24,"Average adjusted wind speed over first 24 h",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.2m.48,"Average adjusted wind speed over first 48 h",numeric,m/s,"Wind speed estimated at 2 m height"
+wind.2m.72,"Average adjusted wind speed over first 72 h",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.2m.mn,"Average adjusted wind speed",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.loc,"Location of wind speed measurements",character,,
 rain.1,"Rainfall over first 1 h",numeric,mm,
@@ -99,17 +100,20 @@ rain.6,"Rainfall over first 6 h",numeric,mm,
 rain.12,"Rainfall over first 12 h",numeric,mm,
 rain.24,"Rainfall over first 24 h",numeric,mm,
 rain.48,"Rainfall over first 48 h",numeric,mm,
+rain.72,"Rainfall over first 72 h",numeric,mm,
 rain.tot,"Total rainfall",numeric,mm,
 rain.rate.1,"Rainfall rate over first 1 h",numeric,mm/h,
 rain.rate.6,"Rainfall rate over first 6 h",numeric,mm/h,
 rain.rate.12,"Rainfall rate over first 12 h",numeric,mm/h,
 rain.rate.24,"Rainfall rate over first 24 h",numeric,mm/h,
 rain.rate.48,"Rainfall rate over first 48 h",numeric,mm/h,
+rain.rate.72,"Rainfall rate over first 72 h",numeric,mm/h,
 rain.rate.mn,"Rainfall rate",numeric,mm/h,
 rh.6,"Average relative humidity over first 6 h",numeric,Percentage,
 rh.12,"Average relative humidity over first 12 h",numeric,Percentage,
 rh.24,"Average relative humidity over first 24 h",numeric,Percentage,
 rh.48,"Average relative humidity over first 48 h",numeric,Percentage,
+rh.72,"Average relative humidity over first 72 h",numeric,Percentage,
 rh.mn,"Average relative humidity",numeric,Percentage,
 far.loc,"Distance to furthest weather measurement",numeric/character,m,
 man.source,"Source of manure",character,,
