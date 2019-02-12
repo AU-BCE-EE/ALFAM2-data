@@ -8,3 +8,13 @@ contains data from 22  institutes
 and has  1899  pmid
 and  151  rows
 and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-02-12 09:45:36 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-02-12 09:55:33 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  159  rows
+and  1899  columns.

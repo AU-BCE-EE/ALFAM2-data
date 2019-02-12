@@ -6,7 +6,7 @@
 options(warn = 2) 
 
 # Set database version
-version <- '1.1' # 18 Oct 2018
+version <- '1.2' # 12 Feb 2019
 
 # Packages
 library(gdata)
@@ -31,7 +31,8 @@ sink()
 
 # Compare to older version
 sink('../logs/version_comparison.txt')
-  source('compare.R', echo = TRUE)
+  source('compare_1.0.R', echo = TRUE)
+  source('compare_prev.R', echo = TRUE)
 sink()
 
 # Remove partial file
