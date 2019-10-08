@@ -6,10 +6,11 @@
 options(warn = 2) 
 
 # Set database version
-version <- '1.2' # 12 Feb 2019
+version <- '1.3' # Oct 2019
 
 # Packages
 library(gdata)
+library(readxl)
 #library(rmarkdown)
 library(plyr)
 

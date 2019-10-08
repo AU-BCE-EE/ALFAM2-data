@@ -4,7 +4,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2019-02-12 09:38:41 CET"
+[1] "2019-10-07 21:49:18 EDT"
 
 > # Read in ALFAM1 data
 > cat('\nReading ALFAM1.xlsx. . .\n')
@@ -67,6 +67,60 @@ Directory  ../../data - submitted/01/WUR
 > cat('Done! Read', length(unique(d2$file)), ' files.\n')
 Done! Read 24  files.
 
+> # Get publication info from sheet 4 in ALFAM2 files
+> ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+
+> dp2 <- NULL
+
+> for(i in ddir) {
++   cat('Directory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (created  .... [TRUNCATED] 
+Directory  ../../data - submitted/01/AAFC 
+   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2000.xlsx 
+   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
+Directory  ../../data - submitted/01/ADAS-RR 
+   file  ../../data - submitted/01/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
+Directory  ../../data - submitted/01/ARDC 
+   file  ../../data - submitted/01/ARDC/Bittman ALFAM2 v5.xlsx 
+Directory  ../../data - submitted/01/AT 
+   file  ../../data - submitted/01/AT/ALFAM2_AT.xlsx 
+Directory  ../../data - submitted/01/AU 
+   file  ../../data - submitted/01/AU/ALFAM2_AU_v5.xlsx 
+Directory  ../../data - submitted/01/CAU-LU 
+   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
+   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
+Directory  ../../data - submitted/01/INH-HAFL 
+   file  ../../data - submitted/01/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
+Directory  ../../data - submitted/01/INRA 
+   file  ../../data - submitted/01/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
+   file  ../../data - submitted/01/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
+   file  ../../data - submitted/01/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
+   file  ../../data - submitted/01/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
+   file  ../../data - submitted/01/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
+   file  ../../data - submitted/01/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
+   file  ../../data - submitted/01/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
+   file  ../../data - submitted/01/INRA/8 ALFAM_LI94_SURF v5.xlsx 
+Directory  ../../data - submitted/01/MU 
+   file  ../../data - submitted/01/MU/ALFAM2_PoValley-Italy_v7.xlsx 
+Directory  ../../data - submitted/01/NMI-WUR 
+   file  ../../data - submitted/01/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
+Directory  ../../data - submitted/01/SDU 
+   file  ../../data - submitted/01/SDU/ALFAM2_SDU_v4.xlsx 
+Directory  ../../data - submitted/01/TEAGASC 
+   file  ../../data - submitted/01/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
+Directory  ../../data - submitted/01/USDA 
+   file  ../../data - submitted/01/USDA/ALFAM2_USDA.xlsx 
+Directory  ../../data - submitted/01/WUR 
+   file  ../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
+   file  ../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
+
+> cat('Done! Read', length(unique(dp2$file)), ' files.\n')
+Done! Read 9  files.
+
+> # Add complete citations
+> d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
+
 > # Stack them
 > # Note order, to avoid time zone problem with app.start
 > d <- rbindf(d2, d1)
@@ -120,32 +174,32 @@ Done! Read 24  files.
 
 > print(itab)
       inst institute country
-30355  101      ADAS      UK
-27282  102       AUN      NO
-25292  103      CRPA      IT
-24940  104      DIAS      DK
-28476  105      IGER      UK
-26220  106      IMAG      NL
-27318  107   IUL/FAT      CH
-28388  108       JTI      SE
-1      201      AAFC      CA
-2598   202   ADAS-RR      UK
-3345   203      ARDC      CA
-4921   204        AT      DK
-5094   205        AU      DK
-5645   206    CAU-LU      DE
-7792   207  INH-HAFL      CH
-8672   208      INRA      FR
-19900  209        MU      IT
-22227  210   NMI-WUR      NL
-22386  211       SDU      DK
-23244  212   TEAGASC      IE
-23694  213      USDA      US
-23732  214       WUR      NL
+31623  101      ADAS      UK
+28550  102       AUN      NO
+26560  103      CRPA      IT
+26208  104      DIAS      DK
+29744  105      IGER      UK
+27488  106      IMAG      NL
+28586  107   IUL/FAT      CH
+29656  108       JTI      SE
+14847  201      AAFC      CA
+11229  202   ADAS-RR      UK
+24632  203      ARDC      CA
+11976  204        AT      DK
+12149  205        AU      DK
+12700  206    CAU-LU      DE
+23264  207  INH-HAFL      CH
+1      208      INRA      FR
+20079  209        MU      IT
+19920  210   NMI-WUR      NL
+22406  211       SDU      DK
+24144  212   TEAGASC      IE
+24594  213      USDA      US
+18712  214       WUR      NL
 
 > # Now, after sorting out soil types and simplified application method, add factor level variables, etc.
 > print(dim(d))
-[1] 30907    92
+[1] 32175    93
 
 > d <- fixALFAMFactors(d)
            
@@ -158,11 +212,11 @@ Done! Read 24  files.
   fides           0     0       401     0
   ihf             0     0      3016     0
   micro met       0     0      1981     0
-  wt              0     0         0  8026
+  wt              0     0         0  9294
   zinst           0     0       589     0
 
 > print(dim(d))
-[1] 30907    99
+[1] 32175   100
 
 > ## If needed, add dummy vars
 > ##d <- addDummyVars(d)
@@ -170,12 +224,12 @@ Done! Read 24  files.
 > # Leave these!
 > #### Drop all observations with no slurry application
 > ###d <- subsetd( .... [TRUNCATED] 
-[1] 30907    99
+[1] 32175   100
 
 > d <- addALFAMVars(d)
 
 > print(dim(d))
-[1] 30907   116
+[1] 32175   117
 
 > # Make numeric pid (plot ID) and eid (experiment ID)
 > d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method = 'radix')))

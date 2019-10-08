@@ -26,6 +26,35 @@ for(i in ddir) {
 }
 cat('Done! Read', length(unique(d2$file)), ' files.\n')
 
+# Get publication info from sheet 4 in ALFAM2 files
+ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+dp2 <- NULL
+for(i in ddir) {
+  cat('Directory ', i,'\n')
+  f <- list.files(i, pattern = 'xls', full.names = TRUE)
+  # Omit temporary Excel files (created when main file is open)
+  f <- f[!grepl('\\/~', f)]
+  d <- NULL
+  for(j in f) {
+    cat('   file ', j,'\n')
+    pp <- as.data.frame(read_excel(j, sheet = 4, skip = 2))
+    if (nrow(pp) > 0) {
+      names(pp) <- c('pub.id', 'pub.info')
+      d <- rbind(d, pp)
+    }
+  }
+  # Add file name
+  x <- strsplit(j, '/')
+  if (!is.null(d) && nrow(d) > 0) {
+    d$file <- x[[1]][[length(x[[1]])]]
+  }
+  dp2 <- rbind(dp2, d)
+}
+cat('Done! Read', length(unique(dp2$file)), ' files.\n')
+
+# Add complete citations
+d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
+
 # Stack them
 # Note order, to avoid time zone problem with app.start
 d <- rbindf(d2, d1)
@@ -138,7 +167,7 @@ d <- d[, c('inst', 'eid', 'pid', 'pmid', 'oid',
            'database', 'proj', 'exper', 'exper2', 
            'institute', 'country', 
            'file', 'row.in.file', 
-           'pub.id',
+           'pub.id', 'pub.info',
            'lat', 'long', 'topo', 'field', 
            'plot', 'plot.area', 'treat', 'rep', 'rep2', 
            'interval', 't.start', 't.end', 't.start.orig', 't.end.orig', 'dt', 'dt.calc', 'dt.diff', 'ct', 'mt', 'cta', 

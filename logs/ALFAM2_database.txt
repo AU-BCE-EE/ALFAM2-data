@@ -2,7 +2,7 @@
 >   cat('Created ALFAM_interval.csv on ')
 Created ALFAM_interval.csv on 
 >   print(Sys.time())
-[1] "2019-02-12 09:45:14 CET"
+[1] "2019-10-07 21:55:08 EDT"
 
 >   cat('contains data from', length(unique(d$inst)), ' institutes\n')
 contains data from 22  institutes
@@ -14,10 +14,10 @@ contains data from 22  institutes
 and has  1899  pmid
 
 >   cat('and ', length(d), ' rows\n')
-and  109  rows
+and  110  rows
 
 >   cat('and ', nrow(d), ' columns.\n')
-and  30907  columns.
+and  32175  columns.
 
 >   cat('Data directories: ', paste(gsub('../data - submitted/01/', '', ddir), collapse = ', ')) 
 Data directories:  ../AAFC, ../ADAS-RR, ../ARDC, ../AT, ../AU, ../CAU-LU, ../INH-HAFL, ../INRA, ../MU, ../NMI-WUR, ../SDU, ../TEAGASC, ../USDA, ../WUR
