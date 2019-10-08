@@ -636,6 +636,7 @@ summALFAM <- function(d, normalize = FALSE, ...) {
 
               # Misc
               pub.id = pub.id[1],
+              pub.info = pub.info[1],
 
               # Location info
 	      lat = lat[1],

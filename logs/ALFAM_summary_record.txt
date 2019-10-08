@@ -18,3 +18,13 @@ contains data from 22  institutes
 and has  1899  pmid
 and  159  rows
 and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-10-07 21:55:36 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  159  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-10-07 21:56:44 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  rows
+and  1899  columns.
