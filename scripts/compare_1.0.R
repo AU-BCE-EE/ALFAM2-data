@@ -21,7 +21,7 @@ sum(d$inst != do$inst)
 
 # And measurements should
 sum(na.omit(d$j.NH3) != na.omit(do$j.NH3))
-sum(na.omit(d$e.cum) != na.omit(do$e.cum))
+#sum(na.omit(d$e.cum) != na.omit(do$e.cum))
 
 # ct should no longer match
 sum(d$ct != do$ct)

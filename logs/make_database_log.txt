@@ -4,7 +4,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2019-10-07 21:49:18 EDT"
+[1] "2019-10-09 13:42:23 EDT"
 
 > # Read in ALFAM1 data
 > cat('\nReading ALFAM1.xlsx. . .\n')
@@ -70,6 +70,14 @@ Done! Read 24  files.
 > # Get publication info from sheet 4 in ALFAM2 files
 > ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
 
+> i <- ddir[1]
+
+> f
+[1] "../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx" 
+[2] "../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
+
+> j <- f[1]
+
 > dp2 <- NULL
 
 > for(i in ddir) {
@@ -116,7 +124,7 @@ Directory  ../../data - submitted/01/WUR
    file  ../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
 
 > cat('Done! Read', length(unique(dp2$file)), ' files.\n')
-Done! Read 9  files.
+Done! Read 23  files.
 
 > # Add complete citations
 > d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
@@ -174,32 +182,32 @@ Done! Read 9  files.
 
 > print(itab)
       inst institute country
-31623  101      ADAS      UK
-28550  102       AUN      NO
-26560  103      CRPA      IT
-26208  104      DIAS      DK
-29744  105      IGER      UK
-27488  106      IMAG      NL
-28586  107   IUL/FAT      CH
-29656  108       JTI      SE
+30355  101      ADAS      UK
+27282  102       AUN      NO
+25292  103      CRPA      IT
+24940  104      DIAS      DK
+28476  105      IGER      UK
+26220  106      IMAG      NL
+27318  107   IUL/FAT      CH
+28388  108       JTI      SE
 14847  201      AAFC      CA
 11229  202   ADAS-RR      UK
-24632  203      ARDC      CA
+23364  203      ARDC      CA
 11976  204        AT      DK
 12149  205        AU      DK
 12700  206    CAU-LU      DE
-23264  207  INH-HAFL      CH
+21996  207  INH-HAFL      CH
 1      208      INRA      FR
-20079  209        MU      IT
-19920  210   NMI-WUR      NL
-22406  211       SDU      DK
-24144  212   TEAGASC      IE
-24594  213      USDA      US
-18712  214       WUR      NL
+18811  209        MU      IT
+18652  210   NMI-WUR      NL
+21138  211       SDU      DK
+22876  212   TEAGASC      IE
+23326  213      USDA      US
+17444  214       WUR      NL
 
 > # Now, after sorting out soil types and simplified application method, add factor level variables, etc.
 > print(dim(d))
-[1] 32175    93
+[1] 30907    93
 
 > d <- fixALFAMFactors(d)
            
@@ -212,11 +220,11 @@ Done! Read 9  files.
   fides           0     0       401     0
   ihf             0     0      3016     0
   micro met       0     0      1981     0
-  wt              0     0         0  9294
+  wt              0     0         0  8026
   zinst           0     0       589     0
 
 > print(dim(d))
-[1] 32175   100
+[1] 30907   100
 
 > ## If needed, add dummy vars
 > ##d <- addDummyVars(d)
@@ -224,12 +232,12 @@ Done! Read 9  files.
 > # Leave these!
 > #### Drop all observations with no slurry application
 > ###d <- subsetd( .... [TRUNCATED] 
-[1] 32175   100
+[1] 30907   100
 
 > d <- addALFAMVars(d)
 
 > print(dim(d))
-[1] 32175   117
+[1] 30907   117
 
 > # Make numeric pid (plot ID) and eid (experiment ID)
 > d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method = 'radix')))
