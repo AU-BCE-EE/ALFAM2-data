@@ -12,7 +12,7 @@
 
 > # Dimensions must match
 > dim(d)
-[1] 30907   109
+[1] 30907   110
 
 > dim(do)
 [1] 30907   107
@@ -35,12 +35,11 @@
 > sum(na.omit(d$j.NH3) != na.omit(do$j.NH3))
 [1] 0
 
-> sum(na.omit(d$e.cum) != na.omit(do$e.cum))
-[1] 0
-
+> #sum(na.omit(d$e.cum) != na.omit(do$e.cum))
+> 
 > # ct should no longer match
 > sum(d$ct != do$ct)
-[1] 8504
+[1] 15056
 
 > # But interval should
 > sum(d$interval != do$interval)
@@ -66,7 +65,7 @@
 > dso <- dso[order(dso$inst, dso$file, dso$first.row.in.file), ]
 
 > dim(ds)
-[1] 1899  159
+[1] 1899  160
 
 > dim(dso)
 [1] 1899  151
@@ -85,91 +84,5 @@
 [1,] 10.402 10.402
 [2,] 10.915 10.915
 [3,] 22.015 22.015
-
-> # Looks like rounding issue
-
-> # Compare new version of data to previous version
-> 
-> do <- read.csv('../../archive/1.1/ALFAM2_interval.csv')
-
-> dso <- read.csv('../../archive/1.1/ALFAM2_plot.csv')
-
-> # Sort in identical way
-> d  <-  d[order( d$inst,  d$file,  d$row.in.file), ]
-
-> do <- do[order(do$inst, do$file, do$row.in.file), ]
-
-> # Dimensions must match
-> dim(d)
-[1] 30907   109
-
-> dim(do)
-[1] 30907   109
-
-> # pmid should match
-> sum(d$pmid != do$pmid)
-[1] 0
-
-> sum(d$pid != do$pid)
-[1] 0
-
-> sum(d$oid != do$oid)
-[1] 0
-
-> # Institute must match
-> sum(d$inst != do$inst)
-[1] 0
-
-> # And measurements should match
-> sum(na.omit(d$j.NH3) != na.omit(do$j.NH3))
-[1] 0
-
-> sum(na.omit(d$e.cum) != na.omit(do$e.cum))
-[1] 0
-
-> # ct should match
-> sum(d$ct != do$ct)
-[1] 0
-
-> # But interval should
-> sum(d$interval != do$interval)
-[1] 0
-
-> # Check plot-level file
-> table(dso$inst)
-
-101 102 103 104 105 106 107 108 201 202 203 204 205 206 207 208 209 210 211 212 
- 79   9  75  46 263 119 121  88 109 109 120  26  87 197  47  25   8  16 138  68 
-213 214 
-  2 147 
-
-> table(ds$inst)
-
-101 102 103 104 105 106 107 108 201 202 203 204 205 206 207 208 209 210 211 212 
- 79   9  75  46 263 119 121  88 109 109 120  26  87 197  47  25   8  16 138  68 
-213 214 
-  2 147 
-
-> ds <- ds[order(ds$inst, ds$file, ds$first.row.in.file), ]
-
-> dso <- dso[order(dso$inst, dso$file, dso$first.row.in.file), ]
-
-> dim(ds)
-[1] 1899  159
-
-> dim(dso)
-[1] 1899  151
-
-> # pmid should match
-> sum(ds$pmid != dso$pmid)
-[1] 0
-
-> sum(na.omit(ds$e.final) != na.omit(dso$e.final))
-[1] 0
-
-> ii <- which(na.omit(ds$e.final) != na.omit(dso$e.final))
-
-> cbind(ds[ii, 'e.final'], dso[ii, 'e.final'])
-     [,1] [,2]
 
 > # Looks like rounding issue

@@ -33,14 +33,14 @@ Mean                    2
 Unique (excld. NA)      9
 Missing values        714
 Sorted              FALSE
-                                                                                                                                                                                                                                                               pub.info
-Class                                                                                                                                                                                                                                                            factor
-Minimum                                                     Bittman, S., van Vliet, L. J. P., Kowalenko, C. G., McGinn, S., Hunt, D. E., Bounaix, F., (2005) "Surface-Banding Liquid Manure over Aeration Slots."  Agron. J.  7:1304–1313.  doi:10.2134/agronj2004.0277
-Maximum            Nyrd et al., 2013. Proceeding for the 15th International RAMIRAN conference, Versailles, France, 2013. Importance of injector design on ammonia volatilization and crop yield when soil injecting pig slurry to a winter wheat crop. www.ramiran.net
-Mean                                                                          Génermont, S., Cellier, P., Flura, D., Morvan, T., Laville, P., 1998. Measuring ammonia fluxes after slurry spreading under actual field conditions. Atmospheric Environment 32, 279-284.
-Unique (excld. NA)                                                                                                                                                                                                                                                   14
-Missing values                                                                                                                                                                                                                                                     1676
-Sorted                                                                                                                                                                                                                                                            FALSE
+                                                                                                                                                                                                                                                                                                                                      pub.info
+Class                                                                                                                                                                                                                                                                                                                                   factor
+Minimum            Bhandral, R., Bittman, S., Kowalenko, C.G., Buckley, K.E., Chantigny, M.H., Hunt, D.E., Bounaix, F., and Friesen, A.J. (2009). "Enhancing soil infiltration reduces gaseous emissions and improves N uptake from applied dairy slurry.", Journal of Environmental Quality, 38(4), pp. 1372-1382. doi : 10.2134/jeq2008.0287
+Maximum                                                                              Wagner, C., Hafner, S., Nyord, T., Pacholski, A. 2015. Impact of field acidification and application methods on ammonia emissions, yield and nitrogen efficiency of organic liquid manures. Paper presented at 2015 RAMIRAN conference, Hamburg, Germany.
+Mean                                                                                                 Huijsmans, J.F.M. and R.L.M. Schils, 2009. Ammonia and nitrous oxide emissions following field-application of manure: state of the art measurements in the Netherlands. Proceedings 655,International Fertilizer Society, York, UK, 36 p.
+Unique (excld. NA)                                                                                                                                                                                                                                                                                                                          33
+Missing values                                                                                                                                                                                                                                                                                                                             953
+Sorted                                                                                                                                                                                                                                                                                                                                   FALSE
                        lat    long                          topo plot.area
 Class              numeric numeric                        factor   numeric
 Minimum                 39    -122 Field flat, surrounding hilly      0.85
@@ -70,88 +70,88 @@ Class              numeric          factor     factor    numeric     factor
 Minimum                0.9            clay       clay      0.005        dry
 Maximum               13.7 silty.clay.loam       sand          1 wet frozen
 Mean                   3.6      loamy.sand       loam      0.298        wet
-Unique (excld. NA)      57              14          4        204          3
-Missing values         760               0          0        993        836
+Unique (excld. NA)      57              14          4        209          3
+Missing values         760               0          0        996        836
 Sorted               FALSE           FALSE      FALSE      FALSE      FALSE
                    soil.ph soil.dens crop.res   till air.temp.6 air.temp.12
 Class              numeric   numeric   factor factor    numeric     numeric
 Minimum               4.86       0.8              No      -2.97       -2.84
-Maximum               8.22      1.55      Yes    Yes       35.4        35.5
-Mean                  6.51      1.24       No     No       15.8        15.6
-Unique (excld. NA)      74        38        3      2       1029        1140
-Missing values         512      1066     1160      0        401         356
+Maximum               8.21      1.55      Yes    Yes       37.8        37.8
+Mean                  6.51      1.24       No     No       15.7        15.5
+Unique (excld. NA)      74        38        3      2       1020        1119
+Missing values         512      1066     1160      0        453         412
 Sorted               FALSE     FALSE    FALSE  FALSE      FALSE       FALSE
                    air.temp.24 air.temp.48 air.temp.72 air.temp.mn soil.temp.6
 Class                  numeric     numeric     numeric     numeric     numeric
 Minimum                  -4.18       -3.97       -3.59        -3.6         1.5
-Maximum                   32.9          32          32        29.8          35
-Mean                      13.3          13          13        12.8        14.5
-Unique (excld. NA)        1299        1328        1352        1303         483
-Missing values             295         290         231         226        1025
+Maximum                   29.5        29.8        29.8        29.8        35.5
+Mean                      13.2        12.9        12.8        12.8        14.3
+Unique (excld. NA)        1292        1341        1370        1303         481
+Missing values             321         299         236         226        1057
 Sorted                   FALSE       FALSE       FALSE       FALSE       FALSE
                    soil.temp.12 soil.temp.24 soil.temp.48 soil.temp.72
 Class                   numeric      numeric      numeric      numeric
 Minimum                     1.5          1.5         1.49         1.49
-Maximum                    33.4         31.3         30.4         30.4
-Mean                       14.5         13.3         13.1           13
-Unique (excld. NA)          580          665          703          742
-Missing values             1002          975          974          915
+Maximum                    35.5         27.9           28         27.8
+Mean                       14.4         13.2           13           13
+Unique (excld. NA)          582          673          723          768
+Missing values             1033          988          980          920
 Sorted                    FALSE        FALSE        FALSE        FALSE
                    soil.temp.mn   rad.6  rad.12  rad.24  rad.48  rad.72  rad.mn
 Class                   numeric numeric numeric numeric numeric numeric numeric
 Minimum                   0.281       0       0       0       0       0       0
-Maximum                    27.4     957     957     823     659     659     409
-Mean                         13     402     348     204     177     176     173
-Unique (excld. NA)          709     908     975    1035    1038    1046     998
-Missing values              919     682     658     625     620     606     607
+Maximum                    27.4     899     823     823     525     525     409
+Mean                         13     393     339     203     174     173     173
+Unique (excld. NA)          709     913     975    1043    1054    1066     998
+Missing values              919     706     680     636     624     612     607
 Sorted                    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                     wind.6 wind.12 wind.24 wind.48 wind.72 wind.mn wind.2m.6
 Class              numeric numeric numeric numeric numeric numeric   numeric
-Minimum               0.27    0.27   0.248    0.27   0.254   0.254     0.367
-Maximum                 16      16     9.5      11      11    19.9      16.3
-Mean                  2.98    2.98    2.66    2.64    2.69    2.67      3.45
-Unique (excld. NA)    1166    1301    1460    1501    1525    1536      1257
-Missing values         280     237     179     172     107      67       280
+Minimum              0.266    0.27   0.248    0.27   0.254   0.254     0.289
+Maximum                 16      16      11      11    11.8    19.9      16.3
+Mean                  2.97    2.96    2.66    2.64    2.67    2.67      3.43
+Unique (excld. NA)    1143    1272    1439    1494    1525    1536      1234
+Missing values         332     293     204     183     112      67       334
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
                    wind.2m.12 wind.2m.24 wind.2m.48 wind.2m.72 wind.2m.mn
 Class                 numeric    numeric    numeric    numeric    numeric
-Minimum                 0.429      0.409      0.444      0.444      0.444
-Maximum                  16.3       9.69       11.2       11.2       20.3
-Mean                     3.44       3.11       3.09       3.11       3.09
-Unique (excld. NA)       1352       1481       1513       1537       1539
-Missing values            237        183        177        112         72
+Minimum                 0.403      0.409      0.444      0.444      0.444
+Maximum                  16.3       11.3       11.3       12.1       20.3
+Mean                     3.42        3.1       3.09        3.1       3.09
+Unique (excld. NA)       1323       1467       1508       1536       1539
+Missing values            295        208        188        117         72
 Sorted                  FALSE      FALSE      FALSE      FALSE      FALSE
                     rain.1  rain.6 rain.12 rain.24 rain.48 rain.72 rain.tot
 Class              numeric numeric numeric numeric numeric numeric  numeric
 Minimum                  0       0       0       0       0       0        0
-Maximum                  7      15    19.5    36.1    55.9    55.9     89.8
-Mean                 0.169   0.287   0.369   0.967    1.76    2.17      6.8
-Unique (excld. NA)      10      40      46      71      94     102      129
-Missing values        1495     844     799     749     735     666      626
+Maximum                3.5      15    20.3    36.1    55.9    55.9     89.8
+Mean                  0.15   0.293   0.391    1.07    1.84    2.39     6.15
+Unique (excld. NA)      10      35      48      78     100     118      128
+Missing values        1524     899     858     776     744     671      626
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
                    rain.rate.1 rain.rate.6 rain.rate.12 rain.rate.24
 Class                  numeric     numeric      numeric      numeric
 Minimum                      0           0            0            0
-Maximum                      7        2.72         2.72         1.75
-Mean                     0.169      0.0707       0.0604       0.0495
-Unique (excld. NA)          12         113          146          219
-Missing values            1495         844          799          749
+Maximum                    3.5        2.72         3.11         1.75
+Mean                     0.151      0.0715       0.0645       0.0567
+Unique (excld. NA)          13         107          144          225
+Missing values            1524         899          858          776
 Sorted                   FALSE       FALSE        FALSE        FALSE
                    rain.rate.48 rain.rate.72 rain.rate.mn    rh.6   rh.12
 Class                   numeric      numeric      numeric numeric numeric
 Minimum                       0            0            0    30.8    27.5
-Maximum                    1.23        0.807          0.6     100     100
-Mean                     0.0443       0.0413       0.0453    66.7    66.4
-Unique (excld. NA)          332          382          465     548     622
-Missing values              735          666          626    1075    1044
+Maximum                    1.19         0.79          0.6     100     100
+Mean                     0.0464       0.0452       0.0453    66.8    66.5
+Unique (excld. NA)          339          412          465     530     605
+Missing values              744          671          626    1142    1112
 Sorted                    FALSE        FALSE        FALSE   FALSE   FALSE
                      rh.24   rh.48   rh.72   rh.mn air.temp.z soil.temp.z
 Class              numeric numeric numeric numeric    numeric     numeric
-Minimum               31.4    31.4    33.9    33.9          0           0
+Minimum               29.3    32.4    33.9    33.9          0           0
 Maximum                100     100     100     100         10        0.15
-Mean                  72.9    73.2    73.7    74.5       1.17      0.0445
-Unique (excld. NA)     762     790     800     793         15           9
-Missing values        1010     999     989     980        296         871
+Mean                  72.7    73.4    73.9    74.5       1.17      0.0439
+Unique (excld. NA)     765     805     823     793         15           9
+Missing values        1037    1010     994     980        296         893
 Sorted               FALSE   FALSE   FALSE   FALSE      FALSE       FALSE
                     wind.z wind.loc far.loc man.source
 Class              numeric   factor  factor     factor
@@ -180,17 +180,17 @@ Sorted                        FALSE    FALSE    FALSE   FALSE   FALSE   FALSE
                    man.tic  man.ua  man.ph log.man.tan man.freeNH3
 Class              numeric integer numeric     numeric     numeric
 Minimum               0.31       0    3.29       -1.15    5.76e-07
-Maximum               3.81       0    9.22        1.07        1.04
-Mean                  1.69       0    7.45        0.24      0.0307
-Unique (excld. NA)      43       1     178         300         929
+Maximum               3.81       0    9.22        1.07        1.21
+Mean                  1.69       0    7.45        0.24      0.0311
+Unique (excld. NA)      43       1     176         300         981
 Missing values        1789    1853     292          34         457
 Sorted               FALSE    TRUE   FALSE       FALSE       FALSE
                    man.eq.gasNH3    acid date.start           app.start
 Class                    numeric logical     factor      POSIXct POSIXt
 Minimum                 2.37e-07   FALSE 1990-06-12 1990-06-12 05:30:00
-Maximum                    0.587    TRUE 2014-05-01 2014-05-01 06:59:00
-Mean                      0.0146   FALSE 1999-09-14 2008-03-12 20:50:10
-Unique (excld. NA)           927       2        261                 648
+Maximum                    0.768    TRUE 2014-05-01 2014-05-01 06:59:00
+Mean                      0.0151   FALSE 1999-09-14 2008-03-12 20:50:10
+Unique (excld. NA)           979       2        261                 648
 Missing values               457       0        464                1029
 Sorted                     FALSE   FALSE      FALSE               FALSE
                      app.start.orig app.method app.method.orig app.method2
@@ -205,9 +205,9 @@ Sorted                        FALSE      FALSE           FALSE       FALSE
 Class               numeric numeric  factor      factor     numeric  integer
 Minimum                 6.6    2.45    deep        Deep           0        0
 Maximum                 315     602 shallow     Shallow          48      100
-Mean                   41.3    75.3    none        None        1.93       30
-Unique (excld. NA)      403     843       3           6          13       13
-Missing values           34      34       0           0        1764     1524
+Mean                   41.3    75.3    none        None        1.95       30
+Unique (excld. NA)      403     843       3           6           9       13
+Missing values           34      34       0           0        1765     1524
 Sorted                FALSE   FALSE   FALSE       FALSE       FALSE    FALSE
                    dist.inj furrow.z furrow.w log.app.rate      crop
 Class               integer   factor   factor      numeric    factor
@@ -236,57 +236,57 @@ Sorted                        FALSE      FALSE               FALSE
                                t.end.p     dt1  dt.min  dt.max  ct.min  ct.max
 Class                   POSIXct POSIXt numeric numeric numeric numeric numeric
 Minimum            1990-06-16 03:17:00    0.15    0.15    0.25    0.15    1.02
-Maximum            2014-05-03 11:14:00     169     145     169     169     533
-Mean               2002-11-05 20:58:13    7.27    5.46    35.3    7.27     131
-Unique (excld. NA)                 846     389     290     515     389     979
+Maximum            2014-05-03 11:14:00     169     145     169     169     508
+Mean               2002-11-05 20:58:13     8.3    5.46    35.3     8.3     124
+Unique (excld. NA)                 846     425     290     515     425     979
 Missing values                     464       0       0       0       0       0
 Sorted                           FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                        ct1  n.ints n.int.duplicates int.min int.max
 Class              numeric integer          integer integer integer
 Minimum               0.15       1                0       0       0
-Maximum                169    1310               27     422    1440
-Mean                  7.27       8                0       1       7
-Unique (excld. NA)     389      55                9       7      50
+Maximum                169    1310                0     422    1440
+Mean                   8.3       8                0       1       7
+Unique (excld. NA)     425      49                1       7      50
 Missing values           0       0                0       0       0
-Sorted               FALSE   FALSE            FALSE   FALSE   FALSE
+Sorted               FALSE   FALSE             TRUE   FALSE   FALSE
                    int.t.mismatches missing.ints  j.NH31  j.rel1     e.1
 Class                       integer      numeric numeric numeric numeric
-Minimum                           0          -27   -1.45 -0.0132   -1.45
-Maximum                          29            1    53.3    1.19    35.6
-Mean                              0       -0.657    2.94   0.055    3.83
-Unique (excld. NA)               24           10    1572    1774     615
-Missing values                  464            0       3      37    1278
+Minimum                           0            0   -1.45 -0.0132   -1.45
+Maximum                          12            1    53.3    1.19    35.6
+Mean                              0       0.0105    2.82  0.0544    3.69
+Unique (excld. NA)               12            2    1554    1776     591
+Missing values                  464            0       3      37    1302
 Sorted                        FALSE        FALSE   FALSE   FALSE   FALSE
                        e.4     e.6    e.12    e.24    e.48    e.72    e.96
 Class              numeric numeric numeric numeric numeric numeric numeric
-Minimum             -0.378  -0.446  -0.389  -0.266  -0.131  -0.245  -0.192
-Maximum                183     235     267     328     557     651     231
-Mean                  9.51    11.2    13.1      16    20.1    23.9    18.7
-Unique (excld. NA)    1488    1617    1651    1716    1590    1285     801
-Missing values         390     253     213     151     287     603    1098
+Minimum             -0.378  -0.292  -0.411  -0.585  -0.584  -0.873   -0.54
+Maximum                183     235     267     328     557     651     130
+Mean                  9.24    10.8    12.7    15.5    19.2    22.7    16.8
+Unique (excld. NA)    1439    1567    1605    1690    1571    1272     793
+Missing values         441     305     269     181     306     616    1105
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                    e.final e.rel.1  e.rel.4  e.rel.6 e.rel.12 e.rel.24 e.rel.48
 Class              numeric numeric  numeric  numeric  numeric  numeric  numeric
-Minimum              -12.2 -0.0132 -0.00599 -0.00531   -0.005 -0.00222 -0.00143
+Minimum              -12.2 -0.0132 -0.00599 -0.00531   -0.005 -0.00495 -0.00931
 Maximum                655   0.608      3.2     3.93     4.37     5.16     5.66
-Mean                  24.3  0.0671    0.164    0.189    0.216    0.252    0.299
-Unique (excld. NA)    1802     606     1490     1614     1648     1714     1585
-Missing values          42    1284      407      280      242      181      313
+Mean                  24.2  0.0691    0.166    0.191    0.218    0.252    0.298
+Unique (excld. NA)    1804     582     1440     1566     1602     1687     1567
+Missing values          42    1309      456      327      292      211      332
 Sorted               FALSE   FALSE    FALSE    FALSE    FALSE    FALSE    FALSE
                    e.rel.72 e.rel.96 e.rel.final
 Class               numeric  numeric     numeric
-Minimum            -0.00734        0      -0.116
+Minimum              -0.018  -0.0131      -0.116
 Maximum                5.86     5.87        6.86
-Mean                  0.328    0.291        0.36
-Unique (excld. NA)     1278      795        1807
-Missing values          621     1104          76
+Mean                  0.326    0.284       0.358
+Unique (excld. NA)     1265      788        1807
+Missing values          634     1111          76
 Sorted                FALSE    FALSE       FALSE
                                                                                     notes
 Class                                                                           character
 Minimum                                                                                  
 Maximum            Winter wheat at the beginning of flag leaf emergence. Control. Contol.
 Mean                                                                                     
-Unique (excld. NA)                                                                     87
+Unique (excld. NA)                                                                     85
 Missing values                                                                          0
 Sorted                                                                              FALSE
                      flag anyincorp
@@ -329,14 +329,14 @@ Mean                    2
 Unique (excld. NA)      9
 Missing values        714
 Sorted              FALSE
-                                                                                                                                                                                                                                                               pub.info
-Class                                                                                                                                                                                                                                                            factor
-Minimum                                                     Bittman, S., van Vliet, L. J. P., Kowalenko, C. G., McGinn, S., Hunt, D. E., Bounaix, F., (2005) "Surface-Banding Liquid Manure over Aeration Slots."  Agron. J.  7:1304–1313.  doi:10.2134/agronj2004.0277
-Maximum            Nyrd et al., 2013. Proceeding for the 15th International RAMIRAN conference, Versailles, France, 2013. Importance of injector design on ammonia volatilization and crop yield when soil injecting pig slurry to a winter wheat crop. www.ramiran.net
-Mean                                                                          Génermont, S., Cellier, P., Flura, D., Morvan, T., Laville, P., 1998. Measuring ammonia fluxes after slurry spreading under actual field conditions. Atmospheric Environment 32, 279-284.
-Unique (excld. NA)                                                                                                                                                                                                                                                   14
-Missing values                                                                                                                                                                                                                                                     1676
-Sorted                                                                                                                                                                                                                                                            FALSE
+                                                                                                                                                                                                                                                                                                                                      pub.info
+Class                                                                                                                                                                                                                                                                                                                                   factor
+Minimum            Bhandral, R., Bittman, S., Kowalenko, C.G., Buckley, K.E., Chantigny, M.H., Hunt, D.E., Bounaix, F., and Friesen, A.J. (2009). "Enhancing soil infiltration reduces gaseous emissions and improves N uptake from applied dairy slurry.", Journal of Environmental Quality, 38(4), pp. 1372-1382. doi : 10.2134/jeq2008.0287
+Maximum                                                                              Wagner, C., Hafner, S., Nyord, T., Pacholski, A. 2015. Impact of field acidification and application methods on ammonia emissions, yield and nitrogen efficiency of organic liquid manures. Paper presented at 2015 RAMIRAN conference, Hamburg, Germany.
+Mean                                                                                                 Huijsmans, J.F.M. and R.L.M. Schils, 2009. Ammonia and nitrous oxide emissions following field-application of manure: state of the art measurements in the Netherlands. Proceedings 655,International Fertilizer Society, York, UK, 36 p.
+Unique (excld. NA)                                                                                                                                                                                                                                                                                                                          33
+Missing values                                                                                                                                                                                                                                                                                                                             953
+Sorted                                                                                                                                                                                                                                                                                                                                   FALSE
                        lat    long                          topo plot.area
 Class              numeric numeric                        factor   numeric
 Minimum                 39    -122 Field flat, surrounding hilly      0.85
@@ -366,88 +366,88 @@ Class              numeric          factor     factor    numeric     factor
 Minimum                0.9            clay       clay      0.005        dry
 Maximum               13.7 silty.clay.loam       sand          1 wet frozen
 Mean                   3.6      loamy.sand       loam      0.298        wet
-Unique (excld. NA)      57              14          4        204          3
-Missing values         760               0          0        993        836
+Unique (excld. NA)      57              14          4        209          3
+Missing values         760               0          0        996        836
 Sorted               FALSE           FALSE      FALSE      FALSE      FALSE
                    soil.ph soil.dens crop.res   till air.temp.6 air.temp.12
 Class              numeric   numeric   factor factor    numeric     numeric
 Minimum               4.86       0.8              No      -2.97       -2.84
-Maximum               8.22      1.55      Yes    Yes       35.4        35.5
-Mean                  6.51      1.24       No     No       15.8        15.6
-Unique (excld. NA)      74        38        3      2       1029        1140
-Missing values         512      1066     1160      0        401         356
+Maximum               8.21      1.55      Yes    Yes       37.8        37.8
+Mean                  6.51      1.24       No     No       15.7        15.5
+Unique (excld. NA)      74        38        3      2       1020        1119
+Missing values         512      1066     1160      0        453         412
 Sorted               FALSE     FALSE    FALSE  FALSE      FALSE       FALSE
                    air.temp.24 air.temp.48 air.temp.72 air.temp.mn soil.temp.6
 Class                  numeric     numeric     numeric     numeric     numeric
 Minimum                  -4.18       -3.97       -3.59        -3.6         1.5
-Maximum                   32.9          32          32        29.8          35
-Mean                      13.3          13          13        12.8        14.5
-Unique (excld. NA)        1299        1328        1352        1303         483
-Missing values             295         290         231         226        1025
+Maximum                   29.5        29.8        29.8        29.8        35.5
+Mean                      13.2        12.9        12.8        12.8        14.3
+Unique (excld. NA)        1292        1341        1370        1303         481
+Missing values             321         299         236         226        1057
 Sorted                   FALSE       FALSE       FALSE       FALSE       FALSE
                    soil.temp.12 soil.temp.24 soil.temp.48 soil.temp.72
 Class                   numeric      numeric      numeric      numeric
 Minimum                     1.5          1.5         1.49         1.49
-Maximum                    33.4         31.3         30.4         30.4
-Mean                       14.5         13.3         13.1           13
-Unique (excld. NA)          580          665          703          742
-Missing values             1002          975          974          915
+Maximum                    35.5         27.9           28         27.8
+Mean                       14.4         13.2           13           13
+Unique (excld. NA)          582          673          723          768
+Missing values             1033          988          980          920
 Sorted                    FALSE        FALSE        FALSE        FALSE
                    soil.temp.mn   rad.6  rad.12  rad.24  rad.48  rad.72  rad.mn
 Class                   numeric numeric numeric numeric numeric numeric numeric
 Minimum                   0.281       0       0       0       0       0       0
-Maximum                    27.4     957     957     823     659     659     409
-Mean                         13     402     348     204     177     176     173
-Unique (excld. NA)          709     908     975    1035    1038    1046     998
-Missing values              919     682     658     625     620     606     607
+Maximum                    27.4     899     823     823     525     525     409
+Mean                         13     393     339     203     174     173     173
+Unique (excld. NA)          709     913     975    1043    1054    1066     998
+Missing values              919     706     680     636     624     612     607
 Sorted                    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                     wind.6 wind.12 wind.24 wind.48 wind.72 wind.mn wind.2m.6
 Class              numeric numeric numeric numeric numeric numeric   numeric
-Minimum               0.27    0.27   0.248    0.27   0.254   0.254     0.367
-Maximum                 16      16     9.5      11      11    19.9      16.3
-Mean                  2.98    2.98    2.66    2.64    2.69    2.67      3.45
-Unique (excld. NA)    1166    1301    1460    1501    1525    1536      1257
-Missing values         280     237     179     172     107      67       280
+Minimum              0.266    0.27   0.248    0.27   0.254   0.254     0.289
+Maximum                 16      16      11      11    11.8    19.9      16.3
+Mean                  2.97    2.96    2.66    2.64    2.67    2.67      3.43
+Unique (excld. NA)    1143    1272    1439    1494    1525    1536      1234
+Missing values         332     293     204     183     112      67       334
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
                    wind.2m.12 wind.2m.24 wind.2m.48 wind.2m.72 wind.2m.mn
 Class                 numeric    numeric    numeric    numeric    numeric
-Minimum                 0.429      0.409      0.444      0.444      0.444
-Maximum                  16.3       9.69       11.2       11.2       20.3
-Mean                     3.44       3.11       3.09       3.11       3.09
-Unique (excld. NA)       1352       1481       1513       1537       1539
-Missing values            237        183        177        112         72
+Minimum                 0.403      0.409      0.444      0.444      0.444
+Maximum                  16.3       11.3       11.3       12.1       20.3
+Mean                     3.42        3.1       3.09        3.1       3.09
+Unique (excld. NA)       1323       1467       1508       1536       1539
+Missing values            295        208        188        117         72
 Sorted                  FALSE      FALSE      FALSE      FALSE      FALSE
                     rain.1  rain.6 rain.12 rain.24 rain.48 rain.72 rain.tot
 Class              numeric numeric numeric numeric numeric numeric  numeric
 Minimum                  0       0       0       0       0       0        0
-Maximum                  7      15    19.5    36.1    55.9    55.9     89.8
-Mean                 0.169   0.287   0.369   0.967    1.76    2.17      6.8
-Unique (excld. NA)      10      40      46      71      94     102      129
-Missing values        1495     844     799     749     735     666      626
+Maximum                3.5      15    20.3    36.1    55.9    55.9     89.8
+Mean                  0.15   0.293   0.391    1.07    1.84    2.39     6.15
+Unique (excld. NA)      10      35      48      78     100     118      128
+Missing values        1524     899     858     776     744     671      626
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
                    rain.rate.1 rain.rate.6 rain.rate.12 rain.rate.24
 Class                  numeric     numeric      numeric      numeric
 Minimum                      0           0            0            0
-Maximum                      7        2.72         2.72         1.75
-Mean                     0.169      0.0707       0.0604       0.0495
-Unique (excld. NA)          12         113          146          219
-Missing values            1495         844          799          749
+Maximum                    3.5        2.72         3.11         1.75
+Mean                     0.151      0.0715       0.0645       0.0567
+Unique (excld. NA)          13         107          144          225
+Missing values            1524         899          858          776
 Sorted                   FALSE       FALSE        FALSE        FALSE
                    rain.rate.48 rain.rate.72 rain.rate.mn    rh.6   rh.12
 Class                   numeric      numeric      numeric numeric numeric
 Minimum                       0            0            0    30.8    27.5
-Maximum                    1.23        0.807          0.6     100     100
-Mean                     0.0443       0.0413       0.0453    66.7    66.4
-Unique (excld. NA)          332          382          465     548     622
-Missing values              735          666          626    1075    1044
+Maximum                    1.19         0.79          0.6     100     100
+Mean                     0.0464       0.0452       0.0453    66.8    66.5
+Unique (excld. NA)          339          412          465     530     605
+Missing values              744          671          626    1142    1112
 Sorted                    FALSE        FALSE        FALSE   FALSE   FALSE
                      rh.24   rh.48   rh.72   rh.mn air.temp.z soil.temp.z
 Class              numeric numeric numeric numeric    numeric     numeric
-Minimum               31.4    31.4    33.9    33.9          0           0
+Minimum               29.3    32.4    33.9    33.9          0           0
 Maximum                100     100     100     100         10        0.15
-Mean                  72.9    73.2    73.7    74.5       1.17      0.0445
-Unique (excld. NA)     762     790     800     793         15           9
-Missing values        1010     999     989     980        296         871
+Mean                  72.7    73.4    73.9    74.5       1.17      0.0439
+Unique (excld. NA)     765     805     823     793         15           9
+Missing values        1037    1010     994     980        296         893
 Sorted               FALSE   FALSE   FALSE   FALSE      FALSE       FALSE
                     wind.z wind.loc far.loc man.source
 Class              numeric   factor  factor     factor
@@ -476,17 +476,17 @@ Sorted                        FALSE    FALSE    FALSE   FALSE   FALSE   FALSE
                    man.tic  man.ua  man.ph log.man.tan man.freeNH3
 Class              numeric integer numeric     numeric     numeric
 Minimum               0.31       0    3.29       -1.15    5.76e-07
-Maximum               3.81       0    9.22        1.07        1.04
-Mean                  1.69       0    7.45        0.24      0.0307
-Unique (excld. NA)      43       1     178         300         929
+Maximum               3.81       0    9.22        1.07        1.21
+Mean                  1.69       0    7.45        0.24      0.0311
+Unique (excld. NA)      43       1     176         300         981
 Missing values        1789    1853     292          34         457
 Sorted               FALSE    TRUE   FALSE       FALSE       FALSE
                    man.eq.gasNH3    acid date.start           app.start
 Class                    numeric logical     factor      POSIXct POSIXt
 Minimum                 2.37e-07   FALSE 1990-06-12 1990-06-12 05:30:00
-Maximum                    0.587    TRUE 2014-05-01 2014-05-01 06:59:00
-Mean                      0.0146   FALSE 1999-09-14 2008-03-12 20:50:10
-Unique (excld. NA)           927       2        261                 648
+Maximum                    0.768    TRUE 2014-05-01 2014-05-01 06:59:00
+Mean                      0.0151   FALSE 1999-09-14 2008-03-12 20:50:10
+Unique (excld. NA)           979       2        261                 648
 Missing values               457       0        464                1029
 Sorted                     FALSE   FALSE      FALSE               FALSE
                      app.start.orig app.method app.method.orig app.method2
@@ -501,9 +501,9 @@ Sorted                        FALSE      FALSE           FALSE       FALSE
 Class               numeric numeric  factor      factor     numeric  integer
 Minimum                 6.6    2.45    deep        Deep           0        0
 Maximum                 315     602 shallow     Shallow          48      100
-Mean                   41.3    75.3    none        None        1.93       30
-Unique (excld. NA)      403     843       3           6          13       13
-Missing values           34      34       0           0        1764     1524
+Mean                   41.3    75.3    none        None        1.95       30
+Unique (excld. NA)      403     843       3           6           9       13
+Missing values           34      34       0           0        1765     1524
 Sorted                FALSE   FALSE   FALSE       FALSE       FALSE    FALSE
                    dist.inj furrow.z furrow.w log.app.rate      crop
 Class               integer   factor   factor      numeric    factor
@@ -532,57 +532,57 @@ Sorted                        FALSE      FALSE               FALSE
                                t.end.p     dt1  dt.min  dt.max  ct.min  ct.max
 Class                   POSIXct POSIXt numeric numeric numeric numeric numeric
 Minimum            1990-06-16 03:17:00    0.15    0.15    0.25    0.15    1.02
-Maximum            2014-05-03 11:14:00     169     145     169     169     533
-Mean               2002-11-05 20:58:13    7.27    5.46    35.3    7.27     131
-Unique (excld. NA)                 846     389     290     515     389     979
+Maximum            2014-05-03 11:14:00     169     145     169     169     508
+Mean               2002-11-05 20:58:13     8.3    5.46    35.3     8.3     124
+Unique (excld. NA)                 846     425     290     515     425     979
 Missing values                     464       0       0       0       0       0
 Sorted                           FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                        ct1  n.ints n.int.duplicates int.min int.max
 Class              numeric integer          integer integer integer
 Minimum               0.15       1                0       0       0
-Maximum                169    1310               27     422    1440
-Mean                  7.27       8                0       1       7
-Unique (excld. NA)     389      55                9       7      50
+Maximum                169    1310                0     422    1440
+Mean                   8.3       8                0       1       7
+Unique (excld. NA)     425      49                1       7      50
 Missing values           0       0                0       0       0
-Sorted               FALSE   FALSE            FALSE   FALSE   FALSE
+Sorted               FALSE   FALSE             TRUE   FALSE   FALSE
                    int.t.mismatches missing.ints  j.NH31  j.rel1     e.1
 Class                       integer      numeric numeric numeric numeric
-Minimum                           0          -27   -1.45 -0.0132   -1.45
-Maximum                          29            1    53.3    1.19    35.6
-Mean                              0       -0.657    2.94   0.055    3.83
-Unique (excld. NA)               24           10    1572    1774     615
-Missing values                  464            0       3      37    1278
+Minimum                           0            0   -1.45 -0.0132   -1.45
+Maximum                          12            1    53.3    1.19    35.6
+Mean                              0       0.0105    2.82  0.0544    3.69
+Unique (excld. NA)               12            2    1554    1776     591
+Missing values                  464            0       3      37    1302
 Sorted                        FALSE        FALSE   FALSE   FALSE   FALSE
                        e.4     e.6    e.12    e.24    e.48    e.72    e.96
 Class              numeric numeric numeric numeric numeric numeric numeric
-Minimum             -0.378  -0.446  -0.389  -0.266  -0.131  -0.245  -0.192
-Maximum                183     235     267     328     557     651     231
-Mean                  9.51    11.2    13.1      16    20.1    23.9    18.7
-Unique (excld. NA)    1488    1617    1651    1716    1590    1285     801
-Missing values         390     253     213     151     287     603    1098
+Minimum             -0.378  -0.292  -0.411  -0.585  -0.584  -0.873   -0.54
+Maximum                183     235     267     328     557     651     130
+Mean                  9.24    10.8    12.7    15.5    19.2    22.7    16.8
+Unique (excld. NA)    1439    1567    1605    1690    1571    1272     793
+Missing values         441     305     269     181     306     616    1105
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                    e.final e.rel.1  e.rel.4  e.rel.6 e.rel.12 e.rel.24 e.rel.48
 Class              numeric numeric  numeric  numeric  numeric  numeric  numeric
-Minimum              -12.2 -0.0132 -0.00599 -0.00531   -0.005 -0.00222 -0.00143
+Minimum              -12.2 -0.0132 -0.00599 -0.00531   -0.005 -0.00495 -0.00931
 Maximum                655   0.608      3.2     3.93     4.37     5.16     5.66
-Mean                  24.3  0.0671    0.164    0.189    0.216    0.252    0.299
-Unique (excld. NA)    1802     606     1490     1614     1648     1714     1585
-Missing values          42    1284      407      280      242      181      313
+Mean                  24.2  0.0691    0.166    0.191    0.218    0.252    0.298
+Unique (excld. NA)    1804     582     1440     1566     1602     1687     1567
+Missing values          42    1309      456      327      292      211      332
 Sorted               FALSE   FALSE    FALSE    FALSE    FALSE    FALSE    FALSE
                    e.rel.72 e.rel.96 e.rel.final
 Class               numeric  numeric     numeric
-Minimum            -0.00734        0      -0.116
+Minimum              -0.018  -0.0131      -0.116
 Maximum                5.86     5.87        6.86
-Mean                  0.328    0.291        0.36
-Unique (excld. NA)     1278      795        1807
-Missing values          621     1104          76
+Mean                  0.326    0.284       0.358
+Unique (excld. NA)     1265      788        1807
+Missing values          634     1111          76
 Sorted                FALSE    FALSE       FALSE
                                                                                     notes
 Class                                                                           character
 Minimum                                                                                  
 Maximum            Winter wheat at the beginning of flag leaf emergence. Control. Contol.
 Mean                                                                                     
-Unique (excld. NA)                                                                     87
+Unique (excld. NA)                                                                     85
 Missing values                                                                          0
 Sorted                                                                              FALSE
                      flag anyincorp

@@ -9,9 +9,7 @@ options(warn = 2)
 version <- '1.3' # Oct 2019
 
 # Packages
-library(gdata)
 library(readxl)
-#library(rmarkdown)
 library(plyr)
 
 # Read in functions
@@ -33,7 +31,7 @@ sink()
 # Compare to older version
 sink('../logs/version_comparison.txt')
   source('compare_1.0.R', echo = TRUE)
-  source('compare_prev.R', echo = TRUE)
+  #source('compare_prev.R', echo = TRUE)
 sink()
 
 # Remove partial file

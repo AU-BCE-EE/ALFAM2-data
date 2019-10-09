@@ -28,6 +28,9 @@ cat('Done! Read', length(unique(d2$file)), ' files.\n')
 
 # Get publication info from sheet 4 in ALFAM2 files
 ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+i <- ddir[1]
+f
+j <- f[1]
 dp2 <- NULL
 for(i in ddir) {
   cat('Directory ', i,'\n')
@@ -37,16 +40,14 @@ for(i in ddir) {
   d <- NULL
   for(j in f) {
     cat('   file ', j,'\n')
-    pp <- as.data.frame(read_excel(j, sheet = 4, skip = 2))
+    pp <- as.data.frame(read_excel(j, sheet = 4, skip = 2, col_names = FALSE))
     if (nrow(pp) > 0) {
       names(pp) <- c('pub.id', 'pub.info')
+      # Add file name
+      x <- strsplit(j, '/')
+      pp$file <- x[[1]][[length(x[[1]])]]
       d <- rbind(d, pp)
     }
-  }
-  # Add file name
-  x <- strsplit(j, '/')
-  if (!is.null(d) && nrow(d) > 0) {
-    d$file <- x[[1]][[length(x[[1]])]]
   }
   dp2 <- rbind(dp2, d)
 }
