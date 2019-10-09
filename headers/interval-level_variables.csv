@@ -13,6 +13,7 @@ country,"Country abbreviation",character,,
 file,"Name of data file (completed template)",character,,
 row.in.file,"Location of observation in data file (completed template)",integer,,
 pub.id,"Publication code",character,,"Unique within institute only"
+pub.info,"Publication information",character,,
 lat,Latitude,numeric,"Decimal degrees (all northern hemisphere)",
 long,Longitude,numeric,"Decimal degrees (negative means west)",
 topo,Topography,character,,
