@@ -8,6 +8,6 @@ The ALFAM2 dataset on ammonia loss from field-applied manure. This repository co
 * Looking for the ALFAM2 model R package? You want https://github.com/sashahafner/ALFAM2.
 
 # References
-For a description of the dataset, see this paper: https://doi.org/10.1016/j.agrformet.2017.11.027. For a new model for new model for ammonia emission, based on the ALFAM2 dataset, see this paper: https://www.sciencedirect.com/science/article/pii/S1352231018308069. 
+For a description of the dataset, see this paper: https://doi.org/10.1016/j.agrformet.2017.11.027. For a new model for ammonia emission, with parameter estimation based on the ALFAM2 dataset, see this paper: https://www.sciencedirect.com/science/article/pii/S1352231018308069. 
 
 
