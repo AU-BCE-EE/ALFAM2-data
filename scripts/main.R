@@ -40,3 +40,7 @@ sink()
 file.remove('../data - ALFAM2 output/ALFAM_part.csv')
 
 options(warn = 1)
+
+cat('Note to SASHA: !!!!!!!!!!!!!!!!!!!!!!!!!!1 \n 
+    Remember to create a tag/release on GitHub!!! \n
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
