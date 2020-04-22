@@ -2,7 +2,7 @@
 >   cat('Created ALFAM_interval.csv on ')
 Created ALFAM_interval.csv on 
 >   print(Sys.time())
-[1] "2019-10-09 13:47:48 EDT"
+[1] "2020-04-22 15:53:10 EDT"
 
 >   cat('contains data from', length(unique(d$inst)), ' institutes\n')
 contains data from 22  institutes

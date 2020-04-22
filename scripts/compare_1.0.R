@@ -45,3 +45,6 @@ ii <- which(na.omit(ds$e.final) != na.omit(dso$e.final))
 
 cbind(ds[ii, 'e.final'], dso[ii, 'e.final'])
 # Looks like rounding issue
+
+plot(ds$e.72, dso$e.72)
+plot(ds$e.final, ds$e.72)

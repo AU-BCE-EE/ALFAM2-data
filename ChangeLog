@@ -4,6 +4,13 @@ ALFAM2 database
 ## DETAILED DATA LOG ###################
 ########################################
 
+22 April 2020 SDH
+Version 1.4
+
+Correct ct calculation error that showed up for CH data (inst 207) at least,
+caused by unsorted intervals. Could have affected e.72 but did not affect
+e.final.
+
 9 October 2019 SDH
 Version 1.3
 
