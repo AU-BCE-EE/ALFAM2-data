@@ -117,7 +117,7 @@ print(dim(d))
 d <- addALFAMVars(d)
 print(dim(d))
 
-# Make numeric pid (plot ID) and eid (experiment ID)
+# Make numeric pid (plot ID), pmid (plot-method ID) and eid (experiment ID)
 d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method = 'radix')))
 d$pmid<- as.integer(factor(d$cpmid, levels = sort(unique(d$cpmid), method = 'radix')))
 d$eid <- as.integer(factor(d$ceid, levels = sort(unique(d$ceid), method = 'radix')))

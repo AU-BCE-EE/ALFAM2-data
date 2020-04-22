@@ -396,6 +396,8 @@ addALFAMVars <- function(d) {
   # dt = duration of interval, ct = cumulative time to end of interval, mt =  cumulative time to middle of interval
   # e.cum = cumulative emission (kg N/ha)
   # tan.start = TAN (kg N/ha) present at start of interval
+  # Sort by interval first (added 22 April 2020, omission was causing errors in ct before)
+  d <- d[order(d$cpmid, d$interval), ]
   d <- ddply(d, 'cpmid', transform, ct = cumsum(dt), mt = cumsum(dt) - dt/2, 
              e.cum = cumsum(e.int), rain.cum = cumsum(rain), 
 	           date.start = as.character(min(t.start), format = '%Y-%m-%d'))

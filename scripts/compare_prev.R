@@ -1,7 +1,7 @@
 # Compare new version of data to previous version
 
-do <- read.csv('../../archive/1.1/ALFAM2_interval.csv')
-dso <- read.csv('../../archive/1.1/ALFAM2_plot.csv')
+do <- read.csv('../../archive/1.3/ALFAM2_interval.csv')
+dso <- read.csv('../../archive/1.3/ALFAM2_plot.csv')
 
 # Sort in identical way
 d  <-  d[order( d$inst,  d$file,  d$row.in.file), ]
@@ -21,9 +21,10 @@ sum(d$inst != do$inst)
 
 # And measurements should match
 sum(na.omit(d$j.NH3) != na.omit(do$j.NH3))
-sum(na.omit(d$e.cum) != na.omit(do$e.cum))
+#sum(na.omit(d$e.cum) != na.omit(do$e.cum))
+sum(na.omit(d$e.cum != do$e.cum))
 
-# ct should match
+# ct may not match if fixed
 sum(d$ct != do$ct)
 # But interval should
 sum(d$interval != do$interval)
@@ -41,7 +42,9 @@ dim(dso)
 # pmid should match
 sum(ds$pmid != dso$pmid)
 sum(na.omit(ds$e.final) != na.omit(dso$e.final))
-ii <- which(na.omit(ds$e.final) != na.omit(dso$e.final))
 
-cbind(ds[ii, 'e.final'], dso[ii, 'e.final'])
-# Looks like rounding issue
+## Run below if present
+#ii <- which(na.omit(ds$e.final) != na.omit(dso$e.final))
+#
+#cbind(ds[ii, 'e.final'], dso[ii, 'e.final'])
+## Looks like rounding issue

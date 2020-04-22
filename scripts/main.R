@@ -6,7 +6,7 @@
 options(warn = 2) 
 
 # Set database version
-version <- '1.3' # Oct 2019
+version <- '1.4' # April 2020
 
 # Packages
 library(readxl)
@@ -30,8 +30,10 @@ sink()
 
 # Compare to older version
 sink('../logs/version_comparison.txt')
+  cat('Compare to original version \n')
   source('compare_1.0.R', echo = TRUE)
-  #source('compare_prev.R', echo = TRUE)
+  cat('Compare to previous version \n')
+  source('compare_prev.R', echo = TRUE)
 sink()
 
 # Remove partial file

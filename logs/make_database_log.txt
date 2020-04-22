@@ -4,7 +4,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2019-10-09 13:42:23 EDT"
+[1] "2020-04-22 15:45:04 EDT"
 
 > # Read in ALFAM1 data
 > cat('\nReading ALFAM1.xlsx. . .\n')
@@ -73,8 +73,7 @@ Done! Read 24  files.
 > i <- ddir[1]
 
 > f
-[1] "../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx" 
-[2] "../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
+[1] "../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx"  "../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
 
 > j <- f[1]
 
@@ -191,11 +190,11 @@ Done! Read 23  files.
 27318  107   IUL/FAT      CH
 28388  108       JTI      SE
 14847  201      AAFC      CA
-11229  202   ADAS-RR      UK
+13376  202   ADAS-RR      UK
 23364  203      ARDC      CA
-11976  204        AT      DK
-12149  205        AU      DK
-12700  206    CAU-LU      DE
+14123  204        AT      DK
+14296  205        AU      DK
+11229  206    CAU-LU      DE
 21996  207  INH-HAFL      CH
 1      208      INRA      FR
 18811  209        MU      IT
@@ -239,8 +238,8 @@ Done! Read 23  files.
 > print(dim(d))
 [1] 30907   117
 
-> # Make numeric pid (plot ID) and eid (experiment ID)
-> d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method = 'radix')))
+> # Make numeric pid (plot ID), pmid (plot-method ID) and eid (experiment ID)
+> d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method .... [TRUNCATED] 
 
 > d$pmid<- as.integer(factor(d$cpmid, levels = sort(unique(d$cpmid), method = 'radix')))
 
