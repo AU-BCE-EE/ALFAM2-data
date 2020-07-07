@@ -6,11 +6,11 @@ print(Sys.time())
 
 # Read in ALFAM1 data
 cat('\nReading ALFAM1.xlsx. . .\n')
-d1 <- readALFAM1File('../../data - ALFAM1/ALFAM1.xlsx')
+d1 <- readALFAM1File('../data - ALFAM1/ALFAM1.xlsx')
 cat('Done!\n')
 
 # ALFAM2 data
-ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
 d2 <- NULL
 for(i in ddir) {
   cat('Directory ', i,'\n')
@@ -27,7 +27,7 @@ for(i in ddir) {
 cat('Done! Read', length(unique(d2$file)), ' files.\n')
 
 # Get publication info from sheet 4 in ALFAM2 files
-ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
 i <- ddir[1]
 f
 j <- f[1]
