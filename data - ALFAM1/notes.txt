@@ -1,0 +1,91 @@
+20 September [Must have been August] 2014
+SDH
+The original file included some data from Martin Hansen that were not included in the database at the time of publication.
+I removed these from ALFAM1.xlsx.
+They are in the new version of the databased, in the AT file.
+Martin and I referred to these as "yellow data" in correspondence.
+
+Talked to Sven about ALFAM1
+We decided that 1994 data from DIAS, which are Sven's, were in ALFAM1 (database and publication)
+The yellow data at the bottom of the first database were, I think, all from Martin
+I beleive these are all included in the ALFAM2 file from Martin
+Sven thought that some of these data might be his
+
+23 September 2014
+SDH
+I reformatted the shift times as character data (first convert to correct date format, then copy out, then change format of cells to character, then paste in as text)
+
+24 September 2014
+SDH
+Added measurement technique value of 1 to row 919
+This was preventing proper pid recognition
+Added measurement technique value of 2 to 1387 and 1388, 1396 1397
+
+25 September 2014
+SDH
+Replaced start times with end time from previous shift for rows: 
+2364
+2376
+2381
+They were each off by 2 minutes
+
+Also for rows
+3823 (10 min off)
+3877
+3829
+3835 
+3841
+3847
+3853
+3859
+3865
+3871
+These were all IGER, all same times, 10 min off
+
+I did not change shift length values for any of these
+
+Manually fixing DIAS data by splitting the difference of 30 minutes
+rows
+11 12
+23 24
+35 36
+47 48
+59 60
+
+Fixes also for IUL/FAT
+2739
+2884
+2890
+3285
+3294
+3303
+3312
+3321
+3330
+Copied previous shift end time or split differences
+
+Problem: were real numbers for shift numbers
+e.g., 2.567....
+Copied out, changed to text, pasted back in from Notepad++
+
+1 May 2015
+SDH
+Columns P+ in row 919 (CRPA) was blank. 
+Seems like emission measurements started one hour late or something. 
+I copied values from row 920. 
+Plots like these will always have NA for cumulative emission, correctly
+I did the same for rows 1387 and 1388 (copied from 1389)
+Again, flux is missing
+Same for 1396 and 1397
+
+11 June 2015
+SDH
+All IGER data with HeightWind data: rows 3544 to 5250, I multiplied by 100. Value must have been in meters (was 0.25). Now value is 25 cm.
+
+15 August 2016
+Based on spreadsheet ALFAM 1 Swiss data.xlsx from Thomas Kupper, I:
+
+Replaced "2" with "10" (for urine) rows 2697 2703 for manure type.
+
+Reformatted shift start and end columns as dd-mm-yyyy hh:mm. This fixed a problem that seemed to come up in dt after editing in Excel Online. I had to edit it offline in Excel to fix.	
+

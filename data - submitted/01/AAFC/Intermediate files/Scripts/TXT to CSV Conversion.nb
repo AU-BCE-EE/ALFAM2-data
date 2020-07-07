@@ -1,0 +1,951 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     32585,        942]
+NotebookOptionsPosition[     30416,        862]
+NotebookOutlinePosition[     30770,        878]
+CellTagsIndexPosition[     30727,        875]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Convert .txt to .csv", "Title",
+ CellChangeTimes->{{3.617707843060058*^9, 3.61770785132244*^9}, {
+  3.61770890154595*^9, 3.617708908166955*^9}}],
+
+Cell["\<\
+University of Southern Denmark, August 2014\
+\>", "Subtitle",
+ CellChangeTimes->{{3.617707860356879*^9, 3.617707867844531*^9}}],
+
+Cell["\<\
+Department of Chemical Engineering, Biotechnology and Environmental \
+Engineering\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.6177078805330887`*^9, 3.617707894089353*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Operator", "Section",
+ CellChangeTimes->{{3.617707899895994*^9, 3.61770794267986*^9}, {
+  3.617708049077755*^9, 3.617708055604467*^9}}],
+
+Cell["(SVP) Simon Vilms Pedersen", "Text",
+ CellChangeTimes->{{3.6177079227577457`*^9, 3.617707961383325*^9}, {
+  3.6177080325423727`*^9, 3.617708068795669*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["shift_times_2004.txt", "Section",
+ CellChangeTimes->{{3.6177083130290003`*^9, 3.617708315459361*^9}, {
+  3.617708893987088*^9, 3.617708894503564*^9}, {3.6177906746637163`*^9, 
+  3.617790680693544*^9}}],
+
+Cell[TextData[{
+ "Import the data from \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_2004.txt",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]. Notice the datestamp uses a dash \
+\[OpenCurlyDoubleQuote]-\[CloseCurlyDoubleQuote], instead of a forward slash \
+\[OpenCurlyDoubleQuote]/\[CloseCurlyDoubleQuote], as used in the \
+\[OpenCurlyDoubleQuote]",
+ StyleBox["Chantigny_Precip_<tab name> <initials>.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.617790486373456*^9, 3.617790600112502*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"import", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_2004.txt\>\"", ",", "\"\<Data\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.617708317394494*^9, 3.617708373941144*^9}, {
+  3.617708404380773*^9, 3.617708406071714*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"start\"\>", ",", "\<\"end\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 10:30\"\>", ",", "\<\"11-05-2004 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 11:00\"\>", ",", "\<\"11-05-2004 11:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 11:30\"\>", ",", "\<\"11-05-2004 12:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 12:30\"\>", ",", "\<\"11-05-2004 13:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 13:30\"\>", ",", "\<\"11-05-2004 14:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 14:30\"\>", ",", "\<\"11-05-2004 16:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 16:30\"\>", ",", "\<\"11-05-2004 21:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2004 21:00\"\>", ",", "\<\"12-05-2004 06:06\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2004 06:06\"\>", ",", "\<\"12-05-2004 11:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2004 11:57\"\>", ",", "\<\"12-05-2004 18:03\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2004 18:03\"\>", ",", "\<\"13-05-2004 06:03\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-05-2004 06:03\"\>", ",", "\<\"13-05-2004 11:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-05-2004 11:57\"\>", ",", "\<\"13-05-2004 17:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-05-2004 17:57\"\>", ",", "\<\"14-05-2004 06:09\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14-05-2004 06:09\"\>", ",", "\<\"14-05-2004 12:09\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14-05-2004 12:09\"\>", ",", "\<\"14-05-2004 17:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14-05-2004 17:57\"\>", ",", "\<\"15-05-2004 12:54\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15-05-2004 12:54\"\>", ",", "\<\"16-05-2004 17:40\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"16-05-2004 17:40\"\>", ",", "\<\"17-05-2004 16:28\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"17-05-2004 16:28\"\>", ",", "\<\"18-05-2004 14:10\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18-05-2004 14:10\"\>", ",", "\<\"18-05-2004 19:16\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18-05-2004 19:16\"\>", ",", "\<\"20-05-2004 07:38\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708346192363*^9, 3.617708374283051*^9}, 
+   3.6177084064019203`*^9}]
+}, Open  ]],
+
+Cell["\<\
+Convert the datestam to use forward slash rather than a dash. Also remove the \
+headers, as to create solely the shift data.\
+\>", "Text",
+ CellChangeTimes->{{3.617790603432642*^9, 3.617790634647406*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Partition", "[", 
+  RowBox[{
+   RowBox[{"Part", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringReplace", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}], "/@", 
+      RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+     RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.617708822268564*^9, 3.6177088268432493`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 10:30\"\>", ",", "\<\"11/05/2004 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 11:00\"\>", ",", "\<\"11/05/2004 11:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 11:30\"\>", ",", "\<\"11/05/2004 12:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 12:30\"\>", ",", "\<\"11/05/2004 13:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 13:30\"\>", ",", "\<\"11/05/2004 14:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 14:30\"\>", ",", "\<\"11/05/2004 16:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 16:30\"\>", ",", "\<\"11/05/2004 21:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2004 21:00\"\>", ",", "\<\"12/05/2004 06:06\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2004 06:06\"\>", ",", "\<\"12/05/2004 11:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2004 11:57\"\>", ",", "\<\"12/05/2004 18:03\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2004 18:03\"\>", ",", "\<\"13/05/2004 06:03\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/05/2004 06:03\"\>", ",", "\<\"13/05/2004 11:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/05/2004 11:57\"\>", ",", "\<\"13/05/2004 17:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/05/2004 17:57\"\>", ",", "\<\"14/05/2004 06:09\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14/05/2004 06:09\"\>", ",", "\<\"14/05/2004 12:09\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14/05/2004 12:09\"\>", ",", "\<\"14/05/2004 17:57\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14/05/2004 17:57\"\>", ",", "\<\"15/05/2004 12:54\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15/05/2004 12:54\"\>", ",", "\<\"16/05/2004 17:40\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"16/05/2004 17:40\"\>", ",", "\<\"17/05/2004 16:28\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"17/05/2004 16:28\"\>", ",", "\<\"18/05/2004 14:10\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18/05/2004 14:10\"\>", ",", "\<\"18/05/2004 19:16\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18/05/2004 19:16\"\>", ",", "\<\"20/05/2004 07:38\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708818704862*^9, 3.617708827206582*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Export the data to the file \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_2004.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]"
+}], "Text",
+ CellChangeTimes->{{3.617790640599045*^9, 3.617790668566025*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_2004.csv\>\"", ",", 
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"Part", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}],
+         "/@", 
+        RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+       RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6177084073032217`*^9, 3.617708455315394*^9}, {
+   3.617708533255682*^9, 3.617708780205018*^9}, 3.6177088381096573`*^9}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_2004.csv\"\>"], "Output",
+ CellChangeTimes->{{3.617708420797626*^9, 3.617708444529879*^9}, {
+   3.6177085584654837`*^9, 3.6177086249299297`*^9}, {3.617708660299019*^9, 
+   3.617708687201579*^9}, {3.617708735293766*^9, 3.617708744461898*^9}, 
+   3.6177087846419992`*^9, 3.617708840061442*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["shift_times_may-2005.txt", "Section",
+ CellChangeTimes->{{3.618043327309897*^9, 3.61804333572484*^9}}],
+
+Cell[TextData[{
+ "Import the data from \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_may-2005.txt",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]. Notice the datestamp uses a dash \
+\[OpenCurlyDoubleQuote]-\[CloseCurlyDoubleQuote], instead of a forward slash \
+\[OpenCurlyDoubleQuote]/\[CloseCurlyDoubleQuote], as used in the \
+\[OpenCurlyDoubleQuote]",
+ StyleBox["Chantigny_Precip_<tab name> <initials>.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.617790486373456*^9, 3.617790600112502*^9}, {
+  3.618114792823062*^9, 3.618114794398189*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"import", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_may-2005.txt\>\"", ",", "\"\<Data\>\""}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.617708317394494*^9, 3.617708373941144*^9}, {
+  3.617708404380773*^9, 3.617708406071714*^9}, {3.618043361349957*^9, 
+  3.618043377924505*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"start\"\>", ",", "\<\"end\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 10:00\"\>", ",", "\<\"09-05-2005 10:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 10:30\"\>", ",", "\<\"09-05-2005 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 11:00\"\>", ",", "\<\"09-05-2005 12:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 12:00\"\>", ",", "\<\"09-05-2005 13:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 13:00\"\>", ",", "\<\"09-05-2005 14:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 14:00\"\>", ",", "\<\"09-05-2005 16:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 16:00\"\>", ",", "\<\"09-05-2005 18:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 18:00\"\>", ",", "\<\"09-05-2005 21:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-05-2005 21:13\"\>", ",", "\<\"10-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10-05-2005 06:13\"\>", ",", "\<\"10-05-2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10-05-2005 12:13\"\>", ",", "\<\"10-05-2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10-05-2005 18:13\"\>", ",", "\<\"11-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2005 06:13\"\>", ",", "\<\"11-05-2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2005 12:13\"\>", ",", "\<\"11-05-2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-05-2005 18:13\"\>", ",", "\<\"12-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2005 06:13\"\>", ",", "\<\"12-05-2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2005 12:13\"\>", ",", "\<\"12-05-2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-05-2005 18:13\"\>", ",", "\<\"13-05-2005 07:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-05-2005 07:13\"\>", ",", "\<\"13-05-2005 16:16\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-05-2005 16:16\"\>", ",", "\<\"14-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14-05-2005 06:13\"\>", ",", "\<\"15-05-2005 10:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15-05-2005 10:13\"\>", ",", "\<\"16-05-2005 07:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"16-05-2005 07:00\"\>", ",", "\<\"17-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"17-05-2005 06:13\"\>", ",", "\<\"18-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18-05-2005 06:13\"\>", ",", "\<\"19-05-2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"19-05-2005 06:13\"\>", ",", "\<\"20-05-2005 06:13\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708346192363*^9, 3.617708374283051*^9}, 
+   3.6177084064019203`*^9, 3.61804338221551*^9}]
+}, Open  ]],
+
+Cell["\<\
+Convert the datestam to use forward slash rather than a dash. Also remove the \
+headers, as to create solely the shift data.\
+\>", "Text",
+ CellChangeTimes->{{3.617790603432642*^9, 3.617790634647406*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Partition", "[", 
+  RowBox[{
+   RowBox[{"Part", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringReplace", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}], "/@", 
+      RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+     RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.617708822268564*^9, 3.6177088268432493`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 10:00\"\>", ",", "\<\"09/05/2005 10:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 10:30\"\>", ",", "\<\"09/05/2005 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 11:00\"\>", ",", "\<\"09/05/2005 12:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 12:00\"\>", ",", "\<\"09/05/2005 13:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 13:00\"\>", ",", "\<\"09/05/2005 14:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 14:00\"\>", ",", "\<\"09/05/2005 16:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 16:00\"\>", ",", "\<\"09/05/2005 18:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 18:00\"\>", ",", "\<\"09/05/2005 21:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/05/2005 21:13\"\>", ",", "\<\"10/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10/05/2005 06:13\"\>", ",", "\<\"10/05/2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10/05/2005 12:13\"\>", ",", "\<\"10/05/2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10/05/2005 18:13\"\>", ",", "\<\"11/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2005 06:13\"\>", ",", "\<\"11/05/2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2005 12:13\"\>", ",", "\<\"11/05/2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/05/2005 18:13\"\>", ",", "\<\"12/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2005 06:13\"\>", ",", "\<\"12/05/2005 12:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2005 12:13\"\>", ",", "\<\"12/05/2005 18:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/05/2005 18:13\"\>", ",", "\<\"13/05/2005 07:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/05/2005 07:13\"\>", ",", "\<\"13/05/2005 16:16\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/05/2005 16:16\"\>", ",", "\<\"14/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14/05/2005 06:13\"\>", ",", "\<\"15/05/2005 10:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15/05/2005 10:13\"\>", ",", "\<\"16/05/2005 07:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"16/05/2005 07:00\"\>", ",", "\<\"17/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"17/05/2005 06:13\"\>", ",", "\<\"18/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"18/05/2005 06:13\"\>", ",", "\<\"19/05/2005 06:13\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"19/05/2005 06:13\"\>", ",", "\<\"20/05/2005 06:13\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708818704862*^9, 3.617708827206582*^9}, 
+   3.618043410508008*^9}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Export the data to the file \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_may-2005.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]"
+}], "Text",
+ CellChangeTimes->{{3.617790640599045*^9, 3.617790668566025*^9}, {
+  3.618114878756535*^9, 3.618114881019726*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_may-2005.csv\>\"", ",", 
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"Part", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}],
+         "/@", 
+        RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+       RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6177084073032217`*^9, 3.617708455315394*^9}, {
+   3.617708533255682*^9, 3.617708780205018*^9}, 3.6177088381096573`*^9, {
+   3.618043426252488*^9, 3.6180434278195143`*^9}}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_may-2005.csv\"\>"], "Output",
+ CellChangeTimes->{{3.617708420797626*^9, 3.617708444529879*^9}, {
+   3.6177085584654837`*^9, 3.6177086249299297`*^9}, {3.617708660299019*^9, 
+   3.617708687201579*^9}, {3.617708735293766*^9, 3.617708744461898*^9}, 
+   3.6177087846419992`*^9, 3.617708840061442*^9, 3.618043432415174*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["shift_times_sept-2005.txt", "Section",
+ CellChangeTimes->{{3.618043327309897*^9, 3.61804333572484*^9}, {
+  3.6181147763115463`*^9, 3.618114777030408*^9}}],
+
+Cell[TextData[{
+ "Import the data from \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_sept-2005.txt",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]. Notice the datestamp uses a dash \
+\[OpenCurlyDoubleQuote]-\[CloseCurlyDoubleQuote], instead of a forward slash \
+\[OpenCurlyDoubleQuote]/\[CloseCurlyDoubleQuote], as used in the \
+\[OpenCurlyDoubleQuote]",
+ StyleBox["Chantigny_Precip_<tab name> <initials>.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]."
+}], "Text",
+ CellChangeTimes->{{3.617790486373456*^9, 3.617790600112502*^9}, {
+  3.6181148029500227`*^9, 3.618114807053502*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"import", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_sept-2005.txt\>\"", ",", "\"\<Data\>\""}], "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.617708317394494*^9, 3.617708373941144*^9}, {
+  3.617708404380773*^9, 3.617708406071714*^9}, {3.618043361349957*^9, 
+  3.618043377924505*^9}, {3.618114813120811*^9, 3.618114825701877*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"start\"\>", ",", "\<\"end\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 11:00\"\>", ",", "\<\"06-09-2005 11:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 11:30\"\>", ",", "\<\"06-09-2005 12:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 12:00\"\>", ",", "\<\"06-09-2005 13:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 13:00\"\>", ",", "\<\"06-09-2005 14:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 14:00\"\>", ",", "\<\"06-09-2005 15:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 15:00\"\>", ",", "\<\"06-09-2005 16:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 16:53\"\>", ",", "\<\"06-09-2005 18:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 18:53\"\>", ",", "\<\"06-09-2005 21:43\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06-09-2005 21:43\"\>", ",", "\<\"07-09-2005 06:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07-09-2005 06:44\"\>", ",", "\<\"07-09-2005 12:42\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07-09-2005 12:42\"\>", ",", "\<\"07-09-2005 18:45\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07-09-2005 18:45\"\>", ",", "\<\"08-09-2005 06:46\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08-09-2005 06:46\"\>", ",", "\<\"08-09-2005 12:45\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08-09-2005 12:45\"\>", ",", "\<\"08-09-2005 16:10\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08-09-2005 16:10\"\>", ",", "\<\"09-09-2005 07:12\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-09-2005 07:12\"\>", ",", "\<\"09-09-2005 12:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-09-2005 12:44\"\>", ",", "\<\"09-09-2005 18:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09-09-2005 18:44\"\>", ",", "\<\"10-09-2005 07:33\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10-09-2005 07:33\"\>", ",", "\<\"10-09-2005 18:14\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10-09-2005 18:14\"\>", ",", "\<\"11-09-2005 11:17\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11-09-2005 11:17\"\>", ",", "\<\"12-09-2005 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12-09-2005 11:00\"\>", ",", "\<\"13-09-2005 11:23\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13-09-2005 11:23\"\>", ",", "\<\"14-09-2005 11:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14-09-2005 11:53\"\>", ",", "\<\"15-09-2005 11:35\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15-09-2005 11:35\"\>", ",", "\<\"16-09-2005 09:13\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708346192363*^9, 3.617708374283051*^9}, 
+   3.6177084064019203`*^9, 3.61804338221551*^9, {3.618114816637103*^9, 
+   3.6181148263168097`*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Convert the datestam to use forward slash rather than a dash. Also remove the \
+headers, as to create solely the shift data.\
+\>", "Text",
+ CellChangeTimes->{{3.617790603432642*^9, 3.617790634647406*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Partition", "[", 
+  RowBox[{
+   RowBox[{"Part", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringReplace", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}], "/@", 
+      RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+     RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.617708822268564*^9, 3.6177088268432493`*^9}, {
+  3.6181148343834333`*^9, 3.6181148418615437`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 11:00\"\>", ",", "\<\"06/09/2005 11:30\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 11:30\"\>", ",", "\<\"06/09/2005 12:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 12:00\"\>", ",", "\<\"06/09/2005 13:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 13:00\"\>", ",", "\<\"06/09/2005 14:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 14:00\"\>", ",", "\<\"06/09/2005 15:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 15:00\"\>", ",", "\<\"06/09/2005 16:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 16:53\"\>", ",", "\<\"06/09/2005 18:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 18:53\"\>", ",", "\<\"06/09/2005 21:43\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"06/09/2005 21:43\"\>", ",", "\<\"07/09/2005 06:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07/09/2005 06:44\"\>", ",", "\<\"07/09/2005 12:42\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07/09/2005 12:42\"\>", ",", "\<\"07/09/2005 18:45\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"07/09/2005 18:45\"\>", ",", "\<\"08/09/2005 06:46\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08/09/2005 06:46\"\>", ",", "\<\"08/09/2005 12:45\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08/09/2005 12:45\"\>", ",", "\<\"08/09/2005 16:10\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"08/09/2005 16:10\"\>", ",", "\<\"09/09/2005 07:12\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/09/2005 07:12\"\>", ",", "\<\"09/09/2005 12:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/09/2005 12:44\"\>", ",", "\<\"09/09/2005 18:44\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"09/09/2005 18:44\"\>", ",", "\<\"10/09/2005 07:33\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10/09/2005 07:33\"\>", ",", "\<\"10/09/2005 18:14\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"10/09/2005 18:14\"\>", ",", "\<\"11/09/2005 11:17\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"11/09/2005 11:17\"\>", ",", "\<\"12/09/2005 11:00\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"12/09/2005 11:00\"\>", ",", "\<\"13/09/2005 11:23\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"13/09/2005 11:23\"\>", ",", "\<\"14/09/2005 11:53\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"14/09/2005 11:53\"\>", ",", "\<\"15/09/2005 11:35\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"15/09/2005 11:35\"\>", ",", "\<\"16/09/2005 09:13\"\>"}], 
+    "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617708818704862*^9, 3.617708827206582*^9}, 
+   3.618043410508008*^9, {3.618114831157744*^9, 3.6181148423622217`*^9}}]
+}, Open  ]],
+
+Cell[TextData[{
+ "Export the data to the file \[OpenCurlyDoubleQuote]",
+ StyleBox["shift_times_sept-2005.csv",
+  FontSlant->"Italic"],
+ "\[CloseCurlyDoubleQuote]"
+}], "Text",
+ CellChangeTimes->{{3.617790640599045*^9, 3.617790668566025*^9}, {
+  3.618114847420059*^9, 3.6181148621326303`*^9}},
+ Background->GrayLevel[0.85]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_sept-2005.csv\>\"", ",", 
+   RowBox[{"Partition", "[", 
+    RowBox[{
+     RowBox[{"Part", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"\"\<-\>\"", "\[Rule]", " ", "\"\</\>\""}]}], "]"}], "&"}],
+         "/@", 
+        RowBox[{"Flatten", "[", "import", "]"}]}], ",", 
+       RowBox[{"3", ";;"}]}], "]"}], ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6177084073032217`*^9, 3.617708455315394*^9}, {
+   3.617708533255682*^9, 3.617708780205018*^9}, 3.6177088381096573`*^9, {
+   3.618043426252488*^9, 3.6180434278195143`*^9}, {3.618114864829795*^9, 
+   3.618114866365686*^9}}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/shift_times_sept-2005.csv\"\>"], "Output",
+ CellChangeTimes->{{3.617708420797626*^9, 3.617708444529879*^9}, {
+   3.6177085584654837`*^9, 3.6177086249299297`*^9}, {3.617708660299019*^9, 
+   3.617708687201579*^9}, {3.617708735293766*^9, 3.617708744461898*^9}, 
+   3.6177087846419992`*^9, 3.617708840061442*^9, 3.618043432415174*^9, 
+   3.618114869140215*^9}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Notes", "Section",
+ CellChangeTimes->{{3.617708075723984*^9, 3.617708081835472*^9}}],
+
+Cell[TextData[{
+ StyleBox["22nd August 2014\[LineSeparator]SVP",
+  FontSize->13],
+ StyleBox["\n\nScript created to convert the file \
+\[OpenCurlyDoubleQuote]shift_times_2004.txt\[CloseCurlyDoubleQuote], to \
+\[OpenCurlyDoubleQuote]shift_times_2004.csv\[CloseCurlyDoubleQuote]. Note \
+also that the date stamp is changed from \[OpenCurlyDoubleQuote]-\
+\[CloseCurlyDoubleQuote] separator, to \[OpenCurlyDoubleQuote]/\
+\[CloseCurlyDoubleQuote] separator. This is done to match the date-time \
+format in the \[OpenCurlyDoubleQuote]Chantigny_Precip_<tab name> \
+<initials>.csv\[CloseCurlyDoubleQuote] files.  ",
+  FontSize->11],
+ StyleBox["Note:",
+  FontSize->11,
+  FontWeight->"Bold"],
+ StyleBox[" that the code above has to customized each time it is used.",
+  FontSize->11]
+}], "Text",
+ CellChangeTimes->{{3.617708124489429*^9, 3.6177082333296623`*^9}, {
+  3.617708996760811*^9, 3.6177091603480663`*^9}, {3.617709225692067*^9, 
+  3.617709235832881*^9}},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{895, 811},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 150, 2, 92, "Title"],
+Cell[732, 26, 137, 3, 51, "Subtitle"],
+Cell[872, 31, 180, 4, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[1077, 39, 141, 2, 80, "Section"],
+Cell[1221, 43, 161, 2, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1419, 50, 207, 3, 80, "Section"],
+Cell[1629, 55, 574, 13, 65, "Text"],
+Cell[CellGroupData[{
+Cell[2228, 72, 345, 7, 63, "Input"],
+Cell[2576, 81, 2648, 72, 199, "Output"]
+}, Open  ]],
+Cell[5239, 156, 244, 5, 46, "Text"],
+Cell[CellGroupData[{
+Cell[5508, 165, 455, 12, 28, "Input"],
+Cell[5966, 179, 2539, 69, 199, "Output"]
+}, Open  ]],
+Cell[8520, 251, 265, 7, 46, "Text"],
+Cell[CellGroupData[{
+Cell[8810, 262, 712, 18, 80, "Input"],
+Cell[9525, 282, 388, 5, 46, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9962, 293, 108, 1, 50, "Section"],
+Cell[10073, 296, 627, 14, 65, "Text"],
+Cell[CellGroupData[{
+Cell[10725, 314, 400, 9, 80, "Input"],
+Cell[11128, 325, 3109, 84, 233, "Output"]
+}, Open  ]],
+Cell[14252, 412, 244, 5, 46, "Text"],
+Cell[CellGroupData[{
+Cell[14521, 421, 455, 12, 28, "Input"],
+Cell[14979, 435, 3005, 82, 233, "Output"]
+}, Open  ]],
+Cell[17999, 520, 318, 8, 46, "Text"],
+Cell[CellGroupData[{
+Cell[18342, 532, 768, 19, 63, "Input"],
+Cell[19113, 553, 414, 5, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19576, 564, 160, 2, 80, "Section"],
+Cell[19739, 568, 630, 14, 65, "Text"],
+Cell[CellGroupData[{
+Cell[20394, 586, 447, 9, 80, "Input"],
+Cell[20844, 597, 3051, 82, 233, "Output"]
+}, Open  ]],
+Cell[23910, 682, 244, 5, 46, "Text"],
+Cell[CellGroupData[{
+Cell[24179, 691, 508, 13, 28, "Input"],
+Cell[24690, 706, 2943, 79, 233, "Output"]
+}, Open  ]],
+Cell[27648, 788, 321, 8, 46, "Text"],
+Cell[CellGroupData[{
+Cell[27994, 800, 819, 20, 63, "Input"],
+Cell[28816, 822, 441, 6, 86, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[29306, 834, 90, 1, 50, "Section"],
+Cell[29399, 837, 989, 21, 127, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
