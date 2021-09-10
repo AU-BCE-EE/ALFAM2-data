@@ -35,11 +35,8 @@ for (i in names(dat)) {
 }
 
 # Check for errors
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    checkErrors(dat[[i]][[j]])
-  }
-}
+checkErrors(dat, log = 'error_check.txt')
+getwd()
 
 
 x <- dat[[1]][[1]]$emis
