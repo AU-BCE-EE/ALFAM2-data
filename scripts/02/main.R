@@ -18,6 +18,7 @@ library(plyr)
 
 # Read in functions
 source('../../functions/02/ALFAM_functions.R')
+source('../../functions/02/dfsumm.R')
 
 # Make database files
 sink('../logs/make_database_log.txt')
