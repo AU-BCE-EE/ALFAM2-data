@@ -1,57 +1,72 @@
-# 
+# Read in all ALFAM2 data and create csv file with complete interval-level database
+# S. Hafner
 
 # Date record
 print(Sys.time())
 
-# Read in data from files
-ddir <- list.dirs('../../data - submitted/02', recursive = FALSE)
-dat <- list()
+# Read in ALFAM1 data
+cat('\nReading ALFAM1.xlsx. . .\n')
+d1 <- readALFAM1File('../data - ALFAM1/ALFAM1.xlsx')
+cat('Done!\n')
+
+# ALFAM2 data
+ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
+d2 <- NULL
 for(i in ddir) {
   cat('Directory ', i,'\n')
   f <- list.files(i, pattern = 'xls', full.names = TRUE)
   # Omit temporary Excel files (created when main file is open)
   f <- f[!grepl('\\/~', f)]
-  dat[[i]] <- list()
+  d <- NULL
   for(j in f) {
     cat('   file ', j,'\n')
-    dat[[i]][[j]] <- readALFAM2File(j)
+    d <- rbind(d, xx <- readALFAM2File(j))
   }
+  d2 <- rbind(d2, d)
 }
-cat('Done! Read', length(dat), ' directories\n')
+cat('Done! Read', length(unique(d2$file)), ' files.\n')
 
-# Basic data cleaning
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    dat[[i]][[j]] <- cleanALFAM(dat[[i]][[j]])
+# Get publication info from sheet 4 in ALFAM2 files
+ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
+i <- ddir[1]
+f
+j <- f[1]
+dp2 <- NULL
+for(i in ddir) {
+  cat('Directory ', i,'\n')
+  f <- list.files(i, pattern = 'xls', full.names = TRUE)
+  # Omit temporary Excel files (created when main file is open)
+  f <- f[!grepl('\\/~', f)]
+  d <- NULL
+  for(j in f) {
+    cat('   file ', j,'\n')
+    pp <- as.data.frame(read_excel(j, sheet = 4, skip = 2, col_names = FALSE))
+    if (nrow(pp) > 0) {
+      names(pp) <- c('pub.id', 'pub.info')
+      # Add file name
+      x <- strsplit(j, '/')
+      pp$file <- x[[1]][[length(x[[1]])]]
+      d <- rbind(d, pp)
+    }
   }
+  dp2 <- rbind(dp2, d)
 }
+cat('Done! Read', length(unique(dp2$file)), ' files.\n')
 
-# Calculate emission
-# NTS: still need to sort out what to do with blank intervals
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    dat[[i]][[j]] <- calcEmis(dat[[i]][[j]], na = 'impute')
-  }
-}
+# Add complete citations
+d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
 
-# Check for errors
-checkErrors(dat, log = 'error_check.txt')
-getwd()
+# Stack them
+# Note order, to avoid time zone problem with app.start
+d <- rbindf(d2, d1)
 
+# Write out part
+write.csv(d, '../data - ALFAM2 output/ALFAM_part.csv', row.names = FALSE)
 
-x <- dat[[1]][[1]]$emis
-library(ggplot2)
-ggplot(x, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point()
-ggplot(x, aes(t.start, e.rel, colour = cpmid)) + geom_line() + geom_point()
-ggplot(x, aes(t.start, j.NH3, colour = cpmid)) + geom_line() + geom_point()
-ggplot(x, aes(t.start, air.temp, colour = cpmid)) + geom_line() + geom_point()
-
-# Good to here but what to do about missing intervals and ct calculation?
-
-
-names(dat[[1]][[1]]$plots)
-dat[[1]][[1]]$plots
-dat
+## Start here to save time when only the code below has been updated
+#d <- read.csv('../ouput/ALFAM_part.csv', as.is = TRUE)
+#d <- fixALFAMCSV(d) # Does this cause problem with indexing by institute below?
+#xx <- d
 
 # Create institute code
 inst1 <- as.character(sort(unique(d$institute[d$database == 1]))) 
