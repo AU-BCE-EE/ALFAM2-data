@@ -184,8 +184,8 @@ addCharID <- function(d) {
   # First one includes measurement technique
   d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
                     d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech)
-  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
-                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:')
+  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, 
+                   '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:')
 
   # Unique experiment IDs
   d$ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)

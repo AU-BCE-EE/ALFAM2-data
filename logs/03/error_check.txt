@@ -161,14 +161,14 @@ Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CR
 Unique (excld. NA)                                                                                                      4
 Missing values                                                                                                          0
 Sorted                                                                                                               TRUE
-                                                                                                                  cpid
-Class                                                                                                        character
-Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:
-Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:
-Unique (excld. NA)                                                                                                   4
-Missing values                                                                                                       0
-Sorted                                                                                                            TRUE
+                                                                                                        cpid
+Class                                                                                              character
+Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Unique (excld. NA)                                                                                         1
+Missing values                                                                                             0
+Sorted                                                                                                  TRUE
                                                               ceid      ct
 Class                                                    character numeric
 Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
@@ -345,14 +345,14 @@ Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CR
 Unique (excld. NA)                                                                                                      4
 Missing values                                                                                                          0
 Sorted                                                                                                               TRUE
-                                                                                                                  cpid
-Class                                                                                                        character
-Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:
-Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:
-Unique (excld. NA)                                                                                                   4
-Missing values                                                                                                       0
-Sorted                                                                                                            TRUE
+                                                                                                        cpid
+Class                                                                                              character
+Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
+Unique (excld. NA)                                                                                         1
+Missing values                                                                                             0
+Sorted                                                                                                  TRUE
                                                               ceid      ct
 Class                                                    character numeric
 Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
