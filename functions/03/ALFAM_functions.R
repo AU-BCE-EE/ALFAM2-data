@@ -31,7 +31,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Plots
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = FALSE, na = na.strings)
-  names(plots) <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'treat', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
+  names(plots) <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
                     'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
                     'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
                     'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
@@ -214,7 +214,7 @@ calcEmis <- function(obj, na = 'impute') {
   plots$uptake <- 3
 
   # Add plot info (including application rate) to emis
-  emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'treat', 'rep'), suffixes = c('.plot', '.int'))
+  emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep'), suffixes = c('.plot', '.int'))
 
   # Drop intervals with missing emission measurements
   # NTS: how to handle this?
@@ -1320,7 +1320,7 @@ imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
 
 checkErrors <- function(obj, log = 'error_log.txt') {
 
-  sink(paste0('../../logs/02/', log))
+  sink(paste0('../../logs/03/', log))
 
   for (i in names(dat)) {
     for (j in names(dat[[i]])) {
@@ -1413,7 +1413,7 @@ checkErrors <- function(obj, log = 'error_log.txt') {
       x <- subset(s, n.int.duplicates > 1)
       x
       y <- subset(d, cpmid == x$cpmid)
-      y[, c('file', 'inst', 'institute', 'row.in.file.int', 'plot', 'rep', 'rep2')]
+      y[, c('file', 'institute', 'row.in.file.int', 'plot', 'rep')]
       
       # Shift time mismatches
       # Should be none
@@ -1422,7 +1422,7 @@ checkErrors <- function(obj, log = 'error_log.txt') {
       y$problem <- c(y$cpmid[-nrow(y)] == y$cpmid[-1] & y$t.end[-nrow(y)] > y$t.start[-1], NA)
       y$overlap <- c(as.numeric(difftime(y$t.end[-nrow(y)], y$t.start[-1], units = 'hours')), NA)
       x <- subset(y, problem)
-      x[, c('file', 'inst', 'institute', 'row.in.file.int', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
+      x[, c('file', 'institute', 'row.in.file.int', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
       
       ## Very short sets
       #x <- subset(ds, n.ints < 4)
@@ -1481,7 +1481,7 @@ checkErrors <- function(obj, log = 'error_log.txt') {
       # Only with no manure for INRA, plus many for SDU
       x <- subset(d, is.na(crop))
       unique(x$institute)
-      unique(x[, c('institute', 'crop', 'crop.orig', 'man.source')])
+      unique(x[, c('institute', 'crop', 'man.source')])
       x[, c('institute', 'file', 'row.in.file.int', 'crop')]
       
       x <- subsetd(d, dt == 0)

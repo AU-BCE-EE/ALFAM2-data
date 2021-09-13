@@ -37,6 +37,8 @@ for (i in names(dat)) {
 # Check for errors
 checkErrors(dat, log = 'error_check.txt')
 getwd()
+traceback()
+sink()
 
 
 x <- dat[[1]][[1]]$emis
