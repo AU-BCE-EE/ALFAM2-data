@@ -1,19 +1,23 @@
 # Runs everything necessary for making database from submitted data
 # Creates interval-level and plot-level files for ALFAM2 database
-# S. Hafner
+# This version processes only data from uptake 2 in ALFAM2
+# ALFAM(1) data and uptake 1 data from ALFAM2 are simply read from output in data - ALFAM2 output/01
 
 # To get errors for any warnings
 options(warn = 2) 
 
-# Set database version
-version <- '1.4' # April 2020
+# Set uptake number and database version
+uptake <- 3
+version <- '2.0' # September 2021
 
-# Packages
-library(readxl)
-library(plyr)
+source('packages.R')
+
+# Record versions
+# source('package_versions.R')
 
 # Read in functions
-source('../functions/ALFAM_functions.R')
+source('../../functions/03/ALFAM_functions.R')
+source('../../functions/03/dfsumm.R')
 
 # Make database files
 sink('../logs/make_database_log.txt')

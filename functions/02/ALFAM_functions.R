@@ -1,115 +1,304 @@
 # Functions for reading in ALFAM2 data
 # S. Hafner
 
-readALFAM2File <- function(file, institute, version = '3.3') {
+summLogistic <- function(mod, eref, drop.inst = TRUE, drop.int = TRUE, show.app.effect = FALSE) {
+  if(is.vector(mod)) {
+    tbeta <- exp(mod)
+    oddsref <- eref/(1 - eref)
+    oddseffect <- tbeta*oddsref
+    emiseffect <- oddseffect/(1 + oddseffect)
+    rel.effect <- 100*(emiseffect/eref - 1)
+    return(rel.effect)
+  }
 
-  # Read in data from multiple sheets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  na.strings <- c('', 'NA', 'na', 'Na', 'NaN')
+  modsumm <- as.data.frame(summary(mod)[[4]])
+  tbeta <- exp(modsumm[, 1])
+  oddsref <- eref/(1 - eref)
+  oddseffect <- tbeta*oddsref
+  emiseffect <- oddseffect/(1 + oddseffect)
+  rel.effect <- 100*(emiseffect/eref - 1)
+  app.effect <- 100*(emiseffect - eref)
+  # Or next line, above easier to track
+  #rel.effect <- (((tbeta*eref/(1-eref))/(1 + tbeta*eref/(1-eref))/eref) - 1)*100
 
-  # Submitter info
-  submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = FALSE, na = na.strings)
-  submitter <- data.frame(t(submitter[, 2]))
-  names(submitter) <- c('institute', 'inst.abbrev', 'measurer', 'submitter', 'version', 'date')
-  submitter <- data.frame(submitter)
+  modsumm <- insertCol(rel.effect, modsumm, 1)
+  if(show.app.effect) {
+    modsumm <- insertCol(app.effect, modsumm, 2)
+    names(modsumm) <- c('reffect', 'appeffect', 'estimate', 'se', 'tval', 'pval')
+  }
+  names(modsumm) <- c('reffect', 'estimate', 'se', 'tval', 'pval')
+  modsumm <- rounddf(modsumm, 3)
+  modsumm$pval <- as.character(modsumm$pval)
+  modsumm$pval <- ifelse(as.numeric(modsumm$pval)>= 0.0001, modsumm$pval, '<0.0001')
+  if(drop.inst) modsumm <- modsumm[!grepl('^i', rownames(modsumm)), ]
+  if(drop.int) modsumm <- modsumm[!grepl('Intercept', rownames(modsumm)), ]
+  return(modsumm)
+}
 
-  # Contributers - to save by institute and file eventually
-  contrib <- read_xlsx(file, sheet = 3, skip = 1, col_names = FALSE, na = na.strings)
-  names(contrib) <- c('contributor', 'institute')
-  contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
 
-  # Experiments
-  exper <- read_xlsx(file, sheet = 4, skip = 1, col_names = FALSE, na = na.strings)
-  names(exper) <- c('proj', 'exper', 'pub.id', 'varied', 'emis.tech', 'conc.tech', 'pH.tech', 'notes.exper')[1:ncol(exper)]
-  exper <- data.frame(exper)
-  exper <- exper[rowSums(!is.na(exper)) > 0, ]
+#summLog <- function(mod, drop.inst = TRUE, drop.int = TRUE, show.app.effect = FALSE) {
+#
+#  modsumm <- as.data.frame(summary(mod)[[4]])
+#  tbeta <- exp(modsumm[, 1])
+#  oddsref <- eref/(1 - eref)
+#  oddseffect <- tbeta*oddsref
+#  emiseffect <- oddseffect/(1 + oddseffect)
+#  rel.effect <- 100*(emiseffect/eref - 1)
+#  app.effect <- 100*(emiseffect - eref)
+#  # Or next line, above easier to track
+#  #rel.effect <- (((tbeta*eref/(1-eref))/(1 + tbeta*eref/(1-eref))/eref) - 1)*100
+#  modsumm <- insertCol(rel.effect, modsumm, 1)
+#  if(show.app.effect) {
+#    modsumm <- insertCol(app.effect, modsumm, 2)
+#    names(modsumm) <- c('reffect', 'appeffect', 'estimate', 'se', 'tval', 'pval')
+#  }
+#  names(modsumm) <- c('reffect', 'estimate', 'se', 'tval', 'pval')
+#  modsumm <- rounddf(modsumm, 3)
+#  modsumm$pval <- as.character(modsumm$pval)
+#  modsumm$pval <- ifelse(as.numeric(modsumm$pval)>= 0.0001, modsumm$pval, '<0.0001')
+#  if(drop.inst) modsumm <- modsumm[!grepl('^i', rownames(modsumm)), ]
+#  if(drop.int) modsumm <- modsumm[!grepl('Intercept', rownames(modsumm)), ]
+#  return(modsumm)
+#}
 
-  # Treatments
-  treat <- read_xlsx(file, sheet = 5, skip = 1, col_names = FALSE, na = na.strings)
-  names(treat) <- c('proj', 'exper', 'treat', 'treat.descrip')[1:ncol(treat)]
-  treat <- data.frame(treat)
-  treat <- treat[rowSums(!is.na(treat)) > 0, ]
+readALFAM1File <- function(file) {
 
-  # Plots
-  plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = FALSE, na = na.strings)
-  names(plots) <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'treat', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                    'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                    'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
-                    'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                    'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                    'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')[1:ncol(plots)]
-  plots <- data.frame(plots)
-  plots$row.in.file <- 1:nrow(plots) + 4
-  plots <- plots[rowSums(!is.na(plots)) > 1, ]
+  require(gdata)
+  d <- read.xls(file, sheet = 1, skip = 6, header = FALSE, as.is = TRUE)
 
-  # Emission
-  emis <- read_xlsx(file, sheet = 7, skip = 6, col_names = FALSE, na = na.strings)
-  names(emis) <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
-                   'meas.tech', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
-                   'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
-                   'rad', 'wind', 'wind.z', 
-                   # Check these
-                   'MOL', 'ustar', 'rl', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.emis')[1:ncol(emis)]
-  emis <- data.frame(emis)
-  emis$row.in.file <- 1:nrow(emis) + 4
-  emis <- emis[rowSums(!is.na(emis)) > 1, ]
+  # Column types
+  # Note that integer codes are set to character for indexing later
+  cc <- c(rep('character', 9), interval = 'integer', rep('character', 2), rep('numeric', 2), 'character', rep('numeric', 5), SoilMoist = 'character', rep('numeric', 9), rep('character', 3), rep('numeric', 5), ManureAppl = 'character', 'numeric', 'character', 'numeric', CropType = 'character', 'numeric', rep('character', 2))
 
-  # Publications
-  pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings)
-  names(pubs) <- c('pub.id', 'citation')
-  pubs <- data.frame(pubs)
-  pubs <- data.frame(pubs)
+  # Column names
+  names(d) <- c('institute', 'proj', 'exper', 'plot', 'rep', DataSource = 'data.source', Experiment = 'exper2', 'treat', 'rep2', 'interval', 't.start', 't.end', 'dt', 'j.NH3', 'soil.type', 'clay', 'silt', 'sand', 'oc', 'soil.water', 'soil.moist', 'soil.ph', 'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'rad', 'wind', 'wind.z', 'rain', 'man.source', 'man.trt1', 'man.bed', 'man.dm', 'man.tkn', 'man.tan', 'man.ua', 'man.ph', 'app.method', 'app.rate', 'incorp', 'time.incorp', 'crop', 'crop.z', 'meas.tech', 'till')
 
-  return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file))
+  # Assign column types
+  for(i in 1:ncol(d)) {
+    d[, i] <- eval(parse(text = paste0('as.', cc[i], '(d[, i])')))
+  }
+
+  # Add file name
+  x <- strsplit(file, '/')
+  d$file <- x[[1]][[length(x[[1]])]]
+
+  # Add original row numbers
+  d$row.in.file <- 1:nrow(d) + 7
+
+  # Data base
+  d$database <- 1
+
+  # Convert integer codes
+
+  # Start with man.con, which is from man.source
+  # 10 = cattle urine from old Swiss data
+  mc.code <- c(`1` = 'Slurry', `2` = 'Slurry', `3` = 'Solid', `4` = 'Solid', `5` = 'Slurry', `6` = 'Solid', `7` = NA, `8` = 'Liquid', `9` = 'Solid', `10` = 'Liquid')
+  d$man.con <- mc.code[d$man.source]
+
+  int.codes <- list(
+    soil.type = c(`1` = 'Sand', `2` = 'Clay', `3` = 'Loam', `4` = 'Organic'), 
+    soil.moist = c(`1` = 'Wet', `2` = 'Dry'), 
+    # 10 = cattle urine from old Swiss data
+    man.source = c(`1` = 'Pig', `2` = 'Cattle', `3` = 'Pig', `4` = 'Cattle', `5` = 'Poultry', `6` = 'Poultry', `7` = 'Sewage sludge', `8` = 'Mixed', `9` = 'Mixed', `10` = 'Cattle'), 
+    man.trt1 = c(`0` = 'None', `1` = 'In-house separation', `2` = 'Mechanical separation', `3` = 'Aerobic treatment', `4` = 'Anaerobic digestion'), 
+    man.bed = c(`0` = 'None', `1` = 'Straw', `2` = 'Sawdust', `3` = 'Paper'), 
+    app.method = c(`0` = 'Broadcast', `1` = 'Band spread or trailing hose', `2` = 'Trailing shoe', `3` = 'Open slot', `4` = 'Closed slot', `5` = 'Pressurized injection'), 
+    incorp = c(`0` = 'None', `1` = 'Deep', `2` = 'Shallow'), 
+    crop = c(`1` = 'Grass', `2` = 'Stubble', `3` = 'Bare soil', `4` = 'Growing crop'), 
+    meas.tech = c(`1` = 'Wind tunnel', `2` = 'Micro met', `3` = 'Dynamic chamber', `4` = 'Other'), 
+    till = c(`0` = 'No', `1` = 'Yes')
+  )
+
+  for(i in names(int.codes)) {
+    d[, i] <- int.codes[[i]][d[, i]]
+  }
+
+  # Add blank column for app.start (fixes problem in rbindf of d1 and d2 in make_database, where result was numeric)
+  d$app.start <- NA
+
+  # Convert t.start, t.end, and app.start to POSIX
+  # Fix dates
+  for(i in c('t.start', 't.end', 'app.start')) {
+    d[, i] <- as.POSIXct(d[, i], format = '%d-%m-%Y %H:%M', tz = 'GMT')
+  }
+
+
+  # Convert wind.z (HeightWind in Excel file) to m
+  d$wind.z <- d$wind.z/100
+
+  # Add application rate unit
+  d$app.rate.unit <- 't/ha'
+
+  # Add flux units
+  # No conversion needed here
+  d$j.NH3.unit <- d$j.NH3.unit.orig <- 'kg N/ha-hr'
+
+  # Fix soil (get texture class from % sand etc., add soil.type2 column)
+  d <- addSoilText(d)
+
+  # No soil.dens, can't do it
+  ## Add soil.moist where missing, based on water-filled pore space
+  #d <- calcSoilMoist(d)
+
+  ### Add some columns
+  ##d <- addALFAMVars(d)
+
+  # Return
+  return(d)
 
 }
 
-cleanALFAM <- function(obj) {
+readALFAM2File <- function(file, institute) {
 
-  submitter <- obj$submitter
-  contrib <- obj$contrib
-  exper <- obj$exper
-  treat <- obj$treat
-  plots <- obj$plots
-  emis <- obj$emis
-  pubs <- obj$pubs
-  file <- obj$file
+  require(gdata)
+  require(plyr)
 
-  # Work with plots data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)
-  plots$lat <- DMS2DD(plots$lat)
-  plots$long <- DMS2DD(plots$long)
+  d <- read.xls(file, sheet = 1, skip = 7, header = FALSE, as.is = TRUE)
+  # In case there are extra columns, drop them
+  d <- d[, 1:71]
 
-  # Dates and times
-  plots$app.start.orig <- plots$app.start
-  plots$app.end.orig <- plots$app.end
+  #pubs <- read.xls(file, sheet = 4, skip = 2, header = FALSE, as.is = TRUE)
 
-  plots$app.start <- fixDateTime(plots$app.start.orig)
-  plots$app.end <- fixDateTime(plots$app.end.orig)
+  # Column types
+  # Note furrow measurements are character to be more flexible (some input data are character, see AAFC)
+  # Fartherst measurement location also character for, e.g., MU who entered "Field"
+  cc <- c(rep('character', 7), rep('character', 2), rep('character', 2), 'integer', rep('character', 4), 'numeric', 'character', 'numeric', 'character', 'numeric', 'character', rep('numeric', 4), 'character', 'numeric', 'character', 'numeric', 'numeric', 'character', 'character', rep('numeric', 9), wind.loc = 'character', farthest.loc = 'character', rep('character', 5), rep('numeric', 7), 'character', 'character', 'numeric', rep('character', 3), rep('numeric', 2), furrowdepth = 'character', furrowwidth= 'character', 'character', rep('numeric', 3), 'character')
+
+  # Column names
+  cn <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'treat', 'rep', 'lat', 'long', 'long.dir', 'topo', 'interval', 't.start', 't.end', 'dt', 'meas.tech', 'plot.area', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.moist', 'soil.ph', 'soil.dens', 'crop.res', 'till', 'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'rad', 'wind', 'wind.z', 'rain', 'rh', 'wind.loc', 'far.loc', 'man.source', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 'man.dm', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.ph', 'app.start', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+
+  # Helps with finding problems in column type vector
+  #cbind(1:length(cc), cn, cc)
+
+  # Assign column types
+  for(i in 1:ncol(d)) {
+    d[, i] <- eval(parse(text = paste0('as.', cc[i], '(d[, i])')))
+  }
+
+  # Column names
+  names(d) <- cn
+
+  # Add institute and file name
+  x <- strsplit(file, '/')
+  if(missing(institute)) {
+    institute <- x[[1]][[length(x[[1]])-1]]
+  }
+  d$institute <- institute
+  d$file <- x[[1]][[length(x[[1]])]]
+
+  # Add original row numbers
+  d$row.in.file <- 1:nrow(d) + 9
+
+  # Data base
+  d$database <- 2
+
+  # Sort out lat and long (change to decimal degrees if needed)
+  d$lat <- DMS2DD(d$lat)
+  d$long <- DMS2DD(d$long)
+  # Convert W to negative long
+  d$long.dir <- tolower(substring(d$long.dir, 1, 1))
+  d$long[!is.na(d$long.dir) && d$long.dir == 'w'] <- - d$long[!is.na(d$long.dir) && d$long.dir == 'w']
+
+  d$t.start.orig <- d$t.start
+  d$t.end.orig <- d$t.end
+  d$app.start.orig <- d$app.start
+
+  # Sort out interval dates and times
+  # This big block results in character date/time with format '%d-%m-%Y %H:%M'
+  d[, c('t.start.flag', 't.end.flag', 'app.start.flag')] <- ''
+  for(i in c('t.start', 't.end', 'app.start')) {
+    # Now applied row-by-row
+    for(j in 1:nrow(d)) {
+      if(!is.na(d[j, i]) & nchar(d[j, i])>8) {
+        d[j, i] <- gsub('/', '-', d[j, i])
+        d[j, paste0(i, '.flag')][grepl('\\.', d[j, i])] <- 'decimal point'
+        d[j, i] <- gsub('\\.', ':', d[j, i])
+        day <- as.numeric(lapply(d[j, i], function(x) strsplit(x, '-')[[1]][1]))
+        month <- as.numeric(lapply(d[j, i], function(x) strsplit(x, '-')[[1]][2]))
+        year <- as.numeric(lapply(d[j, i], function(x) strsplit(x, '[- ]')[[1]][3]))
+        tt <- as.character(lapply(d[j, i], function(x) strsplit(x, '[- ]')[[1]][4]))
+        if(nchar(year) != 4) {
+          d[j, paste0(i, '.flag')] <- paste0(d[j, paste0(i, '.flag')], ', 2 digit year')
+          if(year > 50) {
+            year <- year + 1900
+          } else if(year < 20) {
+            year <- year + 2000
+          } else {
+            stop('Error in readALFAM2() with year. Code BerlYu1776.')
+          }
+        }  
+        if(month > 12) {
+          d[j, paste0(i, '.flag')] <- paste0(d[j, paste0(i, '.flag')], ', month and day switched')
+          if(day > 12) {
+            stop('Both month and day have values > 12 in ', i, '. Code Aheruna1299.')
+          }
+          dd <- day
+          day <- month
+          month <- dd
+        }
+        # Pad with leading 0s
+        day <- sprintf('%02d', day)
+        month <- sprintf('%02d', month)
+        date.time.char <- paste0(year, '-', month, '-', day, ' ', tt)
+        d[j, i] <- date.time.char
+      } else d[j, i] <- NA
+    }
+  }
+
+  # Convert all three date.time columns to POSIX
+  # Note order: Y M D
+  for(i in c('t.start', 't.end', 'app.start')) {
+    d[, i] <- as.POSIXct(d[, i], format = '%Y-%m-%d %H:%M', tz = 'GMT')
+  }
 
   # Convert incorportation time in hh:mm to decimal hours
-  # NTS: convert to function
   # Assumes values given with no : are just in hours
-  plots$time.incorp <- HM2DH(plots$time.incorp)
+  d$time.incorp <- as.character(d$time.incorp)
+  if(any(grepl(':', d$time.incorp))) d$time.incorp[grepl(':', d$time.incorp)] <- as.numeric(lapply(d$time.incorp[grepl(':', d$time.incorp)], function(x) strsplit(x, ':')[[1]][1])) + as.numeric(lapply(d$time.incorp[grepl(':', d$time.incorp)], function(x) strsplit(x, ':')[[1]][2]))/60
+  d$time.incorp <- as.numeric(d$time.incorp)
+
+  # Calculate dt = elapsed time in hours
+  if(sum(!is.na(d$t.start) & !is.na(d$t.end))>0) d$dt.calc <- as.numeric(d$t.end - d$t.start, units = 'hours') else d$dt.calc <- NA
+
+  # Convert reported dt to decimal hours
+  if(any(grepl(':', d$dt))) d$dt[grepl(':', d$dt)] <- as.numeric(lapply(d$dt, function(x) strsplit(x, ':')[[1]][1]))[grepl(':', d$dt)] + as.numeric(lapply(d$dt, function(x) strsplit(x, ':')[[1]][2]))[grepl(':', d$dt)]/60
+  d$dt <- as.numeric(d$dt)
+
+  d$dt[is.na(d$dt)] <- d$dt.calc[is.na(d$dt)]
+  d$dt.diff <- d$dt - d$dt.calc
+  #d$dt.flag <- ''
+  #d$dt.flag[d$dt != d$dt.calc] <- paste('reported and calculated dt do not match. Difference of', signif((d$dt - d$dt.calc)[d$dt != d$dt.calc], 2))
+
+  # Sort out emission units
+  cf <- c('kg N/ha-hr' = 1, 
+	  'ug NH3/m2-s' = 1/1E9*14.007/17.03*1E4*3600, 
+	  'ng/m2-s' = 1/1E12*1E4*3600, 
+	  'ug/m2-s' = 1/1E9*1E4*3600, 
+	  'mg N/m2-hr' = 1/1E6*1E4, 
+          'ng NH3 m-2 s-1' = 14.007/17.031*1/1E12*1E4*3600, 
+          'ug NH3/m2-s' = 14.007/17.031*1/1E9*1E4*3600, 
+          'ug/m2/s' = 1/1E9*1E4*3600)
+
+  d$j.NH3.unit.orig <- d$j.NH3.unit
+  d$j.NH3.orig <- d$j.NH3
+  # Use indexing to add conversion factor for flux units
+  d$j.NH3.conv.fact <- cf[d$j.NH3.unit.orig]
+  d$j.NH3.unit <- 'kg N/ha-hr'
+  d$j.NH3 <- d$j.NH3.orig*d$j.NH3.conv.fact
 
   # Fix slurry application rate where it was given as TAN application rate (only ARDC--Shabtai's data)
-  plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha'] <- plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha']/plots$man.tan[plots$app.rate.unit == 'kg NH4-N/ha']
-  plots$app.rate.unit[plots$app.rate.unit == 'kg NH4-N/ha'] <- 't/ha'
+  d$app.rate[d$app.rate.unit == 'kg NH4-N/ha'] <- d$app.rate[d$app.rate.unit == 'kg NH4-N/ha']/d$man.tan[d$app.rate.unit == 'kg NH4-N/ha']
+  d$app.rate.unit[d$app.rate.unit == 'kg NH4-N/ha'] <- 't/ha'
 
   # Sort out crop height for bare soil
-  plots$crop.z[tolower(plots$crop) == 'bare soil'] <- 0
-  plots$crop.area[tolower(plots$crop) == 'bare soil'] <- 0
+  d$crop.z[tolower(d$crop) == 'bare soil'] <- 0
+  d$crop.area[tolower(d$crop) == 'bare soil'] <- 0
 
-  # NTS: Use checks instead
-  ### Fix air.temp.z values apparently given in m not cm
-  ##plots$air.temp.z[!is.na(plots$air.temp.z) && plots$air.temp.z < 3] <- plots$air.temp.z[!is.na(plots$air.temp.z) && plots$air.temp.z < 3]*100
+  # Fix air.temp.z values apparently given in m not cm
+  d$air.temp.z[!is.na(d$air.temp.z) && d$air.temp.z < 3] <- d$air.temp.z[!is.na(d$air.temp.z) && d$air.temp.z < 3]*100
 
-  ## Add institute and file name
-  #x <- strsplit(file, '/')
-  #if(missing(institute)) {
-  #  institute <- x[[1]][[length(x[[1]])-1]]
-  #}
-  #d$institute <- institute
-  #d$file <- x[[1]][[length(x[[1]])]]
+  # Fix soil (get texture class from % sand etc., add soil.type2 column)
+  d <- addSoilText(d)
 
   ## Set missing tillage values to No
   ## NTS: seems to already be corrected! Not sure how.
@@ -120,131 +309,28 @@ cleanALFAM <- function(obj) {
   # Add soil.moist where missing, based on water-filled pore space
   #d <- calcSoilMoist(d)
 
-  # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # Dates and times
-  emis$t.start <- fixDateTime(emis$t.start)
-  emis$t.end <- fixDateTime(emis$t.end)
-
-  # Sort out emission units
-  cf <- c('kg N/ha-hr' = 1, 
-          'kg N/ha/hr' = 1, 
-          'kg N/ha/h' = 1, 
-          'kg TAN/ha-hr' = 1, 
-          'kg TAN/ha/hr' = 1, 
-          'kg TAN/ha/h' = 1, 
-	  'ug NH3/m2-s' = 1/1E9*14.007/17.03*1E4*3600, 
-	  'ng/m2-s' = 1/1E12*1E4*3600, 
-	  'ug/m2-s' = 1/1E9*1E4*3600, 
-	  'mg N/m2-hr' = 1/1E6*1E4, 
-          'ng NH3 m-2 s-1' = 14.007/17.031*1/1E12*1E4*3600, 
-          'ug NH3/m2-s' = 14.007/17.031*1/1E9*1E4*3600, 
-          'ug/m2/s' = 1/1E9*1E4*3600,
-          'µg/m2/s' = 1/1E9*1E4*3600
-         )
-
-  emis$j.NH3.unit.orig <- emis$j.NH3.unit
-  emis$j.NH3.orig <- emis$j.NH3
-  # Use indexing to add conversion factor for flux units
-  emis$j.NH3.conv.fact <- cf[emis$j.NH3.unit.orig]
-  emis$j.NH3.unit <- 'kg N/ha-hr'
-  emis$j.NH3 <- emis$j.NH3.orig*emis$j.NH3.conv.fact
-
-  # Calculate dt = interval duration in hours
-  if(sum(!is.na(emis$t.start) & !is.na(emis$t.end))>0) {
-    emis$dt.calc <- as.numeric(emis$t.end - emis$t.start, units = 'hours') 
-  } else {
-    emis$dt.calc <- NA
-  }
-
-  # Convert reported dt to decimal hours
-  emis$dt <- HM2DH(emis$dt)
-
-  emis$dt[is.na(emis$dt)] <- emis$dt.calc[is.na(emis$dt)]
-  emis$dt.diff <- emis$dt - emis$dt.calc
-  # NTS: flags?
-  #emis$dt.flag <- ''
-  #emis$dt.flag[emis$dt != emis$dt.calc] <- paste('reported and calculated dt do not match. Difference of', signif((d$dt - d$dt.calc)[d$dt != d$dt.calc], 2))
-
-  # Add file
-  emis$file <- file
-
-  # Return objects, most unchanged
-  obj$plots <- plots
-  obj$emis <- emis
-  return(obj)
-
-}
-
-addCharID <- function(d) {
-
-  # Unique character plot IDs
-  # First one includes measurement technique
-  d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
-                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech)
-  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
-                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:')
-
-  # Unique experiment IDs
-  d$ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
+  # NTS: Remove entirely?
+  ### Add some columns
+  ##d <- addALFAMVars(d)
 
   return(d)
 
 }
 
-calcEmis <- function(obj, na = 'impute') {
-
-  submitter <- obj$submitter
-  contrib <- obj$contrib
-  exper <- obj$exper
-  treat <- obj$treat
-  plots <- obj$plots
-  emis <- obj$emis
-  pubs <- obj$pubs
-  file <- obj$file
-
-  # Applied TAN (kg N/ha)
-  plots$tan.app <- plots$app.rate * plots$man.tan
-
-  # Merges ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  plots$institute <- submitter$inst.abbrev
-  # NTS: inconsistent, partial switch to ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
-  plots$uptake <- 3
-
-  # Add plot info (including application rate) to emis
-  emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'treat', 'rep'), suffixes = c('.plot', '.int'))
-
-  # Drop intervals with missing emission measurements
-  # NTS: how to handle this?
-  if (na == 'drop') {
-    emis <- emis[!is.na(emis$j.NH3), ]
-  }
-
-  emis <- addCharID(emis)
-
-  # Calculate emission
-  emis <- emis[order(emis$cpmid, emis$interval), ]
-  for (i in unique(emis$cpmid)) {
-    emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
-    if (na == 'impute' & any(is.na(emis[emis$cpmid == i, 'j.NH3']))) {
-      emis[emis$cpmid == i, 'j.NH3'] <- imputeVars(emis[emis$cpmid == i, ], 'ct', 'j.NH3', method = 'linear')
-    }
-    emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
-    emis[emis$cpmid == i, 'e.cum'] <- cumsum(emis[emis$cpmid == i, 'e.int'])
-  }
-
-  # Relative emission, fraction of applied TAN
-  emis$e.rel <- emis$e.cum / emis$tan.app
-  
-  obj$plots <- plots
-  obj$emis <- emis
-  return(obj)
- 
-}
-
-
 # Function for adding variables to an ALFAM data frame
 addALFAMVars <- function(d) {
 
+  require(plyr)
+
+  # Unique character plot IDs
+  # First one includes measurement technique
+  d$cpmid <- paste0('D:', as.numeric(factor(d$database)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
+                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech)
+  d$cpid <- paste0('D:', as.numeric(factor(d$database)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
+                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:')
+
+  # Unique experiment IDs
+  d$ceid <- paste0('D:', as.numeric(factor(d$database)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
 
   # Applied TAN (kg N/ha)
   d$tan.app <- d$app.rate*d$man.tan
@@ -299,14 +385,6 @@ addALFAMVars <- function(d) {
 
   ###################################################################################################################
   # Emission calculations
-
-  ### Interpolate missing values (may be due to only different measurement frequencies)
-  ### NTS sort out flags!
-  ##for (i in unique(d$cpmid)) {
-  ##  if (any(is.na(d[d$cpmid == i, 'j.NH3']))) {
-  ##    d[d$cpmid == i, 'j.NH3'] <- imputeVars(d = d[d$cpmid == i, 'j.NH3'], 'ct', 'j.NH3')
-  ##  }
-  ##}
 
   # NH3 emission in each interval
   d$e.int <- d$j.NH3*d$dt
@@ -548,6 +626,8 @@ fixALFAMCSV <- function(d) {
 
 summALFAM <- function(d, normalize = FALSE, ...) {
 
+  require(plyr)
+
   # Sort
   d <- d[order(d$pmid, d$ct),]
 
@@ -556,46 +636,74 @@ summALFAM <- function(d, normalize = FALSE, ...) {
   ds <- ddply(d, c('database', 'institute', 'inst', 'country', 'file', 'proj', 'exper', 'exper2', 'eid', 'field', 'plot', 'pid', 'pmid'), 
 	      summarise, 
 
+              # Misc
+              pub.id = pub.id[1],
+              pub.info = pub.info[1],
+
+              # Location info
+	      lat = lat[1],
+	      long = long[1],
+	      topo = topo[1],
+	      plot.area = plot.area[1],
+              plot = plot[1],
+              treat = treat[1],
+              rep = rep[1],
+              rep2 = rep2[1],
+
               # File info
               first.row.in.file = min(row.in.file), 
 	      last.row.in.file = max(row.in.file), 
 
+              # Soil
+              clay = clay[1], 
+	      silt = silt[1], 
+	      sand = sand[1], 
+	      oc = oc[1], 
+              soil.type = soil.type[1],
+              soil.type2 = soil.type2[1],
+              soil.water = soil.water[1], 
+              soil.moist = soil.moist[1], 
+	      soil.ph = soil.ph[1],
+              soil.dens = soil.dens[1], 
+              #v.water = v.water[1], 
+	      crop.res = crop.res[1],
+              till = till[1],
 
 	      # Weather, weighted means for most
-              air.temp.6  =  if(any(ct<=6))  sum((air.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              air.temp.12 =  if(any(ct<=12)) sum((air.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              air.temp.24 =  if(any(ct<=24)) sum((air.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              air.temp.48 =  if(any(ct<=48)) sum((air.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              air.temp.72 =  if(any(ct<=72)) sum((air.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              air.temp.mn = sum(air.temp*dt)/sum(dt),
+        air.temp.6  =  if(any(ct<=6))  sum((air.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
+        air.temp.12 =  if(any(ct<=12)) sum((air.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        air.temp.24 =  if(any(ct<=24)) sum((air.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        air.temp.48 =  if(any(ct<=48)) sum((air.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        air.temp.72 =  if(any(ct<=72)) sum((air.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        air.temp.mn = sum(air.temp*dt)/sum(dt),
 
-              soil.temp.6  =  if(any(ct<=6))  sum((soil.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              soil.temp.12 =  if(any(ct<=12)) sum((soil.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              soil.temp.24 =  if(any(ct<=24)) sum((soil.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              soil.temp.48 =  if(any(ct<=48)) sum((soil.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              soil.temp.72 =  if(any(ct<=72)) sum((soil.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              soil.temp.mn = sum(soil.temp*dt)/sum(dt),
+        soil.temp.6  =  if(any(ct<=6))  sum((soil.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
+        soil.temp.12 =  if(any(ct<=12)) sum((soil.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        soil.temp.24 =  if(any(ct<=24)) sum((soil.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        soil.temp.48 =  if(any(ct<=48)) sum((soil.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        soil.temp.72 =  if(any(ct<=72)) sum((soil.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        soil.temp.mn = sum(soil.temp*dt)/sum(dt),
 
-              rad.6  = if(any(ct<=6))  sum((rad*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              rad.12 = if(any(ct<=12)) sum((rad*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rad.24 = if(any(ct<=24)) sum((rad*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rad.48 = if(any(ct<=48)) sum((rad*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rad.72 = if(any(ct<=72)) sum((rad*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rad.mn = sum(rad*dt)/sum(dt),
+        rad.6  = if(any(ct<=6))  sum((rad*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
+        rad.12 = if(any(ct<=12)) sum((rad*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        rad.24 = if(any(ct<=24)) sum((rad*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        rad.48 = if(any(ct<=48)) sum((rad*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        rad.72 = if(any(ct<=72)) sum((rad*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        rad.mn = sum(rad*dt)/sum(dt),
 
-              wind.6  = if(any(ct<=6))  sum((wind*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              wind.12 = if(any(ct<=12)) sum((wind*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              wind.24 = if(any(ct<=24)) sum((wind*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              wind.48 = if(any(ct<=48)) sum((wind*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              wind.72 = if(any(ct<=72)) sum((wind*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              wind.mn = sum(wind*dt)/sum(dt),
+        wind.6  = if(any(ct<=6))  sum((wind*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
+        wind.12 = if(any(ct<=12)) sum((wind*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        wind.24 = if(any(ct<=24)) sum((wind*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        wind.48 = if(any(ct<=48)) sum((wind*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        wind.72 = if(any(ct<=72)) sum((wind*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        wind.mn = sum(wind*dt)/sum(dt),
 
-              wind.2m.6  = if(any(ct<=6))  sum((wind.2m*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              wind.2m.12 = if(any(ct<=12)) sum((wind.2m*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              wind.2m.24 = if(any(ct<=24)) sum((wind.2m*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              wind.2m.48 = if(any(ct<=48)) sum((wind.2m*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              wind.2m.72 = if(any(ct<=72)) sum((wind.2m*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              wind.2m.mn = sum(wind.2m*dt)/sum(dt),
+        wind.2m.6  = if(any(ct<=6))  sum((wind.2m*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
+        wind.2m.12 = if(any(ct<=12)) sum((wind.2m*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        wind.2m.24 = if(any(ct<=24)) sum((wind.2m*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        wind.2m.48 = if(any(ct<=48)) sum((wind.2m*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        wind.2m.72 = if(any(ct<=72)) sum((wind.2m*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        wind.2m.mn = sum(wind.2m*dt)/sum(dt),
 
 	      rain.1  = if(any(ct<=1))  sum(rain[ct<=1])  else NA,
 	      rain.6  = if(any(ct<=6))  sum(rain[ct<=6])  else NA,
@@ -605,64 +713,124 @@ summALFAM <- function(d, normalize = FALSE, ...) {
 	      rain.72 = if(any(ct<=72)) sum(rain[ct<=72]) else NA,
 	      rain.tot = sum(rain),
 
-              rain.rate.1  = if(any(ct<=1))  sum(rain[ct<= 1] )/sum(dt[ct<= 1])  else NA,
-              rain.rate.6  = if(any(ct<=6))  sum(rain[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              rain.rate.12 = if(any(ct<=12)) sum(rain[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rain.rate.24 = if(any(ct<=24)) sum(rain[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rain.rate.48 = if(any(ct<=48)) sum(rain[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rain.rate.72 = if(any(ct<=72)) sum(rain[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rain.rate.mn = sum(rain)/sum(dt),
+        rain.rate.1  = if(any(ct<=1))  sum(rain[ct<= 1] )/sum(dt[ct<= 1])  else NA,
+        rain.rate.6  = if(any(ct<=6))  sum(rain[ct<= 6] )/sum(dt[ct<= 6])  else NA,
+        rain.rate.12 = if(any(ct<=12)) sum(rain[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        rain.rate.24 = if(any(ct<=24)) sum(rain[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        rain.rate.48 = if(any(ct<=48)) sum(rain[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        rain.rate.72 = if(any(ct<=72)) sum(rain[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        rain.rate.mn = sum(rain)/sum(dt),
 
-              rh.6  = if(any(ct<=6))  sum((rh*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              rh.12 = if(any(ct<=12)) sum((rh*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rh.24 = if(any(ct<=24)) sum((rh*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rh.48 = if(any(ct<=48)) sum((rh*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rh.72 = if(any(ct<=72)) sum((rh*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rh.mn = sum(rh*dt)/sum(dt),
+        rh.6  = if(any(ct<=6))  sum((rh*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
+        rh.12 = if(any(ct<=12)) sum((rh*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
+        rh.24 = if(any(ct<=24)) sum((rh*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
+        rh.48 = if(any(ct<=48)) sum((rh*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
+        rh.72 = if(any(ct<=72)) sum((rh*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
+        rh.mn = sum(rh*dt)/sum(dt),
 
-              t.start.p = min(t.start),
-              t.end.p = max(t.end),
-              dt.min = min(dt), 
-              dt.max = max(dt), 
-              ct.min = min(ct), 
-              ct.max = max(ct), 
-              ct1 = ct[1], 
+	      air.temp.z = air.temp.z[1],
 
-              # Shift info
+	      soil.temp.z = soil.temp.z[1],
+	      wind.z = wind.z[1],
+
+	      wind.loc = wind.loc[1],
+	      far.loc = far.loc[1],
+
+	      # Manure composition
+	      man.source = man.source[1], 
+	      man.source.orig = man.source.orig[1], 
+	      man.bed = man.bed[1], 
+	      man.con = man.con[1], 
+	      man.trt1 = man.trt1[1], 
+	      man.trt2 = man.trt2[1], 
+	      man.stor = man.stor[1], 
+	      man.dm = man.dm[1], 
+        man.tkn = man.tkn[1], 
+        man.tan = man.tan[1], 
+        man.tic = man.tic[1], 
+        man.ua = man.ua[1], 
+	      man.ph = man.ph[1], 
+        log.man.tan = log10(man.tan[1]), 
+	      man.freeNH3 = man.freeNH3[1], 
+	      man.eq.gasNH3 = man.eq.gasNH3[1], 
+        acid = acid[1],
+
+	      # Application info
+	      date.start = date.start[1],
+	      app.start = app.start[1],
+	      app.start.orig = app.start.orig[1],
+	      app.method = app.method[1],
+	      app.method.orig = app.method.orig[1],
+	      app.method2 = app.method2[1],
+	      app.rate = app.rate[1],
+	      tan.app = tan.app[1],
+	      incorp = incorp[1],
+	      incorp.orig = incorp.orig[1],
+	      time.incorp = time.incorp[1],
+	      man.area = man.area[1],
+	      dist.inj = dist.inj[1],
+	      furrow.z = furrow.z[1],
+	      furrow.w = furrow.w[1],
+	      log.app.rate = log10(app.rate[1]),
+
+	      # Crop info
+	      crop = crop[1],
+	      crop.orig = crop.orig[1],
+	      crop.z = crop.z[1],
+	      crop.area = crop.area[1],
+	      lai = lai[1],
+
+	      # Emission measurements
+	      meas.tech = meas.tech[1],
+	      meas.tech.orig = meas.tech.orig[1],
+	      meas.tech2 = meas.tech2[1],
+        t.start.p = min(t.start),
+        t.end.p = max(t.end),
+        dt1 = dt[1],
+        dt.min = min(dt), 
+        dt.max = max(dt), 
+        ct.min = min(ct), 
+        ct.max = max(ct), 
+        ct1 = ct[1], 
+
+        # Shift info
 	      n.ints = length(interval),
-              n.int.duplicates = sum(duplicated(interval)), 
+        n.int.duplicates = sum(duplicated(interval)), 
 	      int.min = min(interval), 
 	      int.max = max(interval), 
 	      int.t.mismatches = sum(t.start[-1] < t.end[-length(t.end)]), 
-              missing.ints = sum(diff(sort(interval)) - 1), 
+        missing.ints = sum(diff(sort(interval)) - 1), 
 
 	      # Emission
-              j.NH31 = j.NH3[1],
-              j.rel1 = j.rel[1],
+        j.NH31 = j.NH3[1],
+        j.rel1 = j.rel[1],
+        ##j.24 = if(sum(!is.na(e.cum))>1 && max(ct)>24) approx(x = ct, y = j.NH3, xout = 24, method = 'linear')$y else NA, 
+        ##j.48 = if(sum(!is.na(e.cum))>1 && max(ct)>48) approx(x = ct, y = j.NH3, xout = 48, method = 'linear')$y else NA, 
+	      ##j.end = j.NH3[length(j.NH3)],
 
-              e.1 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.cum), xout = 1,  method = 'linear')$y else NA, 
-              e.4 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.cum), xout = 4,  method = 'linear')$y else NA, 
-              e.6 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.cum), xout = 6,  method = 'linear')$y else NA, 
-              e.12 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.cum), xout = 12, method = 'linear')$y else NA, 
-              e.24 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.cum), xout = 24, method = 'linear')$y else NA, 
-              e.48 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.cum), xout = 48, method = 'linear')$y else NA, 
-              e.72 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.cum), xout = 72, method = 'linear')$y else NA, 
-              e.96 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.cum), xout = 96, method = 'linear')$y else NA, 
-              e.final = e.cum[length(e.cum)], 
+        e.1 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.cum), xout = 1,  method = 'linear')$y else NA, 
+        e.4 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.cum), xout = 4,  method = 'linear')$y else NA, 
+        e.6 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.cum), xout = 6,  method = 'linear')$y else NA, 
+        e.12 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.cum), xout = 12, method = 'linear')$y else NA, 
+        e.24 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.cum), xout = 24, method = 'linear')$y else NA, 
+        e.48 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.cum), xout = 48, method = 'linear')$y else NA, 
+        e.72 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.cum), xout = 72, method = 'linear')$y else NA, 
+        e.96 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.cum), xout = 96, method = 'linear')$y else NA, 
+        e.final = e.cum[length(e.cum)], 
 
-              e.rel.1 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.rel), xout = 1,  method = 'linear')$y else NA, 
-              e.rel.4 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.rel), xout = 4,  method = 'linear')$y else NA, 
-              e.rel.6 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.rel), xout = 6,  method = 'linear')$y else NA, 
-              e.rel.12 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.rel), xout = 12, method = 'linear')$y else NA, 
-              e.rel.24 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.rel), xout = 24, method = 'linear')$y else NA, 
-              e.rel.48 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.rel), xout = 48, method = 'linear')$y else NA, 
-              e.rel.72 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.rel), xout = 72, method = 'linear')$y else NA, 
-              e.rel.96 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.rel), xout = 96, method = 'linear')$y else NA, 
-              e.rel.final = e.rel[length(e.rel)], 
+        e.rel.1 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.rel), xout = 1,  method = 'linear')$y else NA, 
+        e.rel.4 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.rel), xout = 4,  method = 'linear')$y else NA, 
+        e.rel.6 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.rel), xout = 6,  method = 'linear')$y else NA, 
+        e.rel.12 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.rel), xout = 12, method = 'linear')$y else NA, 
+        e.rel.24 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.rel), xout = 24, method = 'linear')$y else NA, 
+        e.rel.48 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.rel), xout = 48, method = 'linear')$y else NA, 
+        e.rel.72 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.rel), xout = 72, method = 'linear')$y else NA, 
+        e.rel.96 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.rel), xout = 96, method = 'linear')$y else NA, 
+        e.rel.final = e.rel[length(e.rel)], 
 
-              # Notes
-              notes = paste(unique(notes), collapse = ' ') #,
-              #flag = flag[1]
+        # Notes
+        notes = paste(unique(notes), collapse = ' '),
+        flag = flag[1]
   )
 
   # Check for duplicates
@@ -788,14 +956,8 @@ rounddf <- function(x, digits = 2) {
 }
 
 # Convert lat/long in degrees min sec to decimal degrees
-# From 10d12m12.2s (or ) to 10.xxxx
+# From 10d12m12.2s to 10.xxxx
 DMS2DD <- function(x) {
-  x <- gsub('°', 'd', x)
-  x <- gsub('\'\'', 's', x)
-  x <- gsub("'", 'm', x)
-  x <- gsub('"', 's', x)
-  neg <- grepl('[SsWw]$', x)
-  x <- gsub('[NnSsEeWw]$', '', x)
   y <- suppressWarnings(as.numeric(x))
   for(i in which(grepl('[dms]', x))) {
     mins <- secs <- 0
@@ -810,7 +972,6 @@ DMS2DD <- function(x) {
     }
     y[i] <- degs + mins/60 + secs/3600
   }
-  y <- (1 - 2 * neg) * y
   return(y)
 }
 
@@ -1231,284 +1392,3 @@ mbe <- function(m, p) {
     return(mean(m - p))
 
 }
-
-# Fix a date/time vector
-# Element-by-element, so mix of formats is acceptable
-fixDateTime <- function(x){
-
-  flag <- character(length(x))
-  x <- as.character(x)
-
-  # Remove extra quotes
-  x <- gsub('[\"\']', '', x)
-
-  for(i in 1:length(x)) {
-    if(!is.na(x[i]) & nchar(x[i])>8) {
-      x[i] <- gsub('/', '-', x[i])
-      if (grepl('\\.', x[i])) flag[i] <-'decimal point'
-      x[i] <- gsub('\\.', ':', x[i])
-      day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
-      month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
-      year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
-      tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
-      if(nchar(year) != 4) {
-        x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
-        if(year > 50) {
-          year <- year + 1900
-        } else if(year < 20) {
-          year <- year + 2000
-        } else {
-          stop('Error in fixDateTime() with year. Code BerlYu1776.')
-        }
-      }  
-      if(month > 12) {
-        if(day > 12) {
-          stop('Both month and day have values > 12 in row ', i, '. Code Aheruna1299.')
-        }
-        flag[i] <- paste0(flag[i], ', month and day switched')
-        dd <- day
-        day <- month
-        month <- dd
-      }
-      # Pad with leading 0s
-      day <- sprintf('%02d', day)
-      month <- sprintf('%02d', month)
-      date.time.char <- paste0(year, '-', month, '-', day, ' ', tt)
-      x[i] <- date.time.char
-    } else {
-      x[i] <- NA
-    }
-  }
-
-  x <- as.POSIXct(x, format = '%Y-%m-%d %H:%M', tz = 'GMT')
-
-  return(x)
-  # NTS: return flags later
-
-}
-
-
-# H:M to decimal hours
-HM2DH <- function(x) {
-  if(all(!grepl(':', x))) {
-    return(x)
-  }
-
-  for(i in 1:length(x)) {
-    hr <- strsplit(x[i], ':')[[1]][1]
-    mn <- strsplit(x[i], ':')[[1]][2]
-    x[i] <- hr + mn/60
-  }
-
-  x <- as.numeric(x)
-
-  return(x)
-}
-
-imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
-
-  d[is.na(d[, v]), v] <- approx(x = d[, tt], y = d[, v], xout = d[is.na(d[, v]), tt], method = method, rule = 2)$y
-
-  v <- d[, v]
-
-  return(v)
-
-}
-
-checkErrors <- function(obj, log = 'error_log.txt') {
-
-  sink(paste0('../../logs/02/', log))
-
-  for (i in names(dat)) {
-    for (j in names(dat[[i]])) {
-      d <- dat[[i]][[j]]$emis
-
-      print(dfsumm(d))
-
-      # Missing incorporation times
-      table(d$incorp, d$time.incorp, exclude = NULL)
-      x <- subset(d, incorp %in% c('deep', 'shallow') & is.na(time.incorp))
-      unique(as.character(x$file))
-      x[, c('file','row.in.file.int','institute')]
-      
-      # Fixed
-      # Problems with application start time, was problem in the merge of d1 and d2
-      # Should be POSIXct/POSIXt
-      class(d$app.start)
-      
-      ## Fixed
-      # Wind heights in wrong units
-      # Should be in m
-      # Expected values maybe 0.1 - 10 m
-      summary(d$wind.z)
-      range(na.omit(d$wind.z))
-      x <- subset(d, wind.z>15)
-      nrow(x)
-      unique(as.character(x$file))
-      unique(x[,c('file','row.in.file.int','institute')])
-      unique(x[,c('file','institute')])
-      
-      names(d)
-      ## Fixed
-      # Air temperature heights
-      # Also in m now
-      # Expected values perhaps 0.1 - 10 m
-      summary(d$air.temp.z)
-      range(na.omit(d$air.temp.z))
-      x <- subset(d, air.temp.z>10)
-      nrow(x)
-      unique(as.character(x$file))
-      unique(x[,c('file','row.in.file.int','institute')])
-      unique(x[,c('file','institute')])
-      
-      # Why are there zeroes?
-      x <- subset(d, air.temp.z == 0)
-      nrow(x)
-      unique(as.character(x$file))
-      unique(x[,c('file', 'row.in.file.int', 'institute', 'air.temp.z', 'air.temp')])
-      unique(x[,c('file', 'institute', 'air.temp.z')])
-      # Not sure, but there they are all in ALFAM1. Leaving as-is
-      
-      # Measurement techniques
-      # There should be zero NAs!
-      as.character(unique(d$meas.tech))
-      table(d$meas.tech, exclude = NULL)
-      sum(is.na(d$meas.tech))
-      x <- subset(d, is.na(meas.tech))
-      unique(x[,c('row.in.file.int','institute')])
-      
-      ## Fixed now
-      ## agm has a space after it in some cases
-      #x <- unique(d[, c('file','institute','meas.tech')])
-      #subset(x, meas.tech=='agm ')
-      ## Also is given as "aerodynamic gradient"
-      #subset(x, meas.tech=='aerodynamic gradient')
-      
-      ## Fixed now, was modelled values in French data
-      ## Blank method
-      #x <- unique(d[,c('file','institute','meas.tech','row.in.file')])
-      #subset(x,meas.tech=='')
-      
-      # Emission measurements before application time (app.start)
-      x <- subset(d,t.start < app.start)
-      x <- x[order(x$file, x$row.in.file.int),]
-      dim(x)
-      x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-      # These are cases where emission was measured before application
-      # As long as emission is clearly low and ct < 0, there is no indication of a problem
-      # For Swiss data at end, application occurred within the first interval
-      # Similar for SDU--apparently application was after the passive samplers were set out
-      
-      # Negative interval duration dt
-      x <- subset(d, dt < 0)
-      dim(x)
-      x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-      
-      # Duplicated shifts
-      # Should be none
-      s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
-      x <- subset(s, n.int.duplicates > 1)
-      x
-      y <- subset(d, cpmid == x$cpmid)
-      y[, c('file', 'inst', 'institute', 'row.in.file.int', 'plot', 'rep', 'rep2')]
-      
-      # Shift time mismatches
-      # Should be none
-      y <- d[order(d$cpmid, d$interval), ]
-      # Problem when one shift ends after the next begins
-      y$problem <- c(y$cpmid[-nrow(y)] == y$cpmid[-1] & y$t.end[-nrow(y)] > y$t.start[-1], NA)
-      y$overlap <- c(as.numeric(difftime(y$t.end[-nrow(y)], y$t.start[-1], units = 'hours')), NA)
-      x <- subset(y, problem)
-      x[, c('file', 'inst', 'institute', 'row.in.file.int', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
-      
-      ## Very short sets
-      #x <- subset(ds, n.ints < 4)
-      #dim(x)
-      #y <- subset(d, cpmid %in% x$cpmid)
-      #y <- y[order(y$institute, y$row.in.file), ]
-      #dim(y)
-      #y[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 'cpmid', 't.start', 't.end', 'ct', 'interval', 'j.NH3')]
-      ## 108 (JTI) has one value per plot
-      ## 105 (IGER) seems to just have two plots with only three intervals (24 hr). From the file they look OK.
-      ## 103 (CRPA) also just seems to have some plots with 2 or 3 intervals
-      
-      ## High relative emission
-      #x <- subset(ds, e.rel.final>1)
-      #dim(x)
-      #x[, c('file', 'inst', 'institute', 'first.row.in.file', 'plot', 'cpmid', 'tan.app', 'e.rel.final', 'e.rel.48')]
-      ## No obvious problems here
-      ## IGER value of 5+ probably related to very low application rate of 2 kg N/ha
-      
-      ## Problems with incorporation
-      ## In make_database.R NAs are set to 'None',  so problems will not show up here. Need to check this
-      #y <- subset(d, is.na(incorp) | incorp=='')
-      #dim(y)
-      #y <- y[order(y$institute, y$row.in.file), ]
-      #y <- rounddf(y)
-      #write.csv(y[, c('database', 'institute', 'nid', 'file', 'row.in.file', 'incorp', 'time.incorp')], 'incorp_NA.csv', row.names=FALSE)
-      
-      # Missing locations
-      x <- subset(d, is.na(d$lat)|is.na(d$long))
-      x <- data.frame(file=unique(x$file))
-      x
-      
-      # Missing slurry type
-      x <- subset(d, is.na(man.source))
-      unique(x$institute)
-      unique(x[, c('institute', 'man.source')])
-      x
-      
-      # These all are probably measurements made with no application or prior to application
-      # Need to remove from database if the latter
-      # Missing application method
-      x <- subset(d, is.na(app.method))
-      unique(x$institute)
-      x <- subset(d, is.na(app.method) & man.source != 'none')
-      names(x)
-      x[, c('institute', 'file', 'row.in.file.int', 'app.method', 'app.rate', 'man.source')]
-      x
-      
-      # Missing soil type
-      x <- subset(d, is.na(soil.type))
-      unique(x$institute)
-      unique(x[, c('institute', 'soil.type')])
-      x
-      
-      # Missing crop
-      # Only with no manure for INRA, plus many for SDU
-      x <- subset(d, is.na(crop))
-      unique(x$institute)
-      unique(x[, c('institute', 'crop', 'crop.orig', 'man.source')])
-      x[, c('institute', 'file', 'row.in.file.int', 'crop')]
-      
-      x <- subsetd(d, dt == 0)
-      dim(x)
-      
-      
-      # Fixed 6 April 2016, was problem in weighted mean code in functions file
-      # Rel humidity and air.temp zero too often, are they missing values?
-      x <- subsetd(d, air.temp == 0)
-      dim(x)
-      
-      # Some heights seem to be a mix of cm and m
-      names(d)[grepl('\\.z', names(d))]
-      
-      # Everything should be in m now
-      sort(unique(d$air.temp.z))
-      sort(unique(d$soil.temp.z))
-      sort(unique(d$wind.z))
-      
-      # Except crop height
-      sort(unique(d$crop.z))
- 
-
-    }
-  }
-
-  sink()
-
-}
-
-
-
-
