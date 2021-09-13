@@ -1,0 +1,371 @@
+
+ 1282 rows and 101 columns
+ 1282 unique rows
+                             proj              exper   field    plot     rep
+Class                   character          character logical numeric numeric
+Minimum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Maximum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Mean               Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Unique (excld. NA)              1                  1       0       1       1
+Missing values                  0                  0    1282       0       0
+Sorted                       TRUE               TRUE    TRUE    TRUE    TRUE
+                      pub.id plot.area     lat    long   country      topo
+Class              character   numeric numeric numeric character character
+Minimum               Atmos1    260000    56.5    9.54   Denmark      Flat
+Maximum               Atmos1    260000    56.5    9.54   Denmark      Flat
+Mean                  Atmos1    260000    56.5    9.54   Denmark      Flat
+Unique (excld. NA)         1         1       1       1         1         1
+Missing values             0         0       0       0         0         0
+Sorted                  TRUE      TRUE    TRUE    TRUE      TRUE      TRUE
+                      clay    silt    sand      oc soil.type soil.water
+Class              logical logical logical logical character    logical
+Minimum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Maximum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Mean                  <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Unique (excld. NA)       0       0       0       0         1          0
+Missing values        1282    1282    1282    1282         0       1282
+Sorted                TRUE    TRUE    TRUE    TRUE      TRUE       TRUE
+                   soil.water.v soil.moist soil.ph soil.dens  crop.res
+Class                   logical    logical logical   logical character
+Minimum                    <NA>       <NA>    <NA>      <NA>        No
+Maximum                    <NA>       <NA>    <NA>      <NA>        No
+Mean                       <NA>       <NA>    <NA>      <NA>        No
+Unique (excld. NA)            0          0       0         0         1
+Missing values             1282       1282    1282      1282         0
+Sorted                     TRUE       TRUE    TRUE      TRUE      TRUE
+                        till man.source man.source.det man.bed   man.con
+Class              character  character        logical logical character
+Minimum                  Yes        Mix           <NA>    <NA>    Slurry
+Maximum                  Yes        Mix           <NA>    <NA>    Slurry
+Mean                     Yes        Mix           <NA>    <NA>    Slurry
+Unique (excld. NA)         1          1              0       0         1
+Missing values             0          0           1282    1282         0
+Sorted                  TRUE       TRUE           TRUE    TRUE      TRUE
+                              man.trt1 man.trt2 man.stor  man.dm  man.vs
+Class                        character  logical  logical numeric logical
+Minimum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Maximum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Mean               Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Unique (excld. NA)                   1        0        0       1       0
+Missing values                       0     1282     1282       0    1282
+Sorted                            TRUE     TRUE     TRUE    TRUE    TRUE
+                   man.tkn man.tan man.tic  man.ua man.vfa  man.ph
+Class              numeric numeric logical logical logical numeric
+Minimum               2.79    1.62    <NA>    <NA>    <NA>     7.7
+Maximum               2.79    1.62    <NA>    <NA>    <NA>     7.7
+Mean                  2.79    1.62    <NA>    <NA>    <NA>     7.7
+Unique (excld. NA)       1       1       0       0       0       1
+Missing values           0       0    1282    1282    1282       0
+Sorted                TRUE    TRUE    TRUE    TRUE    TRUE    TRUE
+                             app.start             app.end          app.method
+Class                   POSIXct POSIXt      POSIXct POSIXt           character
+Minimum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Maximum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Mean               2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Unique (excld. NA)                   1                   1                   1
+Missing values                       0                   0                   0
+Sorted                            TRUE                TRUE                TRUE
+                   app.rate app.rate.unit  incorp time.incorp man.area dist.inj
+Class               numeric     character logical     logical  logical  numeric
+Minimum                  35          t/ha    <NA>        <NA>     <NA>       17
+Maximum                  35          t/ha    <NA>        <NA>     <NA>       17
+Mean                     35          t/ha    <NA>        <NA>     <NA>       17
+Unique (excld. NA)        1             1       0           0        0        1
+Missing values            0             0    1282        1282     1282        0
+Sorted                 TRUE          TRUE    TRUE        TRUE     TRUE     TRUE
+                   furrow.z furrow.w      crop  crop.z row.in.file.plot
+Class               numeric  logical character numeric          numeric
+Minimum                   4     <NA>     Grass      15                5
+Maximum                   4     <NA>     Grass      15                5
+Mean                      4     <NA>     Grass      15                5
+Unique (excld. NA)        1        0         1       1                1
+Missing values            0     1282         0       0                0
+Sorted                 TRUE     TRUE      TRUE    TRUE             TRUE
+                     app.start.orig     app.end.orig crop.area tan.app
+Class                     character        character   numeric numeric
+Minimum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Maximum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Mean               14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Unique (excld. NA)                1                1         0       1
+Missing values                    0                0      1282       0
+Sorted                         TRUE             TRUE      TRUE    TRUE
+                   institute  uptake     treat interval             t.start
+Class              character numeric character  numeric      POSIXct POSIXt
+Minimum                   AU       3       AGM        1 2019-08-14 17:30:00
+Maximum                   AU       3        MD      321 2019-08-21 09:30:00
+Mean                      AU       3   CRDS_2m      161 2019-08-18 01:37:27
+Unique (excld. NA)         1       1         4      321                 321
+Missing values             0       0         0        0                   0
+Sorted                  TRUE    TRUE      TRUE    FALSE               FALSE
+                                 t.end      dt meas.tech meas.tech.det   bg.dl
+Class                   POSIXct POSIXt numeric character     character logical
+Minimum            2019-08-14 18:00:00     0.5       AGM       CRDS_1m    <NA>
+Maximum            2019-08-21 10:00:00     0.5       bLS            MD    <NA>
+Mean               2019-08-18 02:07:27     0.5       bLS       CRDS_2m    <NA>
+Unique (excld. NA)                 321       1         2             3       0
+Missing values                       0       0         0           321    1282
+Sorted                           FALSE    TRUE      TRUE          TRUE    TRUE
+                    bg.val bg.unit    j.NH3 j.NH3.unit pH.surf air.temp
+Class              logical logical  numeric  character logical  numeric
+Minimum               <NA>    <NA> -0.00289 kg N/ha-hr    <NA>     10.6
+Maximum               <NA>    <NA>     1.41 kg N/ha-hr    <NA>     20.4
+Mean                  <NA>    <NA>   0.0942 kg N/ha-hr    <NA>     14.9
+Unique (excld. NA)       0       0     1265          1       0       72
+Missing values        1282    1282        0          0    1282      643
+Sorted                TRUE    TRUE    FALSE       TRUE    TRUE    FALSE
+                   air.temp.z soil.temp soil.temp.z soil.temp.surf     rad
+Class                 logical   numeric     numeric        logical numeric
+Minimum                  <NA>      15.7         0.1           <NA>       0
+Maximum                  <NA>        18         0.1           <NA>     634
+Mean                     <NA>      16.9         0.1           <NA>     138
+Unique (excld. NA)          0        24           1              0      97
+Missing values           1282       643           0           1282     643
+Sorted                   TRUE     FALSE        TRUE           TRUE   FALSE
+                      wind  wind.z     MOL   ustar       rl air.pres
+Class              numeric numeric numeric numeric  numeric  numeric
+Minimum              0.958       2  -16700  0.0476 3.42e-05    98100
+Maximum               6.26       2    7210   0.539    0.177    1e+05
+Mean                     3       2   -27.8   0.249    0.016    99000
+Unique (excld. NA)     320       1     306     320      306      320
+Missing values           4       0       4       4        4        4
+Sorted               FALSE    TRUE   FALSE   FALSE    FALSE    FALSE
+                   air.pres.unit    rain      rh  wind.loc row.in.file.int
+Class                    logical numeric numeric character         numeric
+Minimum                     <NA>       0    54.6     Field               5
+Maximum                     <NA>       3      93     Field            1290
+Mean                        <NA>   0.114    81.8     Field             647
+Unique (excld. NA)             0      13     115         1            1282
+Missing values              1282     643     643         0               0
+Sorted                      TRUE   FALSE   FALSE      TRUE           FALSE
+                   j.NH3.unit.orig j.NH3.orig j.NH3.conv.fact dt.calc dt.diff
+Class                    character    numeric         numeric numeric numeric
+Minimum                    µg/m2/s    -0.0802           0.036     0.5       0
+Maximum                    µg/m2/s       39.1           0.036     0.5       0
+Mean                       µg/m2/s       1.94           0.036     0.5       0
+Unique (excld. NA)               1        932               1       1       1
+Missing values                   0        350               0       0       0
+Sorted                        TRUE      FALSE            TRUE    TRUE    TRUE
+                                                                       file
+Class                                                             character
+Minimum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Maximum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Mean               ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Unique (excld. NA)                                                        1
+Missing values                                                            0
+Sorted                                                                 TRUE
+                                                                                                                    cpmid
+Class                                                                                                           character
+Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:AGM
+Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
+Unique (excld. NA)                                                                                                      4
+Missing values                                                                                                          0
+Sorted                                                                                                               TRUE
+                                                                                                                  cpid
+Class                                                                                                        character
+Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:
+Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:
+Unique (excld. NA)                                                                                                   4
+Missing values                                                                                                       0
+Sorted                                                                                                            TRUE
+                                                              ceid      ct
+Class                                                    character numeric
+Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
+Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     160
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug    80.4
+Unique (excld. NA)                                               1     321
+Missing values                                                   0       0
+Sorted                                                        TRUE   FALSE
+                      e.int   e.cum   e.rel
+Class               numeric numeric numeric
+Minimum            -0.00144   0.427 0.00754
+Maximum               0.704    18.9   0.333
+Mean                 0.0471    13.4   0.237
+Unique (excld. NA)     1265    1281    1281
+Missing values            0       0       0
+Sorted                FALSE   FALSE   FALSE
+                             proj              exper   field    plot     rep
+Class                   character          character logical numeric numeric
+Minimum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Maximum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Mean               Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
+Unique (excld. NA)              1                  1       0       1       1
+Missing values                  0                  0    1282       0       0
+Sorted                       TRUE               TRUE    TRUE    TRUE    TRUE
+                      pub.id plot.area     lat    long   country      topo
+Class              character   numeric numeric numeric character character
+Minimum               Atmos1    260000    56.5    9.54   Denmark      Flat
+Maximum               Atmos1    260000    56.5    9.54   Denmark      Flat
+Mean                  Atmos1    260000    56.5    9.54   Denmark      Flat
+Unique (excld. NA)         1         1       1       1         1         1
+Missing values             0         0       0       0         0         0
+Sorted                  TRUE      TRUE    TRUE    TRUE      TRUE      TRUE
+                      clay    silt    sand      oc soil.type soil.water
+Class              logical logical logical logical character    logical
+Minimum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Maximum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Mean                  <NA>    <NA>    <NA>    <NA>      Loam       <NA>
+Unique (excld. NA)       0       0       0       0         1          0
+Missing values        1282    1282    1282    1282         0       1282
+Sorted                TRUE    TRUE    TRUE    TRUE      TRUE       TRUE
+                   soil.water.v soil.moist soil.ph soil.dens  crop.res
+Class                   logical    logical logical   logical character
+Minimum                    <NA>       <NA>    <NA>      <NA>        No
+Maximum                    <NA>       <NA>    <NA>      <NA>        No
+Mean                       <NA>       <NA>    <NA>      <NA>        No
+Unique (excld. NA)            0          0       0         0         1
+Missing values             1282       1282    1282      1282         0
+Sorted                     TRUE       TRUE    TRUE      TRUE      TRUE
+                        till man.source man.source.det man.bed   man.con
+Class              character  character        logical logical character
+Minimum                  Yes        Mix           <NA>    <NA>    Slurry
+Maximum                  Yes        Mix           <NA>    <NA>    Slurry
+Mean                     Yes        Mix           <NA>    <NA>    Slurry
+Unique (excld. NA)         1          1              0       0         1
+Missing values             0          0           1282    1282         0
+Sorted                  TRUE       TRUE           TRUE    TRUE      TRUE
+                              man.trt1 man.trt2 man.stor  man.dm  man.vs
+Class                        character  logical  logical numeric logical
+Minimum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Maximum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Mean               Anaerobic digestion     <NA>     <NA>    3.31    <NA>
+Unique (excld. NA)                   1        0        0       1       0
+Missing values                       0     1282     1282       0    1282
+Sorted                            TRUE     TRUE     TRUE    TRUE    TRUE
+                   man.tkn man.tan man.tic  man.ua man.vfa  man.ph
+Class              numeric numeric logical logical logical numeric
+Minimum               2.79    1.62    <NA>    <NA>    <NA>     7.7
+Maximum               2.79    1.62    <NA>    <NA>    <NA>     7.7
+Mean                  2.79    1.62    <NA>    <NA>    <NA>     7.7
+Unique (excld. NA)       1       1       0       0       0       1
+Missing values           0       0    1282    1282    1282       0
+Sorted                TRUE    TRUE    TRUE    TRUE    TRUE    TRUE
+                             app.start             app.end          app.method
+Class                   POSIXct POSIXt      POSIXct POSIXt           character
+Minimum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Maximum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Mean               2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
+Unique (excld. NA)                   1                   1                   1
+Missing values                       0                   0                   0
+Sorted                            TRUE                TRUE                TRUE
+                   app.rate app.rate.unit  incorp time.incorp man.area dist.inj
+Class               numeric     character logical     logical  logical  numeric
+Minimum                  35          t/ha    <NA>        <NA>     <NA>       17
+Maximum                  35          t/ha    <NA>        <NA>     <NA>       17
+Mean                     35          t/ha    <NA>        <NA>     <NA>       17
+Unique (excld. NA)        1             1       0           0        0        1
+Missing values            0             0    1282        1282     1282        0
+Sorted                 TRUE          TRUE    TRUE        TRUE     TRUE     TRUE
+                   furrow.z furrow.w      crop  crop.z row.in.file.plot
+Class               numeric  logical character numeric          numeric
+Minimum                   4     <NA>     Grass      15                5
+Maximum                   4     <NA>     Grass      15                5
+Mean                      4     <NA>     Grass      15                5
+Unique (excld. NA)        1        0         1       1                1
+Missing values            0     1282         0       0                0
+Sorted                 TRUE     TRUE      TRUE    TRUE             TRUE
+                     app.start.orig     app.end.orig crop.area tan.app
+Class                     character        character   numeric numeric
+Minimum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Maximum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Mean               14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
+Unique (excld. NA)                1                1         0       1
+Missing values                    0                0      1282       0
+Sorted                         TRUE             TRUE      TRUE    TRUE
+                   institute  uptake     treat interval             t.start
+Class              character numeric character  numeric      POSIXct POSIXt
+Minimum                   AU       3       AGM        1 2019-08-14 17:30:00
+Maximum                   AU       3        MD      321 2019-08-21 09:30:00
+Mean                      AU       3   CRDS_2m      161 2019-08-18 01:37:27
+Unique (excld. NA)         1       1         4      321                 321
+Missing values             0       0         0        0                   0
+Sorted                  TRUE    TRUE      TRUE    FALSE               FALSE
+                                 t.end      dt meas.tech meas.tech.det   bg.dl
+Class                   POSIXct POSIXt numeric character     character logical
+Minimum            2019-08-14 18:00:00     0.5       AGM       CRDS_1m    <NA>
+Maximum            2019-08-21 10:00:00     0.5       bLS            MD    <NA>
+Mean               2019-08-18 02:07:27     0.5       bLS       CRDS_2m    <NA>
+Unique (excld. NA)                 321       1         2             3       0
+Missing values                       0       0         0           321    1282
+Sorted                           FALSE    TRUE      TRUE          TRUE    TRUE
+                    bg.val bg.unit    j.NH3 j.NH3.unit pH.surf air.temp
+Class              logical logical  numeric  character logical  numeric
+Minimum               <NA>    <NA> -0.00289 kg N/ha-hr    <NA>     10.6
+Maximum               <NA>    <NA>     1.41 kg N/ha-hr    <NA>     20.4
+Mean                  <NA>    <NA>   0.0942 kg N/ha-hr    <NA>     14.9
+Unique (excld. NA)       0       0     1265          1       0       72
+Missing values        1282    1282        0          0    1282      643
+Sorted                TRUE    TRUE    FALSE       TRUE    TRUE    FALSE
+                   air.temp.z soil.temp soil.temp.z soil.temp.surf     rad
+Class                 logical   numeric     numeric        logical numeric
+Minimum                  <NA>      15.7         0.1           <NA>       0
+Maximum                  <NA>        18         0.1           <NA>     634
+Mean                     <NA>      16.9         0.1           <NA>     138
+Unique (excld. NA)          0        24           1              0      97
+Missing values           1282       643           0           1282     643
+Sorted                   TRUE     FALSE        TRUE           TRUE   FALSE
+                      wind  wind.z     MOL   ustar       rl air.pres
+Class              numeric numeric numeric numeric  numeric  numeric
+Minimum              0.958       2  -16700  0.0476 3.42e-05    98100
+Maximum               6.26       2    7210   0.539    0.177    1e+05
+Mean                     3       2   -27.8   0.249    0.016    99000
+Unique (excld. NA)     320       1     306     320      306      320
+Missing values           4       0       4       4        4        4
+Sorted               FALSE    TRUE   FALSE   FALSE    FALSE    FALSE
+                   air.pres.unit    rain      rh  wind.loc row.in.file.int
+Class                    logical numeric numeric character         numeric
+Minimum                     <NA>       0    54.6     Field               5
+Maximum                     <NA>       3      93     Field            1290
+Mean                        <NA>   0.114    81.8     Field             647
+Unique (excld. NA)             0      13     115         1            1282
+Missing values              1282     643     643         0               0
+Sorted                      TRUE   FALSE   FALSE      TRUE           FALSE
+                   j.NH3.unit.orig j.NH3.orig j.NH3.conv.fact dt.calc dt.diff
+Class                    character    numeric         numeric numeric numeric
+Minimum                    µg/m2/s    -0.0802           0.036     0.5       0
+Maximum                    µg/m2/s       39.1           0.036     0.5       0
+Mean                       µg/m2/s       1.94           0.036     0.5       0
+Unique (excld. NA)               1        932               1       1       1
+Missing values                   0        350               0       0       0
+Sorted                        TRUE      FALSE            TRUE    TRUE    TRUE
+                                                                       file
+Class                                                             character
+Minimum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Maximum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Mean               ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
+Unique (excld. NA)                                                        1
+Missing values                                                            0
+Sorted                                                                 TRUE
+                                                                                                                    cpmid
+Class                                                                                                           character
+Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:AGM
+Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
+Unique (excld. NA)                                                                                                      4
+Missing values                                                                                                          0
+Sorted                                                                                                               TRUE
+                                                                                                                  cpid
+Class                                                                                                        character
+Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:
+Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:
+Unique (excld. NA)                                                                                                   4
+Missing values                                                                                                       0
+Sorted                                                                                                            TRUE
+                                                              ceid      ct
+Class                                                    character numeric
+Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
+Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     160
+Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug    80.4
+Unique (excld. NA)                                               1     321
+Missing values                                                   0       0
+Sorted                                                        TRUE   FALSE
+                      e.int   e.cum   e.rel
+Class               numeric numeric numeric
+Minimum            -0.00144   0.427 0.00754
+Maximum               0.704    18.9   0.333
+Mean                 0.0471    13.4   0.237
+Unique (excld. NA)     1265    1281    1281
+Missing values            0       0       0
+Sorted                FALSE   FALSE   FALSE

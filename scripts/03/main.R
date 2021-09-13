@@ -4,7 +4,7 @@
 # ALFAM(1) data and uptake 1 data from ALFAM2 are simply read from output in data - ALFAM2 output/01
 
 # To get errors for any warnings
-options(warn = 2) 
+#options(warn = 2) 
 
 # Set uptake number and database version
 uptake <- 3
