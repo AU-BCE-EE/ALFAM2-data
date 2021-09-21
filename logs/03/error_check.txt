@@ -1,371 +1,409 @@
+ [1] "../../data - submitted/03/AU" "../../data - submitted/03/AU" "../../data - submitted/03/AU"
+ [4] "../../data - submitted/03/AU" "../../data - submitted/03/AU" "../../data - submitted/03/AU"
+ [7] "../../data - submitted/03/AU" "../../data - submitted/03/AU" "../../data - submitted/03/AU"
+[10] "../../data - submitted/03/AU"
+ [1] "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx" "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx"
+ [3] "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx" "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx"
+ [5] "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx" "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx"
+ [7] "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx" "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx"
+ [9] "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx" "../../data - submitted/03/AU/ALFAM2_AU_JNK_5_5_1.xlsx"
+     proj              exper            field              plot        rep       pub.id            plot.area     
+ Length:1284        Length:1284        Mode:logical   Min.   :1   Min.   :1   Length:1284        Min.   :260000  
+ Class :character   Class :character   NA's:1284      1st Qu.:1   1st Qu.:1   Class :character   1st Qu.:260000  
+ Mode  :character   Mode  :character                  Median :1   Median :1   Mode  :character   Median :260000  
+                                                      Mean   :1   Mean   :1                      Mean   :260000  
+                                                      3rd Qu.:1   3rd Qu.:1                      3rd Qu.:260000  
+                                                      Max.   :1   Max.   :1                      Max.   :260000  
+                                                                                                                 
+      lat             long         country              topo             clay           silt           sand        
+ Min.   :56.45   Min.   :9.541   Length:1284        Length:1284        Mode:logical   Mode:logical   Mode:logical  
+ 1st Qu.:56.45   1st Qu.:9.541   Class :character   Class :character   NA's:1284      NA's:1284      NA's:1284     
+ Median :56.45   Median :9.541   Mode  :character   Mode  :character                                               
+ Mean   :56.45   Mean   :9.541                                                                                     
+ 3rd Qu.:56.45   3rd Qu.:9.541                                                                                     
+ Max.   :56.45   Max.   :9.541                                                                                     
+                                                                                                                   
+    oc           soil.type         soil.water     soil.water.v   soil.moist     soil.ph        soil.dens     
+ Mode:logical   Length:1284        Mode:logical   Mode:logical   Mode:logical   Mode:logical   Mode:logical  
+ NA's:1284      Class :character   NA's:1284      NA's:1284      NA's:1284      NA's:1284      NA's:1284     
+                Mode  :character                                                                             
+                                                                                                             
+                                                                                                             
+                                                                                                             
+                                                                                                             
+   crop.res             till            man.source        man.source.det man.bed          man.con         
+ Length:1284        Length:1284        Length:1284        Mode:logical   Mode:logical   Length:1284       
+ Class :character   Class :character   Class :character   NA's:1284      NA's:1284      Class :character  
+ Mode  :character   Mode  :character   Mode  :character                                 Mode  :character  
+                                                                                                          
+                                                                                                          
+                                                                                                          
+                                                                                                          
+   man.trt1         man.trt2       man.stor           man.dm      man.vs           man.tkn        man.tan    
+ Length:1284        Mode:logical   Mode:logical   Min.   :3.31   Mode:logical   Min.   :2.79   Min.   :1.62  
+ Class :character   NA's:1284      NA's:1284      1st Qu.:3.31   NA's:1284      1st Qu.:2.79   1st Qu.:1.62  
+ Mode  :character                                 Median :3.31                  Median :2.79   Median :1.62  
+                                                  Mean   :3.31                  Mean   :2.79   Mean   :1.62  
+                                                  3rd Qu.:3.31                  3rd Qu.:2.79   3rd Qu.:1.62  
+                                                  Max.   :3.31                  Max.   :2.79   Max.   :1.62  
+                                                                                                             
+ man.tic         man.ua        man.vfa            man.ph      app.start                  
+ Mode:logical   Mode:logical   Mode:logical   Min.   :7.7   Min.   :2019-08-14 06:00:00  
+ NA's:1284      NA's:1284      NA's:1284      1st Qu.:7.7   1st Qu.:2019-08-14 06:00:00  
+                                              Median :7.7   Median :2019-08-14 06:00:00  
+                                              Mean   :7.7   Mean   :2019-08-14 06:00:00  
+                                              3rd Qu.:7.7   3rd Qu.:2019-08-14 06:00:00  
+                                              Max.   :7.7   Max.   :2019-08-14 06:00:00  
+                                                                                         
+    app.end                     app.method           app.rate  app.rate.unit       incorp        time.incorp   
+ Min.   :2019-08-14 16:00:00   Length:1284        Min.   :35   Length:1284        Mode:logical   Mode:logical  
+ 1st Qu.:2019-08-14 16:00:00   Class :character   1st Qu.:35   Class :character   NA's:1284      NA's:1284     
+ Median :2019-08-14 16:00:00   Mode  :character   Median :35   Mode  :character                                
+ Mean   :2019-08-14 16:00:00                      Mean   :35                                                   
+ 3rd Qu.:2019-08-14 16:00:00                      3rd Qu.:35                                                   
+ Max.   :2019-08-14 16:00:00                      Max.   :35                                                   
+                                                                                                               
+ man.area          dist.inj     furrow.z furrow.w           crop               crop.z   row.in.file.plot
+ Mode:logical   Min.   :17   Min.   :4   Mode:logical   Length:1284        Min.   :15   Min.   :5       
+ NA's:1284      1st Qu.:17   1st Qu.:4   NA's:1284      Class :character   1st Qu.:15   1st Qu.:5       
+                Median :17   Median :4                  Mode  :character   Median :15   Median :5       
+                Mean   :17   Mean   :4                                     Mean   :15   Mean   :5       
+                3rd Qu.:17   3rd Qu.:4                                     3rd Qu.:15   3rd Qu.:5       
+                Max.   :17   Max.   :4                                     Max.   :15   Max.   :5       
+                                                                                                        
+ app.start.orig     app.end.orig         crop.area       tan.app      institute             uptake 
+ Length:1284        Length:1284        Min.   : NA    Min.   :56.7   Length:1284        Min.   :3  
+ Class :character   Class :character   1st Qu.: NA    1st Qu.:56.7   Class :character   1st Qu.:3  
+ Mode  :character   Mode  :character   Median : NA    Median :56.7   Mode  :character   Median :3  
+                                       Mean   :NaN    Mean   :56.7                      Mean   :3  
+                                       3rd Qu.: NA    3rd Qu.:56.7                      3rd Qu.:3  
+                                       Max.   : NA    Max.   :56.7                      Max.   :3  
+                                       NA's   :1284                                                
+    treat              interval      t.start                        t.end                           dt     
+ Length:1284        Min.   :  1   Min.   :2019-08-14 17:30:00   Min.   :2019-08-14 18:00:00   Min.   :0.5  
+ Class :character   1st Qu.: 81   1st Qu.:2019-08-16 09:30:00   1st Qu.:2019-08-16 10:00:00   1st Qu.:0.5  
+ Mode  :character   Median :161   Median :2019-08-18 01:30:00   Median :2019-08-18 02:00:00   Median :0.5  
+                    Mean   :161   Mean   :2019-08-18 01:30:00   Mean   :2019-08-18 02:00:00   Mean   :0.5  
+                    3rd Qu.:241   3rd Qu.:2019-08-19 17:30:00   3rd Qu.:2019-08-19 18:00:00   3rd Qu.:0.5  
+                    Max.   :321   Max.   :2019-08-21 09:30:00   Max.   :2019-08-21 10:00:00   Max.   :0.5  
+                                                                                                           
+  meas.tech         meas.tech.det       bg.dl          bg.val        bg.unit            j.NH3          
+ Length:1284        Length:1284        Mode:logical   Mode:logical   Mode:logical   Min.   :-0.002886  
+ Class :character   Class :character   NA's:1284      NA's:1284      NA's:1284      1st Qu.: 0.002204  
+ Mode  :character   Mode  :character                                                Median : 0.011163  
+                                                                                    Mean   : 0.096004  
+                                                                                    3rd Qu.: 0.072510  
+                                                                                    Max.   : 1.407908  
+                                                                                                       
+  j.NH3.unit        pH.surf           air.temp     air.temp.z       soil.temp      soil.temp.z  soil.temp.surf
+ Length:1284        Mode:logical   Min.   :10.60   Mode:logical   Min.   :15.70   Min.   :0.1   Mode:logical  
+ Class :character   NA's:1284      1st Qu.:13.28   NA's:1284      1st Qu.:16.57   1st Qu.:0.1   NA's:1284     
+ Mode  :character                  Median :14.80                  Median :16.90   Median :0.1                 
+                                   Mean   :14.88                  Mean   :16.90   Mean   :0.1                 
+                                   3rd Qu.:16.40                  3rd Qu.:17.20   3rd Qu.:0.1                 
+                                   Max.   :20.40                  Max.   :18.00   Max.   :0.1                 
+                                   NA's   :644                    NA's   :644                                 
+      rad              wind            wind.z       MOL                ustar               rl          
+ Min.   :  0.00   Min.   :0.9579   Min.   :2   Min.   :-16659.50   Min.   :0.04756   Min.   :0.000034  
+ 1st Qu.:  0.00   1st Qu.:1.9669   1st Qu.:2   1st Qu.:   -83.50   1st Qu.:0.15450   1st Qu.:0.009754  
+ Median : 51.45   Median :2.6678   Median :2   Median :     8.85   Median :0.22357   Median :0.015055  
+ Mean   :138.18   Mean   :2.9981   Mean   :2   Mean   :   -27.87   Mean   :0.24907   Mean   :0.015994  
+ 3rd Qu.:263.23   3rd Qu.:4.0134   3rd Qu.:2   3rd Qu.:    35.35   3rd Qu.:0.34585   3rd Qu.:0.021118  
+ Max.   :633.80   Max.   :6.2552   Max.   :2   Max.   :  7208.80   Max.   :0.53873   Max.   :0.177400  
+ NA's   :644      NA's   :4                    NA's   :4           NA's   :4         NA's   :4         
+    air.pres      air.pres.unit           rain              rh          wind.loc         far.loc       
+ Min.   : 98149   Length:1284        Min.   :0.0000   Min.   :54.60   Length:1284        Mode:logical  
+ 1st Qu.: 98436   Class :character   1st Qu.:0.0000   1st Qu.:75.42   Class :character   NA's:1284     
+ Median : 98816   Mode  :character   Median :0.0000   Median :86.15   Mode  :character                 
+ Mean   : 98955                      Mean   :0.1138   Mean   :81.75                                    
+ 3rd Qu.: 99288                      3rd Qu.:0.0000   3rd Qu.:91.00                                    
+ Max.   :100482                      Max.   :3.0000   Max.   :93.00                                    
+ NA's   :4                           NA's   :644      NA's   :644                                      
+  notes.emis        row.in.file.int  j.NH3.unit.orig      j.NH3.orig      j.NH3.conv.fact    dt.calc       dt.diff 
+ Length:1284        Min.   :   5.0   Length:1284        Min.   :-0.0802   Min.   :0.036   Min.   :0.5   Min.   :0  
+ Class :character   1st Qu.: 326.5   Class :character   1st Qu.: 0.0722   1st Qu.:0.036   1st Qu.:0.5   1st Qu.:0  
+ Mode  :character   Median : 648.0   Mode  :character   Median : 0.3450   Median :0.036   Median :0.5   Median :0  
+                    Mean   : 648.0                      Mean   : 2.0056   Mean   :0.036   Mean   :0.5   Mean   :0  
+                    3rd Qu.: 969.5                      3rd Qu.: 1.9253   3rd Qu.:0.036   3rd Qu.:0.5   3rd Qu.:0  
+                    Max.   :1291.0                      Max.   :39.1086   Max.   :0.036   Max.   :0.5   Max.   :0  
+                                                        NA's   :350                                                
+     file              cpmid               cpid               ceid                 ct            e.int          
+ Length:1284        Length:1284        Length:1284        Length:1284        Min.   :  0.5   Min.   :-0.001443  
+ Class :character   Class :character   Class :character   Class :character   1st Qu.: 40.5   1st Qu.: 0.001102  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character   Median : 80.5   Median : 0.005581  
+                                                                             Mean   : 80.5   Mean   : 0.048002  
+                                                                             3rd Qu.:120.5   3rd Qu.: 0.036255  
+                                                                             Max.   :160.5   Max.   : 0.703954  
+                                                                                                                
+     e.cum              cta          e.rel         
+ Min.   : 0.4274   Min.   : 12   Min.   :0.007537  
+ 1st Qu.:11.2209   1st Qu.: 52   1st Qu.:0.197899  
+ Median :15.1126   Median : 92   Median :0.266535  
+ Mean   :13.7038   Mean   : 92   Mean   :0.241690  
+ 3rd Qu.:15.8948   3rd Qu.:132   3rd Qu.:0.280331  
+ Max.   :18.8820   Max.   :172   Max.   :0.333016  
+                                                   
+            proj            exper            f$submitter
+                                                                  institute inst.abbrev             submitter version
+...2 Department of Agricultural Sciences, University of Naples, Federico II       UNINA Ester Scotto di Perta       1
+             date
+...2 20 Sept 2021
 
- 1282 rows and 101 columns
- 1282 unique rows
-                             proj              exper   field    plot     rep
-Class                   character          character logical numeric numeric
-Minimum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Maximum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Mean               Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Unique (excld. NA)              1                  1       0       1       1
-Missing values                  0                  0    1282       0       0
-Sorted                       TRUE               TRUE    TRUE    TRUE    TRUE
-                      pub.id plot.area     lat    long   country      topo
-Class              character   numeric numeric numeric character character
-Minimum               Atmos1    260000    56.5    9.54   Denmark      Flat
-Maximum               Atmos1    260000    56.5    9.54   Denmark      Flat
-Mean                  Atmos1    260000    56.5    9.54   Denmark      Flat
-Unique (excld. NA)         1         1       1       1         1         1
-Missing values             0         0       0       0         0         0
-Sorted                  TRUE      TRUE    TRUE    TRUE      TRUE      TRUE
-                      clay    silt    sand      oc soil.type soil.water
-Class              logical logical logical logical character    logical
-Minimum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Maximum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Mean                  <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Unique (excld. NA)       0       0       0       0         1          0
-Missing values        1282    1282    1282    1282         0       1282
-Sorted                TRUE    TRUE    TRUE    TRUE      TRUE       TRUE
-                   soil.water.v soil.moist soil.ph soil.dens  crop.res
-Class                   logical    logical logical   logical character
-Minimum                    <NA>       <NA>    <NA>      <NA>        No
-Maximum                    <NA>       <NA>    <NA>      <NA>        No
-Mean                       <NA>       <NA>    <NA>      <NA>        No
-Unique (excld. NA)            0          0       0         0         1
-Missing values             1282       1282    1282      1282         0
-Sorted                     TRUE       TRUE    TRUE      TRUE      TRUE
-                        till man.source man.source.det man.bed   man.con
-Class              character  character        logical logical character
-Minimum                  Yes        Mix           <NA>    <NA>    Slurry
-Maximum                  Yes        Mix           <NA>    <NA>    Slurry
-Mean                     Yes        Mix           <NA>    <NA>    Slurry
-Unique (excld. NA)         1          1              0       0         1
-Missing values             0          0           1282    1282         0
-Sorted                  TRUE       TRUE           TRUE    TRUE      TRUE
-                              man.trt1 man.trt2 man.stor  man.dm  man.vs
-Class                        character  logical  logical numeric logical
-Minimum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Maximum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Mean               Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Unique (excld. NA)                   1        0        0       1       0
-Missing values                       0     1282     1282       0    1282
-Sorted                            TRUE     TRUE     TRUE    TRUE    TRUE
-                   man.tkn man.tan man.tic  man.ua man.vfa  man.ph
-Class              numeric numeric logical logical logical numeric
-Minimum               2.79    1.62    <NA>    <NA>    <NA>     7.7
-Maximum               2.79    1.62    <NA>    <NA>    <NA>     7.7
-Mean                  2.79    1.62    <NA>    <NA>    <NA>     7.7
-Unique (excld. NA)       1       1       0       0       0       1
-Missing values           0       0    1282    1282    1282       0
-Sorted                TRUE    TRUE    TRUE    TRUE    TRUE    TRUE
-                             app.start             app.end          app.method
-Class                   POSIXct POSIXt      POSIXct POSIXt           character
-Minimum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Maximum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Mean               2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Unique (excld. NA)                   1                   1                   1
-Missing values                       0                   0                   0
-Sorted                            TRUE                TRUE                TRUE
-                   app.rate app.rate.unit  incorp time.incorp man.area dist.inj
-Class               numeric     character logical     logical  logical  numeric
-Minimum                  35          t/ha    <NA>        <NA>     <NA>       17
-Maximum                  35          t/ha    <NA>        <NA>     <NA>       17
-Mean                     35          t/ha    <NA>        <NA>     <NA>       17
-Unique (excld. NA)        1             1       0           0        0        1
-Missing values            0             0    1282        1282     1282        0
-Sorted                 TRUE          TRUE    TRUE        TRUE     TRUE     TRUE
-                   furrow.z furrow.w      crop  crop.z row.in.file.plot
-Class               numeric  logical character numeric          numeric
-Minimum                   4     <NA>     Grass      15                5
-Maximum                   4     <NA>     Grass      15                5
-Mean                      4     <NA>     Grass      15                5
-Unique (excld. NA)        1        0         1       1                1
-Missing values            0     1282         0       0                0
-Sorted                 TRUE     TRUE      TRUE    TRUE             TRUE
-                     app.start.orig     app.end.orig crop.area tan.app
-Class                     character        character   numeric numeric
-Minimum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Maximum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Mean               14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Unique (excld. NA)                1                1         0       1
-Missing values                    0                0      1282       0
-Sorted                         TRUE             TRUE      TRUE    TRUE
-                   institute  uptake     treat interval             t.start
-Class              character numeric character  numeric      POSIXct POSIXt
-Minimum                   AU       3       AGM        1 2019-08-14 17:30:00
-Maximum                   AU       3        MD      321 2019-08-21 09:30:00
-Mean                      AU       3   CRDS_2m      161 2019-08-18 01:37:27
-Unique (excld. NA)         1       1         4      321                 321
-Missing values             0       0         0        0                   0
-Sorted                  TRUE    TRUE      TRUE    FALSE               FALSE
-                                 t.end      dt meas.tech meas.tech.det   bg.dl
-Class                   POSIXct POSIXt numeric character     character logical
-Minimum            2019-08-14 18:00:00     0.5       AGM       CRDS_1m    <NA>
-Maximum            2019-08-21 10:00:00     0.5       bLS            MD    <NA>
-Mean               2019-08-18 02:07:27     0.5       bLS       CRDS_2m    <NA>
-Unique (excld. NA)                 321       1         2             3       0
-Missing values                       0       0         0           321    1282
-Sorted                           FALSE    TRUE      TRUE          TRUE    TRUE
-                    bg.val bg.unit    j.NH3 j.NH3.unit pH.surf air.temp
-Class              logical logical  numeric  character logical  numeric
-Minimum               <NA>    <NA> -0.00289 kg N/ha-hr    <NA>     10.6
-Maximum               <NA>    <NA>     1.41 kg N/ha-hr    <NA>     20.4
-Mean                  <NA>    <NA>   0.0942 kg N/ha-hr    <NA>     14.9
-Unique (excld. NA)       0       0     1265          1       0       72
-Missing values        1282    1282        0          0    1282      643
-Sorted                TRUE    TRUE    FALSE       TRUE    TRUE    FALSE
-                   air.temp.z soil.temp soil.temp.z soil.temp.surf     rad
-Class                 logical   numeric     numeric        logical numeric
-Minimum                  <NA>      15.7         0.1           <NA>       0
-Maximum                  <NA>        18         0.1           <NA>     634
-Mean                     <NA>      16.9         0.1           <NA>     138
-Unique (excld. NA)          0        24           1              0      97
-Missing values           1282       643           0           1282     643
-Sorted                   TRUE     FALSE        TRUE           TRUE   FALSE
-                      wind  wind.z     MOL   ustar       rl air.pres
-Class              numeric numeric numeric numeric  numeric  numeric
-Minimum              0.958       2  -16700  0.0476 3.42e-05    98100
-Maximum               6.26       2    7210   0.539    0.177    1e+05
-Mean                     3       2   -27.8   0.249    0.016    99000
-Unique (excld. NA)     320       1     306     320      306      320
-Missing values           4       0       4       4        4        4
-Sorted               FALSE    TRUE   FALSE   FALSE    FALSE    FALSE
-                   air.pres.unit    rain      rh  wind.loc row.in.file.int
-Class                    logical numeric numeric character         numeric
-Minimum                     <NA>       0    54.6     Field               5
-Maximum                     <NA>       3      93     Field            1290
-Mean                        <NA>   0.114    81.8     Field             647
-Unique (excld. NA)             0      13     115         1            1282
-Missing values              1282     643     643         0               0
-Sorted                      TRUE   FALSE   FALSE      TRUE           FALSE
-                   j.NH3.unit.orig j.NH3.orig j.NH3.conv.fact dt.calc dt.diff
-Class                    character    numeric         numeric numeric numeric
-Minimum                    µg/m2/s    -0.0802           0.036     0.5       0
-Maximum                    µg/m2/s       39.1           0.036     0.5       0
-Mean                       µg/m2/s       1.94           0.036     0.5       0
-Unique (excld. NA)               1        932               1       1       1
-Missing values                   0        350               0       0       0
-Sorted                        TRUE      FALSE            TRUE    TRUE    TRUE
-                                                                       file
-Class                                                             character
-Minimum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Maximum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Mean               ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Unique (excld. NA)                                                        1
-Missing values                                                            0
-Sorted                                                                 TRUE
-                                                                                                                    cpmid
-Class                                                                                                           character
-Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:AGM
-Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
-Unique (excld. NA)                                                                                                      4
-Missing values                                                                                                          0
-Sorted                                                                                                               TRUE
-                                                                                                        cpid
-Class                                                                                              character
-Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Unique (excld. NA)                                                                                         1
-Missing values                                                                                             0
-Sorted                                                                                                  TRUE
-                                                              ceid      ct
-Class                                                    character numeric
-Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
-Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     160
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug    80.4
-Unique (excld. NA)                                               1     321
-Missing values                                                   0       0
-Sorted                                                        TRUE   FALSE
-                      e.int   e.cum   e.rel
-Class               numeric numeric numeric
-Minimum            -0.00144   0.427 0.00754
-Maximum               0.704    18.9   0.333
-Mean                 0.0471    13.4   0.237
-Unique (excld. NA)     1265    1281    1281
-Missing values            0       0       0
-Sorted                FALSE   FALSE   FALSE
-                             proj              exper   field    plot     rep
-Class                   character          character logical numeric numeric
-Minimum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Maximum            Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Mean               Vejrumbro_2019 Vejrumbro_2019_Aug    <NA>       1       1
-Unique (excld. NA)              1                  1       0       1       1
-Missing values                  0                  0    1282       0       0
-Sorted                       TRUE               TRUE    TRUE    TRUE    TRUE
-                      pub.id plot.area     lat    long   country      topo
-Class              character   numeric numeric numeric character character
-Minimum               Atmos1    260000    56.5    9.54   Denmark      Flat
-Maximum               Atmos1    260000    56.5    9.54   Denmark      Flat
-Mean                  Atmos1    260000    56.5    9.54   Denmark      Flat
-Unique (excld. NA)         1         1       1       1         1         1
-Missing values             0         0       0       0         0         0
-Sorted                  TRUE      TRUE    TRUE    TRUE      TRUE      TRUE
-                      clay    silt    sand      oc soil.type soil.water
-Class              logical logical logical logical character    logical
-Minimum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Maximum               <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Mean                  <NA>    <NA>    <NA>    <NA>      Loam       <NA>
-Unique (excld. NA)       0       0       0       0         1          0
-Missing values        1282    1282    1282    1282         0       1282
-Sorted                TRUE    TRUE    TRUE    TRUE      TRUE       TRUE
-                   soil.water.v soil.moist soil.ph soil.dens  crop.res
-Class                   logical    logical logical   logical character
-Minimum                    <NA>       <NA>    <NA>      <NA>        No
-Maximum                    <NA>       <NA>    <NA>      <NA>        No
-Mean                       <NA>       <NA>    <NA>      <NA>        No
-Unique (excld. NA)            0          0       0         0         1
-Missing values             1282       1282    1282      1282         0
-Sorted                     TRUE       TRUE    TRUE      TRUE      TRUE
-                        till man.source man.source.det man.bed   man.con
-Class              character  character        logical logical character
-Minimum                  Yes        Mix           <NA>    <NA>    Slurry
-Maximum                  Yes        Mix           <NA>    <NA>    Slurry
-Mean                     Yes        Mix           <NA>    <NA>    Slurry
-Unique (excld. NA)         1          1              0       0         1
-Missing values             0          0           1282    1282         0
-Sorted                  TRUE       TRUE           TRUE    TRUE      TRUE
-                              man.trt1 man.trt2 man.stor  man.dm  man.vs
-Class                        character  logical  logical numeric logical
-Minimum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Maximum            Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Mean               Anaerobic digestion     <NA>     <NA>    3.31    <NA>
-Unique (excld. NA)                   1        0        0       1       0
-Missing values                       0     1282     1282       0    1282
-Sorted                            TRUE     TRUE     TRUE    TRUE    TRUE
-                   man.tkn man.tan man.tic  man.ua man.vfa  man.ph
-Class              numeric numeric logical logical logical numeric
-Minimum               2.79    1.62    <NA>    <NA>    <NA>     7.7
-Maximum               2.79    1.62    <NA>    <NA>    <NA>     7.7
-Mean                  2.79    1.62    <NA>    <NA>    <NA>     7.7
-Unique (excld. NA)       1       1       0       0       0       1
-Missing values           0       0    1282    1282    1282       0
-Sorted                TRUE    TRUE    TRUE    TRUE    TRUE    TRUE
-                             app.start             app.end          app.method
-Class                   POSIXct POSIXt      POSIXct POSIXt           character
-Minimum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Maximum            2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Mean               2019-08-14 06:00:00 2019-08-14 16:00:00 Open slot injection
-Unique (excld. NA)                   1                   1                   1
-Missing values                       0                   0                   0
-Sorted                            TRUE                TRUE                TRUE
-                   app.rate app.rate.unit  incorp time.incorp man.area dist.inj
-Class               numeric     character logical     logical  logical  numeric
-Minimum                  35          t/ha    <NA>        <NA>     <NA>       17
-Maximum                  35          t/ha    <NA>        <NA>     <NA>       17
-Mean                     35          t/ha    <NA>        <NA>     <NA>       17
-Unique (excld. NA)        1             1       0           0        0        1
-Missing values            0             0    1282        1282     1282        0
-Sorted                 TRUE          TRUE    TRUE        TRUE     TRUE     TRUE
-                   furrow.z furrow.w      crop  crop.z row.in.file.plot
-Class               numeric  logical character numeric          numeric
-Minimum                   4     <NA>     Grass      15                5
-Maximum                   4     <NA>     Grass      15                5
-Mean                      4     <NA>     Grass      15                5
-Unique (excld. NA)        1        0         1       1                1
-Missing values            0     1282         0       0                0
-Sorted                 TRUE     TRUE      TRUE    TRUE             TRUE
-                     app.start.orig     app.end.orig crop.area tan.app
-Class                     character        character   numeric numeric
-Minimum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Maximum            14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Mean               14-08-2019 06:00 14-08-2019 16:00      <NA>    56.7
-Unique (excld. NA)                1                1         0       1
-Missing values                    0                0      1282       0
-Sorted                         TRUE             TRUE      TRUE    TRUE
-                   institute  uptake     treat interval             t.start
-Class              character numeric character  numeric      POSIXct POSIXt
-Minimum                   AU       3       AGM        1 2019-08-14 17:30:00
-Maximum                   AU       3        MD      321 2019-08-21 09:30:00
-Mean                      AU       3   CRDS_2m      161 2019-08-18 01:37:27
-Unique (excld. NA)         1       1         4      321                 321
-Missing values             0       0         0        0                   0
-Sorted                  TRUE    TRUE      TRUE    FALSE               FALSE
-                                 t.end      dt meas.tech meas.tech.det   bg.dl
-Class                   POSIXct POSIXt numeric character     character logical
-Minimum            2019-08-14 18:00:00     0.5       AGM       CRDS_1m    <NA>
-Maximum            2019-08-21 10:00:00     0.5       bLS            MD    <NA>
-Mean               2019-08-18 02:07:27     0.5       bLS       CRDS_2m    <NA>
-Unique (excld. NA)                 321       1         2             3       0
-Missing values                       0       0         0           321    1282
-Sorted                           FALSE    TRUE      TRUE          TRUE    TRUE
-                    bg.val bg.unit    j.NH3 j.NH3.unit pH.surf air.temp
-Class              logical logical  numeric  character logical  numeric
-Minimum               <NA>    <NA> -0.00289 kg N/ha-hr    <NA>     10.6
-Maximum               <NA>    <NA>     1.41 kg N/ha-hr    <NA>     20.4
-Mean                  <NA>    <NA>   0.0942 kg N/ha-hr    <NA>     14.9
-Unique (excld. NA)       0       0     1265          1       0       72
-Missing values        1282    1282        0          0    1282      643
-Sorted                TRUE    TRUE    FALSE       TRUE    TRUE    FALSE
-                   air.temp.z soil.temp soil.temp.z soil.temp.surf     rad
-Class                 logical   numeric     numeric        logical numeric
-Minimum                  <NA>      15.7         0.1           <NA>       0
-Maximum                  <NA>        18         0.1           <NA>     634
-Mean                     <NA>      16.9         0.1           <NA>     138
-Unique (excld. NA)          0        24           1              0      97
-Missing values           1282       643           0           1282     643
-Sorted                   TRUE     FALSE        TRUE           TRUE   FALSE
-                      wind  wind.z     MOL   ustar       rl air.pres
-Class              numeric numeric numeric numeric  numeric  numeric
-Minimum              0.958       2  -16700  0.0476 3.42e-05    98100
-Maximum               6.26       2    7210   0.539    0.177    1e+05
-Mean                     3       2   -27.8   0.249    0.016    99000
-Unique (excld. NA)     320       1     306     320      306      320
-Missing values           4       0       4       4        4        4
-Sorted               FALSE    TRUE   FALSE   FALSE    FALSE    FALSE
-                   air.pres.unit    rain      rh  wind.loc row.in.file.int
-Class                    logical numeric numeric character         numeric
-Minimum                     <NA>       0    54.6     Field               5
-Maximum                     <NA>       3      93     Field            1290
-Mean                        <NA>   0.114    81.8     Field             647
-Unique (excld. NA)             0      13     115         1            1282
-Missing values              1282     643     643         0               0
-Sorted                      TRUE   FALSE   FALSE      TRUE           FALSE
-                   j.NH3.unit.orig j.NH3.orig j.NH3.conv.fact dt.calc dt.diff
-Class                    character    numeric         numeric numeric numeric
-Minimum                    µg/m2/s    -0.0802           0.036     0.5       0
-Maximum                    µg/m2/s       39.1           0.036     0.5       0
-Mean                       µg/m2/s       1.94           0.036     0.5       0
-Unique (excld. NA)               1        932               1       1       1
-Missing values                   0        350               0       0       0
-Sorted                        TRUE      FALSE            TRUE    TRUE    TRUE
-                                                                       file
-Class                                                             character
-Minimum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Maximum            ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Mean               ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx
-Unique (excld. NA)                                                        1
-Missing values                                                            0
-Sorted                                                                 TRUE
-                                                                                                                    cpmid
-Class                                                                                                           character
-Minimum                D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:AGM.R:1.R2:.T:2019-08-14 06:00:00.M:AGM
-Maximum                 D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:MD.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.T:CRDS_2m.R:1.R2:.T:2019-08-14 06:00:00.M:bLS
-Unique (excld. NA)                                                                                                      4
-Missing values                                                                                                          0
-Sorted                                                                                                               TRUE
-                                                                                                        cpid
-Class                                                                                              character
-Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug.F:NA.P:1.R:1.R2:.T:2019-08-14 06:00:00.M:
-Unique (excld. NA)                                                                                         1
-Missing values                                                                                             0
-Sorted                                                                                                  TRUE
-                                                              ceid      ct
-Class                                                    character numeric
-Minimum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     0.5
-Maximum            D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug     160
-Mean               D:1.I:AU.Pr:Vejrumbro_2019.E:Vejrumbro_2019_Aug    80.4
-Unique (excld. NA)                                               1     321
-Missing values                                                   0       0
-Sorted                                                        TRUE   FALSE
-                      e.int   e.cum   e.rel
-Class               numeric numeric numeric
-Minimum            -0.00144   0.427 0.00754
-Maximum               0.704    18.9   0.333
-Mean                 0.0471    13.4   0.237
-Unique (excld. NA)     1265    1281    1281
-Missing values            0       0       0
-Sorted                FALSE   FALSE   FALSE
+$contrib
+[38;5;246m# A tibble: 2 × 2[39m
+  contributor           institute                                                             
+  [3m[38;5;246m<chr>[39m[23m                 [3m[38;5;246m<chr>[39m[23m                                                                 
+[38;5;250m1[39m Stefania Pindozzi     Department of Agricultural Sciences, University of Naples, Federico II
+[38;5;250m2[39m Ester Scotto di Perta Department of Agricultural Sciences, University of Naples, Federico II
+
+$exper
+       proj     exper pub.id                          varied emis.tech
+1 BRM_JUL16 2-BRM_IHF  2-BRM measurement methods (IHF vs WT)       IHF
+                                                                                                                                                                                                                                                                                                                                                      conc.tech
+1 After the exposition, each glass tube (prior coated with oxalic acid in the inner surface by using a solution of acetone containing 3% oxalic acid) was washed with 0.003 L of distilled water and subsequently in order to determine the quantity of NH4+ sampled, the obtained solution was analysed by spectrometric (FIAstar 5000 system, FOSS, Denmark).
+  pH.tech notes.exper NA. NA..1
+1      NA          NA  NA     .
+
+$treat
+       proj     exper treat                                                            treat.descrip
+1 BRM_JUL16 2-BRM_IHF 2-BRM buffalo raw (no treatment) manure applied by using splash plate spreader
+
+$plots
+       proj pub.id     exper field plot rep plot.area      lat     long country topo   clay  silt   sand  oc
+1 BRM_JUL16  AFM19 2-BRM_IHF    NA    1   1      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+  soil.type soil.water soil.water.v soil.moist soil.ph soil.dens crop.res till man.source man.source.det man.bed
+1        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+  man.con man.trt1 man.trt2 man.stor man.dm man.vs man.tkn man.tan man.tic man.ua man.vfa man.ph           app.start
+1  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+  app.end app.method app.rate app.rate.unit incorp time.incorp man.area dist.inj furrow.z furrow.w crop crop.z
+1    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+  crop.area lai notes row.in.file   app.start.orig app.end.orig tan.app institute uptake
+1        NA  NA     .           5 08-07-2016 08:07           NA    87.5     UNINA      3
+
+$emis
+        proj     exper field plot rep pub.id plot.area      lat     long country topo   clay  silt   sand  oc
+1  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+2  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+3  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+4  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+5  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+6  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+7  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+8  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+9  BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+10 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+11 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+12 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+13 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+14 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+15 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+16 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+17 BRM_JUL16 2-BRM_IHF    NA    1   1  AFM19      1256 40.96597 14.42636   Italy Flat 15.125 27.25 57.625 1.7
+   soil.type soil.water soil.water.v soil.moist soil.ph soil.dens crop.res till man.source man.source.det man.bed
+1         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+2         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+3         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+4         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+5         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+6         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+7         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+8         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+9         NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+10        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+11        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+12        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+13        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+14        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+15        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+16        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+17        NA         NA           NA         NA     7.4        NA       No  Yes     Cattle        buffalo    None
+   man.con man.trt1 man.trt2 man.stor man.dm man.vs man.tkn man.tan man.tic man.ua man.vfa man.ph           app.start
+1   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+2   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+3   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+4   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+5   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+6   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+7   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+8   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+9   Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+10  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+11  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+12  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+13  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+14  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+15  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+16  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+17  Slurry     None       NA       90  8.335   5.74     3.2     0.7      NA     NA      NA     NA 2016-07-08 08:07:00
+   app.end app.method app.rate app.rate.unit incorp time.incorp man.area dist.inj furrow.z furrow.w crop crop.z
+1     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+2     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+3     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+4     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+5     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+6     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+7     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+8     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+9     <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+10    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+11    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+12    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+13    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+14    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+15    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+16    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+17    <NA>  Broadcast      125          t/ha   None          NA       NA       NA       NA       NA   NA     NA
+   crop.area lai notes row.in.file.plot   app.start.orig app.end.orig tan.app institute uptake treat interval
+1         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        1
+2         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        2
+3         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        3
+4         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        4
+5         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        5
+6         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        6
+7         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        7
+8         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        8
+9         NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM        9
+10        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       10
+11        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       11
+12        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       12
+13        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       13
+14        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       14
+15        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       15
+16        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       16
+17        NA  NA     .                5 08-07-2016 08:07           NA    87.5     UNINA      3 2-BRM       17
+               t.start               t.end        dt meas.tech meas.tech.det bg.dl  bg.val bg.unit      j.NH3
+1  2016-07-28 10:15:00 2016-07-28 12:15:00  2.000000       IHF            NA    NA   0.000    ug/l 3.75702325
+2  2016-07-28 12:15:00 2016-07-28 14:15:00  2.000000       IHF            NA    NA   0.000    ug/l 2.08842229
+3  2016-07-28 14:15:00 2016-07-28 16:30:00  2.250000       IHF            NA    NA   0.000    ug/l 3.54861571
+4  2016-07-28 16:30:00 2016-07-28 18:30:00  2.000000       IHF            NA    NA   0.000    ug/l 1.40878567
+5  2016-07-28 18:30:00 2016-07-29 08:30:00 14.000000       IHF            NA    NA 303.465    ug/l 0.20765077
+6  2016-07-29 08:30:00 2016-07-29 11:30:00  3.000000       IHF            NA    NA  29.161    ug/l 1.11326815
+7  2016-07-29 11:30:00 2016-07-29 13:30:00  2.000000       IHF            NA    NA  21.888    ug/l 1.30952962
+8  2016-07-29 13:30:00 2016-07-29 15:30:00  2.000000       IHF            NA    NA   0.000    ug/l 0.81218121
+9  2016-07-29 15:30:00 2016-07-29 18:00:00  2.500000       IHF            NA    NA   0.000    ug/l 1.33922369
+10 2016-07-29 18:00:00 2016-07-30 08:30:00 14.500000       IHF            NA    NA   0.000    ug/l 0.03939113
+11 2016-07-30 08:30:00 2016-07-30 11:10:00  2.666667       IHF            NA    NA  51.680    ug/l 0.56190096
+12 2016-07-30 11:10:00 2016-07-30 13:30:00  2.333333       IHF            NA    NA   0.000    ug/l 0.58108799
+13 2016-07-30 13:30:00 2016-07-30 16:00:00  2.500000       IHF            NA    NA   0.258    ug/l 0.94942854
+14 2016-07-30 16:00:00 2016-07-31 08:30:00 16.500000       IHF            NA    NA  48.232    ug/l 0.18265999
+15 2016-07-31 08:30:00 2016-07-31 10:30:00  2.000000       IHF            NA    NA  19.914    ug/l 0.20076879
+16 2016-07-31 10:30:00 2016-07-31 12:30:00  2.000000       IHF            NA    NA  85.624    ug/l 0.35598153
+17 2016-07-31 12:30:00 2016-07-31 15:30:00  3.000000       IHF            NA    NA 110.750    ug/l 0.16820955
+   j.NH3.unit pH.surf air.temp air.temp.z soil.temp soil.temp.z soil.temp.surf rad  wind wind.z MOL ustar rl air.pres
+1  kg N/ha-hr      NA    29.24          2        NA          NA             NA  NA 1.085      2  NA    NA NA       NA
+2  kg N/ha-hr      NA    29.98          2        NA          NA             NA  NA 2.415      2  NA    NA NA       NA
+3  kg N/ha-hr      NA    29.49          2        NA          NA             NA  NA 2.592      2  NA    NA NA       NA
+4  kg N/ha-hr  7.1425    28.63          2        NA          NA             NA  NA 2.123      2  NA    NA NA       NA
+5  kg N/ha-hr      NA    21.06          2        NA          NA             NA  NA 0.513      2  NA    NA NA       NA
+6  kg N/ha-hr      NA    28.27          2        NA          NA             NA  NA 0.937      2  NA    NA NA       NA
+7  kg N/ha-hr      NA    31.01          2        NA          NA             NA  NA 1.754      2  NA    NA NA       NA
+8  kg N/ha-hr      NA    30.67          2        NA          NA             NA  NA 2.785      2  NA    NA NA       NA
+9  kg N/ha-hr  7.1550    29.19          2        NA          NA             NA  NA 2.875      2  NA    NA NA       NA
+10 kg N/ha-hr      NA    21.13          2        NA          NA             NA  NA 0.495      2  NA    NA NA       NA
+11 kg N/ha-hr      NA    28.94          2        NA          NA             NA  NA 0.929      2  NA    NA NA       NA
+12 kg N/ha-hr      NA    31.55          2        NA          NA             NA  NA 2.060      2  NA    NA NA       NA
+13 kg N/ha-hr  7.1375    31.54          2        NA          NA             NA  NA 2.513      2  NA    NA NA       NA
+14 kg N/ha-hr      NA    23.18          2        NA          NA             NA  NA 0.876      2  NA    NA NA       NA
+15 kg N/ha-hr      NA    28.29          2        NA          NA             NA  NA 1.100      2  NA    NA NA       NA
+16 kg N/ha-hr      NA    30.19          2        NA          NA             NA  NA 1.900      2  NA    NA NA       NA
+17 kg N/ha-hr  7.1450    30.81          2        NA          NA             NA  NA 2.453      2  NA    NA NA       NA
+   air.pres.unit rain    rh        wind.loc far.loc notes.emis row.in.file.int j.NH3.unit.orig j.NH3.orig
+1             NA    0 63.46 Nearest station     310          .               5      kg N/ha-hr 3.75702325
+2             NA    0 60.92 Nearest station     310       <NA>               6      kg N/ha-hr 2.08842229
+3             NA    0 56.29 Nearest station     310       <NA>               7      kg N/ha-hr 3.54861571
+4             NA    0 55.54 Nearest station     310       <NA>               8      kg N/ha-hr 1.40878567
+5             NA    0 82.97 Nearest station     310       <NA>               9      kg N/ha-hr 0.20765077
+6             NA    0 58.84 Nearest station     310       <NA>              10      kg N/ha-hr 1.11326815
+7             NA    0 46.92 Nearest station     310       <NA>              11      kg N/ha-hr 1.30952962
+8             NA    0 49.69 Nearest station     310       <NA>              12      kg N/ha-hr 0.81218121
+9             NA    0 50.06 Nearest station     310       <NA>              13      kg N/ha-hr 1.33922369
+10            NA    0 81.88 Nearest station     310       <NA>              14      kg N/ha-hr 0.03939113
+11            NA    0 51.53 Nearest station     310       <NA>              15      kg N/ha-hr 0.56190096
+12            NA    0 53.07 Nearest station     310       <NA>              16      kg N/ha-hr 0.58108799
+13            NA    0 56.50 Nearest station     310       <NA>              17      kg N/ha-hr 0.94942854
+14            NA    0 78.46 Nearest station     310       <NA>              18      kg N/ha-hr 0.18265999
+15            NA    0 61.92 Nearest station     310       <NA>              19      kg N/ha-hr 0.20076879
+16            NA    0 57.77 Nearest station     310       <NA>              20      kg N/ha-hr 0.35598153
+17            NA    0 52.95 Nearest station     310       <NA>              21      kg N/ha-hr 0.16820955
+   j.NH3.conv.fact   dt.calc dt.diff                                                    file
+1                1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+2                1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+3                1  2.250000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+4                1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+5                1 14.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+6                1  3.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+7                1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+8                1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+9                1  2.500000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+10               1 14.500000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+11               1  2.666667       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+12               1  2.333333       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+13               1  2.500000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+14               1 16.500000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+15               1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+16               1  2.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+17               1  3.000000       0 ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx
+                                                                                       cpmid
+1  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+2  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+3  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+4  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+5  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+6  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+7  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+8  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+9  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+10 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+11 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+12 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+13 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+14 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+15 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+16 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+17 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.T:2-BRM.R:1.R2:.T:2016-07-08 08:07:00.M:IHF
+                                                                             cpid
+1  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+2  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+3  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+4  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+5  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+6  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+7  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+8  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+9  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+10 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+11 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+12 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+13 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+14 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+15 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+16 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+17 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF.F:NA.P:1.R:1.R2:.T:2016-07-08 08:07:00.M:
+                                   ceid       ct     e.int     e.cum      cta      e.rel
+1  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF  2.00000 7.5140465  7.514046 484.1333 0.08587482
+2  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF  4.00000 4.1768446 11.690891 486.1333 0.13361018
+3  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF  6.25000 7.9843854 19.675276 488.3833 0.22486030
+4  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF  8.25000 2.8175713 22.492848 490.3833 0.25706112
+5  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 22.25000 2.9071108 25.399959 504.3833 0.29028524
+6  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 25.25000 3.3398045 28.739763 507.3833 0.32845443
+7  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 27.25000 2.6190592 31.358822 509.3833 0.35838654
+8  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 29.25000 1.6243624 32.983185 511.3833 0.37695068
+9  D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 31.75000 3.3480592 36.331244 513.8833 0.41521422
+10 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 46.25000 0.5711713 36.902415 528.3833 0.42174189
+11 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 48.91667 1.4984025 38.400818 531.0500 0.43886649
+12 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 51.25000 1.3558720 39.756690 533.3833 0.45436217
+13 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 53.75000 2.3735713 42.130261 535.8833 0.48148870
+14 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 70.25000 3.0138898 45.144151 552.3833 0.51593315
+15 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 72.25000 0.4015376 45.545689 554.3833 0.52052215
+16 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 74.25000 0.7119631 46.257652 556.3833 0.52865888
+17 D:1.I:UNINA.Pr:BRM_JUL16.E:2-BRM_IHF 77.25000 0.5046287 46.762280 559.3833 0.53442606
+
+$pubs
+  pub.id
+1  AFM19
+                                                                                                                                                                                                                                                    citation
+1 Scotto di Perta, E., Fiorentino, N., Gioia, L., Cervelli, E., Faugno, S., & Pindozzi, S. (2019). Prolonged sampling time increases correlation between wind tunnel and integrated horizontal flux method. Agricultural and forest meteorology, 265, 48-55.
+
+$file
+[1] "../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1.xlsx"
+

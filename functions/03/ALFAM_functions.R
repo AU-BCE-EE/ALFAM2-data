@@ -42,7 +42,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
 
   # Emission
-  emis <- read_xlsx(file, sheet = 7, skip = 6, col_names = FALSE, na = na.strings)
+  # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
+  emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = FALSE, na = na.strings)
+  #emis <- read_xlsx(file, sheet = 7, range = 'A4:AJ5000', col_names = FALSE, na = na.strings)
   names(emis) <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
                    'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
                    'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
@@ -160,7 +162,8 @@ cleanALFAM <- function(obj) {
   }
 
   # Convert reported dt to decimal hours
-  emis$dt <- HM2DH(emis$dt)
+  # Note dt may have single quote in spreadsheet and be read in as character
+  emis$dt <- HM2DH(as.numeric(emis$dt))
 
   emis$dt[is.na(emis$dt)] <- emis$dt.calc[is.na(emis$dt)]
   emis$dt.diff <- emis$dt - emis$dt.calc
@@ -234,6 +237,9 @@ calcEmis <- function(obj, na = 'impute') {
     emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
     emis[emis$cpmid == i, 'e.cum'] <- cumsum(emis[emis$cpmid == i, 'e.int'])
   }
+
+  # Elapsed time since application
+  emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
 
   # Relative emission, fraction of applied TAN
   emis$e.rel <- emis$e.cum / emis$tan.app
@@ -795,7 +801,9 @@ rounddf <- function(x, digits = 2) {
 DMS2DD <- function(x) {
   x <- gsub('°', 'd', x)
   x <- gsub('\'\'', 's', x)
+  x <- gsub('′′', 's', x)
   x <- gsub("'", 'm', x)
+  x <- gsub('′', 'm', x)
   x <- gsub('"', 's', x)
   neg <- grepl('[SsWw]$', x)
   x <- gsub('[NnSsEeWw]$', '', x)
@@ -1059,103 +1067,6 @@ subsetd <- function(d, ...) {
 }
 
 
-dfsumm <- function(x) {
-
-   if(!class(x)[1] %in% c("data.frame", "matrix")) 
-     stop("You can't use dfsumm on ", class(x), " objects!")
-
-   cat("\n", nrow(x), "rows and", ncol(x), "columns")
-   cat("\n", nrow(unique(x)), "unique rows\n")
-
-   s <- matrix(NA, nrow = 7, ncol = ncol(x))
-
-   for(i in 1:ncol(x)) {
-
-     iclass <- class(x[, i])[1]
-
-     s[1, i] <- paste(class(x[, i]), collapse = " ")
-
-     y <- x[, i]
-
-     yc <- na.omit(y)
-
-     if(iclass%in%c("factor", "ordered")) { 
-       s[2:4, i] <- levels(yc)[c(1, length(levels(yc)), round(mean(as.integer(yc))))] 
-     } else if(iclass == "numeric") {
-       s[2:4, i] <- as.character(signif(c(min(yc), max(yc), mean(yc)), 3)) 
-     } else if(iclass == "logical") {
-       s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
-     } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
-     } else {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
-     }
-
-     s[5, i] <- length(unique(yc))
-     s[6, i] <- sum(is.na(y))
-     s[7, i] <- !is.unsorted(yc)
-   }
-
-   s <- as.data.frame(s)
-
-   rownames(s) <- c("Class", "Minimum", "Maximum", "Mean", "Unique (excld. NA)", "Missing values", "Sorted") 
-   colnames(s) <- colnames(x)
-
-   print(s)
-
-}
-
-# A function for summarizing data frames
-# S. Hafner
-# Modified: 27 April 2016
-dfsumm <- function(x) {
-
-   if(!class(x)[1] %in% c("data.frame", "matrix")) 
-     stop("You can't use dfsumm on ", class(x), " objects!")
-
-   cat("\n", nrow(x), "rows and", ncol(x), "columns")
-   cat("\n", nrow(unique(x)), "unique rows\n")
-
-   s <- matrix(NA, nrow = 7, ncol = ncol(x))
-
-   for(i in 1:ncol(x)) {
-
-     iclass <- class(x[, i])[1]
-
-     s[1, i] <- paste(class(x[, i]), collapse = " ")
-
-     y <- x[, i]
-
-     yc <- na.omit(y)
-
-     if(all(is.na(y))) {
-       s[2:4, i] <- NA
-     } else if(iclass%in%c("factor", "ordered")) { 
-       s[2:4, i] <- levels(yc)[c(1, length(levels(yc)), round(mean(as.integer(yc))))] 
-     } else if(iclass == "numeric") {
-       s[2:4, i] <- as.character(signif(c(min(yc), max(yc), mean(yc)), 3)) 
-     } else if(iclass == "logical") {
-       s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
-     } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
-     } else {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
-     }
-
-     s[5, i] <- length(unique(yc))
-     s[6, i] <- sum(is.na(y))
-     s[7, i] <- !is.unsorted(yc)
-   }
-
-   s <- as.data.frame(s)
-
-   rownames(s) <- c("Class", "Minimum", "Maximum", "Mean", "Unique (excld. NA)", "Missing values", "Sorted") 
-   colnames(s) <- colnames(x)
-
-   print(s)
-
-}
-
 #dropBlankCols <- function(d) {
 #
 #
@@ -1322,11 +1233,14 @@ checkErrors <- function(obj, log = 'error_log.txt') {
 
   sink(paste0('../../logs/03/', log))
 
-  for (i in names(dat)) {
-    for (j in names(dat[[i]])) {
-      d <- dat[[i]][[j]]$emis
+  for (i in names(obj)) {
+    print(rep(i, 10))
+    for (j in names(obj[[i]])) {
+      print(rep(j, 10))
+      d <- obj[[i]][[j]]$emis
 
-      print(dfsumm(d))
+      print(summary(d))
+      print(apply(d, 2, function(x) sum(is.na(x))))
 
       # Missing incorporation times
       table(d$incorp, d$time.incorp, exclude = NULL)
@@ -1406,7 +1320,21 @@ checkErrors <- function(obj, log = 'error_log.txt') {
       x <- subset(d, dt < 0)
       dim(x)
       x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-      
+
+      # Negative cta
+      x <- subset(d, cta < 0)
+      head(x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')])
+      unique(x$plot)
+
+      # Gaps, missing measurement intervals
+      d$dcta <- c(0, diff(d$cta))
+      d$dcta[d$interval == 1] <- d$dcta
+      x <- d[signif(d$dcta, 3) != signif(d$dt, 3), ]
+      x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
+
+      x <- d[abs(log10(signif(d$dcta, 3)/signif(d$dt, 3))) > 0.2, ]
+      x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
+
       # Duplicated shifts
       # Should be none
       s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
@@ -1414,6 +1342,9 @@ checkErrors <- function(obj, log = 'error_log.txt') {
       x
       y <- subset(d, cpmid == x$cpmid)
       y[, c('file', 'institute', 'row.in.file.int', 'plot', 'rep')]
+
+      hist(d$dt - d$dt.calc, xlim = c(-0.5, 0.5), breaks = 1000)
+      quantile(d$dt - d$dt.calc)
       
       # Shift time mismatches
       # Should be none
