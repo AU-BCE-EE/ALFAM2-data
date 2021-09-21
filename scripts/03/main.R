@@ -6,6 +6,8 @@
 # To get errors for any warnings
 #options(warn = 2) 
 
+rm(list = ls())
+
 # Set uptake number and database version
 uptake <- 3
 version <- '2.0' # September 2021
@@ -20,7 +22,7 @@ source('../../functions/03/ALFAM_functions.R')
 source('../../functions/03/dfsumm.R')
 
 # Make database files
-sink('../logs/make_database_log.txt')
+sink('../../logs/03/make_database_log.txt')
   source('make_database.R', echo = TRUE)
 sink()
 

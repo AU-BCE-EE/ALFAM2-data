@@ -1,0 +1,30 @@
+
+> # 
+> 
+> # Date record
+> print(Sys.time())
+[1] "2021-09-15 13:26:07 EDT"
+
+> # Read in data from files
+> ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
+
+> dat <- list()
+
+> for(i in ddir) {
++   cat('Directory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (created  .... [TRUNCATED] 
+Directory  ../../data - submitted/03/AU-JK 
+   file  ../../data - submitted/03/AU-JK/ALFAM2_template_4_0.xlsx 
+Directory  ../../data - submitted/03/AU-JMP 
+   file  ../../data - submitted/03/AU-JMP/ALFAM2_template_5_2_210914_JP_subset.xlsx 
+
+> cat('Done! Read', length(dat), ' directories\n')
+Done! Read 2  directories
+
+> # Basic data cleaning
+> for (i in names(dat)) {
++   for (j in names(dat[[i]])) {
++     dat[[i]][[j]] <- cleanALFAM(dat[[i]][[j]])
++   }
++ }
