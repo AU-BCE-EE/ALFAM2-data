@@ -7,50 +7,49 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   na.strings <- c('', 'NA', 'na', 'Na', 'NaN')
 
   # Submitter info
-  submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = FALSE, na = na.strings)
+  submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = c('x', 'y'), na = na.strings)
   submitter <- data.frame(t(submitter[, 2]))
-  names(submitter) <- c('institute', 'inst.abbrev', 'submitter', 'version', 'date')
   submitter <- data.frame(submitter)
+  names(submitter) <- c('institute', 'inst.abbrev', 'submitter', 'version', 'date')
 
   # Contributers - to save by institute and file eventually
-  contrib <- read_xlsx(file, sheet = 3, skip = 1, col_names = FALSE, na = na.strings)
-  names(contrib) <- c('contributor', 'institute')
+  nms <- c('contributor', 'institute')
+  contrib <- read_xlsx(file, sheet = 3, skip = 1, col_names = nms, na = na.strings)
   contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
 
   # Experiments
-  exper <- read_xlsx(file, sheet = 4, skip = 1, col_names = FALSE, na = na.strings)
-  names(exper) <- c('proj', 'exper', 'pub.id', 'varied', 'emis.tech', 'conc.tech', 'pH.tech', 'notes.exper')[1:ncol(exper)]
+  nms <- c('proj', 'exper', 'pub.id', 'varied', 'emis.tech', 'conc.tech', 'det.lim', 'man.pH.tech', 'soil.pH.tech', 'notes.exper')
+  exper <- read_xlsx(file, sheet = 4, skip = 1, col_names = nms, na = na.strings)
   exper <- data.frame(exper)
   exper <- exper[rowSums(!is.na(exper)) > 0, ]
 
   # Treatments
-  treat <- read_xlsx(file, sheet = 5, skip = 1, col_names = FALSE, na = na.strings)
-  names(treat) <- c('proj', 'exper', 'treat', 'treat.descrip')[1:ncol(treat)]
+  nms <- c('proj', 'exper', 'treat', 'treat.descrip')
+  treat <- read_xlsx(file, sheet = 5, skip = 1, col_names = nms, na = na.strings)
   treat <- data.frame(treat)
   treat <- treat[rowSums(!is.na(treat)) > 0, ]
 
   # Plots
-  plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = FALSE, na = na.strings)
-  names(plots) <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
+  nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
                     'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
                     'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
                     'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
                     'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                    'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')[1:ncol(plots)]
+                    'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+  plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
   plots <- data.frame(plots)
   plots$row.in.file <- 1:nrow(plots) + 4
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
 
   # Emission
-  # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
-  emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = FALSE, na = na.strings)
-  #emis <- read_xlsx(file, sheet = 7, range = 'A4:AJ5000', col_names = FALSE, na = na.strings)
-  names(emis) <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
+  nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
                    'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
                    'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
                    'rad', 'wind', 'wind.z', 
                    # Check these
-                   'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.emis')[1:ncol(emis)]
+                   'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.emis')
+  # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
+  emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
   emis <- data.frame(emis)
   emis$row.in.file <- 1:nrow(emis) + 4
   emis <- emis[rowSums(!is.na(emis)) > 1, ]
@@ -224,7 +223,26 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Add plot info (including application rate) to emis
   # Keep all = TRUE in order to later check for missing codes
+  nn <- nrow(emis)
+  emis.orig <- emis
   emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep'), suffixes = c('.plot', '.int'), all = TRUE)
+  if (nrow(emis) != nn) {
+    for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
+      print(i)
+      print('plots sheet levels:')
+      print(unique(plots[, i]))
+
+      print('emission sheet levels:')
+      print(unique(emis.orig[, i]))
+      cat('\n')
+
+      print('plots unique combos')
+      print(unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+      print('emission unique combos')
+      print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+    }
+    stop('Merge problem with plots and emis, probably a typo in project, experiment, etc.')
+  }
 
   # Drop intervals with missing emission measurements
   # NTS: how to handle this?
@@ -1267,11 +1285,21 @@ check4missing <- function(obj) {
   emis <- obj$emis
 
   # Emission sheet
-  for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'dt', 'meas.tech')) {
+  for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'meas.tech')) {
     if (any(ii <- is.na(emis[, i]))) {
       cat('Error in\n')
       print('First 10 rows:')
       print(emis[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
+  # If dt is missing, must have t.start and t.end
+  if (any(ii <- is.na(emis[, 'dt']))) {
+    if (any(is.na(c(emis$t.start, emis$t.end)))) {
+      cat('Error in dt\n')
+      print('First 10 rows:')
+      print(emis[ii, c('row.in.file', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
