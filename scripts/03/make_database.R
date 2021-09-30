@@ -15,6 +15,8 @@ for(i in ddir) {
   for(j in f) {
     cat('   file ', j,'\n')
     dd <- readALFAM2File(j)
+    # Simple error check to save searching
+    check4missing(dd)
     # Basic data cleaning
     dd <- cleanALFAM(dd)
     # Calculate emission (including merge with plot df, adding c*id)
@@ -38,5 +40,4 @@ for (i in names(dat)) {
     render('error_check.Rmd', output_file = paste0(inst, now, '.html'), output_dir = '../../logs/03')
   }
 }
-
 
