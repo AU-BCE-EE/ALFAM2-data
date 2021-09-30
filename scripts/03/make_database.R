@@ -14,34 +14,28 @@ for(i in ddir) {
   dat[[i]] <- list()
   for(j in f) {
     cat('   file ', j,'\n')
-    dat[[i]][[j]] <- readALFAM2File(j)
+    dd <- readALFAM2File(j)
+    # Basic data cleaning
+    dd <- cleanALFAM(dd)
+    # Calculate emission (including merge with plot df, adding c*id)
+    dd <- calcEmis(dd, na = 'impute')
+    # Fix weather data
+    dd <- fixWeather(dd, na = 'impute')
+    dat[[i]][[j]] <- dd
   }
 }
 cat('Done! Read', length(dat), ' directories\n')
-
-# Basic data cleaning
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    dat[[i]][[j]] <- cleanALFAM(dat[[i]][[j]])
-  }
-}
-
-# Calculate emission
-# NTS: still need to sort out what to do with blank intervals
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    dat[[i]][[j]] <- calcEmis(dat[[i]][[j]], na = 'impute')
-  }
-}
 
 # Check for errors
 # NTS: Need a check to look for gaps in time, compare dt to diff(t.end) perhaps
 # NTS: Need to fix print width
 for (i in names(dat)) {
   for (j in names(dat[[i]])) {
+    print(j)
     inst <- dat[[i]][[j]]$submitter$inst.abbrev
     now <- Sys.time()
-    render('error_check.Rmd', output_file = paste0(inst, now, '.pdf'), output_dir = '../../logs/03')
+    #render('error_check.Rmd', output_file = paste0(inst, now, '.pdf'), output_dir = '../../logs/03')
+    render('error_check.Rmd', output_file = paste0(inst, now, '.html'), output_dir = '../../logs/03')
   }
 }
 
