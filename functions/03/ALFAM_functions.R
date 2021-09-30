@@ -55,6 +55,12 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   emis$row.in.file <- 1:nrow(emis) + 4
   emis <- emis[rowSums(!is.na(emis)) > 1, ]
 
+  # Field commonly missing but needed for *id
+  if (all(is.na(c(plots$field, emis$field)))) {
+    plots$field <- ''
+    emis$field <- ''
+  }
+
   # Publications
   pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings)
   if (nrow(pubs) > 0) {
@@ -1255,3 +1261,19 @@ fixWeather <- function(obj, na = 'impute') {
 }
 
 
+# Check for missing values in essential variables
+check4missing <- function(obj) {
+
+  emis <- obj$emis
+
+  # Emission sheet
+  for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'dt', 'meas.tech')) {
+    if (any(ii <- is.na(emis[, i]))) {
+      cat('Error in\n')
+      print('First 10 rows:')
+      print(emis[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
+}
