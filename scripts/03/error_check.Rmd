@@ -1,41 +1,295 @@
 ---
 title: 'Error checks'
-output: pdf_document
+output: html_document
 classoption: landscape
 author: Sasha D. Hafner
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
-# File and directory names
+# Submitter and contributors
+```{r, echo = FALSE}
+kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
+kable(dat[[i]][[j]]$contrib, row.names = FALSE)
+```
 
-```{r}
+# File and directory names
+```{r, echo = FALSE}
 print(i)
 print(j)
 ```
 
-# Emission `emis` check
+# Location
+```{r, echo = FALSE}
+library( leaflet )
+library( magrittr )
+```
 
-```{r}
+```{r, echo = FALSE}
+plots <- dat[[i]][[j]]$plots
+ll <- unique(plots[, c('lat', 'long')])
+
+subscr <- data.frame(lat=c(ll$lat),
+                    lon=c(ll$long))
+
+leaflet() %>% addTiles() %>% 
+  addCircleMarkers(data = subscr,
+                   lat = ~lat, lng = ~lon,
+                   color = "blue")
+
+```
+
+# Check experiment etc. codes (IDs)
+```{r, echo = TRUE}
+exper <- dat[[i]][[j]]$exper
+treat <- dat[[i]][[j]]$treat
+emis <- dat[[i]][[j]]$emis
+pubs <- dat[[i]][[j]]$pubs
+```
+
+## Codes in Treatments sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% treat$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Treatments sheet.')
+}
+
+if (all(treat$exper %in% exper$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Codes in Plots sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% plots$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Plots sheet.')
+}
+
+if (all(plots$exper %in% exper$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Codes in Emission sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% emis$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Emission sheet.')
+}
+
+if (all(emis$exper %in% exper$exper)) {
+  print('OK')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Code merge check (matching project, experiment, field, plot, treatment)
+```{r, echo = FALSE}
+m1 <- merge(exper, treat, all = TRUE)
+m2 <- merge(m1, plots, all = TRUE)
+m3 <- merge(m2, emis, all = TRUE)
+
+if (nrow(m1) == nrow(treat)) {
+  print('OK')
+} else {
+  print('Merge problem 1')
+}
+
+if (sum(is.na(c(m1$proj, m1$exper, m1$treat))) == 0) {
+  print('OK')
+} else {
+  print('Merge problem 2')
+}
+
+if (nrow(m2) == nrow(plots)) {
+  print('OK')
+} else {
+  print('Merge problem 3')
+}
+
+if (sum(is.na(c(m2$proj, m2$exper, m2$treat, m2$field, m2$plot))) == 0) {
+  print('OK')
+} else {
+  print('Merge problem 4')
+  md <- m2[any(is.na(m2$proj), is.na(m2$exper), is.na(m2$field), is.na(m2$plot)), c('row.in.file', 'proj', 'exper', 'field', 'plot')]
+  md <- unique(md)
+  print(md)
+}
+
+if (nrow(m3) == nrow(emis)) {
+  print('OK')
+} else {
+  print('Merge problem 5')
+  print('Some unmatched codes/names present')
+}
+
+if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
+  print('OK')
+} else {
+  print('Merge problem 6')
+  md <- m3[any(is.na(m3$proj), is.na(m3$exper), is.na(m3$treat), is.na(m3$field), is.na(m3$plot)), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'treat', 'field', 'plot')]
+  md <- unique(md)
+  print(paste('Problems in', nrow(md), 'rows.'))
+  print('First 10 rows:')
+  print(md[1:min(10, nrow(md)), ])
+}
+
+```
+
+# Publication info
+## Check for missing codes
+```{r, echo = FALSE}
+if (all(exper$pub.id %in% pubs$pub.id)) {
+  print('OK') 
+} else {
+  print('Missing pub codes in Publications sheet.')
+}
+```
+
+```{r, echo = FALSE}
+if (pubs$pub.id %in% exper$pub.id) {
+  print('OK') 
+} else {
+  print('Some pub codes missing in Experiments sheet.')
+}
+```
+
+## Complete citations given
+```{r, echo = FALSE}
+if (all(grepl('[Dd][Oo][Ii]', pubs$citation))) {
+  print('OK') 
+} else {
+  print('DOI missing from Publications sheet.')
+}
+```
+
+```{r, echo = FALSE}
+if (all(nchar(pubs$citation) > 10)) {
+  print('OK') 
+} else {
+  print('Citation details missing from Publications sheet.')
+}
+```
+
+# Emission sheet check
+
+```{r, echo = FALSE}
 d <- dat[[i]][[j]]$emis
 ```
 ## Plots
+## Calculated cumulative emission
+Missing values imputed (linear interpolation)
 ```{r}
 library(ggplot2)
-ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(t.start, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ cpmid)
+ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(t.end, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
 ```
+
+### Weather data
+```{r}
+ggplot(d, aes(ct, wind, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(ct, air.temp, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.rate, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.cum, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+```
+
+## Missing values
+```{r,echo = FALSE}
+miss <- apply(d, 2, function(x) sum(is.na(x)))
+miss <- miss[miss > 0]
+if (length(miss) > 0) {
+  print('Some values missing:')
+  print(miss)
+} else {
+  print('OK, no values missing')
+}
+
+print(miss[miss > 0])
+```
+
+## Duplicated intervals
+```{r, echo = FALSE}
+s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
+x <- subset(s, n.int.duplicates > 1)
+if (nrow(x) > 0) {
+  y <- subset(d, cpmid == x$cpmid)
+  print('Some intervals duplicated:')
+  print(y[, c('file', 'institute', 'row.in.file.int', 'plot', 'rep')])
+} else {
+  print('OK')
+}
+```
+
+## Missing incorporation time
+
+```{r, echo = FALSE}
+x <- subset(d, incorp %in% c('deep', 'shallow') & is.na(time.incorp))
+if (nrow(x) > 0) {
+  print('Some problems')
+  print(unique(as.character(x$file)))
+  print(x[, c('file','row.in.file.int','institute')])
+  print(table(d$incorp, d$time.incorp, exclude = NULL))
+} else {
+  print('OK')
+}
+
+```
+
+## Delay after application
+```{r}
+if (min(d$cta) < 1) {
+  print('OK')
+} else {
+  print('1 hr or longer delay after starting application')
+  print('First 10 rows')
+  kable(d[1:10, c('row.in.file.int', 'app.start', 't.start', 'ct', 'cta')])
+}
+```
+
+## Missing or double interval number
+```{r}
+for (ii in unique(emis$plot)) {
+  dd <- emis[emis$plot == ii, ]
+  if (all(diff(dd$interval) == 1)) {
+    print('OK')
+  } else {
+    print('Problem, see following rows')
+    print(dd$row.in.file.int[ii <- which(diff(dd$int) != 1)])
+    print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start')])
+  }
+}
+```
+
+## Missing time between intervals
+```{r}
+for (ii in unique(emis$plot)) {
+  dd <- emis[emis$plot == ii, ]
+  if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
+    print('OK')
+  } else {
+    print('Problem, see following rows')
+    ii <- which(c(FALSE, dd$t.start[-1] != dd$t.end[-nrow(dd)]))
+    print(dd$row.in.file.int[ii])
+    print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start', 't.end')])
+  }
+}
+```
+
 
 ## Summary and missing values
 
 ```{r}
-print(summary(d))
+print(dfsumm(d))
 print(apply(d, 2, function(x) sum(is.na(x))))
-
-# Missing incorporation times
-table(d$incorp, d$time.incorp, exclude = NULL)
-x <- subset(d, incorp %in% c('deep', 'shallow') & is.na(time.incorp))
-unique(as.character(x$file))
-x[, c('file','row.in.file.int','institute')]
 
 # Problems with application start time, was problem in the merge of d1 and d2
 # Should be POSIXct/POSIXt
@@ -112,15 +366,9 @@ x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
 x <- d[abs(log10(signif(d$dcta, 3)/signif(d$dt, 3))) > 0.2, ]
 x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
 
-# Duplicated shifts
-# Should be none
-s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
-x <- subset(s, n.int.duplicates > 1)
-x
-y <- subset(d, cpmid == x$cpmid)
-y[, c('file', 'institute', 'row.in.file.int', 'plot', 'rep')]
+x <- d[is.na(d$dt), ]
+x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
 
-hist(d$dt - d$dt.calc, xlim = c(-0.5, 0.5), breaks = 1000)
 quantile(d$dt - d$dt.calc)
 
 # Shift time mismatches
@@ -151,7 +399,7 @@ y <- subset(d, is.na(incorp) | incorp=='')
 dim(y)
 y <- y[order(y$institute, y$row.in.file.int), ]
 y <- rounddf(y)
-y
+#y
 
 # Missing locations
 x <- subset(d, is.na(d$lat)|is.na(d$long))

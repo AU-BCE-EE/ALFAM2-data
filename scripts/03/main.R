@@ -1,7 +1,7 @@
 # Runs everything necessary for making database from submitted data
 # Creates interval-level and plot-level files for ALFAM2 database
-# This version processes only data from uptake 2 in ALFAM2
-# ALFAM(1) data and uptake 1 data from ALFAM2 are simply read from output in data - ALFAM2 output/01
+# This version processes only data from uptake 3 in ALFAM2
+# ALFAM(1) data and uptake 2 data from ALFAM2 are simply read from output in data - ALFAM2 output/02
 
 # To get errors for any warnings
 #options(warn = 2) 
