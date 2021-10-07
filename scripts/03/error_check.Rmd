@@ -2,8 +2,8 @@
 title: 'Error checks'
 output: html_document
 classoption: landscape
-author: Sasha D. Hafner
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+author: 
+date: "`r format(Sys.time(), '%d %B, %Y %H:%M')`"
 ---
 
 # Submitter and contributors
@@ -39,7 +39,7 @@ leaflet() %>% addTiles() %>%
 ```
 
 # Check experiment etc. codes (IDs)
-```{r, echo = TRUE}
+```{r, echo = FALSE}
 exper <- dat[[i]][[j]]$exper
 treat <- dat[[i]][[j]]$treat
 emis <- dat[[i]][[j]]$emis
@@ -94,8 +94,7 @@ if (all(emis$exper %in% exper$exper)) {
 ## Code merge check (matching project, experiment, field, plot, treatment)
 ```{r, echo = FALSE}
 m1 <- merge(exper, treat, all = TRUE)
-m2 <- merge(m1, plots, all = TRUE)
-m3 <- merge(m2, emis, all = TRUE)
+m2 <- merge(m1, emis, all = TRUE)
 
 if (nrow(m1) == nrow(treat)) {
   print('OK')
@@ -109,7 +108,7 @@ if (sum(is.na(c(m1$proj, m1$exper, m1$treat))) == 0) {
   print('Merge problem 2')
 }
 
-if (nrow(m2) == nrow(plots)) {
+if (nrow(m1) == max(nrow(treat), nrow(exper))) {
   print('OK')
 } else {
   print('Merge problem 3')
@@ -119,28 +118,33 @@ if (sum(is.na(c(m2$proj, m2$exper, m2$treat, m2$field, m2$plot))) == 0) {
   print('OK')
 } else {
   print('Merge problem 4')
-  md <- m2[any(is.na(m2$proj), is.na(m2$exper), is.na(m2$field), is.na(m2$plot)), c('row.in.file', 'proj', 'exper', 'field', 'plot')]
+  md <- m2[is.na(m2$proj) | is.na(m2$exper) | is.na(m2$field) | is.na(m2$plot), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')]
   md <- unique(md)
   print(md)
+  #unique(emis[, c('proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
+  #intersect(names(m1), names(emis))
 }
 
-if (nrow(m3) == nrow(emis)) {
+if (nrow(m2) == nrow(emis)) {
   print('OK')
 } else {
   print('Merge problem 5')
   print('Some unmatched codes/names present')
+  print('First 5 rows after merge:')
+  print(m2[1:5, c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
+  stop()
 }
 
-if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
-  print('OK')
-} else {
-  print('Merge problem 6')
-  md <- m3[any(is.na(m3$proj), is.na(m3$exper), is.na(m3$treat), is.na(m3$field), is.na(m3$plot)), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'treat', 'field', 'plot')]
-  md <- unique(md)
-  print(paste('Problems in', nrow(md), 'rows.'))
-  print('First 10 rows:')
-  print(md[1:min(10, nrow(md)), ])
-}
+#if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
+#  print('OK')
+#} else {
+#  print('Merge problem 6')
+#  md <- m3[any(is.na(m3$proj), is.na(m3$exper), is.na(m3$treat), is.na(m3$field), is.na(m3$plot)), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'treat', 'field', 'plot')]
+#  md <- unique(md)
+#  print(paste('Problems in', nrow(md), 'rows.'))
+#  print('First 10 rows:')
+#  print(md[1:min(10, nrow(md)), ])
+#}
 
 ```
 
@@ -155,7 +159,7 @@ if (all(exper$pub.id %in% pubs$pub.id)) {
 ```
 
 ```{r, echo = FALSE}
-if (pubs$pub.id %in% exper$pub.id) {
+if (all(pubs$pub.id %in% exper$pub.id)) {
   print('OK') 
 } else {
   print('Some pub codes missing in Experiments sheet.')
@@ -183,37 +187,6 @@ if (all(nchar(pubs$citation) > 10)) {
 
 ```{r, echo = FALSE}
 d <- dat[[i]][[j]]$emis
-```
-## Plots
-## Calculated cumulative emission
-Missing values imputed (linear interpolation)
-```{r}
-library(ggplot2)
-ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ cpmid)
-ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(t.end, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-```
-
-### Weather data
-```{r}
-ggplot(d, aes(ct, wind, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(ct, air.temp, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(ct, rain.rate, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(ct, rain.cum, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-```
-
-## Missing values
-```{r,echo = FALSE}
-miss <- apply(d, 2, function(x) sum(is.na(x)))
-miss <- miss[miss > 0]
-if (length(miss) > 0) {
-  print('Some values missing:')
-  print(miss)
-} else {
-  print('OK, no values missing')
-}
-
-print(miss[miss > 0])
 ```
 
 ## Duplicated intervals
@@ -245,212 +218,169 @@ if (nrow(x) > 0) {
 ```
 
 ## Delay after application
-```{r}
-if (min(d$cta) < 1) {
+```{r,echo=FALSE}
+if (min(d$bta) < 1) {
   print('OK')
 } else {
   print('1 hr or longer delay after starting application')
   print('First 10 rows')
-  kable(d[1:10, c('row.in.file.int', 'app.start', 't.start', 'ct', 'cta')])
+  kable(d[1:10, c('row.in.file.int', 'app.start', 't.start', 'bta', 'ct', 'cta')])
 }
 ```
 
 ## Missing or double interval number
-```{r}
-for (ii in unique(emis$plot)) {
-  dd <- emis[emis$plot == ii, ]
+```{r,echo=FALSE}
+for (ii in unique(emis$cpmid)) {
+  #cat(ii)
+  dd <- emis[emis$cpmid == ii, ]
   if (all(diff(dd$interval) == 1)) {
-    print('OK')
+    cat('OK\n')
   } else {
     print('Problem, see following rows')
     print(dd$row.in.file.int[ii <- which(diff(dd$int) != 1)])
-    print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start')])
+    print(dd[sort(unique(c(ii, ii-1, ii+1))), c('row.in.file.int', 'plot', 'interval', 't.start')])
   }
 }
 ```
 
 ## Missing time between intervals
-```{r}
-for (ii in unique(emis$plot)) {
-  dd <- emis[emis$plot == ii, ]
+```{r,echo=FALSE}
+for (ii in unique(emis$cpmid)) {
+  dd <- emis[emis$cpmid == ii, ]
   if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
     print('OK')
   } else {
     print('Problem, see following rows')
     ii <- which(c(FALSE, dd$t.start[-1] != dd$t.end[-nrow(dd)]))
     print(dd$row.in.file.int[ii])
-    print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start', 't.end')])
+    #print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start', 't.end')])
+  }
+}
+```
+# Value checks
+## Weather
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('wind', 'rain.rate', 'air.temp', 'soil.temp', 'soil.temp.surf', 'air.temp.z', 'wind.z'),
+                  lwr = c(0, 0, -10, -10, -10, 0, 0),
+                  upr = c(20, 20, 40, 40, 40, 10, 10))
+
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      print(range(vv))
+    }
+  } else {
+    cat('No values to check.\n')
   }
 }
 ```
 
+## Manure and application
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('man.stor', 'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 'app.rate', 'crop.z'),
+                  lwr = c(0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 10, 4, 1, 0),
+                  upr = c(600, 20, 20, 10, 10, 10, 10, 20000, 9.5, 200, 50))
 
-## Summary and missing values
-
-```{r}
-print(dfsumm(d))
-print(apply(d, 2, function(x) sum(is.na(x))))
-
-# Problems with application start time, was problem in the merge of d1 and d2
-# Should be POSIXct/POSIXt
-class(d$app.start)
-
-# Wind heights in wrong units
-# Should be in m
-# Expected values maybe 0.1 - 10 m
-summary(d$wind.z)
-range(na.omit(d$wind.z))
-x <- subset(d, wind.z>15)
-nrow(x)
-unique(as.character(x$file))
-unique(x[,c('file','row.in.file.int','institute')])
-unique(x[,c('file','institute')])
-
-# Air temperature heights
-# Also in m now
-# Expected values perhaps 0.1 - 10 m
-summary(d$air.temp.z)
-range(na.omit(d$air.temp.z))
-x <- subset(d, air.temp.z>10)
-nrow(x)
-unique(as.character(x$file))
-unique(x[,c('file','row.in.file.int','institute')])
-unique(x[,c('file','institute')])
-
-# Why are there zeroes?
-x <- subset(d, air.temp.z == 0)
-nrow(x)
-unique(as.character(x$file))
-unique(x[,c('file', 'row.in.file.int', 'institute', 'air.temp.z', 'air.temp')])
-unique(x[,c('file', 'institute', 'air.temp.z')])
-# Not sure, but there they are all in ALFAM1. Leaving as-is
-
-# Measurement techniques
-# There should be zero NAs!
-as.character(unique(d$meas.tech))
-table(d$meas.tech, exclude = NULL)
-sum(is.na(d$meas.tech))
-x <- subset(d, is.na(meas.tech))
-unique(x[,c('row.in.file.int','institute')])
-
-# Blank method
-x <- unique(d[,c('file','institute','meas.tech','row.in.file.int')])
-subset(x,meas.tech=='')
-
-# Emission measurements before application time (app.start)
-x <- subset(d,t.start < app.start)
-x <- x[order(x$file, x$row.in.file.int),]
-dim(x)
-x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-# These are cases where emission was measured before application
-# As long as emission is clearly low and ct < 0, there is no indication of a problem
-# For Swiss data at end, application occurred within the first interval
-# Similar for SDU--apparently application was after the passive samplers were set out
-
-# Negative interval duration dt
-x <- subset(d, dt < 0)
-dim(x)
-x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-
-# Negative cta
-x <- subset(d, cta < 0)
-head(x[,c('file','row.in.file.int', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')])
-unique(x$plot)
-
-# Gaps, missing measurement intervals
-d$dcta <- c(0, diff(d$cta))
-d$dcta[d$interval == 1] <- d$dcta
-x <- d[signif(d$dcta, 3) != signif(d$dt, 3), ]
-x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
-
-x <- d[abs(log10(signif(d$dcta, 3)/signif(d$dt, 3))) > 0.2, ]
-x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
-
-x <- d[is.na(d$dt), ]
-x[, c('file','row.in.file.int', 'interval', 'dt', 'ct', 'dcta', 'field','plot')]
-
-quantile(d$dt - d$dt.calc)
-
-# Shift time mismatches
-# Should be none
-y <- d[order(d$cpmid, d$interval), ]
-# Problem when one shift ends after the next begins
-y$problem <- c(y$cpmid[-nrow(y)] == y$cpmid[-1] & y$t.end[-nrow(y)] > y$t.start[-1], NA)
-y$overlap <- c(as.numeric(difftime(y$t.end[-nrow(y)], y$t.start[-1], units = 'hours')), NA)
-x <- subset(y, problem)
-x[, c('file', 'institute', 'row.in.file.int', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
-
-## Very short sets
-#x <- subset(ds, n.ints < 4)
-#dim(x)
-#y <- subset(d, cpmid %in% x$cpmid)
-#y <- y[order(y$institute, y$row.in.file.int), ]
-#dim(y)
-#y[, c('file', 'inst', 'institute', 'row.in.file.int', 'plot', 'cpmid', 't.start', 't.end', 'ct', 'interval', 'j.NH3')]
-#
-## High relative emission
-#x <- subset(ds, e.rel.final>1)
-#dim(x)
-#x[, c('file', 'inst', 'institute', 'first.row.in.file.int', 'plot', 'cpmid', 'tan.app', 'e.rel.final', 'e.rel.48')]
-
-# Problems with incorporation
-# In make_database.R NAs are set to 'None',  so problems will not show up here. Need to check this
-y <- subset(d, is.na(incorp) | incorp=='')
-dim(y)
-y <- y[order(y$institute, y$row.in.file.int), ]
-y <- rounddf(y)
-#y
-
-# Missing locations
-x <- subset(d, is.na(d$lat)|is.na(d$long))
-x <- data.frame(file=unique(x$file))
-x
-
-# Missing slurry type
-x <- subset(d, is.na(man.source))
-unique(x$institute)
-unique(x[, c('institute', 'man.source')])
-x
-
-# These all are probably measurements made with no application or prior to application
-# Need to remove from database if the latter
-# Missing application method
-x <- subset(d, is.na(app.method))
-unique(x$institute)
-x <- subset(d, is.na(app.method) & man.source != 'none')
-names(x)
-x[, c('institute', 'file', 'row.in.file.int', 'app.method', 'app.rate', 'man.source')]
-x
-
-# Missing soil type
-x <- subset(d, is.na(soil.type))
-unique(x$institute)
-unique(x[, c('institute', 'soil.type')])
-x
-
-# Missing crop
-# Only with no manure for INRA, plus many for SDU
-x <- subset(d, is.na(crop))
-unique(x$institute)
-unique(x[, c('institute', 'crop', 'man.source')])
-x[, c('institute', 'file', 'row.in.file.int', 'crop')]
-
-x <- subsetd(d, dt == 0)
-dim(x)
-
-# Rel humidity and air.temp zero too often, are they missing values?
-x <- subsetd(d, air.temp == 0)
-dim(x)
-
-# Some heights seem to be a mix of cm and m
-names(d)[grepl('\\.z', names(d))]
-
-# Everything should be in m now
-sort(unique(d$air.temp.z))
-sort(unique(d$soil.temp.z))
-sort(unique(d$wind.z))
-
-# Except crop height
-sort(unique(d$crop.z))
- 
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      print(range(vv))
+    }
+  } else {
+    cat('No values to check.\n')
+  }
+}
 ```
+
+## Emission
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('j.NH3', 'e.int', 'e.rel'),
+                  lwr = c(-3, -30, -5),
+                  upr = c(60, 200, 1.1))
+
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      print(range(vv))
+    }
+  } else {
+    cat('No values to check.\n')
+  }
+}
+```
+
+# Missing values
+```{r,echo = FALSE}
+miss <- apply(d, 2, function(x) sum(is.na(x)))
+miss <- miss[miss > 0]
+if (length(miss) > 0) {
+  print('Some values missing:')
+  print(miss)
+} else {
+  print('OK, no values missing')
+}
+
+print(miss[miss > 0])
+```
+
+# Application method and measurement method
+```{r, echo=FALSE}
+if (any(is.na(plots$app.method))) {
+  print('Missing app.method in some rows')
+} else {
+  print('OK')
+}
+```
+```{r, echo=FALSE}
+if (any(is.na(plots$meas.tech))) {
+  print('Missing measurement method in some rows')
+} else {
+  print('OK')
+}
+```
+
+## Plots
+## Calculated cumulative emission
+Cumulative emission.
+Missing values imputed (linear interpolation).
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ cpmid)
+ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(t.end, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+```
+Final cumulative emission.
+
+```{r, echo = FALSE}
+ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .)
+```
+
+
+### Weather data
+```{r, echo=FALSE}
+ggplot(d, aes(ct, wind, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(ct, air.temp, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.rate, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.cum, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+```
+
+# Summary 
+```{r, echo=FALSE}
+print(dfsumm(d))
+```
+
