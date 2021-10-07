@@ -191,9 +191,9 @@ addCharID <- function(d) {
   # Unique character plot IDs
   # First one includes measurement technique
   d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
-                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech)
+                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech, d$meas.tech.det)
   d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, 
-                   '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:')
+                   '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start)
 
   # Unique experiment IDs
   d$ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
@@ -218,7 +218,7 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Merges ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   plots$institute <- submitter$inst.abbrev
-  # NTS: inconsistent, partial switch to ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
+  # NTS WIP: inconsistent, partial switch to ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
   plots$uptake <- 3
 
   # Add plot info (including application rate) to emis
@@ -226,6 +226,7 @@ calcEmis <- function(obj, na = 'impute') {
   nn <- nrow(emis)
   emis.orig <- emis
   emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep'), suffixes = c('.plot', '.int'), all = TRUE)
+  emis <- emis[order(emis$row.in.file.int, emis$proj, emis$exper, emis$field, emis$plot, emis$rep, emis$interval), ] 
   if (nrow(emis) != nn) {
     for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
       print(i)
@@ -236,11 +237,12 @@ calcEmis <- function(obj, na = 'impute') {
       print(unique(emis.orig[, i]))
       cat('\n')
 
-      print('plots unique combos')
-      print(unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
-      print('emission unique combos')
-      print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep')]))
     }
+    print('plots unique combos')
+    print(unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+    print('emission unique combos')
+    print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+
     stop('Merge problem with plots and emis, probably a typo in project, experiment, etc.')
   }
 
@@ -250,6 +252,7 @@ calcEmis <- function(obj, na = 'impute') {
     emis <- emis[!is.na(emis$j.NH3), ]
   }
 
+  # Add character plot IDs for grouped calculations below
   emis <- addCharID(emis)
 
   # Calculate emission
@@ -265,10 +268,41 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Elapsed time since application
   emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
+  emis$bta <- as.numeric(difftime(emis$t.start, emis$app.start, units = 'hours'))
 
   # Relative emission, fraction of applied TAN
   emis$e.rel <- emis$e.cum / emis$tan.app
-  
+
+  # Interpolate cumulative emission etc. for addition to plot-level data
+  # All by cpmid
+  pld <- data.frame(cpmid = unique(emis$cpmid))
+  for (i in unique(emis$cpmid)) {
+    dd <- emis[emis$cpmid == i, ]
+    # First cumulative variables
+    for (vv in c('e.cum', 'e.rel', 'rain')) {
+      if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
+        for (tt in c(6, 12, 24, 48, 72, 96, 168)) {
+          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = tt)$y
+        }
+        pld[pld$cpmid == i, paste0(vv, '.final')] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = max(emis[emis$cpmid == i, 'ct']))$y
+      }
+    }
+    # And then weighted averages
+    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'rad', 'rain.rate', 'rh')) {
+      if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
+        for (tt in c(6, 12, 24, 48, 72, 96, 168)) {
+          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt'] * emis[emis$cpmid == i & emis$ct <= tt, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
+        }
+        pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[emis$cpmid == i, 'dt'] * emis[emis$cpmid == i, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
+      }
+    }
+    # Add IDs needed for merge with plots
+    pld[pld$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')] <- emis[emis$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')][1, ]
+  }
+
+  # Merge interpolated results with plots
+  plots <- merge(plots, pld, by = c('proj', 'exper', 'field', 'plot', 'rep'))
+
   obj$plots <- plots
   obj$emis <- emis
   return(obj)
@@ -1280,11 +1314,11 @@ fixWeather <- function(obj, na = 'impute') {
 
 
 # Check for missing values in essential variables
+# Missing values would cause error prior to error checking
 check4missing <- function(obj) {
 
-  emis <- obj$emis
-
   # Emission sheet
+  emis <- obj$emis
   for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'meas.tech')) {
     if (any(ii <- is.na(emis[, i]))) {
       cat('Error in\n')
@@ -1303,5 +1337,17 @@ check4missing <- function(obj) {
       stop('Missing values in ', i)
     }
   }
+
+  # Check for missing application time in plots
+  plots <- obj$plots
+  for (i in c('proj', 'exper', 'field', 'plot', 'app.start', 'app.end', 'app.method')) {
+    if (any(ii <- is.na(plots[, i]))) {
+      cat('Error in\n')
+      print('First 10 rows:')
+      print(plots[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
 
 }

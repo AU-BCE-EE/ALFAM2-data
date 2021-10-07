@@ -13,6 +13,7 @@ for(i in ddir) {
   f <- f[!grepl('\\/~', f)]
   dat[[i]] <- list()
   for(j in f) {
+    print(j)
     cat('   file ', j,'\n')
     dd <- readALFAM2File(j)
     # Simple error check to save searching
@@ -34,10 +35,10 @@ cat('Done! Read', length(dat), ' directories\n')
 for (i in names(dat)) {
   for (j in names(dat[[i]])) {
     print(j)
+    fn <- strsplit(j, '/')
+    fn <- fn[[1]][length(fn[[1]])]
     inst <- dat[[i]][[j]]$submitter$inst.abbrev
-    now <- Sys.time()
-    #render('error_check.Rmd', output_file = paste0(inst, now, '.pdf'), output_dir = '../../logs/03')
-    render('error_check.Rmd', output_file = paste0(inst, now, '.html'), output_dir = '../../logs/03')
+    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03')
   }
 }
 
