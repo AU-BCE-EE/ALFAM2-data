@@ -54,6 +54,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   emis$row.in.file <- 1:nrow(emis) + 4
   emis <- emis[rowSums(!is.na(emis)) > 1, ]
 
+  # NTS need to do this in read call!
+  emis$soil.temp <- as.numeric(emis$soil.temp)
+
   # Field commonly missing but needed for *id
   if (all(is.na(c(plots$field, emis$field)))) {
     plots$field <- ''
@@ -289,7 +292,7 @@ calcEmis <- function(obj, na = 'impute') {
     }
     # And then weighted averages
     for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'rad', 'rain.rate', 'rh')) {
-      if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
+      if (sum(!is.na(emis[emis$cpmid == i, vv])) > 2) {
         for (tt in c(6, 12, 24, 48, 72, 96, 168)) {
           pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt'] * emis[emis$cpmid == i & emis$ct <= tt, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
         }

@@ -187,6 +187,10 @@ if (all(nchar(pubs$citation) > 10)) {
 
 ```{r, echo = FALSE}
 d <- dat[[i]][[j]]$emis
+# Add first row in file info by plot
+xx <- d[d$interval == 1, c('cpmid', 'row.in.file.int')]
+names(xx)[2] <- 'first.row'
+d <- merge(d, xx, by = 'cpmid')
 ```
 
 ## Duplicated intervals
@@ -283,8 +287,8 @@ for (k in lim$vari) {
 ## Manure and application
 ```{r, echo = FALSE}
 lim <- data.frame(vari = c('man.stor', 'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 'app.rate', 'crop.z'),
-                  lwr = c(0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 10, 4, 1, 0),
-                  upr = c(600, 20, 20, 10, 10, 10, 10, 20000, 9.5, 200, 50))
+                  lwr = c(0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0, 4, 1, 0),
+                  upr = c(600, 20, 20, 10, 10, 10, 10, 20, 9.5, 200, 50))
 
 for (k in lim$vari) {
   cat(k, ': ')
@@ -359,11 +363,14 @@ if (any(is.na(plots$meas.tech))) {
 Cumulative emission.
 Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
+d$first.row <- factor(d$first.row)
 library(ggplot2)
-ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ cpmid)
-ggplot(d, aes(ct, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(t.end, e.rel, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
+ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
 ```
+
 Final cumulative emission.
 
 ```{r, echo = FALSE}
@@ -373,10 +380,10 @@ ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(me
 
 ### Weather data
 ```{r, echo=FALSE}
-ggplot(d, aes(ct, wind, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(ct, air.temp, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(ct, rain.rate, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(ct, rain.cum, colour = cpmid)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, wind, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(ct, air.temp, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.rate, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
+ggplot(d, aes(ct, rain.cum, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
 ```
 
 # Summary 

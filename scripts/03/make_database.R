@@ -25,6 +25,12 @@ for(i in ddir) {
     # Fix weather data
     dd <- fixWeather(dd, na = 'impute')
     dat[[i]][[j]] <- dd
+
+    # Check for errors
+    fn <- strsplit(j, '/')
+    fn <- fn[[1]][length(fn[[1]])]
+    inst <- dat[[i]][[j]]$submitter$inst.abbrev
+    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
   }
 }
 cat('Done! Read', length(dat), ' directories\n')
@@ -32,13 +38,3 @@ cat('Done! Read', length(dat), ' directories\n')
 # Check for errors
 # NTS: Need a check to look for gaps in time, compare dt to diff(t.end) perhaps
 # NTS: Need to fix print width
-for (i in names(dat)) {
-  for (j in names(dat[[i]])) {
-    print(j)
-    fn <- strsplit(j, '/')
-    fn <- fn[[1]][length(fn[[1]])]
-    inst <- dat[[i]][[j]]$submitter$inst.abbrev
-    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03')
-  }
-}
-
