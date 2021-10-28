@@ -3,7 +3,7 @@
 # Date record
 print(Sys.time())
 
-# Read in data from files
+# Read and check data from files
 ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
 dat <- list()
 for(i in ddir) {
@@ -26,15 +26,18 @@ for(i in ddir) {
     dd <- fixWeather(dd, na = 'impute')
     dat[[i]][[j]] <- dd
 
-    # Check for errors
+    # Check for errors and create log with details
     fn <- strsplit(j, '/')
     fn <- fn[[1]][length(fn[[1]])]
     inst <- dat[[i]][[j]]$submitter$inst.abbrev
     render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
+
+    # Merges into plot-level data
+    dd <- plmerge(dd)
+    
   }
 }
 cat('Done! Read', length(dat), ' directories\n')
 
-# Check for errors
-# NTS: Need a check to look for gaps in time, compare dt to diff(t.end) perhaps
-# NTS: Need to fix print width
+
+
