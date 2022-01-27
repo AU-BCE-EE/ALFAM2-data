@@ -6,6 +6,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # Read in data from multiple sheets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   na.strings <- c('', 'NA', 'na', 'Na', 'NaN')
 
+  chnglog <- as.data.frame(read_xlsx(file, sheet = 11, skip = 0))
+  tempver <- as.numeric(chnglog[nrow(chnglog), 'Version'])
+
   # Submitter info
   submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = c('x', 'y'), na = na.strings)
   submitter <- data.frame(t(submitter[, 2]))
@@ -30,12 +33,22 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   treat <- treat[rowSums(!is.na(treat)) > 0, ]
 
   # Plots
-  nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                    'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                    'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
-                    'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                    'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                    'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+  if (tempver < 6) {
+    nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
+                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
+                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+  } else {
+    nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
+                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
+                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+  }
+
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
   plots <- data.frame(plots)
   plots$row.in.file <- 1:nrow(plots) + 4
@@ -241,10 +254,19 @@ calcEmis <- function(obj, na = 'impute') {
       cat('\n')
 
     }
+
     print('plots unique combos')
-    print(unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+    print(pu <- unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
     print('emission unique combos')
-    print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+    print(eu <- unique(emis.orig[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+
+    cat('Rows in emis before merge: ', nn, '\n')
+    cat('Rows in emis after: ', nrow(emis), '\n')
+
+    print('merged combos, plots first (x):')
+    pu$plots <- TRUE
+    eu$emis <- TRUE
+    print(merge(pu, eu, all = TRUE))
 
     stop('Merge problem with plots and emis, probably a typo in project, experiment, etc.')
   }
