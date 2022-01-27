@@ -1,0 +1,42 @@
+
+> # 
+> 
+> # Date record
+> print(Sys.time())
+[1] "2022-01-27 14:01:14 EST"
+
+> # Read and check data from files
+> ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
+
+> dat <- list()
+
+> for(i in ddir) {
++   cat('Directory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (created  .... [TRUNCATED] 
+Directory  ../../data - submitted/03/AU 
+[1] "../../data - submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A.xlsx 
+Directory  ../../data - submitted/03/UNINA 
+[1] "../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx"
+   file  ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
+Directory  ../../data - submitted/03/WUR 
+
+> cat('Done! Read', length(dat), ' directories\n')
+Done! Read 3  directories
