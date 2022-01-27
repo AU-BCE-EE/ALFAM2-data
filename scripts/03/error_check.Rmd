@@ -276,7 +276,13 @@ for (k in lim$vari) {
       cat('OK\n')
     } else {
       cat('Some values out of range\n')
+      cat('Limits: ')
+      print(lim[lim$vari == k,])
+      cat('Range: ')
       print(range(vv))
+      cat('Value table:\n')
+      print(table(vv, exclude = NULL))
+      cat('Missing values: ', sum(is.na(vv)),'\n')
     }
   } else {
     cat('No values to check.\n')
