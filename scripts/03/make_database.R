@@ -33,6 +33,8 @@ for(i in ddir) {
     render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
 
     ## Merges into plot-level data
+    dd <- dat[[i]][[j]]
+    names(dd)
     #dd <- plmerge(dd)
     
   }

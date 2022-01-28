@@ -268,7 +268,10 @@ calcEmis <- function(obj, na = 'impute') {
     eu$emis <- TRUE
     print(merge(pu, eu, all = TRUE))
 
-    stop('Merge problem with plots and emis, probably a typo in project, experiment, etc.')
+    cat('Error: Merge problem with plots and emis, probably a typo in project, experiment, etc.\n')
+    cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 272.')
+    browser()
+    stop()
   }
 
   # Drop intervals with missing emission measurements
@@ -760,7 +763,9 @@ summALFAM <- function(d, normalize = FALSE, ...) {
 
   # Check for duplicates
   if(sum(duplicated(ds$pmid)) > 0) {
-    stop('In ALFAM_functions summALFAM() problem with duplicated pmid. See code YerhB176.')
+    cat('In ALFAM_functions summALFAM() problem with duplicated pmid. See code YerhB176 around line 766 in ALFAM2_functions.R.')
+    browser()
+    stop()
   }
 
   # This doesn't seem to work in the ddply call
