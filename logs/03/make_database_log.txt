@@ -3,7 +3,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-01-27 14:01:14 EST"
+[1] "2022-01-31 13:31:08 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
@@ -31,8 +31,8 @@ Directory  ../../data - submitted/03/AU
    file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
 [1] "../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx"
    file  ../../data - submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
-[1] "../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A.xlsx"
-   file  ../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A.xlsx 
+[1] "../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx"
+   file  ../../data - submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
 Directory  ../../data - submitted/03/UNINA 
 [1] "../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx"
    file  ../../data - submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 

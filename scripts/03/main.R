@@ -20,10 +20,15 @@ source('packages.R')
 # Read in functions
 source('../../functions/03/ALFAM_functions.R')
 source('../../functions/03/dfsumm.R')
+source('../../functions/03/rbindf.R')
 
 # Make database files
+# NAs by coercion issue. . .
 sink('../../logs/03/make_database_log.txt')
-  source('make_database.R', echo = TRUE)
+  source('load_old.R', echo = TRUE)
+  source('get_new.R', echo = TRUE)
+  source('add_ID.R', echo = TRUE)
+  source('stack.R', echo = TRUE)
 sink()
 
 ### Make plot-level file
