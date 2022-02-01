@@ -53,6 +53,11 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   plots <- data.frame(plots)
   plots$row.in.file <- 1:nrow(plots) + 4
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
+  if (tempver < 6) {
+    plots$man.trt3 <- NA
+  }
+  
+  # Add col to v < 6. where new col was missing, makes stacking easier
 
   # Emission
   nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
@@ -79,9 +84,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # Publications
   pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings)
   if (nrow(pubs) > 0) {
-    names(pubs) <- c('pub.id', 'citation')
+    names(pubs) <- c('pub.id', 'pub.info')
   } else {
-    pubs <- data.frame(pub.id = NULL, citation = NULL)
+    pubs <- data.frame(pub.id = NULL, pub.info = NULL)
   }
   pubs <- data.frame(pubs)
 
@@ -206,15 +211,63 @@ addCharID <- function(d) {
 
   # Unique character plot IDs
   # First one includes measurement technique
-  d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
+  d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
                     d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech, d$meas.tech.det)
-  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, 
+  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, 
                    '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start)
 
   # Unique experiment IDs
   d$ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
 
   return(d)
+
+}
+
+getPlotVars <- function(obj) {
+
+  # NTS: cut these extraction lines not needed below
+  submitter <- obj$submitter
+  contrib <- obj$contrib
+  exper <- obj$exper
+  treat <- obj$treat
+  plots <- obj$plots
+  emis <- obj$emis
+  pubs <- obj$pubs
+  file <- obj$file
+
+  # Add file name
+  plots$file <- file
+
+  # Pull out some stuff from the emission data
+  # All by cpmid
+  pld <- data.frame(cpmid = unique(emis$cpmid))
+  for (i in unique(emis$cpmid)) {
+    dd <- emis[emis$cpmid == i, ]
+    pld[pld$cpmid == i, 'first.row.in.file.int'] <- min(dd$row.in.file.int)
+    pld[pld$cpmid == i, 'last.row.in.file.int'] <- max(dd$row.in.file.int)
+    pld[pld$cpmid == i, 'n.ints'] <- length(dd$int)
+    pld[pld$cpmid == i, 'dt1'] <- dd$dt[which.min(dd$ct)]
+    pld[pld$cpmid == i, 'j.rel1'] <- dd$j.rel[which.min(dd$ct)]
+    pld[pld$cpmid == i, 'j.NH31'] <- dd$j.NH3[which.min(dd$ct)]
+    pld[pld$cpmid == i, 'dt.min'] <- min(dd$dt)
+    pld[pld$cpmid == i, 'dt.max'] <- max(dd$dt)
+    pld[pld$cpmid == i, 'ct.min'] <- min(dd$ct)
+    pld[pld$cpmid == i, 'ct.max'] <- max(dd$ct)
+    pld[pld$cpmid == i, 't.start.p'] <- dd$t.start[which.min(dd$ct)]
+    pld[pld$cpmid == i, 't.end.p'] <- dd$t.start[which.max(dd$ct)]
+    pld[pld$cpmid == i, 'air.temp.z'] <- dd$air.temp.z[1]
+    pld[pld$cpmid == i, 'soil.temp.z'] <- dd$soil.temp.z[1]
+    pld[pld$cpmid == i, 'wind.z'] <- dd$wind.z[1]
+    pld[pld$cpmid == i, 'wind.loc'] <- dd$wind.loc[1]
+    pld[pld$cpmid == i, 'far.loc'] <- dd$far.loc[1]
+  }
+  plots <- merge(plots, pld, by = 'cpmid')
+
+  # Pub info
+  plots <- merge(plots, pubs, by = 'pub.id', all.x = TRUE)
+
+  obj$plots <- plots
+  return(obj)
 
 }
 
@@ -293,6 +346,8 @@ calcEmis <- function(obj, na = 'impute') {
     emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
     emis[emis$cpmid == i, 'e.cum'] <- cumsum(emis[emis$cpmid == i, 'e.int'])
   }
+  # Variable e is stuck from earlier
+  emis$e <- emis$e.cum
 
   # Elapsed time since application
   emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
@@ -300,31 +355,36 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Relative emission, fraction of applied TAN
   emis$e.rel <- emis$e.cum / emis$tan.app
+  # Relative flux, fraction applied TAN per hour
+  emis$j.rel <- emis$j.NH3 / emis$tan.app
 
   # Interpolate cumulative emission etc. for addition to plot-level data
   # All by cpmid
   pld <- data.frame(cpmid = unique(emis$cpmid))
+  # Add other IDs for use later
+  pld <- merge(pld, unique(emis[, c('ceid', 'cpid', 'cpmid')]), by = 'cpmid')
   for (i in unique(emis$cpmid)) {
     dd <- emis[emis$cpmid == i, ]
     # First cumulative variables
-    for (vv in c('e.cum', 'e.rel', 'rain')) {
+    for (vv in c('e', 'e.cum', 'e.rel', 'rain')) {
       if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
-        for (tt in c(6, 12, 24, 48, 72, 96, 168)) {
+        for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
           pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = tt)$y
         }
-        pld[pld$cpmid == i, paste0(vv, '.final')] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = max(emis[emis$cpmid == i, 'ct']))$y
+        pld[pld$cpmid == i, paste0(vv, '.final')] <- emis[emis$cpmid == i & (emis[, 'ct'] == max(emis[emis$cpmid == i, 'ct'])), vv]
+        pld[pld$cpmid == i, paste0(vv, '.tot')] <-   emis[emis$cpmid == i & (emis[, 'ct'] == max(emis[emis$cpmid == i, 'ct'])), vv]
       }
     }
     # And then weighted averages
-    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'rad', 'rain.rate', 'rh')) {
+    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')) {
       if (sum(!is.na(emis[emis$cpmid == i, vv])) > 2) {
-        for (tt in c(6, 12, 24, 48, 72, 96, 168)) {
+        for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
           pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt'] * emis[emis$cpmid == i & emis$ct <= tt, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
         }
         pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[emis$cpmid == i, 'dt'] * emis[emis$cpmid == i, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
       }
     }
-    # Add IDs needed for merge with plots
+    # Add IDs needed for merge with plots (I guess plots does not have cpmid yet?)
     pld[pld$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')] <- emis[emis$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')][1, ]
   }
 
@@ -1321,6 +1381,13 @@ imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
 fixWeather <- function(obj, na = 'impute') {
 
   emis <- obj$emis
+  plots <- obj$plots
+
+  # Get crop height from plots 
+  # This is applied by file, so other ID vars are not needed for safe merge
+  emis <- merge(emis, plots[, c('proj', 'exper', 'field', 'plot', 'rep', 'crop.z')],
+                by = c('proj', 'exper', 'field', 'plot', 'rep'),
+                all.x = TRUE)
 
   emis$rain[is.na(emis$rain)] <- 0
   emis$rain.rate <- emis$rain / emis$dt
@@ -1335,6 +1402,19 @@ fixWeather <- function(obj, na = 'impute') {
       }
     }
   }
+
+  # Standardize wind speed
+  # Roughness length (m) set to 1/10th canopy height
+  z0 <- emis$crop.z / 10 / 100
+  # Or min of 1 cm 
+  z0[is.na(z0)] <- 0.01
+  z0[z0 < 0.01] <- 0.01
+  # Adjust to height of 2 m
+  emis$wind.2m <- emis$wind * log(2.0 / z0) / log(emis$wind.z / z0)
+
+  # Remove crop.z because it is added in a later merge
+  # NTS: Sloppy
+  emis$crop.z <- NULL
 
   obj$emis <- emis
 
