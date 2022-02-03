@@ -1,9 +1,15 @@
 
+> # Load data from uptakes 1 and 2 (the original "ALFAM2" work)
+> 
+> idat.old <- read.csv('../../data_ALFAM2_output/02/ALFAM2_interval.csv')
+
+> pdat.old <- read.csv('../../data_ALFAM2_output/02/ALFAM2_plot.csv')
+
 > # 
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-01-31 13:31:08 EST"
+[1] "2022-02-03 14:33:04 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
@@ -40,3 +46,83 @@ Directory  ../../data - submitted/03/WUR
 
 > cat('Done! Read', length(dat), ' directories\n')
 Done! Read 3  directories
+
+> print(warnings())
+Warning messages:
+1: In is.factor(x) : NAs introduced by coercion
+2: In is.factor(x) : NAs introduced by coercion
+
+> # Stack individual interval and plot level data frames from each file together
+> pdat <- idat <- data.frame()
+
+> # Extract and stack plot and interval level data
+> for (i in dat) {
++   for (j in i) {
++     pdat <- rbindf(pdat, j$plots)
++     idat <- rbindf(idat .... [TRUNCATED] 
+
+> # Add plot and institute ID codes to new data
+> 
+> # Extract and reuse old institute codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+
+> # Create completley new 300s codes for new institutes
+> # NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
+>  .... [TRUNCATED] 
+
+> # ID codes created in plots data frame and then merged into interval level data frame
+> # Experiment ID
+> pdat$eid <- as.integer(factor(pdat$ceid))  .... [TRUNCATED] 
+
+> # Add plot and plot x meas tech IDs
+> pdat$pid <- as.integer(factor(pdat$cpid)) + max(pdat.old$pid)
+
+> pdat$pmid <- as.integer(factor(pdat$cpmid)) + max(pdat.old$pmid)
+
+> # Merge into interval level data
+> idat <- merge(idat, pdat[, c('institute', 'file', 'exper', 'inst', 'eid', 'pid', 'pmid')], by = c('institute', 'f .... [TRUNCATED] 
+
+> # Add observation ID
+> idat <- idat[order(idat$pmid, idat$int), ]
+
+> idat$oid <- 1:nrow(idat) + max(idat.old$oid)
+
+> # Combine new (uptake 3) with old data
+> 
+> # First plot-level data
+> # Rename some old columns
+> names(pdat.old)[names(pdat.old) %in% c('first.row. .... [TRUNCATED] 
+
+> names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
+
+> names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
+[1] "man.freeNH3"   "man.eq.gasNH3"
+
+> # And drop others
+> pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
+
+> # Combine
+> pdat.comb <- rbind(pdat[, names(pdat.old)], pdat.old)
+
+> # Sort
+> pdat.comb <- pdat.comb[order(pdat.comb$pmid), ]
+
+> # Interval-level data
+> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
+
+> # Rename some old columns
+> names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
+
+> names(idat.old)[names(idat.old) == 'database'] <- 'uptake'
+
+> # Combine
+> idat.comb <- rbind(idat[, names(idat.old)], idat.old)
+
+> # Sort
+> idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int), ]
+
+> write.csv(pdat.comb, '../../data_ALFAM2_output/03/ALFAM2_plot.csv', row.names = FALSE)
+
+> write.csv(idat.comb, '../../data_ALFAM2_output/03/ALFAM2_interval.csv', row.names = FALSE)
