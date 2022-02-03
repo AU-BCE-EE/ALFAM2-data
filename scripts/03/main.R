@@ -29,6 +29,7 @@ sink('../../logs/03/make_database_log.txt')
   source('get_new.R', echo = TRUE)
   source('add_ID.R', echo = TRUE)
   source('stack.R', echo = TRUE)
+  source('export.R', echo = TRUE)
 sink()
 
 ### Make plot-level file

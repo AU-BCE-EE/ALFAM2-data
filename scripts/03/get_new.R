@@ -22,11 +22,12 @@ for(i in ddir) {
     dd <- cleanALFAM(dd)
     # Fix weather data
     dd <- fixWeather(dd, na = 'impute')
-    # Calculate emission (including merge with plot df, adding c*id)
+    # Calculate emission, including merge with plots data frame, adding c*ids, adding mean weather and emission to plots
     dd <- calcEmis(dd, na = 'impute')
-    # Add/extract some other vars for plot-level data
-    dd <- getPlotVars(dd)
+    # Add/extract some other vars for plot-level and interval-level data
+    dd <- getVars(dd)
 
+    # Save resulting list of data frames in main list
     dat[[i]][[j]] <- dd
 
     # Check for errors and create log with details
@@ -42,6 +43,7 @@ cat('Done! Read', length(dat), ' directories\n')
 
 print(warnings())
 
+# Stack individual interval and plot level data frames from each file together
 pdat <- idat <- data.frame()
 # Extract and stack plot and interval level data
 for (i in dat) {

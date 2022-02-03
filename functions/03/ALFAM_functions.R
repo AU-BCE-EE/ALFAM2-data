@@ -94,6 +94,45 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
 }
 
+# Check for missing values in essential variables
+# Missing values would cause error prior to error checking
+check4missing <- function(obj) {
+
+  # Emission sheet
+  emis <- obj$emis
+  for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'meas.tech')) {
+    if (any(ii <- is.na(emis[, i]))) {
+      cat('Error in\n')
+      print('First 10 rows:')
+      print(emis[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
+  # If dt is missing, must have t.start and t.end
+  if (any(ii <- is.na(emis[, 'dt']))) {
+    if (any(is.na(c(emis$t.start, emis$t.end)))) {
+      cat('Error in dt\n')
+      print('First 10 rows:')
+      print(emis[ii, c('row.in.file', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
+  # Check for missing application time in plots
+  plots <- obj$plots
+  for (i in c('proj', 'exper', 'field', 'plot', 'app.start', 'app.end', 'app.method')) {
+    if (any(ii <- is.na(plots[, i]))) {
+      cat('Error in\n')
+      print('First 10 rows:')
+      print(plots[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      stop('Missing values in ', i)
+    }
+  }
+
+}
+
+# Clean up data just read in
 cleanALFAM <- function(obj) {
 
   submitter <- obj$submitter
@@ -130,29 +169,10 @@ cleanALFAM <- function(obj) {
   plots$crop.z[tolower(plots$crop) == 'bare soil'] <- 0
   plots$crop.area[tolower(plots$crop) == 'bare soil'] <- 0
 
-  # NTS: Use checks instead
-  ### Fix air.temp.z values apparently given in m not cm
-  ##plots$air.temp.z[!is.na(plots$air.temp.z) && plots$air.temp.z < 3] <- plots$air.temp.z[!is.na(plots$air.temp.z) && plots$air.temp.z < 3]*100
-
-  ## Add institute and file name
-  #x <- strsplit(file, '/')
-  #if(missing(institute)) {
-  #  institute <- x[[1]][[length(x[[1]])-1]]
-  #}
-  #d$institute <- institute
-  #d$file <- x[[1]][[length(x[[1]])]]
-
-  ## Set missing tillage values to No
-  ## NTS: seems to already be corrected! Not sure how.
-  #d$till[is.na(d$till)] <- 'No'
-  #d$till[d$till == ''] <- 'No'
-  #d$till <- factor(d$till)
-
-  # Add soil.moist where missing, based on water-filled pore space
-  #d <- calcSoilMoist(d)
-
   # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Dates and times
+  emis$t.start.orig <- emis$t.start
+  emis$t.end.orig <- emis$t.start
   emis$t.start <- fixDateTime(emis$t.start)
   emis$t.end <- fixDateTime(emis$t.end)
 
@@ -223,13 +243,53 @@ addCharID <- function(d) {
 
 }
 
-getPlotVars <- function(obj) {
+addVars <- function(dat) {
+  # Other variables to prepare for merge with uptake 2 data
+  # Fill in some columns no longer used, just to be explicit about it
+
+  dat$soil.type2 <- NA
+  dat$exper2 <- NA
+  dat$rep2 <- NA
+  dat$acid <- grepl('acid', tolower(paste(dat$man.trt1, dat$man.trt2, dat$man.trt3)))
+  
+  # Some other derived columns
+  # NTS: Use a function here, can apply to idat too
+  dat$meas.tech.orig <- dat$meas.tech
+  dat$meas.tech2 <- dat$meas.tech
+  dat$meas.tech2[tolower(dat$meas.tech) %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
+  dat$meas.tech2[tolower(dat$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
+  
+  dat$crop.orig <- dat$crop
+  dat$crop <- tolower(dat$crop)
+  
+  dat$soil.type2 <- NA
+  
+  dat$man.source.orig <- dat$man.source
+  dat$man.source <- gsub('cattle', 'cat', tolower(dat$man.source))
+  
+  am <- c(`Band spread or trailing hose` = 'bsth',
+          Broadcast = 'bc',
+          `NUGA-tine` = 'ts', # NTS: Check with JMP
+          `Open slot injection` = 'os',
+          `Trailing shoe` = 'ts',
+          `Wide band` = 'bsth')
+  dat$app.method.orig <- dat$app.method
+  dat$app.method <- am[dat$app.method.orig]
+  dat$app.method2 <- dat$app.method
+  
+  # Incorporation
+  dat$incorp.orig <- dat$incorp
+  dat$incorp <- tolower(dat$incorp)
+  
+  dat$flag <- NA
+
+  return(dat)
+
+}
+
+getVars <- function(obj) {
 
   # NTS: cut these extraction lines not needed below
-  submitter <- obj$submitter
-  contrib <- obj$contrib
-  exper <- obj$exper
-  treat <- obj$treat
   plots <- obj$plots
   emis <- obj$emis
   pubs <- obj$pubs
@@ -265,8 +325,18 @@ getPlotVars <- function(obj) {
 
   # Pub info
   plots <- merge(plots, pubs, by = 'pub.id', all.x = TRUE)
+  emis <- merge(emis, pubs, by = 'pub.id', all.x = TRUE)
+
+  # Add other vars to plots 
+  plots <- addVars(plots)
+  emis <- addVars(emis)
+
+  # Starting date
+  plots$date.start <- as.Date(plots$t.start.p)
+  emis$date.start <- as.Date(min(emis$t.start))
 
   obj$plots <- plots
+  obj$emis <- emis
   return(obj)
 
 }
@@ -327,6 +397,15 @@ calcEmis <- function(obj, na = 'impute') {
     stop()
   }
 
+  # Adjust wind speed to 2 m for use in plot-level means below
+  # Roughness length (m) set to 1/10th canopy height
+  z0 <- emis$crop.z / 10 / 100
+  # Or min of 1 cm 
+  z0[is.na(z0)] <- 0.01
+  z0[z0 < 0.01] <- 0.01
+  # Adjust to height of 2 m
+  emis$wind.2m <- emis$wind * log(2.0 / z0) / log(emis$wind.z / z0)
+
   # Drop intervals with missing emission measurements
   # NTS: how to handle this?
   if (na == 'drop') {
@@ -348,6 +427,9 @@ calcEmis <- function(obj, na = 'impute') {
   }
   # Variable e is stuck from earlier
   emis$e <- emis$e.cum
+
+  # mt = middle
+  emis$mt <- emis$ct - emis$dt / 2
 
   # Elapsed time since application
   emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
@@ -1378,16 +1460,11 @@ imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
 
 }
 
+# Some weather variable fixes (but not wind speed height adjustment--that is done in calcEmis)
 fixWeather <- function(obj, na = 'impute') {
 
   emis <- obj$emis
   plots <- obj$plots
-
-  # Get crop height from plots 
-  # This is applied by file, so other ID vars are not needed for safe merge
-  emis <- merge(emis, plots[, c('proj', 'exper', 'field', 'plot', 'rep', 'crop.z')],
-                by = c('proj', 'exper', 'field', 'plot', 'rep'),
-                all.x = TRUE)
 
   emis$rain[is.na(emis$rain)] <- 0
   emis$rain.rate <- emis$rain / emis$dt
@@ -1403,61 +1480,9 @@ fixWeather <- function(obj, na = 'impute') {
     }
   }
 
-  # Standardize wind speed
-  # Roughness length (m) set to 1/10th canopy height
-  z0 <- emis$crop.z / 10 / 100
-  # Or min of 1 cm 
-  z0[is.na(z0)] <- 0.01
-  z0[z0 < 0.01] <- 0.01
-  # Adjust to height of 2 m
-  emis$wind.2m <- emis$wind * log(2.0 / z0) / log(emis$wind.z / z0)
-
-  # Remove crop.z because it is added in a later merge
-  # NTS: Sloppy
-  emis$crop.z <- NULL
-
   obj$emis <- emis
 
   return(obj)
 
 }
 
-
-# Check for missing values in essential variables
-# Missing values would cause error prior to error checking
-check4missing <- function(obj) {
-
-  # Emission sheet
-  emis <- obj$emis
-  for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'meas.tech')) {
-    if (any(ii <- is.na(emis[, i]))) {
-      cat('Error in\n')
-      print('First 10 rows:')
-      print(emis[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
-      stop('Missing values in ', i)
-    }
-  }
-
-  # If dt is missing, must have t.start and t.end
-  if (any(ii <- is.na(emis[, 'dt']))) {
-    if (any(is.na(c(emis$t.start, emis$t.end)))) {
-      cat('Error in dt\n')
-      print('First 10 rows:')
-      print(emis[ii, c('row.in.file', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
-      stop('Missing values in ', i)
-    }
-  }
-
-  # Check for missing application time in plots
-  plots <- obj$plots
-  for (i in c('proj', 'exper', 'field', 'plot', 'app.start', 'app.end', 'app.method')) {
-    if (any(ii <- is.na(plots[, i]))) {
-      cat('Error in\n')
-      print('First 10 rows:')
-      print(plots[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
-      stop('Missing values in ', i)
-    }
-  }
-
-
-}
