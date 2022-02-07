@@ -425,7 +425,7 @@ calcEmis <- function(obj, na = 'impute') {
     emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
     emis[emis$cpmid == i, 'e.cum'] <- cumsum(emis[emis$cpmid == i, 'e.int'])
   }
-  # Variable e is stuck from earlier
+  # Variable e is stuck from earlier (used in some analysis or fitting code)
   emis$e <- emis$e.cum
 
   # mt = middle

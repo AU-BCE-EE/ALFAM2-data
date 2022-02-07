@@ -1,5 +1,0 @@
-Notes for NMI-Bussink dataset
-
-16/01/2016
-SVP
-Weather data in shifts is calculated such that any "weather-shift", that covers the "ammonia-emission-shifts", is included in the averaging of weather data for that period.
