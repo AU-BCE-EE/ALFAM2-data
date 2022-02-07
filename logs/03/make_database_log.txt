@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-02-07 14:19:11 EST"
+[1] "2022-02-07 14:52:06 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -48,9 +48,7 @@ Directory  ../../data-submitted/03/WUR
 Done! Read 3  directories
 
 > print(warnings())
-Warning message:
-In file(file, ifelse(append, "a", "w")) :
-  cannot open file '../../data_ALFAM2_output/03/ALFAM2_plot.csv': No such file or directory
+NULL
 
 > # Pull new data from list
 > 
