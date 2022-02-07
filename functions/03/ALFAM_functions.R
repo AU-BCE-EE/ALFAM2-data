@@ -209,7 +209,7 @@ cleanALFAM <- function(obj) {
 
   # Convert reported dt to decimal hours
   # Note dt may have single quote in spreadsheet and be read in as character
-  emis$dt <- HM2DH(as.numeric(emis$dt))
+  emis$dt <- HM2DH(emis$dt)
 
   emis$dt[is.na(emis$dt)] <- emis$dt.calc[is.na(emis$dt)]
   emis$dt.diff <- emis$dt - emis$dt.calc
@@ -1435,13 +1435,19 @@ fixDateTime <- function(x){
 
 # H:M to decimal hours
 HM2DH <- function(x) {
+  if (class(x) == 'character') {
+    x <- gsub(',', '.', x)
+    x <- gsub('\'', '', x)
+  }
+
   if(all(!grepl(':', x))) {
-    return(x)
+    # Replace any decimal commas (just happened to have one here)
+    return(as.numeric(x))
   }
 
   for(i in 1:length(x)) {
-    hr <- strsplit(x[i], ':')[[1]][1]
-    mn <- strsplit(x[i], ':')[[1]][2]
+    hr <- as.numeric(strsplit(x[i], ':')[[1]][1])
+    mn <- as.numeric(strsplit(x[i], ':')[[1]][2])
     x[i] <- hr + mn/60
   }
 
