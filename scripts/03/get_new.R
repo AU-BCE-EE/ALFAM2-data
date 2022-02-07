@@ -4,7 +4,7 @@
 print(Sys.time())
 
 # Read and check data from files
-ddir <- list.dirs('../../data - submitted/03', recursive = FALSE)
+ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
 dat <- list()
 for(i in ddir) {
   cat('Directory ', i,'\n')
@@ -30,12 +30,12 @@ for(i in ddir) {
     # Save resulting list of data frames in main list
     dat[[i]][[j]] <- dd
 
-    # Check for errors and create log with details
-    # Note: the Rmd file overwrites 'dd', so keep this last if possible
-    fn <- strsplit(j, '/')
-    fn <- fn[[1]][length(fn[[1]])]
-    inst <- dat[[i]][[j]]$submitter$inst.abbrev
-    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
+    ## Check for errors and create log with details
+    ## Note: the Rmd file overwrites 'dd', so keep this last if possible
+    #fn <- strsplit(j, '/')
+    #fn <- fn[[1]][length(fn[[1]])]
+    #inst <- dat[[i]][[j]]$submitter$inst.abbrev
+    #render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
 
   }
 }
@@ -43,12 +43,4 @@ cat('Done! Read', length(dat), ' directories\n')
 
 print(warnings())
 
-# Stack individual interval and plot level data frames from each file together
-pdat <- idat <- data.frame()
-# Extract and stack plot and interval level data
-for (i in dat) {
-  for (j in i) {
-    pdat <- rbindf(pdat, j$plots)
-    idat <- rbindf(idat, j$emis)
-  }
-}
+
