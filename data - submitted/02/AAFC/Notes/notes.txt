@@ -1,242 +1,0 @@
-06 August 2014
-SDH
-Martin originally sent data in his in-house format in April (2004 and 2005 data) and then June (2001-2003 data).
-I've been working on reformatting the data since then.
-For weather data, I have been calculating mean values based on the time since application column.
-For the September 2005 data, there is no "time since application column" to use, and since I don't have the start date/time, we need additional info to proceed.
-Soil data is more difficult, since mesurements were made in parallel plots, i.e., not the same plots that were under the wind tunnels.
-For Sept 2005, there are at least control plots, which I think we will use.
-We need to know whether initial day soil data are from before or after manure application.
-
-
-18 August 2014
-SDH
-Meeting with Simon today to go over some tasks
-Notes on file organization for Simon:
-
-1. Ultimately each organization will have a separate Excel data file: .../Dropbox/ALFAM2/Data/<organization abbreviation>/ALFAM2.xlsx
-2. The organization that needs the most work now is Agrifood and Agriculture Canada (AAFC)
-
-And here are some details on AAFC:
-1. Original files sent from the guy who did the research (Martin Chantigny) are in "Original data from Martin"
-2. Files for organizing the data should be saved in "Intermediate files"
-3. Data should be entered into ...AAFC/ALFAM2...xlsx, and this file can be named with a version number (e.g., v2) and saved in "...AAFC/Drafts" if you are about to make major changes and want to save a copy
-
-
-19 August 2014
-SVP
-Changing version number from ALFAM2_Chantigny_v2.xlsx to version 3, with filename ALFAM2_Chantigny_v3.xlsx. 
-The version number was changed to ensure that if any preliminary changes I make are not entirely correct, we can always revert to back ALFAM2_Chantigny_v2.xlsx.
-
-
-22 August 2014
-SVP
-Changed precipitation-2004-2005.xlsx to contain additional tabs labeled according to the format “CSV Export <original tab name>”. 
-The data in these tabs is the exact same as the processed data (marked in red) in their original tabs. This ensures clean CSV export, and clean CSV import to Mathematica.
-The created CSV files are labeled according to the format “Chantigny_Precip_<original tab name> <initials>.csv”
-
-
-22 August 2014
-SDH
-Note to self and Simon: do not trust Excel's use of date/time formats.
-This is the approach I use now when I get a completed template from a contributor, if the column formats have been changed from text: 
-1. Change date column to correct format if needed (dd-mm-yyyy hh:mm)
-2. Copy columns into a text editor
-3. Change columns in Excel to "text" format
-4. Past data back in Excel (as text if necessary)
-
-
-25 August 2014
-SVP
-Based on Mathematica script, it has become apparent, that some precipitation data might not be included in a shift.
-Since the shift length varies from the main database file, ALFAM2_Chantigny_v3.xlsx, to those shifts present in the measurement file, “Chantigny_Precip_<tab name> <initials>.csv”.
-The problem is thus that a measurement shift might be excluded by the boundary conditions imposed by the Mathematica script, to select those times that lie within a main shift.
-Corrective action: An error will always occur, no matter if neglecting the data or including it. For now data exceeding boundary conditions may be included manually.
-A note will appear in the “Notes” cell in ALFAM2_Chantigny_<version no.>.xlsx, where manual additions have taken place.
-SDH and SVP agrees to discuss this concern again, should it turn out a lot of data is lost due to exceeding boundary conditions.
-
-Measurement shift = Measurements made within a period of time.
-Main shift        = Shifts as written in the database, ALFAM2_Chantigny_<version no.>.xlsx
-
-
-28 August 2014
-SDH
-Tasks for Simon:
-May 2005
-Add mean soil pH and moisture for May 2005
-Check paper for clay and silt values for May 2005
-Fill in field name/code for May 2005
-Bulk density
-
-2001 and 2003
-Add shift times/dates
-Add plot size
-
-Multiple years, maybe
-Add wind speed (perhaps 1.3 for all? check paper)
-
-Move input and output files
-
-Other notes
-Simon and I met today and we found an error in my approach for summarizing weather data
-We are assuming that weather data reported, e.g., for 6:00, are average or cumulative values for 5:30 to 6:00
-In Simon's approach and my new scripts for 2004 and May 2005, weater reported for 6:00 would not be included in a shift that went from, say, 5:31 to 6:10
-I did also made an addition to fill in missing values (where there is no weather data, because of this approach) with the closest weather period
-The new results for May 2004 and May 2005 are now in the main spreadsheet
-
-
-7 September 2014
-SVP
-“ALFAM2_Chantigny_v3.xlsx” moved to drafts. A conflicting copy was then labeled “ALFAM2_Chantigny_v4.xlsx”, as it appeared to be newer, and contain more data.
-
-
-8 September 2014
-SVP
-Anticipated finish of the AAFC data for ALFAM2, is end of next week (end of week 38).
-I calculated the cross-sectional area as the area of an ellipse. The formula should be:
-pi*A*B, where A  and B is the length of the semi-major and semi-minor axes (i.e. half of the major and minor axes). Since the wind tunnels are placed on ground, we need only half of this area. 
-This gives:
-
-	(pi*0.45*0.25)/2.   
-
-0.45 is the U-dome height given by correspondence from Martin. 0.25 is half the width of the plot (0.5m x 2 m)
-This gives:
-
-	A_crossectional = 0.176715 m^2.
-
-I then solve the equation:
-
-	Volumetric Flowrate = Linear Wind Velocity * cross-sectional area
-
-From the article, air was drawn through the tunnel at a rate of 15 m^3 min^-1. This corresponds to 0.25 m^3 sec^-1 Thus the equation becomes:
-
-	0.25 m^3 sec^-1 = x * 0.176715 m^2.
-
-To which I get that:
-
-	x = 1.41 Meter Second^-1
-
-These calculations are well in place with what has been calculated in the main database file “ALFAM2_Chantigny_v4.xlsx”, where the value found is 1.30 m/s. 
-The above calculations are put here in the notes for future reference.
-
-11 September 2014
-SVP
-May 2004 Trials pretty much done. Minor adjustments may occur within the areas:
-+Precipitation
-+Air Temp. height.
-
-
-15 September 2014
-SVP
-Rather huge inconsistency found in datafile “ALFAM2 - gaseous N-emissions and forage -2001-2003 - Chantigny SDH.xlsx”.
-Mismatch between column “Time (d)” and “Julian Day”, in the calculating of shift starting and ending times.
-Corrective Action Taken: Find differences in Julian Days, and use this time difference to devise a ‘new’ “Time (d)” column.
-The error appears specifically for:
-
-+ Experiments on Sandy loam starting the 15th May 2003.
-+ Experiments on Sandy loam starting the 17th June 2003.
-+ Experiments on loam starting 20th May 2003.
-+ Experiments on loam starting 23rd June 2003.
-
-
-17 September 2014
-SVP
-According to correspondence from Martin, “Julian Days” is incorrect, and the “Time (d)” column should be considered correct.
-
-
-18 September 2014
-SVP
-Changed values for “Decanted” from May 2005 trials under “Manure Application - Application Rate”, from 21 m3/ha to 24 m3/ha, according to article (1).
-
-
-20 September 2014
-SVP
-Some soil temperatures for SandyLoam 2001 has been removed, as they are deemed to be outliers. The removed data points were:
-t.start			t.end			soiltemp
-22/06/2001 09:00	22/06/2001 09:30	-1734.887522/06/2001 10:00	22/06/2001 10:30	-1734.915
-22/06/2001 23:30	23/06/2001 00:00	-1734.002523/06/2001 00:00	23/06/2001 00:30	-1733.727523/06/2001 00:30	23/06/2001 01:00	-1733.525
-23/06/2001 06:00	23/06/2001 06:30	-1732.66
-23/06/2001 19:00	23/06/2001 19:30	-1732.552523/06/2001 21:00	23/06/2001 21:30	-1732.907523/06/2001 21:30	23/06/2001 22:00	-1733.0323/06/2001 22:00	23/06/2001 22:30	-1733.127523/06/2001 22:30	23/06/2001 23:00	-1733.252523/06/2001 23:30	24/06/2001 00:00	-1733.5225
-
-Apparently the same applies for Loam 2002. Following has been removed:
-t.start			t.end			soiltemp
-15/05/2002 15:00	15/05/2002 16:00	-1159.05166715/05/2002 16:00	15/05/2002 17:00	-1159.743333
-
-
-21 September 2014
-SVP
-When calculating air temperature, no outliers were found. However, it often appeared that some shifts had no data available within the time limitations of that shift.
-To accommodate for this, those cases (shifts without air temperature information) were marked by the respective (“2001-2003_AirTemp_Per_Shift.nb”) mathematica script as “NaN”.
-When exported, the shifts labeled as NaN were gone through manually, and filled with the data that seemed most appropriate for that specific scenario.
-Where manual changes was made, the type of change and for which shifts, can be seen in the “notes” cell in the “ALFAM2_Chantigny_v4.xlsx”.
-
-For the calculation of Solar Radiation, means of the data in the shifts were taken.
-In some cases, data points had to be omitted or replaced (always replaced by 0), as they obscured the results. These data points were considered infeasible under the measurement conditions.
-I.e. probably technical difficulties with the pyranometer.
-
-Troublesome data points in “Climate-Loam-2003”.xls:
-19/05/2003 21:00	19/05/2003 22:00	360
-20/05/2003 21:00	20/05/2003 22:00	360
-23/06/2003 21:00	23/06/2003 22:00	36023/06/2003 22:00	23/06/2003 23:00	360
-24/06/2003 21:00	24/06/2003 22:00	36024/06/2003 22:00	24/06/2003 23:00	36024/06/2003 23:00	25/06/2003 00:00	360
-25/06/2003 21:00	25/06/2003 22:00	36025/06/2003 22:00	25/06/2003 23:00	36025/06/2003 23:00	26/06/2003 00:00	36026/06/2003 00:00	26/06/2003 01:00	36026/06/2003 01:00	26/06/2003 02:00	36026/06/2003 02:00	26/06/2003 03:00	36026/06/2003 03:00	26/06/2003 04:00	360
-26/06/2003 21:00	26/06/2003 22:00	36026/06/2003 22:00	26/06/2003 23:00	36026/06/2003 23:00	27/06/2003 00:00	36027/06/2003 00:00	27/06/2003 01:00	360
-
-Troublesome data points in “Climate-Loam-2001.xls”:
-23/06/2001 21:00	23/06/2001 22:00	36023/06/2001 22:00	23/06/2001 23:00	360
-24/06/2001 21:00	24/06/2001 22:00	36024/06/2001 22:00	24/06/2001 23:00	36024/06/2001 23:00	25/06/2001 00:00	360
-25/06/2001 21:00	25/06/2001 22:00	36025/06/2001 22:00	25/06/2001 23:00	36025/06/2001 23:00	26/06/2001 00:00	36026/06/2001 00:00	26/06/2001 01:00	36026/06/2001 01:00	26/06/2001 02:00	36026/06/2001 02:00	26/06/2001 03:00	36026/06/2001 03:00	26/06/2001 04:00	360
-26/06/2001 21:00	26/06/2001 22:00	36026/06/2001 22:00	26/06/2001 23:00	36026/06/2001 23:00	27/06/2001 00:00	36027/06/2001 00:00	27/06/2001 01:00	360
-
-Where manual changes was made, the type of change and for which shifts, can be seen in the “notes” cell in the “ALFAM2_Chantigny_v4.xlsx”. 
-Were corrections were made, similar comments were made in same cell.
-
-
-18 October 2014
-SVP
-The main spreadsheet has been updated to version 5, v5. The older version, “ALFAM2_Chantigny_v5.xlsx” was moved to the drafts folder.
-The new data from Martin Chantigny, June 2000 Trials, have been moved from the main spreadsheet, “ALFAM2_Chantigny_v5.xlsx”, to “ALFAM2_Chantigny_v5-2000 TRIALS SVP.xlsx” in the “Intermediate” folder.
-The means that the June 2000 trials are -no longer- in the the main spreadsheet. They can be copied back once the dataset is complete.
-
-Ammonia volatilization rates for the new data (June 200) is much larger than any of the previous data.
-It is probably correct though. Just thought I’d note it down anyway.
-
-
-19 October 2014
-SVP
-One suspension period was missing for 2002 Sandy Loam, in the file we just received with corrected shift durations. I have attempted to calculate the suspension period manually. 
-See mathematica document “Calculating_Missing_Suspension_Period.nb” for further details, in the “Intermediate files” folder.
-
-It is becoming quite difficult to navigate the AAFC directory now, with all those different data files, which are different versions of each other.
-The following summary can hopefully clarify things a little.
-
-“ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”
-Original datafile for the 2001-2003 dataset. Contains all correct information EXCEPT for the shift time durations, and hence, also volatilization rates are wrong.
-This file is being updated with new shift times and measurement suspension periods, from the following file:
-
-“ALFAM2 - gaseous N-emissions and forage -2001-2003 - Chantigny SVP - Corrected Shift Times.xlsx”
-Contains new shift period durations, and measurement suspension periods. This file is used to update the preceding file with correct information.
-All data added to the preceding file, from this file, is marked in DARK GREEN.
-
-“ALFAM2 - temporal dynamics of volatilisation and soil properties - pig slurries SVP v2.xlsx”
-Contains corrected shift times for the June 2000 Trials. This file is used jointly with the next file on the list, to fill out the main spreadsheet database.
-Note that only volatilization rates and new shift times are taken from this file. ALL remaining data has been taken from the following file on this list:
-
-“ALFAM2 - temporal dynamics of volatilisation and soil properties - pig slurries SVP.xlsx“
-The first file received from Martin Chantigny with the June 2000 trials data.
-
-18 January 2015
-SVP
-Wrapping things up on the AAFC dataset. Made new version of the database. New time changes will be pasted into the new version. 
-
-The way the AAFC data is setup for the 2001-2003 trials is such that it is assumed that no ammonia volatilization occurs under rainfall. (I.e. when wind tunnels were removed).
-
-30 January 2015
-SVP
-If something appears to be odd about the AAFC Sandy Loam 2002 data, check the precipitation. Summation of precipitation in the shifts was done manually. Suspension periods, and the fact that yesterdays rainfall was added on the first shift the coming morning, made it difficult to sum up precipitation.
-
-Something is also very weird about the Sandy Loam 2002 Precipitation data. No rainfall during suspension periods. On the other hand, large amounts of rainfall outside the suspension periods. This makes it hard to allocate precipitation to a specific shift.
-
-
-
-
