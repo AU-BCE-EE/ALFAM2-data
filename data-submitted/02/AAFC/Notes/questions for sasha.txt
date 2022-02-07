@@ -1,0 +1,41 @@
+Questions for SDH:
+
+	Status		Date		Question
+
+SVP	OK		11/09/2014	“Air temp. height” cell are not filled out. According to article the measurements were done in the tunnels using a hot-wire sensor. Should we skip the 							heights, or should we put it as the same height as the wind speed measurements? I.e. 0.225 meters height? Or are these data from the weather station 200m away 						(which I guess it is)?
+SVP	OK		11/09/2014	Concerning the exclusion of meaned data in some of the shifts, some mismatches still occur. Air Temperature for May 2005 Trials do not yield equivalent 						results. I will paste in my values for September 2005, as these are not filled out yet.
+SVP	OK		13/09/2014	Under “Manure Information (fresh weight basis)”, there we have “Treatment” and “Treatment 2”. Although I am pretty sure that for the treatment code “flocculated”, 					on september 2005, the Treatment is Anaerobic Digestion and secondary treatment is Flocculation, this is not (as far as I can see) in accordance with the article 					(1).
+SVP	OK		13/09/2014	Data on N applied as mineral fertilizer omitted, for 2001-2003 trials.
+SVP	OK		15/09/2014	Can we agree that the plot sizes for 2001-2003 trials is 1 m^2 (0.5m x 2m)?
+SVP	OK		15/09/2014	Rather huge inconsistency in shift information for 2001-2003 trials. Utilizing different method for calculating shift start and end timestamps. (This is a comment 					rather than an actual question).
+SVP	OK		15/09/2014	Clay and Sand values found for 2001-2003 dataset, and entered into the main database “ALFAM2_Chantigny_v4.xlsx”. The values were measure in April 2001, but no 						other data is available for the other years. I have however, assumed same value for 2001, 2002, and 2003, as I can see the same was done for the 2004-2005 						dataset. Hope this is OK. Else we can remove them again.
+SVP	OK		15/09/2014	pH values for the manure?. Same for Sandy Loam and Loam (I guess so, but just to be sure)? 
+SVP	OK		15/09/2014	For 2001-2003 trials, which air temperatures to select. Those inside or outside the tunnel?
+
+
+
+SVP			18/09/2014	Revision of treatment codes might be necessary. Duplicated treatment code for 2004-2005 and 2001-2003 data. “flocculated” used twice and ambiguously.
+SVP	OK		18/09/2014	For May 2001 trials on Sandy Loam, it said the Manure was both Anaerobically digested and Flocculated. I cannot find this in the paper.
+SVP	OK		18/09/2014	Manure application rate for 2001-2003 trials cannot be found.
+SVP	OK		18/09/2014	There is some data on wind speeds, but it appears to be from an external weather station. Instead I am using the 1.3 m/s from the article (2), under “Gaseous N 					Emissions”. Can we assume it was the same wind tunnels in 2001-2003 as in 2004-2005, so we can assume wind speed height of 0.23 (i.e. half the height of the U-						dome).
+
+
+SVP	OK		18/09/2014	No data on Average Storage Length, for any Trials.
+SVP	OK		20/09/2014	Can we assume same dimensions of the tunnels as for the 2004-2005 data? I.e. the middle of the height of the dome is 0.225 m? (For wind speed height).
+SVP	OK		20/09/2014	Sudden intermediate stop in Soil Temperature for 2002, SandyLoam.
+SVP	OK		20/09/2014	Removal of Soil Temperature outliers according to “notes.txt”.
+SVP	OK		21/09/2014	Removal of Irradiance outliers according to “notes.txt”.
+SVP	OK		21/09/2014	No high-resolution data available on the Solar Irradiance in file “Climate-Loam-2002.xls”. Data also a little odd in “Climate-SandyLoam-2002.xls”.
+SVP	OK		21/09/2014	No high-resolution data available on Relative Humidity. Should we use the low-resolution data?
+
+
+
+SVP	OK		07/10/2014	This might be an odd question, and I might be horribly off, but somehow there are discrepancies between NH3 flux, and cumulative NH3 emissions?
+SVP	OK		07/10/2014	Just came across the D.M. for the 2001-2003 trials. Are they correctly calculated?
+SVP	OK		07/10/2014	I can find air flow rate, but not the wind velocity through the wind tunnels.
+SVP	OK		07/10/2014	Cannot find any details on bulk density. I may have overlooked them, as I can see references to them in the article, but never any actual values.
+
+
+
+SVP			10/11/2014	Note the precipitation date. On the 23rd June, one shift does not cover the full suspension period, leaving one datapoint excluded. And was the remaining rainfall
+					really added on the following day?

@@ -1,0 +1,108 @@
+Summarizes the sources for the data in the file for AAFC
+
+29 August 2014
+SDH
+For all 2004 and 2005 data, bulk density is from "soil variables May 2004" worksheet in the "ALFAM2 - Treated pig slurries 2004-05 - Chantigny et al SDH.xlsx" file.
+I used a single mean of all samples.
+
+For experiment 'may 2004':
+For pH and water content, I calculated a single set of means from the data in worksheet "soil variable May 2004" in the spreadsheet "ALFAM2 - Treated pig slurries 2004-05 - Chantigny et al SDH.xlsx"
+Emission rates, shift length, start dates and times from same spreadsheet, worksheet "NH3-flux and cumul May 2004".
+For the application date/time, value was taken from same spreadsheet, worksheet "weather May 2004", row 6.
+
+For experiment 'may 2005':
+Soil water content and pH are from worksheet "soil variables may 2005" in spreadsheet "ALFAM2 - Treated pig slurries 2004-05 - Chantigny et al SDH.xlsx"
+I calculated mean values for all the Témoin plots for all days and used these.
+
+
+29 August 2014
+SVP
+For all 2004 and 2005 data:
+Silt and Clay percentages (Soil Information), copied for all 2004 and 2005 entries, based on publication [1] under the “Publications” tab.
+
+
+1 September 2014
+SVP
+For experiment ‘September 2005’:
+Soil water content and pH are from the tab “soil variables sept 2005”, in the spreadsheet “ALFAM2 - Treated pig slurries 2004-05 - Chantigny et al SDH.xlsx”.
+All Témoin entries for the depth 0-2 cm has been extracted. Mean values are calculated for all days on the basis of these extracted values. 
+The output file is “Soil_Data_Sept-2005.xlsx”, in the “Output Folder”. 
+Extraction done semi-automated, using excels built-in table sorting function.
+
+
+8 September 2014
+SVP
+According to article “Chantigny et al. (1)”, in the “Original data from Martin” folder, this was set to “No”, for May 2004 and 2005 trials.
+Wind Speed Height, based on correspondence from Martin Chantigny, ”2014 08 answers from Martin.pdf”. Applied to May 2004 and 2005 trials.
+Added “Application Start” to the September 2005 trials. “Application Start” selected as the first starting shift time.
+Treatment set to “None”, for untreated manure types, in May 2005 trials.
+
+
+11 September 2014
+SVP
+Linear Wind Velocity set to 1.30 for May 2004, May 2005 and September 2005. May 2004, is filled with reference to point 6) in the file “2014 06 answers from Martin.pdf”, in the folder “Correspondence”. 2005 trials is filled with reference to “2014 08 answers from Martin.pdf”, also in the folder “Correspondence”.
+
+The cells ”Soil Temp. depth (cm)”, is filled out according to the values given in the spreadsheet “ALFAM2 - Treated pig slurries 2004-05 - Chantigny et al SDH.xlsx”. NOTE: The measurements are made IN TUNNELS (Except May 2004 trials, for which nothing is mentioned.).
+
+
+14 September 2014
+SVP
+For 2001-2003 trials, plot size and ammonia emission measurement technique and plot location, is filled out according to “Study Site and Experimental Set-up”, in the referenced article (2).
+
+
+15 September 2014
+SVP
+For 2001-2003 trials, I’ve found some Clay and Sand content values. These values have been added to the main database ”ALFAM2_Chantigny_v4.xlsx”. Please note that these values initial values.
+The values were measured in April 2001. No other data available on Clay and Sand content for all other years. 
+I have replicated the 2001 values for 2002 and 2003, but we may need remove them again if agreed. I can though see the same has been done for the 2004-2005 dataset.
+
+Other than that, following changes are made:
+
++ Application method set to “Broadcast”. Watering Cans were used for all trials.
+
+
+20 September 2014
+SVP
+Soil Moisture for 2001-2003 trials, taken from “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”, under the “Soil Moisture Tab”. 
+Data subsequently moved to file “SoilMoisture_2001-2003.xlsx”. Here for each site, the control was isolated, on the DAY of manure application.
+This was done at the depth 0-0.05 m. All values averaged.
+
+pH for 2001-2003 trials was filled out with reference to “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”, under “Soil Properties” tab. 
+The data has low resolution. Means from control plots could not be taken. Hence only the values from the aforementioned tab was entered.
+
+Soil Bulk Density for 2001-2003 was filled out with reference to “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”, under “Soil Properties” tab. 
+The data has low resolution. Means from control plots could not be taken. Hence only the values from the aforementioned tab was entered. The data taken was from 0-20cm soil depth.
+
+Ammonia Volatilization for 2001-2003 entered into the database according to the data calculated under the “NH3-cumul” tab in “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”.
+
+Windspeed set to 1.3 m/s for 2001-2003 trials, in accordance with referenced paper (2). Corresponding “Wind Measurement Location” set to “Plot”. “Wind speed height” set to 0.225. 
+Here assuming same U-shape dimensions of the tunnel domes, as in the 2004-2005 data.
+
+Manure source for 2001-2003 trials set to “Pig”, according to referenced paper (2), in which only swine LSM is treated.
+
+For 2001-2003 trails, Dry Matter, N-total, TAN, TIC and pH (manure characteristics), were filled according to the data extracted from the “Manure Caracteristics”.
+The file with this information is “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”.
+
+“Soil temp. depth” filled out with reference to the all soil temperature measurements from “ALFAM2 - gaseous N-emissions and forag -2001-2003 - Chantigny SDH.xlsx”, which were at 1cm depth.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

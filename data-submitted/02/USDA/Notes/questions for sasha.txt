@@ -1,0 +1,9 @@
+Questions for SDH:
+
+	Status		Date		Question
+SVP	OK		05/10/2014	No Location details on the site. Should we just assume it is somewhere around 39°01'31.3"N 76°55'26.6”W?
+SVP	OK		07/10/2014	I thought I had seen some details on gravimetric soil moisture. “Soil water content at field capacity is 299 g kg−1”. Only data for the entire experiment.
+SVP	OK		07/10/2014	Treatment type set to “None”. Collected directly from cattles in the prior 24 h period, c.f. article.
+SVP	OK		07/10/2014	Not so sure about Application Method. I think it would be categorized as broadcast.
+SVP	OK		07/10/2014	“Tillage” and “Crop Residues Present?”. Is this correct?
+SVP	OK		07/10/2014	Article and “IHF SDH.xlsx” does not agree on the estimated canopy coverage (%).
