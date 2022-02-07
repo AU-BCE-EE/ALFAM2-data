@@ -1,0 +1,3 @@
+7 October 2014
+SVP
+Allocation of unclassified data points in precipitation data to actual shifts, conducted by assuming constant rainfall over the 1 hour precipitation measurement period.

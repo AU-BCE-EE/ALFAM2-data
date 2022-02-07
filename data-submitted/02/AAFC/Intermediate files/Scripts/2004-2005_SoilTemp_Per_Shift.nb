@@ -1,0 +1,1724 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     66781,       1715]
+NotebookOptionsPosition[     64350,       1625]
+NotebookOutlinePosition[     64706,       1641]
+CellTagsIndexPosition[     64663,       1638]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mean Soil Temperature Per Shift", "Title",
+ CellChangeTimes->{{3.617707843060058*^9, 3.61770785132244*^9}, {
+   3.618055759703989*^9, 3.6180557676359167`*^9}, {3.619599953551738*^9, 
+   3.619599957173072*^9}, 3.619600049402953*^9}],
+
+Cell["\<\
+University of Southern Denmark, August 2014\
+\>", "Subtitle",
+ CellChangeTimes->{{3.617707860356879*^9, 3.617707867844531*^9}}],
+
+Cell["\<\
+Department of Chemical Engineering, Biotechnology and Environmental \
+Engineering\
+\>", "Subsubtitle",
+ CellChangeTimes->{{3.6177078805330887`*^9, 3.617707894089353*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Operator", "Section",
+ CellChangeTimes->{{3.617707899895994*^9, 3.61770794267986*^9}, {
+  3.617708049077755*^9, 3.617708055604467*^9}}],
+
+Cell["(SVP) Simon Vilms Pedersen", "Text",
+ CellChangeTimes->{{3.6177079227577457`*^9, 3.617707961383325*^9}, {
+  3.6177080325423727`*^9, 3.617708068795669*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Clear Kernel", "Section",
+ CellChangeTimes->{{3.61770928994174*^9, 3.617709294171899*^9}}],
+
+Cell[TextData[{
+ StyleBox["Warning: ",
+  FontWeight->"Bold"],
+ "Executing the code below erases all data stored in memory."
+}], "Text",
+ CellChangeTimes->{{3.617709340959362*^9, 3.6177094064193487`*^9}},
+ Background->RGBColor[1, 0.85, 0.85]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.617709298603939*^9, 3.617709305325192*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Quit", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.617709307621132*^9, 3.617709308469007*^9}}]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Function Definition", "Section",
+ CellChangeTimes->{{3.617708296767105*^9, 3.61770830354699*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ConvertToDateList", "[", "date_String", "]"}], " ", ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", " ", 
+    RowBox[{"DateList", "[", 
+     RowBox[{"{", 
+      RowBox[{"date", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Day\>\"", ",", "\"\</\>\"", ",", "\"\<Month\>\"", ",", 
+         "\"\</\>\"", ",", "\"\<Year\>\"", ",", "\"\< \>\"", ",", 
+         "\"\<Hour\>\"", ",", "\"\<:\>\"", ",", "\"\<Minute\>\""}], "}"}]}], 
+      "}"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.617718625554131*^9, 3.61771870391086*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"ComputeSoilTempInShifts", "[", 
+     RowBox[{"pathCSVShifts_String", ",", "pathCSVPrecipitation_String"}], 
+     "]"}], " ", ":=", " ", "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "importShifts", ",", "importData", ",", "importShiftsFinal", ",", 
+        "importDataFinal", ",", "results", ",", "results2"}], "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"importShifts", " ", "=", " ", 
+        RowBox[{"Import", "[", 
+         RowBox[{"pathCSVShifts", ",", "\"\<CSV\>\""}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importData", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Import", "[", 
+          RowBox[{"pathCSVPrecipitation", ",", "\"\<CSV\>\""}], "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"2", ";;"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importDataFinal", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringSplit", "[", 
+              RowBox[{"#", ",", "\"\<;\>\""}], "]"}], "&"}], "/@", 
+            "importData"}], ",", "1"}], "]"}], " ", "/.", " ", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"start_", ",", "end_", ",", "precip_"}], "}"}], 
+          "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsoluteTime", "@", 
+             RowBox[{"ConvertToDateList", "@", "start"}]}], ",", 
+            RowBox[{"AbsoluteTime", "@", 
+             RowBox[{"ConvertToDateList", "@", "end"}]}], ",", 
+            RowBox[{"ToExpression", "[", "precip", "]"}]}], "}"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importShiftsFinal", " ", "=", " ", 
+        RowBox[{"Partition", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"AbsoluteTime", "@", "#"}], " ", "&"}], "/@", 
+           "\[NonBreakingSpace]", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ConvertToDateList", "[", "#", "]"}], "&"}], "/@", 
+             RowBox[{"Flatten", "[", 
+              RowBox[{"importShifts", ",", "1"}], "]"}]}], ")"}]}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"results", "  ", "=", " ", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Select", "[", 
+           RowBox[{"importDataFinal", ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "\[GreaterEqual]", 
+               RowBox[{"importShiftsFinal", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "&&", " ", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "\[LessEqual]", 
+               RowBox[{"importShiftsFinal", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}], "&"}]}], " ", 
+           "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "@", "importShiftsFinal"}], ",", "1"}], "}"}]}],
+          "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"results2", "  ", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Flatten", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Select", "[", 
+               RowBox[{"importDataFinal", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2"}], "]"}], "]"}], ">", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ">", 
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "&&", " ", 
+                  RowBox[{
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ">", 
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}], "&"}]}], " ", 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", 
+                RowBox[{"Length", "@", "importShiftsFinal"}], ",", "1"}], 
+               "}"}]}], "]"}], ",", "1"}], "]"}], "/.", " ", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"start_", ",", "end_", ",", "precip_"}], "}"}], " ", 
+           "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"DateString", "[", 
+              RowBox[{
+               RowBox[{"DateList", "@", "start"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Day\>\"", ",", " ", "\"\</\>\"", ",", "\"\<Month\>\"", 
+                 ",", "\"\</\>\"", ",", "\"\<Year\>\"", ",", "\"\< \>\"", 
+                 ",", "\"\<Hour\>\"", ",", "\"\<:\>\"", ",", 
+                 "\"\<Minute\>\""}], "}"}]}], "]"}], ",", 
+             RowBox[{"DateString", "[", 
+              RowBox[{
+               RowBox[{"DateList", "@", "end"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Day\>\"", ",", " ", "\"\</\>\"", ",", "\"\<Month\>\"", 
+                 ",", "\"\</\>\"", ",", "\"\<Year\>\"", ",", "\"\< \>\"", 
+                 ",", "\"\<Hour\>\"", ",", "\"\<:\>\"", ",", 
+                 "\"\<Minute\>\""}], "}"}]}], "]"}], ",", "precip"}], 
+            "}"}]}]}], "//", "TableForm"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Show", " ", "the", " ", "results"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Transpose", "[", 
+        RowBox[{"{", 
+         RowBox[{"importShifts", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Mean", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"#", " ", "/.", " ", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"start_", ",", "end_", ",", "precip_"}], "}"}], 
+                  "\[RuleDelayed]", " ", "precip"}]}], ")"}], " ", "&"}], "/@", 
+              RowBox[{"results", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "1", ",", 
+              RowBox[{"Length", "@", "results"}]}], "}"}]}], "]"}]}], "}"}], 
+        "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"UnclassifiedItems", "[", 
+     RowBox[{"pathCSVShifts_String", ",", "pathCSVPrecipitation_String"}], 
+     "]"}], " ", ":=", " ", "\[IndentingNewLine]", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "importShifts", ",", "importData", ",", "importShiftsFinal", ",", 
+        "importDataFinal", ",", "results", ",", "results2"}], "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"importShifts", " ", "=", " ", 
+        RowBox[{"Import", "[", 
+         RowBox[{"pathCSVShifts", ",", "\"\<CSV\>\""}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importData", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Import", "[", 
+          RowBox[{"pathCSVPrecipitation", ",", "\"\<CSV\>\""}], "]"}], "[", 
+         RowBox[{"[", 
+          RowBox[{"2", ";;"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importDataFinal", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"StringSplit", "[", 
+              RowBox[{"#", ",", "\"\<;\>\""}], "]"}], "&"}], "/@", 
+            "importData"}], ",", "1"}], "]"}], " ", "/.", " ", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"start_", ",", "end_", ",", "precip_"}], "}"}], 
+          "\[RuleDelayed]", " ", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"AbsoluteTime", "@", 
+             RowBox[{"ConvertToDateList", "@", "start"}]}], ",", 
+            RowBox[{"AbsoluteTime", "@", 
+             RowBox[{"ConvertToDateList", "@", "end"}]}], ",", 
+            RowBox[{"ToExpression", "[", "precip", "]"}]}], "}"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"importShiftsFinal", " ", "=", " ", 
+        RowBox[{"Partition", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"AbsoluteTime", "@", "#"}], " ", "&"}], "/@", 
+           "\[NonBreakingSpace]", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ConvertToDateList", "[", "#", "]"}], "&"}], "/@", 
+             RowBox[{"Flatten", "[", 
+              RowBox[{"importShifts", ",", "1"}], "]"}]}], ")"}]}], ",", 
+          "2"}], "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"results", "  ", "=", " ", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Select", "[", 
+           RowBox[{"importDataFinal", ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "\[GreaterEqual]", 
+               RowBox[{"importShiftsFinal", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "&&", " ", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", "2", "]"}], "]"}], "\[LessEqual]", 
+               RowBox[{"importShiftsFinal", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}], "&"}]}], " ", 
+           "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "1", ",", 
+            RowBox[{"Length", "@", "importShiftsFinal"}], ",", "1"}], "}"}]}],
+          "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"results2", "  ", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Flatten", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{
+              RowBox[{"Select", "[", 
+               RowBox[{"importDataFinal", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2"}], "]"}], "]"}], ">", 
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "\[GreaterEqual]", 
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "&&", " ", 
+                  RowBox[{
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ">", 
+                   RowBox[{"importShiftsFinal", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "2"}], "]"}], "]"}]}]}], "&"}]}], " ", 
+               "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"i", ",", "1", ",", 
+                RowBox[{"Length", "@", "importShiftsFinal"}], ",", "1"}], 
+               "}"}]}], "]"}], ",", "1"}], "]"}], "/.", " ", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"start_", ",", "end_", ",", "precip_"}], "}"}], " ", 
+           "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"DateString", "[", 
+              RowBox[{
+               RowBox[{"DateList", "@", "start"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Day\>\"", ",", " ", "\"\</\>\"", ",", "\"\<Month\>\"", 
+                 ",", "\"\</\>\"", ",", "\"\<Year\>\"", ",", "\"\< \>\"", 
+                 ",", "\"\<Hour\>\"", ",", "\"\<:\>\"", ",", 
+                 "\"\<Minute\>\""}], "}"}]}], "]"}], ",", 
+             RowBox[{"DateString", "[", 
+              RowBox[{
+               RowBox[{"DateList", "@", "end"}], ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Day\>\"", ",", " ", "\"\</\>\"", ",", "\"\<Month\>\"", 
+                 ",", "\"\</\>\"", ",", "\"\<Year\>\"", ",", "\"\< \>\"", 
+                 ",", "\"\<Hour\>\"", ",", "\"\<:\>\"", ",", 
+                 "\"\<Minute\>\""}], "}"}]}], "]"}], ",", "precip"}], 
+            "}"}]}]}], "//", "TableForm"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"Show", " ", "the", " ", "results"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"Column", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Text", "[", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Items Unclassified\>\"", ",", "Bold", ",", "16"}], 
+            "]"}], "]"}], ",", "results2"}], "}"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ExportSoilTempToXLSX", "[", 
+    RowBox[{"outputFilePathAndName_", ",", "computedPrecipitation_"}], "]"}], 
+   " ", ":=", " ", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"Export", "[", 
+      RowBox[{"outputFilePathAndName", ",", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{
+         RowBox[{"computedPrecipitation", "/.", " ", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"start_", ",", "end_"}], "}"}], ",", "precip_"}], "}"}],
+            "\[RuleDelayed]", " ", 
+           RowBox[{"{", 
+            RowBox[{"start", ",", "end", ",", "precip"}], "}"}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<Start Shift\>\"", ",", "\"\<End Shift\>\"", ",", 
+           "\"\<Soil Temperature [\[Degree]C]\>\""}], "}"}]}], "]"}]}], 
+      "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.617788883546485*^9, 3.6177888946978397`*^9}, {
+   3.617790126856963*^9, 3.61779018687017*^9}, {3.617790252376047*^9, 
+   3.617790293819322*^9}, {3.617790865027205*^9, 3.6177909457199717`*^9}, {
+   3.6177910108990593`*^9, 3.617791028495867*^9}, {3.6177918422535763`*^9, 
+   3.617791903534059*^9}, {3.61779196254885*^9, 3.617791989865591*^9}, {
+   3.6177921632365913`*^9, 3.6177921931171513`*^9}, {3.617792230018236*^9, 
+   3.617792236052869*^9}, {3.617792368965557*^9, 3.617792388812644*^9}, {
+   3.617792430248748*^9, 3.6177924325497017`*^9}, {3.617792486351358*^9, 
+   3.617792490675055*^9}, {3.617792764316496*^9, 3.6177927914135313`*^9}, {
+   3.617793081587366*^9, 3.617793184267357*^9}, 3.61779326400441*^9, {
+   3.617793314348192*^9, 3.6177933213858643`*^9}, {3.6177936200483217`*^9, 
+   3.617793689933155*^9}, 3.617793744242896*^9, {3.617793810699655*^9, 
+   3.617793828067445*^9}, 3.61803541705013*^9, {3.618035572187976*^9, 
+   3.618035630108616*^9}, {3.618041383715582*^9, 3.618041440194376*^9}, 
+   3.618041589861553*^9, {3.618041626246059*^9, 3.618041646504747*^9}, {
+   3.6180416844341297`*^9, 3.618041738938045*^9}, {3.618043629763711*^9, 
+   3.6180436326719227`*^9}, {3.61805583211086*^9, 3.618055832558964*^9}, {
+   3.618117973648713*^9, 3.618117976386856*^9}, {3.618120279668149*^9, 
+   3.6181202954150057`*^9}, {3.618127113594246*^9, 3.618127118367704*^9}, {
+   3.619431566455555*^9, 3.6194315744189672`*^9}, {3.619600026229382*^9, 
+   3.619600041695697*^9}, {3.619601016201232*^9, 3.619601021623824*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Chantigny: May-2004", "Section",
+ CellChangeTimes->{{3.617792463751799*^9, 3.617792466063891*^9}, {
+  3.617793571389895*^9, 3.617793581107053*^9}, {3.618118020921194*^9, 
+  3.61811802126318*^9}, {3.618120326309046*^9, 3.618120329196187*^9}, {
+  3.618121018678997*^9, 3.618121020486205*^9}, {3.6203624747672462`*^9, 
+  3.620362474855629*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"comp", " ", "=", " ", 
+  RowBox[{"ComputeSoilTempInShifts", "[", 
+   RowBox[{
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_2004.csv\>\"", ",", 
+    "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2004 SVP.csv\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.617792459001583*^9, 3.617792511364543*^9}, {
+   3.61779318825067*^9, 3.617793331132481*^9}, {3.617793713079864*^9, 
+   3.617793730095622*^9}, {3.618041701198677*^9, 3.61804170269384*^9}, 
+   3.61804174459743*^9, {3.618055858066717*^9, 3.618055861680461*^9}, {
+   3.6181203027203617`*^9, 3.618120306282071*^9}, {3.618120339716702*^9, 
+   3.61812036010042*^9}, {3.6181204198798018`*^9, 3.6181204264694967`*^9}, {
+   3.6181210243757973`*^9, 3.618121031303087*^9}, {3.618127444198647*^9, 
+   3.618127446211774*^9}, {3.6194315852099743`*^9, 3.619431633932835*^9}, {
+   3.6196000580519342`*^9, 3.619600059639776*^9}, {3.619600245640808*^9, 
+   3.619600246127777*^9}, {3.620362438564925*^9, 3.620362443291465*^9}, {
+   3.6203624810159187`*^9, 3.620362525620853*^9}, {3.6203625606279182`*^9, 
+   3.620362562049947*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 10:30\"\>", ",", "\<\"11/05/2004 11:00\"\>"}], 
+      "}"}], ",", "18.64266667`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 11:00\"\>", ",", "\<\"11/05/2004 11:30\"\>"}], 
+      "}"}], ",", "19.33266667`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 11:30\"\>", ",", "\<\"11/05/2004 12:30\"\>"}], 
+      "}"}], ",", "20.087333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 12:30\"\>", ",", "\<\"11/05/2004 13:30\"\>"}], 
+      "}"}], ",", "20.469333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 13:30\"\>", ",", "\<\"11/05/2004 14:30\"\>"}], 
+      "}"}], ",", "20.564333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 14:30\"\>", ",", "\<\"11/05/2004 16:30\"\>"}], 
+      "}"}], ",", "19.6025`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 16:30\"\>", ",", "\<\"11/05/2004 21:00\"\>"}], 
+      "}"}], ",", "15.261407406666669`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 21:00\"\>", ",", "\<\"12/05/2004 06:06\"\>"}], 
+      "}"}], ",", "6.329477777611111`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 06:06\"\>", ",", "\<\"12/05/2004 11:57\"\>"}], 
+      "}"}], ",", "11.8779`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 11:57\"\>", ",", "\<\"12/05/2004 18:03\"\>"}], 
+      "}"}], ",", "18.311388888333333`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 18:03\"\>", ",", "\<\"13/05/2004 06:03\"\>"}], 
+      "}"}], ",", "7.923431884347826`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 06:03\"\>", ",", "\<\"13/05/2004 11:57\"\>"}], 
+      "}"}], ",", "6.5181133332000005`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 11:57\"\>", ",", "\<\"13/05/2004 17:57\"\>"}], 
+      "}"}], ",", "8.40913223109091`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 17:57\"\>", ",", "\<\"14/05/2004 06:09\"\>"}], 
+      "}"}], ",", "5.9035928029999996`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 06:09\"\>", ",", "\<\"14/05/2004 12:09\"\>"}], 
+      "}"}], ",", "12.132133608727274`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 12:09\"\>", ",", "\<\"14/05/2004 17:57\"\>"}], 
+      "}"}], ",", "22.407954546`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 17:57\"\>", ",", "\<\"15/05/2004 12:54\"\>"}], 
+      "}"}], ",", "15.237420146756756`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"15/05/2004 12:54\"\>", ",", "\<\"16/05/2004 17:40\"\>"}], 
+      "}"}], ",", "14.65791945778947`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"16/05/2004 17:40\"\>", ",", "\<\"17/05/2004 16:28\"\>"}], 
+      "}"}], ",", "12.611399105181818`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"17/05/2004 16:28\"\>", ",", "\<\"18/05/2004 14:10\"\>"}], 
+      "}"}], ",", "16.418911205116277`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2004 14:10\"\>", ",", "\<\"18/05/2004 19:16\"\>"}], 
+      "}"}], ",", "17.774023571111112`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2004 19:16\"\>", ",", "\<\"20/05/2004 07:38\"\>"}], 
+      "}"}], ",", "14.47263952033334`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617793304922124*^9, 3.617793334369794*^9}, {
+   3.617793694547016*^9, 3.617793730895618*^9}, 3.617793831575994*^9, 
+   3.618035302995234*^9, 3.618035387586658*^9, 3.618035420970109*^9, 
+   3.618041451478396*^9, 3.6180415930495243`*^9, 3.618041653730895*^9, 
+   3.618041703691374*^9, 3.618041745298481*^9, 3.618055863276682*^9, 
+   3.618117983854986*^9, 3.61812025788463*^9, 3.618120307696822*^9, 
+   3.6181203619646473`*^9, {3.6181204224431057`*^9, 3.61812042760789*^9}, 
+   3.618121033956107*^9, 3.6181274468008127`*^9, 3.619431636606015*^9, 
+   3.61960024807922*^9, 3.620362444760335*^9, 3.62036248233584*^9, {
+   3.6203625123966923`*^9, 3.620362526351844*^9}, 3.620362565506536*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"comp", " ", "/.", " ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"start_", ",", "end_"}], "}"}], ",", "val_"}], "}"}], 
+   "\[RuleDelayed]", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"start", ",", "end"}], "}"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"val", "===", 
+        RowBox[{"Mean", "[", 
+         RowBox[{"{", "}"}], "]"}]}], ",", "\"\<NaN\>\"", ",", "val"}], 
+      "]"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.6181274486191683`*^9, 3.618127530176386*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 10:30\"\>", ",", "\<\"11/05/2004 11:00\"\>"}], 
+      "}"}], ",", "18.64266667`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 11:00\"\>", ",", "\<\"11/05/2004 11:30\"\>"}], 
+      "}"}], ",", "19.33266667`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 11:30\"\>", ",", "\<\"11/05/2004 12:30\"\>"}], 
+      "}"}], ",", "20.087333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 12:30\"\>", ",", "\<\"11/05/2004 13:30\"\>"}], 
+      "}"}], ",", "20.469333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 13:30\"\>", ",", "\<\"11/05/2004 14:30\"\>"}], 
+      "}"}], ",", "20.564333335`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 14:30\"\>", ",", "\<\"11/05/2004 16:30\"\>"}], 
+      "}"}], ",", "19.6025`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 16:30\"\>", ",", "\<\"11/05/2004 21:00\"\>"}], 
+      "}"}], ",", "15.261407406666669`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2004 21:00\"\>", ",", "\<\"12/05/2004 06:06\"\>"}], 
+      "}"}], ",", "6.329477777611111`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 06:06\"\>", ",", "\<\"12/05/2004 11:57\"\>"}], 
+      "}"}], ",", "11.8779`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 11:57\"\>", ",", "\<\"12/05/2004 18:03\"\>"}], 
+      "}"}], ",", "18.311388888333333`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2004 18:03\"\>", ",", "\<\"13/05/2004 06:03\"\>"}], 
+      "}"}], ",", "7.923431884347826`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 06:03\"\>", ",", "\<\"13/05/2004 11:57\"\>"}], 
+      "}"}], ",", "6.5181133332000005`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 11:57\"\>", ",", "\<\"13/05/2004 17:57\"\>"}], 
+      "}"}], ",", "8.40913223109091`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2004 17:57\"\>", ",", "\<\"14/05/2004 06:09\"\>"}], 
+      "}"}], ",", "5.9035928029999996`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 06:09\"\>", ",", "\<\"14/05/2004 12:09\"\>"}], 
+      "}"}], ",", "12.132133608727274`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 12:09\"\>", ",", "\<\"14/05/2004 17:57\"\>"}], 
+      "}"}], ",", "22.407954546`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2004 17:57\"\>", ",", "\<\"15/05/2004 12:54\"\>"}], 
+      "}"}], ",", "15.237420146756756`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"15/05/2004 12:54\"\>", ",", "\<\"16/05/2004 17:40\"\>"}], 
+      "}"}], ",", "14.65791945778947`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"16/05/2004 17:40\"\>", ",", "\<\"17/05/2004 16:28\"\>"}], 
+      "}"}], ",", "12.611399105181818`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"17/05/2004 16:28\"\>", ",", "\<\"18/05/2004 14:10\"\>"}], 
+      "}"}], ",", "16.418911205116277`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2004 14:10\"\>", ",", "\<\"18/05/2004 19:16\"\>"}], 
+      "}"}], ",", "17.774023571111112`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2004 19:16\"\>", ",", "\<\"20/05/2004 07:38\"\>"}], 
+      "}"}], ",", "14.47263952033334`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.618127504171184*^9, 3.618127531222673*^9}, 
+   3.619431647922526*^9, 3.6196002595298862`*^9, 3.620362535950231*^9, 
+   3.620362569770261*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnclassifiedItems", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_2004.csv\>\"", ",", 
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2004 SVP.csv\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.618041748277046*^9, 3.618041767996687*^9}, {
+   3.618055937651742*^9, 3.6180559541817503`*^9}, 3.618120374086445*^9, {
+   3.618121108796735*^9, 3.6181211133955097`*^9}, {3.618121163664589*^9, 
+   3.618121180046954*^9}, 3.619431670223144*^9, {3.6196003282907467`*^9, 
+   3.6196003288174973`*^9}, 3.620362539846156*^9, {3.620362571682838*^9, 
+   3.620362574025156*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"Items Unclassified\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText"],
+      Text[
+       Style["Items Unclassified", Bold, 16]]]},
+    {
+     TagBox[GridBox[{
+        {"\<\"12/05/2004 06:00\"\>", "\<\"12/05/2004 06:30\"\>", 
+         "4.822533333`"},
+        {"\<\"12/05/2004 11:30\"\>", "\<\"12/05/2004 12:00\"\>", "18.446`"},
+        {"\<\"12/05/2004 18:00\"\>", "\<\"12/05/2004 18:30\"\>", 
+         "12.14466667`"},
+        {"\<\"13/05/2004 06:00\"\>", "\<\"13/05/2004 06:30\"\>", 
+         "6.078866667`"},
+        {"\<\"13/05/2004 11:30\"\>", "\<\"13/05/2004 12:00\"\>", 
+         "7.652666667`"},
+        {"\<\"13/05/2004 17:30\"\>", "\<\"13/05/2004 18:00\"\>", 
+         "6.814454545`"},
+        {"\<\"14/05/2004 06:00\"\>", "\<\"14/05/2004 06:30\"\>", 
+         "5.938439394`"},
+        {"\<\"14/05/2004 12:00\"\>", "\<\"14/05/2004 12:30\"\>", 
+         "19.30818182`"},
+        {"\<\"14/05/2004 17:30\"\>", "\<\"14/05/2004 18:00\"\>", 
+         "22.52484848`"},
+        {"\<\"15/05/2004 12:30\"\>", "\<\"15/05/2004 13:00\"\>", 
+         "19.52075758`"},
+        {"\<\"16/05/2004 17:30\"\>", "\<\"16/05/2004 18:00\"\>", 
+         "17.91575758`"},
+        {"\<\"17/05/2004 16:00\"\>", "\<\"17/05/2004 16:30\"\>", 
+         "23.67348485`"},
+        {"\<\"18/05/2004 14:00\"\>", "\<\"18/05/2004 14:30\"\>", 
+         "20.38257576`"},
+        {"\<\"18/05/2004 19:00\"\>", "\<\"18/05/2004 19:30\"\>", 
+         "15.9830303`"},
+        {"\<\"20/05/2004 07:30\"\>", "\<\"20/05/2004 08:00\"\>", 
+         "13.83833333`"}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[2.0999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}],
+      Function[BoxForm`e$, 
+       TableForm[BoxForm`e$]]]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.618041758145434*^9, 3.618041768685814*^9}, 
+   3.618055955225761*^9, 3.618117990817992*^9, 3.618120260299818*^9, 
+   3.6181203109717503`*^9, 3.6181203767722683`*^9, {3.618121101829195*^9, 
+   3.6181211145267*^9}, {3.618121168420451*^9, 3.618121180726756*^9}, 
+   3.6181271278261967`*^9, 3.619431671456387*^9, 3.619600330204*^9, 
+   3.620362540699615*^9, 3.620362575073992*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExportSoilTempToXLSX", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_may-2004.xlsx\>\"", ",", 
+   RowBox[{
+    RowBox[{"ComputeSoilTempInShifts", "[", 
+     RowBox[{
+     "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_2004.csv\>\"", ",", 
+      "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2004 SVP.csv\>\""}], "]"}], "/.", " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"start_", ",", "end_"}], "}"}], ",", "val_"}], "}"}], 
+     "\[RuleDelayed]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"start", ",", "end"}], "}"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"val", "===", 
+          RowBox[{"Mean", "[", 
+           RowBox[{"{", "}"}], "]"}]}], ",", "\"\<NaN\>\"", ",", "val"}], 
+        "]"}]}], "}"}]}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6177933374582767`*^9, 3.617793384852065*^9}, {
+  3.617793553180835*^9, 3.617793553444674*^9}, {3.618056309111804*^9, 
+  3.618056324596167*^9}, {3.618120314879039*^9, 3.618120315530526*^9}, {
+  3.6181204395750427`*^9, 3.6181204580313253`*^9}, {3.618127562921199*^9, 
+  3.618127574128985*^9}, {3.619600416314144*^9, 3.61960045838693*^9}, {
+  3.620362551205812*^9, 3.6203625866336393`*^9}}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_may-2004.xlsx\"\>"], "Output",
+ CellChangeTimes->{3.617793392783815*^9, 3.6180563279175158`*^9, 
+  3.6181204649808397`*^9, 3.618127578214118*^9, 3.6196004679896927`*^9, 
+  3.619601029691245*^9, 3.6203625924294977`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Chantigny: May-2005", "Section",
+ CellChangeTimes->{{3.617792463751799*^9, 3.617792466063891*^9}, {
+  3.617793571389895*^9, 3.617793581107053*^9}, {3.618118020921194*^9, 
+  3.61811802126318*^9}, {3.618120326309046*^9, 3.618120329196187*^9}, {
+  3.618121018678997*^9, 3.618121020486205*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"comp", " ", "=", " ", 
+  RowBox[{"ComputeSoilTempInShifts", "[", 
+   RowBox[{
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_may-2005.csv\>\"", ",", 
+    "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2005 SVP.csv\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.617792459001583*^9, 3.617792511364543*^9}, {
+   3.61779318825067*^9, 3.617793331132481*^9}, {3.617793713079864*^9, 
+   3.617793730095622*^9}, {3.618041701198677*^9, 3.61804170269384*^9}, 
+   3.61804174459743*^9, {3.618055858066717*^9, 3.618055861680461*^9}, {
+   3.6181203027203617`*^9, 3.618120306282071*^9}, {3.618120339716702*^9, 
+   3.61812036010042*^9}, {3.6181204198798018`*^9, 3.6181204264694967`*^9}, {
+   3.6181210243757973`*^9, 3.618121031303087*^9}, {3.618127444198647*^9, 
+   3.618127446211774*^9}, {3.6194315852099743`*^9, 3.619431633932835*^9}, {
+   3.6196000580519342`*^9, 3.619600059639776*^9}, {3.619600245640808*^9, 
+   3.619600246127777*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 10:00\"\>", ",", "\<\"09/05/2005 10:30\"\>"}], 
+      "}"}], ",", "16.4`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 10:30\"\>", ",", "\<\"09/05/2005 11:00\"\>"}], 
+      "}"}], ",", "11.59`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 11:00\"\>", ",", "\<\"09/05/2005 12:00\"\>"}], 
+      "}"}], ",", "12.879999999999999`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 12:00\"\>", ",", "\<\"09/05/2005 13:00\"\>"}], 
+      "}"}], ",", "14.28`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 13:00\"\>", ",", "\<\"09/05/2005 14:00\"\>"}], 
+      "}"}], ",", "15.43`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 14:00\"\>", ",", "\<\"09/05/2005 16:00\"\>"}], 
+      "}"}], ",", "16.025000000000002`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 16:00\"\>", ",", "\<\"09/05/2005 18:00\"\>"}], 
+      "}"}], ",", "15.8425`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 18:00\"\>", ",", "\<\"09/05/2005 21:13\"\>"}], 
+      "}"}], ",", "13.199999999999998`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 21:13\"\>", ",", "\<\"10/05/2005 06:13\"\>"}], 
+      "}"}], ",", "10.162500000000003`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 06:13\"\>", ",", "\<\"10/05/2005 12:13\"\>"}], 
+      "}"}], ",", 
+     RowBox[{"Mean", "[", 
+      RowBox[{"{", "}"}], "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 12:13\"\>", ",", "\<\"10/05/2005 18:13\"\>"}], 
+      "}"}], ",", "19.288888888888888`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 18:13\"\>", ",", "\<\"11/05/2005 06:13\"\>"}], 
+      "}"}], ",", "13.359565217391307`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 06:13\"\>", ",", "\<\"11/05/2005 12:13\"\>"}], 
+      "}"}], ",", "13.307272727272727`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 12:13\"\>", ",", "\<\"11/05/2005 18:13\"\>"}], 
+      "}"}], ",", "18.62545454545455`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 18:13\"\>", ",", "\<\"12/05/2005 06:13\"\>"}], 
+      "}"}], ",", "11.021304347826085`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 06:13\"\>", ",", "\<\"12/05/2005 12:13\"\>"}], 
+      "}"}], ",", "7.366363636363636`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 12:13\"\>", ",", "\<\"12/05/2005 18:13\"\>"}], 
+      "}"}], ",", "12.240909090909092`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 18:13\"\>", ",", "\<\"13/05/2005 07:13\"\>"}], 
+      "}"}], ",", "4.362799999999999`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2005 07:13\"\>", ",", "\<\"13/05/2005 16:16\"\>"}], 
+      "}"}], ",", "9.78235294117647`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2005 16:16\"\>", ",", "\<\"14/05/2005 06:13\"\>"}], 
+      "}"}], ",", "6.872592592592593`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2005 06:13\"\>", ",", "\<\"15/05/2005 10:13\"\>"}], 
+      "}"}], ",", "7.667636363636362`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"15/05/2005 10:13\"\>", ",", "\<\"16/05/2005 07:00\"\>"}], 
+      "}"}], ",", "7.281463414634147`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"16/05/2005 07:00\"\>", ",", "\<\"17/05/2005 06:13\"\>"}], 
+      "}"}], ",", "8.396739130434783`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"17/05/2005 06:13\"\>", ",", "\<\"18/05/2005 06:13\"\>"}], 
+      "}"}], ",", "8.414680851063828`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2005 06:13\"\>", ",", "\<\"19/05/2005 06:13\"\>"}], 
+      "}"}], ",", "9.138723404255321`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"19/05/2005 06:13\"\>", ",", "\<\"20/05/2005 06:13\"\>"}], 
+      "}"}], ",", "10.219361702127662`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617793304922124*^9, 3.617793334369794*^9}, {
+   3.617793694547016*^9, 3.617793730895618*^9}, 3.617793831575994*^9, 
+   3.618035302995234*^9, 3.618035387586658*^9, 3.618035420970109*^9, 
+   3.618041451478396*^9, 3.6180415930495243`*^9, 3.618041653730895*^9, 
+   3.618041703691374*^9, 3.618041745298481*^9, 3.618055863276682*^9, 
+   3.618117983854986*^9, 3.61812025788463*^9, 3.618120307696822*^9, 
+   3.6181203619646473`*^9, {3.6181204224431057`*^9, 3.61812042760789*^9}, 
+   3.618121033956107*^9, 3.6181274468008127`*^9, 3.619431636606015*^9, 
+   3.61960024807922*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"comp", " ", "/.", " ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"start_", ",", "end_"}], "}"}], ",", "val_"}], "}"}], 
+   "\[RuleDelayed]", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"start", ",", "end"}], "}"}], ",", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"val", "===", 
+        RowBox[{"Mean", "[", 
+         RowBox[{"{", "}"}], "]"}]}], ",", "\"\<NaN\>\"", ",", "val"}], 
+      "]"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.6181274486191683`*^9, 3.618127530176386*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 10:00\"\>", ",", "\<\"09/05/2005 10:30\"\>"}], 
+      "}"}], ",", "16.4`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 10:30\"\>", ",", "\<\"09/05/2005 11:00\"\>"}], 
+      "}"}], ",", "11.59`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 11:00\"\>", ",", "\<\"09/05/2005 12:00\"\>"}], 
+      "}"}], ",", "12.879999999999999`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 12:00\"\>", ",", "\<\"09/05/2005 13:00\"\>"}], 
+      "}"}], ",", "14.28`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 13:00\"\>", ",", "\<\"09/05/2005 14:00\"\>"}], 
+      "}"}], ",", "15.43`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 14:00\"\>", ",", "\<\"09/05/2005 16:00\"\>"}], 
+      "}"}], ",", "16.025000000000002`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 16:00\"\>", ",", "\<\"09/05/2005 18:00\"\>"}], 
+      "}"}], ",", "15.8425`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 18:00\"\>", ",", "\<\"09/05/2005 21:13\"\>"}], 
+      "}"}], ",", "13.199999999999998`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/05/2005 21:13\"\>", ",", "\<\"10/05/2005 06:13\"\>"}], 
+      "}"}], ",", "10.162500000000003`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 06:13\"\>", ",", "\<\"10/05/2005 12:13\"\>"}], 
+      "}"}], ",", "\<\"NaN\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 12:13\"\>", ",", "\<\"10/05/2005 18:13\"\>"}], 
+      "}"}], ",", "19.288888888888888`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/05/2005 18:13\"\>", ",", "\<\"11/05/2005 06:13\"\>"}], 
+      "}"}], ",", "13.359565217391307`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 06:13\"\>", ",", "\<\"11/05/2005 12:13\"\>"}], 
+      "}"}], ",", "13.307272727272727`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 12:13\"\>", ",", "\<\"11/05/2005 18:13\"\>"}], 
+      "}"}], ",", "18.62545454545455`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/05/2005 18:13\"\>", ",", "\<\"12/05/2005 06:13\"\>"}], 
+      "}"}], ",", "11.021304347826085`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 06:13\"\>", ",", "\<\"12/05/2005 12:13\"\>"}], 
+      "}"}], ",", "7.366363636363636`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 12:13\"\>", ",", "\<\"12/05/2005 18:13\"\>"}], 
+      "}"}], ",", "12.240909090909092`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/05/2005 18:13\"\>", ",", "\<\"13/05/2005 07:13\"\>"}], 
+      "}"}], ",", "4.362799999999999`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2005 07:13\"\>", ",", "\<\"13/05/2005 16:16\"\>"}], 
+      "}"}], ",", "9.78235294117647`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/05/2005 16:16\"\>", ",", "\<\"14/05/2005 06:13\"\>"}], 
+      "}"}], ",", "6.872592592592593`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/05/2005 06:13\"\>", ",", "\<\"15/05/2005 10:13\"\>"}], 
+      "}"}], ",", "7.667636363636362`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"15/05/2005 10:13\"\>", ",", "\<\"16/05/2005 07:00\"\>"}], 
+      "}"}], ",", "7.281463414634147`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"16/05/2005 07:00\"\>", ",", "\<\"17/05/2005 06:13\"\>"}], 
+      "}"}], ",", "8.396739130434783`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"17/05/2005 06:13\"\>", ",", "\<\"18/05/2005 06:13\"\>"}], 
+      "}"}], ",", "8.414680851063828`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"18/05/2005 06:13\"\>", ",", "\<\"19/05/2005 06:13\"\>"}], 
+      "}"}], ",", "9.138723404255321`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"19/05/2005 06:13\"\>", ",", "\<\"20/05/2005 06:13\"\>"}], 
+      "}"}], ",", "10.219361702127662`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.618127504171184*^9, 3.618127531222673*^9}, 
+   3.619431647922526*^9, 3.6196002595298862`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnclassifiedItems", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_may-2005.csv\>\"", ",", 
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2005 SVP.csv\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.618041748277046*^9, 3.618041767996687*^9}, {
+   3.618055937651742*^9, 3.6180559541817503`*^9}, 3.618120374086445*^9, {
+   3.618121108796735*^9, 3.6181211133955097`*^9}, {3.618121163664589*^9, 
+   3.618121180046954*^9}, 3.619431670223144*^9, {3.6196003282907467`*^9, 
+   3.6196003288174973`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"Items Unclassified\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText"],
+      Text[
+       Style["Items Unclassified", Bold, 16]]]},
+    {
+     TagBox[GridBox[{
+        {"\<\"09/05/2005 21:00\"\>", "\<\"09/05/2005 21:30\"\>", "11.64`"},
+        {"\<\"10/05/2005 18:00\"\>", "\<\"10/05/2005 18:30\"\>", "18.44`"},
+        {"\<\"11/05/2005 06:00\"\>", "\<\"11/05/2005 06:30\"\>", "9.99`"},
+        {"\<\"11/05/2005 12:00\"\>", "\<\"11/05/2005 12:30\"\>", "17.71`"},
+        {"\<\"11/05/2005 18:00\"\>", "\<\"11/05/2005 18:30\"\>", "16.95`"},
+        {"\<\"12/05/2005 06:00\"\>", "\<\"12/05/2005 06:30\"\>", "5.41`"},
+        {"\<\"12/05/2005 12:00\"\>", "\<\"12/05/2005 12:30\"\>", "11.27`"},
+        {"\<\"12/05/2005 18:00\"\>", "\<\"12/05/2005 18:30\"\>", "10.66`"},
+        {"\<\"13/05/2005 07:00\"\>", "\<\"13/05/2005 07:30\"\>", "2.`"},
+        {"\<\"13/05/2005 16:00\"\>", "\<\"13/05/2005 16:30\"\>", "14.34`"},
+        {"\<\"14/05/2005 06:00\"\>", "\<\"14/05/2005 06:30\"\>", "2.43`"},
+        {"\<\"15/05/2005 10:00\"\>", "\<\"15/05/2005 10:30\"\>", "6.93`"},
+        {"\<\"17/05/2005 06:00\"\>", "\<\"17/05/2005 06:30\"\>", "7.17`"},
+        {"\<\"18/05/2005 06:00\"\>", "\<\"18/05/2005 06:30\"\>", "6.25`"},
+        {"\<\"19/05/2005 06:00\"\>", "\<\"19/05/2005 06:30\"\>", "6.97`"},
+        {"\<\"20/05/2005 06:00\"\>", "\<\"20/05/2005 06:30\"\>", "6.59`"}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[2.0999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}],
+      Function[BoxForm`e$, 
+       TableForm[BoxForm`e$]]]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.618041758145434*^9, 3.618041768685814*^9}, 
+   3.618055955225761*^9, 3.618117990817992*^9, 3.618120260299818*^9, 
+   3.6181203109717503`*^9, 3.6181203767722683`*^9, {3.618121101829195*^9, 
+   3.6181211145267*^9}, {3.618121168420451*^9, 3.618121180726756*^9}, 
+   3.6181271278261967`*^9, 3.619431671456387*^9, 3.619600330204*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExportSoilTempToXLSX", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_may-2005.xlsx\>\"", ",", 
+   RowBox[{
+    RowBox[{"ComputeSoilTempInShifts", "[", 
+     RowBox[{
+     "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_may-2005.csv\>\"", ",", 
+      "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_may-2005 SVP.csv\>\""}], "]"}], "/.", " ", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"start_", ",", "end_"}], "}"}], ",", "val_"}], "}"}], 
+     "\[RuleDelayed]", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"start", ",", "end"}], "}"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"val", "===", 
+          RowBox[{"Mean", "[", 
+           RowBox[{"{", "}"}], "]"}]}], ",", "\"\<NaN\>\"", ",", "val"}], 
+        "]"}]}], "}"}]}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6177933374582767`*^9, 3.617793384852065*^9}, {
+  3.617793553180835*^9, 3.617793553444674*^9}, {3.618056309111804*^9, 
+  3.618056324596167*^9}, {3.618120314879039*^9, 3.618120315530526*^9}, {
+  3.6181204395750427`*^9, 3.6181204580313253`*^9}, {3.618127562921199*^9, 
+  3.618127574128985*^9}, {3.619600416314144*^9, 3.61960045838693*^9}}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_may-2005.xlsx\"\>"], "Output",
+ CellChangeTimes->{3.617793392783815*^9, 3.6180563279175158`*^9, 
+  3.6181204649808397`*^9, 3.618127578214118*^9, 3.6196004679896927`*^9, 
+  3.619601029691245*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Chantigny: Sept-2005", "Section",
+ CellChangeTimes->{{3.617792463751799*^9, 3.617792466063891*^9}, {
+  3.617793571389895*^9, 3.617793581107053*^9}, {3.618118020921194*^9, 
+  3.61811802126318*^9}, {3.618120326309046*^9, 3.618120329196187*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ComputeSoilTempInShifts", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_sept-2005.csv\>\"", ",", 
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_sept-2005 SVP.csv\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.617792459001583*^9, 3.617792511364543*^9}, {
+   3.61779318825067*^9, 3.617793331132481*^9}, {3.617793713079864*^9, 
+   3.617793730095622*^9}, {3.618041701198677*^9, 3.61804170269384*^9}, 
+   3.61804174459743*^9, {3.618055858066717*^9, 3.618055861680461*^9}, {
+   3.6181203027203617`*^9, 3.618120306282071*^9}, {3.618120339716702*^9, 
+   3.61812036010042*^9}, {3.6181204198798018`*^9, 3.6181204264694967`*^9}, {
+   3.619452317374597*^9, 3.6194523205803547`*^9}, {3.6194524983806953`*^9, 
+   3.619452525314334*^9}, {3.619600846286007*^9, 3.619600853611527*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 11:00\"\>", ",", "\<\"06/09/2005 11:30\"\>"}], 
+      "}"}], ",", "19.07`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 11:30\"\>", ",", "\<\"06/09/2005 12:00\"\>"}], 
+      "}"}], ",", "19.85`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 12:00\"\>", ",", "\<\"06/09/2005 13:00\"\>"}], 
+      "}"}], ",", "20.705`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 13:00\"\>", ",", "\<\"06/09/2005 14:00\"\>"}], 
+      "}"}], ",", "21.630000000000003`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 14:00\"\>", ",", "\<\"06/09/2005 15:00\"\>"}], 
+      "}"}], ",", "22.19`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 15:00\"\>", ",", "\<\"06/09/2005 16:53\"\>"}], 
+      "}"}], ",", "21.863333333333333`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 16:53\"\>", ",", "\<\"06/09/2005 18:53\"\>"}], 
+      "}"}], ",", "19.813333333333336`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 18:53\"\>", ",", "\<\"06/09/2005 21:43\"\>"}], 
+      "}"}], ",", "16.964`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"06/09/2005 21:43\"\>", ",", "\<\"07/09/2005 06:44\"\>"}], 
+      "}"}], ",", "13.381176470588235`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"07/09/2005 06:44\"\>", ",", "\<\"07/09/2005 12:42\"\>"}], 
+      "}"}], ",", "17.353636363636365`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"07/09/2005 12:42\"\>", ",", "\<\"07/09/2005 18:45\"\>"}], 
+      "}"}], ",", "21.907272727272726`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"07/09/2005 18:45\"\>", ",", "\<\"08/09/2005 06:46\"\>"}], 
+      "}"}], ",", "17.02782608695652`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"08/09/2005 06:46\"\>", ",", "\<\"08/09/2005 12:45\"\>"}], 
+      "}"}], ",", "17.199090909090906`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"08/09/2005 12:45\"\>", ",", "\<\"08/09/2005 16:10\"\>"}], 
+      "}"}], ",", "17.845`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"08/09/2005 16:10\"\>", ",", "\<\"09/09/2005 07:12\"\>"}], 
+      "}"}], ",", "14.011379310344827`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/09/2005 07:12\"\>", ",", "\<\"09/09/2005 12:44\"\>"}], 
+      "}"}], ",", "15.568000000000001`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/09/2005 12:44\"\>", ",", "\<\"09/09/2005 18:44\"\>"}], 
+      "}"}], ",", "17.733636363636364`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"09/09/2005 18:44\"\>", ",", "\<\"10/09/2005 07:33\"\>"}], 
+      "}"}], ",", "9.5804`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/09/2005 07:33\"\>", ",", "\<\"10/09/2005 18:14\"\>"}], 
+      "}"}], ",", "16.039499999999997`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"10/09/2005 18:14\"\>", ",", "\<\"11/09/2005 11:17\"\>"}], 
+      "}"}], ",", "10.100303030303028`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"11/09/2005 11:17\"\>", ",", "\<\"12/09/2005 11:00\"\>"}], 
+      "}"}], ",", "14.771063829787234`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"12/09/2005 11:00\"\>", ",", "\<\"13/09/2005 11:23\"\>"}], 
+      "}"}], ",", "17.440625000000004`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"13/09/2005 11:23\"\>", ",", "\<\"14/09/2005 11:53\"\>"}], 
+      "}"}], ",", "19.8425`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"14/09/2005 11:53\"\>", ",", "\<\"15/09/2005 11:35\"\>"}], 
+      "}"}], ",", "20.355744680851068`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"15/09/2005 11:35\"\>", ",", "\<\"16/09/2005 09:13\"\>"}], 
+      "}"}], ",", "16.639024390243907`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.617793304922124*^9, 3.617793334369794*^9}, {
+   3.617793694547016*^9, 3.617793730895618*^9}, 3.617793831575994*^9, 
+   3.618035302995234*^9, 3.618035387586658*^9, 3.618035420970109*^9, 
+   3.618041451478396*^9, 3.6180415930495243`*^9, 3.618041653730895*^9, 
+   3.618041703691374*^9, 3.618041745298481*^9, 3.618055863276682*^9, 
+   3.618117983854986*^9, 3.61812025788463*^9, 3.618120307696822*^9, 
+   3.6181203619646473`*^9, {3.6181204224431057`*^9, 3.61812042760789*^9}, {
+   3.619452519346321*^9, 3.6194525270190697`*^9}, 3.61960085516616*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"UnclassifiedItems", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_sept-2005.csv\>\"", ",", 
+   "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_sept-2005 SVP.csv\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.618041748277046*^9, 3.618041767996687*^9}, {
+   3.618055937651742*^9, 3.6180559541817503`*^9}, 3.618120374086445*^9, 
+   3.61945254251871*^9, 3.619600872685422*^9}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     InterpretationBox[Cell[BoxData[
+       FormBox[
+        StyleBox["\<\"Items Unclassified\"\>",
+         StripOnInput->False,
+         FontSize->16,
+         FontWeight->Bold], TextForm]], "InlineText"],
+      Text[
+       Style["Items Unclassified", Bold, 16]]]},
+    {
+     TagBox[GridBox[{
+        {"\<\"06/09/2005 16:30\"\>", "\<\"06/09/2005 17:00\"\>", "21.16`"},
+        {"\<\"06/09/2005 18:30\"\>", "\<\"06/09/2005 19:00\"\>", "18.62`"},
+        {"\<\"06/09/2005 21:30\"\>", "\<\"06/09/2005 22:00\"\>", "15.56`"},
+        {"\<\"07/09/2005 06:30\"\>", "\<\"07/09/2005 07:00\"\>", "11.79`"},
+        {"\<\"07/09/2005 12:30\"\>", "\<\"07/09/2005 13:00\"\>", "22.51`"},
+        {"\<\"07/09/2005 18:30\"\>", "\<\"07/09/2005 19:00\"\>", "19.56`"},
+        {"\<\"08/09/2005 06:30\"\>", "\<\"08/09/2005 07:00\"\>", "15.99`"},
+        {"\<\"08/09/2005 12:30\"\>", "\<\"08/09/2005 13:00\"\>", "17.38`"},
+        {"\<\"08/09/2005 16:00\"\>", "\<\"08/09/2005 16:30\"\>", "17.54`"},
+        {"\<\"09/09/2005 07:00\"\>", "\<\"09/09/2005 07:30\"\>", "13.04`"},
+        {"\<\"09/09/2005 12:30\"\>", "\<\"09/09/2005 13:00\"\>", "18.74`"},
+        {"\<\"09/09/2005 18:30\"\>", "\<\"09/09/2005 19:00\"\>", "14.98`"},
+        {"\<\"10/09/2005 07:30\"\>", "\<\"10/09/2005 08:00\"\>", "7.6`"},
+        {"\<\"10/09/2005 18:00\"\>", "\<\"10/09/2005 18:30\"\>", "15.68`"},
+        {"\<\"11/09/2005 11:00\"\>", "\<\"11/09/2005 11:30\"\>", "15.98`"},
+        {"\<\"13/09/2005 11:00\"\>", "\<\"13/09/2005 11:30\"\>", "17.48`"},
+        {"\<\"14/09/2005 11:30\"\>", "\<\"14/09/2005 12:00\"\>", "23.8`"},
+        {"\<\"15/09/2005 11:30\"\>", "\<\"15/09/2005 12:00\"\>", "21.48`"}
+       },
+       GridBoxAlignment->{
+        "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}},
+          "RowsIndexed" -> {}},
+       GridBoxSpacings->{"Columns" -> {
+           Offset[0.27999999999999997`], {
+            Offset[2.0999999999999996`]}, 
+           Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+           Offset[0.2], {
+            Offset[0.4]}, 
+           Offset[0.2]}, "RowsIndexed" -> {}}],
+      Function[BoxForm`e$, 
+       TableForm[BoxForm`e$]]]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{{3.618041758145434*^9, 3.618041768685814*^9}, 
+   3.618055955225761*^9, 3.618117990817992*^9, 3.618120260299818*^9, 
+   3.6181203109717503`*^9, 3.6181203767722683`*^9, {3.618127185887546*^9, 
+   3.6181271983138943`*^9}, 3.6194525447128572`*^9, 3.619600874082181*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ExportSoilTempToXLSX", "[", 
+  RowBox[{
+  "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_sept-2005.xlsx\>\"", ",", 
+   RowBox[{"ComputeSoilTempInShifts", "[", 
+    RowBox[{
+    "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/shift_times_sept-2005.csv\>\"", ",", 
+     "\"\</Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Input/Chantigny_SoilTemp_sept-2005 SVP.csv\>\""}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6177933374582767`*^9, 3.617793384852065*^9}, {
+  3.617793553180835*^9, 3.617793553444674*^9}, {3.618056309111804*^9, 
+  3.618056324596167*^9}, {3.618120314879039*^9, 3.618120315530526*^9}, {
+  3.6181204395750427`*^9, 3.6181204580313253`*^9}, {3.619452662073715*^9, 
+  3.6194526965759983`*^9}, {3.619600909068438*^9, 3.619600955409767*^9}, {
+  3.619601034605301*^9, 3.619601037096672*^9}}],
+
+Cell[BoxData["\<\"/Users/simonpedersen/Dropbox/ALFAM2/Data/AAFC/Intermediate \
+files/Output/Accumulated_SoilTemperature_sept-2005.xlsx\"\>"], "Output",
+ CellChangeTimes->{3.617793392783815*^9, 3.6180563279175158`*^9, 
+  3.6181204649808397`*^9, 3.6194527021660633`*^9, 3.619600927586774*^9, 
+  3.619600957624802*^9, 3.619601038500566*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Notes", "Section",
+ CellChangeTimes->{{3.617708075723984*^9, 3.617708081835472*^9}}],
+
+Cell[TextData[{
+ StyleBox["11th September 2014\[LineSeparator]SVP",
+  FontSize->13],
+ StyleBox["\n\nScript copied from \[OpenCurlyDoubleQuote]",
+  FontSize->11],
+ StyleBox["2004-2005_AirTemp_Per_Shift.nb",
+  FontSize->11,
+  FontSlant->"Italic"],
+ StyleBox["\[CloseCurlyDoubleQuote]. Prior notes made to the script can be \
+found in the aforementioned file. The script in this file is designed to find \
+the ",
+  FontSize->11],
+ StyleBox["mean",
+  FontSize->11,
+  FontSlant->"Italic"],
+ StyleBox[" relative humidity within a timeshift.",
+  FontSize->11]
+}], "Text",
+ CellChangeTimes->{{3.617708124489429*^9, 3.6177082333296623`*^9}, {
+  3.618056016291355*^9, 3.6180560873432713`*^9}, {3.6194315116316023`*^9, 
+  3.619431528433069*^9}, {3.6195999995653963`*^9, 3.619600000692266*^9}},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 787},
+WindowMargins->{{Automatic, -5}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 237, 3, 92, "Title"],
+Cell[819, 27, 137, 3, 51, "Subtitle"],
+Cell[959, 32, 180, 4, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[1164, 40, 141, 2, 80, "Section"],
+Cell[1308, 44, 161, 2, 30, "Text"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1506, 51, 96, 1, 50, "Section"],
+Cell[1605, 54, 241, 6, 46, "Text"],
+Cell[1849, 62, 139, 2, 28, "Input"],
+Cell[1991, 66, 118, 2, 28, "Input"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2146, 73, 103, 1, 50, "Section"],
+Cell[2252, 76, 601, 15, 28, "Input"],
+Cell[2856, 93, 15875, 366, 879, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18768, 464, 347, 5, 80, "Section"],
+Cell[CellGroupData[{
+Cell[19140, 473, 1194, 19, 46, "Input"],
+Cell[20337, 494, 4721, 122, 148, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25095, 621, 579, 18, 28, "Input"],
+Cell[25677, 641, 4177, 115, 148, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29891, 761, 705, 12, 46, "Input"],
+Cell[30599, 775, 2792, 65, 289, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33428, 845, 1447, 33, 80, "Input"],
+Cell[34878, 880, 338, 4, 86, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35265, 890, 296, 4, 80, "Section"],
+Cell[CellGroupData[{
+Cell[35586, 898, 1048, 17, 46, "Input"],
+Cell[36637, 917, 5365, 143, 165, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[42039, 1065, 579, 18, 28, "Input"],
+Cell[42621, 1085, 4844, 134, 165, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47502, 1224, 637, 11, 46, "Input"],
+Cell[48142, 1237, 2585, 51, 307, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50764, 1293, 1400, 32, 80, "Input"],
+Cell[52167, 1327, 314, 4, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52530, 1337, 248, 3, 80, "Section"],
+Cell[CellGroupData[{
+Cell[52803, 1344, 909, 14, 46, "Input"],
+Cell[53715, 1360, 5096, 135, 165, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[58848, 1500, 508, 9, 46, "Input"],
+Cell[59359, 1511, 2680, 52, 341, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62076, 1568, 944, 17, 63, "Input"],
+Cell[63023, 1587, 337, 4, 28, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63409, 1597, 90, 1, 80, "Section"],
+Cell[63502, 1600, 820, 21, 95, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
