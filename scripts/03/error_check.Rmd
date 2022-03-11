@@ -132,7 +132,7 @@ if (nrow(m2) == nrow(emis)) {
   print('Some unmatched codes/names present')
   print('First 5 rows after merge:')
   print(m2[1:5, c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
-  stop()
+  stop('Merge problem 2, see error_check.Rmd')
 }
 
 #if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
@@ -254,7 +254,7 @@ for (ii in unique(emis$cpmid)) {
   if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
     print('OK')
   } else {
-    print('Problem, see following rows')
+    print('Problem, see following rows (compare start time to end time in previous rows):')
     ii <- which(c(FALSE, dd$t.start[-1] != dd$t.end[-nrow(dd)]))
     print(dd$row.in.file.int[ii])
     #print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start', 't.end')])
