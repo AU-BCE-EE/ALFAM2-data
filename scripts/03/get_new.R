@@ -29,16 +29,6 @@ for(i in ddir) {
 
     # Save resulting list of data frames in main list
     dat[[i]][[j]] <- dd
-
-    # Check for errors and create log with details
-    # Note: the Rmd file overwrites 'dd', so keep this last if possible
-    fn <- strsplit(j, '/')
-    fn <- fn[[1]][length(fn[[1]])]
-    inst <- dat[[i]][[j]]$submitter$inst.abbrev
-    options(warn = 1) 
-    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = '../../logs/03', quiet = TRUE)
-    options(warn = 2) 
-
   }
 }
 cat('Done! Read', length(dat), ' directories\n')

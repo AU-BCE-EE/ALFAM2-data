@@ -22,6 +22,7 @@ source('functions.R')
 sink('../../logs/03/make_database_log.txt')
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
+  source('check.R', echo = TRUE)
   source('stack_new.R', echo = TRUE)
   source('add_ID.R', echo = TRUE)
   source('merge_plot.R', echo = TRUE)
@@ -31,6 +32,15 @@ sink()
 
 
 options(warn = 1)
+
+dat[[1]][[1]]$file
+
+unique(idat.comb$flag.int)
+table(idat.comb$pid > 1899, idat.comb$flag.int)
+table(idat.comb$pid > 1899)
+table(pdat.comb$inst, pdat.comb$flag.plot == 'e')
+table(pdat.comb$uptake, pdat.comb$inst)
+table(pdat.comb$inst, pdat.comb$flag.plot)
 
 ##
 ##cat('Note to Sasha: !!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n 
