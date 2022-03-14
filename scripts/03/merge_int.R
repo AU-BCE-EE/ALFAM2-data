@@ -6,6 +6,8 @@ idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
 # Rename some old columns
 names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
 names(idat.old)[names(idat.old) == 'database'] <- 'uptake'
+names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
+names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
 
 # Combine
 idat.comb <- rbindf(idat, idat.old)
@@ -25,24 +27,24 @@ idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int),
     'soil.temp.surf', 
     'pH.surf', 
     'rad', 'wind', 'wind.2m', 
-   # 'soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc', 
+    'soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc', 
     'rain', 'rain.rate', 'rain.cum', 
     'rh', 
-    'notes', 'flag')]
+    'notes.int', 'flag.int')]
 
-# NTS: sort out notes and flag
+# Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
+names(idat.comb)[names(idat.comb) %in% c('soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc')] <- c('soil.temp.z.int', 'air.temp.z.int', 'wind.z.int', 'wind.loc.int', 'far.loc.int')
 
 # Round 
 idat.comb <- rounddf(idat.comb, 5, func = signif)
 
-# Checks
-# Columns missing in new data
-names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
-# Columns missing in old data
-names(idat)[!names(idat) %in% intersect(names(idat), names(idat.old))]
-# Columns missing in combined data
-names(idat)[!names(idat) %in% intersect(names(idat), names(idat.comb))]
-
-# Check for names intersection with plot-level data frame, should only be those to be used for merge 
-names(idat.comb)[names(idat.comb) %in% intersect(names(idat.comb), names(pdat.comb))]
-# NTS: weather height/location, notes, flag cols all problematic! Present in both.
+## Checks
+## Columns missing in new data
+#names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
+## Columns missing in old data
+#names(idat)[!names(idat) %in% intersect(names(idat), names(idat.old))]
+## Columns from new data missing in combined data
+#names(idat)[!names(idat) %in% intersect(names(idat), names(idat.comb))]
+#
+## Check for names intersection with plot-level data frame, should only be those to be used for merge 
+#names(idat.comb)[names(idat.comb) %in% intersect(names(idat.comb), names(pdat.comb))]

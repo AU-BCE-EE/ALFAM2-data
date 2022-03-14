@@ -4,6 +4,8 @@
 # Rename some old columns
 names(pdat.old)[names(pdat.old) %in% c('first.row.in.file', 'last.row.in.file')] <- c('first.row.in.file.int', 'last.row.in.file.int')
 names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
+names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
+names(pdat.old)[names(pdat.old) == 'flag'] <- 'flag.plot'
 
 # And drop others
 pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
@@ -51,7 +53,7 @@ pdat.comb <- pdat.comb[order(pdat.comb$pmid),
     'incorp', 'incorp.orig', 'time.incorp', 
     'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 
     'crop', 'crop.orig', 'crop.z', 'crop.area', 'lai', 
-    'notes', 'flag')]
+    'notes.plot', 'flag.plot')]
 
 # Round
 pdat.comb <- rounddf(pdat.comb, 5, func = signif)
