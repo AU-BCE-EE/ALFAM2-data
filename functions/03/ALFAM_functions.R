@@ -39,25 +39,27 @@ readALFAM2File <- function(file, institute, version = '3.3') {
                       'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
                       'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
                       'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
   } else {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
                       'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
                       'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
                       'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
                       'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes')
+                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
   }
 
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
   plots <- data.frame(plots)
   plots$row.in.file <- 1:nrow(plots) + 4
+
+  # Drop blank rows
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
+
+  # Add col to v < 6. where new col was missing, makes stacking easier
   if (tempver < 6) {
     plots$man.trt3 <- NA
   }
-  
-  # Add col to v < 6. where new col was missing, makes stacking easier
 
   # Emission
   nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
@@ -65,7 +67,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
                    'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
                    'rad', 'wind', 'wind.z', 
                    # Check these
-                   'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.emis')
+                   'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
   # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
   emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
   emis <- data.frame(emis)
@@ -169,6 +171,9 @@ cleanALFAM <- function(obj) {
   plots$crop.z[tolower(plots$crop) == 'bare soil'] <- 0
   plots$crop.area[tolower(plots$crop) == 'bare soil'] <- 0
 
+  # Add empty flag column for use later
+  plots$flag.plot <- ''
+
   # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Dates and times
   emis$t.start.orig <- emis$t.start
@@ -219,6 +224,9 @@ cleanALFAM <- function(obj) {
 
   # Add file
   emis$file <- file
+
+  # Add empty flag column for use later
+  emis$flag.int <- ''
 
   # Return objects, most unchanged
   obj$plots <- plots
@@ -281,8 +289,6 @@ addVars <- function(dat) {
   dat$incorp.orig <- dat$incorp
   dat$incorp <- tolower(dat$incorp)
   
-  dat$flag <- NA
-
   return(dat)
 
 }
@@ -420,6 +426,7 @@ calcEmis <- function(obj, na = 'impute') {
   for (i in unique(emis$cpmid)) {
     emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
     if (na == 'impute' & any(is.na(emis[emis$cpmid == i, 'j.NH3']))) {
+      emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'] <- paste(emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'], 'm i')
       emis[emis$cpmid == i, 'j.NH3'] <- imputeVars(emis[emis$cpmid == i, ], 'ct', 'j.NH3', method = 'linear')
     }
     emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
@@ -431,7 +438,7 @@ calcEmis <- function(obj, na = 'impute') {
   # mt = middle
   emis$mt <- emis$ct - emis$dt / 2
 
-  # Elapsed time since application
+  # Elapsed time since application (cta = cumulative time since application (ended), bta = cumulative time since application *began*)
   emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
   emis$bta <- as.numeric(difftime(emis$t.start, emis$app.start, units = 'hours'))
 
@@ -783,154 +790,6 @@ fixALFAMCSV <- function(d) {
 
 }
 
-
-summALFAM <- function(d, normalize = FALSE, ...) {
-
-  # Sort
-  d <- d[order(d$pmid, d$ct),]
-
-  d$uexper <- paste(d$inst, d$proj, d$exper, sep = '.')
-
-  ds <- ddply(d, c('database', 'institute', 'inst', 'country', 'file', 'proj', 'exper', 'exper2', 'eid', 'field', 'plot', 'pid', 'pmid'), 
-	      summarise, 
-
-              # File info
-              first.row.in.file = min(row.in.file), 
-	      last.row.in.file = max(row.in.file), 
-
-
-	      # Weather, weighted means for most
-              air.temp.6  =  if(any(ct<=6))  sum((air.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              air.temp.12 =  if(any(ct<=12)) sum((air.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              air.temp.24 =  if(any(ct<=24)) sum((air.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              air.temp.48 =  if(any(ct<=48)) sum((air.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              air.temp.72 =  if(any(ct<=72)) sum((air.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              air.temp.mn = sum(air.temp*dt)/sum(dt),
-
-              soil.temp.6  =  if(any(ct<=6))  sum((soil.temp*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              soil.temp.12 =  if(any(ct<=12)) sum((soil.temp*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              soil.temp.24 =  if(any(ct<=24)) sum((soil.temp*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              soil.temp.48 =  if(any(ct<=48)) sum((soil.temp*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              soil.temp.72 =  if(any(ct<=72)) sum((soil.temp*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              soil.temp.mn = sum(soil.temp*dt)/sum(dt),
-
-              rad.6  = if(any(ct<=6))  sum((rad*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              rad.12 = if(any(ct<=12)) sum((rad*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rad.24 = if(any(ct<=24)) sum((rad*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rad.48 = if(any(ct<=48)) sum((rad*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rad.72 = if(any(ct<=72)) sum((rad*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rad.mn = sum(rad*dt)/sum(dt),
-
-              wind.6  = if(any(ct<=6))  sum((wind*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              wind.12 = if(any(ct<=12)) sum((wind*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              wind.24 = if(any(ct<=24)) sum((wind*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              wind.48 = if(any(ct<=48)) sum((wind*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              wind.72 = if(any(ct<=72)) sum((wind*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              wind.mn = sum(wind*dt)/sum(dt),
-
-              wind.2m.6  = if(any(ct<=6))  sum((wind.2m*dt)[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              wind.2m.12 = if(any(ct<=12)) sum((wind.2m*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              wind.2m.24 = if(any(ct<=24)) sum((wind.2m*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              wind.2m.48 = if(any(ct<=48)) sum((wind.2m*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              wind.2m.72 = if(any(ct<=72)) sum((wind.2m*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              wind.2m.mn = sum(wind.2m*dt)/sum(dt),
-
-	      rain.1  = if(any(ct<=1))  sum(rain[ct<=1])  else NA,
-	      rain.6  = if(any(ct<=6))  sum(rain[ct<=6])  else NA,
-	      rain.12 = if(any(ct<=12)) sum(rain[ct<=12]) else NA,
-	      rain.24 = if(any(ct<=24)) sum(rain[ct<=24]) else NA,
-	      rain.48 = if(any(ct<=48)) sum(rain[ct<=48]) else NA,
-	      rain.72 = if(any(ct<=72)) sum(rain[ct<=72]) else NA,
-	      rain.tot = sum(rain),
-
-              rain.rate.1  = if(any(ct<=1))  sum(rain[ct<= 1] )/sum(dt[ct<= 1])  else NA,
-              rain.rate.6  = if(any(ct<=6))  sum(rain[ct<= 6] )/sum(dt[ct<= 6])  else NA,
-              rain.rate.12 = if(any(ct<=12)) sum(rain[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rain.rate.24 = if(any(ct<=24)) sum(rain[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rain.rate.48 = if(any(ct<=48)) sum(rain[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rain.rate.72 = if(any(ct<=72)) sum(rain[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rain.rate.mn = sum(rain)/sum(dt),
-
-              rh.6  = if(any(ct<=6))  sum((rh*dt)[ct<= 6]) /sum(dt[ct<= 6])  else NA,
-              rh.12 = if(any(ct<=12)) sum((rh*dt)[ct<= 12])/sum(dt[ct<= 12]) else NA,
-              rh.24 = if(any(ct<=24)) sum((rh*dt)[ct<= 24])/sum(dt[ct<= 24]) else NA,
-              rh.48 = if(any(ct<=48)) sum((rh*dt)[ct<= 48])/sum(dt[ct<= 48]) else NA,
-              rh.72 = if(any(ct<=72)) sum((rh*dt)[ct<= 72])/sum(dt[ct<= 72]) else NA,
-              rh.mn = sum(rh*dt)/sum(dt),
-
-              t.start.p = min(t.start),
-              t.end.p = max(t.end),
-              dt.min = min(dt), 
-              dt.max = max(dt), 
-              ct.min = min(ct), 
-              ct.max = max(ct), 
-              ct1 = ct[1], 
-
-              # Shift info
-	      n.ints = length(interval),
-              n.int.duplicates = sum(duplicated(interval)), 
-	      int.min = min(interval), 
-	      int.max = max(interval), 
-	      int.t.mismatches = sum(t.start[-1] < t.end[-length(t.end)]), 
-              missing.ints = sum(diff(sort(interval)) - 1), 
-
-	      # Emission
-              j.NH31 = j.NH3[1],
-              j.rel1 = j.rel[1],
-
-              e.1 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.cum), xout = 1,  method = 'linear')$y else NA, 
-              e.4 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.cum), xout = 4,  method = 'linear')$y else NA, 
-              e.6 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.cum), xout = 6,  method = 'linear')$y else NA, 
-              e.12 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.cum), xout = 12, method = 'linear')$y else NA, 
-              e.24 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.cum), xout = 24, method = 'linear')$y else NA, 
-              e.48 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.cum), xout = 48, method = 'linear')$y else NA, 
-              e.72 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.cum), xout = 72, method = 'linear')$y else NA, 
-              e.96 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.cum), xout = 96, method = 'linear')$y else NA, 
-              e.final = e.cum[length(e.cum)], 
-
-              e.rel.1 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.rel), xout = 1,  method = 'linear')$y else NA, 
-              e.rel.4 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.rel), xout = 4,  method = 'linear')$y else NA, 
-              e.rel.6 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.rel), xout = 6,  method = 'linear')$y else NA, 
-              e.rel.12 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.rel), xout = 12, method = 'linear')$y else NA, 
-              e.rel.24 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.rel), xout = 24, method = 'linear')$y else NA, 
-              e.rel.48 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.rel), xout = 48, method = 'linear')$y else NA, 
-              e.rel.72 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.rel), xout = 72, method = 'linear')$y else NA, 
-              e.rel.96 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.rel), xout = 96, method = 'linear')$y else NA, 
-              e.rel.final = e.rel[length(e.rel)], 
-
-              # Notes
-              notes = paste(unique(notes), collapse = ' ') #,
-              #flag = flag[1]
-  )
-
-  # Check for duplicates
-  if(sum(duplicated(ds$pmid)) > 0) {
-    cat('In ALFAM_functions summALFAM() problem with duplicated pmid. See code YerhB176 around line 766 in ALFAM2_functions.R.')
-    browser()
-    stop()
-  }
-
-  # This doesn't seem to work in the ddply call
-  ds$anyincorp <- 'No'
-  ds$anyincorp[ds$incorp != 'None'] <- 'Yes'
-  ds$anyincorp <- factor(ds$anyincorp)
-
-  if(normalize) {
-    for(i in names(ds)) {
-      if(class(ds[, i])[1] == 'numeric' & !grepl('^e', i)) ds[, i] <- normalize(ds[, i], ...) # [1] just for multi-class classes (POSIX)
-    }
-  }
-
-  #pchs <- c(bc = 1, os = 2, cs = 3, ts = 5)
-  #cols <- c(bc = 'red', os = 'blue', cs = 'darkgreen', ts = 'black')
-  #ds$pch.app.method = pchs[as.character(ds$app.method)]
-  #ds$col.app.method = cols[as.character(ds$app.method)]
-
-  rownames(ds) <- ds$pmid
-  return(ds)
-
-}
-
 normalize <- function(x, shift.only = TRUE) {
   if(shift.only) return(x - mean(na.omit(x)))
   return((x - mean(na.omit(x)))/sd(na.omit(x)))
@@ -1143,22 +1002,6 @@ addSoilText <- function(d) {
   d$soil.type2[grep('sand$', d$soil.type)] <- 'sand'
 
   return(d)
-}
-
-# Calculates soil wetness as water-filled pore space
-calcSoilMoist <- function(d, cutoff = 0.5) {
-
-  #
-  d$v.pore <- 1 - d$soil.dens/2.6
-  d$v.water <- d$soil.water/d$v.pore
-
-  # Set soil moisture
-  d$notes[is.na(d$soil.moist) & !is.na(d$v.water)] <- paste(d$notes[is.na(d$soil.moist) & !is.na(d$v.water)], ', soil.moist estimated from water-filled pore space, with a cutoff of', cutoff, '.')
-  d$soil.moist[is.na(d$soil.moist) & !is.na(d$v.water) & d$v.water >= cutoff] <- 'wet'
-  d$soil.moist[is.na(d$soil.moist) & !is.na(d$v.water) & d$v.water < cutoff] <- 'dry'
-
-  return(d)
-
 }
 
 # Get coefficients from an lm model
