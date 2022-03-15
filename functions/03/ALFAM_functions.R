@@ -426,7 +426,7 @@ calcEmis <- function(obj, na = 'impute') {
   for (i in unique(emis$cpmid)) {
     emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
     if (na == 'impute' & any(is.na(emis[emis$cpmid == i, 'j.NH3']))) {
-      emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'] <- paste(emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'], 'm i')
+      emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'] <- paste0(emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'], ' m i')
       emis[emis$cpmid == i, 'j.NH3'] <- imputeVars(emis[emis$cpmid == i, ], 'ct', 'j.NH3', method = 'linear')
     }
     emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
@@ -1315,6 +1315,7 @@ fixWeather <- function(obj, na = 'impute') {
   emis <- obj$emis
   plots <- obj$plots
 
+  # Sort out rain
   emis$rain[is.na(emis$rain)] <- 0
   emis$rain.rate <- emis$rain / emis$dt
   emis$rain.cum <- NA
@@ -1335,3 +1336,44 @@ fixWeather <- function(obj, na = 'impute') {
 
 }
 
+# Returns length 1 vector of unique flag elements
+collapseFlags <- function(f) {
+
+  # Split by spaces
+  f <- strsplit(paste(f, collapse = ' '), ' ')[[1]]
+  f <- unique(f)
+  f <- gsub(' ', '', f)
+  f <- paste(f, collapse = ' ')
+  f <- gsub('^ ', '', f)
+  f <- gsub(' $', '', f)
+
+  return(f)
+
+}
+
+# Add or sort out flags
+# See other code with flag in this function file
+fixFlags <- function(obj) {
+
+  emis <- obj$emis
+  plots <- obj$plots
+
+  # Extract interval flags for plot data
+
+  intsumm <- aggregate(flag.int ~ cpmid, data = emis, FUN = collapseFlags)
+  plots <- merge(plots, intsumm, by = 'cpmid')
+  plots$flag.plot <- paste(plots$flag.plot, plots$flag.int)
+
+  # Get unique flags and sort out spaces
+  for (i in 1:nrow(plots)) {
+    plots[i, 'flag.plot'] <- collapseFlags(plots[i, 'flag.plot'])
+  }
+
+  # NTS: Add other flags here, e.g., link to notes.plot
+
+  obj$emis <- emis
+  obj$plots <- plots
+
+  return(obj)
+
+}
