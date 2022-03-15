@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-02-07 14:52:06 EST"
+[1] "2022-03-15 14:33:59 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -39,6 +39,10 @@ Directory  ../../data-submitted/03/AU
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
 [1] "../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx"
    file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
+[1] "../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx"
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
+[1] "../../data-submitted/03/AU/ALFAM2_template_6_1_220310_JP_21CD22A.xlsx"
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220310_JP_21CD22A.xlsx 
 Directory  ../../data-submitted/03/UNINA 
 [1] "../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx"
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
@@ -49,6 +53,20 @@ Done! Read 3  directories
 
 > print(warnings())
 NULL
+
+> # Check for errors and create a log before merge
+> 
+> for (i in names(dat)) {
++   for (j in names(dat[[i]])) {
++ 
++     # Check for errors and creat .... [TRUNCATED] 
+
+> # Sort out plot-level flags, using flags from emis/int
+> 
+> for (i in names(dat)) {
++   for (j in names(dat[[i]])) {
++ 
++     dat[[i]][[j]] <- fixFl .... [TRUNCATED] 
 
 > # Pull new data from list
 > 
@@ -97,6 +115,10 @@ NULL
 
 > names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
 
+> names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
+
+> names(pdat.old)[names(pdat.old) == 'flag'] <- 'flag.plot'
+
 > # And drop others
 > pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
 
@@ -125,65 +147,33 @@ NULL
 
 > names(idat.old)[names(idat.old) == 'database'] <- 'uptake'
 
+> names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
+
+> names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
+
 > # Combine
 > idat.comb <- rbindf(idat, idat.old)
 
 > # Order and select columns for database distribution
 > # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
 
-> # NTS: sort out notes and flag
-> 
+> # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
+> names(idat.comb)[names(idat.comb) %in% c(' .... [TRUNCATED] 
+
 > # Round 
 > idat.comb <- rounddf(idat.comb, 5, func = signif)
 
-> # Checks
-> # Columns missing in new data
-> names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
-character(0)
+> ## Checks
+> ## Columns missing in new data
+> #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
+> ## Columns missing in .... [TRUNCATED] 
 
-> # Columns missing in old data
-> names(idat)[!names(idat) %in% intersect(names(idat), names(idat.old))]
- [1] "soil.water.v"     "man.source.det"   "man.vs"           "man.vfa"         
- [5] "app.end"          "app.rate.unit"    "row.in.file.plot" "man.trt3"        
- [9] "app.end.orig"     "meas.tech.det"    "j.NH3.unit"       "pH.surf"         
-[13] "soil.temp.surf"   "MOL"              "ustar"            "rl"              
-[17] "air.pres"         "air.pres.unit"    "notes.emis"       "j.NH3.unit.orig" 
-[21] "j.NH3.orig"       "j.NH3.conv.fact"  "cpmid"            "cpid"            
-[25] "ceid"             "e"                "bta"             
-
-> # Columns missing in combined data
-> names(idat)[!names(idat) %in% intersect(names(idat), names(idat.comb))]
- [1] "institute"        "file"             "exper"            "pub.id"          
- [5] "proj"             "field"            "plot"             "rep"             
- [9] "plot.area"        "lat"              "long"             "country"         
-[13] "topo"             "clay"             "silt"             "sand"            
-[17] "oc"               "soil.type"        "soil.water"       "soil.water.v"    
-[21] "soil.moist"       "soil.ph"          "soil.dens"        "crop.res"        
-[25] "till"             "man.source"       "man.source.det"   "man.bed"         
-[29] "man.con"          "man.trt1"         "man.trt2"         "man.stor"        
-[33] "man.dm"           "man.vs"           "man.tkn"          "man.tan"         
-[37] "man.tic"          "man.ua"           "man.vfa"          "man.ph"          
-[41] "app.start"        "app.end"          "app.method"       "app.rate"        
-[45] "app.rate.unit"    "incorp"           "time.incorp"      "man.area"        
-[49] "dist.inj"         "furrow.z"         "furrow.w"         "crop"            
-[53] "crop.z"           "crop.area"        "lai"              "row.in.file.plot"
-[57] "man.trt3"         "app.start.orig"   "app.end.orig"     "tan.app"         
-[61] "uptake"           "treat"            "meas.tech"        "meas.tech.det"   
-[65] "j.NH3.unit"       "air.temp.z"       "soil.temp.z"      "wind.z"          
-[69] "wind.loc"         "far.loc"          "notes.emis"       "j.NH3.unit.orig" 
-[73] "j.NH3.orig"       "j.NH3.conv.fact"  "cpmid"            "cpid"            
-[77] "ceid"             "e"                "pub.info"         "soil.type2"      
-[81] "exper2"           "rep2"             "acid"             "meas.tech.orig"  
-[85] "meas.tech2"       "crop.orig"        "man.source.orig"  "app.method.orig" 
-[89] "app.method2"      "incorp.orig"      "date.start"       "inst"            
-[93] "eid"             
-
-> # Check for names intersection with plot-level data frame, should only be those to be used for merge 
-> names(idat.comb)[names(idat.comb) %in% inter .... [TRUNCATED] 
-[1] "pid"   "pmid"  "notes" "flag" 
-
-> # NTS: weather height/location, notes, flag cols all problematic! Present in both.
-
+> # Write regular csv files
 > write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
 
 > write.csv(idat.comb, '../../data-output/03/ALFAM2_interval.csv', row.names = FALSE)
+
+> # And then compress them
+> R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
+
+> R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
