@@ -1,6 +1,6 @@
 R version 4.1.2 (2021-11-01)
 Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 20.04.3 LTS
+Running under: Ubuntu 20.04.4 LTS
 
 Matrix products: default
 BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
@@ -18,17 +18,9 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] ggplot2_3.3.5   magrittr_2.0.1  leaflet_2.0.4.1 knitr_1.33     
-[5] rmarkdown_2.10  plyr_1.8.6      readxl_1.3.1    nvimcom_0.9-82 
+[1] knitr_1.33     rmarkdown_2.10 plyr_1.8.6     readxl_1.3.1   nvimcom_0.9-82
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7        cellranger_1.1.0  pillar_1.6.2      compiler_4.1.2   
- [5] highr_0.9         tools_4.1.2       digest_0.6.27     jsonlite_1.7.2   
- [9] evaluate_0.14     lifecycle_1.0.0   tibble_3.1.3      gtable_0.3.0     
-[13] pkgconfig_2.0.3   rlang_0.4.11      crosstalk_1.1.1   yaml_2.2.1       
-[17] xfun_0.25         withr_2.4.2       stringr_1.4.0     dplyr_1.0.7      
-[21] generics_0.1.0    vctrs_0.3.8       htmlwidgets_1.5.4 grid_4.1.2       
-[25] tidyselect_1.1.1  glue_1.4.2        R6_2.5.1          fansi_0.5.0      
-[29] farver_2.1.0      purrr_0.3.4       scales_1.1.1      ellipsis_0.3.2   
-[33] htmltools_0.5.1.1 colorspace_2.0-2  labeling_0.4.2    utf8_1.2.2       
-[37] stringi_1.7.3     munsell_0.5.0     crayon_1.4.1     
+[1] compiler_4.1.2    htmltools_0.5.1.1 tools_4.1.2       Rcpp_1.0.7       
+[5] cellranger_1.1.0  xfun_0.25         digest_0.6.27     rlang_0.4.11     
+[9] evaluate_0.14    
