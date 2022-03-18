@@ -3,6 +3,7 @@
 # First plot-level data
 # Rename some old columns
 names(pdat.old)[names(pdat.old) %in% c('first.row.in.file', 'last.row.in.file')] <- c('first.row.in.file.int', 'last.row.in.file.int')
+names(pdat.old)[names(pdat.old) == 'row.in.file'] <- 'row.in.file.plot'
 names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
 names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
 names(pdat.old)[names(pdat.old) == 'flag'] <- 'flag.plot'
@@ -20,7 +21,7 @@ pdat.comb <- pdat.comb[order(pdat.comb$pmid),
     'institute', 'country', 
     'file',
     'first.row.in.file.int', 'last.row.in.file.int', 
-    'row.in.file',   # NTS: rename to .plot
+    'row.in.file.plot', 
     'pub.id', 'pub.info',
     'lat', 'long', 'topo', 'field', 
     'plot', 'plot.area', 'treat', 'rep', 'rep2', 

@@ -1,0 +1,17 @@
+---
+title: 'Combined data error checks'
+date: "`r format(Sys.time(), '%d %B, %Y %H:%M')`"
+---
+
+Get unique values and ranges for all variables.
+
+```{r}
+for (i in 1:ncol(pdat.comb)) {
+
+  printVarSumm(pdat.comb[, i])
+
+}
+
+```
+
+
