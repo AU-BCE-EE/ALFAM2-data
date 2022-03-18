@@ -100,6 +100,7 @@ if (nrow(m1) == nrow(treat)) {
   print('OK')
 } else {
   print('Merge problem 1')
+  print(intersect(names(exper), names(treat)))
 }
 
 if (sum(is.na(c(m1$proj, m1$exper, m1$treat))) == 0) {

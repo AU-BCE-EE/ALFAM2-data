@@ -34,28 +34,5 @@ sink()
 
 options(warn = 1)
 
-table(pdat.comb$uptake, pdat.comb$man.source)
-table(pdat.comb$uptake, pdat.comb$man.trt1)
-
-head(idat.comb$row.in.file.int)
-idat$row.in.file
-idat$row.in.file.int
-pdat$row.in.file.plot
-dat[[1]][[1]]$emis$row.in.file.int
-
-pdat.comb$digested <- grepl('[Aa]naerobic digestion', paste(pdat.comb$man.trt1, pdat.comb$man.trt2, pdat.comb$man.trt3))
-table(pdat.comb$uptake, pdat.comb$digested)
-table(pdat.comb$uptake == 3)
-table(pdat.comb$digested)
-dim(pdat.comb)
-
-table(pdat.comb$country)
-
-table(pdat.comb$uptake)
-
-# NTS: check man.trt1 capitalization!!!!
-
-##
-##cat('Note to Sasha: !!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n 
-##    Remember to create a release on GitHub!!! \n
-##    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+#table(pdat.comb$uptake, pdat.comb$man.source)
+#table(pdat.comb$uptake, pdat.comb$man.trt1)
