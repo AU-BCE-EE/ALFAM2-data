@@ -34,5 +34,3 @@ for(i in ddir) {
 cat('Done! Read', length(dat), ' directories\n')
 
 print(warnings())
-
-

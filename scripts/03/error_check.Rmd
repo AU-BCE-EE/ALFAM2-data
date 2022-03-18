@@ -1,5 +1,5 @@
 ---
-title: 'Error checks'
+title: 'Submitted data error checks'
 output: html_document
 classoption: landscape
 author: 

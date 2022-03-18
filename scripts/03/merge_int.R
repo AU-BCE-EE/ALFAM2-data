@@ -33,7 +33,8 @@ idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int),
     'notes.int', 'flag.int')]
 
 # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
-names(idat.comb)[names(idat.comb) %in% c('soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc')] <- c('soil.temp.z.int', 'air.temp.z.int', 'wind.z.int', 'wind.loc.int', 'far.loc.int')
+nn <- c('soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc')
+names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
 
 # Round 
 idat.comb <- rounddf(idat.comb, 5, func = signif)

@@ -22,16 +22,38 @@ source('functions.R')
 sink('../../logs/03/make_database_log.txt')
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
-  source('check.R', echo = TRUE)
+  source('check_sub.R', echo = TRUE)
   source('flags.R', echo = TRUE)
   source('stack_new.R', echo = TRUE)
   source('add_ID.R', echo = TRUE)
   source('merge_plot.R', echo = TRUE)
   source('merge_int.R', echo = TRUE)
+  source('check_final.R', echo = TRUE)
   source('export.R', echo = TRUE)
 sink()
 
 options(warn = 1)
+
+table(pdat.comb$uptake, pdat.comb$man.source)
+table(pdat.comb$uptake, pdat.comb$man.trt1)
+
+head(idat.comb$row.in.file.int)
+idat$row.in.file
+idat$row.in.file.int
+pdat$row.in.file.plot
+dat[[1]][[1]]$emis$row.in.file.int
+
+pdat.comb$digested <- grepl('[Aa]naerobic digestion', paste(pdat.comb$man.trt1, pdat.comb$man.trt2, pdat.comb$man.trt3))
+table(pdat.comb$uptake, pdat.comb$digested)
+table(pdat.comb$uptake == 3)
+table(pdat.comb$digested)
+dim(pdat.comb)
+
+table(pdat.comb$country)
+
+table(pdat.comb$uptake)
+
+# NTS: check man.trt1 capitalization!!!!
 
 ##
 ##cat('Note to Sasha: !!!!!!!!!!!!!!!!!!!!!!!!!!!!! \n 
