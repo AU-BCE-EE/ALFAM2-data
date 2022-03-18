@@ -6,33 +6,40 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # Read in data from multiple sheets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   na.strings <- c('', 'NA', 'na', 'Na', 'NaN')
 
-  chnglog <- as.data.frame(read_xlsx(file, sheet = 11, skip = 0))
-  tempver <- as.numeric(chnglog[nrow(chnglog), 'Version'])
+  cat('  Starting. . .')
+  nms <- c('date', 'who', 'version', 'what')
+  chnglog <- as.data.frame(read_xlsx(file, sheet = 11, col_names = nms, skip = 0))
+  tempver <- as.numeric(chnglog[nrow(chnglog), 'version'])
 
   # Submitter info
+  cat('  Submitter info . . .')
   submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = c('x', 'y'), na = na.strings)
   submitter <- data.frame(t(submitter[, 2]))
   submitter <- data.frame(submitter)
   names(submitter) <- c('institute', 'inst.abbrev', 'submitter', 'version', 'date')
 
   # Contributers - to save by institute and file eventually
+  cat('  Contributors . . .')
   nms <- c('contributor', 'institute')
   contrib <- read_xlsx(file, sheet = 3, skip = 1, col_names = nms, na = na.strings)
   contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
 
   # Experiments
+  cat('  Experiments . . .')
   nms <- c('proj', 'exper', 'pub.id', 'varied', 'emis.tech', 'conc.tech', 'det.lim', 'man.pH.tech', 'soil.pH.tech', 'notes.exper')
   exper <- read_xlsx(file, sheet = 4, skip = 1, col_names = nms, na = na.strings)
   exper <- data.frame(exper)
   exper <- exper[rowSums(!is.na(exper)) > 0, ]
 
   # Treatments
+  cat('  Treatments . . .')
   nms <- c('proj', 'exper', 'treat', 'treat.descrip')
   treat <- read_xlsx(file, sheet = 5, skip = 1, col_names = nms, na = na.strings)
   treat <- data.frame(treat)
   treat <- treat[rowSums(!is.na(treat)) > 0, ]
 
   # Plots
+  cat('  Plots . . .')
   if (tempver < 6) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
                       'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
@@ -51,7 +58,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
   plots <- data.frame(plots)
-  plots$row.in.file <- 1:nrow(plots) + 4
+  plots$row.in.file.plot <- 1:nrow(plots) + 4
 
   # Drop blank rows
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
@@ -62,6 +69,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   }
 
   # Emission
+  cat('  Emission . . .')
   nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
                    'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
                    'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
@@ -71,7 +79,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
   emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
   emis <- data.frame(emis)
-  emis$row.in.file <- 1:nrow(emis) + 4
+  emis$row.in.file.int <- 1:nrow(emis) + 4
   emis <- emis[rowSums(!is.na(emis)) > 1, ]
 
   # NTS need to do this in read call!
@@ -84,11 +92,14 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   }
 
   # Publications
-  pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings)
-  if (nrow(pubs) > 0) {
+  cat('  Publications . . .')
+  pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings, .name_repair = 'minimal')
+  if (nrow(pubs) > 0 & ncol(pubs) == 2) {
+    print(pubs)
     names(pubs) <- c('pub.id', 'pub.info')
   } else {
-    pubs <- data.frame(pub.id = NULL, pub.info = NULL)
+    cat('Did not find any publication info. . . might be good to double-check spreadsheet.\n')
+    pubs <- data.frame(pub.id = NA, pub.info = NA)
   }
   pubs <- data.frame(pubs)
 
@@ -106,7 +117,7 @@ check4missing <- function(obj) {
     if (any(ii <- is.na(emis[, i]))) {
       cat('Error in\n')
       print('First 10 rows:')
-      print(emis[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      print(emis[ii, c('row.in.file.int', i)][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -116,7 +127,7 @@ check4missing <- function(obj) {
     if (any(is.na(c(emis$t.start, emis$t.end)))) {
       cat('Error in dt\n')
       print('First 10 rows:')
-      print(emis[ii, c('row.in.file', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
+      print(emis[ii, c('row.in.file.int', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -127,7 +138,7 @@ check4missing <- function(obj) {
     if (any(ii <- is.na(plots[, i]))) {
       cat('Error in\n')
       print('First 10 rows:')
-      print(plots[ii, c('row.in.file', i)][1:min(10, length(ii)), ])
+      print(plots[ii, c('row.in.file.int', i)][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -1243,9 +1254,12 @@ fixDateTime <- function(x){
         #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
         if(year > 50) {
           year <- year + 1900
-        } else if(year < 20) {
+        } else if(year < 50) {
           year <- year + 2000
         } else {
+          cat('year: ', year, '\n')
+          cat('x[i]: ', x[i], '\n')
+          cat('x: ', x, '\n')
           stop('Error in fixDateTime() with year. Code BerlYu1776.')
         }
       }  
@@ -1278,7 +1292,13 @@ fixDateTime <- function(x){
 
 # H:M to decimal hours
 HM2DH <- function(x) {
-  if (class(x) == 'character') {
+  if (any(grepl('POSIX', class(x)))) {
+    cat(head(x), '\n')
+    print(head(x))
+    stop('POSIX input to HM2DH function!')
+  }
+
+  if (class(x)[1] == 'character') {
     x <- gsub(',', '.', x)
     x <- gsub('\'', '', x)
   }
@@ -1377,3 +1397,35 @@ fixFlags <- function(obj) {
   return(obj)
 
 }
+
+printVarSumm <- function(x) {
+
+  cat('\n')
+  cat('-----------------------------------------------------\n')
+  if (class(x)[1] %in% c('integer', 'numeric')) {
+    cat(names(pdat.comb)[i], ' numeric, range: ')
+    cat(range(na.omit(x)), '\n')
+    cat('Missing values: ')
+    cat(sum(is.na(x)), '\n')
+  } else if (class(x)[1] %in% c('factor', 'character')) {
+    cat(names(pdat.comb)[i], ' character/factor, unique (first 10): ')
+    vals <- paste(unique(x)[1:min(length(unique(x)), 10)], collapse = '\n\n')
+    cat('\n', vals, '\n')
+    cat('Missing values: ')
+    cat(sum(is.na(x)), '\n')
+    #vals <- paste(sort(unique(x)), collapse = '\n\n')
+    #cat('Unique values: ')
+    #cat('\n', vals, '\n')
+  } else if (class(x)[1] %in% c('logical')) {
+    cat(names(pdat.comb)[i], ' logical, unique: ')
+    cat(unique(x), '\n')
+    cat('Missing values: ')
+  } else {
+    cat(names(pdat.comb)[i], ' something else! ')
+    cat(class(x)[1], '\n')
+    cat('Missing values: ')
+  }
+  cat('\n')
+
+}
+
