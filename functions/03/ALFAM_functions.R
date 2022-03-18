@@ -185,6 +185,9 @@ cleanALFAM <- function(obj) {
   # Add empty flag column for use later
   plots$flag.plot <- ''
 
+  # Add submitter info
+  plots$submitter <- submitter$submitter[1]
+
   # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Dates and times
   emis$t.start.orig <- emis$t.start
@@ -1246,8 +1249,8 @@ fixDateTime <- function(x){
       x[i] <- gsub('/', '-', x[i])
       if (grepl('\\.', x[i])) flag[i] <-'decimal point'
       x[i] <- gsub('\\.', ':', x[i])
-      month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
-      day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
+      day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
+      month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
       year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
       tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
       if(nchar(year) != 4) {
