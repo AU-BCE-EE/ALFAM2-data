@@ -95,10 +95,10 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   cat('  Publications . . .')
   pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings, .name_repair = 'minimal')
   if (nrow(pubs) > 0 & ncol(pubs) == 2) {
-    print(pubs)
     names(pubs) <- c('pub.id', 'pub.info')
   } else {
     cat('Did not find any publication info. . . might be good to double-check spreadsheet.\n')
+    print(pubs)
     pubs <- data.frame(pub.id = NA, pub.info = NA)
   }
   pubs <- data.frame(pubs)
@@ -1371,7 +1371,43 @@ collapseFlags <- function(f) {
 
 }
 
-# Add or sort out flags
+# Add flags based on keywords in notes columns
+# NTS: row-by-row, probably slow
+addFlags <- function(obj, keys = list(m = c('modeled', 'interpolat'), i = 'interpolat')) {
+
+  keys <- lapply(keys, tolower)
+
+  emis <- obj$emis
+  plots <- obj$plots
+
+  for (i in 1:nrow(plots)) {
+    for (j in 1:length(keys)) {
+      for (k in 1:length(keys[[j]])) {
+        if (grepl(keys[[j]][k], tolower(plots[i, 'notes.plot']))) {
+          plots[i, 'flag.plot'] <- paste(plots[i, 'flag.plot'], names(keys)[j])
+        }
+      }
+    }
+  }
+
+  for (i in 1:nrow(emis)) {
+    for (j in 1:length(keys)) {
+      for (k in 1:length(keys[[j]])) {
+        if (grepl(keys[[j]][k], tolower(emis[i, 'notes.int']))) {
+          emis[i, 'flag.int'] <- paste(emis[i, 'flag.int'], names(keys)[j])
+        }
+      }
+    }
+  }
+
+  obj$emis <- emis
+  obj$plots <- plots
+
+  return(obj)
+
+}
+
+# Sort out existing flags, including copying of flags from emis to plots
 # See other code with flag in this function file
 fixFlags <- function(obj) {
 
@@ -1389,7 +1425,9 @@ fixFlags <- function(obj) {
     plots[i, 'flag.plot'] <- collapseFlags(plots[i, 'flag.plot'])
   }
 
-  # NTS: Add other flags here, e.g., link to notes.plot
+  for (i in 1:nrow(emis)) {
+    emis[i, 'flag.int'] <- collapseFlags(emis[i, 'flag.int'])
+  }
 
   obj$emis <- emis
   obj$plots <- plots
