@@ -158,6 +158,17 @@ cleanALFAM <- function(obj) {
   file <- obj$file
 
   # Work with plots data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  plots$institute <- submitter$inst.abbrev
+  # Add uptake ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
+  plots$uptake <- 3
+  # Add file
+  plots$file <- file
+
+  # Add treatment and measurement method info to plots (may expand rows if multiple methods were used on same plot)
+  # Note that institute and file are not needed (nor available in emis yet) because this function is called for a single file
+  plots <- merge(plots, unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]),
+                 by =          c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
+
   # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)
   plots$lat <- DMS2DD(plots$lat)
   plots$long <- DMS2DD(plots$long)
@@ -168,6 +179,13 @@ cleanALFAM <- function(obj) {
 
   plots$app.start <- fixDateTime(plots$app.start.orig)
   plots$app.end <- fixDateTime(plots$app.end.orig)
+
+  # Character IDs (need institute, uptake, and file from above)
+  # After sortin out app.start/end because we need same values in emis and plots data frames
+  plots$cpmid <- addCPMID(plots)
+  plots$cpid <- addCPID(plots)
+  # Unique experiment IDs
+  plots$ceid <- addCEID(plots) 
 
   # Convert incorportation time in hh:mm to decimal hours
   # NTS: convert to function
@@ -188,7 +206,57 @@ cleanALFAM <- function(obj) {
   # Add submitter info
   plots$submitter <- submitter$submitter[1]
 
+  # Applied TAN (kg N/ha)
+  plots$tan.app <- plots$app.rate * plots$man.tan
+
+
   # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # Add plot info (including application rate) to emis
+  # This brings in institute, uptake, and file (as well as many other columns)
+  # Keep all = TRUE in order to later check for missing codes
+  # treat, meas.tech, meas.tech.det originally came from emis, merged with plots above
+  nn <- nrow(emis)
+  emis.orig <- emis
+  emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det'), suffixes = c('.plot', '.int'), all = TRUE)
+  emis <- emis[order(emis$row.in.file.int, emis$proj, emis$exper, emis$field, emis$plot, emis$rep, emis$interval), ] 
+  if (nrow(emis) != nn) {
+    for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
+      print(i)
+      print('plots sheet levels:')
+      print(unique(plots[, i]))
+
+      print('emission sheet levels:')
+      print(unique(emis.orig[, i]))
+      cat('\n')
+
+    }
+
+    print('plots unique combos')
+    print(pu <- unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+    print('emission unique combos')
+    print(eu <- unique(emis.orig[, c('proj', 'exper', 'field', 'plot', 'rep')]))
+
+    cat('Rows in emis before merge: ', nn, '\n')
+    cat('Rows in emis after: ', nrow(emis), '\n')
+
+    print('merged combos, plots first (x):')
+    pu$plots <- TRUE
+    eu$emis <- TRUE
+    print(merge(pu, eu, all = TRUE))
+
+    cat('Error: Merge problem with plots and emis, probably a typo in project, experiment, etc.\n')
+    cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 272.')
+    browser()
+    stop()
+  }
+
+  # Unique character plot IDs
+  # First one includes measurement technique
+  emis$cpmid <- addCPMID(emis)
+  emis$cpid <- addCPID(emis)
+  # Unique experiment IDs
+  emis$ceid <- addCEID(emis) 
+
   # Dates and times
   emis$t.start.orig <- emis$t.start
   emis$t.end.orig <- emis$t.start
@@ -236,6 +304,18 @@ cleanALFAM <- function(obj) {
   #emis$dt.flag <- ''
   #emis$dt.flag[emis$dt != emis$dt.calc] <- paste('reported and calculated dt do not match. Difference of', signif((d$dt - d$dt.calc)[d$dt != d$dt.calc], 2))
 
+  # Add elapsed time variables
+  emis <- emis[order(emis$cpmid, emis$interval), ]
+  for (i in unique(emis$cpmid)) {
+    emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
+    # mt = middle
+    emis$mt <- emis$ct - emis$dt / 2
+
+    # Elapsed time since application (cta = cumulative time since application (ended), bta = cumulative time since application *began*)
+    emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
+    emis$bta <- as.numeric(difftime(emis$t.start, emis$app.start, units = 'hours'))
+  }
+
   # Add file
   emis$file <- file
 
@@ -249,20 +329,22 @@ cleanALFAM <- function(obj) {
 
 }
 
-addCharID <- function(d) {
+addCPMID <- function(d) {
+  cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
+                  '.P:', d$plot, '.T:', d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, 
+                  '.M:', d$meas.tech, d$meas.tech.det)
+  return(cpmid)
+}
 
-  # Unique character plot IDs
-  # First one includes measurement technique
-  d$cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, '.T:', 
-                    d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, '.M:', d$meas.tech, d$meas.tech.det)
-  d$cpid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, '.P:', d$plot, 
-                   '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start)
+addCPID <- function(d) {
+  cpid <-  paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
+                  '.P:', d$plot, '.T:', d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start) 
+  return(cpid)
+}
 
-  # Unique experiment IDs
-  d$ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
-
-  return(d)
-
+addCEID <- function(d) {
+  ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
+  return(ceid)
 }
 
 addVars <- function(dat) {
@@ -313,10 +395,6 @@ getVars <- function(obj) {
   plots <- obj$plots
   emis <- obj$emis
   pubs <- obj$pubs
-  file <- obj$file
-
-  # Add file name
-  plots$file <- file
 
   # Pull out some stuff from the emission data
   # All by cpmid
@@ -325,7 +403,7 @@ getVars <- function(obj) {
     dd <- emis[emis$cpmid == i, ]
     pld[pld$cpmid == i, 'first.row.in.file.int'] <- min(dd$row.in.file.int)
     pld[pld$cpmid == i, 'last.row.in.file.int'] <- max(dd$row.in.file.int)
-    pld[pld$cpmid == i, 'n.ints'] <- length(dd$int)
+    pld[pld$cpmid == i, 'n.ints'] <- length(dd$interval)
     pld[pld$cpmid == i, 'dt1'] <- dd$dt[which.min(dd$ct)]
     pld[pld$cpmid == i, 'j.rel1'] <- dd$j.rel[which.min(dd$ct)]
     pld[pld$cpmid == i, 'j.NH31'] <- dd$j.NH3[which.min(dd$ct)]
@@ -372,50 +450,6 @@ calcEmis <- function(obj, na = 'impute') {
   pubs <- obj$pubs
   file <- obj$file
 
-  # Applied TAN (kg N/ha)
-  plots$tan.app <- plots$app.rate * plots$man.tan
-
-  # Merges ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  plots$institute <- submitter$inst.abbrev
-  # NTS WIP: inconsistent, partial switch to ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
-  plots$uptake <- 3
-
-  # Add plot info (including application rate) to emis
-  # Keep all = TRUE in order to later check for missing codes
-  nn <- nrow(emis)
-  emis.orig <- emis
-  emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep'), suffixes = c('.plot', '.int'), all = TRUE)
-  emis <- emis[order(emis$row.in.file.int, emis$proj, emis$exper, emis$field, emis$plot, emis$rep, emis$interval), ] 
-  if (nrow(emis) != nn) {
-    for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
-      print(i)
-      print('plots sheet levels:')
-      print(unique(plots[, i]))
-
-      print('emission sheet levels:')
-      print(unique(emis.orig[, i]))
-      cat('\n')
-
-    }
-
-    print('plots unique combos')
-    print(pu <- unique(plots[, c('proj', 'exper', 'field', 'plot', 'rep')]))
-    print('emission unique combos')
-    print(eu <- unique(emis.orig[, c('proj', 'exper', 'field', 'plot', 'rep')]))
-
-    cat('Rows in emis before merge: ', nn, '\n')
-    cat('Rows in emis after: ', nrow(emis), '\n')
-
-    print('merged combos, plots first (x):')
-    pu$plots <- TRUE
-    eu$emis <- TRUE
-    print(merge(pu, eu, all = TRUE))
-
-    cat('Error: Merge problem with plots and emis, probably a typo in project, experiment, etc.\n')
-    cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 272.')
-    browser()
-    stop()
-  }
 
   # Adjust wind speed to 2 m for use in plot-level means below
   # Roughness length (m) set to 1/10th canopy height
@@ -432,13 +466,9 @@ calcEmis <- function(obj, na = 'impute') {
     emis <- emis[!is.na(emis$j.NH3), ]
   }
 
-  # Add character plot IDs for grouped calculations below
-  emis <- addCharID(emis)
-
   # Calculate emission
   emis <- emis[order(emis$cpmid, emis$interval), ]
   for (i in unique(emis$cpmid)) {
-    emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
     if (na == 'impute' & any(is.na(emis[emis$cpmid == i, 'j.NH3']))) {
       emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'] <- paste0(emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'], ' m i')
       emis[emis$cpmid == i, 'j.NH3'] <- imputeVars(emis[emis$cpmid == i, ], 'ct', 'j.NH3', method = 'linear')
@@ -449,13 +479,6 @@ calcEmis <- function(obj, na = 'impute') {
   # Variable e is stuck from earlier (used in some analysis or fitting code)
   emis$e <- emis$e.cum
 
-  # mt = middle
-  emis$mt <- emis$ct - emis$dt / 2
-
-  # Elapsed time since application (cta = cumulative time since application (ended), bta = cumulative time since application *began*)
-  emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
-  emis$bta <- as.numeric(difftime(emis$t.start, emis$app.start, units = 'hours'))
-
   # Relative emission, fraction of applied TAN
   emis$e.rel <- emis$e.cum / emis$tan.app
   # Relative flux, fraction applied TAN per hour
@@ -464,8 +487,6 @@ calcEmis <- function(obj, na = 'impute') {
   # Interpolate cumulative emission etc. for addition to plot-level data
   # All by cpmid
   pld <- data.frame(cpmid = unique(emis$cpmid))
-  # Add other IDs for use later
-  pld <- merge(pld, unique(emis[, c('ceid', 'cpid', 'cpmid')]), by = 'cpmid')
   for (i in unique(emis$cpmid)) {
     dd <- emis[emis$cpmid == i, ]
     # First cumulative variables
@@ -487,12 +508,10 @@ calcEmis <- function(obj, na = 'impute') {
         pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[emis$cpmid == i, 'dt'] * emis[emis$cpmid == i, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
       }
     }
-    # Add IDs needed for merge with plots (I guess plots does not have cpmid yet?)
-    pld[pld$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')] <- emis[emis$cpmid == i, c('proj', 'exper', 'field', 'plot', 'rep', 'meas.tech', 'meas.tech.det', 'treat')][1, ]
   }
 
   # Merge interpolated results with plots
-  plots <- merge(plots, pld, by = c('proj', 'exper', 'field', 'plot', 'rep'))
+  plots <- merge(plots, pld, by = 'cpmid')
 
   obj$plots <- plots
   obj$emis <- emis
@@ -500,116 +519,6 @@ calcEmis <- function(obj, na = 'impute') {
  
 }
 
-
-# Function for adding variables to an ALFAM data frame
-addALFAMVars <- function(d) {
-
-
-  # Applied TAN (kg N/ha)
-  d$tan.app <- d$app.rate*d$man.tan
-
-  ###################################################################################################################
-  # Equilibrium NH3 calcs
-  temp.k <- d$air.temp + 273.15
-  R <- 0.000082057
-
-  # Molal TAN concentration
-  m.tan <- d$man.tan/14.0067/(1 - d$man.dm/100)
-
-  # Ionic strength (set to TAN concentration)
-  mu <- m.tan
-
-  # Deby-Huckel constants
-  a <- 0.5
-  b <- 0.3
-
-  # Charge on NH4+
-  z <- 1
-
-  # Activity coefficients, equilibrium constant, Henry's law constant (m3/kg)
-  g.NH4 <- 10^(-a*z^2*sqrt(mu)/(1 + b*2.5*sqrt(mu)))
-  k.NH4 = 10^(0.0905 + 2729.31/temp.k)
-  h.NH3 <- R*temp.k*10^(-3.51645 -0.0013637*temp.k + 1701.35/temp.k)
-
-  # Free NH3 (mol/kgw) and equilibrium gas-phase NH3 (mol/m3)
-  m.NH3 <- g.NH4*m.tan/(k.NH4*10^(-d$man.ph) + g.NH4)
-  cg.NH3 <- m.NH3/h.NH3
-
-  # Free NH3 (g/kgw)
-  d$man.freeNH3 <- 14.0067*m.NH3
-  # Equilibrium NH3 (g) (g/m3)
-  d$man.eq.gasNH3 <- 14.0067*cg.NH3
-  ###################################################################################################################
-
-  ###################################################################################################################
-  # Standardize wind speed
-  # Roughness length (m)
-  # Set to 1/10th canopy height
-  z0 <- d$crop.z / 10 / 100
-  # Or min of 1 cm 
-  z0[is.na(z0)] <- 0.01
-  z0[z0 < 0.01] <- 0.01
-  # Adjust to height of 2 m
-  d$wind.2m <- d$wind*log(2.0/z0)/log(d$wind.z/z0)
-  ###################################################################################################################
-
-  # Average rainfall rate (average over interval) (mm/hr)
-  d$rain.rate <- d$rain/d$dt
-
-  ###################################################################################################################
-  # Emission calculations
-
-  ### Interpolate missing values (may be due to only different measurement frequencies)
-  ### NTS sort out flags!
-  ##for (i in unique(d$cpmid)) {
-  ##  if (any(is.na(d[d$cpmid == i, 'j.NH3']))) {
-  ##    d[d$cpmid == i, 'j.NH3'] <- imputeVars(d = d[d$cpmid == i, 'j.NH3'], 'ct', 'j.NH3')
-  ##  }
-  ##}
-
-  # NH3 emission in each interval
-  d$e.int <- d$j.NH3*d$dt
-  
-  # Response variables must be named j and e for model functions (NTS: revisit)
-  #d$j <- d$j.NH3
-
-  # Cumulative emission
-  # dt = duration of interval, ct = cumulative time to end of interval, mt =  cumulative time to middle of interval
-  # e.cum = cumulative emission (kg N/ha)
-  # tan.start = TAN (kg N/ha) present at start of interval
-  # Sort by interval first (added 22 April 2020, omission was causing errors in ct before)
-  d <- d[order(d$cpmid, d$interval), ]
-  d <- ddply(d, 'cpmid', transform, ct = cumsum(dt), mt = cumsum(dt) - dt/2, 
-             e.cum = cumsum(e.int), rain.cum = cumsum(rain), 
-	           date.start = as.character(min(t.start), format = '%Y-%m-%d'))
-  
-  ### Response variables must be named j and e for model functions (NTS: revisit)
-  ##d$e <- d$e.cum
-
-  # Elapsed time since application
-  d$cta <- as.numeric(difftime(d$t.end, d$app.start, units = 'hours'))
-
-  ### Replace ct values with et.app if available
-  ##d$ct[!is.na(et.app)] <- et.app[!is.na(et.app)]
-
-  ### TAN loss as fraction of applied
-  ##d$e.int.rel.app <- d$e.int/d$tan.app
-
-  ### TAN loss as fraction of amount present at start of shift
-  ##d$e.int.rel.int <- d$e.int/d$tan.start
-
-  # Relative emission, fraction of applied TAN
-  d$e.rel <- d$e.cum/d$tan.app
-
-  ### Relative emission 2, fraction of final cumulative emission
-  ##d <- ddply(d, 'cpid', transform, e.rel2 = e/max(e))
-
-  # Relative flux (fraction of applied TAN per hour)
-  d$j.rel <- d$j.NH3/d$tan.app
-
-  return(d)
-
-}
 
 # Changes labels for factors, groups some levels together
 # Cannot be run more than once on the same data frame
@@ -1339,18 +1248,21 @@ fixWeather <- function(obj, na = 'impute') {
   plots <- obj$plots
 
   # Sort out rain
+  # NTS: need to add flag!
   emis$rain[is.na(emis$rain)] <- 0
   emis$rain.rate <- emis$rain / emis$dt
-  emis$rain.cum <- NA
 
-  # Impute missing variables
+  # Sort for cumulative rain
+  emis <- emis[order(emis$cpmid, emis$interval), ]
+
+  # Impute missing variables and calculate cumulative rainfall
   for (i in unique(emis$cpmid)) {
     for (j in c('air.temp', 'soil.temp', 'soil.temp.surf', 'rad', 'wind', 'air.pres', 'rh')) {
       if (sum(!is.na(emis[emis$cpmid == i, j])) > 2) {
         emis[emis$cpmid == i, j] <- imputeVars(emis[emis$cpmid == i, ], 'ct', j, method = 'linear')
-        emis[emis$cpmid == i, 'rain.cum'] <- cumsum(emis[emis$cpmid == i, 'rain'])
       }
     }
+    emis[emis$cpmid == i, 'rain.cum'] <- cumsum(emis[emis$cpmid == i, 'rain'])
   }
 
   obj$emis <- emis

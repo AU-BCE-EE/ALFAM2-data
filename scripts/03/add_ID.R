@@ -9,14 +9,15 @@ pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
 pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute))[is.na(pdat$inst)]
 
 # ID codes created in plots data frame and then merged into interval level data frame
-# Experiment ID
+# Experiment ID (includes uptake, inst, proj, exper)
 pdat$eid <- as.integer(factor(pdat$ceid)) + max(pdat.old$eid)
 # Add plot and plot x meas tech IDs
 pdat$pid <- as.integer(factor(pdat$cpid)) + max(pdat.old$pid)
 pdat$pmid <- as.integer(factor(pdat$cpmid)) + max(pdat.old$pmid)
 
-# Merge into interval level data
-idat <- merge(idat, pdat[, c('institute', 'file', 'exper', 'inst', 'eid', 'pid', 'pmid')], by = c('institute', 'file', 'exper'), all.x = TRUE)
+# Merge IDs into interval level data
+# Should alternatively be able to switch to interger directly in idat
+idat <- merge(idat, pdat[, c('cpmid', 'eid', 'pid', 'pmid')], by = c('cpmid'), all.x = TRUE)
 
 # Add observation ID
 idat <- idat[order(idat$pmid, idat$int), ]
