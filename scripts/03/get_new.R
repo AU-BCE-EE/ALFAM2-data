@@ -18,11 +18,11 @@ for(i in ddir) {
     dd <- readALFAM2File(j)
     # Simple error check to save searching
     check4missing(dd)
-    # Basic data cleaning
+    # Basic data cleaning, add *character* IDs, add time (ct, etc) . . .
     dd <- cleanALFAM(dd)
-    # Fix weather data
+    # Fix weather data, including rain calcs and interpolation as needed
     dd <- fixWeather(dd, na = 'impute')
-    # Calculate emission, including merge with plots data frame, adding c*ids, adding mean weather and emission to plots
+    # Calculate emission, including merge with plots data frame, adding mean weather and emission to plots
     dd <- calcEmis(dd, na = 'impute')
     # Add/extract some other vars for plot-level and interval-level data
     dd <- getVars(dd)
