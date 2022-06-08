@@ -189,8 +189,8 @@ if (all(nchar(pubs$citation) > 10)) {
 ```{r, echo = FALSE}
 d <- dat[[i]][[j]]$emis
 # Add first row in file info by plot
-xx <- d[d$interval == 1, c('cpmid', 'row.in.file.int')]
-names(xx)[2] <- 'first.row'
+xx <- d[d$interval == 1, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
+names(xx)[2:3] <- c('first.row.int', 'row.plot')
 d <- merge(d, xx, by = 'cpmid')
 ```
 
@@ -370,7 +370,7 @@ if (any(is.na(plots$meas.tech))) {
 Cumulative emission.
 Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
-d$first.row <- factor(d$first.row)
+d$first.row <- factor(paste(d$row.plot, d$first.row))
 library(ggplot2)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')

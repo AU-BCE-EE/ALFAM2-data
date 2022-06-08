@@ -13,7 +13,6 @@ for(i in ddir) {
   f <- f[!grepl('\\/~', f)]
   dat[[i]] <- list()
   for(j in f) {
-    print(j)
     cat('   file ', j,'\n')
     dd <- readALFAM2File(j)
     # Simple error check to save searching
