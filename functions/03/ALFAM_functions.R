@@ -1158,6 +1158,7 @@ fixDateTime <- function(x){
       x[i] <- gsub('/', '-', x[i])
       if (grepl('\\.', x[i])) flag[i] <-'decimal point'
       x[i] <- gsub('\\.', ':', x[i])
+      # Assume day comes before month by default
       day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
       month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
       year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
