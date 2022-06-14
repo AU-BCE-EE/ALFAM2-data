@@ -1,6 +1,10 @@
 # Functions for reading in ALFAM2 data
 # S. Hafner
 
+countries <- c(`United Kingdom` = 'UK', Norway = 'NO', Italy = 'IT',  Denmark = 'DK', Netherlands = 'NL', 
+               `The Netherlands` = 'NL', Switzerland = 'CH', Sweden = 'SE', Canada = 'CA', Germany = 'DE',
+               France = 'FR', Ireland = 'IE', `United States` = 'US')
+
 readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Read in data from multiple sheets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,6 +71,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   if (tempver < 6) {
     plots$man.trt3 <- NA
   }
+
+  # Rename country with abbreviation
+  plots$country[nchar(plots$country) > 2] <- countries[plots$country[nchar(plots$country) > 2]]
 
   # Emission
   cat('  Emission . . .')
