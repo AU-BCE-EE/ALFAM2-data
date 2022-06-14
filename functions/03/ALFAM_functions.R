@@ -145,7 +145,7 @@ check4missing <- function(obj) {
     if (any(ii <- is.na(plots[, i]))) {
       cat('Error in\n')
       print('First 10 rows:')
-      print(plots[ii, c('row.in.file.int', i)][1:min(10, length(ii)), ])
+      print(plots[ii, c('row.in.file.plot', i)][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -173,8 +173,21 @@ cleanALFAM <- function(obj) {
 
   # Add treatment and measurement method info to plots (may expand rows if multiple methods were used on same plot)
   # Note that institute and file are not needed (nor available in emis yet) because this function is called for a single file
+  nr1 <- nrow(plots)
+  plots.orig <- plots
   plots <- merge(plots, unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]),
                  by =          c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
+  nr2 <- nrow(plots)
+  if (nr1 != nr2) {
+    print(paste('File:', file))
+    cat('plots:\n')
+    print(head(plots[, 1:10]))
+    cat('plots.orig:\n')
+    print(head(plots.orig[, 1:10]))
+    cat('Unique emis:\n')
+    print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))
+    cat('Number of rows changed after plots/emis merge in cleanALAM()\nMay be entry error or multiple treatments per plot (no error)')
+  }
 
   # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)
   plots$lat <- DMS2DD(plots$lat)
