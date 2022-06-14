@@ -224,7 +224,9 @@ if (nrow(x) > 0) {
 
 ## Delay after application
 ```{r,echo=FALSE}
-if (min(d$bta) < 1) {
+if (all(is.na(d$bta))) {
+  print('bta (cum. time since application began) is not available.')
+} else if (min(na.omit(d$bta)) < 1) {
   print('OK')
 } else {
   print('1 hr or longer delay after starting application')
@@ -252,7 +254,9 @@ for (ii in unique(emis$cpmid)) {
 ```{r,echo=FALSE}
 for (ii in unique(emis$cpmid)) {
   dd <- emis[emis$cpmid == ii, ]
-  if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
+  if (all(is.na(dd$t.start)) | all(is.na(dd$t.end))) {
+    print('No start or end times provided, so cannot check for missing time.')
+  } else if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
     print('OK')
   } else {
     print('Problem, see following rows (compare start time to end time in previous rows):')
@@ -375,8 +379,10 @@ library(ggplot2)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
 ggplot(d, aes(cta, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
-ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
+if (!(all(is.na(d$t.end)))) {
+  ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
+  ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
+}
 ```
 
 Final cumulative emission.

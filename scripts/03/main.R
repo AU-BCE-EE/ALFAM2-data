@@ -31,7 +31,3 @@ sink('../../logs/03/make_database_log.txt')
   source('check_final.R', echo = TRUE)
   source('export.R', echo = TRUE)
 sink()
-
-#table(pdat.comb$uptake, pdat.comb$man.source)
-#table(pdat.comb$uptake, pdat.comb$man.trt1)
-#table(pdat.comb$uptake)
