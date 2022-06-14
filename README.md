@@ -25,6 +25,6 @@ Please use the data included in an official [release](https://github.com/sashaha
 For now, it is possible to cite [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027) and mention the version number. 
 
 # References
-For a description of the dataset, see this paper: <https://doi.org/10.1016/j.agrformet.2017.11.027>. For the ALFAM2 model for ammonia emission, with parameter estimation based on the ALFAM2 dataset, see this paper: <https://www.sciencedirect.com/science/article/pii/S1352231018308069>. 
-A digitable object identified (doi) and author list are forthcoming.
+For a description of the dataset, see this paper: <https://doi.org/10.1016/j.agrformet.2017.11.027>. For the ALFAM2 model for ammonia emission, with parameter estimation based on the ALFAM2 dataset, see this paper: <https://doi.org/10.1016/j.agrformet.2017.11.027>. 
+A digitable object identified (doi) and author list specifically for the dataset are forthcoming.
 
