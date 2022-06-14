@@ -3,7 +3,7 @@ The ALFAM2 dataset on ammonia loss from field-applied manure. This repository co
 
 # Quick tips
 * Look in [data-ALFAM2 output/03](https://github.com/sashahafner/ALFAM2-data/tree/dev/data-output/03) for the the **ALFAM2 dataset**
-* More details on the ALFAM2 project, and access to project products: <www.alfam.dk>
+* More details on the ALFAM2 project, and access to project products: <http://alfam.dk>
 * Or the ALFAM2 database? You can download this same dataset, or some subset filtered by country, application method, or more, from the ALFAM2 database interface: <https://biotransformers.shinyapps.io/ALFAM2/>. 
 * Looking for the ALFAM2 model R package? You want the ALFAM2 repo: <https://github.com/sashahafner/ALFAM2>.
 
