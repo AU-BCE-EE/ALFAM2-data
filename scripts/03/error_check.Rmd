@@ -372,7 +372,7 @@ if (any(is.na(plots$meas.tech))) {
 Cumulative emission.
 Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
-d$first.row <- factor(paste(d$row.plot, d$first.row))
+d$first.row <- factor(paste('Plots', d$row.plot, 'Emissiion', d$first.row))
 library(ggplot2)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
