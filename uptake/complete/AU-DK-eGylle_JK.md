@@ -8,3 +8,7 @@ He wrote that some data are missing (see ChangeLog and Issues sheets).
 I fixed some issues and sent question about missing data to Jesper and Johanna.
 Seems I should be able to copy data from `ALFAM2_template_6_1_220524_JP_21E.xlsx`.
 Waiting for answer.
+
+# 19 June 2022
+During virtual meeting with JNK and JMP last week I copied/pasted data from Johanna's file.
+I think this is all resolved now.
