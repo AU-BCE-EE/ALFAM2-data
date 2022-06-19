@@ -349,8 +349,6 @@ if (length(miss) > 0) {
 } else {
   print('OK, no values missing')
 }
-
-print(miss[miss > 0])
 ```
 
 # Application method and measurement method
@@ -378,7 +376,9 @@ d$first.row <- factor(paste(d$row.plot, d$first.row))
 library(ggplot2)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
 ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
-ggplot(d, aes(cta, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+if (!(all(is.na(d$cta)))) {
+  ggplot(d, aes(cta, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+}
 if (!(all(is.na(d$t.end)))) {
   ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
   ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
