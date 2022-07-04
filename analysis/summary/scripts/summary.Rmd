@@ -1,0 +1,51 @@
+---
+title: 'Summary of new ALFAM2 data'
+output: pdf_document
+author: Sasha D. Hafner
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+```{r}
+pdat$digested <- grepl('anaerobic digestion', tolower(paste(pdat$man.trt1, pdat$man.trt2)))
+```
+
+
+```{r}
+dim(pdat)
+length(unique(pdat$pmid))
+length(unique(pdat$pid))
+```
+
+
+```{r}
+up <- pdat[unique(pdat$pid), ]
+table(pdat$uptake)
+table(up$uptake)
+table(country = up$country, uptake = up$uptake)
+```
+
+```{r}
+table(pdat$pdat$man.trt1)
+table(pdat$man.trt2)
+```
+
+```{r}
+u3 <- subset(pdat, uptake == 3)
+up3 <- subset(up, uptake == 3)
+table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
+table(u3$digested)
+table(up3$digested)
+```
+
+```{r}
+table(u3$meas.tech2)
+table(up3$meas.tech2)
+```
+
+```{r}
+table(up3$country)
+table(u3$country)
+```
+
+
+
