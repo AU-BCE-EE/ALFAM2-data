@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-03-15 14:33:59 EDT"
+[1] "2022-07-04 15:39:35 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -21,38 +21,108 @@
 +   f <- list.files(i, pattern = 'xls', full.names = TRUE)
 +   # Omit temporary Excel files (created  .... [TRUNCATED] 
 Directory  ../../data-submitted/03/AU 
-[1] "../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
-[1] "../../data-submitted/03/AU/ALFAM2_template_6_1_220310_JP_21CD22A.xlsx"
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220310_JP_21CD22A.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
+plots:
+            proj              exper field plot rep pub.id plot.area         lat
+1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+2 9°32'26''E      DK
+3 9°32'26''E      DK
+4 9°32'26''E      DK
+plots.orig:
+            proj pub.id              exper field plot rep plot.area         lat
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+Unique emis:
+              proj              exper field plot rep   treat meas.tech
+1   Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 CRDS_1m       bLS
+323 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 CRDS_2m       bLS
+645 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1      MD       bLS
+967 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1     AGM       AGM
+    meas.tech.det
+1         CRDS_1m
+323       CRDS_2m
+645            MD
+967          <NA>
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (no error)   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
+plots:
+            proj              exper field plot rep pub.id plot.area         lat
+1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+2 9°32'26''E      DK
+3 9°32'26''E      DK
+plots.orig:
+            proj pub.id              exper field plot rep plot.area         lat
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+Unique emis:
+              proj              exper field plot rep   treat meas.tech
+1   Vejrumbro_2019 Vejrumbro_2019_May          1   1 CRDS_1m       bLS
+278 Vejrumbro_2019 Vejrumbro_2019_May          1   1 CRDS_2m       bLS
+555 Vejrumbro_2019 Vejrumbro_2019_May          1   1     AGM       bLS
+    meas.tech.det
+1         CRDS_1m
+278       CRDS_1m
+555       CRDS_1m
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (no error)   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+   file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 26 × 18
+      `` ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
+   <dbl> <chr> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
+ 1     1 "3.\… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 2    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 3    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 4    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 5    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 6    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 7    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+# … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
+#   `` <dbl>, `` <dbl>
+Directory  ../../data-submitted/03/DiSSA-IT 
+   file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
 Directory  ../../data-submitted/03/UNINA 
-[1] "../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx"
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
-Directory  ../../data-submitted/03/WUR 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/WUR 
 
 > cat('Done! Read', length(dat), ' directories\n')
-Done! Read 3  directories
+Done! Read 5  directories
 
 > print(warnings())
-NULL
+Warning message:
+In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 
 > # Check for errors and create a log before merge
 > 
@@ -61,12 +131,12 @@ NULL
 + 
 +     # Check for errors and creat .... [TRUNCATED] 
 
-> # Sort out plot-level flags, using flags from emis/int
+> # Sort out int- and plot-level flags
 > 
 > for (i in names(dat)) {
 +   for (j in names(dat[[i]])) {
 + 
-+     dat[[i]][[j]] <- fixFl .... [TRUNCATED] 
++     dat[[i]][[j]] <- addFlags(dat[[i]][[j]]) .... [TRUNCATED] 
 
 > # Pull new data from list
 > 
@@ -91,16 +161,17 @@ NULL
 >  .... [TRUNCATED] 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
-> # Experiment ID
-> pdat$eid <- as.integer(factor(pdat$ceid))  .... [TRUNCATED] 
+> # Experiment ID (includes uptake, inst, proj, exper)
+> pdat$ .... [TRUNCATED] 
 
 > # Add plot and plot x meas tech IDs
 > pdat$pid <- as.integer(factor(pdat$cpid)) + max(pdat.old$pid)
 
 > pdat$pmid <- as.integer(factor(pdat$cpmid)) + max(pdat.old$pmid)
 
-> # Merge into interval level data
-> idat <- merge(idat, pdat[, c('institute', 'file', 'exper', 'inst', 'eid', 'pid', 'pmid')], by = c('institute', 'f .... [TRUNCATED] 
+> # Merge IDs into interval level data
+> # Should alternatively be able to switch to interger directly in idat
+> idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
 
 > # Add observation ID
 > idat <- idat[order(idat$pmid, idat$int), ]
@@ -112,6 +183,8 @@ NULL
 > # First plot-level data
 > # Rename some old columns
 > names(pdat.old)[names(pdat.old) %in% c('first.row. .... [TRUNCATED] 
+
+> names(pdat.old)[names(pdat.old) == 'row.in.file'] <- 'row.in.file.plot'
 
 > names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
 
@@ -158,7 +231,9 @@ NULL
 > # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
 
 > # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
-> names(idat.comb)[names(idat.comb) %in% c(' .... [TRUNCATED] 
+> nn <- c('soil.temp.z', 'air.temp.z', 'wind .... [TRUNCATED] 
+
+> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
 
 > # Round 
 > idat.comb <- rounddf(idat.comb, 5, func = signif)
@@ -167,6 +242,18 @@ NULL
 > ## Columns missing in new data
 > #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
 > ## Columns missing in .... [TRUNCATED] 
+
+> knit('check_final.Rmd', output = '../../logs/03/check_final.md')
+  |                                                                              |                                                                      |   0%  |                                                                              |.......................                                               |  33%
+   inline R code fragments
+
+  |                                                                              |...............................................                       |  67%
+label: unnamed-chunk-1
+  |                                                                              |......................................................................| 100%
+  ordinary text without R code
+
+
+[1] "../../logs/03/check_final.md"
 
 > # Write regular csv files
 > write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
