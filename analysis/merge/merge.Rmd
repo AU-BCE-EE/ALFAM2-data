@@ -1,0 +1,36 @@
+---
+title: 'Example load and merge of ALFAM2 dataset'
+output: pdf_document
+author: Sasha D. Hafner
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+# Load
+
+```{r}
+idat <- data.table::fread('../../data-output/03/ALFAM2_interval.csv.gz')
+pdat <- data.table::fread('../../data-output/03/ALFAM2_plot.csv.gz')
+```
+
+# Merge
+
+```{r}
+cdat <- merge(idat, pdat, by = c('pid', 'pmid'))
+```
+
+# Check
+
+```{r}
+dim(pdat)
+dim(idat)
+dim(cdat)
+```
+
+```{r}
+length(unique(idat$pmid))
+length(unique(cdat$pmid))
+```
+
+
+
+
