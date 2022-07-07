@@ -10,7 +10,7 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.0' # September 2021
+version <- '2.1' # 7 July 2022
 
 source('packages.R')
 
