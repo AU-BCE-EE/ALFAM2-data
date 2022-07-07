@@ -1,15 +1,13 @@
 # Creates summary files for ALFAM database
 # S. Hafner
 
-source('../functions/ALFAM_functions.R')
-
-d <- read.csv('../data - ALFAM2 output/ALFAM2_interval.csv')
+d <- read.csv('../../data-output/02/ALFAM2_interval.csv')
 d <- fixALFAMCSV(d)
 
 ds <- summALFAM(d, normalize=FALSE)
 
 # Export means used as ref in models
-sink('../logs/ds_means.txt')
+sink('../../logs/02/ds_means.txt')
   print(dfsumm(ds))
 sink()
 
@@ -66,10 +64,10 @@ ds <- ds[, c('inst', 'eid', 'pid', 'pmid',
 ds <- rounddf(ds, 5)
 
 # Create database file
-write.csv(ds, '../data - ALFAM2 output/ALFAM2_plot.csv', row.names = FALSE)
+write.csv(ds, '../../data-output/02/ALFAM2_plot.csv', row.names = FALSE)
 
 # And a record
-sink('../logs/ALFAM_summary_record.txt', append = TRUE)
+sink('../../logs/02/ALFAM_summary_record.txt', append = TRUE)
   cat('Created ALFAM_plot.csv on ')
   print(Sys.time())
   cat('contains data from', length(unique(d$inst)), ' institutes\n')
