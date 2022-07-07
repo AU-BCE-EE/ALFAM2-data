@@ -47,5 +47,17 @@ table(up3$country)
 table(u3$country)
 ```
 
+Acidification table.
 
+```{r}
+acidtab <- table(paste(pdat$man.trt1, pdat$man.trt2, pdat$man.trt3), pdat$acid)
+acidtab <- acidtab[order(-acidtab[, 'TRUE']), ]
+acidtab
+```
+
+```{r}
+trttab <- table(pdat$treat, pdat$acid)
+trttab <- trttab[order(-trttab[, 'TRUE']), ]
+trttab
+```
 
