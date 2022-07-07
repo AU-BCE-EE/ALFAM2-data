@@ -4,20 +4,20 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2020-04-22 15:45:04 EDT"
+[1] "2022-07-07 10:51:25 EDT"
 
 > # Read in ALFAM1 data
 > cat('\nReading ALFAM1.xlsx. . .\n')
 
 Reading ALFAM1.xlsx. . .
 
-> d1 <- readALFAM1File('../../data - ALFAM1/ALFAM1.xlsx')
+> d1 <- readALFAM1File('../../data-ALFAM1/ALFAM1.xlsx')
 
 > cat('Done!\n')
 Done!
 
 > # ALFAM2 data
-> ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+> ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
 
 > d2 <- NULL
 
@@ -25,55 +25,56 @@ Done!
 +   cat('Directory ', i,'\n')
 +   f <- list.files(i, pattern = 'xls', full.names = TRUE)
 +   # Omit temporary Excel files (created  .... [TRUNCATED] 
-Directory  ../../data - submitted/01/AAFC 
-   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2000.xlsx 
-   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
-Directory  ../../data - submitted/01/ADAS-RR 
-   file  ../../data - submitted/01/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
-Directory  ../../data - submitted/01/ARDC 
-   file  ../../data - submitted/01/ARDC/Bittman ALFAM2 v5.xlsx 
-Directory  ../../data - submitted/01/AT 
-   file  ../../data - submitted/01/AT/ALFAM2_AT.xlsx 
-Directory  ../../data - submitted/01/AU 
-   file  ../../data - submitted/01/AU/ALFAM2_AU_v5.xlsx 
-Directory  ../../data - submitted/01/CAU-LU 
-   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
-   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
-Directory  ../../data - submitted/01/INH-HAFL 
-   file  ../../data - submitted/01/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
-Directory  ../../data - submitted/01/INRA 
-   file  ../../data - submitted/01/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
-   file  ../../data - submitted/01/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
-   file  ../../data - submitted/01/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
-   file  ../../data - submitted/01/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
-   file  ../../data - submitted/01/INRA/8 ALFAM_LI94_SURF v5.xlsx 
-Directory  ../../data - submitted/01/MU 
-   file  ../../data - submitted/01/MU/ALFAM2_PoValley-Italy_v7.xlsx 
-Directory  ../../data - submitted/01/NMI-WUR 
-   file  ../../data - submitted/01/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
-Directory  ../../data - submitted/01/SDU 
-   file  ../../data - submitted/01/SDU/ALFAM2_SDU_v4.xlsx 
-Directory  ../../data - submitted/01/TEAGASC 
-   file  ../../data - submitted/01/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
-Directory  ../../data - submitted/01/USDA 
-   file  ../../data - submitted/01/USDA/ALFAM2_USDA.xlsx 
-Directory  ../../data - submitted/01/WUR 
-   file  ../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
-   file  ../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
+Directory  ../../data-submitted/02/AAFC 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2000.xlsx 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
+Directory  ../../data-submitted/02/ADAS-RR 
+   file  ../../data-submitted/02/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
+Directory  ../../data-submitted/02/ARDC 
+   file  ../../data-submitted/02/ARDC/Bittman ALFAM2 v5.xlsx 
+Directory  ../../data-submitted/02/AT 
+   file  ../../data-submitted/02/AT/ALFAM2_AT.xlsx 
+Directory  ../../data-submitted/02/AU 
+   file  ../../data-submitted/02/AU/ALFAM2_AU_v5.xlsx 
+Directory  ../../data-submitted/02/CAU-LU 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
+Directory  ../../data-submitted/02/INH-HAFL 
+   file  ../../data-submitted/02/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
+Directory  ../../data-submitted/02/INRA 
+   file  ../../data-submitted/02/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
+   file  ../../data-submitted/02/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
+   file  ../../data-submitted/02/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
+   file  ../../data-submitted/02/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
+   file  ../../data-submitted/02/INRA/8 ALFAM_LI94_SURF v5.xlsx 
+Directory  ../../data-submitted/02/MU 
+   file  ../../data-submitted/02/MU/ALFAM2_PoValley-Italy_v7.xlsx 
+Directory  ../../data-submitted/02/NMI-WUR 
+   file  ../../data-submitted/02/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
+Directory  ../../data-submitted/02/SDU 
+   file  ../../data-submitted/02/SDU/ALFAM2_SDU_v4.xlsx 
+Directory  ../../data-submitted/02/TEAGASC 
+   file  ../../data-submitted/02/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
+Directory  ../../data-submitted/02/USDA 
+   file  ../../data-submitted/02/USDA/ALFAM2_USDA.xlsx 
+Directory  ../../data-submitted/02/WUR 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
 
 > cat('Done! Read', length(unique(d2$file)), ' files.\n')
 Done! Read 24  files.
 
 > # Get publication info from sheet 4 in ALFAM2 files
-> ddir <- list.dirs('../../data - submitted/01', recursive = FALSE)
+> ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
 
 > i <- ddir[1]
 
 > f
-[1] "../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx"  "../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
+[1] "../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx" 
+[2] "../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
 
 > j <- f[1]
 
@@ -83,44 +84,44 @@ Done! Read 24  files.
 +   cat('Directory ', i,'\n')
 +   f <- list.files(i, pattern = 'xls', full.names = TRUE)
 +   # Omit temporary Excel files (created  .... [TRUNCATED] 
-Directory  ../../data - submitted/01/AAFC 
-   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2000.xlsx 
-   file  ../../data - submitted/01/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
-Directory  ../../data - submitted/01/ADAS-RR 
-   file  ../../data - submitted/01/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
-Directory  ../../data - submitted/01/ARDC 
-   file  ../../data - submitted/01/ARDC/Bittman ALFAM2 v5.xlsx 
-Directory  ../../data - submitted/01/AT 
-   file  ../../data - submitted/01/AT/ALFAM2_AT.xlsx 
-Directory  ../../data - submitted/01/AU 
-   file  ../../data - submitted/01/AU/ALFAM2_AU_v5.xlsx 
-Directory  ../../data - submitted/01/CAU-LU 
-   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
-   file  ../../data - submitted/01/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
-Directory  ../../data - submitted/01/INH-HAFL 
-   file  ../../data - submitted/01/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
-Directory  ../../data - submitted/01/INRA 
-   file  ../../data - submitted/01/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
-   file  ../../data - submitted/01/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
-   file  ../../data - submitted/01/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
-   file  ../../data - submitted/01/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
-   file  ../../data - submitted/01/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
-   file  ../../data - submitted/01/INRA/8 ALFAM_LI94_SURF v5.xlsx 
-Directory  ../../data - submitted/01/MU 
-   file  ../../data - submitted/01/MU/ALFAM2_PoValley-Italy_v7.xlsx 
-Directory  ../../data - submitted/01/NMI-WUR 
-   file  ../../data - submitted/01/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
-Directory  ../../data - submitted/01/SDU 
-   file  ../../data - submitted/01/SDU/ALFAM2_SDU_v4.xlsx 
-Directory  ../../data - submitted/01/TEAGASC 
-   file  ../../data - submitted/01/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
-Directory  ../../data - submitted/01/USDA 
-   file  ../../data - submitted/01/USDA/ALFAM2_USDA.xlsx 
-Directory  ../../data - submitted/01/WUR 
-   file  ../../data - submitted/01/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
-   file  ../../data - submitted/01/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
+Directory  ../../data-submitted/02/AAFC 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2000.xlsx 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
+Directory  ../../data-submitted/02/ADAS-RR 
+   file  ../../data-submitted/02/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
+Directory  ../../data-submitted/02/ARDC 
+   file  ../../data-submitted/02/ARDC/Bittman ALFAM2 v5.xlsx 
+Directory  ../../data-submitted/02/AT 
+   file  ../../data-submitted/02/AT/ALFAM2_AT.xlsx 
+Directory  ../../data-submitted/02/AU 
+   file  ../../data-submitted/02/AU/ALFAM2_AU_v5.xlsx 
+Directory  ../../data-submitted/02/CAU-LU 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
+Directory  ../../data-submitted/02/INH-HAFL 
+   file  ../../data-submitted/02/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
+Directory  ../../data-submitted/02/INRA 
+   file  ../../data-submitted/02/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
+   file  ../../data-submitted/02/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
+   file  ../../data-submitted/02/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
+   file  ../../data-submitted/02/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
+   file  ../../data-submitted/02/INRA/8 ALFAM_LI94_SURF v5.xlsx 
+Directory  ../../data-submitted/02/MU 
+   file  ../../data-submitted/02/MU/ALFAM2_PoValley-Italy_v7.xlsx 
+Directory  ../../data-submitted/02/NMI-WUR 
+   file  ../../data-submitted/02/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
+Directory  ../../data-submitted/02/SDU 
+   file  ../../data-submitted/02/SDU/ALFAM2_SDU_v4.xlsx 
+Directory  ../../data-submitted/02/TEAGASC 
+   file  ../../data-submitted/02/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
+Directory  ../../data-submitted/02/USDA 
+   file  ../../data-submitted/02/USDA/ALFAM2_USDA.xlsx 
+Directory  ../../data-submitted/02/WUR 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
 
 > cat('Done! Read', length(unique(dp2$file)), ' files.\n')
 Done! Read 23  files.
@@ -133,7 +134,7 @@ Done! Read 23  files.
 > d <- rbindf(d2, d1)
 
 > # Write out part
-> write.csv(d, '../data - ALFAM2 output/ALFAM_part.csv', row.names = FALSE)
+> write.csv(d, '../../data-output/02/ALFAM_part.csv', row.names = FALSE)
 
 > ## Start here to save time when only the code below has been updated
 > #d <- read.csv('../ouput/ALFAM_part.csv', as.is = TRUE)
@@ -306,6 +307,6 @@ Done! Read 23  files.
 +   dups <- d[dupl .... [TRUNCATED] 
 
 > # Create database file for release
-> write.csv(d, '../data - ALFAM2 output/ALFAM2_interval.csv', row.names = FALSE)
+> write.csv(d, '../../data-output/02/ALFAM2_interval.csv', row.names = FALSE)
 
-> sink('../logs/ALFAM2_database.txt')
+> sink('../../logs/02/ALFAM2_database.txt')

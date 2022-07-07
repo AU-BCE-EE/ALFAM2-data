@@ -2,134 +2,231 @@
 > # Error checking in database
 > # S. Hafner
 > 
-> library(plyr)
-
-> source('../functions/ALFAM_functions.R')
-
 > # Read in data
-> d <- read.csv('../data - ALFAM2 output/ALFAM2_interval.csv')
+> d <- read.csv('../../data-output/02/ALFAM2_interval.csv')
 
 > d <- fixALFAMCSV(d)
 
-> ds <- read.csv('../data - ALFAM2 output/ALFAM2_plot.csv')
+> ds <- read.csv('../../data-output/02/ALFAM2_plot.csv')
 
 > # Summary to scan for errors
 > dfsumm(d)
 
  30907 rows and 110 columns
  30907 unique rows
-                        inst     eid     pid    pmid     oid database     proj    exper  exper2 institute country                                     file
-Class              character integer integer integer integer  integer   factor   factor integer    factor  factor                                   factor
-Minimum                  101       1       1       1       1        1            0546FA       1      AAFC      CA 1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx
-Maximum                  214     341    1895    1899   30907        2    VLAHR       Z2      54       WUR      US                   Bittman ALFAM2 v5.xlsx
-Mean                     208     259    1495    1497   15453        2 Feb_2000 G1997-26      12      IMAG      FR               ALFAM2 CAU-LU FTIR v2.xlsx
-Unique (excld. NA)        22     341    1895    1899   30907        2       46      258      54        22      12                                       25
-Missing values             0       0       0       0       0        0     2654        0   24939         0       0                                        0
-Sorted                  TRUE    TRUE    TRUE    TRUE    TRUE     TRUE    FALSE    FALSE   FALSE     FALSE   FALSE                                    FALSE
-                   row.in.file pub.id
-Class                  integer factor
-Minimum                      8       
-Maximum                   5975    N/A
-Mean                       896      2
-Unique (excld. NA)        5968      9
-Missing values               0   5487
-Sorted                   FALSE  FALSE
+                        inst     eid     pid    pmid     oid database
+Class              character integer integer integer integer  integer
+Minimum                  101       1       1       1       1        1
+Maximum                  214     341    1895    1899   30907        2
+Mean                     208     259    1495    1497   15453        2
+Unique (excld. NA)        22     341    1895    1899   30907        2
+Missing values             0       0       0       0       0        0
+Sorted                  TRUE    TRUE    TRUE    TRUE    TRUE     TRUE
+                               proj           exper  exper2 institute   country
+Class                     character       character integer character character
+Minimum                                      0546FA       1      AAFC        CA
+Maximum                       VLAHR              Z2      54       WUR        US
+Mean               CASDAR VOLAT'NH3 LACHAP(44)_2011      12      INRA        FR
+Unique (excld. NA)               46             258      54        22        12
+Missing values                 2654               0   24939         0         0
+Sorted                        FALSE           FALSE   FALSE     FALSE     FALSE
+                                                       file row.in.file
+Class                                             character     integer
+Minimum            1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx           8
+Maximum                              Bittman ALFAM2 v5.xlsx        5975
+Mean                                            ALFAM1.xlsx         896
+Unique (excld. NA)                                       25        5968
+Missing values                                            0           0
+Sorted                                                FALSE       FALSE
+                      pub.id
+Class              character
+Minimum                     
+Maximum                  N/A
+Mean                       1
+Unique (excld. NA)         9
+Missing values          5487
+Sorted                 FALSE
                                                                                                                                                                                                                                                                                                                                       pub.info
-Class                                                                                                                                                                                                                                                                                                                                   factor
+Class                                                                                                                                                                                                                                                                                                                                character
 Minimum            Bhandral, R., Bittman, S., Kowalenko, C.G., Buckley, K.E., Chantigny, M.H., Hunt, D.E., Bounaix, F., and Friesen, A.J. (2009). "Enhancing soil infiltration reduces gaseous emissions and improves N uptake from applied dairy slurry.", Journal of Environmental Quality, 38(4), pp. 1372-1382. doi : 10.2134/jeq2008.0287
 Maximum                                                                              Wagner, C., Hafner, S., Nyord, T., Pacholski, A. 2015. Impact of field acidification and application methods on ammonia emissions, yield and nitrogen efficiency of organic liquid manures. Paper presented at 2015 RAMIRAN conference, Hamburg, Germany.
-Mean                                                                                                                                                 Génermont, S., Cellier, P., Flura, D., Morvan, T., Laville, P., 1998. Measuring ammonia fluxes after slurry spreading under actual field conditions. Atmospheric Environment 32, 279-284.
+Mean                               Cohan J.P., Charpiot A., Morvan T., Eveillard P., Trochard R., Champolivier L., De C., E., Espagnol S., Génermont S., Loubet B., 2012. A new approach for measuring ammonia volatilization in the field: First results of the French research project “VOLAT’NH3”. In: 17th N Workshop 2012, 2 p. (poster).
 Unique (excld. NA)                                                                                                                                                                                                                                                                                                                          33
 Missing values                                                                                                                                                                                                                                                                                                                            7383
 Sorted                                                                                                                                                                                                                                                                                                                                   FALSE
-                       lat    long                          topo    field   plot plot.area     treat                     rep    rep2 interval
-Class              numeric numeric                        factor   factor factor   numeric    factor                  factor integer  integer
-Minimum                 39    -122 Field flat, surrounding hilly                      0.85         0                       0       1        0
-Maximum               56.8    10.9                slightly hilly    Wengi  T3-B2     43200   zodebem large neighbouring plot       7     1440
-Mean                  48.9   -14.1                          Flat FLd13_14      3      6670 ES CS0910                       4       1       14
-Unique (excld. NA)      37      39                             6       35    261        97       161                      17       7     1441
-Missing values        7256    7256                         19272     8365   3322      5986         0                    6376   24939        0
-Sorted               FALSE   FALSE                         FALSE    FALSE  FALSE     FALSE     FALSE                   FALSE   FALSE    FALSE
-                               t.start               t.end     t.start.orig       t.end.orig      dt dt.calc dt.diff      ct      mt     cta meas.tech
-Class                   POSIXct POSIXt      POSIXct POSIXt           factor           factor numeric numeric numeric numeric numeric numeric    factor
-Minimum            1990-06-12 05:30:00 1990-06-12 06:08:00 00-01-1900 00:00 00-01-1900 00:00    0.15   -1400   -16.7    0.15   0.075     -65       agm
-Maximum            2014-05-03 05:56:00 2014-05-03 11:14:00     9/7/08 11:09     9/7/08 11:09     169     169    1420     508     508    1420     zinst
-Mean               2005-10-16 07:15:43 2005-10-16 14:33:04 17-03-2012 17:00 17-03-2012 14:30    7.62    5.92    0.19     107     103     128        ec
-Unique (excld. NA)               11881               11781             9470             9414    1756    1318     391    5298    7225    4527        10
-Missing values                    3854                3854             8757             8757       0    8761    8761       0       0   11927         0
-Sorted                           FALSE               FALSE            FALSE            FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
-                   meas.tech2   meas.tech.orig   bg.dl  bg.val    bg.unit   j.NH3   j.rel   e.int   e.cum   e.rel    clay    silt    sand      oc
-Class                  factor           factor logical numeric     factor numeric numeric numeric numeric numeric numeric numeric numeric numeric
-Minimum               chamber              AGM    <NA>       0              -2.71 -0.0132   -35.1   -12.2  -0.116     2.4     2.4       7     0.9
-Maximum                    wt ZINST/bLS/opFTIR    <NA> 4810000      ug/m3    53.3    1.19     322     655    6.86    61.5    71.3    92.3    13.7
-Mean                micro met  Eddy Covariance    <NA>   10400 ug NH3 /m3    0.48 0.00853    1.46    15.4    0.22    20.8    42.6    35.2    2.41
-Unique (excld. NA)          4               14       0     571          9   11797   18373   17111   23851   23134      62      58      58      77
-Missing values              0                0   30907   16088      13779      55    2873      55     230    3048    5032    5118    5118    9057
-Sorted                  FALSE            FALSE    TRUE   FALSE      FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
-                         soil.type soil.type2 soil.water soil.moist soil.ph soil.dens crop.res   till air.temp air.temp.z soil.temp soil.temp.z     rad
-Class                       factor     factor    numeric     factor numeric   numeric   factor factor  numeric    numeric   numeric     numeric numeric
-Minimum                       clay       clay      0.005        dry    4.86       0.8              No    -5.67          0      -0.1           0   -27.8
-Maximum            silty.clay.loam       sand          1 wet frozen    9.02      1.55      Yes    Yes     37.8         10      44.3        0.15    1040
-Mean                    sandy loam       loam      0.263        wet    6.52      1.29       No     No     13.5        1.5      13.5        0.03     219
-Unique (excld. NA)              14          4        724          3     167        38        3      2     2842         15      1822           9    6095
-Missing values                   0          0      18576      19270    8100      8552     9482      0     1330       2429     16065       16699    5433
-Sorted                       FALSE      FALSE      FALSE      FALSE   FALSE     FALSE    FALSE  FALSE    FALSE      FALSE     FALSE       FALSE   FALSE
-                      wind  wind.z wind.2m        wind.loc    rain rain.rate rain.cum      rh far.loc man.source              man.source.orig man.bed man.con
-Class              numeric numeric numeric          factor numeric   numeric  numeric numeric  factor     factor                       factor  factor  factor
-Minimum                  0     0.2       0                       0         0        0      16       0        cat                 Breeding Pig          liquid
-Maximum               27.8      10    28.4            Plot      80      71.2     89.8     109   Field     sludge silage maize + cattle slurry   Straw   solid
-Mean                  2.27    1.62     2.6 Nearest station   0.306    0.0662     5.48    74.5   15780       mink                Fattening Pig Sawdust  slurry
-Unique (excld. NA)    2906      25    5522               6     139       911      291    1815      14          9                           16       4       3
-Missing values         286     335     348            6338    5087      5087     5099    8141   11644          0                            0   13832    8326
-Sorted               FALSE   FALSE   FALSE           FALSE   FALSE     FALSE    FALSE   FALSE   FALSE      FALSE                        FALSE   FALSE   FALSE
-                           man.trt1 man.trt2 man.stor  man.dm man.tkn man.tan    acid man.tic  man.ua  man.ph man.freeNH3 man.eq.gasNH3 date.start
-Class                        factor   factor  integer numeric numeric numeric logical numeric integer numeric     numeric       numeric     factor
-Minimum                                             0    0.55    0.18    0.07   FALSE    0.31       0     3.2    2.48e-07      6.88e-08 1990-06-12
-Maximum                     Surface     None      180    62.2    31.9    11.8    TRUE    3.81       0    9.22        1.32         0.899 2014-05-01
-Mean               Low protein diet     none      180    5.35    3.42     1.9   FALSE    1.63       0    7.48      0.0288        0.0137 2005-07-26
-Unique (excld. NA)               16        6       42     422     332     300       2      43       1     182       10101         10152        261
-Missing values                    0        0    26410    2818    4243    2818       0   27993   30555    6910        8223          8223       4150
-Sorted                        FALSE    FALSE    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    TRUE   FALSE       FALSE         FALSE      FALSE
-                             app.start   app.start.orig app.method app.method2 app.method.orig app.rate tan.app  incorp incorp.orig time.incorp man.area
-Class                   POSIXct POSIXt           factor     factor      factor          factor  numeric numeric  factor      factor     numeric  integer
-Minimum            1990-06-12 05:30:00                          bc        band                      6.6    2.45    deep        Deep           0        0
-Maximum            2014-05-01 06:59:00             9:58         ts          os   Trailing shoe      315     602 shallow     Shallow          48      100
-Mean               2007-04-27 11:35:57 13-04-2010 12:40        bss          bc    Broad spread       54    83.5    none        None        10.2      100
-Unique (excld. NA)                 648              751          7           4              10      403     844       3           6          13       13
-Missing values                   10344             6418       2818        3618               0     2818    2818       0           0       25603    20200
-Sorted                           FALSE            FALSE      FALSE       FALSE           FALSE    FALSE   FALSE   FALSE       FALSE       FALSE    FALSE
-                   dist.inj furrow.z furrow.w      crop    crop.orig  crop.z crop.area     lai
-Class               integer   factor   factor    factor       factor numeric   integer numeric
-Minimum                  19                   bare soil                    0         0       0
-Maximum                 120        8        5   stubble Winter Wheat    76.5       100     4.7
-Mean                     19        2      0-5    cereal        grass    5.21         0   0.376
-Unique (excld. NA)        5       20        9         6           14     137         9      13
-Missing values        29294    25745    28919       676            0    3474     16136   28214
-Sorted                FALSE    FALSE    FALSE     FALSE        FALSE   FALSE     FALSE   FALSE
-                                                                                                                                                                                                 notes
-Class                                                                                                                                                                                           factor
-Minimum                                                                                                                                                                                               
-Maximum                                                                                                                                 Winter wheat at the beginning of flag leaf emergence. Control.
-Mean               AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Average of nearest datapoints.
-Unique (excld. NA)                                                                                                                                                                                  96
-Missing values                                                                                                                                                                                       0
-Sorted                                                                                                                                                                                           FALSE
-                     flag
-Class              factor
-Minimum                  
-Maximum                 m
-Mean                     
-Unique (excld. NA)      5
-Missing values          0
-Sorted              FALSE
+                       lat    long                          topo     field
+Class              numeric numeric                     character character
+Minimum                 39    -122 Field flat, surrounding hilly          
+Maximum               56.8    10.9                slightly hilly     Wengi
+Mean                  48.9   -14.1                          Flat    FR-GRI
+Unique (excld. NA)      37      39                             6        35
+Missing values        7256    7256                         19272      8365
+Sorted               FALSE   FALSE                         FALSE     FALSE
+                        plot plot.area      treat                     rep
+Class              character   numeric  character               character
+Minimum                           0.85          0                       0
+Maximum                T3-B2     43200    zodebem large neighbouring plot
+Mean                       4      6670 floculated                       2
+Unique (excld. NA)       261        97        161                      17
+Missing values          3322      5986          0                    6376
+Sorted                 FALSE     FALSE      FALSE                   FALSE
+                      rep2 interval             t.start               t.end
+Class              integer  integer      POSIXct POSIXt      POSIXct POSIXt
+Minimum                  1        0 1990-06-12 09:30:00 1990-06-12 10:08:00
+Maximum                  7     1440 2014-05-03 09:56:00 2014-05-03 15:14:00
+Mean                     1       14 2005-10-16 11:15:43 2005-10-16 18:33:04
+Unique (excld. NA)       7     1441               11881               11781
+Missing values       24939        0                3854                3854
+Sorted               FALSE    FALSE               FALSE               FALSE
+                       t.start.orig       t.end.orig      dt dt.calc dt.diff
+Class                     character        character numeric numeric numeric
+Minimum            00-01-1900 00:00 00-01-1900 00:00    0.15   -1400   -16.7
+Maximum                9/7/08 11:09     9/7/08 11:09     169     169    1420
+Mean               16-06-2010 12:45 16-08-2001 12:00    7.62    5.92    0.19
+Unique (excld. NA)             9470             9414    1756    1318     390
+Missing values                 8757             8757       0    8761    8761
+Sorted                        FALSE            FALSE   FALSE   FALSE   FALSE
+                        ct      mt     cta meas.tech meas.tech2
+Class              numeric numeric numeric character  character
+Minimum               0.15   0.075     -65       agm    chamber
+Maximum                508     508    1420     zinst         wt
+Mean                   107     103     128       cps  micro met
+Unique (excld. NA)    5298    7225    4527        10          4
+Missing values           0       0   11927         0          0
+Sorted               FALSE   FALSE   FALSE     FALSE      FALSE
+                     meas.tech.orig   bg.dl  bg.val   bg.unit   j.NH3   j.rel
+Class                     character logical numeric character numeric numeric
+Minimum                         AGM    <NA>       0             -2.71 -0.0132
+Maximum            ZINST/bLS/opFTIR    <NA> 4810000     ug/m3    53.3    1.19
+Mean                Dynamic chamber    <NA>   10400     ug/m3    0.48 0.00853
+Unique (excld. NA)               14       0     571         9   11797   18373
+Missing values                    0   30907   16088     13779      55    2873
+Sorted                        FALSE    TRUE   FALSE     FALSE   FALSE   FALSE
+                     e.int   e.cum   e.rel    clay    silt    sand      oc
+Class              numeric numeric numeric numeric numeric numeric numeric
+Minimum              -35.1   -12.2  -0.116     2.4     2.4       7     0.9
+Maximum                322     655    6.86    61.5    71.3    92.3    13.7
+Mean                  1.46    15.4    0.22    20.8    42.6    35.2    2.41
+Unique (excld. NA)   17111   23851   23134      62      58      58      77
+Missing values          55     230    3048    5032    5118    5118    9057
+Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                         soil.type soil.type2 soil.water soil.moist soil.ph
+Class                    character  character    numeric  character numeric
+Minimum                       clay       clay      0.005        dry    4.86
+Maximum            silty.clay.loam       sand          1 wet frozen    9.02
+Mean                    sandy.loam       loam      0.263        wet    6.52
+Unique (excld. NA)              14          4        724          3     167
+Missing values                   0          0      18576      19270    8100
+Sorted                       FALSE      FALSE      FALSE      FALSE   FALSE
+                   soil.dens  crop.res      till air.temp air.temp.z soil.temp
+Class                numeric character character  numeric    numeric   numeric
+Minimum                  0.8                  No    -5.67          0      -0.1
+Maximum                 1.55       Yes       Yes     37.8         10      44.3
+Mean                    1.29        No        No     13.5        1.5      13.5
+Unique (excld. NA)        38         3         2     2842         15      1822
+Missing values          8552      9482         0     1330       2429     16065
+Sorted                 FALSE     FALSE     FALSE    FALSE      FALSE     FALSE
+                   soil.temp.z     rad    wind  wind.z wind.2m  wind.loc
+Class                  numeric numeric numeric numeric numeric character
+Minimum                      0   -27.8       0     0.2       0          
+Maximum                   0.15    1040    27.8      10    28.4      Plot
+Mean                      0.03     219    2.27    1.62     2.6     Field
+Unique (excld. NA)           9    6095    2906      25    5522         6
+Missing values           16699    5433     286     335     348      6338
+Sorted                   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
+                      rain rain.rate rain.cum      rh   far.loc man.source
+Class              numeric   numeric  numeric numeric character  character
+Minimum                  0         0        0      16         0        cat
+Maximum                 80      71.2     89.8     109     Field     sludge
+Mean                 0.306    0.0662     5.48    74.5         0        cat
+Unique (excld. NA)     139       911      291    1815        14          9
+Missing values        5087      5087     5099    8141     11644          0
+Sorted               FALSE     FALSE    FALSE   FALSE     FALSE      FALSE
+                                man.source.orig   man.bed   man.con  man.trt1
+Class                                 character character character character
+Minimum                            Breeding Pig              liquid          
+Maximum            silage maize + cattle slurry     Straw     solid   Surface
+Mean                                     Cattle   Sawdust    slurry      None
+Unique (excld. NA)                           16         4         3        16
+Missing values                                0     13832      8326         0
+Sorted                                    FALSE     FALSE     FALSE     FALSE
+                    man.trt2 man.stor  man.dm man.tkn man.tan    acid man.tic
+Class              character  integer numeric numeric numeric logical numeric
+Minimum                             0    0.55    0.18    0.07   FALSE    0.31
+Maximum                 None      180    62.2    31.9    11.8    TRUE    3.81
+Mean                    none      180    5.35    3.42     1.9   FALSE    1.63
+Unique (excld. NA)         6       42     422     332     300       2      43
+Missing values             0    26410    2818    4243    2818       0   27993
+Sorted                 FALSE    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                    man.ua  man.ph man.freeNH3 man.eq.gasNH3 date.start
+Class              integer numeric     numeric       numeric  character
+Minimum                  0     3.2    2.48e-07      6.88e-08 1990-06-12
+Maximum                  0    9.22        1.32         0.899 2014-05-01
+Mean                     0    7.48      0.0288        0.0137 2009-08-05
+Unique (excld. NA)       1     182       10101         10152        261
+Missing values       30555    6910        8223          8223       4150
+Sorted                TRUE   FALSE       FALSE         FALSE      FALSE
+                             app.start   app.start.orig app.method app.method2
+Class                   POSIXct POSIXt        character  character   character
+Minimum            1990-06-12 09:30:00                          bc        band
+Maximum            2014-05-01 10:59:00             9:58         ts          os
+Mean               2007-04-27 15:35:57 16-03-1994 08:30         bc          bc
+Unique (excld. NA)                 648              751          7           4
+Missing values                   10344             6418       2818        3618
+Sorted                           FALSE            FALSE      FALSE       FALSE
+                   app.method.orig app.rate tan.app    incorp incorp.orig
+Class                    character  numeric numeric character   character
+Minimum                                 6.6    2.45      deep        Deep
+Maximum              Trailing shoe      315     602   shallow     Shallow
+Mean                     Broadcast       54    83.5      none        None
+Unique (excld. NA)              10      403     844         3           6
+Missing values                   0     2818    2818         0           0
+Sorted                       FALSE    FALSE   FALSE     FALSE       FALSE
+                   time.incorp man.area dist.inj  furrow.z  furrow.w      crop
+Class                  numeric  integer  integer character character character
+Minimum                      0        0       19                     bare soil
+Maximum                     48      100      120         8         5   stubble
+Mean                      10.2      100       19        10       0-5    cereal
+Unique (excld. NA)          13       13        5        20         9         6
+Missing values           25603    20200    29294     25745     28919       676
+Sorted                   FALSE    FALSE    FALSE     FALSE     FALSE     FALSE
+                      crop.orig  crop.z crop.area     lai
+Class                 character numeric   integer numeric
+Minimum                               0         0       0
+Maximum            Winter Wheat    76.5       100     4.7
+Mean                      Grass    5.21         0   0.376
+Unique (excld. NA)           14     137         9      13
+Missing values                0    3474     16136   28214
+Sorted                    FALSE   FALSE     FALSE   FALSE
+                                                                            notes
+Class                                                                   character
+Minimum                                                                          
+Maximum            Winter wheat at the beginning of flag leaf emergence. Control.
+Mean                                                                             
+Unique (excld. NA)                                                             96
+Missing values                                                                  0
+Sorted                                                                      FALSE
+                        flag
+Class              character
+Minimum                     
+Maximum                    m
+Mean                        
+Unique (excld. NA)         5
+Missing values             0
+Sorted                 FALSE
 
 > # Missing incorporation times
 > table(ds$incorp, ds$time.incorp, exclude = NULL)
          
-             0 0.083333 0.25 2.35 2.3667 2.3833  2.5 2.5167    4    6   24   30   48 <NA>
-  deep       2        3    0    0      0      0    0      0    0    0    2    0    0    0
-  none      71        0    0    0      0      0    0      0    0    0    0    0    0 1764
-  shallow   13       26    2    1      1      1    4      1    1    1    3    2    1    0
+             0 0.083333 0.25 2.35 2.3667 2.3833  2.5 2.5167    4    6   24   30
+  deep       2        3    0    0      0      0    0      0    0    0    2    0
+  none      71        0    0    0      0      0    0      0    0    0    0    0
+  shallow   13       26    2    1      1      1    4      1    1    1    3    2
+         
+            48 <NA>
+  deep       0    0
+  none       0 1764
+  shallow    1    0
 
 > x <- subset(ds, incorp %in% c('deep', 'shallow') & is.na(time.incorp))
 
@@ -1485,12 +1582,15 @@ character(0)
 > # Measurement techniques
 > # There should be zero NAs!
 > as.character(unique(d$meas .... [TRUNCATED] 
- [1] "wt"        "micro met" "chamber"   "ihf"       "zinst"     "cps"       "bls"       "agm"       "fides"     "ec"       
+ [1] "wt"        "micro met" "chamber"   "ihf"       "zinst"     "cps"      
+ [7] "bls"       "agm"       "fides"     "ec"       
 
 > table(d$meas.tech, exclude = NULL)
 
-      agm       bls   chamber       cps        ec     fides       ihf micro met        wt     zinst 
-    10345      3335       393      2316       505       401      4250       196      8026      1140 
+      agm       bls   chamber       cps        ec     fides       ihf micro met 
+    10345      3335       393      2316       505       401      4250       196 
+       wt     zinst 
+     8026      1140 
 
 > sum(is.na(d$meas.tech))
 [1] 0
@@ -1507,262 +1607,774 @@ character(0)
 [1] 255 110
 
 > x[,c('file','row.in.file', 't.start', 't.end', 'app.start', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
-                               file row.in.file             t.start               t.end           app.start       ct     field plot tan.app       j.NH3
-25868 ALFAM2_PoValley-Italy_v7.xlsx          10 2009-09-23 14:00:00 2009-09-23 15:00:00 2009-09-24 08:00:00  1.00000 Bigarello    1 137.000  7.5108e-03
-25869 ALFAM2_PoValley-Italy_v7.xlsx          11 2009-09-23 15:00:00 2009-09-23 16:00:00 2009-09-24 08:00:00  2.00000 Bigarello    1 137.000  4.9479e-03
-25870 ALFAM2_PoValley-Italy_v7.xlsx          12 2009-09-23 16:00:00 2009-09-23 17:00:00 2009-09-24 08:00:00  3.00000 Bigarello    1 137.000  3.6402e-03
-25871 ALFAM2_PoValley-Italy_v7.xlsx          13 2009-09-23 17:00:00 2009-09-23 18:00:00 2009-09-24 08:00:00  4.00000 Bigarello    1 137.000  2.5000e-03
-25872 ALFAM2_PoValley-Italy_v7.xlsx          14 2009-09-23 18:00:00 2009-09-23 19:00:00 2009-09-24 08:00:00  5.00000 Bigarello    1 137.000  8.0061e-04
-25873 ALFAM2_PoValley-Italy_v7.xlsx          15 2009-09-23 19:00:00 2009-09-23 20:00:00 2009-09-24 08:00:00  6.00000 Bigarello    1 137.000  1.1308e-02
-25874 ALFAM2_PoValley-Italy_v7.xlsx          16 2009-09-23 20:00:00 2009-09-23 21:00:00 2009-09-24 08:00:00  7.00000 Bigarello    1 137.000  3.5944e-03
-25875 ALFAM2_PoValley-Italy_v7.xlsx          17 2009-09-23 21:00:00 2009-09-23 22:00:00 2009-09-24 08:00:00  8.00000 Bigarello    1 137.000  1.1702e-02
-25876 ALFAM2_PoValley-Italy_v7.xlsx          18 2009-09-23 22:00:00 2009-09-23 23:00:00 2009-09-24 08:00:00  9.00000 Bigarello    1 137.000  1.1788e-02
-25877 ALFAM2_PoValley-Italy_v7.xlsx          19 2009-09-23 23:00:00 2009-09-24 00:00:00 2009-09-24 08:00:00 10.00000 Bigarello    1 137.000  1.1873e-02
-25878 ALFAM2_PoValley-Italy_v7.xlsx          20 2009-09-24 00:00:00 2009-09-24 01:00:00 2009-09-24 08:00:00 11.00000 Bigarello    1 137.000  1.1959e-02
-25879 ALFAM2_PoValley-Italy_v7.xlsx          21 2009-09-24 01:00:00 2009-09-24 02:00:00 2009-09-24 08:00:00 12.00000 Bigarello    1 137.000  1.1317e-02
-25880 ALFAM2_PoValley-Italy_v7.xlsx          22 2009-09-24 02:00:00 2009-09-24 03:00:00 2009-09-24 08:00:00 13.00000 Bigarello    1 137.000  1.3264e-02
-25881 ALFAM2_PoValley-Italy_v7.xlsx          23 2009-09-24 03:00:00 2009-09-24 04:00:00 2009-09-24 08:00:00 14.00000 Bigarello    1 137.000  2.3021e-03
-25882 ALFAM2_PoValley-Italy_v7.xlsx          24 2009-09-24 04:00:00 2009-09-24 05:00:00 2009-09-24 08:00:00 15.00000 Bigarello    1 137.000  5.4256e-03
-25883 ALFAM2_PoValley-Italy_v7.xlsx          25 2009-09-24 05:00:00 2009-09-24 06:00:00 2009-09-24 08:00:00 16.00000 Bigarello    1 137.000  3.1451e-03
-25884 ALFAM2_PoValley-Italy_v7.xlsx          26 2009-09-24 06:00:00 2009-09-24 07:00:00 2009-09-24 08:00:00 17.00000 Bigarello    1 137.000  8.6638e-03
-25885 ALFAM2_PoValley-Italy_v7.xlsx          27 2009-09-24 07:00:00 2009-09-24 08:00:00 2009-09-24 08:00:00 18.00000 Bigarello    1 137.000  4.1266e-02
-26497 ALFAM2_PoValley-Italy_v7.xlsx         195 2010-03-14 14:00:00 2010-03-14 15:00:00 2010-03-17 08:00:00  1.00000 Cornaredo    1  91.800 -5.0171e-03
-26498 ALFAM2_PoValley-Italy_v7.xlsx         196 2010-03-14 15:00:00 2010-03-14 16:00:00 2010-03-17 08:00:00  2.00000 Cornaredo    1  91.800 -4.8992e-03
-26499 ALFAM2_PoValley-Italy_v7.xlsx         197 2010-03-14 16:00:00 2010-03-14 17:00:00 2010-03-17 08:00:00  3.00000 Cornaredo    1  91.800 -3.9282e-03
-26500 ALFAM2_PoValley-Italy_v7.xlsx         198 2010-03-14 17:00:00 2010-03-14 18:00:00 2010-03-17 08:00:00  4.00000 Cornaredo    1  91.800 -3.5306e-03
-26501 ALFAM2_PoValley-Italy_v7.xlsx         199 2010-03-14 18:00:00 2010-03-14 19:00:00 2010-03-17 08:00:00  5.00000 Cornaredo    1  91.800 -1.3286e-03
-26502 ALFAM2_PoValley-Italy_v7.xlsx         200 2010-03-14 19:00:00 2010-03-14 20:00:00 2010-03-17 08:00:00  6.00000 Cornaredo    1  91.800 -1.3529e-03
-26503 ALFAM2_PoValley-Italy_v7.xlsx         201 2010-03-14 20:00:00 2010-03-14 21:00:00 2010-03-17 08:00:00  7.00000 Cornaredo    1  91.800 -1.3773e-03
-26504 ALFAM2_PoValley-Italy_v7.xlsx         202 2010-03-14 21:00:00 2010-03-14 22:00:00 2010-03-17 08:00:00  8.00000 Cornaredo    1  91.800 -1.4016e-03
-26505 ALFAM2_PoValley-Italy_v7.xlsx         203 2010-03-14 22:00:00 2010-03-14 23:00:00 2010-03-17 08:00:00  9.00000 Cornaredo    1  91.800 -1.0183e-03
-26506 ALFAM2_PoValley-Italy_v7.xlsx         204 2010-03-14 23:00:00 2010-03-15 00:00:00 2010-03-17 08:00:00 10.00000 Cornaredo    1  91.800 -1.1057e-03
-26507 ALFAM2_PoValley-Italy_v7.xlsx         205 2010-03-15 00:00:00 2010-03-15 01:00:00 2010-03-17 08:00:00 11.00000 Cornaredo    1  91.800 -1.1931e-03
-26508 ALFAM2_PoValley-Italy_v7.xlsx         206 2010-03-15 01:00:00 2010-03-15 02:00:00 2010-03-17 08:00:00 12.00000 Cornaredo    1  91.800 -1.2668e-03
-26509 ALFAM2_PoValley-Italy_v7.xlsx         207 2010-03-15 02:00:00 2010-03-15 03:00:00 2010-03-17 08:00:00 13.00000 Cornaredo    1  91.800 -6.1685e-04
-26510 ALFAM2_PoValley-Italy_v7.xlsx         208 2010-03-15 03:00:00 2010-03-15 04:00:00 2010-03-17 08:00:00 14.00000 Cornaredo    1  91.800 -9.2066e-04
-26511 ALFAM2_PoValley-Italy_v7.xlsx         209 2010-03-15 04:00:00 2010-03-15 05:00:00 2010-03-17 08:00:00 15.00000 Cornaredo    1  91.800 -8.0013e-04
-26512 ALFAM2_PoValley-Italy_v7.xlsx         210 2010-03-15 05:00:00 2010-03-15 06:00:00 2010-03-17 08:00:00 16.00000 Cornaredo    1  91.800 -7.9026e-04
-26513 ALFAM2_PoValley-Italy_v7.xlsx         211 2010-03-15 06:00:00 2010-03-15 07:00:00 2010-03-17 08:00:00 17.00000 Cornaredo    1  91.800 -1.6659e-03
-26514 ALFAM2_PoValley-Italy_v7.xlsx         212 2010-03-15 07:00:00 2010-03-15 08:00:00 2010-03-17 08:00:00 18.00000 Cornaredo    1  91.800 -1.3862e-03
-26515 ALFAM2_PoValley-Italy_v7.xlsx         213 2010-03-15 08:00:00 2010-03-15 09:00:00 2010-03-17 08:00:00 19.00000 Cornaredo    1  91.800 -3.9818e-03
-26516 ALFAM2_PoValley-Italy_v7.xlsx         214 2010-03-15 09:00:00 2010-03-15 10:00:00 2010-03-17 08:00:00 20.00000 Cornaredo    1  91.800 -3.5286e-03
-26517 ALFAM2_PoValley-Italy_v7.xlsx         215 2010-03-15 10:00:00 2010-03-15 11:00:00 2010-03-17 08:00:00 21.00000 Cornaredo    1  91.800 -4.2072e-03
-26518 ALFAM2_PoValley-Italy_v7.xlsx         216 2010-03-15 11:00:00 2010-03-15 12:00:00 2010-03-17 08:00:00 22.00000 Cornaredo    1  91.800 -1.3221e-02
-26519 ALFAM2_PoValley-Italy_v7.xlsx         217 2010-03-15 12:00:00 2010-03-15 13:00:00 2010-03-17 08:00:00 23.00000 Cornaredo    1  91.800 -6.8537e-03
-26520 ALFAM2_PoValley-Italy_v7.xlsx         218 2010-03-15 13:00:00 2010-03-15 14:00:00 2010-03-17 08:00:00 24.00000 Cornaredo    1  91.800 -7.2342e-03
-26521 ALFAM2_PoValley-Italy_v7.xlsx         219 2010-03-15 14:00:00 2010-03-15 15:00:00 2010-03-17 08:00:00 25.00000 Cornaredo    1  91.800 -7.5798e-03
-26522 ALFAM2_PoValley-Italy_v7.xlsx         220 2010-03-15 15:00:00 2010-03-15 16:00:00 2010-03-17 08:00:00 26.00000 Cornaredo    1  91.800 -7.5641e-03
-26523 ALFAM2_PoValley-Italy_v7.xlsx         221 2010-03-15 16:00:00 2010-03-15 17:00:00 2010-03-17 08:00:00 27.00000 Cornaredo    1  91.800 -7.6114e-03
-26524 ALFAM2_PoValley-Italy_v7.xlsx         222 2010-03-15 17:00:00 2010-03-15 18:00:00 2010-03-17 08:00:00 28.00000 Cornaredo    1  91.800 -7.4407e-03
-26525 ALFAM2_PoValley-Italy_v7.xlsx         223 2010-03-15 18:00:00 2010-03-15 19:00:00 2010-03-17 08:00:00 29.00000 Cornaredo    1  91.800 -6.8926e-03
-26526 ALFAM2_PoValley-Italy_v7.xlsx         224 2010-03-15 19:00:00 2010-03-15 20:00:00 2010-03-17 08:00:00 30.00000 Cornaredo    1  91.800 -4.8822e-03
-26527 ALFAM2_PoValley-Italy_v7.xlsx         225 2010-03-15 20:00:00 2010-03-15 21:00:00 2010-03-17 08:00:00 31.00000 Cornaredo    1  91.800 -4.8887e-03
-26528 ALFAM2_PoValley-Italy_v7.xlsx         226 2010-03-15 21:00:00 2010-03-15 22:00:00 2010-03-17 08:00:00 32.00000 Cornaredo    1  91.800 -4.0526e-03
-26529 ALFAM2_PoValley-Italy_v7.xlsx         227 2010-03-15 22:00:00 2010-03-15 23:00:00 2010-03-17 08:00:00 33.00000 Cornaredo    1  91.800 -4.1874e-03
-26530 ALFAM2_PoValley-Italy_v7.xlsx         228 2010-03-15 23:00:00 2010-03-16 00:00:00 2010-03-17 08:00:00 34.00000 Cornaredo    1  91.800 -3.7719e-03
-26531 ALFAM2_PoValley-Italy_v7.xlsx         229 2010-03-16 00:00:00 2010-03-16 01:00:00 2010-03-17 08:00:00 35.00000 Cornaredo    1  91.800 -5.3394e-03
-26532 ALFAM2_PoValley-Italy_v7.xlsx         230 2010-03-16 01:00:00 2010-03-16 02:00:00 2010-03-17 08:00:00 36.00000 Cornaredo    1  91.800 -6.6679e-04
-26533 ALFAM2_PoValley-Italy_v7.xlsx         231 2010-03-16 02:00:00 2010-03-16 03:00:00 2010-03-17 08:00:00 37.00000 Cornaredo    1  91.800 -1.7957e-02
-26534 ALFAM2_PoValley-Italy_v7.xlsx         232 2010-03-16 03:00:00 2010-03-16 04:00:00 2010-03-17 08:00:00 38.00000 Cornaredo    1  91.800 -1.5297e-03
-26535 ALFAM2_PoValley-Italy_v7.xlsx         233 2010-03-16 04:00:00 2010-03-16 05:00:00 2010-03-17 08:00:00 39.00000 Cornaredo    1  91.800 -1.2045e-03
-26536 ALFAM2_PoValley-Italy_v7.xlsx         234 2010-03-16 05:00:00 2010-03-16 06:00:00 2010-03-17 08:00:00 40.00000 Cornaredo    1  91.800 -7.0937e-04
-26537 ALFAM2_PoValley-Italy_v7.xlsx         235 2010-03-16 06:00:00 2010-03-16 07:00:00 2010-03-17 08:00:00 41.00000 Cornaredo    1  91.800 -4.8245e-04
-26538 ALFAM2_PoValley-Italy_v7.xlsx         236 2010-03-16 07:00:00 2010-03-16 08:00:00 2010-03-17 08:00:00 42.00000 Cornaredo    1  91.800 -1.1181e-03
-26539 ALFAM2_PoValley-Italy_v7.xlsx         237 2010-03-16 08:00:00 2010-03-16 09:00:00 2010-03-17 08:00:00 43.00000 Cornaredo    1  91.800 -7.4371e-04
-26540 ALFAM2_PoValley-Italy_v7.xlsx         238 2010-03-16 09:00:00 2010-03-16 10:00:00 2010-03-17 08:00:00 44.00000 Cornaredo    1  91.800 -2.5315e-03
-26541 ALFAM2_PoValley-Italy_v7.xlsx         239 2010-03-16 10:00:00 2010-03-16 11:00:00 2010-03-17 08:00:00 45.00000 Cornaredo    1  91.800 -4.4434e-03
-26542 ALFAM2_PoValley-Italy_v7.xlsx         240 2010-03-16 11:00:00 2010-03-16 12:00:00 2010-03-17 08:00:00 46.00000 Cornaredo    1  91.800 -1.2413e-04
-26543 ALFAM2_PoValley-Italy_v7.xlsx         241 2010-03-16 12:00:00 2010-03-16 13:00:00 2010-03-17 08:00:00 47.00000 Cornaredo    1  91.800 -1.1496e-04
-26544 ALFAM2_PoValley-Italy_v7.xlsx         242 2010-03-16 13:00:00 2010-03-16 14:00:00 2010-03-17 08:00:00 48.00000 Cornaredo    1  91.800 -1.1078e-04
-26545 ALFAM2_PoValley-Italy_v7.xlsx         243 2010-03-16 14:00:00 2010-03-16 15:00:00 2010-03-17 08:00:00 49.00000 Cornaredo    1  91.800 -1.0342e-04
-26546 ALFAM2_PoValley-Italy_v7.xlsx         244 2010-03-16 15:00:00 2010-03-16 16:00:00 2010-03-17 08:00:00 50.00000 Cornaredo    1  91.800 -9.4810e-05
-26547 ALFAM2_PoValley-Italy_v7.xlsx         245 2010-03-16 16:00:00 2010-03-16 17:00:00 2010-03-17 08:00:00 51.00000 Cornaredo    1  91.800 -8.1270e-05
-26548 ALFAM2_PoValley-Italy_v7.xlsx         246 2010-03-16 17:00:00 2010-03-16 18:00:00 2010-03-17 08:00:00 52.00000 Cornaredo    1  91.800 -7.7080e-05
-26549 ALFAM2_PoValley-Italy_v7.xlsx         247 2010-03-16 18:00:00 2010-03-16 19:00:00 2010-03-17 08:00:00 53.00000 Cornaredo    1  91.800 -3.4560e-05
-26550 ALFAM2_PoValley-Italy_v7.xlsx         248 2010-03-16 19:00:00 2010-03-16 20:00:00 2010-03-17 08:00:00 54.00000 Cornaredo    1  91.800 -4.0760e-05
-26551 ALFAM2_PoValley-Italy_v7.xlsx         249 2010-03-16 20:00:00 2010-03-16 21:00:00 2010-03-17 08:00:00 55.00000 Cornaredo    1  91.800 -4.5040e-05
-26552 ALFAM2_PoValley-Italy_v7.xlsx         250 2010-03-16 21:00:00 2010-03-16 22:00:00 2010-03-17 08:00:00 56.00000 Cornaredo    1  91.800 -6.1630e-05
-26553 ALFAM2_PoValley-Italy_v7.xlsx         251 2010-03-16 22:00:00 2010-03-16 23:00:00 2010-03-17 08:00:00 57.00000 Cornaredo    1  91.800 -1.4515e-04
-26554 ALFAM2_PoValley-Italy_v7.xlsx         252 2010-03-16 23:00:00 2010-03-17 00:00:00 2010-03-17 08:00:00 58.00000 Cornaredo    1  91.800 -4.6600e-05
-26555 ALFAM2_PoValley-Italy_v7.xlsx         253 2010-03-17 00:00:00 2010-03-17 01:00:00 2010-03-17 08:00:00 59.00000 Cornaredo    1  91.800 -1.5744e-04
-26556 ALFAM2_PoValley-Italy_v7.xlsx         254 2010-03-17 01:00:00 2010-03-17 02:00:00 2010-03-17 08:00:00 60.00000 Cornaredo    1  91.800 -7.8190e-05
-26557 ALFAM2_PoValley-Italy_v7.xlsx         255 2010-03-17 02:00:00 2010-03-17 03:00:00 2010-03-17 08:00:00 61.00000 Cornaredo    1  91.800 -3.7090e-05
-26558 ALFAM2_PoValley-Italy_v7.xlsx         256 2010-03-17 03:00:00 2010-03-17 04:00:00 2010-03-17 08:00:00 62.00000 Cornaredo    1  91.800 -1.6920e-05
-26559 ALFAM2_PoValley-Italy_v7.xlsx         257 2010-03-17 04:00:00 2010-03-17 05:00:00 2010-03-17 08:00:00 63.00000 Cornaredo    1  91.800 -2.4430e-05
-26560 ALFAM2_PoValley-Italy_v7.xlsx         258 2010-03-17 05:00:00 2010-03-17 06:00:00 2010-03-17 08:00:00 64.00000 Cornaredo    1  91.800 -3.0320e-05
-26561 ALFAM2_PoValley-Italy_v7.xlsx         259 2010-03-17 06:00:00 2010-03-17 07:00:00 2010-03-17 08:00:00 65.00000 Cornaredo    1  91.800 -1.9240e-05
-26562 ALFAM2_PoValley-Italy_v7.xlsx         260 2010-03-17 07:00:00 2010-03-17 08:00:00 2010-03-17 08:00:00 66.00000 Cornaredo    1  91.800 -2.6600e-05
-27824 ALFAM2_PoValley-Italy_v7.xlsx         552 2011-10-09 17:30:00 2011-10-09 18:00:00 2011-10-10 09:00:00  0.50000 Bigarello    1  68.092  6.6538e-02
-27825 ALFAM2_PoValley-Italy_v7.xlsx         553 2011-10-09 18:00:00 2011-10-09 18:30:00 2011-10-10 09:00:00  1.00000 Bigarello    1  68.092  8.8261e-03
-27826 ALFAM2_PoValley-Italy_v7.xlsx         554 2011-10-09 18:30:00 2011-10-09 19:00:00 2011-10-10 09:00:00  1.50000 Bigarello    1  68.092  2.4020e-02
-27827 ALFAM2_PoValley-Italy_v7.xlsx         555 2011-10-09 19:00:00 2011-10-09 19:30:00 2011-10-10 09:00:00  2.00000 Bigarello    1  68.092  3.9121e-02
-27828 ALFAM2_PoValley-Italy_v7.xlsx         556 2011-10-09 19:30:00 2011-10-09 20:00:00 2011-10-10 09:00:00  2.50000 Bigarello    1  68.092  7.3143e-03
-27829 ALFAM2_PoValley-Italy_v7.xlsx         557 2011-10-09 20:00:00 2011-10-09 20:30:00 2011-10-10 09:00:00  3.00000 Bigarello    1  68.092  7.8357e-03
-27830 ALFAM2_PoValley-Italy_v7.xlsx         558 2011-10-09 20:30:00 2011-10-09 21:00:00 2011-10-10 09:00:00  3.50000 Bigarello    1  68.092  3.6858e-02
-27831 ALFAM2_PoValley-Italy_v7.xlsx         559 2011-10-09 21:00:00 2011-10-09 21:30:00 2011-10-10 09:00:00  4.00000 Bigarello    1  68.092  6.5880e-02
-27832 ALFAM2_PoValley-Italy_v7.xlsx         560 2011-10-09 21:30:00 2011-10-09 22:00:00 2011-10-10 09:00:00  4.50000 Bigarello    1  68.092  9.4902e-02
-27833 ALFAM2_PoValley-Italy_v7.xlsx         561 2011-10-09 22:00:00 2011-10-09 22:30:00 2011-10-10 09:00:00  5.00000 Bigarello    1  68.092  1.2392e-01
-27834 ALFAM2_PoValley-Italy_v7.xlsx         562 2011-10-09 22:30:00 2011-10-09 23:00:00 2011-10-10 09:00:00  5.50000 Bigarello    1  68.092  1.5295e-01
-27835 ALFAM2_PoValley-Italy_v7.xlsx         563 2011-10-09 23:00:00 2011-10-09 23:30:00 2011-10-10 09:00:00  6.00000 Bigarello    1  68.092  1.7054e-02
-27836 ALFAM2_PoValley-Italy_v7.xlsx         564 2011-10-09 23:30:00 2011-10-10 00:00:00 2011-10-10 09:00:00  6.50000 Bigarello    1  68.092  2.4594e-02
-27837 ALFAM2_PoValley-Italy_v7.xlsx         565 2011-10-10 00:00:00 2011-10-10 00:30:00 2011-10-10 09:00:00  7.00000 Bigarello    1  68.092  3.2134e-02
-27838 ALFAM2_PoValley-Italy_v7.xlsx         566 2011-10-10 00:30:00 2011-10-10 01:00:00 2011-10-10 09:00:00  7.50000 Bigarello    1  68.092  6.0672e-02
-27839 ALFAM2_PoValley-Italy_v7.xlsx         567 2011-10-10 01:00:00 2011-10-10 01:30:00 2011-10-10 09:00:00  8.00000 Bigarello    1  68.092  1.4553e-02
-27840 ALFAM2_PoValley-Italy_v7.xlsx         568 2011-10-10 01:30:00 2011-10-10 02:00:00 2011-10-10 09:00:00  8.50000 Bigarello    1  68.092  1.5735e-02
-27841 ALFAM2_PoValley-Italy_v7.xlsx         569 2011-10-10 02:00:00 2011-10-10 02:30:00 2011-10-10 09:00:00  9.00000 Bigarello    1  68.092  1.0668e-02
-27842 ALFAM2_PoValley-Italy_v7.xlsx         570 2011-10-10 02:30:00 2011-10-10 03:00:00 2011-10-10 09:00:00  9.50000 Bigarello    1  68.092  5.6004e-03
-27843 ALFAM2_PoValley-Italy_v7.xlsx         571 2011-10-10 03:00:00 2011-10-10 03:30:00 2011-10-10 09:00:00 10.00000 Bigarello    1  68.092  1.2527e-02
-27844 ALFAM2_PoValley-Italy_v7.xlsx         572 2011-10-10 03:30:00 2011-10-10 04:00:00 2011-10-10 09:00:00 10.50000 Bigarello    1  68.092  3.0367e-02
-27845 ALFAM2_PoValley-Italy_v7.xlsx         573 2011-10-10 04:00:00 2011-10-10 04:30:00 2011-10-10 09:00:00 11.00000 Bigarello    1  68.092  1.2925e-01
-27846 ALFAM2_PoValley-Italy_v7.xlsx         574 2011-10-10 04:30:00 2011-10-10 05:00:00 2011-10-10 09:00:00 11.50000 Bigarello    1  68.092  5.9105e-03
-27847 ALFAM2_PoValley-Italy_v7.xlsx         575 2011-10-10 05:00:00 2011-10-10 05:30:00 2011-10-10 09:00:00 12.00000 Bigarello    1  68.092  3.1878e-03
-27848 ALFAM2_PoValley-Italy_v7.xlsx         576 2011-10-10 05:30:00 2011-10-10 06:00:00 2011-10-10 09:00:00 12.50000 Bigarello    1  68.092  7.2426e-03
-27849 ALFAM2_PoValley-Italy_v7.xlsx         577 2011-10-10 06:00:00 2011-10-10 06:30:00 2011-10-10 09:00:00 13.00000 Bigarello    1  68.092  4.9021e-03
-27850 ALFAM2_PoValley-Italy_v7.xlsx         578 2011-10-10 06:30:00 2011-10-10 07:00:00 2011-10-10 09:00:00 13.50000 Bigarello    1  68.092  1.2193e-02
-27851 ALFAM2_PoValley-Italy_v7.xlsx         579 2011-10-10 07:00:00 2011-10-10 07:30:00 2011-10-10 09:00:00 14.00000 Bigarello    1  68.092  1.0921e-02
-27852 ALFAM2_PoValley-Italy_v7.xlsx         580 2011-10-10 07:30:00 2011-10-10 08:00:00 2011-10-10 09:00:00 14.50000 Bigarello    1  68.092  3.2018e-01
-27853 ALFAM2_PoValley-Italy_v7.xlsx         581 2011-10-10 08:00:00 2011-10-10 08:30:00 2011-10-10 09:00:00 15.00000 Bigarello    1  68.092  6.2943e-01
-27854 ALFAM2_PoValley-Italy_v7.xlsx         582 2011-10-10 08:30:00 2011-10-10 09:00:00 2011-10-10 09:00:00 15.50000 Bigarello    1  68.092  1.8445e+00
-27452 ALFAM2_PoValley-Italy_v7.xlsx         923 2011-10-09 17:00:00 2011-10-09 17:30:00 2011-10-10 09:00:00  0.50000 Bigarello    1  66.128  4.7820e-02
-27453 ALFAM2_PoValley-Italy_v7.xlsx         924 2011-10-09 17:30:00 2011-10-09 18:00:00 2011-10-10 09:00:00  1.00000 Bigarello    1  66.128  1.1000e-02
-27454 ALFAM2_PoValley-Italy_v7.xlsx         925 2011-10-09 18:00:00 2011-10-09 18:30:00 2011-10-10 09:00:00  1.50000 Bigarello    1  66.128  1.0000e-02
-27455 ALFAM2_PoValley-Italy_v7.xlsx         926 2011-10-09 18:30:00 2011-10-09 19:00:00 2011-10-10 09:00:00  2.00000 Bigarello    1  66.128  1.0000e-02
-27456 ALFAM2_PoValley-Italy_v7.xlsx         927 2011-10-09 19:00:00 2011-10-09 19:30:00 2011-10-10 09:00:00  2.50000 Bigarello    1  66.128  7.0000e-03
-27457 ALFAM2_PoValley-Italy_v7.xlsx         928 2011-10-09 19:30:00 2011-10-09 20:00:00 2011-10-10 09:00:00  3.00000 Bigarello    1  66.128  1.3000e-02
-27458 ALFAM2_PoValley-Italy_v7.xlsx         929 2011-10-09 20:00:00 2011-10-09 20:30:00 2011-10-10 09:00:00  3.50000 Bigarello    1  66.128  1.2000e-02
-27459 ALFAM2_PoValley-Italy_v7.xlsx         930 2011-10-09 20:30:00 2011-10-09 21:00:00 2011-10-10 09:00:00  4.00000 Bigarello    1  66.128  1.0000e-02
-27460 ALFAM2_PoValley-Italy_v7.xlsx         931 2011-10-09 21:00:00 2011-10-09 21:30:00 2011-10-10 09:00:00  4.50000 Bigarello    1  66.128  7.0000e-03
-27461 ALFAM2_PoValley-Italy_v7.xlsx         932 2011-10-09 21:30:00 2011-10-09 22:00:00 2011-10-10 09:00:00  5.00000 Bigarello    1  66.128  5.0000e-03
-27462 ALFAM2_PoValley-Italy_v7.xlsx         933 2011-10-09 22:00:00 2011-10-09 22:30:00 2011-10-10 09:00:00  5.50000 Bigarello    1  66.128  1.1000e-02
-27463 ALFAM2_PoValley-Italy_v7.xlsx         934 2011-10-09 22:30:00 2011-10-09 23:00:00 2011-10-10 09:00:00  6.00000 Bigarello    1  66.128  1.5000e-02
-27464 ALFAM2_PoValley-Italy_v7.xlsx         935 2011-10-09 23:00:00 2011-10-09 23:30:00 2011-10-10 09:00:00  6.50000 Bigarello    1  66.128  1.7000e-02
-27465 ALFAM2_PoValley-Italy_v7.xlsx         936 2011-10-09 23:30:00 2011-10-10 00:00:00 2011-10-10 09:00:00  7.00000 Bigarello    1  66.128  2.0000e-02
-27466 ALFAM2_PoValley-Italy_v7.xlsx         937 2011-10-10 00:00:00 2011-10-10 00:30:00 2011-10-10 09:00:00  7.50000 Bigarello    1  66.128  1.8000e-02
-27467 ALFAM2_PoValley-Italy_v7.xlsx         938 2011-10-10 00:30:00 2011-10-10 01:00:00 2011-10-10 09:00:00  8.00000 Bigarello    1  66.128  8.0000e-03
-27468 ALFAM2_PoValley-Italy_v7.xlsx         939 2011-10-10 01:00:00 2011-10-10 01:30:00 2011-10-10 09:00:00  8.50000 Bigarello    1  66.128  8.0000e-03
-27469 ALFAM2_PoValley-Italy_v7.xlsx         940 2011-10-10 01:30:00 2011-10-10 02:00:00 2011-10-10 09:00:00  9.00000 Bigarello    1  66.128  8.0000e-03
-27470 ALFAM2_PoValley-Italy_v7.xlsx         941 2011-10-10 02:00:00 2011-10-10 02:30:00 2011-10-10 09:00:00  9.50000 Bigarello    1  66.128  1.1000e-02
-27471 ALFAM2_PoValley-Italy_v7.xlsx         942 2011-10-10 02:30:00 2011-10-10 03:00:00 2011-10-10 09:00:00 10.00000 Bigarello    1  66.128  6.0000e-03
-27472 ALFAM2_PoValley-Italy_v7.xlsx         943 2011-10-10 03:00:00 2011-10-10 03:30:00 2011-10-10 09:00:00 10.50000 Bigarello    1  66.128  4.0000e-03
-27473 ALFAM2_PoValley-Italy_v7.xlsx         944 2011-10-10 03:30:00 2011-10-10 04:00:00 2011-10-10 09:00:00 11.00000 Bigarello    1  66.128  2.0000e-03
-27474 ALFAM2_PoValley-Italy_v7.xlsx         945 2011-10-10 04:00:00 2011-10-10 04:30:00 2011-10-10 09:00:00 11.50000 Bigarello    1  66.128  3.0000e-03
-27475 ALFAM2_PoValley-Italy_v7.xlsx         946 2011-10-10 04:30:00 2011-10-10 05:00:00 2011-10-10 09:00:00 12.00000 Bigarello    1  66.128  1.5000e-02
-27476 ALFAM2_PoValley-Italy_v7.xlsx         947 2011-10-10 05:00:00 2011-10-10 05:30:00 2011-10-10 09:00:00 12.50000 Bigarello    1  66.128  2.8000e-02
-27477 ALFAM2_PoValley-Italy_v7.xlsx         948 2011-10-10 05:30:00 2011-10-10 06:00:00 2011-10-10 09:00:00 13.00000 Bigarello    1  66.128  2.2000e-02
-27478 ALFAM2_PoValley-Italy_v7.xlsx         949 2011-10-10 06:00:00 2011-10-10 06:30:00 2011-10-10 09:00:00 13.50000 Bigarello    1  66.128  1.5000e-02
-27479 ALFAM2_PoValley-Italy_v7.xlsx         950 2011-10-10 06:30:00 2011-10-10 07:00:00 2011-10-10 09:00:00 14.00000 Bigarello    1  66.128  9.0000e-03
-27480 ALFAM2_PoValley-Italy_v7.xlsx         951 2011-10-10 07:00:00 2011-10-10 07:30:00 2011-10-10 09:00:00 14.50000 Bigarello    1  66.128  3.0000e-03
-27481 ALFAM2_PoValley-Italy_v7.xlsx         952 2011-10-10 07:30:00 2011-10-10 08:00:00 2011-10-10 09:00:00 15.00000 Bigarello    1  66.128  3.0000e-03
-27482 ALFAM2_PoValley-Italy_v7.xlsx         953 2011-10-10 08:00:00 2011-10-10 08:30:00 2011-10-10 09:00:00 15.50000 Bigarello    1  66.128  7.5000e-02
-27483 ALFAM2_PoValley-Italy_v7.xlsx         954 2011-10-10 08:30:00 2011-10-10 09:00:00 2011-10-10 09:00:00 16.00000 Bigarello    1  66.128  1.4500e-01
-26854 ALFAM2_PoValley-Italy_v7.xlsx        1295 2011-04-06 20:00:00 2011-04-06 20:30:00 2011-04-07 08:30:00  0.50000 Landriano    1 109.070  7.1000e-03
-26855 ALFAM2_PoValley-Italy_v7.xlsx        1296 2011-04-06 20:30:00 2011-04-06 21:00:00 2011-04-07 08:30:00  1.00000 Landriano    1 109.070  4.0000e-03
-26856 ALFAM2_PoValley-Italy_v7.xlsx        1297 2011-04-06 21:00:00 2011-04-06 21:30:00 2011-04-07 08:30:00  1.50000 Landriano    1 109.070  6.0000e-03
-26857 ALFAM2_PoValley-Italy_v7.xlsx        1298 2011-04-06 21:30:00 2011-04-06 22:00:00 2011-04-07 08:30:00  2.00000 Landriano    1 109.070  7.0000e-03
-26858 ALFAM2_PoValley-Italy_v7.xlsx        1299 2011-04-06 22:00:00 2011-04-06 22:30:00 2011-04-07 08:30:00  2.50000 Landriano    1 109.070  7.0000e-03
-26859 ALFAM2_PoValley-Italy_v7.xlsx        1300 2011-04-06 22:30:00 2011-04-06 23:00:00 2011-04-07 08:30:00  3.00000 Landriano    1 109.070  4.0000e-03
-26860 ALFAM2_PoValley-Italy_v7.xlsx        1301 2011-04-06 23:00:00 2011-04-06 23:30:00 2011-04-07 08:30:00  3.50000 Landriano    1 109.070  5.0000e-03
-26861 ALFAM2_PoValley-Italy_v7.xlsx        1302 2011-04-06 23:30:00 2011-04-07 00:00:00 2011-04-07 08:30:00  4.00000 Landriano    1 109.070  3.0000e-03
-26862 ALFAM2_PoValley-Italy_v7.xlsx        1303 2011-04-07 00:00:00 2011-04-07 00:30:00 2011-04-07 08:30:00  4.50000 Landriano    1 109.070  4.0000e-03
-26863 ALFAM2_PoValley-Italy_v7.xlsx        1304 2011-04-07 00:30:00 2011-04-07 01:00:00 2011-04-07 08:30:00  5.00000 Landriano    1 109.070  1.0000e-02
-26864 ALFAM2_PoValley-Italy_v7.xlsx        1305 2011-04-07 01:00:00 2011-04-07 01:30:00 2011-04-07 08:30:00  5.50000 Landriano    1 109.070  1.0000e-03
-26865 ALFAM2_PoValley-Italy_v7.xlsx        1306 2011-04-07 01:30:00 2011-04-07 02:00:00 2011-04-07 08:30:00  6.00000 Landriano    1 109.070  1.0000e-03
-26866 ALFAM2_PoValley-Italy_v7.xlsx        1307 2011-04-07 02:00:00 2011-04-07 02:30:00 2011-04-07 08:30:00  6.50000 Landriano    1 109.070  4.0000e-03
-26867 ALFAM2_PoValley-Italy_v7.xlsx        1308 2011-04-07 02:30:00 2011-04-07 03:00:00 2011-04-07 08:30:00  7.00000 Landriano    1 109.070  3.0000e-03
-26868 ALFAM2_PoValley-Italy_v7.xlsx        1309 2011-04-07 03:00:00 2011-04-07 03:30:00 2011-04-07 08:30:00  7.50000 Landriano    1 109.070  4.0000e-03
-26869 ALFAM2_PoValley-Italy_v7.xlsx        1310 2011-04-07 03:30:00 2011-04-07 04:00:00 2011-04-07 08:30:00  8.00000 Landriano    1 109.070  2.0000e-03
-26870 ALFAM2_PoValley-Italy_v7.xlsx        1311 2011-04-07 04:00:00 2011-04-07 04:30:00 2011-04-07 08:30:00  8.50000 Landriano    1 109.070  4.0000e-03
-26871 ALFAM2_PoValley-Italy_v7.xlsx        1312 2011-04-07 04:30:00 2011-04-07 05:00:00 2011-04-07 08:30:00  9.00000 Landriano    1 109.070  5.0000e-03
-26872 ALFAM2_PoValley-Italy_v7.xlsx        1313 2011-04-07 05:00:00 2011-04-07 05:30:00 2011-04-07 08:30:00  9.50000 Landriano    1 109.070  6.0000e-03
-26873 ALFAM2_PoValley-Italy_v7.xlsx        1314 2011-04-07 05:30:00 2011-04-07 06:00:00 2011-04-07 08:30:00 10.00000 Landriano    1 109.070  1.0000e-03
-26874 ALFAM2_PoValley-Italy_v7.xlsx        1315 2011-04-07 06:00:00 2011-04-07 06:30:00 2011-04-07 08:30:00 10.50000 Landriano    1 109.070  2.0000e-03
-26875 ALFAM2_PoValley-Italy_v7.xlsx        1316 2011-04-07 06:30:00 2011-04-07 07:00:00 2011-04-07 08:30:00 11.00000 Landriano    1 109.070  2.0000e-03
-26876 ALFAM2_PoValley-Italy_v7.xlsx        1317 2011-04-07 07:00:00 2011-04-07 07:30:00 2011-04-07 08:30:00 11.50000 Landriano    1 109.070  1.0000e-03
-26877 ALFAM2_PoValley-Italy_v7.xlsx        1318 2011-04-07 07:30:00 2011-04-07 08:00:00 2011-04-07 08:30:00 12.00000 Landriano    1 109.070  5.0000e-03
-26878 ALFAM2_PoValley-Italy_v7.xlsx        1319 2011-04-07 08:00:00 2011-04-07 08:30:00 2011-04-07 08:30:00 12.50000 Landriano    1 109.070  2.3000e-02
-27169 ALFAM2_PoValley-Italy_v7.xlsx        1610 2011-04-06 20:00:00 2011-04-06 20:30:00 2011-04-07 08:30:00  0.50000 Landriano    1 109.070  0.0000e+00
-27170 ALFAM2_PoValley-Italy_v7.xlsx        1611 2011-04-06 20:30:00 2011-04-06 21:00:00 2011-04-07 08:30:00  1.00000 Landriano    1 109.070 -6.0000e-02
-27171 ALFAM2_PoValley-Italy_v7.xlsx        1612 2011-04-06 21:00:00 2011-04-06 21:30:00 2011-04-07 08:30:00  1.50000 Landriano    1 109.070  1.0000e-03
-27172 ALFAM2_PoValley-Italy_v7.xlsx        1613 2011-04-06 21:30:00 2011-04-06 22:00:00 2011-04-07 08:30:00  2.00000 Landriano    1 109.070  1.2000e-02
-27173 ALFAM2_PoValley-Italy_v7.xlsx        1614 2011-04-06 22:00:00 2011-04-06 22:30:00 2011-04-07 08:30:00  2.50000 Landriano    1 109.070  1.0000e-03
-27174 ALFAM2_PoValley-Italy_v7.xlsx        1615 2011-04-06 22:30:00 2011-04-06 23:00:00 2011-04-07 08:30:00  3.00000 Landriano    1 109.070 -1.5000e-02
-27175 ALFAM2_PoValley-Italy_v7.xlsx        1616 2011-04-06 23:00:00 2011-04-06 23:30:00 2011-04-07 08:30:00  3.50000 Landriano    1 109.070 -3.2000e-02
-27176 ALFAM2_PoValley-Italy_v7.xlsx        1617 2011-04-06 23:30:00 2011-04-07 00:00:00 2011-04-07 08:30:00  4.00000 Landriano    1 109.070 -4.8000e-02
-27177 ALFAM2_PoValley-Italy_v7.xlsx        1618 2011-04-07 00:00:00 2011-04-07 00:30:00 2011-04-07 08:30:00  4.50000 Landriano    1 109.070 -6.5000e-02
-27178 ALFAM2_PoValley-Italy_v7.xlsx        1619 2011-04-07 00:30:00 2011-04-07 01:00:00 2011-04-07 08:30:00  5.00000 Landriano    1 109.070 -8.1000e-02
-27179 ALFAM2_PoValley-Italy_v7.xlsx        1620 2011-04-07 01:00:00 2011-04-07 01:30:00 2011-04-07 08:30:00  5.50000 Landriano    1 109.070 -4.6000e-02
-27180 ALFAM2_PoValley-Italy_v7.xlsx        1621 2011-04-07 01:30:00 2011-04-07 02:00:00 2011-04-07 08:30:00  6.00000 Landriano    1 109.070 -1.1000e-02
-27181 ALFAM2_PoValley-Italy_v7.xlsx        1622 2011-04-07 02:00:00 2011-04-07 02:30:00 2011-04-07 08:30:00  6.50000 Landriano    1 109.070 -1.5000e-02
-27182 ALFAM2_PoValley-Italy_v7.xlsx        1623 2011-04-07 02:30:00 2011-04-07 03:00:00 2011-04-07 08:30:00  7.00000 Landriano    1 109.070 -1.6000e-02
-27183 ALFAM2_PoValley-Italy_v7.xlsx        1624 2011-04-07 03:00:00 2011-04-07 03:30:00 2011-04-07 08:30:00  7.50000 Landriano    1 109.070 -1.0000e-02
-27184 ALFAM2_PoValley-Italy_v7.xlsx        1625 2011-04-07 03:30:00 2011-04-07 04:00:00 2011-04-07 08:30:00  8.00000 Landriano    1 109.070 -6.3000e-02
-27185 ALFAM2_PoValley-Italy_v7.xlsx        1626 2011-04-07 04:00:00 2011-04-07 04:30:00 2011-04-07 08:30:00  8.50000 Landriano    1 109.070 -3.4000e-02
-27186 ALFAM2_PoValley-Italy_v7.xlsx        1627 2011-04-07 04:30:00 2011-04-07 05:00:00 2011-04-07 08:30:00  9.00000 Landriano    1 109.070 -5.0000e-03
-27187 ALFAM2_PoValley-Italy_v7.xlsx        1628 2011-04-07 05:00:00 2011-04-07 05:30:00 2011-04-07 08:30:00  9.50000 Landriano    1 109.070  1.0000e-03
-27188 ALFAM2_PoValley-Italy_v7.xlsx        1629 2011-04-07 05:30:00 2011-04-07 06:00:00 2011-04-07 08:30:00 10.00000 Landriano    1 109.070  2.0000e-03
-27189 ALFAM2_PoValley-Italy_v7.xlsx        1630 2011-04-07 06:00:00 2011-04-07 06:30:00 2011-04-07 08:30:00 10.50000 Landriano    1 109.070 -1.6000e-02
-27190 ALFAM2_PoValley-Italy_v7.xlsx        1631 2011-04-07 06:30:00 2011-04-07 07:00:00 2011-04-07 08:30:00 11.00000 Landriano    1 109.070 -3.3000e-02
-27191 ALFAM2_PoValley-Italy_v7.xlsx        1632 2011-04-07 07:00:00 2011-04-07 07:30:00 2011-04-07 08:30:00 11.50000 Landriano    1 109.070 -1.0000e-03
-27192 ALFAM2_PoValley-Italy_v7.xlsx        1633 2011-04-07 07:30:00 2011-04-07 08:00:00 2011-04-07 08:30:00 12.00000 Landriano    1 109.070 -2.0000e-03
-27193 ALFAM2_PoValley-Italy_v7.xlsx        1634 2011-04-07 08:00:00 2011-04-07 08:30:00 2011-04-07 08:30:00 12.50000 Landriano    1 109.070 -2.0000e-03
-26053 ALFAM2_PoValley-Italy_v7.xlsx        1893 2009-03-26 18:30:00 2009-03-26 19:00:00 2009-03-27 08:00:00  0.50000 Landriano    1  95.026 -9.5750e-02
-26054 ALFAM2_PoValley-Italy_v7.xlsx        1894 2009-03-26 19:00:00 2009-03-26 19:30:00 2009-03-27 08:00:00  1.00000 Landriano    1  95.026 -4.4393e-02
-26055 ALFAM2_PoValley-Italy_v7.xlsx        1895 2009-03-26 19:30:00 2009-03-26 20:00:00 2009-03-27 08:00:00  1.50000 Landriano    1  95.026 -5.0771e-02
-26056 ALFAM2_PoValley-Italy_v7.xlsx        1896 2009-03-26 20:00:00 2009-03-26 20:30:00 2009-03-27 08:00:00  2.00000 Landriano    1  95.026 -6.3845e-02
-26057 ALFAM2_PoValley-Italy_v7.xlsx        1897 2009-03-26 20:30:00 2009-03-26 21:00:00 2009-03-27 08:00:00  2.50000 Landriano    1  95.026 -9.3613e-02
-26058 ALFAM2_PoValley-Italy_v7.xlsx        1898 2009-03-26 21:00:00 2009-03-26 21:30:00 2009-03-27 08:00:00  3.00000 Landriano    1  95.026 -8.2684e-02
-26059 ALFAM2_PoValley-Italy_v7.xlsx        1899 2009-03-26 21:30:00 2009-03-26 22:00:00 2009-03-27 08:00:00  3.50000 Landriano    1  95.026 -2.4186e-02
-26060 ALFAM2_PoValley-Italy_v7.xlsx        1900 2009-03-26 22:00:00 2009-03-26 22:30:00 2009-03-27 08:00:00  4.00000 Landriano    1  95.026 -3.4005e-02
-26061 ALFAM2_PoValley-Italy_v7.xlsx        1901 2009-03-26 22:30:00 2009-03-26 23:00:00 2009-03-27 08:00:00  4.50000 Landriano    1  95.026 -1.3072e-01
-26062 ALFAM2_PoValley-Italy_v7.xlsx        1902 2009-03-26 23:00:00 2009-03-26 23:30:00 2009-03-27 08:00:00  5.00000 Landriano    1  95.026 -9.5714e-02
-26063 ALFAM2_PoValley-Italy_v7.xlsx        1903 2009-03-26 23:30:00 2009-03-27 00:00:00 2009-03-27 08:00:00  5.50000 Landriano    1  95.026 -3.0054e-02
-26064 ALFAM2_PoValley-Italy_v7.xlsx        1904 2009-03-27 00:00:00 2009-03-27 00:30:00 2009-03-27 08:00:00  6.00000 Landriano    1  95.026 -5.8791e-02
-26065 ALFAM2_PoValley-Italy_v7.xlsx        1905 2009-03-27 00:30:00 2009-03-27 01:00:00 2009-03-27 08:00:00  6.50000 Landriano    1  95.026 -8.1998e-02
-26066 ALFAM2_PoValley-Italy_v7.xlsx        1906 2009-03-27 01:00:00 2009-03-27 01:30:00 2009-03-27 08:00:00  7.00000 Landriano    1  95.026 -8.9567e-02
-26067 ALFAM2_PoValley-Italy_v7.xlsx        1907 2009-03-27 01:30:00 2009-03-27 02:00:00 2009-03-27 08:00:00  7.50000 Landriano    1  95.026 -8.0234e-02
-26068 ALFAM2_PoValley-Italy_v7.xlsx        1908 2009-03-27 02:00:00 2009-03-27 02:30:00 2009-03-27 08:00:00  8.00000 Landriano    1  95.026 -1.0009e-01
-26069 ALFAM2_PoValley-Italy_v7.xlsx        1909 2009-03-27 02:30:00 2009-03-27 03:00:00 2009-03-27 08:00:00  8.50000 Landriano    1  95.026 -1.4273e-01
-26070 ALFAM2_PoValley-Italy_v7.xlsx        1910 2009-03-27 03:00:00 2009-03-27 03:30:00 2009-03-27 08:00:00  9.00000 Landriano    1  95.026 -6.6660e-01
-26071 ALFAM2_PoValley-Italy_v7.xlsx        1911 2009-03-27 03:30:00 2009-03-27 04:00:00 2009-03-27 08:00:00  9.50000 Landriano    1  95.026 -4.6911e-02
-26072 ALFAM2_PoValley-Italy_v7.xlsx        1912 2009-03-27 04:00:00 2009-03-27 04:30:00 2009-03-27 08:00:00 10.00000 Landriano    1  95.026 -5.7640e-02
-26073 ALFAM2_PoValley-Italy_v7.xlsx        1913 2009-03-27 04:30:00 2009-03-27 05:00:00 2009-03-27 08:00:00 10.50000 Landriano    1  95.026 -1.0015e-01
-26074 ALFAM2_PoValley-Italy_v7.xlsx        1914 2009-03-27 05:00:00 2009-03-27 05:30:00 2009-03-27 08:00:00 11.00000 Landriano    1  95.026 -6.1905e-02
-26075 ALFAM2_PoValley-Italy_v7.xlsx        1915 2009-03-27 05:30:00 2009-03-27 06:00:00 2009-03-27 08:00:00 11.50000 Landriano    1  95.026 -7.2883e-02
-26076 ALFAM2_PoValley-Italy_v7.xlsx        1916 2009-03-27 06:00:00 2009-03-27 06:30:00 2009-03-27 08:00:00 12.00000 Landriano    1  95.026 -7.4040e-02
-26077 ALFAM2_PoValley-Italy_v7.xlsx        1917 2009-03-27 06:30:00 2009-03-27 07:00:00 2009-03-27 08:00:00 12.50000 Landriano    1  95.026 -1.1050e-01
-26078 ALFAM2_PoValley-Italy_v7.xlsx        1918 2009-03-27 07:00:00 2009-03-27 07:30:00 2009-03-27 08:00:00 13.00000 Landriano    1  95.026 -1.6792e-01
-26079 ALFAM2_PoValley-Italy_v7.xlsx        1919 2009-03-27 07:30:00 2009-03-27 08:00:00 2009-03-27 08:00:00 13.50000 Landriano    1  95.026  9.0063e-01
-26275 ALFAM2_PoValley-Italy_v7.xlsx        2115 2009-03-26 18:30:00 2009-03-26 19:00:00 2009-03-27 08:00:00  0.50000 Landriano    1  95.026  0.0000e+00
-26276 ALFAM2_PoValley-Italy_v7.xlsx        2116 2009-03-26 19:00:00 2009-03-26 19:30:00 2009-03-27 08:00:00  1.00000 Landriano    1  95.026  1.7568e-03
-26277 ALFAM2_PoValley-Italy_v7.xlsx        2117 2009-03-26 19:30:00 2009-03-26 20:00:00 2009-03-27 08:00:00  1.50000 Landriano    1  95.026  2.4252e-03
-26278 ALFAM2_PoValley-Italy_v7.xlsx        2118 2009-03-26 20:00:00 2009-03-26 20:30:00 2009-03-27 08:00:00  2.00000 Landriano    1  95.026  2.2342e-03
-26279 ALFAM2_PoValley-Italy_v7.xlsx        2119 2009-03-26 20:30:00 2009-03-26 21:00:00 2009-03-27 08:00:00  2.50000 Landriano    1  95.026 -4.9047e-04
-26280 ALFAM2_PoValley-Italy_v7.xlsx        2120 2009-03-26 21:00:00 2009-03-26 21:30:00 2009-03-27 08:00:00  3.00000 Landriano    1  95.026 -1.8388e-06
-26281 ALFAM2_PoValley-Italy_v7.xlsx        2121 2009-03-26 21:30:00 2009-03-26 22:00:00 2009-03-27 08:00:00  3.50000 Landriano    1  95.026  9.9465e-07
-26282 ALFAM2_PoValley-Italy_v7.xlsx        2122 2009-03-26 22:00:00 2009-03-26 22:30:00 2009-03-27 08:00:00  4.00000 Landriano    1  95.026 -5.2307e-07
-26283 ALFAM2_PoValley-Italy_v7.xlsx        2123 2009-03-26 22:30:00 2009-03-26 23:00:00 2009-03-27 08:00:00  4.50000 Landriano    1  95.026 -2.5654e-06
-26284 ALFAM2_PoValley-Italy_v7.xlsx        2124 2009-03-26 23:00:00 2009-03-26 23:30:00 2009-03-27 08:00:00  5.00000 Landriano    1  95.026 -4.2341e-06
-26285 ALFAM2_PoValley-Italy_v7.xlsx        2125 2009-03-26 23:30:00 2009-03-27 00:00:00 2009-03-27 08:00:00  5.50000 Landriano    1  95.026 -2.0769e-06
-26286 ALFAM2_PoValley-Italy_v7.xlsx        2126 2009-03-27 00:00:00 2009-03-27 00:30:00 2009-03-27 08:00:00  6.00000 Landriano    1  95.026 -2.0366e-06
-26287 ALFAM2_PoValley-Italy_v7.xlsx        2127 2009-03-27 00:30:00 2009-03-27 01:00:00 2009-03-27 08:00:00  6.50000 Landriano    1  95.026 -1.9962e-06
-26288 ALFAM2_PoValley-Italy_v7.xlsx        2128 2009-03-27 01:00:00 2009-03-27 01:30:00 2009-03-27 08:00:00  7.00000 Landriano    1  95.026 -2.3760e-06
-26289 ALFAM2_PoValley-Italy_v7.xlsx        2129 2009-03-27 01:30:00 2009-03-27 02:00:00 2009-03-27 08:00:00  7.50000 Landriano    1  95.026 -9.6985e-07
-26290 ALFAM2_PoValley-Italy_v7.xlsx        2130 2009-03-27 02:00:00 2009-03-27 02:30:00 2009-03-27 08:00:00  8.00000 Landriano    1  95.026  3.7465e-06
-26291 ALFAM2_PoValley-Italy_v7.xlsx        2131 2009-03-27 02:30:00 2009-03-27 03:00:00 2009-03-27 08:00:00  8.50000 Landriano    1  95.026  3.2298e-06
-26292 ALFAM2_PoValley-Italy_v7.xlsx        2132 2009-03-27 03:00:00 2009-03-27 03:30:00 2009-03-27 08:00:00  9.00000 Landriano    1  95.026  3.3741e-07
-26293 ALFAM2_PoValley-Italy_v7.xlsx        2133 2009-03-27 03:30:00 2009-03-27 04:00:00 2009-03-27 08:00:00  9.50000 Landriano    1  95.026 -2.5550e-06
-26294 ALFAM2_PoValley-Italy_v7.xlsx        2134 2009-03-27 04:00:00 2009-03-27 04:30:00 2009-03-27 08:00:00 10.00000 Landriano    1  95.026 -1.5590e-06
-26295 ALFAM2_PoValley-Italy_v7.xlsx        2135 2009-03-27 04:30:00 2009-03-27 05:00:00 2009-03-27 08:00:00 10.50000 Landriano    1  95.026 -5.6305e-07
-26296 ALFAM2_PoValley-Italy_v7.xlsx        2136 2009-03-27 05:00:00 2009-03-27 05:30:00 2009-03-27 08:00:00 11.00000 Landriano    1  95.026  4.3291e-07
-26297 ALFAM2_PoValley-Italy_v7.xlsx        2137 2009-03-27 05:30:00 2009-03-27 06:00:00 2009-03-27 08:00:00 11.50000 Landriano    1  95.026 -1.1229e-06
-26298 ALFAM2_PoValley-Italy_v7.xlsx        2138 2009-03-27 06:00:00 2009-03-27 06:30:00 2009-03-27 08:00:00 12.00000 Landriano    1  95.026  4.9014e-06
-26299 ALFAM2_PoValley-Italy_v7.xlsx        2139 2009-03-27 06:30:00 2009-03-27 07:00:00 2009-03-27 08:00:00 12.50000 Landriano    1  95.026  3.2791e-06
-26300 ALFAM2_PoValley-Italy_v7.xlsx        2140 2009-03-27 07:00:00 2009-03-27 07:30:00 2009-03-27 08:00:00 13.00000 Landriano    1  95.026 -5.2684e-04
-26301 ALFAM2_PoValley-Italy_v7.xlsx        2141 2009-03-27 07:30:00 2009-03-27 08:00:00 2009-03-27 08:00:00 13.50000 Landriano    1  95.026 -1.0570e-03
-14478    ALFAM2_Switzerland_v2.xlsx         548 2013-07-10 10:45:00 2013-07-10 11:14:00 2013-07-10 10:48:00  0.48333     Wengi    2  47.545  4.1305e+00
-14101    ALFAM2_Switzerland_v2.xlsx         637 2011-09-20 10:48:00 2011-09-20 11:03:00 2011-09-20 11:02:00  0.25000 Taenikon1    3  33.180  1.0719e+00
-14174    ALFAM2_Switzerland_v2.xlsx         710 2012-05-10 09:27:00 2012-05-10 09:47:00 2012-05-10 09:30:00  0.33333 Hohenrain    2  19.241  3.9085e-01
-14581    ALFAM2_Switzerland_v2.xlsx         773 2013-07-05 12:13:00 2013-07-05 12:32:00 2013-07-05 12:16:00  0.31667 Taenikon2    1  36.480  1.2969e+00
+                               file row.in.file             t.start
+25868 ALFAM2_PoValley-Italy_v7.xlsx          10 2009-09-23 14:00:00
+25869 ALFAM2_PoValley-Italy_v7.xlsx          11 2009-09-23 15:00:00
+25870 ALFAM2_PoValley-Italy_v7.xlsx          12 2009-09-23 16:00:00
+25871 ALFAM2_PoValley-Italy_v7.xlsx          13 2009-09-23 17:00:00
+25872 ALFAM2_PoValley-Italy_v7.xlsx          14 2009-09-23 18:00:00
+25873 ALFAM2_PoValley-Italy_v7.xlsx          15 2009-09-23 19:00:00
+25874 ALFAM2_PoValley-Italy_v7.xlsx          16 2009-09-23 20:00:00
+25875 ALFAM2_PoValley-Italy_v7.xlsx          17 2009-09-23 21:00:00
+25876 ALFAM2_PoValley-Italy_v7.xlsx          18 2009-09-23 22:00:00
+25877 ALFAM2_PoValley-Italy_v7.xlsx          19 2009-09-23 23:00:00
+25878 ALFAM2_PoValley-Italy_v7.xlsx          20 2009-09-24 00:00:00
+25879 ALFAM2_PoValley-Italy_v7.xlsx          21 2009-09-24 01:00:00
+25880 ALFAM2_PoValley-Italy_v7.xlsx          22 2009-09-24 02:00:00
+25881 ALFAM2_PoValley-Italy_v7.xlsx          23 2009-09-24 03:00:00
+25882 ALFAM2_PoValley-Italy_v7.xlsx          24 2009-09-24 04:00:00
+25883 ALFAM2_PoValley-Italy_v7.xlsx          25 2009-09-24 05:00:00
+25884 ALFAM2_PoValley-Italy_v7.xlsx          26 2009-09-24 06:00:00
+25885 ALFAM2_PoValley-Italy_v7.xlsx          27 2009-09-24 07:00:00
+26497 ALFAM2_PoValley-Italy_v7.xlsx         195 2010-03-14 14:00:00
+26498 ALFAM2_PoValley-Italy_v7.xlsx         196 2010-03-14 15:00:00
+26499 ALFAM2_PoValley-Italy_v7.xlsx         197 2010-03-14 16:00:00
+26500 ALFAM2_PoValley-Italy_v7.xlsx         198 2010-03-14 17:00:00
+26501 ALFAM2_PoValley-Italy_v7.xlsx         199 2010-03-14 18:00:00
+26502 ALFAM2_PoValley-Italy_v7.xlsx         200 2010-03-14 19:00:00
+26503 ALFAM2_PoValley-Italy_v7.xlsx         201 2010-03-14 20:00:00
+26504 ALFAM2_PoValley-Italy_v7.xlsx         202 2010-03-14 21:00:00
+26505 ALFAM2_PoValley-Italy_v7.xlsx         203 2010-03-14 22:00:00
+26506 ALFAM2_PoValley-Italy_v7.xlsx         204 2010-03-14 23:00:00
+26507 ALFAM2_PoValley-Italy_v7.xlsx         205 2010-03-15 00:00:00
+26508 ALFAM2_PoValley-Italy_v7.xlsx         206 2010-03-15 01:00:00
+26509 ALFAM2_PoValley-Italy_v7.xlsx         207 2010-03-15 02:00:00
+26510 ALFAM2_PoValley-Italy_v7.xlsx         208 2010-03-15 03:00:00
+26511 ALFAM2_PoValley-Italy_v7.xlsx         209 2010-03-15 04:00:00
+26512 ALFAM2_PoValley-Italy_v7.xlsx         210 2010-03-15 05:00:00
+26513 ALFAM2_PoValley-Italy_v7.xlsx         211 2010-03-15 06:00:00
+26514 ALFAM2_PoValley-Italy_v7.xlsx         212 2010-03-15 07:00:00
+26515 ALFAM2_PoValley-Italy_v7.xlsx         213 2010-03-15 08:00:00
+26516 ALFAM2_PoValley-Italy_v7.xlsx         214 2010-03-15 09:00:00
+26517 ALFAM2_PoValley-Italy_v7.xlsx         215 2010-03-15 10:00:00
+26518 ALFAM2_PoValley-Italy_v7.xlsx         216 2010-03-15 11:00:00
+26519 ALFAM2_PoValley-Italy_v7.xlsx         217 2010-03-15 12:00:00
+26520 ALFAM2_PoValley-Italy_v7.xlsx         218 2010-03-15 13:00:00
+26521 ALFAM2_PoValley-Italy_v7.xlsx         219 2010-03-15 14:00:00
+26522 ALFAM2_PoValley-Italy_v7.xlsx         220 2010-03-15 15:00:00
+26523 ALFAM2_PoValley-Italy_v7.xlsx         221 2010-03-15 16:00:00
+26524 ALFAM2_PoValley-Italy_v7.xlsx         222 2010-03-15 17:00:00
+26525 ALFAM2_PoValley-Italy_v7.xlsx         223 2010-03-15 18:00:00
+26526 ALFAM2_PoValley-Italy_v7.xlsx         224 2010-03-15 19:00:00
+26527 ALFAM2_PoValley-Italy_v7.xlsx         225 2010-03-15 20:00:00
+26528 ALFAM2_PoValley-Italy_v7.xlsx         226 2010-03-15 21:00:00
+26529 ALFAM2_PoValley-Italy_v7.xlsx         227 2010-03-15 22:00:00
+26530 ALFAM2_PoValley-Italy_v7.xlsx         228 2010-03-15 23:00:00
+26531 ALFAM2_PoValley-Italy_v7.xlsx         229 2010-03-16 00:00:00
+26532 ALFAM2_PoValley-Italy_v7.xlsx         230 2010-03-16 01:00:00
+26533 ALFAM2_PoValley-Italy_v7.xlsx         231 2010-03-16 02:00:00
+26534 ALFAM2_PoValley-Italy_v7.xlsx         232 2010-03-16 03:00:00
+26535 ALFAM2_PoValley-Italy_v7.xlsx         233 2010-03-16 04:00:00
+26536 ALFAM2_PoValley-Italy_v7.xlsx         234 2010-03-16 05:00:00
+26537 ALFAM2_PoValley-Italy_v7.xlsx         235 2010-03-16 06:00:00
+26538 ALFAM2_PoValley-Italy_v7.xlsx         236 2010-03-16 07:00:00
+26539 ALFAM2_PoValley-Italy_v7.xlsx         237 2010-03-16 08:00:00
+26540 ALFAM2_PoValley-Italy_v7.xlsx         238 2010-03-16 09:00:00
+26541 ALFAM2_PoValley-Italy_v7.xlsx         239 2010-03-16 10:00:00
+26542 ALFAM2_PoValley-Italy_v7.xlsx         240 2010-03-16 11:00:00
+26543 ALFAM2_PoValley-Italy_v7.xlsx         241 2010-03-16 12:00:00
+26544 ALFAM2_PoValley-Italy_v7.xlsx         242 2010-03-16 13:00:00
+26545 ALFAM2_PoValley-Italy_v7.xlsx         243 2010-03-16 14:00:00
+26546 ALFAM2_PoValley-Italy_v7.xlsx         244 2010-03-16 15:00:00
+26547 ALFAM2_PoValley-Italy_v7.xlsx         245 2010-03-16 16:00:00
+26548 ALFAM2_PoValley-Italy_v7.xlsx         246 2010-03-16 17:00:00
+26549 ALFAM2_PoValley-Italy_v7.xlsx         247 2010-03-16 18:00:00
+26550 ALFAM2_PoValley-Italy_v7.xlsx         248 2010-03-16 19:00:00
+26551 ALFAM2_PoValley-Italy_v7.xlsx         249 2010-03-16 20:00:00
+26552 ALFAM2_PoValley-Italy_v7.xlsx         250 2010-03-16 21:00:00
+26553 ALFAM2_PoValley-Italy_v7.xlsx         251 2010-03-16 22:00:00
+26554 ALFAM2_PoValley-Italy_v7.xlsx         252 2010-03-16 23:00:00
+26555 ALFAM2_PoValley-Italy_v7.xlsx         253 2010-03-17 00:00:00
+26556 ALFAM2_PoValley-Italy_v7.xlsx         254 2010-03-17 01:00:00
+26557 ALFAM2_PoValley-Italy_v7.xlsx         255 2010-03-17 02:00:00
+26558 ALFAM2_PoValley-Italy_v7.xlsx         256 2010-03-17 03:00:00
+26559 ALFAM2_PoValley-Italy_v7.xlsx         257 2010-03-17 04:00:00
+26560 ALFAM2_PoValley-Italy_v7.xlsx         258 2010-03-17 05:00:00
+26561 ALFAM2_PoValley-Italy_v7.xlsx         259 2010-03-17 06:00:00
+26562 ALFAM2_PoValley-Italy_v7.xlsx         260 2010-03-17 07:00:00
+27824 ALFAM2_PoValley-Italy_v7.xlsx         552 2011-10-09 17:30:00
+27825 ALFAM2_PoValley-Italy_v7.xlsx         553 2011-10-09 18:00:00
+27826 ALFAM2_PoValley-Italy_v7.xlsx         554 2011-10-09 18:30:00
+27827 ALFAM2_PoValley-Italy_v7.xlsx         555 2011-10-09 19:00:00
+27828 ALFAM2_PoValley-Italy_v7.xlsx         556 2011-10-09 19:30:00
+27829 ALFAM2_PoValley-Italy_v7.xlsx         557 2011-10-09 20:00:00
+27830 ALFAM2_PoValley-Italy_v7.xlsx         558 2011-10-09 20:30:00
+27831 ALFAM2_PoValley-Italy_v7.xlsx         559 2011-10-09 21:00:00
+27832 ALFAM2_PoValley-Italy_v7.xlsx         560 2011-10-09 21:30:00
+27833 ALFAM2_PoValley-Italy_v7.xlsx         561 2011-10-09 22:00:00
+27834 ALFAM2_PoValley-Italy_v7.xlsx         562 2011-10-09 22:30:00
+27835 ALFAM2_PoValley-Italy_v7.xlsx         563 2011-10-09 23:00:00
+27836 ALFAM2_PoValley-Italy_v7.xlsx         564 2011-10-09 23:30:00
+27837 ALFAM2_PoValley-Italy_v7.xlsx         565 2011-10-10 00:00:00
+27838 ALFAM2_PoValley-Italy_v7.xlsx         566 2011-10-10 00:30:00
+27839 ALFAM2_PoValley-Italy_v7.xlsx         567 2011-10-10 01:00:00
+27840 ALFAM2_PoValley-Italy_v7.xlsx         568 2011-10-10 01:30:00
+27841 ALFAM2_PoValley-Italy_v7.xlsx         569 2011-10-10 02:00:00
+27842 ALFAM2_PoValley-Italy_v7.xlsx         570 2011-10-10 02:30:00
+27843 ALFAM2_PoValley-Italy_v7.xlsx         571 2011-10-10 03:00:00
+27844 ALFAM2_PoValley-Italy_v7.xlsx         572 2011-10-10 03:30:00
+27845 ALFAM2_PoValley-Italy_v7.xlsx         573 2011-10-10 04:00:00
+27846 ALFAM2_PoValley-Italy_v7.xlsx         574 2011-10-10 04:30:00
+27847 ALFAM2_PoValley-Italy_v7.xlsx         575 2011-10-10 05:00:00
+27848 ALFAM2_PoValley-Italy_v7.xlsx         576 2011-10-10 05:30:00
+27849 ALFAM2_PoValley-Italy_v7.xlsx         577 2011-10-10 06:00:00
+27850 ALFAM2_PoValley-Italy_v7.xlsx         578 2011-10-10 06:30:00
+27851 ALFAM2_PoValley-Italy_v7.xlsx         579 2011-10-10 07:00:00
+27852 ALFAM2_PoValley-Italy_v7.xlsx         580 2011-10-10 07:30:00
+27853 ALFAM2_PoValley-Italy_v7.xlsx         581 2011-10-10 08:00:00
+27854 ALFAM2_PoValley-Italy_v7.xlsx         582 2011-10-10 08:30:00
+27452 ALFAM2_PoValley-Italy_v7.xlsx         923 2011-10-09 17:00:00
+27453 ALFAM2_PoValley-Italy_v7.xlsx         924 2011-10-09 17:30:00
+27454 ALFAM2_PoValley-Italy_v7.xlsx         925 2011-10-09 18:00:00
+27455 ALFAM2_PoValley-Italy_v7.xlsx         926 2011-10-09 18:30:00
+27456 ALFAM2_PoValley-Italy_v7.xlsx         927 2011-10-09 19:00:00
+27457 ALFAM2_PoValley-Italy_v7.xlsx         928 2011-10-09 19:30:00
+27458 ALFAM2_PoValley-Italy_v7.xlsx         929 2011-10-09 20:00:00
+27459 ALFAM2_PoValley-Italy_v7.xlsx         930 2011-10-09 20:30:00
+27460 ALFAM2_PoValley-Italy_v7.xlsx         931 2011-10-09 21:00:00
+27461 ALFAM2_PoValley-Italy_v7.xlsx         932 2011-10-09 21:30:00
+27462 ALFAM2_PoValley-Italy_v7.xlsx         933 2011-10-09 22:00:00
+27463 ALFAM2_PoValley-Italy_v7.xlsx         934 2011-10-09 22:30:00
+27464 ALFAM2_PoValley-Italy_v7.xlsx         935 2011-10-09 23:00:00
+27465 ALFAM2_PoValley-Italy_v7.xlsx         936 2011-10-09 23:30:00
+27466 ALFAM2_PoValley-Italy_v7.xlsx         937 2011-10-10 00:00:00
+27467 ALFAM2_PoValley-Italy_v7.xlsx         938 2011-10-10 00:30:00
+27468 ALFAM2_PoValley-Italy_v7.xlsx         939 2011-10-10 01:00:00
+27469 ALFAM2_PoValley-Italy_v7.xlsx         940 2011-10-10 01:30:00
+27470 ALFAM2_PoValley-Italy_v7.xlsx         941 2011-10-10 02:00:00
+27471 ALFAM2_PoValley-Italy_v7.xlsx         942 2011-10-10 02:30:00
+27472 ALFAM2_PoValley-Italy_v7.xlsx         943 2011-10-10 03:00:00
+27473 ALFAM2_PoValley-Italy_v7.xlsx         944 2011-10-10 03:30:00
+27474 ALFAM2_PoValley-Italy_v7.xlsx         945 2011-10-10 04:00:00
+27475 ALFAM2_PoValley-Italy_v7.xlsx         946 2011-10-10 04:30:00
+27476 ALFAM2_PoValley-Italy_v7.xlsx         947 2011-10-10 05:00:00
+27477 ALFAM2_PoValley-Italy_v7.xlsx         948 2011-10-10 05:30:00
+27478 ALFAM2_PoValley-Italy_v7.xlsx         949 2011-10-10 06:00:00
+27479 ALFAM2_PoValley-Italy_v7.xlsx         950 2011-10-10 06:30:00
+27480 ALFAM2_PoValley-Italy_v7.xlsx         951 2011-10-10 07:00:00
+27481 ALFAM2_PoValley-Italy_v7.xlsx         952 2011-10-10 07:30:00
+27482 ALFAM2_PoValley-Italy_v7.xlsx         953 2011-10-10 08:00:00
+27483 ALFAM2_PoValley-Italy_v7.xlsx         954 2011-10-10 08:30:00
+26854 ALFAM2_PoValley-Italy_v7.xlsx        1295 2011-04-06 20:00:00
+26855 ALFAM2_PoValley-Italy_v7.xlsx        1296 2011-04-06 20:30:00
+26856 ALFAM2_PoValley-Italy_v7.xlsx        1297 2011-04-06 21:00:00
+26857 ALFAM2_PoValley-Italy_v7.xlsx        1298 2011-04-06 21:30:00
+26858 ALFAM2_PoValley-Italy_v7.xlsx        1299 2011-04-06 22:00:00
+26859 ALFAM2_PoValley-Italy_v7.xlsx        1300 2011-04-06 22:30:00
+26860 ALFAM2_PoValley-Italy_v7.xlsx        1301 2011-04-06 23:00:00
+26861 ALFAM2_PoValley-Italy_v7.xlsx        1302 2011-04-06 23:30:00
+26862 ALFAM2_PoValley-Italy_v7.xlsx        1303 2011-04-07 00:00:00
+26863 ALFAM2_PoValley-Italy_v7.xlsx        1304 2011-04-07 00:30:00
+26864 ALFAM2_PoValley-Italy_v7.xlsx        1305 2011-04-07 01:00:00
+26865 ALFAM2_PoValley-Italy_v7.xlsx        1306 2011-04-07 01:30:00
+26866 ALFAM2_PoValley-Italy_v7.xlsx        1307 2011-04-07 02:00:00
+26867 ALFAM2_PoValley-Italy_v7.xlsx        1308 2011-04-07 02:30:00
+26868 ALFAM2_PoValley-Italy_v7.xlsx        1309 2011-04-07 03:00:00
+26869 ALFAM2_PoValley-Italy_v7.xlsx        1310 2011-04-07 03:30:00
+26870 ALFAM2_PoValley-Italy_v7.xlsx        1311 2011-04-07 04:00:00
+26871 ALFAM2_PoValley-Italy_v7.xlsx        1312 2011-04-07 04:30:00
+26872 ALFAM2_PoValley-Italy_v7.xlsx        1313 2011-04-07 05:00:00
+26873 ALFAM2_PoValley-Italy_v7.xlsx        1314 2011-04-07 05:30:00
+26874 ALFAM2_PoValley-Italy_v7.xlsx        1315 2011-04-07 06:00:00
+26875 ALFAM2_PoValley-Italy_v7.xlsx        1316 2011-04-07 06:30:00
+26876 ALFAM2_PoValley-Italy_v7.xlsx        1317 2011-04-07 07:00:00
+26877 ALFAM2_PoValley-Italy_v7.xlsx        1318 2011-04-07 07:30:00
+26878 ALFAM2_PoValley-Italy_v7.xlsx        1319 2011-04-07 08:00:00
+27169 ALFAM2_PoValley-Italy_v7.xlsx        1610 2011-04-06 20:00:00
+27170 ALFAM2_PoValley-Italy_v7.xlsx        1611 2011-04-06 20:30:00
+27171 ALFAM2_PoValley-Italy_v7.xlsx        1612 2011-04-06 21:00:00
+27172 ALFAM2_PoValley-Italy_v7.xlsx        1613 2011-04-06 21:30:00
+27173 ALFAM2_PoValley-Italy_v7.xlsx        1614 2011-04-06 22:00:00
+27174 ALFAM2_PoValley-Italy_v7.xlsx        1615 2011-04-06 22:30:00
+27175 ALFAM2_PoValley-Italy_v7.xlsx        1616 2011-04-06 23:00:00
+27176 ALFAM2_PoValley-Italy_v7.xlsx        1617 2011-04-06 23:30:00
+27177 ALFAM2_PoValley-Italy_v7.xlsx        1618 2011-04-07 00:00:00
+27178 ALFAM2_PoValley-Italy_v7.xlsx        1619 2011-04-07 00:30:00
+27179 ALFAM2_PoValley-Italy_v7.xlsx        1620 2011-04-07 01:00:00
+27180 ALFAM2_PoValley-Italy_v7.xlsx        1621 2011-04-07 01:30:00
+27181 ALFAM2_PoValley-Italy_v7.xlsx        1622 2011-04-07 02:00:00
+27182 ALFAM2_PoValley-Italy_v7.xlsx        1623 2011-04-07 02:30:00
+27183 ALFAM2_PoValley-Italy_v7.xlsx        1624 2011-04-07 03:00:00
+27184 ALFAM2_PoValley-Italy_v7.xlsx        1625 2011-04-07 03:30:00
+27185 ALFAM2_PoValley-Italy_v7.xlsx        1626 2011-04-07 04:00:00
+27186 ALFAM2_PoValley-Italy_v7.xlsx        1627 2011-04-07 04:30:00
+27187 ALFAM2_PoValley-Italy_v7.xlsx        1628 2011-04-07 05:00:00
+27188 ALFAM2_PoValley-Italy_v7.xlsx        1629 2011-04-07 05:30:00
+27189 ALFAM2_PoValley-Italy_v7.xlsx        1630 2011-04-07 06:00:00
+27190 ALFAM2_PoValley-Italy_v7.xlsx        1631 2011-04-07 06:30:00
+27191 ALFAM2_PoValley-Italy_v7.xlsx        1632 2011-04-07 07:00:00
+27192 ALFAM2_PoValley-Italy_v7.xlsx        1633 2011-04-07 07:30:00
+27193 ALFAM2_PoValley-Italy_v7.xlsx        1634 2011-04-07 08:00:00
+26053 ALFAM2_PoValley-Italy_v7.xlsx        1893 2009-03-26 18:30:00
+26054 ALFAM2_PoValley-Italy_v7.xlsx        1894 2009-03-26 19:00:00
+26055 ALFAM2_PoValley-Italy_v7.xlsx        1895 2009-03-26 19:30:00
+26056 ALFAM2_PoValley-Italy_v7.xlsx        1896 2009-03-26 20:00:00
+26057 ALFAM2_PoValley-Italy_v7.xlsx        1897 2009-03-26 20:30:00
+26058 ALFAM2_PoValley-Italy_v7.xlsx        1898 2009-03-26 21:00:00
+26059 ALFAM2_PoValley-Italy_v7.xlsx        1899 2009-03-26 21:30:00
+26060 ALFAM2_PoValley-Italy_v7.xlsx        1900 2009-03-26 22:00:00
+26061 ALFAM2_PoValley-Italy_v7.xlsx        1901 2009-03-26 22:30:00
+26062 ALFAM2_PoValley-Italy_v7.xlsx        1902 2009-03-26 23:00:00
+26063 ALFAM2_PoValley-Italy_v7.xlsx        1903 2009-03-26 23:30:00
+26064 ALFAM2_PoValley-Italy_v7.xlsx        1904 2009-03-27 00:00:00
+26065 ALFAM2_PoValley-Italy_v7.xlsx        1905 2009-03-27 00:30:00
+26066 ALFAM2_PoValley-Italy_v7.xlsx        1906 2009-03-27 01:00:00
+26067 ALFAM2_PoValley-Italy_v7.xlsx        1907 2009-03-27 01:30:00
+26068 ALFAM2_PoValley-Italy_v7.xlsx        1908 2009-03-27 02:00:00
+26069 ALFAM2_PoValley-Italy_v7.xlsx        1909 2009-03-27 02:30:00
+26070 ALFAM2_PoValley-Italy_v7.xlsx        1910 2009-03-27 03:00:00
+26071 ALFAM2_PoValley-Italy_v7.xlsx        1911 2009-03-27 03:30:00
+26072 ALFAM2_PoValley-Italy_v7.xlsx        1912 2009-03-27 04:00:00
+26073 ALFAM2_PoValley-Italy_v7.xlsx        1913 2009-03-27 04:30:00
+26074 ALFAM2_PoValley-Italy_v7.xlsx        1914 2009-03-27 05:00:00
+26075 ALFAM2_PoValley-Italy_v7.xlsx        1915 2009-03-27 05:30:00
+26076 ALFAM2_PoValley-Italy_v7.xlsx        1916 2009-03-27 06:00:00
+26077 ALFAM2_PoValley-Italy_v7.xlsx        1917 2009-03-27 06:30:00
+26078 ALFAM2_PoValley-Italy_v7.xlsx        1918 2009-03-27 07:00:00
+26079 ALFAM2_PoValley-Italy_v7.xlsx        1919 2009-03-27 07:30:00
+26275 ALFAM2_PoValley-Italy_v7.xlsx        2115 2009-03-26 18:30:00
+26276 ALFAM2_PoValley-Italy_v7.xlsx        2116 2009-03-26 19:00:00
+26277 ALFAM2_PoValley-Italy_v7.xlsx        2117 2009-03-26 19:30:00
+26278 ALFAM2_PoValley-Italy_v7.xlsx        2118 2009-03-26 20:00:00
+26279 ALFAM2_PoValley-Italy_v7.xlsx        2119 2009-03-26 20:30:00
+26280 ALFAM2_PoValley-Italy_v7.xlsx        2120 2009-03-26 21:00:00
+26281 ALFAM2_PoValley-Italy_v7.xlsx        2121 2009-03-26 21:30:00
+26282 ALFAM2_PoValley-Italy_v7.xlsx        2122 2009-03-26 22:00:00
+26283 ALFAM2_PoValley-Italy_v7.xlsx        2123 2009-03-26 22:30:00
+26284 ALFAM2_PoValley-Italy_v7.xlsx        2124 2009-03-26 23:00:00
+26285 ALFAM2_PoValley-Italy_v7.xlsx        2125 2009-03-26 23:30:00
+26286 ALFAM2_PoValley-Italy_v7.xlsx        2126 2009-03-27 00:00:00
+26287 ALFAM2_PoValley-Italy_v7.xlsx        2127 2009-03-27 00:30:00
+26288 ALFAM2_PoValley-Italy_v7.xlsx        2128 2009-03-27 01:00:00
+26289 ALFAM2_PoValley-Italy_v7.xlsx        2129 2009-03-27 01:30:00
+26290 ALFAM2_PoValley-Italy_v7.xlsx        2130 2009-03-27 02:00:00
+26291 ALFAM2_PoValley-Italy_v7.xlsx        2131 2009-03-27 02:30:00
+26292 ALFAM2_PoValley-Italy_v7.xlsx        2132 2009-03-27 03:00:00
+26293 ALFAM2_PoValley-Italy_v7.xlsx        2133 2009-03-27 03:30:00
+26294 ALFAM2_PoValley-Italy_v7.xlsx        2134 2009-03-27 04:00:00
+26295 ALFAM2_PoValley-Italy_v7.xlsx        2135 2009-03-27 04:30:00
+26296 ALFAM2_PoValley-Italy_v7.xlsx        2136 2009-03-27 05:00:00
+26297 ALFAM2_PoValley-Italy_v7.xlsx        2137 2009-03-27 05:30:00
+26298 ALFAM2_PoValley-Italy_v7.xlsx        2138 2009-03-27 06:00:00
+26299 ALFAM2_PoValley-Italy_v7.xlsx        2139 2009-03-27 06:30:00
+26300 ALFAM2_PoValley-Italy_v7.xlsx        2140 2009-03-27 07:00:00
+26301 ALFAM2_PoValley-Italy_v7.xlsx        2141 2009-03-27 07:30:00
+14478    ALFAM2_Switzerland_v2.xlsx         548 2013-07-10 10:45:00
+14101    ALFAM2_Switzerland_v2.xlsx         637 2011-09-20 10:48:00
+14174    ALFAM2_Switzerland_v2.xlsx         710 2012-05-10 09:27:00
+14581    ALFAM2_Switzerland_v2.xlsx         773 2013-07-05 12:13:00
+                    t.end           app.start       ct     field plot tan.app
+25868 2009-09-23 15:00:00 2009-09-24 08:00:00  1.00000 Bigarello    1 137.000
+25869 2009-09-23 16:00:00 2009-09-24 08:00:00  2.00000 Bigarello    1 137.000
+25870 2009-09-23 17:00:00 2009-09-24 08:00:00  3.00000 Bigarello    1 137.000
+25871 2009-09-23 18:00:00 2009-09-24 08:00:00  4.00000 Bigarello    1 137.000
+25872 2009-09-23 19:00:00 2009-09-24 08:00:00  5.00000 Bigarello    1 137.000
+25873 2009-09-23 20:00:00 2009-09-24 08:00:00  6.00000 Bigarello    1 137.000
+25874 2009-09-23 21:00:00 2009-09-24 08:00:00  7.00000 Bigarello    1 137.000
+25875 2009-09-23 22:00:00 2009-09-24 08:00:00  8.00000 Bigarello    1 137.000
+25876 2009-09-23 23:00:00 2009-09-24 08:00:00  9.00000 Bigarello    1 137.000
+25877 2009-09-24 00:00:00 2009-09-24 08:00:00 10.00000 Bigarello    1 137.000
+25878 2009-09-24 01:00:00 2009-09-24 08:00:00 11.00000 Bigarello    1 137.000
+25879 2009-09-24 02:00:00 2009-09-24 08:00:00 12.00000 Bigarello    1 137.000
+25880 2009-09-24 03:00:00 2009-09-24 08:00:00 13.00000 Bigarello    1 137.000
+25881 2009-09-24 04:00:00 2009-09-24 08:00:00 14.00000 Bigarello    1 137.000
+25882 2009-09-24 05:00:00 2009-09-24 08:00:00 15.00000 Bigarello    1 137.000
+25883 2009-09-24 06:00:00 2009-09-24 08:00:00 16.00000 Bigarello    1 137.000
+25884 2009-09-24 07:00:00 2009-09-24 08:00:00 17.00000 Bigarello    1 137.000
+25885 2009-09-24 08:00:00 2009-09-24 08:00:00 18.00000 Bigarello    1 137.000
+26497 2010-03-14 15:00:00 2010-03-17 08:00:00  1.00000 Cornaredo    1  91.800
+26498 2010-03-14 16:00:00 2010-03-17 08:00:00  2.00000 Cornaredo    1  91.800
+26499 2010-03-14 17:00:00 2010-03-17 08:00:00  3.00000 Cornaredo    1  91.800
+26500 2010-03-14 18:00:00 2010-03-17 08:00:00  4.00000 Cornaredo    1  91.800
+26501 2010-03-14 19:00:00 2010-03-17 08:00:00  5.00000 Cornaredo    1  91.800
+26502 2010-03-14 20:00:00 2010-03-17 08:00:00  6.00000 Cornaredo    1  91.800
+26503 2010-03-14 21:00:00 2010-03-17 08:00:00  7.00000 Cornaredo    1  91.800
+26504 2010-03-14 22:00:00 2010-03-17 08:00:00  8.00000 Cornaredo    1  91.800
+26505 2010-03-14 23:00:00 2010-03-17 08:00:00  9.00000 Cornaredo    1  91.800
+26506 2010-03-15 00:00:00 2010-03-17 08:00:00 10.00000 Cornaredo    1  91.800
+26507 2010-03-15 01:00:00 2010-03-17 08:00:00 11.00000 Cornaredo    1  91.800
+26508 2010-03-15 02:00:00 2010-03-17 08:00:00 12.00000 Cornaredo    1  91.800
+26509 2010-03-15 03:00:00 2010-03-17 08:00:00 13.00000 Cornaredo    1  91.800
+26510 2010-03-15 04:00:00 2010-03-17 08:00:00 14.00000 Cornaredo    1  91.800
+26511 2010-03-15 05:00:00 2010-03-17 08:00:00 15.00000 Cornaredo    1  91.800
+26512 2010-03-15 06:00:00 2010-03-17 08:00:00 16.00000 Cornaredo    1  91.800
+26513 2010-03-15 07:00:00 2010-03-17 08:00:00 17.00000 Cornaredo    1  91.800
+26514 2010-03-15 08:00:00 2010-03-17 08:00:00 18.00000 Cornaredo    1  91.800
+26515 2010-03-15 09:00:00 2010-03-17 08:00:00 19.00000 Cornaredo    1  91.800
+26516 2010-03-15 10:00:00 2010-03-17 08:00:00 20.00000 Cornaredo    1  91.800
+26517 2010-03-15 11:00:00 2010-03-17 08:00:00 21.00000 Cornaredo    1  91.800
+26518 2010-03-15 12:00:00 2010-03-17 08:00:00 22.00000 Cornaredo    1  91.800
+26519 2010-03-15 13:00:00 2010-03-17 08:00:00 23.00000 Cornaredo    1  91.800
+26520 2010-03-15 14:00:00 2010-03-17 08:00:00 24.00000 Cornaredo    1  91.800
+26521 2010-03-15 15:00:00 2010-03-17 08:00:00 25.00000 Cornaredo    1  91.800
+26522 2010-03-15 16:00:00 2010-03-17 08:00:00 26.00000 Cornaredo    1  91.800
+26523 2010-03-15 17:00:00 2010-03-17 08:00:00 27.00000 Cornaredo    1  91.800
+26524 2010-03-15 18:00:00 2010-03-17 08:00:00 28.00000 Cornaredo    1  91.800
+26525 2010-03-15 19:00:00 2010-03-17 08:00:00 29.00000 Cornaredo    1  91.800
+26526 2010-03-15 20:00:00 2010-03-17 08:00:00 30.00000 Cornaredo    1  91.800
+26527 2010-03-15 21:00:00 2010-03-17 08:00:00 31.00000 Cornaredo    1  91.800
+26528 2010-03-15 22:00:00 2010-03-17 08:00:00 32.00000 Cornaredo    1  91.800
+26529 2010-03-15 23:00:00 2010-03-17 08:00:00 33.00000 Cornaredo    1  91.800
+26530 2010-03-16 00:00:00 2010-03-17 08:00:00 34.00000 Cornaredo    1  91.800
+26531 2010-03-16 01:00:00 2010-03-17 08:00:00 35.00000 Cornaredo    1  91.800
+26532 2010-03-16 02:00:00 2010-03-17 08:00:00 36.00000 Cornaredo    1  91.800
+26533 2010-03-16 03:00:00 2010-03-17 08:00:00 37.00000 Cornaredo    1  91.800
+26534 2010-03-16 04:00:00 2010-03-17 08:00:00 38.00000 Cornaredo    1  91.800
+26535 2010-03-16 05:00:00 2010-03-17 08:00:00 39.00000 Cornaredo    1  91.800
+26536 2010-03-16 06:00:00 2010-03-17 08:00:00 40.00000 Cornaredo    1  91.800
+26537 2010-03-16 07:00:00 2010-03-17 08:00:00 41.00000 Cornaredo    1  91.800
+26538 2010-03-16 08:00:00 2010-03-17 08:00:00 42.00000 Cornaredo    1  91.800
+26539 2010-03-16 09:00:00 2010-03-17 08:00:00 43.00000 Cornaredo    1  91.800
+26540 2010-03-16 10:00:00 2010-03-17 08:00:00 44.00000 Cornaredo    1  91.800
+26541 2010-03-16 11:00:00 2010-03-17 08:00:00 45.00000 Cornaredo    1  91.800
+26542 2010-03-16 12:00:00 2010-03-17 08:00:00 46.00000 Cornaredo    1  91.800
+26543 2010-03-16 13:00:00 2010-03-17 08:00:00 47.00000 Cornaredo    1  91.800
+26544 2010-03-16 14:00:00 2010-03-17 08:00:00 48.00000 Cornaredo    1  91.800
+26545 2010-03-16 15:00:00 2010-03-17 08:00:00 49.00000 Cornaredo    1  91.800
+26546 2010-03-16 16:00:00 2010-03-17 08:00:00 50.00000 Cornaredo    1  91.800
+26547 2010-03-16 17:00:00 2010-03-17 08:00:00 51.00000 Cornaredo    1  91.800
+26548 2010-03-16 18:00:00 2010-03-17 08:00:00 52.00000 Cornaredo    1  91.800
+26549 2010-03-16 19:00:00 2010-03-17 08:00:00 53.00000 Cornaredo    1  91.800
+26550 2010-03-16 20:00:00 2010-03-17 08:00:00 54.00000 Cornaredo    1  91.800
+26551 2010-03-16 21:00:00 2010-03-17 08:00:00 55.00000 Cornaredo    1  91.800
+26552 2010-03-16 22:00:00 2010-03-17 08:00:00 56.00000 Cornaredo    1  91.800
+26553 2010-03-16 23:00:00 2010-03-17 08:00:00 57.00000 Cornaredo    1  91.800
+26554 2010-03-17 00:00:00 2010-03-17 08:00:00 58.00000 Cornaredo    1  91.800
+26555 2010-03-17 01:00:00 2010-03-17 08:00:00 59.00000 Cornaredo    1  91.800
+26556 2010-03-17 02:00:00 2010-03-17 08:00:00 60.00000 Cornaredo    1  91.800
+26557 2010-03-17 03:00:00 2010-03-17 08:00:00 61.00000 Cornaredo    1  91.800
+26558 2010-03-17 04:00:00 2010-03-17 08:00:00 62.00000 Cornaredo    1  91.800
+26559 2010-03-17 05:00:00 2010-03-17 08:00:00 63.00000 Cornaredo    1  91.800
+26560 2010-03-17 06:00:00 2010-03-17 08:00:00 64.00000 Cornaredo    1  91.800
+26561 2010-03-17 07:00:00 2010-03-17 08:00:00 65.00000 Cornaredo    1  91.800
+26562 2010-03-17 08:00:00 2010-03-17 08:00:00 66.00000 Cornaredo    1  91.800
+27824 2011-10-09 18:00:00 2011-10-10 09:00:00  0.50000 Bigarello    1  68.092
+27825 2011-10-09 18:30:00 2011-10-10 09:00:00  1.00000 Bigarello    1  68.092
+27826 2011-10-09 19:00:00 2011-10-10 09:00:00  1.50000 Bigarello    1  68.092
+27827 2011-10-09 19:30:00 2011-10-10 09:00:00  2.00000 Bigarello    1  68.092
+27828 2011-10-09 20:00:00 2011-10-10 09:00:00  2.50000 Bigarello    1  68.092
+27829 2011-10-09 20:30:00 2011-10-10 09:00:00  3.00000 Bigarello    1  68.092
+27830 2011-10-09 21:00:00 2011-10-10 09:00:00  3.50000 Bigarello    1  68.092
+27831 2011-10-09 21:30:00 2011-10-10 09:00:00  4.00000 Bigarello    1  68.092
+27832 2011-10-09 22:00:00 2011-10-10 09:00:00  4.50000 Bigarello    1  68.092
+27833 2011-10-09 22:30:00 2011-10-10 09:00:00  5.00000 Bigarello    1  68.092
+27834 2011-10-09 23:00:00 2011-10-10 09:00:00  5.50000 Bigarello    1  68.092
+27835 2011-10-09 23:30:00 2011-10-10 09:00:00  6.00000 Bigarello    1  68.092
+27836 2011-10-10 00:00:00 2011-10-10 09:00:00  6.50000 Bigarello    1  68.092
+27837 2011-10-10 00:30:00 2011-10-10 09:00:00  7.00000 Bigarello    1  68.092
+27838 2011-10-10 01:00:00 2011-10-10 09:00:00  7.50000 Bigarello    1  68.092
+27839 2011-10-10 01:30:00 2011-10-10 09:00:00  8.00000 Bigarello    1  68.092
+27840 2011-10-10 02:00:00 2011-10-10 09:00:00  8.50000 Bigarello    1  68.092
+27841 2011-10-10 02:30:00 2011-10-10 09:00:00  9.00000 Bigarello    1  68.092
+27842 2011-10-10 03:00:00 2011-10-10 09:00:00  9.50000 Bigarello    1  68.092
+27843 2011-10-10 03:30:00 2011-10-10 09:00:00 10.00000 Bigarello    1  68.092
+27844 2011-10-10 04:00:00 2011-10-10 09:00:00 10.50000 Bigarello    1  68.092
+27845 2011-10-10 04:30:00 2011-10-10 09:00:00 11.00000 Bigarello    1  68.092
+27846 2011-10-10 05:00:00 2011-10-10 09:00:00 11.50000 Bigarello    1  68.092
+27847 2011-10-10 05:30:00 2011-10-10 09:00:00 12.00000 Bigarello    1  68.092
+27848 2011-10-10 06:00:00 2011-10-10 09:00:00 12.50000 Bigarello    1  68.092
+27849 2011-10-10 06:30:00 2011-10-10 09:00:00 13.00000 Bigarello    1  68.092
+27850 2011-10-10 07:00:00 2011-10-10 09:00:00 13.50000 Bigarello    1  68.092
+27851 2011-10-10 07:30:00 2011-10-10 09:00:00 14.00000 Bigarello    1  68.092
+27852 2011-10-10 08:00:00 2011-10-10 09:00:00 14.50000 Bigarello    1  68.092
+27853 2011-10-10 08:30:00 2011-10-10 09:00:00 15.00000 Bigarello    1  68.092
+27854 2011-10-10 09:00:00 2011-10-10 09:00:00 15.50000 Bigarello    1  68.092
+27452 2011-10-09 17:30:00 2011-10-10 09:00:00  0.50000 Bigarello    1  66.128
+27453 2011-10-09 18:00:00 2011-10-10 09:00:00  1.00000 Bigarello    1  66.128
+27454 2011-10-09 18:30:00 2011-10-10 09:00:00  1.50000 Bigarello    1  66.128
+27455 2011-10-09 19:00:00 2011-10-10 09:00:00  2.00000 Bigarello    1  66.128
+27456 2011-10-09 19:30:00 2011-10-10 09:00:00  2.50000 Bigarello    1  66.128
+27457 2011-10-09 20:00:00 2011-10-10 09:00:00  3.00000 Bigarello    1  66.128
+27458 2011-10-09 20:30:00 2011-10-10 09:00:00  3.50000 Bigarello    1  66.128
+27459 2011-10-09 21:00:00 2011-10-10 09:00:00  4.00000 Bigarello    1  66.128
+27460 2011-10-09 21:30:00 2011-10-10 09:00:00  4.50000 Bigarello    1  66.128
+27461 2011-10-09 22:00:00 2011-10-10 09:00:00  5.00000 Bigarello    1  66.128
+27462 2011-10-09 22:30:00 2011-10-10 09:00:00  5.50000 Bigarello    1  66.128
+27463 2011-10-09 23:00:00 2011-10-10 09:00:00  6.00000 Bigarello    1  66.128
+27464 2011-10-09 23:30:00 2011-10-10 09:00:00  6.50000 Bigarello    1  66.128
+27465 2011-10-10 00:00:00 2011-10-10 09:00:00  7.00000 Bigarello    1  66.128
+27466 2011-10-10 00:30:00 2011-10-10 09:00:00  7.50000 Bigarello    1  66.128
+27467 2011-10-10 01:00:00 2011-10-10 09:00:00  8.00000 Bigarello    1  66.128
+27468 2011-10-10 01:30:00 2011-10-10 09:00:00  8.50000 Bigarello    1  66.128
+27469 2011-10-10 02:00:00 2011-10-10 09:00:00  9.00000 Bigarello    1  66.128
+27470 2011-10-10 02:30:00 2011-10-10 09:00:00  9.50000 Bigarello    1  66.128
+27471 2011-10-10 03:00:00 2011-10-10 09:00:00 10.00000 Bigarello    1  66.128
+27472 2011-10-10 03:30:00 2011-10-10 09:00:00 10.50000 Bigarello    1  66.128
+27473 2011-10-10 04:00:00 2011-10-10 09:00:00 11.00000 Bigarello    1  66.128
+27474 2011-10-10 04:30:00 2011-10-10 09:00:00 11.50000 Bigarello    1  66.128
+27475 2011-10-10 05:00:00 2011-10-10 09:00:00 12.00000 Bigarello    1  66.128
+27476 2011-10-10 05:30:00 2011-10-10 09:00:00 12.50000 Bigarello    1  66.128
+27477 2011-10-10 06:00:00 2011-10-10 09:00:00 13.00000 Bigarello    1  66.128
+27478 2011-10-10 06:30:00 2011-10-10 09:00:00 13.50000 Bigarello    1  66.128
+27479 2011-10-10 07:00:00 2011-10-10 09:00:00 14.00000 Bigarello    1  66.128
+27480 2011-10-10 07:30:00 2011-10-10 09:00:00 14.50000 Bigarello    1  66.128
+27481 2011-10-10 08:00:00 2011-10-10 09:00:00 15.00000 Bigarello    1  66.128
+27482 2011-10-10 08:30:00 2011-10-10 09:00:00 15.50000 Bigarello    1  66.128
+27483 2011-10-10 09:00:00 2011-10-10 09:00:00 16.00000 Bigarello    1  66.128
+26854 2011-04-06 20:30:00 2011-04-07 08:30:00  0.50000 Landriano    1 109.070
+26855 2011-04-06 21:00:00 2011-04-07 08:30:00  1.00000 Landriano    1 109.070
+26856 2011-04-06 21:30:00 2011-04-07 08:30:00  1.50000 Landriano    1 109.070
+26857 2011-04-06 22:00:00 2011-04-07 08:30:00  2.00000 Landriano    1 109.070
+26858 2011-04-06 22:30:00 2011-04-07 08:30:00  2.50000 Landriano    1 109.070
+26859 2011-04-06 23:00:00 2011-04-07 08:30:00  3.00000 Landriano    1 109.070
+26860 2011-04-06 23:30:00 2011-04-07 08:30:00  3.50000 Landriano    1 109.070
+26861 2011-04-07 00:00:00 2011-04-07 08:30:00  4.00000 Landriano    1 109.070
+26862 2011-04-07 00:30:00 2011-04-07 08:30:00  4.50000 Landriano    1 109.070
+26863 2011-04-07 01:00:00 2011-04-07 08:30:00  5.00000 Landriano    1 109.070
+26864 2011-04-07 01:30:00 2011-04-07 08:30:00  5.50000 Landriano    1 109.070
+26865 2011-04-07 02:00:00 2011-04-07 08:30:00  6.00000 Landriano    1 109.070
+26866 2011-04-07 02:30:00 2011-04-07 08:30:00  6.50000 Landriano    1 109.070
+26867 2011-04-07 03:00:00 2011-04-07 08:30:00  7.00000 Landriano    1 109.070
+26868 2011-04-07 03:30:00 2011-04-07 08:30:00  7.50000 Landriano    1 109.070
+26869 2011-04-07 04:00:00 2011-04-07 08:30:00  8.00000 Landriano    1 109.070
+26870 2011-04-07 04:30:00 2011-04-07 08:30:00  8.50000 Landriano    1 109.070
+26871 2011-04-07 05:00:00 2011-04-07 08:30:00  9.00000 Landriano    1 109.070
+26872 2011-04-07 05:30:00 2011-04-07 08:30:00  9.50000 Landriano    1 109.070
+26873 2011-04-07 06:00:00 2011-04-07 08:30:00 10.00000 Landriano    1 109.070
+26874 2011-04-07 06:30:00 2011-04-07 08:30:00 10.50000 Landriano    1 109.070
+26875 2011-04-07 07:00:00 2011-04-07 08:30:00 11.00000 Landriano    1 109.070
+26876 2011-04-07 07:30:00 2011-04-07 08:30:00 11.50000 Landriano    1 109.070
+26877 2011-04-07 08:00:00 2011-04-07 08:30:00 12.00000 Landriano    1 109.070
+26878 2011-04-07 08:30:00 2011-04-07 08:30:00 12.50000 Landriano    1 109.070
+27169 2011-04-06 20:30:00 2011-04-07 08:30:00  0.50000 Landriano    1 109.070
+27170 2011-04-06 21:00:00 2011-04-07 08:30:00  1.00000 Landriano    1 109.070
+27171 2011-04-06 21:30:00 2011-04-07 08:30:00  1.50000 Landriano    1 109.070
+27172 2011-04-06 22:00:00 2011-04-07 08:30:00  2.00000 Landriano    1 109.070
+27173 2011-04-06 22:30:00 2011-04-07 08:30:00  2.50000 Landriano    1 109.070
+27174 2011-04-06 23:00:00 2011-04-07 08:30:00  3.00000 Landriano    1 109.070
+27175 2011-04-06 23:30:00 2011-04-07 08:30:00  3.50000 Landriano    1 109.070
+27176 2011-04-07 00:00:00 2011-04-07 08:30:00  4.00000 Landriano    1 109.070
+27177 2011-04-07 00:30:00 2011-04-07 08:30:00  4.50000 Landriano    1 109.070
+27178 2011-04-07 01:00:00 2011-04-07 08:30:00  5.00000 Landriano    1 109.070
+27179 2011-04-07 01:30:00 2011-04-07 08:30:00  5.50000 Landriano    1 109.070
+27180 2011-04-07 02:00:00 2011-04-07 08:30:00  6.00000 Landriano    1 109.070
+27181 2011-04-07 02:30:00 2011-04-07 08:30:00  6.50000 Landriano    1 109.070
+27182 2011-04-07 03:00:00 2011-04-07 08:30:00  7.00000 Landriano    1 109.070
+27183 2011-04-07 03:30:00 2011-04-07 08:30:00  7.50000 Landriano    1 109.070
+27184 2011-04-07 04:00:00 2011-04-07 08:30:00  8.00000 Landriano    1 109.070
+27185 2011-04-07 04:30:00 2011-04-07 08:30:00  8.50000 Landriano    1 109.070
+27186 2011-04-07 05:00:00 2011-04-07 08:30:00  9.00000 Landriano    1 109.070
+27187 2011-04-07 05:30:00 2011-04-07 08:30:00  9.50000 Landriano    1 109.070
+27188 2011-04-07 06:00:00 2011-04-07 08:30:00 10.00000 Landriano    1 109.070
+27189 2011-04-07 06:30:00 2011-04-07 08:30:00 10.50000 Landriano    1 109.070
+27190 2011-04-07 07:00:00 2011-04-07 08:30:00 11.00000 Landriano    1 109.070
+27191 2011-04-07 07:30:00 2011-04-07 08:30:00 11.50000 Landriano    1 109.070
+27192 2011-04-07 08:00:00 2011-04-07 08:30:00 12.00000 Landriano    1 109.070
+27193 2011-04-07 08:30:00 2011-04-07 08:30:00 12.50000 Landriano    1 109.070
+26053 2009-03-26 19:00:00 2009-03-27 08:00:00  0.50000 Landriano    1  95.026
+26054 2009-03-26 19:30:00 2009-03-27 08:00:00  1.00000 Landriano    1  95.026
+26055 2009-03-26 20:00:00 2009-03-27 08:00:00  1.50000 Landriano    1  95.026
+26056 2009-03-26 20:30:00 2009-03-27 08:00:00  2.00000 Landriano    1  95.026
+26057 2009-03-26 21:00:00 2009-03-27 08:00:00  2.50000 Landriano    1  95.026
+26058 2009-03-26 21:30:00 2009-03-27 08:00:00  3.00000 Landriano    1  95.026
+26059 2009-03-26 22:00:00 2009-03-27 08:00:00  3.50000 Landriano    1  95.026
+26060 2009-03-26 22:30:00 2009-03-27 08:00:00  4.00000 Landriano    1  95.026
+26061 2009-03-26 23:00:00 2009-03-27 08:00:00  4.50000 Landriano    1  95.026
+26062 2009-03-26 23:30:00 2009-03-27 08:00:00  5.00000 Landriano    1  95.026
+26063 2009-03-27 00:00:00 2009-03-27 08:00:00  5.50000 Landriano    1  95.026
+26064 2009-03-27 00:30:00 2009-03-27 08:00:00  6.00000 Landriano    1  95.026
+26065 2009-03-27 01:00:00 2009-03-27 08:00:00  6.50000 Landriano    1  95.026
+26066 2009-03-27 01:30:00 2009-03-27 08:00:00  7.00000 Landriano    1  95.026
+26067 2009-03-27 02:00:00 2009-03-27 08:00:00  7.50000 Landriano    1  95.026
+26068 2009-03-27 02:30:00 2009-03-27 08:00:00  8.00000 Landriano    1  95.026
+26069 2009-03-27 03:00:00 2009-03-27 08:00:00  8.50000 Landriano    1  95.026
+26070 2009-03-27 03:30:00 2009-03-27 08:00:00  9.00000 Landriano    1  95.026
+26071 2009-03-27 04:00:00 2009-03-27 08:00:00  9.50000 Landriano    1  95.026
+26072 2009-03-27 04:30:00 2009-03-27 08:00:00 10.00000 Landriano    1  95.026
+26073 2009-03-27 05:00:00 2009-03-27 08:00:00 10.50000 Landriano    1  95.026
+26074 2009-03-27 05:30:00 2009-03-27 08:00:00 11.00000 Landriano    1  95.026
+26075 2009-03-27 06:00:00 2009-03-27 08:00:00 11.50000 Landriano    1  95.026
+26076 2009-03-27 06:30:00 2009-03-27 08:00:00 12.00000 Landriano    1  95.026
+26077 2009-03-27 07:00:00 2009-03-27 08:00:00 12.50000 Landriano    1  95.026
+26078 2009-03-27 07:30:00 2009-03-27 08:00:00 13.00000 Landriano    1  95.026
+26079 2009-03-27 08:00:00 2009-03-27 08:00:00 13.50000 Landriano    1  95.026
+26275 2009-03-26 19:00:00 2009-03-27 08:00:00  0.50000 Landriano    1  95.026
+26276 2009-03-26 19:30:00 2009-03-27 08:00:00  1.00000 Landriano    1  95.026
+26277 2009-03-26 20:00:00 2009-03-27 08:00:00  1.50000 Landriano    1  95.026
+26278 2009-03-26 20:30:00 2009-03-27 08:00:00  2.00000 Landriano    1  95.026
+26279 2009-03-26 21:00:00 2009-03-27 08:00:00  2.50000 Landriano    1  95.026
+26280 2009-03-26 21:30:00 2009-03-27 08:00:00  3.00000 Landriano    1  95.026
+26281 2009-03-26 22:00:00 2009-03-27 08:00:00  3.50000 Landriano    1  95.026
+26282 2009-03-26 22:30:00 2009-03-27 08:00:00  4.00000 Landriano    1  95.026
+26283 2009-03-26 23:00:00 2009-03-27 08:00:00  4.50000 Landriano    1  95.026
+26284 2009-03-26 23:30:00 2009-03-27 08:00:00  5.00000 Landriano    1  95.026
+26285 2009-03-27 00:00:00 2009-03-27 08:00:00  5.50000 Landriano    1  95.026
+26286 2009-03-27 00:30:00 2009-03-27 08:00:00  6.00000 Landriano    1  95.026
+26287 2009-03-27 01:00:00 2009-03-27 08:00:00  6.50000 Landriano    1  95.026
+26288 2009-03-27 01:30:00 2009-03-27 08:00:00  7.00000 Landriano    1  95.026
+26289 2009-03-27 02:00:00 2009-03-27 08:00:00  7.50000 Landriano    1  95.026
+26290 2009-03-27 02:30:00 2009-03-27 08:00:00  8.00000 Landriano    1  95.026
+26291 2009-03-27 03:00:00 2009-03-27 08:00:00  8.50000 Landriano    1  95.026
+26292 2009-03-27 03:30:00 2009-03-27 08:00:00  9.00000 Landriano    1  95.026
+26293 2009-03-27 04:00:00 2009-03-27 08:00:00  9.50000 Landriano    1  95.026
+26294 2009-03-27 04:30:00 2009-03-27 08:00:00 10.00000 Landriano    1  95.026
+26295 2009-03-27 05:00:00 2009-03-27 08:00:00 10.50000 Landriano    1  95.026
+26296 2009-03-27 05:30:00 2009-03-27 08:00:00 11.00000 Landriano    1  95.026
+26297 2009-03-27 06:00:00 2009-03-27 08:00:00 11.50000 Landriano    1  95.026
+26298 2009-03-27 06:30:00 2009-03-27 08:00:00 12.00000 Landriano    1  95.026
+26299 2009-03-27 07:00:00 2009-03-27 08:00:00 12.50000 Landriano    1  95.026
+26300 2009-03-27 07:30:00 2009-03-27 08:00:00 13.00000 Landriano    1  95.026
+26301 2009-03-27 08:00:00 2009-03-27 08:00:00 13.50000 Landriano    1  95.026
+14478 2013-07-10 11:14:00 2013-07-10 10:48:00  0.48333     Wengi    2  47.545
+14101 2011-09-20 11:03:00 2011-09-20 11:02:00  0.25000 Taenikon1    3  33.180
+14174 2012-05-10 09:47:00 2012-05-10 09:30:00  0.33333 Hohenrain    2  19.241
+14581 2013-07-05 12:32:00 2013-07-05 12:16:00  0.31667 Taenikon2    1  36.480
+            j.NH3
+25868  7.5108e-03
+25869  4.9479e-03
+25870  3.6402e-03
+25871  2.5000e-03
+25872  8.0061e-04
+25873  1.1308e-02
+25874  3.5944e-03
+25875  1.1702e-02
+25876  1.1788e-02
+25877  1.1873e-02
+25878  1.1959e-02
+25879  1.1317e-02
+25880  1.3264e-02
+25881  2.3021e-03
+25882  5.4256e-03
+25883  3.1451e-03
+25884  8.6638e-03
+25885  4.1266e-02
+26497 -5.0171e-03
+26498 -4.8992e-03
+26499 -3.9282e-03
+26500 -3.5306e-03
+26501 -1.3286e-03
+26502 -1.3529e-03
+26503 -1.3773e-03
+26504 -1.4016e-03
+26505 -1.0183e-03
+26506 -1.1057e-03
+26507 -1.1931e-03
+26508 -1.2668e-03
+26509 -6.1685e-04
+26510 -9.2066e-04
+26511 -8.0013e-04
+26512 -7.9026e-04
+26513 -1.6659e-03
+26514 -1.3862e-03
+26515 -3.9818e-03
+26516 -3.5286e-03
+26517 -4.2072e-03
+26518 -1.3221e-02
+26519 -6.8537e-03
+26520 -7.2342e-03
+26521 -7.5798e-03
+26522 -7.5641e-03
+26523 -7.6114e-03
+26524 -7.4407e-03
+26525 -6.8926e-03
+26526 -4.8822e-03
+26527 -4.8887e-03
+26528 -4.0526e-03
+26529 -4.1874e-03
+26530 -3.7719e-03
+26531 -5.3394e-03
+26532 -6.6679e-04
+26533 -1.7957e-02
+26534 -1.5297e-03
+26535 -1.2045e-03
+26536 -7.0937e-04
+26537 -4.8245e-04
+26538 -1.1181e-03
+26539 -7.4371e-04
+26540 -2.5315e-03
+26541 -4.4434e-03
+26542 -1.2413e-04
+26543 -1.1496e-04
+26544 -1.1078e-04
+26545 -1.0342e-04
+26546 -9.4810e-05
+26547 -8.1270e-05
+26548 -7.7080e-05
+26549 -3.4560e-05
+26550 -4.0760e-05
+26551 -4.5040e-05
+26552 -6.1630e-05
+26553 -1.4515e-04
+26554 -4.6600e-05
+26555 -1.5744e-04
+26556 -7.8190e-05
+26557 -3.7090e-05
+26558 -1.6920e-05
+26559 -2.4430e-05
+26560 -3.0320e-05
+26561 -1.9240e-05
+26562 -2.6600e-05
+27824  6.6538e-02
+27825  8.8261e-03
+27826  2.4020e-02
+27827  3.9121e-02
+27828  7.3143e-03
+27829  7.8357e-03
+27830  3.6858e-02
+27831  6.5880e-02
+27832  9.4902e-02
+27833  1.2392e-01
+27834  1.5295e-01
+27835  1.7054e-02
+27836  2.4594e-02
+27837  3.2134e-02
+27838  6.0672e-02
+27839  1.4553e-02
+27840  1.5735e-02
+27841  1.0668e-02
+27842  5.6004e-03
+27843  1.2527e-02
+27844  3.0367e-02
+27845  1.2925e-01
+27846  5.9105e-03
+27847  3.1878e-03
+27848  7.2426e-03
+27849  4.9021e-03
+27850  1.2193e-02
+27851  1.0921e-02
+27852  3.2018e-01
+27853  6.2943e-01
+27854  1.8445e+00
+27452  4.7820e-02
+27453  1.1000e-02
+27454  1.0000e-02
+27455  1.0000e-02
+27456  7.0000e-03
+27457  1.3000e-02
+27458  1.2000e-02
+27459  1.0000e-02
+27460  7.0000e-03
+27461  5.0000e-03
+27462  1.1000e-02
+27463  1.5000e-02
+27464  1.7000e-02
+27465  2.0000e-02
+27466  1.8000e-02
+27467  8.0000e-03
+27468  8.0000e-03
+27469  8.0000e-03
+27470  1.1000e-02
+27471  6.0000e-03
+27472  4.0000e-03
+27473  2.0000e-03
+27474  3.0000e-03
+27475  1.5000e-02
+27476  2.8000e-02
+27477  2.2000e-02
+27478  1.5000e-02
+27479  9.0000e-03
+27480  3.0000e-03
+27481  3.0000e-03
+27482  7.5000e-02
+27483  1.4500e-01
+26854  7.1000e-03
+26855  4.0000e-03
+26856  6.0000e-03
+26857  7.0000e-03
+26858  7.0000e-03
+26859  4.0000e-03
+26860  5.0000e-03
+26861  3.0000e-03
+26862  4.0000e-03
+26863  1.0000e-02
+26864  1.0000e-03
+26865  1.0000e-03
+26866  4.0000e-03
+26867  3.0000e-03
+26868  4.0000e-03
+26869  2.0000e-03
+26870  4.0000e-03
+26871  5.0000e-03
+26872  6.0000e-03
+26873  1.0000e-03
+26874  2.0000e-03
+26875  2.0000e-03
+26876  1.0000e-03
+26877  5.0000e-03
+26878  2.3000e-02
+27169  0.0000e+00
+27170 -6.0000e-02
+27171  1.0000e-03
+27172  1.2000e-02
+27173  1.0000e-03
+27174 -1.5000e-02
+27175 -3.2000e-02
+27176 -4.8000e-02
+27177 -6.5000e-02
+27178 -8.1000e-02
+27179 -4.6000e-02
+27180 -1.1000e-02
+27181 -1.5000e-02
+27182 -1.6000e-02
+27183 -1.0000e-02
+27184 -6.3000e-02
+27185 -3.4000e-02
+27186 -5.0000e-03
+27187  1.0000e-03
+27188  2.0000e-03
+27189 -1.6000e-02
+27190 -3.3000e-02
+27191 -1.0000e-03
+27192 -2.0000e-03
+27193 -2.0000e-03
+26053 -9.5750e-02
+26054 -4.4393e-02
+26055 -5.0771e-02
+26056 -6.3845e-02
+26057 -9.3613e-02
+26058 -8.2684e-02
+26059 -2.4186e-02
+26060 -3.4005e-02
+26061 -1.3072e-01
+26062 -9.5714e-02
+26063 -3.0054e-02
+26064 -5.8791e-02
+26065 -8.1998e-02
+26066 -8.9567e-02
+26067 -8.0234e-02
+26068 -1.0009e-01
+26069 -1.4273e-01
+26070 -6.6660e-01
+26071 -4.6911e-02
+26072 -5.7640e-02
+26073 -1.0015e-01
+26074 -6.1905e-02
+26075 -7.2883e-02
+26076 -7.4040e-02
+26077 -1.1050e-01
+26078 -1.6792e-01
+26079  9.0063e-01
+26275  0.0000e+00
+26276  1.7568e-03
+26277  2.4252e-03
+26278  2.2342e-03
+26279 -4.9047e-04
+26280 -1.8388e-06
+26281  9.9465e-07
+26282 -5.2307e-07
+26283 -2.5654e-06
+26284 -4.2341e-06
+26285 -2.0769e-06
+26286 -2.0366e-06
+26287 -1.9962e-06
+26288 -2.3760e-06
+26289 -9.6985e-07
+26290  3.7465e-06
+26291  3.2298e-06
+26292  3.3741e-07
+26293 -2.5550e-06
+26294 -1.5590e-06
+26295 -5.6305e-07
+26296  4.3291e-07
+26297 -1.1229e-06
+26298  4.9014e-06
+26299  3.2791e-06
+26300 -5.2684e-04
+26301 -1.0570e-03
+14478  4.1305e+00
+14101  1.0719e+00
+14174  3.9085e-01
+14581  1.2969e+00
 
 > # These are cases where emission was measured before application
 > # As long as emission is clearly low and ct < 0, there is no indication of a prob .... [TRUNCATED] 
@@ -1771,7 +2383,8 @@ character(0)
 [1]   0 110
 
 > x[,c('file','row.in.file', 't.start', 't.end', 'app.start', 'dt', 'ct', 'field','plot', 'tan.app', 'j.NH3')]
- [1] file        row.in.file t.start     t.end       app.start   dt          ct          field       plot        tan.app     j.NH3      
+ [1] file        row.in.file t.start     t.end       app.start   dt         
+ [7] ct          field       plot        tan.app     j.NH3      
 <0 rows> (or 0-length row.names)
 
 > # Duplicated shifts
@@ -1787,7 +2400,8 @@ character(0)
 > y <- subset(d, pmid == x$pmid)
 
 > y[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 'rep', 'rep2')]
-[1] file        inst        institute   row.in.file plot        rep         rep2       
+[1] file        inst        institute   row.in.file plot        rep        
+[7] rep2       
 <0 rows> (or 0-length row.names)
 
 > # Shift time mismatches
@@ -1802,7 +2416,8 @@ character(0)
 > x <- subset(y, problem)
 
 > x[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
- [1] file        inst        institute   row.in.file plot        t.start     t.end       interval    j.NH3       overlap    
+ [1] file        inst        institute   row.in.file plot        t.start    
+ [7] t.end       interval    j.NH3       overlap    
 <0 rows> (or 0-length row.names)
 
 > # Very short sets
@@ -1819,126 +2434,246 @@ character(0)
 [1] 119 110
 
 > y[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 'pmid', 't.start', 't.end', 'ct', 'interval', 'j.NH3')]
-                    file inst institute row.in.file plot pmid             t.start               t.end       ct interval   j.NH3
-1487         ALFAM1.xlsx  103      CRPA        1257    1  154 1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.0770
-1488         ALFAM1.xlsx  103      CRPA        1258    1  154 1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0442
-1489         ALFAM1.xlsx  103      CRPA        1259    2  155 1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.1506
-1490         ALFAM1.xlsx  103      CRPA        1260    2  155 1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0739
-1491         ALFAM1.xlsx  103      CRPA        1261    3  156 1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.0337
-1492         ALFAM1.xlsx  103      CRPA        1262    3  156 1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0289
-1493         ALFAM1.xlsx  103      CRPA        1263    1  157 1999-03-25 13:00:00 1999-03-26 13:00:00  24.0000        1  0.2003
-1494         ALFAM1.xlsx  103      CRPA        1264    1  157 1999-03-26 13:00:00 1999-03-27 13:00:00  48.0000        2  0.1061
-1495         ALFAM1.xlsx  103      CRPA        1265    1  157 1999-03-27 13:00:00 1999-03-29 13:00:00  96.0000        3  0.0735
-1496         ALFAM1.xlsx  103      CRPA        1266    2  158 1999-03-25 13:00:00 1999-03-26 13:00:00  24.0000        1  0.1326
-1497         ALFAM1.xlsx  103      CRPA        1267    2  158 1999-03-26 13:00:00 1999-03-27 13:00:00  48.0000        2  0.0748
-1498         ALFAM1.xlsx  103      CRPA        1268    2  158 1999-03-27 13:00:00 1999-03-29 13:00:00  96.0000        3  0.0581
-1499         ALFAM1.xlsx  103      CRPA        1269    1  159 1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  0.6042
-1500         ALFAM1.xlsx  103      CRPA        1270    1  159 1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3129
-1501         ALFAM1.xlsx  103      CRPA        1271    1  159 1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2334
-1502         ALFAM1.xlsx  103      CRPA        1272    2  160 1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  1.7413
-1503         ALFAM1.xlsx  103      CRPA        1273    2  160 1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3792
-1504         ALFAM1.xlsx  103      CRPA        1274    2  160 1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2725
-1505         ALFAM1.xlsx  103      CRPA        1275    3  161 1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  0.8171
-1506         ALFAM1.xlsx  103      CRPA        1276    3  161 1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3500
-1507         ALFAM1.xlsx  103      CRPA        1277    3  161 1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2157
-3743         ALFAM1.xlsx  105      IGER        5336    1  471 1998-08-25 11:44:00 1998-08-25 13:54:00   2.1667        1  3.9478
-3744         ALFAM1.xlsx  105      IGER        5337    1  471 1998-08-25 13:54:00 1998-08-25 16:19:00   4.5834        2  0.6019
-3745         ALFAM1.xlsx  105      IGER        5338    1  471 1998-08-25 16:19:00 1998-08-26 11:49:00  24.0830        3  0.0466
-3746         ALFAM1.xlsx  105      IGER        5339    2  472 1998-08-25 11:51:00 1998-08-25 13:57:00   2.1000        1  0.1634
-3747         ALFAM1.xlsx  105      IGER        5340    2  472 1998-08-25 13:57:00 1998-08-25 16:17:00   4.4333        2  0.0535
-3748         ALFAM1.xlsx  105      IGER        5341    2  472 1998-08-25 16:17:00 1998-08-26 11:47:00  23.9330        3 -0.0012
-5948         ALFAM1.xlsx  108       JTI        3456    B  780 1994-04-19 16:00:00 1994-04-23 10:00:00  90.0000        1  0.0600
-5949         ALFAM1.xlsx  108       JTI        3457    B  781 1994-04-19 16:00:00 1994-04-23 00:00:00  80.0000        1  0.0900
-5950         ALFAM1.xlsx  108       JTI        3458    B  782 1994-04-19 16:00:00 1994-04-23 02:00:00  82.0000        1  0.0500
-5951         ALFAM1.xlsx  108       JTI        3459    C  783 1994-04-19 16:00:00 1994-04-22 16:00:00  72.0000        1  0.0010
-5952         ALFAM1.xlsx  108       JTI        3460    C  784 1994-04-19 16:00:00 1994-04-22 16:00:00  72.0000        1  0.0010
-5953         ALFAM1.xlsx  108       JTI        3461    C  785 1994-04-19 16:00:00 1994-04-23 12:00:00  92.0000        1  0.0300
-5954         ALFAM1.xlsx  108       JTI        3462    D  786 1994-04-19 16:00:00 1994-04-23 06:00:00  86.0000        1  0.0400
-5955         ALFAM1.xlsx  108       JTI        3463    D  787 1994-04-19 16:00:00 1994-04-23 16:00:00  96.0000        1  0.0400
-5956         ALFAM1.xlsx  108       JTI        3464    D  788 1994-04-19 16:00:00 1994-04-22 21:00:00  77.0000        1  0.0300
-5957         ALFAM1.xlsx  108       JTI        3465    E  789 1994-04-19 16:00:00 1994-04-22 20:00:00  76.0000        1  0.2200
-5958         ALFAM1.xlsx  108       JTI        3466    E  790 1994-04-19 16:00:00 1994-04-23 01:00:00  81.0000        1  0.2400
-5959         ALFAM1.xlsx  108       JTI        3467    E  791 1994-04-19 16:00:00 1994-04-22 18:00:00  74.0000        1  0.2700
-5960         ALFAM1.xlsx  108       JTI        3468    B  792 1994-09-13 14:00:00 1994-09-15 15:00:00  49.0000        1  0.0600
-5961         ALFAM1.xlsx  108       JTI        3469    B  793 1994-09-13 14:00:00 1994-09-16 05:00:00  63.0000        1  0.0700
-5962         ALFAM1.xlsx  108       JTI        3470    B  794 1994-09-13 14:00:00 1994-09-15 21:00:00  55.0000        1  0.0900
-5963         ALFAM1.xlsx  108       JTI        3471    D  795 1994-09-13 11:30:00 1994-09-16 07:00:00  67.5000        1  0.0300
-5964         ALFAM1.xlsx  108       JTI        3472    D  796 1994-09-13 11:30:00 1994-09-16 15:00:00  75.5000        1  0.0070
-5965         ALFAM1.xlsx  108       JTI        3473    D  797 1994-09-13 11:30:00 1994-09-16 10:00:00  70.5000        1  0.0200
-5966         ALFAM1.xlsx  108       JTI        3474    E  798 1994-09-13 12:00:00 1994-09-16 05:00:00  65.0000        1  0.1500
-5967         ALFAM1.xlsx  108       JTI        3475    E  799 1994-09-13 12:00:00 1994-09-16 14:00:00  74.0000        1  0.2200
-5968         ALFAM1.xlsx  108       JTI        3476    E  800 1994-09-13 12:00:00 1994-09-16 12:00:00  72.0000        1  0.2100
-5907         ALFAM1.xlsx  108       JTI        3477    F  739 1993-04-27 11:00:00 1993-04-30 05:00:00  66.0000        1  0.1900
-5908         ALFAM1.xlsx  108       JTI        3478    F  740 1993-04-27 11:00:00 1993-04-30 05:00:00  66.0000        1  0.2500
-5909         ALFAM1.xlsx  108       JTI        3479    F  741 1993-04-27 11:00:00 1993-04-30 02:00:00  63.0000        1  0.1900
-5910         ALFAM1.xlsx  108       JTI        3480    G  742 1993-04-27 11:30:00 1993-04-30 02:30:00  63.0000        1  0.1800
-5911         ALFAM1.xlsx  108       JTI        3481    G  743 1993-04-27 12:00:00 1993-04-30 07:00:00  67.0000        1  0.3000
-5912         ALFAM1.xlsx  108       JTI        3482    H  744 1993-04-27 13:00:00 1993-04-30 04:00:00  63.0000        1  0.4100
-5913         ALFAM1.xlsx  108       JTI        3483    H  745 1993-04-27 13:00:00 1993-04-30 04:00:00  63.0000        1  0.2600
-5914         ALFAM1.xlsx  108       JTI        3484    F  746 1993-06-10 10:00:00 1993-06-13 06:00:00  68.0000        1  0.4500
-5915         ALFAM1.xlsx  108       JTI        3485    F  747 1993-06-10 10:00:00 1993-06-13 03:00:00  65.0000        1  0.6600
-5916         ALFAM1.xlsx  108       JTI        3486    F  748 1993-06-10 10:00:00 1993-06-12 18:00:00  56.0000        1  0.4100
-5917         ALFAM1.xlsx  108       JTI        3487    G  749 1993-06-10 10:00:00 1993-06-12 15:00:00  53.0000        1  0.2100
-5918         ALFAM1.xlsx  108       JTI        3488    G  750 1993-06-10 10:00:00 1993-06-12 15:00:00  53.0000        1  0.2300
-5919         ALFAM1.xlsx  108       JTI        3489    G  751 1993-06-10 10:00:00 1993-06-12 09:00:00  47.0000        1  0.4400
-5920         ALFAM1.xlsx  108       JTI        3490    H  752 1993-06-10 10:00:00 1993-06-12 14:00:00  52.0000        1  0.4500
-5921         ALFAM1.xlsx  108       JTI        3491    H  753 1993-06-10 10:00:00 1993-06-12 19:00:00  57.0000        1  0.3500
-5922         ALFAM1.xlsx  108       JTI        3492    H  754 1993-06-10 10:00:00 1993-06-12 21:00:00  59.0000        1  0.4500
-5923         ALFAM1.xlsx  108       JTI        3493    F  755 1994-05-05 10:00:00 1994-05-08 05:00:00  67.0000        1  0.2600
-5924         ALFAM1.xlsx  108       JTI        3494    F  756 1994-05-05 11:00:00 1994-05-07 19:00:00  56.0000        1  0.5200
-5925         ALFAM1.xlsx  108       JTI        3495    F  757 1994-05-05 11:00:00 1994-05-07 21:00:00  58.0000        1  0.2200
-5926         ALFAM1.xlsx  108       JTI        3496    G  758 1994-05-05 11:00:00 1994-05-07 20:00:00  57.0000        1  0.0700
-5927         ALFAM1.xlsx  108       JTI        3497    G  759 1994-05-05 10:00:00 1994-05-07 23:00:00  61.0000        1  0.1400
-5928         ALFAM1.xlsx  108       JTI        3498    G  760 1994-05-05 10:00:00 1994-05-07 22:00:00  60.0000        1  0.1400
-5929         ALFAM1.xlsx  108       JTI        3499    G  761 1994-05-05 10:00:00 1994-05-08 00:00:00  62.0000        1  0.1900
-5930         ALFAM1.xlsx  108       JTI        3500    H  762 1994-05-05 10:00:00 1994-05-08 07:00:00  69.0000        1  0.1400
-5931         ALFAM1.xlsx  108       JTI        3501    H  763 1994-05-05 10:00:00 1994-05-08 04:00:00  66.0000        1  0.3000
-5932         ALFAM1.xlsx  108       JTI        3502    H  764 1994-05-05 10:00:00 1994-05-08 01:00:00  63.0000        1  0.1000
-5933         ALFAM1.xlsx  108       JTI        3503    H  765 1994-05-05 10:00:00 1994-05-08 02:00:00  64.0000        1  0.1100
-5934         ALFAM1.xlsx  108       JTI        3504    F  766 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.9400
-5935         ALFAM1.xlsx  108       JTI        3505    F  767 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.8700
-5936         ALFAM1.xlsx  108       JTI        3506    F  768 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.5200
-5937         ALFAM1.xlsx  108       JTI        3507    F  769 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.4300
-5938         ALFAM1.xlsx  108       JTI        3508    G  770 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.5700
-5939         ALFAM1.xlsx  108       JTI        3509    G  771 1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.2600
-5940         ALFAM1.xlsx  108       JTI        3510    G  772 1994-06-20 10:00:00 1994-06-23 04:00:00  66.0000        1  0.3700
-5941         ALFAM1.xlsx  108       JTI        3511    G  773 1994-06-20 10:00:00 1994-06-23 09:00:00  71.0000        1  0.5000
-5942         ALFAM1.xlsx  108       JTI        3512    H  774 1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.4900
-5943         ALFAM1.xlsx  108       JTI        3513    H  775 1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.3400
-5944         ALFAM1.xlsx  108       JTI        3514    H  776 1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.2300
-5945         ALFAM1.xlsx  108       JTI        3515    H  777 1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.1900
-5881         ALFAM1.xlsx  108       JTI        3516    E  713 1993-05-04 11:00:00 1993-05-06 17:00:00  54.0000        1  0.3000
-5882         ALFAM1.xlsx  108       JTI        3517    F  714 1993-05-04 11:00:00 1993-05-06 22:00:00  59.0000        1  1.1000
-5887         ALFAM1.xlsx  108       JTI        3518    K  719 1993-05-04 14:00:00 1993-05-06 16:00:00  50.0000        1  0.6000
-5883         ALFAM1.xlsx  108       JTI        3519    G  715 1993-05-04 15:00:00 1993-05-06 20:00:00  53.0000        1  0.1500
-5884         ALFAM1.xlsx  108       JTI        3520    H  716 1993-05-04 12:00:00 1993-05-06 17:00:00  53.0000        1  0.3300
-5885         ALFAM1.xlsx  108       JTI        3521    I  717 1993-05-04 13:00:00 1993-05-06 18:00:00  53.0000        1  0.5000
-5886         ALFAM1.xlsx  108       JTI        3522    J  718 1993-05-04 11:00:00 1993-05-06 20:00:00  57.0000        1  0.3800
-5888         ALFAM1.xlsx  108       JTI        3523    L  720 1993-05-04 13:00:00 1993-05-06 18:00:00  53.0000        1  0.5500
-5889         ALFAM1.xlsx  108       JTI        3524    E  721 1993-06-15 13:00:00 1993-06-18 19:00:00  78.0000        1  0.8000
-5890         ALFAM1.xlsx  108       JTI        3525    F  722 1993-06-15 10:00:00 1993-06-19 05:00:00  91.0000        1  0.9700
-5895         ALFAM1.xlsx  108       JTI        3526    K  727 1993-06-15 12:00:00 1993-06-18 18:00:00  78.0000        1  0.6700
-5891         ALFAM1.xlsx  108       JTI        3527    G  723 1993-06-15 11:00:00 1993-06-18 18:00:00  79.0000        1  0.2200
-5892         ALFAM1.xlsx  108       JTI        3528    H  724 1993-06-15 11:00:00 1993-06-18 22:00:00  83.0000        1  0.6200
-5893         ALFAM1.xlsx  108       JTI        3529    I  725 1993-06-15 11:00:00 1993-06-18 19:00:00  80.0000        1  0.5900
-5894         ALFAM1.xlsx  108       JTI        3530    J  726 1993-06-15 11:00:00 1993-06-18 17:00:00  78.0000        1  0.7100
-5896         ALFAM1.xlsx  108       JTI        3531    L  728 1993-06-15 11:00:00 1993-06-18 15:00:00  76.0000        1  0.3500
-5897         ALFAM1.xlsx  108       JTI        3532    E  729 1994-06-16 14:00:00 1994-06-22 02:00:00 132.0000        1  0.4500
-5898         ALFAM1.xlsx  108       JTI        3533    F  730 1994-06-16 14:00:00 1994-06-22 05:00:00 135.0000        1  0.1900
-5903         ALFAM1.xlsx  108       JTI        3534    K  735 1994-06-16 14:00:00 1994-06-21 20:00:00 126.0000        1  0.2600
-5899         ALFAM1.xlsx  108       JTI        3535    G  731 1994-06-16 14:00:00 1994-06-22 00:00:00 130.0000        1  0.3600
-5900         ALFAM1.xlsx  108       JTI        3536    H  732 1994-06-16 14:00:00 1994-06-22 08:00:00 138.0000        1  0.6100
-5901         ALFAM1.xlsx  108       JTI        3537    I  733 1994-06-16 14:00:00 1994-06-22 06:00:00 136.0000        1  0.4500
-5902         ALFAM1.xlsx  108       JTI        3538    J  734 1994-06-16 14:00:00 1994-06-21 18:00:00 124.0000        1  0.3100
-5904         ALFAM1.xlsx  108       JTI        3539    L  736 1994-06-16 14:00:00 1994-06-22 15:00:00 145.0000        1  0.2900
-5905         ALFAM1.xlsx  108       JTI        3540    N  737 1994-06-16 14:00:00 1994-06-22 01:00:00 131.0000        1  0.7500
-5906         ALFAM1.xlsx  108       JTI        3541    O  738 1994-06-16 14:00:00 1994-06-21 22:00:00 128.0000        1  0.3900
-5946         ALFAM1.xlsx  108       JTI        3542   F4  778 1994-05-03 16:00:00 1994-05-06 18:00:00  74.0000        1  1.3200
-5947         ALFAM1.xlsx  108       JTI        3543   F5  779 1994-05-03 15:00:00 1994-05-04 09:00:00  18.0000        1  0.6100
-28457 ALFAM2_SDU_v4.xlsx  211       SDU         100    1 1565 2014-05-01 08:40:00 2014-05-01 09:41:00   1.0167        0  0.0000
-28486 ALFAM2_SDU_v4.xlsx  211       SDU         101    2 1570 2014-05-01 09:41:00 2014-05-01 11:14:00   1.5500        1  0.0000
-28810 ALFAM2_SDU_v4.xlsx  211       SDU         426    1 1631 2014-04-30 09:05:00 2014-04-30 10:48:00   1.7167        0  0.0000
-28899 ALFAM2_SDU_v4.xlsx  211       SDU         427    2 1643 2014-04-30 10:48:00 2014-04-30 12:59:00   2.1833        1  0.0000
+                    file inst institute row.in.file plot pmid
+1487         ALFAM1.xlsx  103      CRPA        1257    1  154
+1488         ALFAM1.xlsx  103      CRPA        1258    1  154
+1489         ALFAM1.xlsx  103      CRPA        1259    2  155
+1490         ALFAM1.xlsx  103      CRPA        1260    2  155
+1491         ALFAM1.xlsx  103      CRPA        1261    3  156
+1492         ALFAM1.xlsx  103      CRPA        1262    3  156
+1493         ALFAM1.xlsx  103      CRPA        1263    1  157
+1494         ALFAM1.xlsx  103      CRPA        1264    1  157
+1495         ALFAM1.xlsx  103      CRPA        1265    1  157
+1496         ALFAM1.xlsx  103      CRPA        1266    2  158
+1497         ALFAM1.xlsx  103      CRPA        1267    2  158
+1498         ALFAM1.xlsx  103      CRPA        1268    2  158
+1499         ALFAM1.xlsx  103      CRPA        1269    1  159
+1500         ALFAM1.xlsx  103      CRPA        1270    1  159
+1501         ALFAM1.xlsx  103      CRPA        1271    1  159
+1502         ALFAM1.xlsx  103      CRPA        1272    2  160
+1503         ALFAM1.xlsx  103      CRPA        1273    2  160
+1504         ALFAM1.xlsx  103      CRPA        1274    2  160
+1505         ALFAM1.xlsx  103      CRPA        1275    3  161
+1506         ALFAM1.xlsx  103      CRPA        1276    3  161
+1507         ALFAM1.xlsx  103      CRPA        1277    3  161
+3743         ALFAM1.xlsx  105      IGER        5336    1  471
+3744         ALFAM1.xlsx  105      IGER        5337    1  471
+3745         ALFAM1.xlsx  105      IGER        5338    1  471
+3746         ALFAM1.xlsx  105      IGER        5339    2  472
+3747         ALFAM1.xlsx  105      IGER        5340    2  472
+3748         ALFAM1.xlsx  105      IGER        5341    2  472
+5948         ALFAM1.xlsx  108       JTI        3456    B  780
+5949         ALFAM1.xlsx  108       JTI        3457    B  781
+5950         ALFAM1.xlsx  108       JTI        3458    B  782
+5951         ALFAM1.xlsx  108       JTI        3459    C  783
+5952         ALFAM1.xlsx  108       JTI        3460    C  784
+5953         ALFAM1.xlsx  108       JTI        3461    C  785
+5954         ALFAM1.xlsx  108       JTI        3462    D  786
+5955         ALFAM1.xlsx  108       JTI        3463    D  787
+5956         ALFAM1.xlsx  108       JTI        3464    D  788
+5957         ALFAM1.xlsx  108       JTI        3465    E  789
+5958         ALFAM1.xlsx  108       JTI        3466    E  790
+5959         ALFAM1.xlsx  108       JTI        3467    E  791
+5960         ALFAM1.xlsx  108       JTI        3468    B  792
+5961         ALFAM1.xlsx  108       JTI        3469    B  793
+5962         ALFAM1.xlsx  108       JTI        3470    B  794
+5963         ALFAM1.xlsx  108       JTI        3471    D  795
+5964         ALFAM1.xlsx  108       JTI        3472    D  796
+5965         ALFAM1.xlsx  108       JTI        3473    D  797
+5966         ALFAM1.xlsx  108       JTI        3474    E  798
+5967         ALFAM1.xlsx  108       JTI        3475    E  799
+5968         ALFAM1.xlsx  108       JTI        3476    E  800
+5907         ALFAM1.xlsx  108       JTI        3477    F  739
+5908         ALFAM1.xlsx  108       JTI        3478    F  740
+5909         ALFAM1.xlsx  108       JTI        3479    F  741
+5910         ALFAM1.xlsx  108       JTI        3480    G  742
+5911         ALFAM1.xlsx  108       JTI        3481    G  743
+5912         ALFAM1.xlsx  108       JTI        3482    H  744
+5913         ALFAM1.xlsx  108       JTI        3483    H  745
+5914         ALFAM1.xlsx  108       JTI        3484    F  746
+5915         ALFAM1.xlsx  108       JTI        3485    F  747
+5916         ALFAM1.xlsx  108       JTI        3486    F  748
+5917         ALFAM1.xlsx  108       JTI        3487    G  749
+5918         ALFAM1.xlsx  108       JTI        3488    G  750
+5919         ALFAM1.xlsx  108       JTI        3489    G  751
+5920         ALFAM1.xlsx  108       JTI        3490    H  752
+5921         ALFAM1.xlsx  108       JTI        3491    H  753
+5922         ALFAM1.xlsx  108       JTI        3492    H  754
+5923         ALFAM1.xlsx  108       JTI        3493    F  755
+5924         ALFAM1.xlsx  108       JTI        3494    F  756
+5925         ALFAM1.xlsx  108       JTI        3495    F  757
+5926         ALFAM1.xlsx  108       JTI        3496    G  758
+5927         ALFAM1.xlsx  108       JTI        3497    G  759
+5928         ALFAM1.xlsx  108       JTI        3498    G  760
+5929         ALFAM1.xlsx  108       JTI        3499    G  761
+5930         ALFAM1.xlsx  108       JTI        3500    H  762
+5931         ALFAM1.xlsx  108       JTI        3501    H  763
+5932         ALFAM1.xlsx  108       JTI        3502    H  764
+5933         ALFAM1.xlsx  108       JTI        3503    H  765
+5934         ALFAM1.xlsx  108       JTI        3504    F  766
+5935         ALFAM1.xlsx  108       JTI        3505    F  767
+5936         ALFAM1.xlsx  108       JTI        3506    F  768
+5937         ALFAM1.xlsx  108       JTI        3507    F  769
+5938         ALFAM1.xlsx  108       JTI        3508    G  770
+5939         ALFAM1.xlsx  108       JTI        3509    G  771
+5940         ALFAM1.xlsx  108       JTI        3510    G  772
+5941         ALFAM1.xlsx  108       JTI        3511    G  773
+5942         ALFAM1.xlsx  108       JTI        3512    H  774
+5943         ALFAM1.xlsx  108       JTI        3513    H  775
+5944         ALFAM1.xlsx  108       JTI        3514    H  776
+5945         ALFAM1.xlsx  108       JTI        3515    H  777
+5881         ALFAM1.xlsx  108       JTI        3516    E  713
+5882         ALFAM1.xlsx  108       JTI        3517    F  714
+5887         ALFAM1.xlsx  108       JTI        3518    K  719
+5883         ALFAM1.xlsx  108       JTI        3519    G  715
+5884         ALFAM1.xlsx  108       JTI        3520    H  716
+5885         ALFAM1.xlsx  108       JTI        3521    I  717
+5886         ALFAM1.xlsx  108       JTI        3522    J  718
+5888         ALFAM1.xlsx  108       JTI        3523    L  720
+5889         ALFAM1.xlsx  108       JTI        3524    E  721
+5890         ALFAM1.xlsx  108       JTI        3525    F  722
+5895         ALFAM1.xlsx  108       JTI        3526    K  727
+5891         ALFAM1.xlsx  108       JTI        3527    G  723
+5892         ALFAM1.xlsx  108       JTI        3528    H  724
+5893         ALFAM1.xlsx  108       JTI        3529    I  725
+5894         ALFAM1.xlsx  108       JTI        3530    J  726
+5896         ALFAM1.xlsx  108       JTI        3531    L  728
+5897         ALFAM1.xlsx  108       JTI        3532    E  729
+5898         ALFAM1.xlsx  108       JTI        3533    F  730
+5903         ALFAM1.xlsx  108       JTI        3534    K  735
+5899         ALFAM1.xlsx  108       JTI        3535    G  731
+5900         ALFAM1.xlsx  108       JTI        3536    H  732
+5901         ALFAM1.xlsx  108       JTI        3537    I  733
+5902         ALFAM1.xlsx  108       JTI        3538    J  734
+5904         ALFAM1.xlsx  108       JTI        3539    L  736
+5905         ALFAM1.xlsx  108       JTI        3540    N  737
+5906         ALFAM1.xlsx  108       JTI        3541    O  738
+5946         ALFAM1.xlsx  108       JTI        3542   F4  778
+5947         ALFAM1.xlsx  108       JTI        3543   F5  779
+28457 ALFAM2_SDU_v4.xlsx  211       SDU         100    1 1565
+28486 ALFAM2_SDU_v4.xlsx  211       SDU         101    2 1570
+28810 ALFAM2_SDU_v4.xlsx  211       SDU         426    1 1631
+28899 ALFAM2_SDU_v4.xlsx  211       SDU         427    2 1643
+                  t.start               t.end       ct interval   j.NH3
+1487  1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.0770
+1488  1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0442
+1489  1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.1506
+1490  1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0739
+1491  1998-10-30 11:00:00 1998-10-31 11:00:00  24.0000        1  0.0337
+1492  1998-10-31 11:00:00 1998-11-02 11:00:00  72.0000        2  0.0289
+1493  1999-03-25 13:00:00 1999-03-26 13:00:00  24.0000        1  0.2003
+1494  1999-03-26 13:00:00 1999-03-27 13:00:00  48.0000        2  0.1061
+1495  1999-03-27 13:00:00 1999-03-29 13:00:00  96.0000        3  0.0735
+1496  1999-03-25 13:00:00 1999-03-26 13:00:00  24.0000        1  0.1326
+1497  1999-03-26 13:00:00 1999-03-27 13:00:00  48.0000        2  0.0748
+1498  1999-03-27 13:00:00 1999-03-29 13:00:00  96.0000        3  0.0581
+1499  1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  0.6042
+1500  1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3129
+1501  1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2334
+1502  1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  1.7413
+1503  1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3792
+1504  1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2725
+1505  1999-04-07 11:00:00 1999-04-08 11:00:00  24.0000        1  0.8171
+1506  1999-04-08 11:00:00 1999-04-09 11:00:00  48.0000        2  0.3500
+1507  1999-04-09 11:00:00 1999-04-10 09:32:00  70.5330        3  0.2157
+3743  1998-08-25 11:44:00 1998-08-25 13:54:00   2.1667        1  3.9478
+3744  1998-08-25 13:54:00 1998-08-25 16:19:00   4.5834        2  0.6019
+3745  1998-08-25 16:19:00 1998-08-26 11:49:00  24.0830        3  0.0466
+3746  1998-08-25 11:51:00 1998-08-25 13:57:00   2.1000        1  0.1634
+3747  1998-08-25 13:57:00 1998-08-25 16:17:00   4.4333        2  0.0535
+3748  1998-08-25 16:17:00 1998-08-26 11:47:00  23.9330        3 -0.0012
+5948  1994-04-19 16:00:00 1994-04-23 10:00:00  90.0000        1  0.0600
+5949  1994-04-19 16:00:00 1994-04-23 00:00:00  80.0000        1  0.0900
+5950  1994-04-19 16:00:00 1994-04-23 02:00:00  82.0000        1  0.0500
+5951  1994-04-19 16:00:00 1994-04-22 16:00:00  72.0000        1  0.0010
+5952  1994-04-19 16:00:00 1994-04-22 16:00:00  72.0000        1  0.0010
+5953  1994-04-19 16:00:00 1994-04-23 12:00:00  92.0000        1  0.0300
+5954  1994-04-19 16:00:00 1994-04-23 06:00:00  86.0000        1  0.0400
+5955  1994-04-19 16:00:00 1994-04-23 16:00:00  96.0000        1  0.0400
+5956  1994-04-19 16:00:00 1994-04-22 21:00:00  77.0000        1  0.0300
+5957  1994-04-19 16:00:00 1994-04-22 20:00:00  76.0000        1  0.2200
+5958  1994-04-19 16:00:00 1994-04-23 01:00:00  81.0000        1  0.2400
+5959  1994-04-19 16:00:00 1994-04-22 18:00:00  74.0000        1  0.2700
+5960  1994-09-13 14:00:00 1994-09-15 15:00:00  49.0000        1  0.0600
+5961  1994-09-13 14:00:00 1994-09-16 05:00:00  63.0000        1  0.0700
+5962  1994-09-13 14:00:00 1994-09-15 21:00:00  55.0000        1  0.0900
+5963  1994-09-13 11:30:00 1994-09-16 07:00:00  67.5000        1  0.0300
+5964  1994-09-13 11:30:00 1994-09-16 15:00:00  75.5000        1  0.0070
+5965  1994-09-13 11:30:00 1994-09-16 10:00:00  70.5000        1  0.0200
+5966  1994-09-13 12:00:00 1994-09-16 05:00:00  65.0000        1  0.1500
+5967  1994-09-13 12:00:00 1994-09-16 14:00:00  74.0000        1  0.2200
+5968  1994-09-13 12:00:00 1994-09-16 12:00:00  72.0000        1  0.2100
+5907  1993-04-27 11:00:00 1993-04-30 05:00:00  66.0000        1  0.1900
+5908  1993-04-27 11:00:00 1993-04-30 05:00:00  66.0000        1  0.2500
+5909  1993-04-27 11:00:00 1993-04-30 02:00:00  63.0000        1  0.1900
+5910  1993-04-27 11:30:00 1993-04-30 02:30:00  63.0000        1  0.1800
+5911  1993-04-27 12:00:00 1993-04-30 07:00:00  67.0000        1  0.3000
+5912  1993-04-27 13:00:00 1993-04-30 04:00:00  63.0000        1  0.4100
+5913  1993-04-27 13:00:00 1993-04-30 04:00:00  63.0000        1  0.2600
+5914  1993-06-10 10:00:00 1993-06-13 06:00:00  68.0000        1  0.4500
+5915  1993-06-10 10:00:00 1993-06-13 03:00:00  65.0000        1  0.6600
+5916  1993-06-10 10:00:00 1993-06-12 18:00:00  56.0000        1  0.4100
+5917  1993-06-10 10:00:00 1993-06-12 15:00:00  53.0000        1  0.2100
+5918  1993-06-10 10:00:00 1993-06-12 15:00:00  53.0000        1  0.2300
+5919  1993-06-10 10:00:00 1993-06-12 09:00:00  47.0000        1  0.4400
+5920  1993-06-10 10:00:00 1993-06-12 14:00:00  52.0000        1  0.4500
+5921  1993-06-10 10:00:00 1993-06-12 19:00:00  57.0000        1  0.3500
+5922  1993-06-10 10:00:00 1993-06-12 21:00:00  59.0000        1  0.4500
+5923  1994-05-05 10:00:00 1994-05-08 05:00:00  67.0000        1  0.2600
+5924  1994-05-05 11:00:00 1994-05-07 19:00:00  56.0000        1  0.5200
+5925  1994-05-05 11:00:00 1994-05-07 21:00:00  58.0000        1  0.2200
+5926  1994-05-05 11:00:00 1994-05-07 20:00:00  57.0000        1  0.0700
+5927  1994-05-05 10:00:00 1994-05-07 23:00:00  61.0000        1  0.1400
+5928  1994-05-05 10:00:00 1994-05-07 22:00:00  60.0000        1  0.1400
+5929  1994-05-05 10:00:00 1994-05-08 00:00:00  62.0000        1  0.1900
+5930  1994-05-05 10:00:00 1994-05-08 07:00:00  69.0000        1  0.1400
+5931  1994-05-05 10:00:00 1994-05-08 04:00:00  66.0000        1  0.3000
+5932  1994-05-05 10:00:00 1994-05-08 01:00:00  63.0000        1  0.1000
+5933  1994-05-05 10:00:00 1994-05-08 02:00:00  64.0000        1  0.1100
+5934  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.9400
+5935  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.8700
+5936  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.5200
+5937  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.4300
+5938  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.5700
+5939  1994-06-20 10:00:00 1994-06-22 15:00:00  53.0000        1  0.2600
+5940  1994-06-20 10:00:00 1994-06-23 04:00:00  66.0000        1  0.3700
+5941  1994-06-20 10:00:00 1994-06-23 09:00:00  71.0000        1  0.5000
+5942  1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.4900
+5943  1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.3400
+5944  1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.2300
+5945  1994-06-20 11:00:00 1994-06-22 16:00:00  53.0000        1  0.1900
+5881  1993-05-04 11:00:00 1993-05-06 17:00:00  54.0000        1  0.3000
+5882  1993-05-04 11:00:00 1993-05-06 22:00:00  59.0000        1  1.1000
+5887  1993-05-04 14:00:00 1993-05-06 16:00:00  50.0000        1  0.6000
+5883  1993-05-04 15:00:00 1993-05-06 20:00:00  53.0000        1  0.1500
+5884  1993-05-04 12:00:00 1993-05-06 17:00:00  53.0000        1  0.3300
+5885  1993-05-04 13:00:00 1993-05-06 18:00:00  53.0000        1  0.5000
+5886  1993-05-04 11:00:00 1993-05-06 20:00:00  57.0000        1  0.3800
+5888  1993-05-04 13:00:00 1993-05-06 18:00:00  53.0000        1  0.5500
+5889  1993-06-15 13:00:00 1993-06-18 19:00:00  78.0000        1  0.8000
+5890  1993-06-15 10:00:00 1993-06-19 05:00:00  91.0000        1  0.9700
+5895  1993-06-15 12:00:00 1993-06-18 18:00:00  78.0000        1  0.6700
+5891  1993-06-15 11:00:00 1993-06-18 18:00:00  79.0000        1  0.2200
+5892  1993-06-15 11:00:00 1993-06-18 22:00:00  83.0000        1  0.6200
+5893  1993-06-15 11:00:00 1993-06-18 19:00:00  80.0000        1  0.5900
+5894  1993-06-15 11:00:00 1993-06-18 17:00:00  78.0000        1  0.7100
+5896  1993-06-15 11:00:00 1993-06-18 15:00:00  76.0000        1  0.3500
+5897  1994-06-16 14:00:00 1994-06-22 02:00:00 132.0000        1  0.4500
+5898  1994-06-16 14:00:00 1994-06-22 05:00:00 135.0000        1  0.1900
+5903  1994-06-16 14:00:00 1994-06-21 20:00:00 126.0000        1  0.2600
+5899  1994-06-16 14:00:00 1994-06-22 00:00:00 130.0000        1  0.3600
+5900  1994-06-16 14:00:00 1994-06-22 08:00:00 138.0000        1  0.6100
+5901  1994-06-16 14:00:00 1994-06-22 06:00:00 136.0000        1  0.4500
+5902  1994-06-16 14:00:00 1994-06-21 18:00:00 124.0000        1  0.3100
+5904  1994-06-16 14:00:00 1994-06-22 15:00:00 145.0000        1  0.2900
+5905  1994-06-16 14:00:00 1994-06-22 01:00:00 131.0000        1  0.7500
+5906  1994-06-16 14:00:00 1994-06-21 22:00:00 128.0000        1  0.3900
+5946  1994-05-03 16:00:00 1994-05-06 18:00:00  74.0000        1  1.3200
+5947  1994-05-03 15:00:00 1994-05-04 09:00:00  18.0000        1  0.6100
+28457 2014-05-01 08:40:00 2014-05-01 09:41:00   1.0167        0  0.0000
+28486 2014-05-01 09:41:00 2014-05-01 11:14:00   1.5500        1  0.0000
+28810 2014-04-30 09:05:00 2014-04-30 10:48:00   1.7167        0  0.0000
+28899 2014-04-30 10:48:00 2014-04-30 12:59:00   2.1833        1  0.0000
 
 > # 108 (JTI) has one value per plot
 > # 105 (IGER) seems to just have two plots with only three intervals (24 hr). From the file they look OK.
@@ -1948,71 +2683,136 @@ character(0)
 [1]  64 160
 
 > x[, c('file', 'inst', 'institute', 'first.row.in.file', 'plot', 'pmid', 'tan.app', 'e.rel.final', 'e.rel.48')]
-                                 file inst institute first.row.in.file plot pmid tan.app e.rel.final e.rel.48
-48                        ALFAM1.xlsx  101      ADAS              5752    8   48 218.400      1.2288  1.12980
-49                        ALFAM1.xlsx  101      ADAS              5759    9   49 218.400      2.9985  2.54920
-50                        ALFAM1.xlsx  101      ADAS              5766    1   50 168.000      1.1752  0.74351
-51                        ALFAM1.xlsx  101      ADAS              5829   10   51 168.000      1.2604  0.94408
-54                        ALFAM1.xlsx  101      ADAS              5787    4   54 168.000      1.7882  1.13340
-56                        ALFAM1.xlsx  101      ADAS              5801    6   56 168.000      1.0493  0.84857
-57                        ALFAM1.xlsx  101      ADAS              5808    7   57 168.000      1.2873  0.95835
-58                        ALFAM1.xlsx  101      ADAS              5815    8   58 168.000      2.9963  2.54820
-61                        ALFAM1.xlsx  101      ADAS              5899   10   61 172.000      1.5989  1.31910
-62                        ALFAM1.xlsx  101      ADAS              5843    2   62 172.000      1.2850  1.00960
-69                        ALFAM1.xlsx  101      ADAS              5892    9   69 172.000      1.5795  1.25240
-71                        ALFAM1.xlsx  101      ADAS              5969   10   71 189.200      1.2146  0.98575
-73                        ALFAM1.xlsx  101      ADAS              5920    3   73 189.200      1.0396  0.84266
-76                        ALFAM1.xlsx  101      ADAS              5941    6   76 189.200      1.2700  1.06580
-80                        ALFAM1.xlsx  102       AUN              2350        80  25.484      3.9638  1.43590
-245                       ALFAM1.xlsx  105      IGER              3628    5  245  38.000      1.0292  0.94699
-266                       ALFAM1.xlsx  105      IGER              3760    1  266  39.200      1.0335  0.98028
-269                       ALFAM1.xlsx  105      IGER              3772    3  269  39.200      1.0110  0.98896
-286                       ALFAM1.xlsx  105      IGER              3880    1  286  46.800      1.3328  1.26810
-287                       ALFAM1.xlsx  105      IGER              3934   10  287  46.800      1.0735  1.04950
-290                       ALFAM1.xlsx  105      IGER              3898    4  290  46.800      1.2046  1.24340
-304                       ALFAM1.xlsx  105      IGER              3982    8  304  34.800      1.1511  1.16500
-308                       ALFAM1.xlsx  105      IGER              4026    3  308   2.450      1.1635  0.56759
-309                       ALFAM1.xlsx  105      IGER              4039    4  309   2.450      6.8612  5.65640
-313                       ALFAM1.xlsx  105      IGER              4091    8  313   2.450      2.5692  1.94110
-315                       ALFAM1.xlsx  105      IGER              4117    1  315   9.450      1.7862  1.31320
-342                       ALFAM1.xlsx  105      IGER              4414    1  342  16.800      1.4383  1.42880
-347                       ALFAM1.xlsx  105      IGER              4469    6  347  16.800      1.3159  1.31180
-349                       ALFAM1.xlsx  105      IGER              4491    8  349  16.800      2.1106  1.95530
-353                       ALFAM1.xlsx  105      IGER              4529    3  353  25.900      1.1646  0.96679
-366                       ALFAM1.xlsx  105      IGER              4609    7  366  44.800      1.3437  1.31550
-375                       ALFAM1.xlsx  105      IGER              4681    7  375  40.400      1.0746  1.04650
-416                       ALFAM1.xlsx  105      IGER              4939    1  416  30.100      1.1186  1.00100
-417                       ALFAM1.xlsx  105      IGER              4951    2  417  30.100      1.4269  1.25010
-418                       ALFAM1.xlsx  105      IGER              4963    3  418  30.100      1.3876  1.10860
-419                       ALFAM1.xlsx  105      IGER              4975    4  419  30.100      1.4159  1.18570
-421                       ALFAM1.xlsx  105      IGER              4999    6  421  30.100      1.2273  1.10910
-422                       ALFAM1.xlsx  105      IGER              5011    7  422  30.100      1.5308  1.37180
-423                       ALFAM1.xlsx  105      IGER              5023    8  423  30.100      1.6735  1.49050
-595                       ALFAM1.xlsx  107   IUL/FAT              2633    2  595  33.390      1.3212  1.29980
-596                       ALFAM1.xlsx  107   IUL/FAT              2644    3  596  19.747      1.1760  1.06950
-688                       ALFAM1.xlsx  107   IUL/FAT              3160    1  688   7.680      1.0786  1.07590
-714                       ALFAM1.xlsx  108       JTI              3517    F  714  59.200      1.0963       NA
-721                       ALFAM1.xlsx  108       JTI              3524    E  721  56.700      1.1005       NA
-722                       ALFAM1.xlsx  108       JTI              3525    F  722  60.800      1.4518       NA
-727                       ALFAM1.xlsx  108       JTI              3526    K  727  43.200      1.2097       NA
-729                       ALFAM1.xlsx  108       JTI              3532    E  729  58.800      1.0102       NA
-733                       ALFAM1.xlsx  108       JTI              3537    I  733  58.800      1.0408       NA
-737                       ALFAM1.xlsx  108       JTI              3540    N  737  58.800      1.6709       NA
-746                       ALFAM1.xlsx  108       JTI              3484    F  746  28.500      1.0737       NA
-747                       ALFAM1.xlsx  108       JTI              3485    F  747  28.500      1.5053       NA
-766                       ALFAM1.xlsx  108       JTI              3504    F  766  36.000      1.3839       NA
-767                       ALFAM1.xlsx  108       JTI              3505    F  767  36.000      1.2808       NA
-778                       ALFAM1.xlsx  108       JTI              3542   F4  778  72.000      1.3567       NA
-1175                ALFAM2_AU_v5.xlsx  205        AU                79    1 1175 126.900      1.1926  0.81614
-1180                ALFAM2_AU_v5.xlsx  205        AU               109    3 1180 125.820      1.1845  0.80713
-1184                ALFAM2_AU_v5.xlsx  205        AU               128    2 1184 104.760      1.2913  0.85963
-1185                ALFAM2_AU_v5.xlsx  205        AU               129    3 1185 104.760      1.5869  0.83239
-1799  ALFAM2_data_NL_arable01_v3.xlsx  214       WUR               405   58 1799 109.820      1.0601  1.01090
-1820 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR                87  209 1820  34.170      1.0517  1.03910
-1826 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               140  215 1826  29.100      1.0736  0.96965
-1831 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               185  220 1831  28.080      1.0569  1.02150
-1835 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               221  224 1835  37.180      1.0089  0.96111
-1837 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               239  226 1837  32.400      1.0644  1.02540
+                                 file inst institute first.row.in.file plot
+48                        ALFAM1.xlsx  101      ADAS              5752    8
+49                        ALFAM1.xlsx  101      ADAS              5759    9
+50                        ALFAM1.xlsx  101      ADAS              5766    1
+51                        ALFAM1.xlsx  101      ADAS              5829   10
+54                        ALFAM1.xlsx  101      ADAS              5787    4
+56                        ALFAM1.xlsx  101      ADAS              5801    6
+57                        ALFAM1.xlsx  101      ADAS              5808    7
+58                        ALFAM1.xlsx  101      ADAS              5815    8
+61                        ALFAM1.xlsx  101      ADAS              5899   10
+62                        ALFAM1.xlsx  101      ADAS              5843    2
+69                        ALFAM1.xlsx  101      ADAS              5892    9
+71                        ALFAM1.xlsx  101      ADAS              5969   10
+73                        ALFAM1.xlsx  101      ADAS              5920    3
+76                        ALFAM1.xlsx  101      ADAS              5941    6
+80                        ALFAM1.xlsx  102       AUN              2350     
+245                       ALFAM1.xlsx  105      IGER              3628    5
+266                       ALFAM1.xlsx  105      IGER              3760    1
+269                       ALFAM1.xlsx  105      IGER              3772    3
+286                       ALFAM1.xlsx  105      IGER              3880    1
+287                       ALFAM1.xlsx  105      IGER              3934   10
+290                       ALFAM1.xlsx  105      IGER              3898    4
+304                       ALFAM1.xlsx  105      IGER              3982    8
+308                       ALFAM1.xlsx  105      IGER              4026    3
+309                       ALFAM1.xlsx  105      IGER              4039    4
+313                       ALFAM1.xlsx  105      IGER              4091    8
+315                       ALFAM1.xlsx  105      IGER              4117    1
+342                       ALFAM1.xlsx  105      IGER              4414    1
+347                       ALFAM1.xlsx  105      IGER              4469    6
+349                       ALFAM1.xlsx  105      IGER              4491    8
+353                       ALFAM1.xlsx  105      IGER              4529    3
+366                       ALFAM1.xlsx  105      IGER              4609    7
+375                       ALFAM1.xlsx  105      IGER              4681    7
+416                       ALFAM1.xlsx  105      IGER              4939    1
+417                       ALFAM1.xlsx  105      IGER              4951    2
+418                       ALFAM1.xlsx  105      IGER              4963    3
+419                       ALFAM1.xlsx  105      IGER              4975    4
+421                       ALFAM1.xlsx  105      IGER              4999    6
+422                       ALFAM1.xlsx  105      IGER              5011    7
+423                       ALFAM1.xlsx  105      IGER              5023    8
+595                       ALFAM1.xlsx  107   IUL/FAT              2633    2
+596                       ALFAM1.xlsx  107   IUL/FAT              2644    3
+688                       ALFAM1.xlsx  107   IUL/FAT              3160    1
+714                       ALFAM1.xlsx  108       JTI              3517    F
+721                       ALFAM1.xlsx  108       JTI              3524    E
+722                       ALFAM1.xlsx  108       JTI              3525    F
+727                       ALFAM1.xlsx  108       JTI              3526    K
+729                       ALFAM1.xlsx  108       JTI              3532    E
+733                       ALFAM1.xlsx  108       JTI              3537    I
+737                       ALFAM1.xlsx  108       JTI              3540    N
+746                       ALFAM1.xlsx  108       JTI              3484    F
+747                       ALFAM1.xlsx  108       JTI              3485    F
+766                       ALFAM1.xlsx  108       JTI              3504    F
+767                       ALFAM1.xlsx  108       JTI              3505    F
+778                       ALFAM1.xlsx  108       JTI              3542   F4
+1175                ALFAM2_AU_v5.xlsx  205        AU                79    1
+1180                ALFAM2_AU_v5.xlsx  205        AU               109    3
+1184                ALFAM2_AU_v5.xlsx  205        AU               128    2
+1185                ALFAM2_AU_v5.xlsx  205        AU               129    3
+1799  ALFAM2_data_NL_arable01_v3.xlsx  214       WUR               405   58
+1820 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR                87  209
+1826 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               140  215
+1831 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               185  220
+1835 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               221  224
+1837 ALFAM2_data_NL-grass9703_v2.xlsx  214       WUR               239  226
+     pmid tan.app e.rel.final e.rel.48
+48     48 218.400      1.2288  1.12980
+49     49 218.400      2.9985  2.54920
+50     50 168.000      1.1752  0.74351
+51     51 168.000      1.2604  0.94408
+54     54 168.000      1.7882  1.13340
+56     56 168.000      1.0493  0.84857
+57     57 168.000      1.2873  0.95835
+58     58 168.000      2.9963  2.54820
+61     61 172.000      1.5989  1.31910
+62     62 172.000      1.2850  1.00960
+69     69 172.000      1.5795  1.25240
+71     71 189.200      1.2146  0.98575
+73     73 189.200      1.0396  0.84266
+76     76 189.200      1.2700  1.06580
+80     80  25.484      3.9638  1.43590
+245   245  38.000      1.0292  0.94699
+266   266  39.200      1.0335  0.98028
+269   269  39.200      1.0110  0.98896
+286   286  46.800      1.3328  1.26810
+287   287  46.800      1.0735  1.04950
+290   290  46.800      1.2046  1.24340
+304   304  34.800      1.1511  1.16500
+308   308   2.450      1.1635  0.56759
+309   309   2.450      6.8612  5.65640
+313   313   2.450      2.5692  1.94110
+315   315   9.450      1.7862  1.31320
+342   342  16.800      1.4383  1.42880
+347   347  16.800      1.3159  1.31180
+349   349  16.800      2.1106  1.95530
+353   353  25.900      1.1646  0.96679
+366   366  44.800      1.3437  1.31550
+375   375  40.400      1.0746  1.04650
+416   416  30.100      1.1186  1.00100
+417   417  30.100      1.4269  1.25010
+418   418  30.100      1.3876  1.10860
+419   419  30.100      1.4159  1.18570
+421   421  30.100      1.2273  1.10910
+422   422  30.100      1.5308  1.37180
+423   423  30.100      1.6735  1.49050
+595   595  33.390      1.3212  1.29980
+596   596  19.747      1.1760  1.06950
+688   688   7.680      1.0786  1.07590
+714   714  59.200      1.0963       NA
+721   721  56.700      1.1005       NA
+722   722  60.800      1.4518       NA
+727   727  43.200      1.2097       NA
+729   729  58.800      1.0102       NA
+733   733  58.800      1.0408       NA
+737   737  58.800      1.6709       NA
+746   746  28.500      1.0737       NA
+747   747  28.500      1.5053       NA
+766   766  36.000      1.3839       NA
+767   767  36.000      1.2808       NA
+778   778  72.000      1.3567       NA
+1175 1175 126.900      1.1926  0.81614
+1180 1180 125.820      1.1845  0.80713
+1184 1184 104.760      1.2913  0.85963
+1185 1185 104.760      1.5869  0.83239
+1799 1799 109.820      1.0601  1.01090
+1820 1820  34.170      1.0517  1.03910
+1826 1826  29.100      1.0736  0.96965
+1831 1831  28.080      1.0569  1.02150
+1835 1835  37.180      1.0089  0.96111
+1837 1837  32.400      1.0644  1.02540
 
 > # No obvious problems here
 > # IGER value of 5+ probably related to very low application rate of 2 kg N/ha
@@ -2033,26 +2833,40 @@ character(0)
 > x <- subset(d, is.na(man.source))
 
 > unique(x$institute)
-factor(0)
-Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INRA IUL/FAT JTI MU NMI-WUR SDU TEAGASC USDA WUR
+character(0)
 
 > unique(x[, c('institute', 'man.source.orig')])
 [1] institute       man.source.orig
 <0 rows> (or 0-length row.names)
 
 > x
-  [1] inst            eid             pid             pmid            oid             database        proj            exper           exper2         
- [10] institute       country         file            row.in.file     pub.id          pub.info        lat             long            topo           
- [19] field           plot            plot.area       treat           rep             rep2            interval        t.start         t.end          
- [28] t.start.orig    t.end.orig      dt              dt.calc         dt.diff         ct              mt              cta             meas.tech      
- [37] meas.tech2      meas.tech.orig  bg.dl           bg.val          bg.unit         j.NH3           j.rel           e.int           e.cum          
- [46] e.rel           clay            silt            sand            oc              soil.type       soil.type2      soil.water      soil.moist     
- [55] soil.ph         soil.dens       crop.res        till            air.temp        air.temp.z      soil.temp       soil.temp.z     rad            
- [64] wind            wind.z          wind.2m         wind.loc        rain            rain.rate       rain.cum        rh              far.loc        
- [73] man.source      man.source.orig man.bed         man.con         man.trt1        man.trt2        man.stor        man.dm          man.tkn        
- [82] man.tan         acid            man.tic         man.ua          man.ph          man.freeNH3     man.eq.gasNH3   date.start      app.start      
- [91] app.start.orig  app.method      app.method2     app.method.orig app.rate        tan.app         incorp          incorp.orig     time.incorp    
-[100] man.area        dist.inj        furrow.z        furrow.w        crop            crop.orig       crop.z          crop.area       lai            
+  [1] inst            eid             pid             pmid           
+  [5] oid             database        proj            exper          
+  [9] exper2          institute       country         file           
+ [13] row.in.file     pub.id          pub.info        lat            
+ [17] long            topo            field           plot           
+ [21] plot.area       treat           rep             rep2           
+ [25] interval        t.start         t.end           t.start.orig   
+ [29] t.end.orig      dt              dt.calc         dt.diff        
+ [33] ct              mt              cta             meas.tech      
+ [37] meas.tech2      meas.tech.orig  bg.dl           bg.val         
+ [41] bg.unit         j.NH3           j.rel           e.int          
+ [45] e.cum           e.rel           clay            silt           
+ [49] sand            oc              soil.type       soil.type2     
+ [53] soil.water      soil.moist      soil.ph         soil.dens      
+ [57] crop.res        till            air.temp        air.temp.z     
+ [61] soil.temp       soil.temp.z     rad             wind           
+ [65] wind.z          wind.2m         wind.loc        rain           
+ [69] rain.rate       rain.cum        rh              far.loc        
+ [73] man.source      man.source.orig man.bed         man.con        
+ [77] man.trt1        man.trt2        man.stor        man.dm         
+ [81] man.tkn         man.tan         acid            man.tic        
+ [85] man.ua          man.ph          man.freeNH3     man.eq.gasNH3  
+ [89] date.start      app.start       app.start.orig  app.method     
+ [93] app.method2     app.method.orig app.rate        tan.app        
+ [97] incorp          incorp.orig     time.incorp     man.area       
+[101] dist.inj        furrow.z        furrow.w        crop           
+[105] crop.orig       crop.z          crop.area       lai            
 [109] notes           flag           
 <0 rows> (or 0-length row.names)
 
@@ -2061,69 +2875,109 @@ Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INR
 > # Missing ap .... [TRUNCATED] 
 
 > unique(x$institute)
-[1] INRA SDU 
-Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INRA IUL/FAT JTI MU NMI-WUR SDU TEAGASC USDA WUR
+[1] "INRA" "SDU" 
 
 > x <- subset(d, is.na(app.method) & man.source != 'none')
 
 > x[, c('institute', 'file', 'row.in.file', 'app.method.orig', 'app.method', 'app.rate', 'man.source')]
-      institute               file row.in.file app.method.orig app.method app.rate man.source
-28457       SDU ALFAM2_SDU_v4.xlsx         100                       <NA>       NA        cat
-28486       SDU ALFAM2_SDU_v4.xlsx         101                       <NA>       NA        cat
+      institute               file row.in.file app.method.orig app.method
+28457       SDU ALFAM2_SDU_v4.xlsx         100                       <NA>
+28486       SDU ALFAM2_SDU_v4.xlsx         101                       <NA>
+      app.rate man.source
+28457       NA        cat
+28486       NA        cat
 
 > x
-      inst eid  pid pmid   oid database   proj exper exper2 institute country               file row.in.file pub.id
-28457  211 281 1561 1565 28457        2 ALFAM2    B2     NA       SDU      DK ALFAM2_SDU_v4.xlsx         100      1
-28486  211 281 1566 1570 28486        2 ALFAM2    B2     NA       SDU      DK ALFAM2_SDU_v4.xlsx         101      1
+      inst eid  pid pmid   oid database   proj exper exper2 institute country
+28457  211 281 1561 1565 28457        2 ALFAM2    B2     NA       SDU      DK
+28486  211 281 1566 1570 28486        2 ALFAM2    B2     NA       SDU      DK
+                    file row.in.file pub.id
+28457 ALFAM2_SDU_v4.xlsx         100      1
+28486 ALFAM2_SDU_v4.xlsx         101      1
                                                                                                                                                                                                                                                        pub.info
 28457 Wagner, C., Hafner, S., Nyord, T., Pacholski, A. 2015. Impact of field acidification and application methods on ammonia emissions, yield and nitrogen efficiency of organic liquid manures. Paper presented at 2015 RAMIRAN conference, Hamburg, Germany.
 28486 Wagner, C., Hafner, S., Nyord, T., Pacholski, A. 2015. Impact of field acidification and application methods on ammonia emissions, yield and nitrogen efficiency of organic liquid manures. Paper presented at 2015 RAMIRAN conference, Hamburg, Germany.
-         lat   long topo            field plot plot.area treat rep rep2 interval             t.start               t.end     t.start.orig       t.end.orig
-28457 56.484 9.5813 Flat ECO field Foulum    1        81 BACK    2   NA        0 2014-05-01 08:40:00 2014-05-01 09:41:00 01-05-2014 08:40 01-05-2014 09:41
-28486 56.484 9.5813 Flat ECO field Foulum    2        81 BACK    2   NA        1 2014-05-01 09:41:00 2014-05-01 11:14:00 01-05-2014 09:41 01-05-2014 11:14
-          dt dt.calc dt.diff     ct      mt    cta meas.tech meas.tech2 meas.tech.orig bg.dl bg.val bg.unit j.NH3 j.rel e.int e.cum e.rel clay silt sand  oc
-28457 1.0167  1.0167       0 1.0167 0.50833 1.0167       cps        cps            cps    NA     NA    <NA>     0    NA     0     0    NA  6.8  8.2 79.5 5.5
-28486 1.5500  1.5500       0 1.5500 0.77500 1.5500       cps        cps            cps    NA     NA    <NA>     0    NA     0     0    NA  6.8  8.2 79.5 5.5
-       soil.type soil.type2 soil.water soil.moist soil.ph soil.dens crop.res till air.temp air.temp.z soil.temp soil.temp.z rad wind wind.z wind.2m wind.loc
-28457 loamy.sand       sand         NA        wet     6.2       1.3      Yes  Yes     5.49          1        NA          NA  NA 4.33      2    4.33    Field
-28486 loamy.sand       sand         NA        wet     6.2       1.3      Yes  Yes     6.46          1        NA          NA  NA 4.85      2    4.85    Field
-      rain rain.rate rain.cum   rh far.loc man.source man.source.orig man.bed man.con man.trt1 man.trt2 man.stor man.dm man.tkn man.tan  acid man.tic man.ua
-28457    0         0        0 71.6    <NA>        cat          Cattle    <NA>  liquid     None     None       NA     NA      NA      NA FALSE      NA     NA
-28486    0         0        0 61.2    <NA>        cat          Cattle    <NA>  liquid     None     None       NA     NA      NA      NA FALSE      NA     NA
-      man.ph man.freeNH3 man.eq.gasNH3 date.start           app.start   app.start.orig app.method app.method2 app.method.orig app.rate tan.app incorp
-28457     NA          NA            NA 2014-05-01 2014-05-01 08:40:00 01-05-2014 08:40       <NA>        <NA>                       NA      NA   none
-28486     NA          NA            NA 2014-05-01 2014-05-01 09:41:00 01-05-2014 09:41       <NA>        <NA>                       NA      NA   none
-      incorp.orig time.incorp man.area dist.inj furrow.z furrow.w   crop crop.orig crop.z crop.area lai
-28457        None          NA       30       NA     <NA>     <NA> cereal    Barley     NA        NA  NA
-28486        None          NA       30       NA     <NA>     <NA> cereal    Barley     NA        NA  NA
-                                                        notes flag
-28457 Control. beside the field (further distant background).     
-28486 Control. beside the field (further distant background).     
+         lat   long topo            field plot plot.area treat rep rep2
+28457 56.484 9.5813 Flat ECO field Foulum    1        81 BACK    2   NA
+28486 56.484 9.5813 Flat ECO field Foulum    2        81 BACK    2   NA
+      interval             t.start               t.end     t.start.orig
+28457        0 2014-05-01 08:40:00 2014-05-01 09:41:00 01-05-2014 08:40
+28486        1 2014-05-01 09:41:00 2014-05-01 11:14:00 01-05-2014 09:41
+            t.end.orig     dt dt.calc dt.diff     ct      mt    cta meas.tech
+28457 01-05-2014 09:41 1.0167  1.0167       0 1.0167 0.50833 1.0167       cps
+28486 01-05-2014 11:14 1.5500  1.5500       0 1.5500 0.77500 1.5500       cps
+      meas.tech2 meas.tech.orig bg.dl bg.val bg.unit j.NH3 j.rel e.int e.cum
+28457        cps            cps    NA     NA    <NA>     0    NA     0     0
+28486        cps            cps    NA     NA    <NA>     0    NA     0     0
+      e.rel clay silt sand  oc  soil.type soil.type2 soil.water soil.moist
+28457    NA  6.8  8.2 79.5 5.5 loamy.sand       sand         NA        wet
+28486    NA  6.8  8.2 79.5 5.5 loamy.sand       sand         NA        wet
+      soil.ph soil.dens crop.res till air.temp air.temp.z soil.temp soil.temp.z
+28457     6.2       1.3      Yes  Yes     5.49          1        NA          NA
+28486     6.2       1.3      Yes  Yes     6.46          1        NA          NA
+      rad wind wind.z wind.2m wind.loc rain rain.rate rain.cum   rh far.loc
+28457  NA 4.33      2    4.33    Field    0         0        0 71.6    <NA>
+28486  NA 4.85      2    4.85    Field    0         0        0 61.2    <NA>
+      man.source man.source.orig man.bed man.con man.trt1 man.trt2 man.stor
+28457        cat          Cattle    <NA>  liquid     None     None       NA
+28486        cat          Cattle    <NA>  liquid     None     None       NA
+      man.dm man.tkn man.tan  acid man.tic man.ua man.ph man.freeNH3
+28457     NA      NA      NA FALSE      NA     NA     NA          NA
+28486     NA      NA      NA FALSE      NA     NA     NA          NA
+      man.eq.gasNH3 date.start           app.start   app.start.orig app.method
+28457            NA 2014-05-01 2014-05-01 08:40:00 01-05-2014 08:40       <NA>
+28486            NA 2014-05-01 2014-05-01 09:41:00 01-05-2014 09:41       <NA>
+      app.method2 app.method.orig app.rate tan.app incorp incorp.orig
+28457        <NA>                       NA      NA   none        None
+28486        <NA>                       NA      NA   none        None
+      time.incorp man.area dist.inj furrow.z furrow.w   crop crop.orig crop.z
+28457          NA       30       NA     <NA>     <NA> cereal    Barley     NA
+28486          NA       30       NA     <NA>     <NA> cereal    Barley     NA
+      crop.area lai                                                   notes
+28457        NA  NA Control. beside the field (further distant background).
+28486        NA  NA Control. beside the field (further distant background).
+      flag
+28457     
+28486     
 
 > # Missing soil type
 > x <- subset(d, is.na(soil.type))
 
 > unique(x$institute)
-factor(0)
-Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INRA IUL/FAT JTI MU NMI-WUR SDU TEAGASC USDA WUR
+character(0)
 
 > unique(x[, c('institute', 'soil.type', 'soil.type2')])
 [1] institute  soil.type  soil.type2
 <0 rows> (or 0-length row.names)
 
 > x
-  [1] inst            eid             pid             pmid            oid             database        proj            exper           exper2         
- [10] institute       country         file            row.in.file     pub.id          pub.info        lat             long            topo           
- [19] field           plot            plot.area       treat           rep             rep2            interval        t.start         t.end          
- [28] t.start.orig    t.end.orig      dt              dt.calc         dt.diff         ct              mt              cta             meas.tech      
- [37] meas.tech2      meas.tech.orig  bg.dl           bg.val          bg.unit         j.NH3           j.rel           e.int           e.cum          
- [46] e.rel           clay            silt            sand            oc              soil.type       soil.type2      soil.water      soil.moist     
- [55] soil.ph         soil.dens       crop.res        till            air.temp        air.temp.z      soil.temp       soil.temp.z     rad            
- [64] wind            wind.z          wind.2m         wind.loc        rain            rain.rate       rain.cum        rh              far.loc        
- [73] man.source      man.source.orig man.bed         man.con         man.trt1        man.trt2        man.stor        man.dm          man.tkn        
- [82] man.tan         acid            man.tic         man.ua          man.ph          man.freeNH3     man.eq.gasNH3   date.start      app.start      
- [91] app.start.orig  app.method      app.method2     app.method.orig app.rate        tan.app         incorp          incorp.orig     time.incorp    
-[100] man.area        dist.inj        furrow.z        furrow.w        crop            crop.orig       crop.z          crop.area       lai            
+  [1] inst            eid             pid             pmid           
+  [5] oid             database        proj            exper          
+  [9] exper2          institute       country         file           
+ [13] row.in.file     pub.id          pub.info        lat            
+ [17] long            topo            field           plot           
+ [21] plot.area       treat           rep             rep2           
+ [25] interval        t.start         t.end           t.start.orig   
+ [29] t.end.orig      dt              dt.calc         dt.diff        
+ [33] ct              mt              cta             meas.tech      
+ [37] meas.tech2      meas.tech.orig  bg.dl           bg.val         
+ [41] bg.unit         j.NH3           j.rel           e.int          
+ [45] e.cum           e.rel           clay            silt           
+ [49] sand            oc              soil.type       soil.type2     
+ [53] soil.water      soil.moist      soil.ph         soil.dens      
+ [57] crop.res        till            air.temp        air.temp.z     
+ [61] soil.temp       soil.temp.z     rad             wind           
+ [65] wind.z          wind.2m         wind.loc        rain           
+ [69] rain.rate       rain.cum        rh              far.loc        
+ [73] man.source      man.source.orig man.bed         man.con        
+ [77] man.trt1        man.trt2        man.stor        man.dm         
+ [81] man.tkn         man.tan         acid            man.tic        
+ [85] man.ua          man.ph          man.freeNH3     man.eq.gasNH3  
+ [89] date.start      app.start       app.start.orig  app.method     
+ [93] app.method2     app.method.orig app.rate        tan.app        
+ [97] incorp          incorp.orig     time.incorp     man.area       
+[101] dist.inj        furrow.z        furrow.w        crop           
+[105] crop.orig       crop.z          crop.area       lai            
 [109] notes           flag           
 <0 rows> (or 0-length row.names)
 
@@ -2132,8 +2986,7 @@ Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INR
 > x <- subset(d, is.na(crop))
 
 > unique(x$institute)
-[1] INRA
-Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INRA IUL/FAT JTI MU NMI-WUR SDU TEAGASC USDA WUR
+[1] "INRA"
 
 > unique(x[, c('institute', 'crop', 'crop.orig', 'man.source')])
       institute crop crop.orig man.source
@@ -2847,18 +3700,26 @@ Levels: AAFC ADAS ADAS-RR ARDC AT AU AUN CAU-LU CRPA DIAS IGER IMAG INH-HAFL INR
 
 > # Everything should be in m now
 > sort(unique(d$air.temp.z))
- [1]  0.000  0.015  0.100  0.200  0.300  0.500  1.000  1.250  1.300  1.400  1.500  1.800  2.000  2.170 10.000
+ [1]  0.000  0.015  0.100  0.200  0.300  0.500  1.000  1.250  1.300  1.400
+[11]  1.500  1.800  2.000  2.170 10.000
 
 > sort(unique(d$soil.temp.z))
 [1] 0.000 0.010 0.020 0.025 0.030 0.050 0.075 0.100 0.150
 
 > sort(unique(d$wind.z))
- [1]  0.20  0.22  0.23  0.25  1.00  1.10  1.12  1.13  1.15  1.20  1.21  1.25  1.29  1.30  1.36  1.37  1.39  1.40  1.45  1.50  1.80  2.00  2.17  5.00 10.00
+ [1]  0.20  0.22  0.23  0.25  1.00  1.10  1.12  1.13  1.15  1.20  1.21  1.25
+[13]  1.29  1.30  1.36  1.37  1.39  1.40  1.45  1.50  1.80  2.00  2.17  5.00
+[25] 10.00
 
 > # Except crop height
 > sort(unique(d$crop.z))
-  [1]  0.0  2.0  3.0  3.7  4.0  4.1  4.2  4.8  4.9  5.0  5.1  5.2  5.5  5.6  5.7  5.9  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  7.0  7.1  7.2  7.3  7.4
- [31]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.9  9.0  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8 10.0 10.1 10.2 10.3 10.4 10.5 10.7
- [61] 10.8 11.0 11.1 11.2 11.4 11.5 11.6 11.7 11.8 11.9 12.0 12.2 12.4 12.5 12.6 12.7 12.8 12.9 13.0 13.2 13.3 13.4 13.6 13.7 13.9 14.0 14.1 14.2 14.7 15.0
- [91] 15.1 15.2 15.3 15.5 15.6 15.7 15.8 16.0 16.2 16.4 16.7 16.9 17.0 17.3 17.5 17.6 17.7 18.0 18.2 18.3 18.9 19.0 19.3 19.4 19.5 19.8 20.0 20.3 20.4 20.7
-[121] 20.9 21.2 21.7 21.8 22.2 22.3 22.5 23.3 24.4 25.0 27.0 30.0 33.9 55.4 62.0 65.0 76.5
+  [1]  0.0  2.0  3.0  3.7  4.0  4.1  4.2  4.8  4.9  5.0  5.1  5.2  5.5  5.6  5.7
+ [16]  5.9  6.0  6.1  6.2  6.3  6.4  6.5  6.6  6.7  6.8  7.0  7.1  7.2  7.3  7.4
+ [31]  7.5  7.6  7.7  7.8  7.9  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.9  9.0
+ [46]  9.1  9.2  9.3  9.4  9.5  9.6  9.7  9.8 10.0 10.1 10.2 10.3 10.4 10.5 10.7
+ [61] 10.8 11.0 11.1 11.2 11.4 11.5 11.6 11.7 11.8 11.9 12.0 12.2 12.4 12.5 12.6
+ [76] 12.7 12.8 12.9 13.0 13.2 13.3 13.4 13.6 13.7 13.9 14.0 14.1 14.2 14.7 15.0
+ [91] 15.1 15.2 15.3 15.5 15.6 15.7 15.8 16.0 16.2 16.4 16.7 16.9 17.0 17.3 17.5
+[106] 17.6 17.7 18.0 18.2 18.3 18.9 19.0 19.3 19.4 19.5 19.8 20.0 20.3 20.4 20.7
+[121] 20.9 21.2 21.7 21.8 22.2 22.3 22.5 23.3 24.4 25.0 27.0 30.0 33.9 55.4 62.0
+[136] 65.0 76.5
