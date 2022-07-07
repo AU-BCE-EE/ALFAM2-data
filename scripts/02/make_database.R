@@ -201,7 +201,7 @@ if(sum(duplicated(d[,c('inst', 'plot', 'rep', 'meas.tech', 'ct', 'man.dm', 'man.
 # Create database file for release
 write.csv(d, '../../data-output/02/ALFAM2_interval.csv', row.names = FALSE)
 
-sink('../logs/ALFAM2_database.txt')
+sink('../../logs/02/ALFAM2_database.txt')
   cat('Created ALFAM_interval.csv on ')
   print(Sys.time())
   cat('contains data from', length(unique(d$inst)), ' institutes\n')
