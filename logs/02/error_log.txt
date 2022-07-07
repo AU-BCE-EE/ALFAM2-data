@@ -139,7 +139,7 @@ Class              numeric   numeric  numeric numeric character  character
 Minimum                  0         0        0      16         0        cat
 Maximum                 80      71.2     89.8     109     Field     sludge
 Mean                 0.306    0.0662     5.48    74.5         0        cat
-Unique (excld. NA)     139       911      291    1815        14          9
+Unique (excld. NA)     141       927      302    1815        14          9
 Missing values        5087      5087     5099    8141     11644          0
 Sorted               FALSE     FALSE    FALSE   FALSE     FALSE      FALSE
                                 man.source.orig   man.bed   man.con  man.trt1
