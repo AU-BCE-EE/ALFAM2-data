@@ -1,7 +1,7 @@
 # Compare new version of data to previous version
 
-do <- read.csv('../../archive/1.3/ALFAM2_interval.csv')
-dso <- read.csv('../../archive/1.3/ALFAM2_plot.csv')
+do <- read.csv('../../archive/1.4/ALFAM2_interval.csv')
+dso <- read.csv('../../archive/1.4/ALFAM2_plot.csv')
 
 # Sort in identical way
 d  <-  d[order( d$inst,  d$file,  d$row.in.file), ]
