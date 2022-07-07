@@ -1,14 +1,10 @@
 # Error checking in database
 # S. Hafner
 
-library(plyr)
-
-source('../functions/ALFAM_functions.R')
-
 # Read in data
-d <- read.csv('../data - ALFAM2 output/ALFAM2_interval.csv')
+d <- read.csv('../../data-output/02/ALFAM2_interval.csv')
 d <- fixALFAMCSV(d)
-ds <- read.csv('../data - ALFAM2 output/ALFAM2_plot.csv')
+ds <- read.csv('../../data-output/02/ALFAM2_plot.csv')
 
 # Summary to scan for errors
 dfsumm(d)

@@ -6,17 +6,17 @@
 options(warn = 2) 
 
 # Set database version
-version <- '1.4' # April 2020
+version <- '1.5' # July 2022
 
 # Packages
 library(readxl)
 library(plyr)
 
 # Read in functions
-source('../functions/ALFAM_functions.R')
+source('../../functions/02/ALFAM_functions.R')
 
 # Make database files
-sink('../logs/make_database_log.txt')
+sink('../../logs/02/make_database_log.txt')
   source('make_database.R', echo = TRUE)
 sink()
 
@@ -24,12 +24,12 @@ sink()
 source('summaries.R')
 
 # Check for errors in data input or measurements
-sink('../logs/error_log.txt')
+sink('../../logs/02/error_log.txt')
   source('error_checking.R', echo = TRUE)
 sink()
 
 # Compare to older version
-sink('../logs/version_comparison.txt')
+sink('../../logs/02/version_comparison.txt')
   cat('Compare to original version \n')
   source('compare_1.0.R', echo = TRUE)
   cat('Compare to previous version \n')
@@ -37,7 +37,7 @@ sink('../logs/version_comparison.txt')
 sink()
 
 # Remove partial file
-file.remove('../data - ALFAM2 output/ALFAM_part.csv')
+file.remove('../../data-output/02/ALFAM_part.csv')
 
 options(warn = 1)
 

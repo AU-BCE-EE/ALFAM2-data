@@ -6,11 +6,11 @@ print(Sys.time())
 
 # Read in ALFAM1 data
 cat('\nReading ALFAM1.xlsx. . .\n')
-d1 <- readALFAM1File('../data - ALFAM1/ALFAM1.xlsx')
+d1 <- readALFAM1File('../../data-ALFAM1/ALFAM1.xlsx')
 cat('Done!\n')
 
 # ALFAM2 data
-ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
+ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
 d2 <- NULL
 for(i in ddir) {
   cat('Directory ', i,'\n')
@@ -27,7 +27,7 @@ for(i in ddir) {
 cat('Done! Read', length(unique(d2$file)), ' files.\n')
 
 # Get publication info from sheet 4 in ALFAM2 files
-ddir <- list.dirs('../data - submitted/01', recursive = FALSE)
+ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
 i <- ddir[1]
 f
 j <- f[1]
@@ -61,7 +61,7 @@ d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
 d <- rbindf(d2, d1)
 
 # Write out part
-write.csv(d, '../data - ALFAM2 output/ALFAM_part.csv', row.names = FALSE)
+write.csv(d, '../../data-output/02/ALFAM_part.csv', row.names = FALSE)
 
 ## Start here to save time when only the code below has been updated
 #d <- read.csv('../ouput/ALFAM_part.csv', as.is = TRUE)
@@ -199,7 +199,7 @@ if(sum(duplicated(d[,c('inst', 'plot', 'rep', 'meas.tech', 'ct', 'man.dm', 'man.
 }
 
 # Create database file for release
-write.csv(d, '../data - ALFAM2 output/ALFAM2_interval.csv', row.names = FALSE)
+write.csv(d, '../../data-output/02/ALFAM2_interval.csv', row.names = FALSE)
 
 sink('../logs/ALFAM2_database.txt')
   cat('Created ALFAM_interval.csv on ')
@@ -209,6 +209,6 @@ sink('../logs/ALFAM2_database.txt')
   cat('and has ', length(unique(d$pmid)), ' pmid\n')
   cat('and ', length(d), ' rows\n')
   cat('and ', nrow(d), ' columns.\n')
-  cat('Data directories: ', paste(gsub('../data - submitted/01/', '', ddir), collapse = ', ')) 
+  cat('Data directories: ', paste(gsub('../../data-submitted/02/', '', ddir), collapse = ', ')) 
 sink()
 
