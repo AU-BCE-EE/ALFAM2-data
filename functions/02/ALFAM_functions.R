@@ -197,7 +197,7 @@ readALFAM2File <- function(file, institute) {
   d$long <- DMS2DD(d$long)
   # Convert W to negative long
   d$long.dir <- tolower(substring(d$long.dir, 1, 1))
-  d$long[!is.na(d$long.dir) && d$long.dir == 'w'] <- - d$long[!is.na(d$long.dir) && d$long.dir == 'w']
+  d$long[!is.na(d$long.dir) & d$long.dir == 'w'] <- - d$long[!is.na(d$long.dir) & d$long.dir == 'w']
 
   d$t.start.orig <- d$t.start
   d$t.end.orig <- d$t.end
@@ -295,7 +295,7 @@ readALFAM2File <- function(file, institute) {
   d$crop.area[tolower(d$crop) == 'bare soil'] <- 0
 
   # Fix air.temp.z values apparently given in m not cm
-  d$air.temp.z[!is.na(d$air.temp.z) && d$air.temp.z < 3] <- d$air.temp.z[!is.na(d$air.temp.z) && d$air.temp.z < 3]*100
+  d$air.temp.z[!is.na(d$air.temp.z) & d$air.temp.z < 3] <- d$air.temp.z[!is.na(d$air.temp.z) & d$air.temp.z < 3]*100
 
   # Fix soil (get texture class from % sand etc., add soil.type2 column)
   d <- addSoilText(d)
@@ -808,24 +808,24 @@ summALFAM <- function(d, normalize = FALSE, ...) {
         ##j.48 = if(sum(!is.na(e.cum))>1 && max(ct)>48) approx(x = ct, y = j.NH3, xout = 48, method = 'linear')$y else NA, 
 	      ##j.end = j.NH3[length(j.NH3)],
 
-        e.1 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.cum), xout = 1,  method = 'linear')$y else NA, 
-        e.4 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.cum), xout = 4,  method = 'linear')$y else NA, 
-        e.6 =  if(sum(!is.na(e.cum)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.cum), xout = 6,  method = 'linear')$y else NA, 
-        e.12 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.cum), xout = 12, method = 'linear')$y else NA, 
-        e.24 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.cum), xout = 24, method = 'linear')$y else NA, 
-        e.48 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.cum), xout = 48, method = 'linear')$y else NA, 
-        e.72 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.cum), xout = 72, method = 'linear')$y else NA, 
-        e.96 = if(sum(!is.na(e.cum)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.cum), xout = 96, method = 'linear')$y else NA, 
+        e.1 =  if(sum(!is.na(e.cum)) > 1 & max(ct) >= 1)  approx(x = c(ct), y = c(e.cum), xout = 1,  method = 'linear')$y else NA, 
+        e.4 =  if(sum(!is.na(e.cum)) > 1 & max(ct) >= 4)  approx(x = c(ct), y = c(e.cum), xout = 4,  method = 'linear')$y else NA, 
+        e.6 =  if(sum(!is.na(e.cum)) > 1 & max(ct) >= 6)  approx(x = c(ct), y = c(e.cum), xout = 6,  method = 'linear')$y else NA, 
+        e.12 = if(sum(!is.na(e.cum)) > 1 & max(ct) >= 12) approx(x = c(ct), y = c(e.cum), xout = 12, method = 'linear')$y else NA, 
+        e.24 = if(sum(!is.na(e.cum)) > 1 & max(ct) >= 24) approx(x = c(ct), y = c(e.cum), xout = 24, method = 'linear')$y else NA, 
+        e.48 = if(sum(!is.na(e.cum)) > 1 & max(ct) >= 48) approx(x = c(ct), y = c(e.cum), xout = 48, method = 'linear')$y else NA, 
+        e.72 = if(sum(!is.na(e.cum)) > 1 & max(ct) >= 72) approx(x = c(ct), y = c(e.cum), xout = 72, method = 'linear')$y else NA, 
+        e.96 = if(sum(!is.na(e.cum)) > 1 & max(ct) >= 96) approx(x = c(ct), y = c(e.cum), xout = 96, method = 'linear')$y else NA, 
         e.final = e.cum[length(e.cum)], 
 
-        e.rel.1 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 1)  approx(x = c(ct), y = c(e.rel), xout = 1,  method = 'linear')$y else NA, 
-        e.rel.4 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 4)  approx(x = c(ct), y = c(e.rel), xout = 4,  method = 'linear')$y else NA, 
-        e.rel.6 =  if(sum(!is.na(e.rel)) > 1 && max(ct) >= 6)  approx(x = c(ct), y = c(e.rel), xout = 6,  method = 'linear')$y else NA, 
-        e.rel.12 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 12) approx(x = c(ct), y = c(e.rel), xout = 12, method = 'linear')$y else NA, 
-        e.rel.24 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 24) approx(x = c(ct), y = c(e.rel), xout = 24, method = 'linear')$y else NA, 
-        e.rel.48 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 48) approx(x = c(ct), y = c(e.rel), xout = 48, method = 'linear')$y else NA, 
-        e.rel.72 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 72) approx(x = c(ct), y = c(e.rel), xout = 72, method = 'linear')$y else NA, 
-        e.rel.96 = if(sum(!is.na(e.rel)) > 1 && max(ct) >= 96) approx(x = c(ct), y = c(e.rel), xout = 96, method = 'linear')$y else NA, 
+        e.rel.1 =  if(sum(!is.na(e.rel)) > 1 & max(ct) >= 1)  approx(x = c(ct), y = c(e.rel), xout = 1,  method = 'linear')$y else NA, 
+        e.rel.4 =  if(sum(!is.na(e.rel)) > 1 & max(ct) >= 4)  approx(x = c(ct), y = c(e.rel), xout = 4,  method = 'linear')$y else NA, 
+        e.rel.6 =  if(sum(!is.na(e.rel)) > 1 & max(ct) >= 6)  approx(x = c(ct), y = c(e.rel), xout = 6,  method = 'linear')$y else NA, 
+        e.rel.12 = if(sum(!is.na(e.rel)) > 1 & max(ct) >= 12) approx(x = c(ct), y = c(e.rel), xout = 12, method = 'linear')$y else NA, 
+        e.rel.24 = if(sum(!is.na(e.rel)) > 1 & max(ct) >= 24) approx(x = c(ct), y = c(e.rel), xout = 24, method = 'linear')$y else NA, 
+        e.rel.48 = if(sum(!is.na(e.rel)) > 1 & max(ct) >= 48) approx(x = c(ct), y = c(e.rel), xout = 48, method = 'linear')$y else NA, 
+        e.rel.72 = if(sum(!is.na(e.rel)) > 1 & max(ct) >= 72) approx(x = c(ct), y = c(e.rel), xout = 72, method = 'linear')$y else NA, 
+        e.rel.96 = if(sum(!is.na(e.rel)) > 1 & max(ct) >= 96) approx(x = c(ct), y = c(e.rel), xout = 96, method = 'linear')$y else NA, 
         e.rel.final = e.rel[length(e.rel)], 
 
         # Notes
