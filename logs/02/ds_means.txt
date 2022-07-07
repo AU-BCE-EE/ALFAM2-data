@@ -126,7 +126,7 @@ Class              numeric numeric numeric numeric numeric numeric  numeric
 Minimum                  0       0       0       0       0       0        0
 Maximum                3.5      15      15    36.1    55.9    55.9     89.8
 Mean                 0.147   0.267   0.312    0.93    1.66    2.32     6.15
-Unique (excld. NA)      11      36      40      64      84      95      128
+Unique (excld. NA)      11      36      40      65      86      97      134
 Missing values        1419     766     736     718     709     654      626
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
                    rain.rate.1 rain.rate.6 rain.rate.12 rain.rate.24
@@ -134,7 +134,7 @@ Class                  numeric     numeric      numeric      numeric
 Minimum                      0           0            0            0
 Maximum                    3.5        2.72         2.72         1.75
 Mean                     0.147      0.0648       0.0527       0.0485
-Unique (excld. NA)          14         113          149          218
+Unique (excld. NA)          14         113          149          219
 Missing values            1419         766          736          718
 Sorted                   FALSE       FALSE        FALSE        FALSE
                    rain.rate.48 rain.rate.72 rain.rate.mn    rh.6   rh.12
@@ -142,7 +142,7 @@ Class                   numeric      numeric      numeric numeric numeric
 Minimum                       0            0            0    30.8    27.5
 Maximum                    1.23        0.807          0.6     100     100
 Mean                      0.042       0.0431       0.0453    66.1    66.1
-Unique (excld. NA)          324          374          465     555     624
+Unique (excld. NA)          327          375          465     555     624
 Missing values              709          654          626    1030    1007
 Sorted                    FALSE        FALSE        FALSE   FALSE   FALSE
                      rh.24   rh.48   rh.72   rh.mn air.temp.z soil.temp.z
@@ -414,7 +414,7 @@ Class              numeric numeric numeric numeric numeric numeric  numeric
 Minimum                  0       0       0       0       0       0        0
 Maximum                3.5      15      15    36.1    55.9    55.9     89.8
 Mean                 0.147   0.267   0.312    0.93    1.66    2.32     6.15
-Unique (excld. NA)      11      36      40      64      84      95      128
+Unique (excld. NA)      11      36      40      65      86      97      134
 Missing values        1419     766     736     718     709     654      626
 Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
                    rain.rate.1 rain.rate.6 rain.rate.12 rain.rate.24
@@ -422,7 +422,7 @@ Class                  numeric     numeric      numeric      numeric
 Minimum                      0           0            0            0
 Maximum                    3.5        2.72         2.72         1.75
 Mean                     0.147      0.0648       0.0527       0.0485
-Unique (excld. NA)          14         113          149          218
+Unique (excld. NA)          14         113          149          219
 Missing values            1419         766          736          718
 Sorted                   FALSE       FALSE        FALSE        FALSE
                    rain.rate.48 rain.rate.72 rain.rate.mn    rh.6   rh.12
@@ -430,7 +430,7 @@ Class                   numeric      numeric      numeric numeric numeric
 Minimum                       0            0            0    30.8    27.5
 Maximum                    1.23        0.807          0.6     100     100
 Mean                      0.042       0.0431       0.0453    66.1    66.1
-Unique (excld. NA)          324          374          465     555     624
+Unique (excld. NA)          327          375          465     555     624
 Missing values              709          654          626    1030    1007
 Sorted                    FALSE        FALSE        FALSE   FALSE   FALSE
                      rh.24   rh.48   rh.72   rh.mn air.temp.z soil.temp.z

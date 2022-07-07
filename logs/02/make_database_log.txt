@@ -4,7 +4,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-07-07 10:51:25 EDT"
+[1] "2022-07-07 11:11:02 EDT"
 
 > # Read in ALFAM1 data
 > cat('\nReading ALFAM1.xlsx. . .\n')
