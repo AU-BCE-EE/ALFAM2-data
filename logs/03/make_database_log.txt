@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-07-07 12:21:20 EDT"
+[1] "2022-07-07 19:44:45 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -51,7 +51,9 @@ Unique emis:
 645            MD
 967          <NA>
 Number of rows changed after plots/emis merge in cleanALAM()
-May be entry error or multiple treatments per plot (no error)   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+May be entry error or multiple treatments per plot (no error)Problem is often caused by plot/rep entry error. Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
 plots:
             proj              exper field plot rep pub.id plot.area         lat
@@ -77,7 +79,9 @@ Unique emis:
 278       CRDS_1m
 555       CRDS_1m
 Number of rows changed after plots/emis merge in cleanALAM()
-May be entry error or multiple treatments per plot (no error)   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
+May be entry error or multiple treatments per plot (no error)Problem is often caused by plot/rep entry error. Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
