@@ -368,7 +368,7 @@ if (any(is.na(plots$meas.tech))) {
 ```
 
 ## Plots
-## Calculated cumulative emission
+### Calculated cumulative emission
 Cumulative emission.
 Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
@@ -389,6 +389,15 @@ Final cumulative emission.
 
 ```{r, echo = FALSE}
 ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .)
+```
+
+### Flux
+```{r}
+ggplot(d, aes(ct, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
+ggplot(d, aes(ct, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'top')
+if (!(all(is.na(d$cta)))) {
+  ggplot(d, aes(cta, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'top')
+}
 ```
 
 

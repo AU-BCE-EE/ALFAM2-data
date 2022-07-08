@@ -176,7 +176,7 @@ cleanALFAM <- function(obj) {
   nr1 <- nrow(plots)
   plots.orig <- plots
   plots <- merge(plots, unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]),
-                 by =          c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
+                 by =                 c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
   nr2 <- nrow(plots)
   if (nr1 != nr2) {
     print(paste('File:', file))
@@ -187,6 +187,7 @@ cleanALFAM <- function(obj) {
     cat('Unique emis:\n')
     print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))
     cat('Number of rows changed after plots/emis merge in cleanALAM()\nMay be entry error or multiple treatments per plot (no error)')
+    cat("Problem is often caused by plot/rep entry error. Get in here with browser() and look at:\nunique(plots.orig[, c('plot', 'rep')]) \nunique(emis[, c('plot', 'rep')])")
   }
 
   # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)

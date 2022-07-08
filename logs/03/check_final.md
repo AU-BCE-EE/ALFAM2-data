@@ -1,6 +1,6 @@
 ---
 title: 'Combined data error checks'
-date: "07 July, 2022 12:24"
+date: "07 July, 2022 19:48"
 ---
 
 Get unique values and ranges for all variables.
@@ -524,11 +524,11 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.96  numeric, range: -1.1095 231.38 
-## Missing values: 1209 
+## Missing values: 1213 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.168  numeric, range: 4.658 47.35 
+## e.168  numeric, range: 4.658 47.38 
 ## Missing values: 2178 
 ## 
 ## 
@@ -548,42 +548,42 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.6  numeric, range: -0.0058858 26.279 
+## e.cum.6  numeric, range: -0.0058858 26.369 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.12  numeric, range: -0.015457 34.796 
+## e.cum.12  numeric, range: -0.015457 36.811 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.24  numeric, range: 0 43.67 
+## e.cum.24  numeric, range: 0 44.643 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.48  numeric, range: 0 53.239 
+## e.cum.48  numeric, range: 0 53.8 
 ## Missing values: 1900 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.72  numeric, range: 0 58.814 
+## e.cum.72  numeric, range: 0 68.407 
 ## Missing values: 1900 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.96  numeric, range: 0.88649 61.368 
-## Missing values: 2011 
+## e.cum.96  numeric, range: 0.90426 91.209 
+## Missing values: 2015 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.168  numeric, range: 4.658 47.35 
+## e.cum.168  numeric, range: 4.658 47.38 
 ## Missing values: 2178 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.final  numeric, range: 0 61.607 
+## e.cum.final  numeric, range: 0 134.78 
 ## Missing values: 1899 
 ## 
 ## 
@@ -624,11 +624,11 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.rel.96  numeric, range: -0.010592 5.8726 
-## Missing values: 1215 
+## Missing values: 1219 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.rel.168  numeric, range: 0.11882 0.61803 
+## e.rel.168  numeric, range: 0.12288 0.61843 
 ## Missing values: 2178 
 ## 
 ## 
@@ -863,7 +863,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## soil.temp.168  numeric, range: 2.8608 19.261 
+## soil.temp.168  numeric, range: 2.8478 19.261 
 ## Missing values: 2021 
 ## 
 ## 
@@ -1042,7 +1042,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.mn  numeric, range: 0.10873 19.939 
+## wind.mn  numeric, range: 0.10794 19.939 
 ## Missing values: 101 
 ## 
 ## 
@@ -1097,7 +1097,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.2m.mn  numeric, range: 0.10873 20.343 
+## wind.2m.mn  numeric, range: 0.10794 20.343 
 ## Missing values: 330 
 ## 
 ## 
@@ -1156,7 +1156,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rain.96  numeric, range: 0 2.723 
-## Missing values: 2011 
+## Missing values: 2015 
 ## 
 ## 
 ## -----------------------------------------------------
