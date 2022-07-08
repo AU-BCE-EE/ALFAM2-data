@@ -372,16 +372,16 @@ if (any(is.na(plots$meas.tech))) {
 Cumulative emission.
 Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
-d$first.row <- factor(paste('Plots', d$row.plot, 'Emissiion', d$first.row))
+d$first.rows <- factor(paste('Plots', d$row.plot, 'Emission', d$first.row))
 library(ggplot2)
-ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
-ggplot(d, aes(ct, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows)
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top')
 if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'top')
+  ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top')
 }
 if (!(all(is.na(d$t.end)))) {
-  ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none')
-  ggplot(d, aes(t.end, e.rel, colour = first.row)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none')
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows)
 }
 ```
 
@@ -393,10 +393,10 @@ ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(me
 
 ### Flux
 ```{r}
-ggplot(d, aes(ct, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.row)
-ggplot(d, aes(ct, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'top')
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows)
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top')
 if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, j.NH3, colour = first.row)) + geom_step() + geom_point() + theme(legend.position = 'top')
+  ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top')
 }
 ```
 
