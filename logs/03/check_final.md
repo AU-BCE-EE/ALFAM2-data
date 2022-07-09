@@ -1,6 +1,6 @@
 ---
 title: 'Combined data error checks'
-date: "09 July, 2022 12:32"
+date: "09 July, 2022 12:43"
 ---
 
 Get unique values and ranges for all variables.
@@ -646,7 +646,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.rel.168  numeric, range: 0.12288 0.61843 
+## e.rel.168  numeric, range: 0.12288 0.6768 
 ## Missing values: 2178 
 ## 
 ## 
