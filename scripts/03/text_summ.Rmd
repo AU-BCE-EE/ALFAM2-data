@@ -1,0 +1,44 @@
+---
+title: 'Submitted data summary'
+author: 
+date: "`r format(Sys.time(), '%d %B, %Y %H:%M')`"
+---
+
+# Submitter
+```{r, echo = FALSE}
+unique(pds$submitter)
+```
+
+# File
+```{r, echo = FALSE}
+unique(pds$file)
+```
+
+# Graphical summary
+```{r, echo = FALSE}
+for (i in c('e.cum.final', 'e.rel.final',
+            'app.rate', 'man.dm', 'man.ph', 'man.tan', 'tan.app',
+            'ct.max', 
+            'air.temp.mn', 'wind.2m.mn', 'rain.rate.mn'
+            )) {
+
+  cat(c(rep(c(i, ' '), 5), '\n'))
+  cat('\n')
+  cat(c(i, ' vs. pmid \n'))
+  txtplot(pds[, i], pds$pmid)
+
+  cat('\n')
+  cat(c(i, ' vs. row.in.file.plot \n'))
+  txtplot(pds[, i], pds$row.in.file.plot)
+
+  cat('\n')
+  cat(c('stem and leaf plot of ', i, '\n'))
+  stem(pds[, i])
+}
+```
+
+# Numeric summary
+```{r, echo = FALSE}
+dfsumm(pds)
+```
+

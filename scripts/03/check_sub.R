@@ -9,15 +9,16 @@ for (i in names(dat)) {
     fn <- fn[[1]][length(fn[[1]])]
     fn <- sub('\\.xlsx$', '', fn)
     inst <- dat[[i]][[j]]$submitter$inst.abbrev
+    submitter <- dat[[i]][[j]]$submitter$submitter
 
     # Check and make institution directory if needed
-    idir <- paste0('../../logs/03/', inst)
+    idir <- paste0('../../logs/03/html/', inst, '-', gsub(' |,', '_', submitter))
     if (!dir.exists(idir)) {
       dir.create(idir)
     }
 
     options(warn = 1) 
-    render('error_check.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = idir, quiet = TRUE)
+    render('check_sub.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = idir, quiet = TRUE)
     options(warn = 2) 
 
   }

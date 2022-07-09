@@ -10,7 +10,7 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.2' # 7 July 2022
+version <- '2.3' # 9 July 2022
 
 source('packages.R')
 
@@ -28,6 +28,8 @@ sink('../../logs/03/make_database_log.txt')
   source('add_ID.R', echo = TRUE)
   source('merge_plot.R', echo = TRUE)
   source('merge_int.R', echo = TRUE)
+  source('text_summ.R', echo = TRUE)
+  source('save_csvs.R', echo = TRUE)
   source('check_final.R', echo = TRUE)
   source('export.R', echo = TRUE)
 sink()

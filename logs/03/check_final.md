@@ -1,6 +1,6 @@
 ---
 title: 'Combined data error checks'
-date: "07 July, 2022 19:48"
+date: "09 July, 2022 12:32"
 ---
 
 Get unique values and ranges for all variables.
@@ -140,6 +140,24 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## FR 
 ## Missing values: 0 
+## 
+## 
+## -----------------------------------------------------
+## submitter  character/factor, unique (first 10): 
+##  NA
+## 
+## Sommer Sven Gjedde
+## 
+## Pedersen, Johanna
+## 
+## Jesper Kamp
+## 
+## Jesper Nørlem Kamp
+## 
+## Massimo Zilio, Fabrizio Adani
+## 
+## Ester Scotto di Perta 
+## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
