@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-07-07 19:44:45 EDT"
+[1] "2022-07-09 12:28:50 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -247,16 +247,20 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
 > ## Columns missing in .... [TRUNCATED] 
 
-> knit('check_final.Rmd', output = '../../logs/03/check_final.md')
-  |                                                                              |                                                                      |   0%  |                                                                              |.......................                                               |  33%
-   inline R code fragments
+> # Make text plot summaries for uptake 3 only
+> 
+> for (i in unique(pdat$file)) {
++ 
++   fn <- strsplit(i, '/')
++   fn <- fn[[1]][length(fn[[1]])]
++  .... [TRUNCATED] 
 
-  |                                                                              |...............................................                       |  67%
-label: unnamed-chunk-1
-  |                                                                              |......................................................................| 100%
-  ordinary text without R code
+> # Saves a copy of plot and internval data by flie
+> # Main purpose is to have a text-based (works with Git) record of submitted data
+> 
+> for (i in  .... [TRUNCATED] 
 
-
+> knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
 [1] "../../logs/03/check_final.md"
 
 > # Write regular csv files

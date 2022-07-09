@@ -10,7 +10,7 @@ The ALFAM2 dataset on ammonia loss from field-applied manure. This repository co
 # More details
 The dataset consists of two files with plot- and measurement-level observations.
 See the `headers` directory [here](https://github.com/sashahafner/ALFAM2-data/tree/master/headers) for variable descriptions.
-Files can be merge on the two plot keys or identification codes: `pid` and `pmid`.
+Files can be merged on the two plot keys or identification codes: `pid` and `pmid`.
 
 Files are saved in a compressed format with the extension `.gz` (gzip) in order to reduce file size.
 The easiest way to get the data into R is to read the files directly with `data.table::fread()`.
