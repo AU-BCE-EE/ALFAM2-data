@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-07-09 12:39:30 EDT"
+[1] "2022-07-09 13:08:43 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -158,13 +158,15 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
 
-> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
-
-> # Create completley new 300s codes for new institutes
-> # NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
->  .... [TRUNCATED] 
-
-> # ID codes created in plots data frame and then merged into interval level data frame
+> pdat <- merge(pdat, inst.old, by = 'instit            vari lwr upr
+1           wind   0  20
+2      rain.rate   0  20
+3       air.temp -10  40
+4      soil.temp -10  40
+5 soil.temp.surf -10  40
+6     air.temp.z   0  10
+7         wind.z   0  10
+des created in plots data frame and then merged into interval level data frame
 > # Experiment ID (includes uptake, inst, proj, exper)
 > pdat$ .... [TRUNCATED] 
 

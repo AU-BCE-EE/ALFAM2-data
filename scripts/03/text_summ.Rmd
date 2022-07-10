@@ -1,7 +1,5 @@
 ---
 title: 'Submitted data summary'
-author: 
-date: "`r format(Sys.time(), '%d %B, %Y %H:%M')`"
 ---
 
 # Submitter
