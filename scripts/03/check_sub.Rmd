@@ -1,17 +1,17 @@
 ---
 title: 'Submitted data error checks'
 output: html_document
-classoption: landscape
-author: 
-date: "`r format(Sys.time(), '%d %B, %Y %H:%M')`"
 ---
 
-# Submitter and contributors
+# Submitter
 ```{r, echo = FALSE}
 kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
-kable(dat[[i]][[j]]$contrib, row.names = FALSE)
 ```
 
+# Contributors
+```{r, echo = FALSE}
+kable(dat[[i]][[j]]$contrib, row.names = FALSE)
+```
 # File and directory names
 ```{r, echo = FALSE}
 print(i)
@@ -225,12 +225,13 @@ if (nrow(x) > 0) {
 ## Delay after application
 ```{r,echo=FALSE}
 if (all(is.na(d$bta))) {
-  print('bta (cum. time since application began) is not available.')
+  cat('bta (cum. time since application began) is not available.\n')
 } else if (min(na.omit(d$bta)) < 1) {
   cat('OK\n')
 } else {
-  print('1 hr or longer delay after starting application')
-  print('First 10 rows')
+  cat('Warning: 1 hour or longer delay after starting application\n')
+  cat('  bta = elapsed (cumulative) time since manure application *began*\n  ct = elapsed time of measurements\n  cta = elapsed time since application ended\n')
+  cat('  First 10 rows\n')
   kable(d[1:10, c('row.in.file.int', 'app.start', 't.start', 'bta', 'ct', 'cta')])
 }
 ```
@@ -267,6 +268,8 @@ for (ii in unique(emis$cpmid)) {
 }
 ```
 # Value checks
+Check to see if submitted values are within a reasonable range.
+
 ## Weather
 ```{r, echo = FALSE}
 lim <- data.frame(vari = c('wind', 'rain.rate', 'air.temp', 'soil.temp', 'soil.temp.surf', 'air.temp.z', 'wind.z'),
@@ -340,18 +343,21 @@ for (k in lim$vari) {
 ```
 
 # Missing values
+Check for missing values.
+
+## All variables
 ```{r,echo = FALSE}
 miss <- apply(d, 2, function(x) sum(is.na(x)))
 miss <- miss[miss > 0]
 if (length(miss) > 0) {
-  print('Some values missing:')
+  cat('Some values missing:\n')
   print(miss)
 } else {
-  print('OK, no values missing')
+  cat('OK, no values missing\n')
 }
 ```
 
-# Application method and measurement method
+## Application method and measurement method
 ```{r, echo=FALSE}
 if (any(is.na(plots$app.method))) {
   print('Missing app.method in some rows')
@@ -367,43 +373,51 @@ if (any(is.na(plots$meas.tech))) {
 }
 ```
 
-## Plots
-### Calculated cumulative emission
+# Plots
+## Calculated cumulative emission
 Cumulative emission.
 Missing values imputed (linear interpolation).
+
 ```{r, echo=FALSE}
 d$first.rows <- factor(paste('Plots', d$row.plot, 'Emis.', d$first.row))
-library(ggplot2)
+
 ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)')
 ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)')
+
 if (!(all(is.na(d$cta)))) {
   ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)')
 }
+
 if (!(all(is.na(d$t.end)))) {
   ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)')
   ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)')
 }
 ```
 
-### Final cumulative emission
+## Final cumulative emission
+
 ```{r, echo = FALSE}
-ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .)
+ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)')
 ```
 
-### Relative versus absolute emission
+## Relative versus absolute emission
+
 ```{r, echo = FALSE}
 ggplot(plots, aes(e.rel.final, e.final)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)', y = 'Final cum. emission (kg N/ha)')
 ```
 
-### Flux
-```{r}
+## Flux
+
+```{r, echo = FALSE}
 ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)')
 ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)') 
 if (!(all(is.na(d$cta)))) {
   ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)')
 }
 ```
-### Weather data
+
+## Weather data
+
 ```{r, echo=FALSE}
 ggplot(d, aes(ct, wind, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'Wind (m/s')
 ggplot(d, aes(ct, air.temp, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Air temp. (deg. C)')
@@ -411,7 +425,8 @@ ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() 
 ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm)')
 ```
 
-### Manure and application
+## Manure and application
+
 ```{r, echo = FALSE}
 ggplot(plots, aes(row.in.file.plot, man.dm)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure DM (%)')
 ggplot(plots, aes(row.in.file.plot, man.ph)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure pH')
