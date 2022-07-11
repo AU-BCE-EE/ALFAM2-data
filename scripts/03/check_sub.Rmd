@@ -1,24 +1,26 @@
 ---
 title: 'Submitted data error checks'
-output: html_document
+output: 
+  html_document:
+    toc: true
 ---
 
-# Submitter
+# 1. Submitter
 ```{r, echo = FALSE}
 kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
 ```
 
-# Contributors
+# 2. Contributors
 ```{r, echo = FALSE}
 kable(dat[[i]][[j]]$contrib, row.names = FALSE)
 ```
-# File and directory names
+# 3. File and directory names
 ```{r, echo = FALSE}
 print(i)
 print(j)
 ```
 
-# Location
+# 4. Location
 ```{r, echo = FALSE}
 library( leaflet )
 library( magrittr )
@@ -38,7 +40,7 @@ leaflet() %>% addTiles() %>%
 
 ```
 
-# Check experiment etc. codes (IDs)
+# 5.Keys and codes 
 ```{r, echo = FALSE}
 exper <- dat[[i]][[j]]$exper
 treat <- dat[[i]][[j]]$treat
@@ -149,7 +151,7 @@ if (nrow(m2) == nrow(emis)) {
 
 ```
 
-# Publication info
+# 6. Publication info
 ## Check for missing codes
 ```{r, echo = FALSE}
 if (all(exper$pub.id %in% pubs$pub.id)) {
@@ -184,7 +186,7 @@ if (all(nchar(pubs$citation) > 10)) {
 }
 ```
 
-# Emission sheet check
+# 7. Emission sheet
 
 ```{r, echo = FALSE}
 d <- dat[[i]][[j]]$emis
@@ -267,7 +269,7 @@ for (ii in unique(emis$cpmid)) {
   }
 }
 ```
-# Value checks
+# 7. Value checks
 Check to see if submitted values are within a reasonable range.
 
 ## Weather
@@ -342,7 +344,7 @@ for (k in lim$vari) {
 }
 ```
 
-# Missing values
+# 8. Missing values
 Check for missing values.
 
 ## All variables
@@ -351,6 +353,7 @@ miss <- apply(d, 2, function(x) sum(is.na(x)))
 miss <- miss[miss > 0]
 if (length(miss) > 0) {
   cat('Some values missing:\n')
+  cat('Table below has number of missing observations by variable:\n')
   print(miss)
 } else {
   cat('OK, no values missing\n')
@@ -373,7 +376,7 @@ if (any(is.na(plots$meas.tech))) {
 }
 ```
 
-# Plots
+# 9. Plots
 ## Calculated cumulative emission
 Cumulative emission.
 Missing values imputed (linear interpolation).
@@ -381,16 +384,16 @@ Missing values imputed (linear interpolation).
 ```{r, echo=FALSE}
 d$first.rows <- factor(paste('Plots', d$row.plot, 'Emis.', d$first.row))
 
-ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)')
-ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)')
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
 
 if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)')
+  ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
 }
 
 if (!(all(is.na(d$t.end)))) {
-  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)')
-  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)')
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
 }
 ```
 
@@ -409,20 +412,20 @@ ggplot(plots, aes(e.rel.final, e.final)) + geom_point() + facet_grid(meas.tech ~
 ## Flux
 
 ```{r, echo = FALSE}
-ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)')
-ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)') 
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file') 
 if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)')
+  ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
 }
 ```
 
 ## Weather data
 
 ```{r, echo=FALSE}
-ggplot(d, aes(ct, wind, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'Wind (m/s')
-ggplot(d, aes(ct, air.temp, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Air temp. (deg. C)')
-ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm/h)')
-ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm)')
+ggplot(d, aes(ct, wind, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'Wind (m/s', colour = 'Rows in file')
+ggplot(d, aes(ct, air.temp, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Air temp. (deg. C)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm/h)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm)', colour = 'Rows in file')
 ```
 
 ## Manure and application
@@ -435,7 +438,7 @@ ggplot(plots, aes(row.in.file.plot, app.rate)) + geom_point() + facet_grid(meas.
 ggplot(plots, aes(row.in.file.plot, tan.app)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'TAN application (kg/ha)')
 ```
 
-# Summary 
+# 10. `dfsumm` summary 
 ```{r, echo=FALSE}
 print(dfsumm(d))
 ```
