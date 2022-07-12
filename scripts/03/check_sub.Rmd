@@ -5,6 +5,23 @@ output:
     toc: true
 ---
 
+# 0. Instructions for submitters
+Submitters should use this file to check for problems with submitted data.
+Each of these html files contains a summary of the data in a single submitted spreadsheet file.
+The html name is based on the name of the submitted file.
+Use the details below to check:
+
+* Institute abbreviation, submitter and contributor names
+* The plot location(s), using the map zoom and pan features if needed
+* For problems in the first sections; "OK" means there are no problems in a particular section, "warning" is something that should be checked (but might be OK), "error" is a problem that needs to be addressed
+* For numeric values outside the expected range in the "Value checks" section
+* Variables with missing values--are there any missing that you thought you included?
+* Plots of flux, cumulative emission over time, and final cumulative emission for strange patterns, unexpectedly high or low values
+* Plots of weather data for appropriate differences between plots and expected diurnal or other patterns
+* Plots of manure and application data for correct values
+
+Finally, the numeric summary at the end might provide details that can help in pinpointing problems, but typically does not need to be checked.
+
 # 1. Submitter
 ```{r, echo = FALSE}
 kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
@@ -431,11 +448,15 @@ ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() +
 ## Manure and application
 
 ```{r, echo = FALSE}
-ggplot(plots, aes(row.in.file.plot, man.dm)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure DM (%)')
-ggplot(plots, aes(row.in.file.plot, man.ph)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure pH')
-ggplot(plots, aes(row.in.file.plot, man.tan)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure TAN (g/kg)')
-ggplot(plots, aes(row.in.file.plot, app.rate)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure application (t/ha)')
-ggplot(plots, aes(row.in.file.plot, tan.app)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'TAN application (kg/ha)')
+if (nrow(plots) < 5) {
+  kable(plots[, c('institute', 'proj', 'exper', 'field', 'plot', 'man.dm', 'man.ph', 'man.tan', 'app.rate', 'tan.app')])
+} else {
+  ggplot(plots, aes(row.in.file.plot, man.dm)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure DM (%)')
+  ggplot(plots, aes(row.in.file.plot, man.ph)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure pH')
+  ggplot(plots, aes(row.in.file.plot, man.tan)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure TAN (g/kg)')
+  ggplot(plots, aes(row.in.file.plot, app.rate)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure application (t/ha)')
+  ggplot(plots, aes(row.in.file.plot, tan.app)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'TAN application (kg/ha)')
+}
 ```
 
 # 10. `dfsumm` summary 
