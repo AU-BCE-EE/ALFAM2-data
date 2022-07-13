@@ -564,9 +564,9 @@ title: 'Submitted data summary'
 ##                       pub.id      proj     exper       field      plot     rep
 ## Class              character character character   character character numeric
 ## Minimum                 <NA>    eGylle       21C FoulumgårdD         1       1
-## Maximum                 <NA>    eGylle       22A FoulumgårdD         9      12
-## Mean                    <NA>      <NA>      <NA>        <NA>      <NA>    2.32
-## Unique (excld. NA)         0         1         3           1         9       4
+## Maximum                 <NA>    eGylle       22A FoulumgårdD         9       3
+## Mean                    <NA>      <NA>      <NA>        <NA>      <NA>    1.82
+## Unique (excld. NA)         0         1         3           1         9       3
 ## Missing values            22         0         0           0         0       0
 ## Sorted                  <NA>      TRUE     FALSE        TRUE     FALSE   FALSE
 ##                                                                               
@@ -582,11 +582,11 @@ title: 'Submitted data summary'
 ##                       silt    sand      oc soil.type soil.water soil.water.v
 ## Class              numeric numeric numeric character    numeric      logical
 ## Minimum                 24      65    <NA>      <NA>       0.21         <NA>
-## Maximum                 24      65    <NA>      <NA>       0.21         <NA>
-## Mean                    24      65    <NA>      <NA>       0.21         <NA>
-## Unique (excld. NA)       1       1       0         0          1            0
-## Missing values           0       0      22        22          8           22
-## Sorted                TRUE    TRUE    <NA>      <NA>       TRUE         <NA>
+## Maximum                 24      65    <NA>      <NA>       0.27         <NA>
+## Mean                    24      65    <NA>      <NA>      0.232         <NA>
+## Unique (excld. NA)       1       1       0         0          2            0
+## Missing values           0       0      22        22          0           22
+## Sorted                TRUE    TRUE    <NA>      <NA>      FALSE         <NA>
 ##                                                                             
 ##                    soil.moist soil.ph soil.dens  crop.res      till man.source
 ## Class               character numeric   numeric character character  character
