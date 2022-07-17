@@ -4502,8 +4502,8 @@ pre code {
 </div>
 <div id="location" class="section level1">
 <h1>4. Location</h1>
-<div id="htmlwidget-3529cc10cbe8395f8c63" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3529cc10cbe8395f8c63">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[55.9,10.1,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"blue","weight":5,"opacity":0.5,"fill":true,"fillColor":"blue","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[55.9,55.9],"lng":[10.1,10.1]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-abb1e30010d41157f902" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-abb1e30010d41157f902">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[55.9,10.1,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"blue","weight":5,"opacity":0.5,"fill":true,"fillColor":"blue","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[55.9,55.9],"lng":[10.1,10.1]}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="keys-and-codes" class="section level1">
 <h1>5.Keys and codes</h1>
@@ -4768,96 +4768,87 @@ pre code {
 ## Missing values           0         0                            0         0
 ## Sorted                TRUE      TRUE                         TRUE      TRUE
 ##                                                                            
-##                        lat    long   country      topo    clay    silt
-## Class              numeric numeric character character numeric logical
-## Minimum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;
-## Maximum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;
-## Mean                  55.9    10.1      &lt;NA&gt;      &lt;NA&gt;    13.1    &lt;NA&gt;
-## Unique (excld. NA)       1       1         1         1       1       0
-## Missing values           0       0         0         0       0      24
-## Sorted                TRUE    TRUE      TRUE      TRUE    TRUE    &lt;NA&gt;
-##                                                                       
-##                       sand      oc soil.type soil.water soil.water.v
-## Class              numeric numeric character    logical      logical
-## Minimum               81.7     2.2      Sand       &lt;NA&gt;         &lt;NA&gt;
-## Maximum               81.7     2.2      Sand       &lt;NA&gt;         &lt;NA&gt;
-## Mean                  81.7     2.2      &lt;NA&gt;       &lt;NA&gt;         &lt;NA&gt;
-## Unique (excld. NA)       1       1         1          0            0
-## Missing values           0       0         0         24           24
-## Sorted                TRUE    TRUE      TRUE       &lt;NA&gt;         &lt;NA&gt;
-##                                                                     
-##                    soil.moist soil.ph soil.dens  crop.res      till
-## Class                 logical logical   logical character character
-## Minimum                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;        No        No
-## Maximum                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;        No        No
-## Mean                     &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;
-## Unique (excld. NA)          0       0         0         1         1
-## Missing values             24      24        24         0         0
-## Sorted                   &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      TRUE      TRUE
-##                                                                    
-##                    man.source man.source.det   man.bed   man.con  man.trt1
-## Class               character      character character character character
-## Minimum                   cat          Dairy     Straw     Solid      None
-## Maximum                   cat          Dairy     Straw     Solid      None
-## Mean                     &lt;NA&gt;           &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;
-## Unique (excld. NA)          1              1         1         1         1
-## Missing values              0              0         0         0         0
-## Sorted                   TRUE           TRUE      TRUE      TRUE      TRUE
+##                        lat    long   country      topo    clay    silt    sand
+## Class              numeric numeric character character numeric logical numeric
+## Minimum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;    81.7
+## Maximum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;    81.7
+## Mean                  55.9    10.1      &lt;NA&gt;      &lt;NA&gt;    13.1    &lt;NA&gt;    81.7
+## Unique (excld. NA)       1       1         1         1       1       0       1
+## Missing values           0       0         0         0       0      24       0
+## Sorted                TRUE    TRUE      TRUE      TRUE    TRUE    &lt;NA&gt;    TRUE
+##                                                                               
+##                         oc soil.type soil.water soil.water.v soil.moist soil.ph
+## Class              numeric character    logical      logical    logical logical
+## Minimum                2.2      Sand       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Maximum                2.2      Sand       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Mean                   2.2      &lt;NA&gt;       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)       1         1          0            0          0       0
+## Missing values           0         0         24           24         24      24
+## Sorted                TRUE      TRUE       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+##                                                                                
+##                    soil.dens  crop.res      till man.source man.source.det
+## Class                logical character character  character      character
+## Minimum                 &lt;NA&gt;        No        No        cat          Dairy
+## Maximum                 &lt;NA&gt;        No        No        cat          Dairy
+## Mean                    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;           &lt;NA&gt;
+## Unique (excld. NA)         0         1         1          1              1
+## Missing values            24         0         0          0              0
+## Sorted                  &lt;NA&gt;      TRUE      TRUE       TRUE           TRUE
 ##                                                                           
-##                    man.trt2 man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
-## Class               logical  logical  logical numeric logical numeric numeric
-## Minimum                &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    31.6    &lt;NA&gt;       6    0.86
-## Maximum                &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    37.3    &lt;NA&gt;     7.4    1.27
-## Mean                   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    33.9    &lt;NA&gt;     6.6    1.05
-## Unique (excld. NA)        0        0        0       4       0       4       4
-## Missing values           24       24       24       0      24       0       0
-## Sorted                 &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;   FALSE    &lt;NA&gt;   FALSE    TRUE
+##                      man.bed   man.con  man.trt1 man.trt2 man.trt3 man.stor
+## Class              character character character  logical  logical  logical
+## Minimum                Straw     Solid      None     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Maximum                Straw     Solid      None     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Mean                    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Unique (excld. NA)         1         1         1        0        0        0
+## Missing values             0         0         0       24       24       24
+## Sorted                  TRUE      TRUE      TRUE     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+##                                                                            
+##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
+## Class              numeric logical numeric numeric logical logical logical
+## Minimum               31.6    &lt;NA&gt;       6    0.86    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Maximum               37.3    &lt;NA&gt;     7.4    1.27    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Mean                  33.9    &lt;NA&gt;     6.6    1.05    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)       4       0       4       4       0       0       0
+## Missing values           0      24       0       0      24      24      24
+## Sorted               FALSE    &lt;NA&gt;   FALSE    TRUE    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+##                                                                           
+##                     man.ph           app.start             app.end app.method
+## Class              numeric     POSIXct, POSIXt     POSIXct, POSIXt  character
+## Minimum                8.6 2004-04-22 09:00:00 2004-04-22 09:30:00         bc
+## Maximum                8.8 2004-04-22 10:30:00 2004-04-22 11:00:00         bc
+## Mean                  8.68 2004-04-22 09:45:00 2004-04-22 10:15:00       &lt;NA&gt;
+## Unique (excld. NA)       3                   4                   4          1
+## Missing values           0                   0                   0          0
+## Sorted               FALSE                TRUE                TRUE       TRUE
 ##                                                                              
-##                    man.tic  man.ua man.vfa  man.ph           app.start
-## Class              logical logical logical numeric     POSIXct, POSIXt
-## Minimum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     8.6 2004-04-22 09:00:00
-## Maximum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     8.8 2004-04-22 10:30:00
-## Mean                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    8.68 2004-04-22 09:45:00
-## Unique (excld. NA)       0       0       0       3                   4
-## Missing values          24      24      24       0                   0
-## Sorted                &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE                TRUE
-##                                                                       
-##                                app.end app.method app.rate app.rate.unit
-## Class                  POSIXct, POSIXt  character  numeric     character
-## Minimum            2004-04-22 09:30:00         bc     13.6          t/ha
-## Maximum            2004-04-22 11:00:00         bc     19.6          t/ha
-## Mean               2004-04-22 10:15:00       &lt;NA&gt;     17.5          &lt;NA&gt;
-## Unique (excld. NA)                   4          1        4             1
-## Missing values                       0          0        0             0
-## Sorted                            TRUE       TRUE    FALSE          TRUE
+##                    app.rate app.rate.unit    incorp time.incorp man.area
+## Class               numeric     character character     numeric  numeric
+## Minimum                13.6          t/ha      deep      0.0833      100
+## Maximum                19.6          t/ha   shallow           6      100
+## Mean                   17.5          &lt;NA&gt;      &lt;NA&gt;        2.14      100
+## Unique (excld. NA)        4             1         3           3        1
+## Missing values            0             0         0           6        0
+## Sorted                FALSE          TRUE     FALSE       FALSE     TRUE
 ##                                                                         
-##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
-## Class              character     numeric  numeric  logical  numeric  logical
-## Minimum                 deep      0.0833      100     &lt;NA&gt;       10     &lt;NA&gt;
-## Maximum              shallow           6      100     &lt;NA&gt;       20     &lt;NA&gt;
-## Mean                    &lt;NA&gt;        2.14      100     &lt;NA&gt;     13.3     &lt;NA&gt;
-## Unique (excld. NA)         3           3        1        0        2        0
-## Missing values             0           6        0       24        6       24
-## Sorted                 FALSE       FALSE     TRUE     &lt;NA&gt;    FALSE     &lt;NA&gt;
-##                                                                             
-##                         crop  crop.z crop.area     lai notes.plot
-## Class              character numeric   numeric logical  character
-## Minimum            bare soil       0         0    &lt;NA&gt;          .
-## Maximum            bare soil       0         0    &lt;NA&gt;          .
-## Mean                    &lt;NA&gt;       0         0    &lt;NA&gt;       &lt;NA&gt;
-## Unique (excld. NA)         1       1         1       0          1
-## Missing values             0       0         0      24         18
-## Sorted                  TRUE    TRUE      TRUE    &lt;NA&gt;       TRUE
-##                                                                  
-##                    row.in.file.plot institute  uptake
-## Class                       numeric character numeric
-## Minimum                           5    AU-BCE       3
-## Maximum                           8    AU-BCE       3
-## Mean                            6.5      &lt;NA&gt;       3
-## Unique (excld. NA)                4         1       1
-## Missing values                    0         0       0
-## Sorted                         TRUE      TRUE    TRUE
-##                                                      
+##                    dist.inj furrow.z furrow.w      crop  crop.z crop.area
+## Class               logical  numeric  logical character numeric   numeric
+## Minimum                &lt;NA&gt;       10     &lt;NA&gt; bare soil       0         0
+## Maximum                &lt;NA&gt;       20     &lt;NA&gt; bare soil       0         0
+## Mean                   &lt;NA&gt;     13.3     &lt;NA&gt;      &lt;NA&gt;       0         0
+## Unique (excld. NA)        0        2        0         1       1         1
+## Missing values           24        6       24         0       0         0
+## Sorted                 &lt;NA&gt;    FALSE     &lt;NA&gt;      TRUE    TRUE      TRUE
+##                                                                          
+##                        lai notes.plot row.in.file.plot institute  uptake
+## Class              logical  character          numeric character numeric
+## Minimum               &lt;NA&gt;          .                5    AU-BCE       3
+## Maximum               &lt;NA&gt;          .                8    AU-BCE       3
+## Mean                  &lt;NA&gt;       &lt;NA&gt;              6.5      &lt;NA&gt;       3
+## Unique (excld. NA)       0          1                4         1       1
+## Missing values          24         18                0         0       0
+## Sorted                &lt;NA&gt;       TRUE             TRUE      TRUE    TRUE
+##                                                                         
 ##                                                                            file
 ## Class                                                                 character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx
@@ -4957,51 +4948,51 @@ pre code {
 ## Missing values                   0          0               0      24      24
 ## Sorted                        TRUE      FALSE            TRUE    &lt;NA&gt;    &lt;NA&gt;
 ##                                                                              
-##                         ct      mt     cta     bta  flag.int rain.rate
-## Class              numeric numeric numeric numeric character   numeric
-## Minimum                1.5    0.75    &lt;NA&gt;    &lt;NA&gt;                   0
-## Maximum                121     101    &lt;NA&gt;    &lt;NA&gt;               0.172
-## Mean                  48.2    38.1    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    0.0287
-## Unique (excld. NA)       6       6       0       0         1         2
-## Missing values           0       0      24      24         0         0
-## Sorted               FALSE   FALSE    &lt;NA&gt;    &lt;NA&gt;      TRUE     FALSE
-##                                                                       
-##                    rain.cum wind.2m   e.int   e.cum       e   e.rel     j.rel
-## Class               numeric numeric numeric numeric numeric numeric   numeric
-## Minimum                   0    1.53 -0.0444   0.645   0.645  0.0305 -9.33e-05
-## Maximum                   7    3.84    5.32    9.08    9.08    0.49     0.151
-## Mean                   1.17    1.92   0.946    4.63    4.63   0.257    0.0192
-## Unique (excld. NA)        2       2      23      22      22      22        22
-## Missing values            0       0       0       0       0       0         0
-## Sorted                FALSE   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
+##                         ct      mt     cta     bta  flag.int rain.rate rain.cum
+## Class              numeric numeric numeric numeric character   numeric  numeric
+## Minimum                1.5    0.75    &lt;NA&gt;    &lt;NA&gt;                   0        0
+## Maximum                121     101    &lt;NA&gt;    &lt;NA&gt;               0.172        7
+## Mean                  48.2    38.1    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    0.0287     1.17
+## Unique (excld. NA)       6       6       0       0         1         2        2
+## Missing values           0       0      24      24         0         0        0
+## Sorted               FALSE   FALSE    &lt;NA&gt;    &lt;NA&gt;      TRUE     FALSE    FALSE
+##                                                                                
+##                    wind.2m   e.int   e.cum       e   e.rel     j.rel pub.info
+## Class              numeric numeric numeric numeric numeric   numeric  logical
+## Minimum               1.53 -0.0444   0.645   0.645  0.0305 -9.33e-05     &lt;NA&gt;
+## Maximum               3.84    5.32    9.08    9.08    0.49     0.151     &lt;NA&gt;
+## Mean                  1.92   0.946    4.63    4.63   0.257    0.0192     &lt;NA&gt;
+## Unique (excld. NA)       2      23      22      22      22        22        0
+## Missing values           0       0       0       0       0         0       24
+## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE     FALSE     &lt;NA&gt;
 ##                                                                              
-##                    pub.info soil.type2  exper2    rep2    acid meas.tech.orig
-## Class               logical    logical logical logical logical      character
-## Minimum                &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST
-## Maximum                &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST
-## Mean                   &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  0 TRUE           &lt;NA&gt;
-## Unique (excld. NA)        0          0       0       0       1              1
-## Missing values           24         24      24      24       0              0
-## Sorted                 &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    TRUE           TRUE
-##                                                                              
-##                    meas.tech2 crop.orig man.source.orig app.method.orig
-## Class               character character       character       character
-## Minimum             micro met Bare soil          Cattle       Broadcast
-## Maximum             micro met Bare soil          Cattle       Broadcast
-## Mean                     &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;            &lt;NA&gt;
-## Unique (excld. NA)          1         1               1               1
-## Missing values              0         0               0               0
-## Sorted                   TRUE      TRUE            TRUE            TRUE
-##                                                                        
-##                    app.method2 incorp.orig date.start first.row.int row.plot
-## Class                character   character       Date       numeric  numeric
-## Minimum                     bc        Deep       &lt;NA&gt;             5        5
-## Maximum                     bc     Shallow       &lt;NA&gt;            23        8
-## Mean                      &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;            14      6.5
-## Unique (excld. NA)           1           3          0             4        4
-## Missing values               0           0         24             0        0
-## Sorted                    TRUE       FALSE       &lt;NA&gt;          TRUE     TRUE
-##                                                                             
+##                    soil.type2  exper2    rep2    acid meas.tech.orig meas.tech2
+## Class                 logical logical logical logical      character  character
+## Minimum                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST  micro met
+## Maximum                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST  micro met
+## Mean                     &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  0 TRUE           &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)          0       0       0       1              1          1
+## Missing values             24      24      24       0              0          0
+## Sorted                   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    TRUE           TRUE       TRUE
+##                                                                                
+##                    crop.orig man.source.orig app.method.orig app.method2
+## Class              character       character       character   character
+## Minimum            Bare soil          Cattle       Broadcast          bc
+## Maximum            Bare soil          Cattle       Broadcast          bc
+## Mean                    &lt;NA&gt;            &lt;NA&gt;            &lt;NA&gt;        &lt;NA&gt;
+## Unique (excld. NA)         1               1               1           1
+## Missing values             0               0               0           0
+## Sorted                  TRUE            TRUE            TRUE        TRUE
+##                                                                         
+##                    incorp.orig date.start first.row.int row.plot
+## Class                character       Date       numeric  numeric
+## Minimum                   Deep       &lt;NA&gt;             5        5
+## Maximum                Shallow       &lt;NA&gt;            23        8
+## Mean                      &lt;NA&gt;       &lt;NA&gt;            14      6.5
+## Unique (excld. NA)           3          0             4        4
+## Missing values               0         24             0        0
+## Sorted                   FALSE       &lt;NA&gt;          TRUE     TRUE
+##                                                                 
 ##                          first.rows
 ## Class                        factor
 ## Minimum             Plots 5 Emis. 5
@@ -5038,96 +5029,87 @@ pre code {
 ## Missing values           0         0                            0         0
 ## Sorted                TRUE      TRUE                         TRUE      TRUE
 ##                                                                            
-##                        lat    long   country      topo    clay    silt
-## Class              numeric numeric character character numeric logical
-## Minimum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;
-## Maximum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;
-## Mean                  55.9    10.1      &lt;NA&gt;      &lt;NA&gt;    13.1    &lt;NA&gt;
-## Unique (excld. NA)       1       1         1         1       1       0
-## Missing values           0       0         0         0       0      24
-## Sorted                TRUE    TRUE      TRUE      TRUE    TRUE    &lt;NA&gt;
-##                                                                       
-##                       sand      oc soil.type soil.water soil.water.v
-## Class              numeric numeric character    logical      logical
-## Minimum               81.7     2.2      Sand       &lt;NA&gt;         &lt;NA&gt;
-## Maximum               81.7     2.2      Sand       &lt;NA&gt;         &lt;NA&gt;
-## Mean                  81.7     2.2      &lt;NA&gt;       &lt;NA&gt;         &lt;NA&gt;
-## Unique (excld. NA)       1       1         1          0            0
-## Missing values           0       0         0         24           24
-## Sorted                TRUE    TRUE      TRUE       &lt;NA&gt;         &lt;NA&gt;
-##                                                                     
-##                    soil.moist soil.ph soil.dens  crop.res      till
-## Class                 logical logical   logical character character
-## Minimum                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;        No        No
-## Maximum                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;        No        No
-## Mean                     &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;
-## Unique (excld. NA)          0       0         0         1         1
-## Missing values             24      24        24         0         0
-## Sorted                   &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;      TRUE      TRUE
-##                                                                    
-##                    man.source man.source.det   man.bed   man.con  man.trt1
-## Class               character      character character character character
-## Minimum                   cat          Dairy     Straw     Solid      None
-## Maximum                   cat          Dairy     Straw     Solid      None
-## Mean                     &lt;NA&gt;           &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;
-## Unique (excld. NA)          1              1         1         1         1
-## Missing values              0              0         0         0         0
-## Sorted                   TRUE           TRUE      TRUE      TRUE      TRUE
+##                        lat    long   country      topo    clay    silt    sand
+## Class              numeric numeric character character numeric logical numeric
+## Minimum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;    81.7
+## Maximum               55.9    10.1        DK      Flat    13.1    &lt;NA&gt;    81.7
+## Mean                  55.9    10.1      &lt;NA&gt;      &lt;NA&gt;    13.1    &lt;NA&gt;    81.7
+## Unique (excld. NA)       1       1         1         1       1       0       1
+## Missing values           0       0         0         0       0      24       0
+## Sorted                TRUE    TRUE      TRUE      TRUE    TRUE    &lt;NA&gt;    TRUE
+##                                                                               
+##                         oc soil.type soil.water soil.water.v soil.moist soil.ph
+## Class              numeric character    logical      logical    logical logical
+## Minimum                2.2      Sand       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Maximum                2.2      Sand       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Mean                   2.2      &lt;NA&gt;       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)       1         1          0            0          0       0
+## Missing values           0         0         24           24         24      24
+## Sorted                TRUE      TRUE       &lt;NA&gt;         &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;
+##                                                                                
+##                    soil.dens  crop.res      till man.source man.source.det
+## Class                logical character character  character      character
+## Minimum                 &lt;NA&gt;        No        No        cat          Dairy
+## Maximum                 &lt;NA&gt;        No        No        cat          Dairy
+## Mean                    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;           &lt;NA&gt;
+## Unique (excld. NA)         0         1         1          1              1
+## Missing values            24         0         0          0              0
+## Sorted                  &lt;NA&gt;      TRUE      TRUE       TRUE           TRUE
 ##                                                                           
-##                    man.trt2 man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
-## Class               logical  logical  logical numeric logical numeric numeric
-## Minimum                &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    31.6    &lt;NA&gt;       6    0.86
-## Maximum                &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    37.3    &lt;NA&gt;     7.4    1.27
-## Mean                   &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;    33.9    &lt;NA&gt;     6.6    1.05
-## Unique (excld. NA)        0        0        0       4       0       4       4
-## Missing values           24       24       24       0      24       0       0
-## Sorted                 &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;   FALSE    &lt;NA&gt;   FALSE    TRUE
+##                      man.bed   man.con  man.trt1 man.trt2 man.trt3 man.stor
+## Class              character character character  logical  logical  logical
+## Minimum                Straw     Solid      None     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Maximum                Straw     Solid      None     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Mean                    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Unique (excld. NA)         1         1         1        0        0        0
+## Missing values             0         0         0       24       24       24
+## Sorted                  TRUE      TRUE      TRUE     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+##                                                                            
+##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
+## Class              numeric logical numeric numeric logical logical logical
+## Minimum               31.6    &lt;NA&gt;       6    0.86    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Maximum               37.3    &lt;NA&gt;     7.4    1.27    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Mean                  33.9    &lt;NA&gt;     6.6    1.05    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)       4       0       4       4       0       0       0
+## Missing values           0      24       0       0      24      24      24
+## Sorted               FALSE    &lt;NA&gt;   FALSE    TRUE    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+##                                                                           
+##                     man.ph           app.start             app.end app.method
+## Class              numeric     POSIXct, POSIXt     POSIXct, POSIXt  character
+## Minimum                8.6 2004-04-22 09:00:00 2004-04-22 09:30:00         bc
+## Maximum                8.8 2004-04-22 10:30:00 2004-04-22 11:00:00         bc
+## Mean                  8.68 2004-04-22 09:45:00 2004-04-22 10:15:00       &lt;NA&gt;
+## Unique (excld. NA)       3                   4                   4          1
+## Missing values           0                   0                   0          0
+## Sorted               FALSE                TRUE                TRUE       TRUE
 ##                                                                              
-##                    man.tic  man.ua man.vfa  man.ph           app.start
-## Class              logical logical logical numeric     POSIXct, POSIXt
-## Minimum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     8.6 2004-04-22 09:00:00
-## Maximum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     8.8 2004-04-22 10:30:00
-## Mean                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    8.68 2004-04-22 09:45:00
-## Unique (excld. NA)       0       0       0       3                   4
-## Missing values          24      24      24       0                   0
-## Sorted                &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE                TRUE
-##                                                                       
-##                                app.end app.method app.rate app.rate.unit
-## Class                  POSIXct, POSIXt  character  numeric     character
-## Minimum            2004-04-22 09:30:00         bc     13.6          t/ha
-## Maximum            2004-04-22 11:00:00         bc     19.6          t/ha
-## Mean               2004-04-22 10:15:00       &lt;NA&gt;     17.5          &lt;NA&gt;
-## Unique (excld. NA)                   4          1        4             1
-## Missing values                       0          0        0             0
-## Sorted                            TRUE       TRUE    FALSE          TRUE
+##                    app.rate app.rate.unit    incorp time.incorp man.area
+## Class               numeric     character character     numeric  numeric
+## Minimum                13.6          t/ha      deep      0.0833      100
+## Maximum                19.6          t/ha   shallow           6      100
+## Mean                   17.5          &lt;NA&gt;      &lt;NA&gt;        2.14      100
+## Unique (excld. NA)        4             1         3           3        1
+## Missing values            0             0         0           6        0
+## Sorted                FALSE          TRUE     FALSE       FALSE     TRUE
 ##                                                                         
-##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
-## Class              character     numeric  numeric  logical  numeric  logical
-## Minimum                 deep      0.0833      100     &lt;NA&gt;       10     &lt;NA&gt;
-## Maximum              shallow           6      100     &lt;NA&gt;       20     &lt;NA&gt;
-## Mean                    &lt;NA&gt;        2.14      100     &lt;NA&gt;     13.3     &lt;NA&gt;
-## Unique (excld. NA)         3           3        1        0        2        0
-## Missing values             0           6        0       24        6       24
-## Sorted                 FALSE       FALSE     TRUE     &lt;NA&gt;    FALSE     &lt;NA&gt;
-##                                                                             
-##                         crop  crop.z crop.area     lai notes.plot
-## Class              character numeric   numeric logical  character
-## Minimum            bare soil       0         0    &lt;NA&gt;          .
-## Maximum            bare soil       0         0    &lt;NA&gt;          .
-## Mean                    &lt;NA&gt;       0         0    &lt;NA&gt;       &lt;NA&gt;
-## Unique (excld. NA)         1       1         1       0          1
-## Missing values             0       0         0      24         18
-## Sorted                  TRUE    TRUE      TRUE    &lt;NA&gt;       TRUE
-##                                                                  
-##                    row.in.file.plot institute  uptake
-## Class                       numeric character numeric
-## Minimum                           5    AU-BCE       3
-## Maximum                           8    AU-BCE       3
-## Mean                            6.5      &lt;NA&gt;       3
-## Unique (excld. NA)                4         1       1
-## Missing values                    0         0       0
-## Sorted                         TRUE      TRUE    TRUE
-##                                                      
+##                    dist.inj furrow.z furrow.w      crop  crop.z crop.area
+## Class               logical  numeric  logical character numeric   numeric
+## Minimum                &lt;NA&gt;       10     &lt;NA&gt; bare soil       0         0
+## Maximum                &lt;NA&gt;       20     &lt;NA&gt; bare soil       0         0
+## Mean                   &lt;NA&gt;     13.3     &lt;NA&gt;      &lt;NA&gt;       0         0
+## Unique (excld. NA)        0        2        0         1       1         1
+## Missing values           24        6       24         0       0         0
+## Sorted                 &lt;NA&gt;    FALSE     &lt;NA&gt;      TRUE    TRUE      TRUE
+##                                                                          
+##                        lai notes.plot row.in.file.plot institute  uptake
+## Class              logical  character          numeric character numeric
+## Minimum               &lt;NA&gt;          .                5    AU-BCE       3
+## Maximum               &lt;NA&gt;          .                8    AU-BCE       3
+## Mean                  &lt;NA&gt;       &lt;NA&gt;              6.5      &lt;NA&gt;       3
+## Unique (excld. NA)       0          1                4         1       1
+## Missing values          24         18                0         0       0
+## Sorted                &lt;NA&gt;       TRUE             TRUE      TRUE    TRUE
+##                                                                         
 ##                                                                            file
 ## Class                                                                 character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx
@@ -5227,51 +5209,51 @@ pre code {
 ## Missing values                   0          0               0      24      24
 ## Sorted                        TRUE      FALSE            TRUE    &lt;NA&gt;    &lt;NA&gt;
 ##                                                                              
-##                         ct      mt     cta     bta  flag.int rain.rate
-## Class              numeric numeric numeric numeric character   numeric
-## Minimum                1.5    0.75    &lt;NA&gt;    &lt;NA&gt;                   0
-## Maximum                121     101    &lt;NA&gt;    &lt;NA&gt;               0.172
-## Mean                  48.2    38.1    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    0.0287
-## Unique (excld. NA)       6       6       0       0         1         2
-## Missing values           0       0      24      24         0         0
-## Sorted               FALSE   FALSE    &lt;NA&gt;    &lt;NA&gt;      TRUE     FALSE
-##                                                                       
-##                    rain.cum wind.2m   e.int   e.cum       e   e.rel     j.rel
-## Class               numeric numeric numeric numeric numeric numeric   numeric
-## Minimum                   0    1.53 -0.0444   0.645   0.645  0.0305 -9.33e-05
-## Maximum                   7    3.84    5.32    9.08    9.08    0.49     0.151
-## Mean                   1.17    1.92   0.946    4.63    4.63   0.257    0.0192
-## Unique (excld. NA)        2       2      23      22      22      22        22
-## Missing values            0       0       0       0       0       0         0
-## Sorted                FALSE   FALSE   FALSE   FALSE   FALSE   FALSE     FALSE
+##                         ct      mt     cta     bta  flag.int rain.rate rain.cum
+## Class              numeric numeric numeric numeric character   numeric  numeric
+## Minimum                1.5    0.75    &lt;NA&gt;    &lt;NA&gt;                   0        0
+## Maximum                121     101    &lt;NA&gt;    &lt;NA&gt;               0.172        7
+## Mean                  48.2    38.1    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    0.0287     1.17
+## Unique (excld. NA)       6       6       0       0         1         2        2
+## Missing values           0       0      24      24         0         0        0
+## Sorted               FALSE   FALSE    &lt;NA&gt;    &lt;NA&gt;      TRUE     FALSE    FALSE
+##                                                                                
+##                    wind.2m   e.int   e.cum       e   e.rel     j.rel pub.info
+## Class              numeric numeric numeric numeric numeric   numeric  logical
+## Minimum               1.53 -0.0444   0.645   0.645  0.0305 -9.33e-05     &lt;NA&gt;
+## Maximum               3.84    5.32    9.08    9.08    0.49     0.151     &lt;NA&gt;
+## Mean                  1.92   0.946    4.63    4.63   0.257    0.0192     &lt;NA&gt;
+## Unique (excld. NA)       2      23      22      22      22        22        0
+## Missing values           0       0       0       0       0         0       24
+## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE     FALSE     &lt;NA&gt;
 ##                                                                              
-##                    pub.info soil.type2  exper2    rep2    acid meas.tech.orig
-## Class               logical    logical logical logical logical      character
-## Minimum                &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST
-## Maximum                &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST
-## Mean                   &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  0 TRUE           &lt;NA&gt;
-## Unique (excld. NA)        0          0       0       0       1              1
-## Missing values           24         24      24      24       0              0
-## Sorted                 &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    TRUE           TRUE
-##                                                                              
-##                    meas.tech2 crop.orig man.source.orig app.method.orig
-## Class               character character       character       character
-## Minimum             micro met Bare soil          Cattle       Broadcast
-## Maximum             micro met Bare soil          Cattle       Broadcast
-## Mean                     &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;            &lt;NA&gt;
-## Unique (excld. NA)          1         1               1               1
-## Missing values              0         0               0               0
-## Sorted                   TRUE      TRUE            TRUE            TRUE
-##                                                                        
-##                    app.method2 incorp.orig date.start first.row.int row.plot
-## Class                character   character       Date       numeric  numeric
-## Minimum                     bc        Deep       &lt;NA&gt;             5        5
-## Maximum                     bc     Shallow       &lt;NA&gt;            23        8
-## Mean                      &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;            14      6.5
-## Unique (excld. NA)           1           3          0             4        4
-## Missing values               0           0         24             0        0
-## Sorted                    TRUE       FALSE       &lt;NA&gt;          TRUE     TRUE
-##                                                                             
+##                    soil.type2  exper2    rep2    acid meas.tech.orig meas.tech2
+## Class                 logical logical logical logical      character  character
+## Minimum                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST  micro met
+## Maximum                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE          ZINST  micro met
+## Mean                     &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  0 TRUE           &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)          0       0       0       1              1          1
+## Missing values             24      24      24       0              0          0
+## Sorted                   &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    TRUE           TRUE       TRUE
+##                                                                                
+##                    crop.orig man.source.orig app.method.orig app.method2
+## Class              character       character       character   character
+## Minimum            Bare soil          Cattle       Broadcast          bc
+## Maximum            Bare soil          Cattle       Broadcast          bc
+## Mean                    &lt;NA&gt;            &lt;NA&gt;            &lt;NA&gt;        &lt;NA&gt;
+## Unique (excld. NA)         1               1               1           1
+## Missing values             0               0               0           0
+## Sorted                  TRUE            TRUE            TRUE        TRUE
+##                                                                         
+##                    incorp.orig date.start first.row.int row.plot
+## Class                character       Date       numeric  numeric
+## Minimum                   Deep       &lt;NA&gt;             5        5
+## Maximum                Shallow       &lt;NA&gt;            23        8
+## Mean                      &lt;NA&gt;       &lt;NA&gt;            14      6.5
+## Unique (excld. NA)           3          0             4        4
+## Missing values               0         24             0        0
+## Sorted                   FALSE       &lt;NA&gt;          TRUE     TRUE
+##                                                                 
 ##                          first.rows
 ## Class                        factor
 ## Minimum             Plots 5 Emis. 5
