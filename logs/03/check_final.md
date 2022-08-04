@@ -16,22 +16,22 @@ for (i in 1:ncol(pdat.comb)) {
 ```
 ## 
 ## -----------------------------------------------------
-## inst  numeric, range: 101 304 
+## inst  numeric, range: 101 305 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## eid  numeric, range: 1 387 
+## eid  numeric, range: 1 388 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pid  numeric, range: 1 2227 
+## pid  numeric, range: 1 2231 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pmid  numeric, range: 1 2231 
+## pmid  numeric, range: 1 2235 
 ## Missing values: 0 
 ## 
 ## 
@@ -90,7 +90,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## exper2  numeric, range: 1 54 
-## Missing values: 1431 
+## Missing values: 1435 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -154,6 +154,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## Jesper Nørlem Kamp
 ## 
 ## Massimo Zilio, Fabrizio Adani
+## 
+## Marco Carozzi
 ## 
 ## Ester Scotto di Perta 
 ## Missing values: 1899 
@@ -219,7 +221,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 2+3
 ## 
 ## 5 
-## Missing values: 758 
+## Missing values: 762 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -243,7 +245,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Hansen, M.N.; Sommer, S.G.; Madsen, N.P. 2003. Reduction of ammonia emission by shallow slurry injection: Injection efficiency and additional energy demand. Journal of Environmental Quality. 32: 1099-1104.
 ## 
 ## Hansen M.N, Birkmose, T.S., Mortensen, B., Skaaning, K. 2004. Environmental impact of anaerobic digestion and separation of pig slurry – effects on odour, ammonia volatilisation and plant utilisation. (Miljøeffekter af bioforgasning og separering af gylle – indflydelse på lugt, ammoniakfordampning og planteudnyttelse). Grøn Viden, Markbrug No. 296. 6 pages. 
-## Missing values: 1001 
+## Missing values: 1005 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -377,7 +379,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rep2  numeric, range: 1 7 
-## Missing values: 1431 
+## Missing values: 1435 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -490,7 +492,11 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## MD
 ## 
-## ALPHA passive samplers plus Windtrax dispersion model 
+## ALPHA passive samplers plus Windtrax dispersion model
+## 
+## 150 cm height
+## 
+## 30, 70, 150 cm height 
 ## Missing values: 2215 
 ## 
 ## 
@@ -546,7 +552,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.168  numeric, range: 4.658 47.38 
-## Missing values: 2178 
+## Missing values: 2182 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -555,37 +561,37 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.1  numeric, range: -0.0025997 1.2673 
+## e.cum.1  numeric, range: -0.011165 1.2673 
 ## Missing values: 2217 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.4  numeric, range: -0.0030147 20.823 
+## e.cum.4  numeric, range: -0.057613 20.823 
 ## Missing values: 1905 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.6  numeric, range: -0.0058858 26.369 
+## e.cum.6  numeric, range: -0.071578 26.369 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.12  numeric, range: -0.015457 36.811 
+## e.cum.12  numeric, range: -0.17106 36.811 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.24  numeric, range: 0 44.643 
+## e.cum.24  numeric, range: 0 55.664 
 ## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.48  numeric, range: 0 53.8 
+## e.cum.48  numeric, range: 0 74.639 
 ## Missing values: 1900 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.72  numeric, range: 0 68.407 
+## e.cum.72  numeric, range: 0 79.192 
 ## Missing values: 1900 
 ## 
 ## 
@@ -596,7 +602,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.cum.168  numeric, range: 4.658 47.38 
-## Missing values: 2178 
+## Missing values: 2182 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -646,7 +652,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.rel.168  numeric, range: 0.12288 0.6768 
-## Missing values: 2178 
+## Missing values: 2182 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -695,7 +701,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## sandy loam
 ## 
 ## silty clay loam 
-## Missing values: 225 
+## Missing values: 229 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -709,7 +715,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## organic
 ## 
 ## NA 
-## Missing values: 332 
+## Missing values: 336 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -718,8 +724,9 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## soil.water.v  logical, unique: NA 
-## Missing values: 
+## soil.water.v  numeric, range: 20.39 20.89 
+## Missing values: 2231 
+## 
 ## 
 ## -----------------------------------------------------
 ## soil.moist  character/factor, unique (first 10): 
@@ -731,7 +738,9 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## wet frozen
 ## 
-## Dry 
+## Dry
+## 
+## Wet 
 ## Missing values: 1152 
 ## 
 ## 
@@ -766,7 +775,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## air.temp.1  numeric, range: 2.9 18.85 
+## air.temp.1  numeric, range: 2.9 25.675 
 ## Missing values: 2217 
 ## 
 ## 
@@ -786,7 +795,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## air.temp.24  numeric, range: -4.1838 28.75 
+## air.temp.24  numeric, range: -4.1838 28.927 
 ## Missing values: 262 
 ## 
 ## 
@@ -841,102 +850,102 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## soil.temp.1  numeric, range: 5.2 17.8 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.4  numeric, range: 4.31 25.99 
-## Missing values: 2021 
+## Missing values: 2025 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.6  numeric, range: 1.5 34.953 
-## Missing values: 1080 
+## Missing values: 1084 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.12  numeric, range: 1.5 30.884 
-## Missing values: 1066 
-## 
-## 
-## -----------------------------------------------------
-## soil.temp.24  numeric, range: 1.5 26.815 
 ## Missing values: 1070 
 ## 
 ## 
 ## -----------------------------------------------------
+## soil.temp.24  numeric, range: 1.5 26.815 
+## Missing values: 1074 
+## 
+## 
+## -----------------------------------------------------
 ## soil.temp.48  numeric, range: 1.4896 25.897 
-## Missing values: 1078 
+## Missing values: 1082 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.72  numeric, range: 1.4932 26.062 
-## Missing values: 1033 
+## Missing values: 1037 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.96  numeric, range: 2.4697 19.261 
-## Missing values: 2021 
+## Missing values: 2025 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.168  numeric, range: 2.8478 19.261 
-## Missing values: 2021 
+## Missing values: 2025 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.mn  numeric, range: 0.28063 27.404 
-## Missing values: 1041 
+## Missing values: 1045 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.1  numeric, range: 2.625 19.175 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.4  numeric, range: 1.7188 16.619 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.6  numeric, range: 1.3667 16.175 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.12  numeric, range: 1.1292 16.515 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.24  numeric, range: 1.3427 15.217 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.48  numeric, range: -0.58073 15.307 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.72  numeric, range: -0.081597 15.765 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.96  numeric, range: 0.13099 16.147 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.168  numeric, range: 0.45268 15.568 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.mn  numeric, range: 2.592 21.095 
-## Missing values: 2221 
+## Missing values: 2225 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -960,16 +969,16 @@ for (i in 1:ncol(pdat.comb)) {
 ## 0.075
 ## 
 ## 0.025 
-## Missing values: 993 
+## Missing values: 997 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.1  numeric, range: 65.55 200.5 
+## rad.1  numeric, range: 0 200.5 
 ## Missing values: 2221 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.4  numeric, range: 20.594 324.44 
+## rad.4  numeric, range: 0 324.44 
 ## Missing values: 2221 
 ## 
 ## 
@@ -999,12 +1008,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.96  numeric, range: 22.203 302.7 
+## rad.96  numeric, range: 22.203 305.41 
 ## Missing values: 2215 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.168  numeric, range: 18.092 302.7 
+## rad.168  numeric, range: 18.092 309.48 
 ## Missing values: 2215 
 ## 
 ## 
@@ -1014,7 +1023,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.1  numeric, range: 0.33 3.228 
+## wind.1  numeric, range: 0.06115 3.228 
 ## Missing values: 2217 
 ## 
 ## 
@@ -1069,7 +1078,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.2m.1  numeric, range: 1.033 3.228 
+## wind.2m.1  numeric, range: 0.06497 3.228 
 ## Missing values: 2220 
 ## 
 ## 
@@ -1178,7 +1187,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rain.168  numeric, range: 0 0 
-## Missing values: 2178 
+## Missing values: 2182 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1441,7 +1450,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## NA
 ## 
 ## Ammonia stripping 
-## Missing values: 152 
+## Missing values: 156 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1451,12 +1460,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## None
 ## 
 ## Acidification 
-## Missing values: 2205 
+## Missing values: 2209 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.stor  numeric, range: 0 180 
-## Missing values: 1987 
+## Missing values: 1991 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1466,7 +1475,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## man.vs  numeric, range: 4.04 5.74 
-## Missing values: 2225 
+## Missing values: 2229 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1481,17 +1490,17 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## man.vfa  numeric, range: 0.16 14.1 
-## Missing values: 2041 
+## Missing values: 2045 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.tic  numeric, range: 0.31 3.81 
-## Missing values: 2121 
+## Missing values: 2125 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.ua  numeric, range: 0 0 
-## Missing values: 2185 
+## Missing values: 2189 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1677,7 +1686,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## dist.inj  numeric, range: 17 120 
-## Missing values: 2056 
+## Missing values: 2060 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1701,7 +1710,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 3.9
 ## 
 ## 4.3 
-## Missing values: 2058 
+## Missing values: 2062 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1725,7 +1734,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 15
 ## 
 ## 5 
-## Missing values: 2083 
+## Missing values: 2087 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1782,7 +1791,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## lai  numeric, range: 0 4.7 
-## Missing values: 2040 
+## Missing values: 2044 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1806,7 +1815,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## AirTemp - Manually Filled. Single nearest weatherobservation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Single weather observation covering multiple shifts AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp  - Manually filled. Average of nearest datapoints.  AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Average of nearest datapoints.
 ## 
 ## AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observation covering multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints.  
-## Missing values: 305 
+## Missing values: 306 
 ## 
 ## 
 ## -----------------------------------------------------
