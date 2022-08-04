@@ -305,7 +305,7 @@ cleanALFAM <- function(obj) {
           `ug NH3/m2-s` = 14.007/17.031*1/1E9*1E4*3600, 
           `ug/m2/s` = 1/1E9*1E4*3600,
           `µg/m2/s` = 1/1E9*1E4*3600,
-          `ng NH3/m2/s` = 1/1E12*1E4*3600
+          `ng NH3/m2/s` = 14.007/17.031 * 1/1E12*1E4*3600
          )
 
   emis$j.NH3.unit.orig <- emis$j.NH3.unit
