@@ -152,7 +152,7 @@ if (nrow(m2) == nrow(emis)) {
   print('Some unmatched codes/names present')
   print('First 5 rows after merge:')
   print(m2[1:5, c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
-  stop('Merge problem 2, see error_check.Rmd')
+  stop('Merge problem 5, see Rmd file')
 }
 
 #if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
@@ -209,6 +209,10 @@ if (all(nchar(pubs$citation) > 10)) {
 d <- dat[[i]][[j]]$emis
 # Add first row in file info by plot
 xx <- d[d$interval == 1, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
+# Try int of 0 in case it was used instead of 1 (Marco)
+if (nrow(xx) == 0) {
+  xx <- d[d$interval == 0, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
+}
 names(xx)[2:3] <- c('first.row.int', 'row.plot')
 d <- merge(d, xx, by = 'cpmid')
 ```
@@ -258,14 +262,17 @@ if (all(is.na(d$bta))) {
 ## Missing or double interval number
 ```{r,echo=FALSE}
 for (ii in unique(emis$cpmid)) {
-  #cat(ii)
   dd <- emis[emis$cpmid == ii, ]
   if (all(diff(dd$interval) == 1)) {
     cat('OK\n')
+  } else if (all(diff(dd$interval) %in% c(0.5, 1))) {
+    cat('Some half interval steps, a bit strange but OK. . .\n')
   } else {
     print('Problem, see following rows')
-    print(dd$row.in.file.int[ii <- which(diff(dd$int) != 1)])
-    print(dd[sort(unique(c(ii, ii-1, ii+1))), c('row.in.file.int', 'plot', 'interval', 't.start')])
+    print(dd$row.in.file.int[ii <- which(!diff(dd$interval) %in% c(0.5, 1))])
+    cat('\n')
+    cat('head() of problem rows:\n')
+    print(head(dd[sort(unique(c(ii, ii-1, ii+1))), c('row.in.file.int', 'plot', 'interval', 't.start')]))
   }
 }
 ```

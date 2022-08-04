@@ -129,6 +129,8 @@ check4missing <- function(obj) {
     }
   }
 
+  # Check for missing interval 0 or 1
+
   # If dt is missing, must have t.start and t.end
   if (any(ii <- is.na(emis[, 'dt']))) {
     if (any(is.na(c(emis$t.start, emis$t.end)))) {
@@ -179,6 +181,10 @@ cleanALFAM <- function(obj) {
                  by =                 c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
   nr2 <- nrow(plots)
   if (nr1 != nr2) {
+    cat('Number of rows changed after plots/emis merge in cleanALAM()\nMay be entry error or multiple treatments per plot (i.e., no error)\n(e.g., multiple parallel measurement methods)')
+    cat("\nProblem is often caused by plot/rep entry error.\nGet in here with browser() and look at:\nunique(plots.orig[, c('plot', 'rep')]) \nunique(emis[, c('plot', 'rep')])\n")
+    cat('\n')
+
     print(paste('File:', file))
     cat('plots:\n')
     print(head(plots[, 1:10]))
@@ -186,8 +192,6 @@ cleanALFAM <- function(obj) {
     print(head(plots.orig[, 1:10]))
     cat('Unique emis:\n')
     print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))
-    cat('Number of rows changed after plots/emis merge in cleanALAM()\nMay be entry error or multiple treatments per plot (no error)')
-    cat("Problem is often caused by plot/rep entry error. Get in here with browser() and look at:\nunique(plots.orig[, c('plot', 'rep')]) \nunique(emis[, c('plot', 'rep')])")
   }
 
   # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)
@@ -214,8 +218,10 @@ cleanALFAM <- function(obj) {
   plots$time.incorp <- HM2DH(plots$time.incorp)
 
   # Fix slurry application rate where it was given as TAN application rate (only ARDC--Shabtai's data)
-  plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha'] <- plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha']/plots$man.tan[plots$app.rate.unit == 'kg NH4-N/ha']
-  plots$app.rate.unit[plots$app.rate.unit == 'kg NH4-N/ha'] <- 't/ha'
+  if (any(plots$app.rate.unit == 'kg NH4-N/ha')) {
+    plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha'] <- plots$app.rate[plots$app.rate.unit == 'kg NH4-N/ha']/plots$man.tan[plots$app.rate.unit == 'kg NH4-N/ha']
+    plots$app.rate.unit[plots$app.rate.unit == 'kg NH4-N/ha'] <- 't/ha'
+  }
 
   # Sort out crop height for bare soil
   plots$crop.z[tolower(plots$crop) == 'bare soil'] <- 0
@@ -285,26 +291,40 @@ cleanALFAM <- function(obj) {
   emis$t.end <- fixDateTime(emis$t.end)
 
   # Sort out emission units
-  cf <- c('kg N/ha-hr' = 1, 
-          'kg N/ha/hr' = 1, 
-          'kg N/ha/h' = 1, 
-          'kg TAN/ha-hr' = 1, 
-          'kg TAN/ha/hr' = 1, 
-          'kg TAN/ha/h' = 1, 
-	  'ug NH3/m2-s' = 1/1E9*14.007/17.03*1E4*3600, 
-	  'ng/m2-s' = 1/1E12*1E4*3600, 
-	  'ug/m2-s' = 1/1E9*1E4*3600, 
-	  'mg N/m2-hr' = 1/1E6*1E4, 
-          'ng NH3 m-2 s-1' = 14.007/17.031*1/1E12*1E4*3600, 
-          'ug NH3/m2-s' = 14.007/17.031*1/1E9*1E4*3600, 
-          'ug/m2/s' = 1/1E9*1E4*3600,
-          'µg/m2/s' = 1/1E9*1E4*3600
+  cf <- c(`kg N/ha-hr` = 1, 
+          `kg N/ha/hr` = 1, 
+          `kg N/ha/h` = 1, 
+          `kg TAN/ha-hr` = 1, 
+          `kg TAN/ha/hr` = 1, 
+          `kg TAN/ha/h` = 1, 
+	  `ug NH3/m2-s` = 1/1E9*14.007/17.03*1E4*3600, 
+	  `ng/m2-s` = 1/1E12*1E4*3600, 
+	  `ug/m2-s` = 1/1E9*1E4*3600, 
+	  `mg N/m2-hr` = 1/1E6*1E4, 
+          `ng NH3 m-2 s-1` = 14.007/17.031*1/1E12*1E4*3600, 
+          `ug NH3/m2-s` = 14.007/17.031*1/1E9*1E4*3600, 
+          `ug/m2/s` = 1/1E9*1E4*3600,
+          `µg/m2/s` = 1/1E9*1E4*3600,
+          `ng NH3/m2/s` = 1/1E12*1E4*3600
          )
 
   emis$j.NH3.unit.orig <- emis$j.NH3.unit
-  emis$j.NH3.orig <- emis$j.NH3
+
+  # Remove spaces
+  emis$j.NH3.unit <- gsub(' ', '', emis$j.NH3.unit)
+  names(cf) <- gsub(' ', '', names(cf))
+
+  # Return error if units are not recognized
+  if (any(!unique(emis$j.NH3.unit) %in% names(cf))) {
+    uu <- unique(emis$j.NH3.unit)
+    unf <- uu[!uu %in% names(cf)]
+    uf <- uu[uu %in% names(cf)]
+    cat('Emission rate unit not available for conversion: ', unf, '\nBut ', uf, ' is OK.\nSee cleanALFAM() function.\n')
+  }
+
   # Use indexing to add conversion factor for flux units
-  emis$j.NH3.conv.fact <- cf[emis$j.NH3.unit.orig]
+  emis$j.NH3.orig <- emis$j.NH3
+  emis$j.NH3.conv.fact <- cf[emis$j.NH3.unit]
   emis$j.NH3.unit <- 'kg N/ha-hr'
   emis$j.NH3 <- emis$j.NH3.orig*emis$j.NH3.conv.fact
 
@@ -342,6 +362,9 @@ cleanALFAM <- function(obj) {
 
   # Add empty flag column for use later
   emis$flag.int <- ''
+
+  # Round interval values in case they come with hanging digits for any strange reason
+  emis$interval <- round(emis$interval, 2)
 
   # Return objects, most unchanged
   obj$plots <- plots
@@ -833,6 +856,7 @@ rounddf <- function(x, digits = 2) {
 # Convert lat/long in degrees min sec to decimal degrees
 # From 10d12m12.2s (or ) to 10.xxxx
 DMS2DD <- function(x) {
+  x <- gsub(' ', '', x)
   x <- gsub('°', 'd', x)
   x <- gsub('\'\'', 's', x)
   x <- gsub('′′', 's', x)
@@ -1169,50 +1193,58 @@ mbe <- function(m, p) {
 fixDateTime <- function(x){
 
   flag <- character(length(x))
-  x <- as.character(x)
 
-  # Remove extra quotes
-  x <- gsub('[\"\']', '', x)
+  if (class(x)[1] == 'POSIXct') {
+    return(x)
+  }
 
-  for(i in 1:length(x)) {
-    if(!is.na(x[i]) & nchar(x[i])>8) {
-      x[i] <- gsub('/', '-', x[i])
-      if (grepl('\\.', x[i])) flag[i] <-'decimal point'
-      x[i] <- gsub('\\.', ':', x[i])
-      # Assume day comes before month by default
-      day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
-      month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
-      year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
-      tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
-      if(nchar(year) != 4) {
-        #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
-        if(year > 50) {
-          year <- year + 1900
-        } else if(year < 50) {
-          year <- year + 2000
-        } else {
-          cat('year: ', year, '\n')
-          cat('x[i]: ', x[i], '\n')
-          cat('x: ', x, '\n')
-          stop('Error in fixDateTime() with year. Code BerlYu1776.')
+  # First check for proper POSIXct format
+  if (!all(grepl('^[12][0-9]{3}-[0-9]{2}-[0-9]{2}', x))) {
+
+    x <- as.character(x)
+    # Remove extra quotes
+    x <- gsub('[\"\']', '', x)
+
+    for(i in 1:length(x)) {
+      if(!is.na(x[i]) & nchar(x[i])>8) {
+        x[i] <- gsub('/', '-', x[i])
+        if (grepl('\\.', x[i])) flag[i] <-'decimal point'
+        x[i] <- gsub('\\.', ':', x[i])
+        # Assume day comes before month by default
+        day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))
+        month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
+        year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
+        tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
+        if(nchar(year) != 4) {
+          #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
+          if(year > 50) {
+            year <- year + 1900
+          } else if(year < 50) {
+            year <- year + 2000
+          } else {
+            cat('year: ', year, '\n')
+            cat('x[i]: ', x[i], '\n')
+            cat('x: ', x, '\n')
+            stop('Error in fixDateTime() with year. Code BerlYu1776.')
+          }
+        }  
+        if(month > 12) {
+          if(day > 12) {
+            stop('Both month and day have values > 12 in row ', i, '. Code Aheruna1299.')
+          }
+          #flag[i] <- paste0(flag[i], ', month and day switched')
+          dd <- day
+          day <- month
+          month <- dd
         }
-      }  
-      if(month > 12) {
-        if(day > 12) {
-          stop('Both month and day have values > 12 in row ', i, '. Code Aheruna1299.')
-        }
-        #flag[i] <- paste0(flag[i], ', month and day switched')
-        dd <- day
-        day <- month
-        month <- dd
+        # Pad with leading 0s
+        day <- sprintf('%02d', day)
+        month <- sprintf('%02d', month)
+        date.time.char <- paste0(year, '-', month, '-', day, ' ', tt)
+        x[i] <- date.time.char
+      } else {
+        x[i] <- NA
       }
-      # Pad with leading 0s
-      day <- sprintf('%02d', day)
-      month <- sprintf('%02d', month)
-      date.time.char <- paste0(year, '-', month, '-', day, ' ', tt)
-      x[i] <- date.time.char
-    } else {
-      x[i] <- NA
     }
   }
 
@@ -1267,7 +1299,11 @@ imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
 fixWeather <- function(obj, na = 'impute') {
 
   emis <- obj$emis
-  plots <- obj$plots
+
+  # Check for missing ct
+  if (any(is.na(emis$ct))) {
+    stop('Missing at least some ct values, which are needed for interpolation.')
+  }
 
   # Sort out rain
   # NTS: need to add flag!
