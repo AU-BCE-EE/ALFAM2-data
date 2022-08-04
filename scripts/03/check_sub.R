@@ -17,9 +17,13 @@ for (i in names(dat)) {
       dir.create(idir)
     }
 
-    options(warn = 1) 
-    render('check_sub.Rmd', output_file = paste0(inst, '_', fn, '.html'), output_dir = idir, quiet = TRUE)
-    options(warn = 2) 
+    # Skip if log file already exists unless all were request
+    lfn <- paste0(inst, '_', fn, '.html')
+    if (!file.exists(paste0(idir, '/', lfn)) | alllogs) { 
+      options(warn = 1) 
+      render('check_sub.Rmd', output_file = lfn, output_dir = idir, quiet = TRUE)
+      options(warn = 2) 
+    } 
 
   }
 }
