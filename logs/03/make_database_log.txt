@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-07-13 18:44:09 EDT"
+[1] "2022-08-03 20:01:25 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -22,23 +22,31 @@
 +   # Omit temporary Excel files (created  .... [TRUNCATED] 
 Directory  ../../data-submitted/03/AU 
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+
+[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area         lat
-1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
-2 9°32'26''E      DK
-3 9°32'26''E      DK
-4 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area
+1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
+2 56°27'12''N 9°32'26''E      DK
+3 56°27'12''N 9°32'26''E      DK
+4 56°27'12''N 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area         lat
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 CRDS_1m       bLS
@@ -50,25 +58,30 @@ Unique emis:
 323       CRDS_2m
 645            MD
 967          <NA>
-Number of rows changed after plots/emis merge in cleanALAM()
-May be entry error or multiple treatments per plot (no error)Problem is often caused by plot/rep entry error. Get in here with browser() and look at:
+   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
 unique(plots.orig[, c('plot', 'rep')]) 
-unique(emis[, c('plot', 'rep')])   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
+unique(emis[, c('plot', 'rep')])
+
+[1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area         lat
-1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
-2 9°32'26''E      DK
-3 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area
+1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
+2 56°27'12''N 9°32'26''E      DK
+3 56°27'12''N 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area         lat
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_May          1   1 CRDS_1m       bLS
@@ -78,20 +91,38 @@ Unique emis:
 1         CRDS_1m
 278       CRDS_1m
 555       CRDS_1m
-Number of rows changed after plots/emis merge in cleanALAM()
-May be entry error or multiple treatments per plot (no error)Problem is often caused by plot/rep entry error. Get in here with browser() and look at:
-unique(plots.orig[, c('plot', 'rep')]) 
-unique(emis[, c('plot', 'rep')])   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
+Emission rate unit not available for conversion:  NA 
+But  µg/m2/s  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
   ``   
@@ -100,29 +131,66 @@ unique(emis[, c('plot', 'rep')])   file  ../../data-submitted/03/AU/ALFAM2_templ
    file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 26 × 18
-      `` ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
-   <dbl> <chr> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
- 1     1 "3.\… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 2    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 3    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 4    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 5    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 6    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 7    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-# … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
-#   `` <dbl>, `` <dbl>
+      `` ``        ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
+   <dbl> <chr>     <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
+ 1     1 "3.\tSom… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 2    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 3    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 4    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 5    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 6    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 7    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 8    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 9    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+10    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+# … with 16 more rows, and 6 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
+#   `` <dbl>, `` <dbl>, `` <dbl>
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
 Directory  ../../data-submitted/03/UNINA 
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/WUR 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/UNINI 
+   file  ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+
+[1] "File: ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013.xlsx"
+plots:
+    proj   exper  field plot rep pub.id plot.area      lat    long country
+1 ARMOSA LAND_13 SIC-13    1   0     NA     39000 45°19′ N 9°16′ E      IT
+2 ARMOSA LAND_13 SIC-13    1   0     NA     39000 45°19′ N 9°16′ E      IT
+3 ARMOSA LAND_13 SIC-13    1   0     NA     39000 45°19′ N 9°16′ E      IT
+4 ARMOSA LAND_13  SS-13    1   0     NA     10000 45°19′ N 9°16′ E      IT
+plots.orig:
+    proj pub.id   exper  field plot rep plot.area      lat    long country
+1 ARMOSA     NA LAND_13 SIC-13    1   0     39000 45°19′ N 9°16′ E      IT
+2 ARMOSA     NA LAND_13  SS-13    1   0     10000 45°19′ N 9°16′ E      IT
+Unique emis:
+      proj   exper  field plot rep       treat meas.tech
+1   ARMOSA LAND_13 SIC-13    1   0   SIC-13_EC        EC
+285 ARMOSA LAND_13 SIC-13    1   0  SIC-13_IDM       bLS
+569 ARMOSA LAND_13 SIC-13    1   0 SIC-13_TAGM       AGM
+853 ARMOSA LAND_13  SS-13    1   0   SS-13_IDM       bLS
+            meas.tech.det
+1           150 cm height
+285         150 cm height
+569 30, 70, 150 cm height
+853         150 cm height
+Directory  ../../data-submitted/03/WUR 
 
 > cat('Done! Read', length(dat), ' directories\n')
-Done! Read 5  directories
+Done! Read 6  directories
 
 > print(warnings())
 Warning message:
