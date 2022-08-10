@@ -69,7 +69,7 @@ title: 'Submitted data summary'
 ## 
 ## e.rel.final  vs. pmid 
 ##        +------+----------+----------+---------+----------+-----+
-##   1938 +     *                                                 +
+##   1938 +       *                                               +
 ##        |                                                       |
 ## 1937.5 +                                                       +
 ##        |                                                       |
@@ -87,7 +87,7 @@ title: 'Submitted data summary'
 ## 
 ## e.rel.final  vs. row.in.file.plot 
 ##     +-------+----------+----------+----------+-----------+-----+
-##   8 +     *                                                    +
+##   8 +        *                                                 +
 ##     |                                                          |
 ## 7.5 +                                                          +
 ##     |                                                          |
@@ -107,8 +107,8 @@ title: 'Submitted data summary'
 ## 
 ##   The decimal point is 1 digit(s) to the left of the |
 ## 
-##   1 | 69
-##   2 | 
+##   1 | 6
+##   2 | 1
 ##   3 | 3
 ##   4 | 
 ##   5 | 
@@ -117,7 +117,7 @@ title: 'Submitted data summary'
 ## app.rate   app.rate   app.rate   app.rate   app.rate   
 ## 
 ## app.rate  vs. pmid 
-##        +-------+-----------+----------+----------+-----------+-+
+##        +--------+-------------+-------------+-------------+----+
 ##   1938 +                                                    *  +
 ##        |                                                       |
 ## 1937.5 +                                                       +
@@ -126,16 +126,16 @@ title: 'Submitted data summary'
 ##        |                                                       |
 ## 1936.5 +                                                       +
 ##        |                                                       |
-##   1936 +                                           *           +
+##   1936 +                                                    *  +
 ##        |                                                       |
 ## 1935.5 +                                                       +
 ##        |                                                       |
-##   1935 +                                           *           +
-##        +-------+-----------+----------+----------+-----------+-+
-##               20          25         30         35          40  
+##   1935 +                                                    *  +
+##        +--------+-------------+-------------+-------------+----+
+##                20            25            30            35     
 ## 
 ## app.rate  vs. row.in.file.plot 
-##     +--------+-----------+-----------+----------+-----------+--+
+##     +---------+-------------+--------------+--------------+----+
 ##   8 +                                                       *  +
 ##     |                                                          |
 ## 7.5 +                                                          +
@@ -144,13 +144,13 @@ title: 'Submitted data summary'
 ##     |                                                          |
 ## 6.5 +                                                          +
 ##     |                                                          |
-##   6 +                                              *           +
+##   6 +                                                       *  +
 ##     |                                                          |
 ## 5.5 +                                                          +
 ##     |                                                          |
-##   5 +                                              *           +
-##     +--------+-----------+-----------+----------+-----------+--+
-##             20          25          30         35          40   
+##   5 +                                                       *  +
+##     +---------+-------------+--------------+--------------+----+
+##              20            25             30             35     
 ## 
 ## stem and leaf plot of  app.rate 
 ## 
@@ -160,8 +160,7 @@ title: 'Submitted data summary'
 ##   2 | 
 ##   2 | 
 ##   3 | 
-##   3 | 66
-##   4 | 0
+##   3 | 666
 ## 
 ## man.dm   man.dm   man.dm   man.dm   man.dm   
 ## 
@@ -313,7 +312,7 @@ title: 'Submitted data summary'
 ## 
 ## tan.app  vs. pmid 
 ##        +-+------------+------------+------------+-----------+--+
-##   1938 +                                                   *   +
+##   1938 +                                          *            +
 ##        |                                                       |
 ## 1937.5 +                                                       +
 ##        |                                                       |
@@ -331,7 +330,7 @@ title: 'Submitted data summary'
 ## 
 ## tan.app  vs. row.in.file.plot 
 ##     +-+-------------+------------+-------------+------------+--+
-##   8 +                                                     *    +
+##   8 +                                            *             +
 ##     |                                                          |
 ## 7.5 +                                                          +
 ##     |                                                          |
@@ -354,7 +353,7 @@ title: 'Submitted data summary'
 ##   3 | 0
 ##   4 | 
 ##   5 | 
-##   6 | 89
+##   6 | 28
 ##   7 | 0
 ## 
 ## ct.max   ct.max   ct.max   ct.max   ct.max   
@@ -656,9 +655,9 @@ title: 'Submitted data summary'
 ##                    app.rate app.rate.unit    incorp time.incorp man.area
 ## Class               numeric     character character     numeric  numeric
 ## Minimum                17.5          t/ha      none        <NA>     <NA>
-## Maximum                39.9          t/ha      none        <NA>     <NA>
-## Mean                   32.3          <NA>      <NA>        <NA>     <NA>
-## Unique (excld. NA)        3             1         1           0        0
+## Maximum                35.9          t/ha      none        <NA>     <NA>
+## Mean                   31.3          <NA>      <NA>        <NA>     <NA>
+## Unique (excld. NA)        2             1         1           0        0
 ## Missing values            0             0         0           4        4
 ## Sorted                FALSE          TRUE      TRUE        <NA>     <NA>
 ##                                                                         
@@ -720,7 +719,7 @@ title: 'Submitted data summary'
 ## Class                                 character character   character numeric
 ## Minimum            D:1.I:AU.Pr:eGylle.E:eGylle1           Jesper Kamp    30.2
 ## Maximum            D:1.I:AU.Pr:eGylle.E:eGylle4       m i Jesper Kamp      70
-## Mean                                       <NA>      <NA>        <NA>    59.3
+## Mean                                       <NA>      <NA>        <NA>    57.5
 ## Unique (excld. NA)                            4         2           1       4
 ## Missing values                                0         0           0       0
 ## Sorted                                     TRUE      TRUE        TRUE   FALSE
@@ -756,7 +755,7 @@ title: 'Submitted data summary'
 ## Class                  numeric   numeric   numeric   numeric   numeric
 ## Minimum                   4.72      4.72 -3.81e-05 -9.98e-05 -0.000195
 ## Maximum                   43.6      43.6  4.08e-05    0.0807     0.187
-## Mean                      20.9      20.9  1.94e-07    0.0202    0.0468
+## Mean                      20.9      20.9  1.19e-06    0.0202    0.0468
 ## Unique (excld. NA)           4         4         4         4         4
 ## Missing values               0         0         0         0         0
 ## Sorted                   FALSE     FALSE     FALSE     FALSE     FALSE
@@ -765,7 +764,7 @@ title: 'Submitted data summary'
 ## Class                numeric  numeric  numeric  numeric  numeric   numeric
 ## Minimum            -0.000512 0.000167     0.08    0.113    0.135     0.154
 ## Maximum                0.351    0.393    0.471    0.535    0.561     0.605
-## Mean                  0.0879    0.109    0.192    0.264    0.289     0.314
+## Mean                  0.0879    0.109    0.196    0.268    0.294     0.319
 ## Unique (excld. NA)         4        4        4        4        4         4
 ## Missing values             0        0        0        0        0         0
 ## Sorted                 FALSE    FALSE    FALSE    FALSE    FALSE     FALSE
@@ -774,7 +773,7 @@ title: 'Submitted data summary'
 ## Class                  numeric   numeric numeric numeric numeric numeric
 ## Minimum                  0.156     0.156       0       0       0       0
 ## Maximum                  0.623     0.623       0       0       0       0
-## Mean                     0.324     0.324       0       0       0       0
+## Mean                     0.329     0.329       0       0       0       0
 ## Unique (excld. NA)           4         4       1       1       1       1
 ## Missing values               0         0       0       0       0       0
 ## Sorted                   FALSE     FALSE    TRUE    TRUE    TRUE    TRUE
@@ -945,7 +944,7 @@ title: 'Submitted data summary'
 ## Class              numeric   numeric  numeric numeric numeric numeric numeric
 ## Minimum                0.5 -5.05e-05 -0.00344     0.5     0.5     0.5     189
 ## Maximum                0.5  4.26e-05  0.00298     0.5     0.5     0.5     242
-## Mean                   0.5  2.76e-07 0.000265     0.5     0.5     0.5     224
+## Mean                   0.5  1.18e-06 0.000265     0.5     0.5     0.5     224
 ## Unique (excld. NA)       1         4        4       1       1       1       4
 ## Missing values           0         0        0       0       0       0       0
 ## Sorted                TRUE     FALSE    FALSE    TRUE    TRUE    TRUE   FALSE
