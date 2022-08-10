@@ -21,3 +21,7 @@ Wind speeds seem OK.
 JP has fixed replicate numbers.
 
 I don't think application rate has been resolved.
+
+# 10 August 2022
+JP confirmed application rate by email today.
+

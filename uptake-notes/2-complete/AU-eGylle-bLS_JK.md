@@ -1,4 +1,7 @@
-# File from Jesper at AU 
+# JNK bLS data from eGylle
+
+# File
+`ALFAM2_template_6_1_eGylle_JK_3.xlsx`
 
 # 1 June 2022
 Received revised version from Jesper few days ago: `ALFAM2_template_6_1_eGylle_JK_3.xlsx`.
@@ -12,3 +15,12 @@ Waiting for answer.
 # 19 June 2022
 During virtual meeting with JNK and JMP last week I copied/pasted data from Johanna's file.
 I think this is all resolved now.
+
+# 8 July
+Johanna is checking application rate.
+This file seems to have the wrong value.
+
+# 10 August 2022
+JP confirmed application rate by email today.
+I corrected it in this JK file for the last plot.
+
