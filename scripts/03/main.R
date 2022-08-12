@@ -10,7 +10,7 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.7' # 12 August 2022
+version <- '2.8' # 12 August 2022
 
 # Create all html log files or just missing (new) ones?
 alllogs <- FALSE

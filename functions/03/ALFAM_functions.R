@@ -21,6 +21,11 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   submitter <- data.frame(t(submitter[, 2]))
   submitter <- data.frame(submitter)
   names(submitter) <- c('institute', 'inst.abbrev', 'submitter', 'version', 'date')
+  # Read date again to get correct format
+  sdate <- as.vector(read_xlsx(file, sheet = 2, skip = 5, col_names = c('x', 'y'), na = na.strings)[1, 2])
+  sdate <- sdate[[1]]
+  sdate <- as.character(sdate, format = '%Y-%m-%d')
+  submitter$date <- sdate
 
   # Contributers - to save by institute and file eventually
   cat('  Contributors . . .')
