@@ -70,69 +70,64 @@ title: 'Submitted data summary'
 ## e.rel.final   e.rel.final   e.rel.final   e.rel.final   e.rel.final   
 ## 
 ## e.rel.final  vs. pmid 
-##      +---------+----------+---------+----------+----------+----+
-## 2185 +                                  *            *         +
-##      |                                        *    *     *     |
-## 2180 +                                          * *            +
-##      |                                          *          *   |
-## 2175 +                           *        *                    +
-##      |                                 **                      |
-## 2170 +                       *     *                           +
-##      |                                 *        *              |
+##      +---------+----------+---------+---------+---------+------+
+## 2185 +                                       *             *   +
+##      |                                            *   *   *    |
+## 2180 +                                          *          *   +
+##      |                                                 *  *    |
+## 2175 +                               *       *  *              +
+##      |                                  * *                    |
+## 2170 +                            **                           +
+##      |                                       * *               |
 ## 2165 +  ***                                                    +
 ##      |    **                                                   |
 ##      |     **                                                  |
 ## 2160 +  * * *                                                  +
 ##      |    *  *                                                 |
-## 2155 +---------+----------+---------+----------+----------+----+
-##               0.1        0.2       0.3        0.4        0.5    
+## 2155 +---------+----------+---------+---------+---------+------+
+##               0.1        0.2       0.3       0.4       0.5      
 ## 
 ## e.rel.final  vs. row.in.file.plot 
-## 35 +----------+----------+----------+---------+----------+-----+
-##    |                                           * *             |
-## 30 +                                   *      *      *         +
-##    |                                               *    *      |
-##    |                                           *           *   |
-## 25 +                        *         *  *                     +
-##    |                            *        *                     |
-## 20 +                                  **                       +
-##    |                              *            *               |
+## 35 +----------+---------+----------+----------+---------+------+
+##    |                                                   *   *   |
+## 30 +                                        *     *        *   +
+##    |                                                  *   *    |
+##    |                                           *          *    |
+## 25 +                             *          *  *               +
+##    |                                *       *                  |
+## 20 +                                   * *                     +
+##    |                              *           *                |
 ## 15 +  ***                                                      +
 ##    |      **                                                   |
 ## 10 +     *                                                     +
 ##    |     **                                                    |
 ##  5 +  *  *                                                     +
-##    +----------+----------+----------+---------+----------+-----+
-##              0.1        0.2        0.3       0.4        0.5     
+##    +----------+---------+----------+----------+---------+------+
+##              0.1       0.2        0.3        0.4       0.5      
 ## 
 ## stem and leaf plot of  e.rel.final 
 ## 
 ##   The decimal point is 1 digit(s) to the left of the |
 ## 
-##   0 | 334
-##   0 | 555566778
+##   0 | 334555566778
 ##   1 | 
-##   1 | 
-##   2 | 3
-##   2 | 78
-##   3 | 2233
-##   3 | 559
-##   4 | 11134
-##   4 | 69
-##   5 | 2
+##   2 | 89
+##   3 | 146999
+##   4 | 112489
+##   5 | 2223
 ## 
 ## app.rate   app.rate   app.rate   app.rate   app.rate   
 ## 
 ## app.rate  vs. pmid 
 ##      +-------+---------+----------+---------+----------+-------+
-## 2185 +                            *    *                       +
-##      |            *    *     *                                 |
-## 2180 +       *                                    *            +
-##      |  *                                   *                  |
-## 2175 +                       *    *    *                       +
-##      |            *    *                                       |
-## 2170 +       *                                    *            +
-##      |  *                                   *                  |
+## 2185 +  *                                                      +
+##      |  *                                                      |
+## 2180 +  *                                                      +
+##      |  *                                                      |
+## 2175 +  *                                                      +
+##      |  *                                                      |
+## 2170 +  *                                                      +
+##      |  *                                                      |
 ## 2165 +                                                      *  +
 ##      |                                                      *  |
 ##      |                                                      *  |
@@ -143,14 +138,14 @@ title: 'Submitted data summary'
 ## 
 ## app.rate  vs. row.in.file.plot 
 ## 35 +-------+----------+----------+----------+----------+-------+
-##    |                                        *    *             |
-## 30 +                       *     *    *                        +
-##    |             *    *                                        |
-##    |  *    *                                                   |
-## 25 +                                  *     *    *             +
-##    |                       *     *                             |
-## 20 +             *    *                                        +
-##    |  *    *                                                   |
+##    |  *                                                        |
+## 30 +  *                                                        +
+##    |  *                                                        |
+##    |  *                                                        |
+## 25 +  *                                                        +
+##    |  *                                                        |
+## 20 +  *                                                        +
+##    |  *                                                        |
 ## 15 +                                                        *  +
 ##    |                                                        *  |
 ## 10 +                                                        *  +
@@ -163,11 +158,11 @@ title: 'Submitted data summary'
 ## 
 ##   The decimal point is at the |
 ## 
-##   34 | 00
-##   36 | 0000
-##   38 | 0000
-##   40 | 0000
-##   42 | 0000
+##   34 | 000000000000000000
+##   36 | 
+##   38 | 
+##   40 | 
+##   42 | 
 ##   44 | 000000000000
 ## 
 ## man.dm   man.dm   man.dm   man.dm   man.dm   
@@ -326,40 +321,40 @@ title: 'Submitted data summary'
 ## tan.app   tan.app   tan.app   tan.app   tan.app   
 ## 
 ## tan.app  vs. pmid 
-##      +-------+----------+----------+----------+----------+-----+
-## 2185 +                 *                              *        +
-##      |              **                          *              |
-## 2180 +            *                                        *   +
-##      |           *       *                                     |
-## 2175 +                *                                *       +
-##      |                                         * *             |
-## 2170 +            *      *                                     +
-##      |            *      *                                     |
-## 2165 +  *                                                      +
+##      +---------+---------------+--------------+---------------++
+## 2185 +              *                                      *   +
+##      |              **                                     *   |
+## 2180 +              *                                      *   +
+##      |               *                                         |
+## 2175 +              * *                                   *    +
+##      |                                                    *    |
+## 2170 +              *                                          +
+##      |                *                                        |
+## 2165 +   *                                                     +
 ##      |  *                                                      |
 ##      |  *                                                      |
 ## 2160 +  *                                                      +
 ##      |  *                                                      |
-## 2155 +-------+----------+----------+----------+----------+-----+
-##             60         80         100        120        140     
+## 2155 +---------+---------------+--------------+---------------++
+##               60              80             100             120
 ## 
 ## tan.app  vs. row.in.file.plot 
-## 35 +-------+-----------+----------+-----------+----------+-----+
-##    |                   *                                   *   |
-## 30 +               *  *                              *         +
-##    |               *                            *              |
-##    |            *                                              |
-## 25 +                    *                             *        +
-##    |                **                                         |
-## 20 +                                           * *             +
-##    |            *                                              |
-## 15 +  *                                                        +
+## 35 +----------+---------------+---------------+---------------++
+##    |               *                                       *   |
+## 30 +               *                                       *   +
+##    |               *                                       *   |
+##    |               *                                           |
+## 25 +               **                                     *    +
+##    |               **                                          |
+## 20 +                                                      *    +
+##    |               **                                          |
+## 15 +   *                                                       +
 ##    |  *                                                        |
 ## 10 +  *                                                        +
 ##    |  *                                                        |
 ##  5 +  *                                                        +
-##    +-------+-----------+----------+-----------+----------+-----+
-##           60          80         100         120        140     
+##    +----------+---------------+---------------+---------------++
+##              60              80              100             120
 ## 
 ## stem and leaf plot of  tan.app 
 ## 
@@ -367,15 +362,12 @@ title: 'Submitted data summary'
 ## 
 ##    4 | 
 ##    5 | 000000000111
-##    6 | 7888
-##    7 | 34668
-##    8 | 112
+##    6 | 666777777888
+##    7 | 
+##    8 | 
 ##    9 | 
 ##   10 | 
-##   11 | 
-##   12 | 245
-##   13 | 45
-##   14 | 4
+##   11 | 666777
 ## 
 ## ct.max   ct.max   ct.max   ct.max   ct.max   
 ## 
@@ -579,8 +571,8 @@ title: 'Submitted data summary'
 ## Class                  POSIXct, POSIXt  character  numeric     character
 ## Minimum            2019-02-25 15:23:00       bsth       35         m3/ha
 ## Maximum            2019-08-29 12:34:00         ts       45         m3/ha
-## Mean               2019-06-15 10:49:42       <NA>     41.4          <NA>
-## Unique (excld. NA)                  30          2       10             1
+## Mean               2019-06-15 10:49:42       <NA>       39          <NA>
+## Unique (excld. NA)                  30          2        2             1
 ## Missing values                       0          0        0             0
 ## Sorted                           FALSE      FALSE    FALSE          TRUE
 ##                                                                         
@@ -650,9 +642,9 @@ title: 'Submitted data summary'
 ##                                      ceid flag.plot         submitter tan.app
 ## Class                           character character         character numeric
 ## Minimum            D:1.I:AU.Pr:NUGA.E:19B           Pedersen, Johanna      50
-## Maximum            D:1.I:AU.Pr:NUGA.E:19I           Pedersen, Johanna     144
-## Mean                                 <NA>      <NA>              <NA>      76
-## Unique (excld. NA)                      4         1                 1      20
+## Maximum            D:1.I:AU.Pr:NUGA.E:19I           Pedersen, Johanna     117
+## Mean                                 <NA>      <NA>              <NA>    70.2
+## Unique (excld. NA)                      4         1                 1       8
 ## Missing values                          0         0                 0       0
 ## Sorted                              FALSE      TRUE              TRUE   FALSE
 ##                                                                              
@@ -686,8 +678,8 @@ title: 'Submitted data summary'
 ##                    e.cum.final e.cum.tot e.rel.1 e.rel.4 e.rel.6 e.rel.12
 ## Class                  numeric   numeric numeric numeric numeric  numeric
 ## Minimum                   1.36      1.36 0.00317 0.00772  0.0103    0.015
-## Maximum                   61.6      61.6 0.00378   0.161   0.213    0.298
-## Mean                      22.2      22.2 0.00342   0.062  0.0838    0.124
+## Maximum                   61.6      61.6 0.00378   0.171   0.226    0.315
+## Mean                      22.2      22.2 0.00342  0.0685  0.0924    0.137
 ## Unique (excld. NA)          30        30       3      30      30       30
 ## Missing values               0         0      27       0       0        0
 ## Sorted                   FALSE     FALSE   FALSE   FALSE   FALSE    FALSE
@@ -695,8 +687,8 @@ title: 'Submitted data summary'
 ##                    e.rel.24 e.rel.48 e.rel.72 e.rel.96 e.rel.168 e.rel.final
 ## Class               numeric  numeric  numeric  numeric   numeric     numeric
 ## Minimum              0.0198   0.0244   0.0263    0.029      <NA>      0.0266
-## Maximum               0.373    0.448    0.492    0.515      <NA>       0.517
-## Mean                  0.169    0.211    0.233    0.226      <NA>       0.246
+## Maximum               0.382     0.46    0.506    0.526      <NA>       0.527
+## Mean                  0.185    0.232    0.256     0.24      <NA>        0.27
 ## Unique (excld. NA)       30       30       30       14         0          30
 ## Missing values            0        0        0       16        30           0
 ## Sorted                FALSE    FALSE    FALSE    FALSE      <NA>       FALSE
@@ -704,8 +696,8 @@ title: 'Submitted data summary'
 ##                    e.rel.tot  rain.1  rain.4  rain.6 rain.12 rain.24 rain.48
 ## Class                numeric numeric numeric numeric numeric numeric numeric
 ## Minimum               0.0266       0       0       0       0       0       0
-## Maximum                0.517       0       0       0       0       0       0
-## Mean                   0.246       0       0       0       0       0       0
+## Maximum                0.527       0       0       0       0       0       0
+## Mean                    0.27       0       0       0       0       0       0
 ## Unique (excld. NA)        30       1       1       1       1       1       1
 ## Missing values             0      27       0       0       0       0       0
 ## Sorted                 FALSE    TRUE    TRUE    TRUE    TRUE    TRUE    TRUE
@@ -875,8 +867,8 @@ title: 'Submitted data summary'
 ##                        dt1  j.rel1  j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric numeric numeric numeric numeric numeric numeric
 ## Minimum                  1 0.00209   0.104       1       1       1      91
-## Maximum                2.6  0.0456    5.63     2.6     2.6     2.6     104
-## Mean                  1.89  0.0168    1.61    1.89    1.92    1.89    96.9
+## Maximum                2.6  0.0482    5.63     2.6     2.6     2.6     104
+## Mean                  1.89  0.0187    1.61    1.89    1.92    1.89    96.9
 ## Unique (excld. NA)       3      30      30       3       3       3       7
 ## Missing values           0       0       0       0       0       0       0
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE

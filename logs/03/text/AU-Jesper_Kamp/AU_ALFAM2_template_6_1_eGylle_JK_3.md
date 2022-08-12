@@ -582,10 +582,10 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                          rep plot.area     lat    long   country      topo
 ## Class              character   numeric numeric numeric character character
-## Minimum                    1       588      52    5.65        DK      Flat
-## Maximum                    1      1610    56.5    9.56        NL      Flat
-## Mean                    <NA>       844    55.4    8.58      <NA>      <NA>
-## Unique (excld. NA)         1         2       2       2         2         1
+## Minimum                    1       336      52    5.65        DK      Flat
+## Maximum                    1      1540    56.5    9.56        NL      Flat
+## Mean                    <NA>       811    55.4    8.58      <NA>      <NA>
+## Unique (excld. NA)         1         4       2       2         2         1
 ## Missing values             0         0       0       0         0         0
 ## Sorted                  TRUE     FALSE   FALSE   FALSE     FALSE      TRUE
 ##                                                                           
@@ -593,8 +593,8 @@ title: 'Submitted data summary'
 ## Class              numeric numeric numeric numeric character    numeric
 ## Minimum                  9      24      65     3.5      <NA>       0.21
 ## Maximum                 16      24      65     3.5      <NA>       0.49
-## Mean                  10.8      24      65     3.5      <NA>       0.28
-## Unique (excld. NA)       2       1       1       1         0          2
+## Mean                  10.8      24      65     3.5      <NA>        0.3
+## Unique (excld. NA)       2       1       1       1         0          3
 ## Missing values           0       1       1       3         4          0
 ## Sorted               FALSE    TRUE    TRUE    TRUE      <NA>      FALSE
 ##                                                                        
