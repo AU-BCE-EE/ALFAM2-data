@@ -7,7 +7,7 @@ output:
 
 # 0. Instructions for submitters
 Submitters should use this file to check for problems with submitted data.
-Each of these html files contains a summary of the data in a single submitted spreadsheet file.
+Each of these html files contains a summary of the data from a single submitted spreadsheet file.
 The html name is based on the name of the submitted file.
 Use the details below to check:
 
