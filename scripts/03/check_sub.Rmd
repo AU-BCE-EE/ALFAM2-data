@@ -293,6 +293,26 @@ for (ii in unique(emis$cpmid)) {
   }
 }
 ```
+
+## Measurement method and units
+Measurement technique:
+
+```{r,echo=FALSE}
+kable(table(emis$meas.tech),col.names = c('Method', 'Frequency'))
+```
+
+Measurement technique classification:
+
+```{r,echo=FALSE}
+kable(table(emis$meas.tech2), col.names = c('Classification', 'Frequency'))
+```
+
+Emission units and conversion factors.
+
+```{r,echo=FALSE}
+kable(unique(emis[, c('j.NH3.unit.orig', 'j.NH3.conv.fact', 'j.NH3.unit')]), col.names = c('Original unit', 'Conversion factor applied', 'Final unit'))
+```
+
 # 7. Value checks
 Check to see if submitted values are within a reasonable range.
 
