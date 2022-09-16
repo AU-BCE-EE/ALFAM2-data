@@ -551,7 +551,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.168  numeric, range: 4.658 47.38 
+## e.168  numeric, range: 4.658 42.339 
 ## Missing values: 2182 
 ## 
 ## 
@@ -596,12 +596,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.96  numeric, range: 0.90426 66.63 
+## e.cum.96  numeric, range: 0.7437 66.63 
 ## Missing values: 2015 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.168  numeric, range: 4.658 47.38 
+## e.cum.168  numeric, range: 4.658 42.339 
 ## Missing values: 2182 
 ## 
 ## 
@@ -651,7 +651,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.rel.168  numeric, range: 0.12288 0.6768 
+## e.rel.168  numeric, range: 0.10106 0.60479 
 ## Missing values: 2182 
 ## 
 ## 

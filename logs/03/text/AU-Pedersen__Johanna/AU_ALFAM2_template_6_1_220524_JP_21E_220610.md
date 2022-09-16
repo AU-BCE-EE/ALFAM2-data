@@ -20,7 +20,7 @@ title: 'Submitted data summary'
 ## e.cum.final   e.cum.final   e.cum.final   e.cum.final   e.cum.final   
 ## 
 ## e.cum.final  vs. pmid 
-##      +-----------+----------------+----------------+-----------+
+##      +-+-------+-------+--------+-------+-------+--------+-----+
 ## 1934 +  *                                                      +
 ##      |        *                                                |
 ##      |                                                         |
@@ -34,11 +34,11 @@ title: 'Submitted data summary'
 ##      |                                                         |
 ##      |          *                                              |
 ## 1926 +                                  *                      +
-##      +-----------+----------------+----------------+-----------+
-##                 15               20               25            
+##      +-+-------+-------+--------+-------+-------+--------+-----+
+##       10      12      14       16      18      20       22      
 ## 
 ## e.cum.final  vs. row.in.file.plot 
-##    +-----------+-----------------+----------------+------------+
+##    +-+-------+--------+--------+-------+--------+--------+-----+
 ##    |                                   *                       |
 ## 12 +           *                                               +
 ##    |                                                           |
@@ -52,22 +52,21 @@ title: 'Submitted data summary'
 ##    |                                                           |
 ##  6 +                *                                          +
 ##    |                                   *                       |
-##    +-----------+-----------------+----------------+------------+
-##               15                20               25             
+##    +-+-------+--------+--------+-------+--------+--------+-----+
+##     10      12       14       16      18       20       22      
 ## 
 ## stem and leaf plot of  e.cum.final 
 ## 
 ##   The decimal point is 1 digit(s) to the right of the |
 ## 
-##   1 | 244
-##   1 | 556
-##   2 | 22
-##   2 | 8
+##   1 | 012233
+##   1 | 88
+##   2 | 3
 ## 
 ## e.rel.final   e.rel.final   e.rel.final   e.rel.final   e.rel.final   
 ## 
 ## e.rel.final  vs. pmid 
-##      +-------------+--------------+--------------+-------------+
+##      +--+------------------+-----------------+-----------------+
 ## 1934 +  *                                                      +
 ##      |                *                                        |
 ##      |                                                         |
@@ -81,11 +80,11 @@ title: 'Submitted data summary'
 ##      |                                                         |
 ##      |                      *                                  |
 ## 1926 +                   *                                     +
-##      +-------------+--------------+--------------+-------------+
-##                   0.4           0.45            0.5             
+##      +--+------------------+-----------------+-----------------+
+##        0.3               0.35               0.4                 
 ## 
 ## e.rel.final  vs. row.in.file.plot 
-##    +-------------+---------------+--------------+--------------+
+##    +---+-----------------+------------------+------------------+
 ##    |                    *                                      |
 ## 12 +                       *                                   +
 ##    |                                                           |
@@ -99,17 +98,17 @@ title: 'Submitted data summary'
 ##    |                                                           |
 ##  6 +                                   *                       +
 ##    |                   *                                       |
-##    +-------------+---------------+--------------+--------------+
-##                 0.4            0.45            0.5              
+##    +---+-----------------+------------------+------------------+
+##       0.3              0.35                0.4                  
 ## 
 ## stem and leaf plot of  e.rel.final 
 ## 
 ##   The decimal point is 1 digit(s) to the left of the |
 ## 
-##   3 | 6
-##   4 | 012234
-##   4 | 7
-##   5 | 3
+##   2 | 
+##   3 | 0344
+##   3 | 5579
+##   4 | 4
 ## 
 ## app.rate   app.rate   app.rate   app.rate   app.rate   
 ## 
@@ -621,54 +620,54 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                        e.1     e.4     e.6    e.12    e.24    e.48    e.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
-## Minimum               <NA>    1.89    2.93    4.84    7.15    9.13    10.1
-## Maximum               <NA>    3.77    5.86    10.3    15.5    20.6      23
-## Mean                  <NA>    2.37    3.72    6.48    9.72      13    14.5
+## Minimum               <NA>    1.55    2.41    3.98    5.88    7.51    8.34
+## Maximum               <NA>     3.1    4.82    8.46    12.8      17    18.9
+## Mean                  <NA>    1.95    3.06    5.33    7.99    10.7    11.9
 ## Unique (excld. NA)       0       9       9       9       9       9       9
 ## Missing values           9       0       0       0       0       0       0
 ## Sorted                <NA>   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
 ##                                                                           
 ##                       e.96   e.168 e.final   e.tot e.cum.1 e.cum.4 e.cum.6
 ## Class              numeric numeric numeric numeric numeric numeric numeric
-## Minimum                 11    12.4    12.4    12.4    <NA>    1.89    2.93
-## Maximum               24.8    27.7    27.8    27.8    <NA>    3.77    5.86
-## Mean                  15.7    17.5    17.5    17.5    <NA>    2.37    3.72
+## Minimum               9.06    10.2    10.2    10.2    <NA>    1.55    2.41
+## Maximum               20.4    22.8    22.8    22.8    <NA>     3.1    4.82
+## Mean                  12.9    14.4    14.4    14.4    <NA>    1.95    3.06
 ## Unique (excld. NA)       9       9       9       9       0       9       9
 ## Missing values           0       0       0       0       9       0       0
 ## Sorted               FALSE   FALSE   FALSE   FALSE    <NA>   FALSE   FALSE
 ##                                                                           
 ##                    e.cum.12 e.cum.24 e.cum.48 e.cum.72 e.cum.96 e.cum.168
 ## Class               numeric  numeric  numeric  numeric  numeric   numeric
-## Minimum                4.84     7.15     9.13     10.1       11      12.4
-## Maximum                10.3     15.5     20.6       23     24.8      27.7
-## Mean                   6.48     9.72       13     14.5     15.7      17.5
+## Minimum                3.98     5.88     7.51     8.34     9.06      10.2
+## Maximum                8.46     12.8       17     18.9     20.4      22.8
+## Mean                   5.33     7.99     10.7     11.9     12.9      14.4
 ## Unique (excld. NA)        9        9        9        9        9         9
 ## Missing values            0        0        0        0        0         0
 ## Sorted                FALSE    FALSE    FALSE    FALSE    FALSE     FALSE
 ##                                                                          
 ##                    e.cum.final e.cum.tot e.rel.1 e.rel.4 e.rel.6 e.rel.12
 ## Class                  numeric   numeric numeric numeric numeric  numeric
-## Minimum                   12.4      12.4    <NA>  0.0399  0.0709    0.137
-## Maximum                   27.8      27.8    <NA>  0.0726   0.113    0.198
-## Mean                      17.5      17.5    <NA>  0.0599  0.0935    0.161
+## Minimum                   10.2      10.2    <NA>  0.0328  0.0583    0.113
+## Maximum                   22.8      22.8    <NA>  0.0597  0.0929    0.163
+## Mean                      14.4      14.4    <NA>  0.0493  0.0769    0.133
 ## Unique (excld. NA)           9         9       0       9       9        9
 ## Missing values               0         0       9       0       0        0
 ## Sorted                   FALSE     FALSE    <NA>   FALSE   FALSE    FALSE
 ##                                                                          
 ##                    e.rel.24 e.rel.48 e.rel.72 e.rel.96 e.rel.168 e.rel.final
 ## Class               numeric  numeric  numeric  numeric   numeric     numeric
-## Minimum               0.201    0.267    0.296    0.321     0.362       0.362
-## Maximum               0.299    0.398    0.444    0.478     0.534       0.535
-## Mean                  0.242    0.321    0.357    0.386     0.432       0.432
+## Minimum               0.165    0.219    0.243    0.264     0.298       0.298
+## Maximum               0.246    0.327    0.365    0.393     0.439        0.44
+## Mean                  0.199    0.264    0.294    0.317     0.355       0.355
 ## Unique (excld. NA)        9        9        9        9         9           9
 ## Missing values            0        0        0        0         0           0
 ## Sorted                FALSE    FALSE    FALSE    FALSE     FALSE       FALSE
 ##                                                                             
 ##                    e.rel.tot  rain.1  rain.4  rain.6 rain.12 rain.24 rain.48
 ## Class                numeric numeric numeric numeric numeric numeric numeric
-## Minimum                0.362    <NA>       0       0       0       0       0
-## Maximum                0.535    <NA>       0       0       0       0       0
-## Mean                   0.432    <NA>       0       0       0       0       0
+## Minimum                0.298    <NA>       0       0       0       0       0
+## Maximum                 0.44    <NA>       0       0       0       0       0
+## Mean                   0.355    <NA>       0       0       0       0       0
 ## Unique (excld. NA)         9       0       1       1       1       1       1
 ## Missing values             0       9       0       0       0       0       0
 ## Sorted                 FALSE    <NA>    TRUE    TRUE    TRUE    TRUE    TRUE
@@ -838,8 +837,8 @@ title: 'Submitted data summary'
 ##                        dt1  j.rel1  j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric numeric numeric numeric numeric numeric numeric
 ## Minimum               1.73       0       0    1.73    8.12    1.73     171
-## Maximum               1.73   0.013   0.482    1.73    9.83    1.73     172
-## Mean                  1.73 0.00777   0.297    1.73    9.64    1.73     171
+## Maximum               1.73  0.0107   0.397    1.73    9.83    1.73     172
+## Mean                  1.73 0.00639   0.245    1.73    9.64    1.73     171
 ## Unique (excld. NA)       1       9       9       1       2       1       3
 ## Missing values           0       0       0       0       0       0       0
 ## Sorted                TRUE   FALSE   FALSE    TRUE    TRUE    TRUE   FALSE
