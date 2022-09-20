@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-09-16 06:27:55 EDT"
+[1] "2022-09-20 07:01:16 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -32,21 +32,21 @@ unique(emis[, c('plot', 'rep')])
 
 [1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area         lat
-1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
-2 9°32'26''E      DK
-3 9°32'26''E      DK
-4 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area
+1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
+2 56°27'12''N 9°32'26''E      DK
+3 56°27'12''N 9°32'26''E      DK
+4 56°27'12''N 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area         lat
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 CRDS_1m       bLS
@@ -69,19 +69,19 @@ unique(emis[, c('plot', 'rep')])
 
 [1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area         lat
-1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
-2 9°32'26''E      DK
-3 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area
+1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
+2 56°27'12''N 9°32'26''E      DK
+3 56°27'12''N 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area         lat
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000 56°27'12''N
-        long country
-1 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000
+          lat       long country
+1 56°27'12''N 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_May          1   1 CRDS_1m       bLS
@@ -92,7 +92,7 @@ Unique emis:
 278       CRDS_1m
 555       CRDS_1m
 Emission rate unit not available for conversion:  NA 
-But  µg/m2/s  is OK.
+But  µgNH3/m2/s  is OK.
 See cleanALFAM() function.
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
@@ -131,20 +131,20 @@ See cleanALFAM() function.
    file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 26 × 18
-      `` ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
-   <dbl> <chr> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
- 1     1 "3.\… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 2    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 3    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 4    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 5    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 6    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 7    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-# … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
-#   `` <dbl>, `` <dbl>
+      `` ``        ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
+   <dbl> <chr>     <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
+ 1     1 "3.\tSom… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 2    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 3    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 4    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 5    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 6    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 7    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 8    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 9    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+10    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+# … with 16 more rows, and 6 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
+#   `` <dbl>, `` <dbl>, `` <dbl>
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
@@ -185,11 +185,16 @@ plots.orig:
 1      IT
 2      IT
 Unique emis:
-      proj   exper  field plot rep       treat meas.tech         meas.tech.det
-1   ARMOSA LAND_13 SIC-13    1   0   SIC-13_EC        EC         150 cm height
-285 ARMOSA LAND_13 SIC-13    1   0  SIC-13_IDM       bLS         150 cm height
-569 ARMOSA LAND_13 SIC-13    1   0 SIC-13_TAGM       AGM 30, 70, 150 cm height
-853 ARMOSA LAND_13  SS-13    1   0   SS-13_IDM       bLS         150 cm height
+      proj   exper  field plot rep       treat meas.tech
+1   ARMOSA LAND_13 SIC-13    1   0   SIC-13_EC        EC
+285 ARMOSA LAND_13 SIC-13    1   0  SIC-13_IDM       bLS
+569 ARMOSA LAND_13 SIC-13    1   0 SIC-13_TAGM       AGM
+853 ARMOSA LAND_13  SS-13    1   0   SS-13_IDM       bLS
+            meas.tech.det
+1           150 cm height
+285         150 cm height
+569 30, 70, 150 cm height
+853         150 cm height
 Directory  ../../data-submitted/03/WUR 
 
 > cat('Done! Read', length(dat), ' directories\n')
@@ -286,9 +291,11 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > #names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
 > ## Columns missing i .... [TRUNCATED] 
 
+> # Combine old and new interval-level data
+> 
 > # Interval-level data
 > # Remove some old columns
-> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
+> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- .... [TRUNCATED] 
 
 > # Rename some old columns
 > names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
@@ -343,3 +350,8 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
 
 > R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
+
+> # Record data version also
+> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
+
+> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../data-output/03/data_version.txt')

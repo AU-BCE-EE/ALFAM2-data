@@ -2,6 +2,7 @@
 # Creates interval-level and plot-level files for ALFAM2 database
 # This version processes only data from uptake 3 in ALFAM2
 # ALFAM(1) data and uptake 2 data from ALFAM2 are simply read from output in data-output/02
+# REMINDER: in case of any errors, see make_database_log.txt for more details 
 
 # To get errors for any warnings
 options(warn = 2) 
@@ -12,8 +13,8 @@ rm(list = ls())
 uptake <- 3
 version <- '2.9' # 16 Sept 2022
 
-# Create all html log files or just missing (new) ones?
-alllogs <- TRUE
+# Create all html log files (otherwise just missing ones)?
+alllogs <- FALSE
 
 source('packages.R')
 
