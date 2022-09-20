@@ -149,8 +149,6 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## Pedersen, Johanna
 ## 
-## Jesper Kamp
-## 
 ## Jesper Nørlem Kamp
 ## 
 ## Massimo Zilio, Fabrizio Adani
@@ -551,7 +549,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.168  numeric, range: 4.658 42.339 
+## e.168  numeric, range: 3.831 38.967 
 ## Missing values: 2182 
 ## 
 ## 
@@ -561,7 +559,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.1  numeric, range: -0.0091828 1.2673 
+## e.cum.1  numeric, range: -0.0091828 1.0423 
 ## Missing values: 2217 
 ## 
 ## 
@@ -601,7 +599,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.168  numeric, range: 4.658 42.339 
+## e.cum.168  numeric, range: 3.831 38.967 
 ## Missing values: 2182 
 ## 
 ## 
@@ -651,7 +649,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.rel.168  numeric, range: 0.10106 0.60479 
+## e.rel.168  numeric, range: 0.10106 0.55663 
 ## Missing values: 2182 
 ## 
 ## 
