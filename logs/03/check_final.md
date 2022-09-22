@@ -922,7 +922,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## soil.temp.surf.48  numeric, range: -0.58073 15.307 
+## soil.temp.surf.48  numeric, range: -0.58073 15.306 
 ## Missing values: 2225 
 ## 
 ## 
@@ -937,7 +937,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## soil.temp.surf.168  numeric, range: 0.45268 15.568 
+## soil.temp.surf.168  numeric, range: 0.45268 15.567 
 ## Missing values: 2225 
 ## 
 ## 
