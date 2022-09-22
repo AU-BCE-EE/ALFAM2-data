@@ -760,9 +760,9 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                     e.rel.12 e.rel.24 e.rel.48 e.rel.72 e.rel.96 e.rel.168
 ## Class                numeric  numeric  numeric  numeric  numeric   numeric
-## Minimum            -0.000421 0.000137   0.0658   0.0931    0.111     0.127
+## Minimum            -0.000421 0.000137   0.0662   0.0931    0.111     0.127
 ## Maximum                0.289    0.323    0.387     0.44    0.462     0.497
-## Mean                  0.0723     0.09    0.161    0.221    0.241     0.263
+## Mean                  0.0723     0.09    0.161    0.221    0.242     0.263
 ## Unique (excld. NA)         4        4        4        4        4         4
 ## Missing values             0        0        0        0        0         0
 ## Sorted                 FALSE    FALSE    FALSE    FALSE    FALSE     FALSE
@@ -931,19 +931,19 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                      rh.mn first.row.in.file.int last.row.in.file.int  n.ints
 ## Class              numeric               numeric              numeric integer
-## Minimum                110                     5                  469     378
+## Minimum                110                     5                  470     378
 ## Maximum                125                  1330                 1800     484
-## Mean                   116                   690                 1140    <NA>
+## Mean                   116                   691                 1140    <NA>
 ## Unique (excld. NA)       3                     4                    4       4
 ## Missing values           1                     0                    0       0
 ## Sorted               FALSE                  TRUE                 TRUE   FALSE
 ##                                                                              
 ##                        dt1    j.rel1   j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric   numeric  numeric numeric numeric numeric numeric
-## Minimum                0.5 -4.15e-05 -0.00283     0.5     0.5     0.5     189
+## Minimum                0.5 -4.15e-05 -0.00283   0.167     0.5     0.5     189
 ## Maximum                0.5  3.51e-05  0.00245     0.5     0.5     0.5     242
-## Mean                   0.5   9.7e-07 0.000218     0.5     0.5     0.5     224
-## Unique (excld. NA)       1         4        4       1       1       1       4
+## Mean                   0.5   9.7e-07 0.000218   0.417     0.5     0.5     224
+## Unique (excld. NA)       1         4        4       2       1       1       4
 ## Missing values           0         0        0       0       0       0       0
 ## Sorted                TRUE     FALSE    FALSE    TRUE    TRUE    TRUE   FALSE
 ##                                                                              
