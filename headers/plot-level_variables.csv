@@ -3,15 +3,17 @@ inst,"Unique institute identification code",integer,,"100 < inst < 200 is used f
 eid,"Unique experiment identification code",integer,,
 pid,"Unique plot identification code",integer,,
 pmid,"Unique plot-measurement technique identification code",integer,,
-database,"Unique database identification code",integer,,"1 for original ALFAM data, 2 for new data"
+uptake,"Uptake event identification code",integer,,"1 for original ALFAM data, 2 for original ALFAM2 work, 3 for later submissions"
 proj,"Project code",character,,"Unique within institute only"
 exper,"Experiment code",character,,"Unique within institute only"
 exper2,"Second experiment code",character,,"From ALFAM"
 institute,"Institute abbreviation",character,,
 country,"Country abbreviation",character,,
+submitter,"Name of person who submitted data",character,,
 file,"Name of data file (completed template)",character,,
-first.row.in.file,"Location of data within file (file variable)",integer,,
-last.row.in.file,"Location of data within file (file variable)",integer,,
+first.row.in.file.int,"Location of data within interval/emission sheet within submitted file",integer,,
+last.row.in.file.int,"Location of data within interval/emission sheet within submitted file",integer,,
+row.in.file.plot,"Location of data within plot sheet within submitted filed",integer,,
 pub.id,"Publication code",character,,"Unique within institute only"
 pub.info,"Publication information",character,,
 lat,Latitude,numeric,"Decimal degrees (all northern hemisphere)",
@@ -32,27 +34,16 @@ dt.max,"Duration of the longest measurement interval",numeric,h,
 ct.min,"Minimum cumulative time",numeric,h,
 ct.max,"Maximum cumulative time",numeric,h,
 meas.tech,"Measurement technique",character,,
+meas.tech.det,"Measurement technique detailed description",character,,
 meas.tech2,"Measurement technique (grouped)",character,,
 meas.tech.orig,"Measurement technique (as entered in template)",character,,
 j.NH31,"Average ammonia flux in first measurement interval",numeric,"kg/(ha-h) as N",
 j.rel1,"Average relative ammonia flux in first measurement interval",numeric,"Fraction of applied TAN per h",
-e.1,"Cumulative emission after 1 h",numeric,"kg/ha as N",Interpolated
-e.4,"Cumulative emission after 4 h",numeric,"kg/ha as N",Interpolated
-e.6,"Cumulative emission after 6 h",numeric,"kg/ha as N",Interpolated
-e.12,"Cumulative emission after 12 h",numeric,"kg/ha as N",Interpolated
-e.24,"Cumulative emission after 24 h",numeric,"kg/ha as N",Interpolated
-e.48,"Cumulative emission after 48 h",numeric,"kg/ha as N",Interpolated
-e.72,"Cumulative emission after 72 h",numeric,"kg/ha as N",Interpolated
-e.96,"Cumulative emission after 96 h",numeric,"kg/ha as N",Interpolated
+e.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours",numeric,"kg/ha as N",Interpolated
+e.cum.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours (duplicate of e.1)",numeric,"kg/ha as N",Interpolated
 e.final,"Cumulative emission at the end of the measurements",numeric,"kg/ha as N",
-e.rel.1,"Relative cumulative emission after 1 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.4,"Relative cumulative emission after 4 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.6,"Relative cumulative emission after 6 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.12,"Relative cumulative emission after 12 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.24,"Relative cumulative emission after 24 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.48,"Relative cumulative emission after 48 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.72,"Relative cumulative emission after 72 h",numeric,"Fraction of applied TAN",Interpolated
-e.rel.96,"Relative cumulative emission after 96 h",numeric,"Fraction of applied TAN",Interpolated
+e.cum.final,"Cumulative emission at the end of the measurements (duplicate of e.cum.final)",numeric,"kg/ha as N",
+e.rel.1,"Relative cumulative emission after 1 h, in general, e.rel.x = same but after x hours",numeric,"Fraction of applied TAN",Interpolated
 e.rel.final,"Relative cumulative emission at the end of the measurements",numeric,"Fraction of applied TAN",
 clay,"Clay content of soil",numeric,Percentage,
 silt,"Silt content of soil",numeric,Percentage,
@@ -61,81 +52,58 @@ oc,"Organic carbon content of soil",numeric,Percentage,
 soil.type,"Soil type",character,,
 soil.type2,"Soil type (grouped)",character,,
 soil.water,"Soil water",numeric,"Fraction of total volume",
+soil.water.v,"Soil water",numeric,"Fraction of total volume",
 soil.moist,"Soil wetness",character,,
 soil.ph,"Soil pH",numeric,,
 soil.dens,"Soil bulk density",numeric,g/cm3,
 crop.res,"Crop residues",character,,"Yes or no"
 till,"Tillage within the past 7 days",character,,"Yes or no"
-air.temp.6,"Average air temperature over first 6 h",numeric,"degrees C",
-air.temp.12,"Average air temperature over first 12 h",numeric,"degrees C",
-air.temp.24,"Average air temperature over first 24 h",numeric,"degrees C",
-air.temp.48,"Average air temperature over first 48 h",numeric,"degrees C",
+air.temp.6,"Average air temperature over first 6 h, in general, air.temp.x = same but after x hours",numeric,"degrees C",
 air.temp.mn,"Average air temperature",numeric,"degrees C",
 air.temp.z,"Height of air temperature measurement",numeric,m,
-soil.temp.6,"Average soil temperature over first 6 h",numeric,"degrees C",
-soil.temp.12,"Average soil temperature over first 12 h",numeric,"degrees C",
-soil.temp.24,"Average soil temperature over first 24 h",numeric,"degrees C",
-soil.temp.48,"Average soil temperature over first 48 h",numeric,"degrees C",
+soil.temp.6,"Average soil temperature over first 6 h, in general soil.temp.x = same but after x hours",numeric,"degrees C",
 soil.temp.mn,"Average soil temperature",numeric,"degrees C",
 soil.temp.z,"Height of soil temperature measurement",numeric,m,
-rad.6,"Average solar radiation over first 6 h",numeric,W/m2,
-rad.12,"Average solar radiation over first 12 h",numeric,W/m2,
-rad.24,"Average solar radiation over first 24 h",numeric,W/m2,
-rad.48,"Average solar radiation over first 48 h",numeric,W/m2,
+soil.temp.surf.6,"Average soil surface temperature over first 6 h, in general soil.temp.x = same but after x hours",numeric,"degrees C",
+soil.temp.surf.mn,"Average soil surface temperature",numeric,"degrees C",
+rad.6,"Average solar radiation over first 6 h, and rad.x = same after x hours",numeric,W/m2,
 rad.mn,"Average solar radiation",numeric,W/m2,
-wind.6,"Average wind speed over first 6 h",numeric,m/s,
-wind.12,"Average wind speed over first 12 h",numeric,m/s,
-wind.24,"Average wind speed over first 24 h",numeric,m/s,
-wind.48,"Average wind speed over first 48 h",numeric,m/s,
+wind.6,"Average wind speed over first 6 h, and wind.x = same after x hours",numeric,m/s,
 wind.mn,"Average wind speed",numeric,m/s,
 wind.z,"Wind speed measurement height",numeric,m,
-wind.2m.6,"Average adjusted wind speed over first 6 h",numeric,m/s,"Wind speed estimated at 2 m height"
-wind.2m.12,"Average adjusted wind speed over first 12 h",numeric,m/s,"Wind speed estimated at 2 m height"
-wind.2m.24,"Average adjusted wind speed over first 24 h",numeric,m/s,"Wind speed estimated at 2 m height"
-wind.2m.48,"Average adjusted wind speed over first 48 h",numeric,m/s,"Wind speed estimated at 2 m height"
-wind.2m.72,"Average adjusted wind speed over first 72 h",numeric,m/s,"Wind speed estimated at 2 m height"
+wind.2m.6,"Average adjusted wind speed over first 6 h, and wind.2m.x = same after x hours",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.2m.mn,"Average adjusted wind speed",numeric,m/s,"Wind speed estimated at 2 m height"
 wind.loc,"Location of wind speed measurements",character,,
-rain.1,"Rainfall over first 1 h",numeric,mm,
-rain.6,"Rainfall over first 6 h",numeric,mm,
-rain.12,"Rainfall over first 12 h",numeric,mm,
-rain.24,"Rainfall over first 24 h",numeric,mm,
-rain.48,"Rainfall over first 48 h",numeric,mm,
-rain.72,"Rainfall over first 72 h",numeric,mm,
+rain.1,"Rainfall over first 1 h, and rain.x = same after x hours",numeric,mm,
 rain.tot,"Total rainfall",numeric,mm,
-rain.rate.1,"Rainfall rate over first 1 h",numeric,mm/h,
-rain.rate.6,"Rainfall rate over first 6 h",numeric,mm/h,
-rain.rate.12,"Rainfall rate over first 12 h",numeric,mm/h,
-rain.rate.24,"Rainfall rate over first 24 h",numeric,mm/h,
-rain.rate.48,"Rainfall rate over first 48 h",numeric,mm/h,
-rain.rate.72,"Rainfall rate over first 72 h",numeric,mm/h,
+rain.rate.1,"Rainfall rate over first 1 h, and rain.rate.x = same after x hours",numeric,mm/h,
 rain.rate.mn,"Rainfall rate",numeric,mm/h,
-rh.6,"Average relative humidity over first 6 h",numeric,Percentage,
-rh.12,"Average relative humidity over first 12 h",numeric,Percentage,
-rh.24,"Average relative humidity over first 24 h",numeric,Percentage,
-rh.48,"Average relative humidity over first 48 h",numeric,Percentage,
-rh.72,"Average relative humidity over first 72 h",numeric,Percentage,
+rh.6,"Average relative humidity over first 6 h, and rh.x = same after x hours",numeric,Percentage,
 rh.mn,"Average relative humidity",numeric,Percentage,
 far.loc,"Distance to furthest weather measurement",numeric/character,m,
 man.source,"Source of manure",character,,
+man.source.det,"Source of manure details",character,,
 man.source.orig,"Source of manure (as entered in template)",character,,
 man.bed,Bedding,character,,
 man.con,"Manure consistency",character,,
 man.trt1,"Manure treatment",character,,
-man.trt2,"Manure treatment",character,,
+man.trt2,"Second manure treatment",character,,
+man.trt3,"Third manure treatment",character,,
 man.stor,"Manure storage duration",numeric,d,
 man.dm,"Manure dry matter concentration",numeric,Percentage,
+man.vs,"Manure volatile solids (organic matter) concentration",numeric,Percentage,
+man.vfa,"Manure volatile fatty acid concentration",numeric,"mg/kg, wet mass basis",
 man.tkn,"Manure total Kjeldahl N concentration",numeric,"g/kg wet mass basis",
 man.tan,"Manure total ammonia N concentration",numeric,"g/kg as N, wet mass basis",
 acid,"Was acid added?",logical,,
 man.tic,"Manure total inorganic carbon concentration",numeric,"g/kg as C, wet mass basis",
 man.ua,"Manure uric acid concentration",numeric,"g/kg wet mass basis",
 man.ph,"Manure pH",numeric,,
-man.freeNH3,"Manure free ammonia",numeric,g/kg,"Calculated from air temperature, pH, and TAN"
-man.eq.gasNH3,"Manure equilibrium gas-phase ammonia",numeric,g/m3,"Calculated from air temperature, pH, and TAN"
-date.start,,,,
-app.start,"Application start",character,"yyyy-mm hh:mm:ss",
+date.start,"Date of manure or fertilizer application start",character,"yyyy-mm-dd hh:mm:ss",
+app.start,"Manure or fertilizer application start",character,"yyyy-mm-dd hh:mm:ss",
+app.end,"Manure or fertilizer application end",character,"yyyy-mm-dd hh:mm:ss",
 app.start.orig,"Application start (as entered in template)",character,"(may vary)",
+app.end.orig,"Application end (as entered in template)",character,"(may vary)",
 app.method,"Application method",character,,
 app.method2,"Application method (grouped)",character,,
 app.method.orig,"Application method (as entered in template)",character,,
@@ -153,5 +121,5 @@ crop.orig,"Crop present in field (as entered in template)",character,,
 crop.z,"Crop height",numeric,cm,
 crop.area,"Area of crop coverage",numeric,Percentage,
 lai,"Leaf area index",numeric,m2/m2,
-notes,Notes,character,,
-flag,"Data flags",character,,
+notes.plot,Notes,character,,
+flag.plot,"Data flags, e = error in emission results, d = duplicate observation, a = application problem, m = modeled/interpolated/imputed/filled emission rate",character,,

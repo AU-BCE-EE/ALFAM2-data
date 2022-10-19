@@ -1,0 +1,24 @@
+
+>   cat('Created ALFAM_interval.csv on ')
+Created ALFAM_interval.csv on 
+>   print(Sys.time())
+[1] "2022-07-07 11:19:28 EDT"
+
+>   cat('contains data from', length(unique(d$inst)), ' institutes\n')
+contains data from 22  institutes
+
+>   cat('contains data from', length(unique(d$inst)), ' institutes\n')
+contains data from 22  institutes
+
+>   cat('and has ', length(unique(d$pmid)), ' pmid\n')
+and has  1899  pmid
+
+>   cat('and ', length(d), ' rows\n')
+and  110  rows
+
+>   cat('and ', nrow(d), ' columns.\n')
+and  30907  columns.
+
+>   cat('Data directories: ', paste(gsub('../../data-submitted/02/', '', ddir), collapse = ', ')) 
+Data directories:  AAFC, ADAS-RR, ARDC, AT, AU, CAU-LU, INH-HAFL, INRA, MU, NMI-WUR, SDU, TEAGASC, USDA, WUR
+> sink()
