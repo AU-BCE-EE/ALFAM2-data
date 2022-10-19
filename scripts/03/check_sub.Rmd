@@ -1,0 +1,493 @@
+---
+title: 'Submitted data error checks'
+output: 
+  html_document:
+    toc: true
+---
+
+# 0. Instructions for submitters
+Submitters should use this file to check for problems with submitted data.
+Each of these html files contains a summary of the data from a single submitted spreadsheet file.
+The html name is based on the name of the submitted file.
+Use the details below to check:
+
+* Institute abbreviation, submitter and contributor names
+* The plot location(s), using the map zoom and pan features if needed
+* For problems in the first sections; "OK" means there are no problems in a particular section, "warning" is something that should be checked (but might be OK), "error" is a problem that needs to be addressed
+* For numeric values outside the expected range in the "Value checks" section
+* Variables with missing values--are there any missing that you thought you included?
+* Plots of flux, cumulative emission over time, and final cumulative emission for strange patterns, unexpectedly high or low values
+* Plots of weather data for appropriate differences between plots and expected diurnal or other patterns
+* Plots of manure and application data for correct values
+
+Finally, the numeric summary at the end might provide details that can help in pinpointing problems, but typically does not need to be checked.
+
+# 1. Submitter
+```{r, echo = FALSE}
+kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
+```
+
+# 2. Contributors
+```{r, echo = FALSE}
+kable(dat[[i]][[j]]$contrib, row.names = FALSE)
+```
+# 3. File and directory names
+```{r, echo = FALSE}
+print(i)
+print(j)
+```
+
+# 4. Location
+```{r, echo = FALSE}
+library( leaflet )
+library( magrittr )
+```
+
+```{r, echo = FALSE}
+plots <- dat[[i]][[j]]$plots
+ll <- unique(plots[, c('lat', 'long')])
+
+subscr <- data.frame(lat=c(ll$lat),
+                    lon=c(ll$long))
+
+leaflet() %>% addTiles() %>% 
+  addCircleMarkers(data = subscr,
+                   lat = ~lat, lng = ~lon,
+                   color = "blue")
+
+```
+
+# 5.Keys and codes 
+```{r, echo = FALSE}
+exper <- dat[[i]][[j]]$exper
+treat <- dat[[i]][[j]]$treat
+emis <- dat[[i]][[j]]$emis
+pubs <- dat[[i]][[j]]$pubs
+```
+
+## Codes in Treatments sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% treat$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Treatments sheet.')
+}
+
+if (all(treat$exper %in% exper$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Codes in Plots sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% plots$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Plots sheet.')
+}
+
+if (all(plots$exper %in% exper$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Codes in Emission sheet
+```{r, echo = FALSE}
+if (all(exper$exper %in% emis$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Emission sheet.')
+}
+
+if (all(emis$exper %in% exper$exper)) {
+  cat('OK\n')
+} else {
+  print('Missing experiment codes in Experiments sheet.')
+}
+```
+
+## Code merge check (matching project, experiment, field, plot, treatment)
+```{r, echo = FALSE}
+m1 <- merge(exper, treat, all = TRUE)
+m2 <- merge(m1, emis, all = TRUE)
+
+if (nrow(m1) == nrow(treat)) {
+  cat('OK\n')
+} else {
+  print('Merge problem 1')
+  print(intersect(names(exper), names(treat)))
+}
+
+if (sum(is.na(c(m1$proj, m1$exper, m1$treat))) == 0) {
+  cat('OK\n')
+} else {
+  print('Merge problem 2')
+}
+
+if (nrow(m1) == max(nrow(treat), nrow(exper))) {
+  cat('OK\n')
+} else {
+  print('Merge problem 3')
+}
+
+if (sum(is.na(c(m2$proj, m2$exper, m2$treat, m2$field, m2$plot))) == 0) {
+  cat('OK\n')
+} else {
+  print('Merge problem 4')
+  md <- m2[is.na(m2$proj) | is.na(m2$exper) | is.na(m2$field) | is.na(m2$plot), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')]
+  md <- unique(md)
+  print(md)
+  #unique(emis[, c('proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
+  #intersect(names(m1), names(emis))
+}
+
+if (nrow(m2) == nrow(emis)) {
+  cat('OK\n')
+} else {
+  print('Merge problem 5')
+  print('Some unmatched codes/names present')
+  print('First 5 rows after merge:')
+  print(m2[1:5, c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
+  stop('Merge problem 5, see Rmd file')
+}
+
+#if (sum(is.na(c(m3$proj, m3$exper, m3$treat, m3$field, m3$plot))) == 0) {
+#  cat('OK\n')
+#} else {
+#  print('Merge problem 6')
+#  md <- m3[any(is.na(m3$proj), is.na(m3$exper), is.na(m3$treat), is.na(m3$field), is.na(m3$plot)), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'treat', 'field', 'plot')]
+#  md <- unique(md)
+#  print(paste('Problems in', nrow(md), 'rows.'))
+#  print('First 10 rows:')
+#  print(md[1:min(10, nrow(md)), ])
+#}
+
+```
+
+# 6. Publication info
+## Check for missing codes
+```{r, echo = FALSE}
+if (all(exper$pub.id %in% pubs$pub.id)) {
+  cat('OK\n') 
+} else {
+  print('Missing pub codes in Publications sheet.')
+}
+```
+
+```{r, echo = FALSE}
+if (all(pubs$pub.id %in% exper$pub.id)) {
+  cat('OK\n') 
+} else {
+  print('Some pub codes missing in Experiments sheet.')
+}
+```
+
+## Complete citations given
+```{r, echo = FALSE}
+if (all(grepl('[Dd][Oo][Ii]', pubs$citation))) {
+  cat('OK\n') 
+} else {
+  print('DOI missing from Publications sheet.')
+}
+```
+
+```{r, echo = FALSE}
+if (all(nchar(pubs$citation) > 10)) {
+  cat('OK\n') 
+} else {
+  print('Citation details missing from Publications sheet.')
+}
+```
+
+# 7. Emission sheet
+
+```{r, echo = FALSE}
+d <- dat[[i]][[j]]$emis
+# Add first row in file info by plot
+xx <- d[d$interval == 1, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
+# Try int of 0 in case it was used instead of 1 (Marco)
+if (nrow(xx) == 0) {
+  xx <- d[d$interval == 0, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
+}
+names(xx)[2:3] <- c('first.row.int', 'row.plot')
+d <- merge(d, xx, by = 'cpmid')
+```
+
+## Duplicated intervals
+```{r, echo = FALSE}
+s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
+x <- subset(s, n.int.duplicates > 1)
+if (nrow(x) > 0) {
+  y <- subset(d, cpmid == x$cpmid)
+  print('Some intervals duplicated:')
+  print(y[, c('file', 'institute', 'row.in.file.int', 'plot', 'rep')])
+} else {
+  cat('OK\n')
+}
+```
+
+## Missing incorporation time
+
+```{r, echo = FALSE}
+x <- subset(d, incorp %in% c('deep', 'shallow') & is.na(time.incorp))
+if (nrow(x) > 0) {
+  print('Some problems')
+  print(unique(as.character(x$file)))
+  print(x[, c('file','row.in.file.int','institute')])
+  print(table(d$incorp, d$time.incorp, exclude = NULL))
+} else {
+  cat('OK\n')
+}
+
+```
+
+## Delay after application
+```{r,echo=FALSE}
+if (all(is.na(d$bta))) {
+  cat('bta (cum. time since application began) is not available.\n')
+} else if (min(na.omit(d$bta)) < 1) {
+  cat('OK\n')
+} else {
+  cat('Warning: 1 hour or longer delay after starting application\n')
+  cat('  bta = elapsed (cumulative) time since manure application *began*\n  ct = elapsed time of measurements\n  cta = elapsed time since application ended\n')
+  cat('  First 10 rows\n')
+  kable(d[1:10, c('row.in.file.int', 'app.start', 't.start', 'bta', 'ct', 'cta')])
+}
+```
+
+## Missing or double interval number
+```{r,echo=FALSE}
+for (ii in unique(emis$cpmid)) {
+  dd <- emis[emis$cpmid == ii, ]
+  if (all(diff(dd$interval) == 1)) {
+    cat('OK\n')
+  } else if (all(diff(dd$interval) %in% c(0.5, 1))) {
+    cat('Some half interval steps, a bit strange but OK. . .\n')
+  } else {
+    print('Problem, see following rows')
+    print(dd$row.in.file.int[ii <- which(!diff(dd$interval) %in% c(0.5, 1))])
+    cat('\n')
+    cat('head() of problem rows:\n')
+    print(head(dd[sort(unique(c(ii, ii-1, ii+1))), c('row.in.file.int', 'plot', 'interval', 't.start')]))
+  }
+}
+```
+
+## Missing time between intervals
+```{r,echo=FALSE}
+for (ii in unique(emis$cpmid)) {
+  dd <- emis[emis$cpmid == ii, ]
+  if (all(is.na(dd$t.start)) | all(is.na(dd$t.end))) {
+    print('No start or end times provided, so cannot check for missing time.')
+  } else if (all(dd$t.start[-1] == dd$t.end[-nrow(dd)])) {
+    cat('OK\n')
+  } else {
+    print('Problem, see following rows (compare start time to end time in previous rows):')
+    ii <- which(c(FALSE, dd$t.start[-1] != dd$t.end[-nrow(dd)]))
+    print(dd$row.in.file.int[ii])
+    #print(dd[ii + -2:2, c('row.in.file.int', 'plot', 'interval', 't.start', 't.end')])
+  }
+}
+```
+
+## Measurement method and units
+Measurement technique:
+
+```{r,echo=FALSE}
+kable(table(emis$meas.tech),col.names = c('Method', 'Frequency'))
+```
+
+Measurement technique classification:
+
+```{r,echo=FALSE}
+kable(table(emis$meas.tech2), col.names = c('Classification', 'Frequency'))
+```
+
+Emission units and conversion factors.
+
+```{r,echo=FALSE}
+kable(unique(emis[, c('j.NH3.unit.orig', 'j.NH3.conv.fact', 'j.NH3.unit')]), col.names = c('Original unit', 'Conversion factor applied', 'Final unit'))
+```
+
+# 7. Value checks
+Check to see if submitted values are within a reasonable range.
+
+## Weather
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('wind', 'rain.rate', 'air.temp', 'soil.temp', 'soil.temp.surf', 'air.temp.z', 'wind.z'),
+                  lwr = c(0, 0, -10, -10, -10, 0, 0),
+                  upr = c(20, 20, 40, 40, 40, 10, 10))
+
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      cat('Limits: ')
+      print(lim[lim$vari == k,])
+      cat('Range: ')
+      print(range(vv))
+      cat('Value table:\n')
+      print(table(vv, exclude = NULL))
+      cat('Missing values: ', sum(is.na(vv)),'\n')
+    }
+  } else {
+    cat('No values to check.\n')
+  }
+}
+```
+
+## Manure and application
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('man.stor', 'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 'app.rate', 'crop.z'),
+                  lwr = c(0, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0, 4, 1, 0),
+                  upr = c(600, 20, 20, 10, 10, 10, 10, 20, 9.5, 200, 50))
+
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      print(range(vv))
+    }
+  } else {
+    cat('No values to check.\n')
+  }
+}
+```
+
+## Emission
+```{r, echo = FALSE}
+lim <- data.frame(vari = c('j.NH3', 'e.int', 'e.rel'),
+                  lwr = c(-3, -30, -5),
+                  upr = c(60, 200, 1.1))
+
+for (k in lim$vari) {
+  cat(k, ': ')
+  vv <- na.omit(d[, k])
+  if (length(vv) > 0) {
+    if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
+      cat('OK\n')
+    } else {
+      cat('Some values out of range\n')
+      print(range(vv))
+    }
+  } else {
+    cat('No values to check.\n')
+  }
+}
+```
+
+# 8. Missing values
+Check for missing values.
+
+## All variables
+```{r,echo = FALSE}
+miss <- apply(d, 2, function(x) sum(is.na(x)))
+miss <- miss[miss > 0]
+if (length(miss) > 0) {
+  cat('Some values missing:\n')
+  cat('Table below has number of missing observations by variable:\n')
+  print(miss)
+} else {
+  cat('OK, no values missing\n')
+}
+```
+
+## Application method and measurement method
+```{r, echo=FALSE}
+if (any(is.na(plots$app.method))) {
+  print('Missing app.method in some rows')
+} else {
+  cat('OK\n')
+}
+```
+```{r, echo=FALSE}
+if (any(is.na(plots$meas.tech))) {
+  print('Missing measurement method in some rows')
+} else {
+  cat('OK\n')
+}
+```
+
+# 9. Plots
+## Calculated cumulative emission
+Cumulative emission.
+Missing values imputed (linear interpolation).
+
+```{r, echo=FALSE}
+d$first.rows <- factor(paste('Plots', d$row.plot, 'Emis.', d$first.row))
+
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+
+if (!(all(is.na(d$cta)))) {
+  ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+}
+
+if (!(all(is.na(d$t.end)))) {
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+}
+```
+
+## Final cumulative emission
+
+```{r, echo = FALSE}
+ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)')
+```
+
+## Relative versus absolute emission
+
+```{r, echo = FALSE}
+ggplot(plots, aes(e.rel.final, e.final)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)', y = 'Final cum. emission (kg N/ha)')
+```
+
+## Flux
+
+```{r, echo = FALSE}
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file') 
+if (!(all(is.na(d$cta)))) {
+  ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+}
+```
+
+## Weather data
+
+```{r, echo=FALSE}
+ggplot(d, aes(ct, wind, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'Wind (m/s', colour = 'Rows in file')
+ggplot(d, aes(ct, air.temp, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Air temp. (deg. C)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm/h)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm)', colour = 'Rows in file')
+```
+
+## Manure and application
+
+```{r, echo = FALSE}
+if (nrow(plots) < 5) {
+  kable(plots[, c('institute', 'proj', 'exper', 'field', 'plot', 'man.dm', 'man.ph', 'man.tan', 'app.rate', 'tan.app')])
+} else {
+  ggplot(plots, aes(row.in.file.plot, man.dm)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure DM (%)')
+  ggplot(plots, aes(row.in.file.plot, man.ph)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure pH')
+  ggplot(plots, aes(row.in.file.plot, man.tan)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure TAN (g/kg)')
+  ggplot(plots, aes(row.in.file.plot, app.rate)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'Manure application (t/ha)')
+  ggplot(plots, aes(row.in.file.plot, tan.app)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Row in Plot sheet', y = 'TAN application (kg/ha)')
+}
+```
+
+# 10. `dfsumm` summary 
+```{r, echo=FALSE}
+print(dfsumm(d))
+```
+

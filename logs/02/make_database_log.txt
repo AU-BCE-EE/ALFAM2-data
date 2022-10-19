@@ -1,0 +1,312 @@
+
+> # Read in all ALFAM2 data and create csv file with complete interval-level database
+> # S. Hafner
+> 
+> # Date record
+> print(Sys.time())
+[1] "2022-07-07 11:11:02 EDT"
+
+> # Read in ALFAM1 data
+> cat('\nReading ALFAM1.xlsx. . .\n')
+
+Reading ALFAM1.xlsx. . .
+
+> d1 <- readALFAM1File('../../data-ALFAM1/ALFAM1.xlsx')
+
+> cat('Done!\n')
+Done!
+
+> # ALFAM2 data
+> ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
+
+> d2 <- NULL
+
+> for(i in ddir) {
++   cat('Directory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (created  .... [TRUNCATED] 
+Directory  ../../data-submitted/02/AAFC 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2000.xlsx 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
+Directory  ../../data-submitted/02/ADAS-RR 
+   file  ../../data-submitted/02/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
+Directory  ../../data-submitted/02/ARDC 
+   file  ../../data-submitted/02/ARDC/Bittman ALFAM2 v5.xlsx 
+Directory  ../../data-submitted/02/AT 
+   file  ../../data-submitted/02/AT/ALFAM2_AT.xlsx 
+Directory  ../../data-submitted/02/AU 
+   file  ../../data-submitted/02/AU/ALFAM2_AU_v5.xlsx 
+Directory  ../../data-submitted/02/CAU-LU 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
+Directory  ../../data-submitted/02/INH-HAFL 
+   file  ../../data-submitted/02/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
+Directory  ../../data-submitted/02/INRA 
+   file  ../../data-submitted/02/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
+   file  ../../data-submitted/02/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
+   file  ../../data-submitted/02/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
+   file  ../../data-submitted/02/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
+   file  ../../data-submitted/02/INRA/8 ALFAM_LI94_SURF v5.xlsx 
+Directory  ../../data-submitted/02/MU 
+   file  ../../data-submitted/02/MU/ALFAM2_PoValley-Italy_v7.xlsx 
+Directory  ../../data-submitted/02/NMI-WUR 
+   file  ../../data-submitted/02/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
+Directory  ../../data-submitted/02/SDU 
+   file  ../../data-submitted/02/SDU/ALFAM2_SDU_v4.xlsx 
+Directory  ../../data-submitted/02/TEAGASC 
+   file  ../../data-submitted/02/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
+Directory  ../../data-submitted/02/USDA 
+   file  ../../data-submitted/02/USDA/ALFAM2_USDA.xlsx 
+Directory  ../../data-submitted/02/WUR 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
+
+> cat('Done! Read', length(unique(d2$file)), ' files.\n')
+Done! Read 24  files.
+
+> # Get publication info from sheet 4 in ALFAM2 files
+> ddir <- list.dirs('../../data-submitted/02', recursive = FALSE)
+
+> i <- ddir[1]
+
+> f
+[1] "../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx" 
+[2] "../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx"
+
+> j <- f[1]
+
+> dp2 <- NULL
+
+> for(i in ddir) {
++   cat('Directory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (created  .... [TRUNCATED] 
+Directory  ../../data-submitted/02/AAFC 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2000.xlsx 
+   file  ../../data-submitted/02/AAFC/ALFAM2_Chantigny_2004_2005.xlsx 
+Directory  ../../data-submitted/02/ADAS-RR 
+   file  ../../data-submitted/02/ADAS-RR/ALFAM2_ADAS_RRes_v2.xlsx 
+Directory  ../../data-submitted/02/ARDC 
+   file  ../../data-submitted/02/ARDC/Bittman ALFAM2 v5.xlsx 
+Directory  ../../data-submitted/02/AT 
+   file  ../../data-submitted/02/AT/ALFAM2_AT.xlsx 
+Directory  ../../data-submitted/02/AU 
+   file  ../../data-submitted/02/AU/ALFAM2_AU_v5.xlsx 
+Directory  ../../data-submitted/02/CAU-LU 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU cps and micromet v5.xlsx 
+   file  ../../data-submitted/02/CAU-LU/ALFAM2 CAU-LU FTIR v2.xlsx 
+Directory  ../../data-submitted/02/INH-HAFL 
+   file  ../../data-submitted/02/INH-HAFL/ALFAM2_Switzerland_v2.xlsx 
+Directory  ../../data-submitted/02/INRA 
+   file  ../../data-submitted/02/INRA/1 ALFAM2_96TVNH3_DERVAL(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/2 ALFAM2_96TVNH3_LACHAP(44)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/3 ALFAM2_96TVNH3_TREV(29)_2011 v4.xlsx 
+   file  ../../data-submitted/02/INRA/4 ALFAM2_FR-GRI-2008 v4.xlsx 
+   file  ../../data-submitted/02/INRA/5 ALFAM2_FR-GRI-2009 v5.xlsx 
+   file  ../../data-submitted/02/INRA/6 ALFAM2_FR-GRI-2012 v4.xlsx 
+   file  ../../data-submitted/02/INRA/7 ALFAM2_LI94_INCORP v5.xlsx 
+   file  ../../data-submitted/02/INRA/8 ALFAM_LI94_SURF v5.xlsx 
+Directory  ../../data-submitted/02/MU 
+   file  ../../data-submitted/02/MU/ALFAM2_PoValley-Italy_v7.xlsx 
+Directory  ../../data-submitted/02/NMI-WUR 
+   file  ../../data-submitted/02/NMI-WUR/ALFAM2_NMI-WUR_v3.xlsx 
+Directory  ../../data-submitted/02/SDU 
+   file  ../../data-submitted/02/SDU/ALFAM2_SDU_v4.xlsx 
+Directory  ../../data-submitted/02/TEAGASC 
+   file  ../../data-submitted/02/TEAGASC/ALFAM2_Teagasc_v5.xlsx 
+Directory  ../../data-submitted/02/USDA 
+   file  ../../data-submitted/02/USDA/ALFAM2_USDA.xlsx 
+Directory  ../../data-submitted/02/WUR 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL_arable01_v3.xlsx 
+   file  ../../data-submitted/02/WUR/ALFAM2_data_NL-grass9703_v2.xlsx 
+
+> cat('Done! Read', length(unique(dp2$file)), ' files.\n')
+Done! Read 23  files.
+
+> # Add complete citations
+> d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
+
+> # Stack them
+> # Note order, to avoid time zone problem with app.start
+> d <- rbindf(d2, d1)
+
+> # Write out part
+> write.csv(d, '../../data-output/02/ALFAM_part.csv', row.names = FALSE)
+
+> ## Start here to save time when only the code below has been updated
+> #d <- read.csv('../ouput/ALFAM_part.csv', as.is = TRUE)
+> #d <- fixALFAMCSV(d .... [TRUNCATED] 
+
+> inst2 <- as.character(sort(unique(d$institute[d$database == 2])))
+
+> inst <- c(paste0('1', sprintf('%02d', 1:length(inst1))), paste0('2', sprintf('%02d', 1:length(inst2))))
+
+> names(inst) <- c(inst1, inst2)
+
+> d$inst <- NA
+
+> d$inst <- inst[as.character(d$institute)]
+
+> # Add country 
+> countries <- c(ARDC = 'CA', AAFC = 'CA', ADAS = 'UK', `ADAS-RR` = 'UK', AT = 'DK', AUN = 'NO', AU = 'DK', `CAU-LU` = 'DE', 
++ 	     .... [TRUNCATED] 
+
+> d$country <- countries[d$institute]
+
+> # Set crop area to zero for bare soil
+> d$crop.area[d$crop == 'bare soil'] <- 0
+
+> # When incorp isn't specified, set to none
+> d$notes[is.na(d$incorp)] <- paste(d$notes[is.na(d$incorp)], ' Incorporation (incorp/incorp.orig) not en .... [TRUNCATED] 
+
+> d$incorp[is.na(d$incorp)] <- 'none'
+
+> d$man.trt1[is.na(d$man.trt1)] <- 'none'
+
+> d$man.trt2[is.na(d$man.trt2)] <- 'none'
+
+> # Set missing tillage to none
+> d$till[is.na(d$till)] <- 'No'
+
+> d$till[d$till == ''] <- 'No'
+
+> # Write an institute file
+> itab <- unique(d[, c('inst', 'institute', 'country')])
+
+> itab <- itab[order(itab$inst), ]
+
+> write.csv(itab, 'institutes.csv', row.names = FALSE)
+
+> print(itab)
+      inst institute country
+30355  101      ADAS      UK
+27282  102       AUN      NO
+25292  103      CRPA      IT
+24940  104      DIAS      DK
+28476  105      IGER      UK
+26220  106      IMAG      NL
+27318  107   IUL/FAT      CH
+28388  108       JTI      SE
+14847  201      AAFC      CA
+13376  202   ADAS-RR      UK
+23364  203      ARDC      CA
+14123  204        AT      DK
+14296  205        AU      DK
+11229  206    CAU-LU      DE
+21996  207  INH-HAFL      CH
+1      208      INRA      FR
+18811  209        MU      IT
+18652  210   NMI-WUR      NL
+21138  211       SDU      DK
+22876  212   TEAGASC      IE
+23326  213      USDA      US
+17444  214       WUR      NL
+
+> # Now, after sorting out soil types and simplified application method, add factor level variables, etc.
+> print(dim(d))
+[1] 30907    93
+
+> d <- fixALFAMFactors(d)
+           
+            chamber   cps micro met    wt
+  agm             0     0     10345     0
+  bls             0     0      3335     0
+  chamber       393     0         0     0
+  cps             0  2316         0     0
+  ec              0     0       505     0
+  fides           0     0       401     0
+  ihf             0     0      3016     0
+  micro met       0     0      1981     0
+  wt              0     0         0  8026
+  zinst           0     0       589     0
+
+> print(dim(d))
+[1] 30907   100
+
+> ## If needed, add dummy vars
+> ##d <- addDummyVars(d)
+> 
+> # Leave these!
+> #### Drop all observations with no slurry application
+> ###d <- subsetd( .... [TRUNCATED] 
+[1] 30907   100
+
+> d <- addALFAMVars(d)
+
+> print(dim(d))
+[1] 30907   117
+
+> # Make numeric pid (plot ID), pmid (plot-method ID) and eid (experiment ID)
+> d$pid<- as.integer(factor(d$cpid, levels = sort(unique(d$cpid), method .... [TRUNCATED] 
+
+> d$pmid<- as.integer(factor(d$cpmid, levels = sort(unique(d$cpmid), method = 'radix')))
+
+> d$eid <- as.integer(factor(d$ceid, levels = sort(unique(d$ceid), method = 'radix')))
+
+> # Drop character ids
+> d$cpmid <- d$cpid <- d$ceid <- NULL
+
+> # Sort
+> d <- d[order(d$pmid, d$interval), ]
+
+> # Add numeric observation ID
+> d$oid <- 1:nrow(d)
+
+> # Set NA in notes to blank
+> d$notes[is.na(d$notes)] <- ''
+
+> # Acidification variable
+> d$acid <- grepl('acid', tolower(paste(d$man.trt1, d$man.trt2)))
+
+> # Add warning for old Swiss data
+> d$notes[d$inst == 107] <- paste('Emission error. Emission data are thought to be inaccurate. See ALFAM2 database  .... [TRUNCATED] 
+
+> # Flag (e = error in emission results, d = duplicate observation, a = application problem, m = modeled emission rate)
+> d$flag <- ''
+
+> d$flag[grepl('[Ee]rror', d$notes)] <- 'e'
+
+> d$flag[grepl('[Dd]uplicate', d$notes)] <- 'd' # Should be no duplicates
+
+> d$flag[grepl('Improper injector operation', d$notes)] <- 'a'
+
+> d$flag[grepl('[Mm]odeled flux', d$notes)] <- 'm'
+
+> # Correct measurement techniques for ALFAM(1) data
+> # IGER, info from Tom M
+> d$meas.tech[d$inst == 105 & d$meas.tech == 'micro met'] <- 'ihf'
+
+> # Swiss, info from Thomas K
+> d$meas.tech[d$inst == 106 & d$meas.tech == 'micro met'] <- 'ihf'
+
+> # Dutch, info from Jan H
+> d$meas.tech[d$inst == 107 & d$meas.tech == 'micro met'] <- 'zinst'
+
+> # Sven said DIAS mm results were both IHF and Ferm tube, so we cannot be more specific
+> 
+> # Change temperature measurement heights units to m
+> d$ .... [TRUNCATED] 
+
+> d$soil.temp.z <- d$soil.temp.z/100
+
+> # Add pub id for inst 106
+> d$pub.id[d$inst == 106] <- 1
+
+> # Order and select columns for database distribution
+> d <- d[, c('inst', 'eid', 'pid', 'pmid', 'oid', 
++            'database', 'proj', 'exper', 'e .... [TRUNCATED] 
+
+> # Round numeric columns
+> d <- rounddf(d, 5)
+
+> # Check for duplicates
+> if(sum(duplicated(d[,c('inst', 'plot', 'rep', 'meas.tech', 'ct', 'man.dm', 'man.tan', 'e.rel')])) > 0) {
++   dups <- d[dupl .... [TRUNCATED] 
+
+> # Create database file for release
+> write.csv(d, '../../data-output/02/ALFAM2_interval.csv', row.names = FALSE)
+
+> sink('../../logs/02/ALFAM2_database.txt')

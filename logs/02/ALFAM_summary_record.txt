@@ -1,0 +1,50 @@
+Created ALFAM_plot.csv on [1] "2018-11-08 14:29:35 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2018-11-08 14:44:21 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-02-12 09:45:36 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  151  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-02-12 09:55:33 CET"
+contains data from 22  institutes
+and has  1899  pmid
+and  159  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-10-07 21:55:36 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  159  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-10-07 21:56:44 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2019-10-09 13:48:07 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2020-04-22 15:53:31 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  rows
+and  1899  columns.
+Created ALFAM_plot.csv on [1] "2022-07-07 11:00:15 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  columns
+and  1899  rows
+Created ALFAM_plot.csv on [1] "2022-07-07 11:19:46 EDT"
+contains data from 22  institutes
+and has  1899  pmid
+and  160  columns
+and  1899  rows
