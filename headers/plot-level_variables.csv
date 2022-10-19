@@ -9,6 +9,7 @@ exper,"Experiment code",character,,"Unique within institute only"
 exper2,"Second experiment code",character,,"From ALFAM"
 institute,"Institute abbreviation",character,,
 country,"Country abbreviation",character,,
+submitter,"Name of person who submitted data",character,,
 file,"Name of data file (completed template)",character,,
 first.row.in.file.int,"Location of data within interval/emission sheet within submitted file",integer,,
 last.row.in.file.int,"Location of data within interval/emission sheet within submitted file",integer,,
@@ -39,7 +40,9 @@ meas.tech.orig,"Measurement technique (as entered in template)",character,,
 j.NH31,"Average ammonia flux in first measurement interval",numeric,"kg/(ha-h) as N",
 j.rel1,"Average relative ammonia flux in first measurement interval",numeric,"Fraction of applied TAN per h",
 e.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours",numeric,"kg/ha as N",Interpolated
+e.cum.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours (duplicate of e.1)",numeric,"kg/ha as N",Interpolated
 e.final,"Cumulative emission at the end of the measurements",numeric,"kg/ha as N",
+e.cum.final,"Cumulative emission at the end of the measurements (duplicate of e.cum.final)",numeric,"kg/ha as N",
 e.rel.1,"Relative cumulative emission after 1 h, in general, e.rel.x = same but after x hours",numeric,"Fraction of applied TAN",Interpolated
 e.rel.final,"Relative cumulative emission at the end of the measurements",numeric,"Fraction of applied TAN",
 clay,"Clay content of soil",numeric,Percentage,
@@ -49,6 +52,7 @@ oc,"Organic carbon content of soil",numeric,Percentage,
 soil.type,"Soil type",character,,
 soil.type2,"Soil type (grouped)",character,,
 soil.water,"Soil water",numeric,"Fraction of total volume",
+soil.water.v,"Soil water",numeric,"Fraction of total volume",
 soil.moist,"Soil wetness",character,,
 soil.ph,"Soil pH",numeric,,
 soil.dens,"Soil bulk density",numeric,g/cm3,

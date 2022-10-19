@@ -6,7 +6,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 # Summary
-Checks that all column headers are described.
+Checks that all column headers in the data files are described in the files in the headers directory. 
 
 # Header check
 
@@ -20,10 +20,20 @@ idat <- data.table::fread('../../data-output/03/ALFAM2_interval.csv.gz')
 pdat <- data.table::fread('../../data-output/03/ALFAM2_plot.csv.gz')
 ```
 
+Variables `e.6` and similar are described as `e.x` in the description columns in the rows for `e.6` etc.
+Here, drop them.
+
+```{r}
+names(pdat) <- gsub('\\.[0-9]+$', '\\.(time)', names(pdat))
+phead$Name <- gsub('\\.[0-9]+$', '\\.(time)', phead$Name)
+```
+
 Missing in plot-level header file.
 ```{r}
-names(pdat)[!names(pdat) %in% phead$Name]
+unique(names(pdat))[!unique(names(pdat)) %in% phead$Name]
 ```
+
+If results is `character(0`, none are missing.
 
 No longer used--remove from plot-level header file.
 ```{r}
@@ -39,8 +49,6 @@ No longer used--remove from interval-level header file.
 ```{r}
 ihead$Name[!ihead$Name %in% names(idat)]
 ```
-
-Note that `e.6` and similar variables are described as `e.x` in the description columns.
 
 
 
