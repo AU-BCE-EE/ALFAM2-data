@@ -25,7 +25,6 @@ ggplot(dd, aes(x = x, y = log10(j.NH3.norm), xend = xend, yend = log10(j.NH3.nor
   coord_cartesian(ylim = c(-5, 0), xlim = c(5.5, 120)) +
   labs(x = 'Time since application (h)', y = expression('Log'[10]~'rel. flux'~(hr^'-1')), colour = '') +
   theme_bw() +
-  xlim(0, 120) +
   theme(legend.position = 'none')
 ggsave('../plots/ALFAM2_flux_summary.png', height = 2.3, width = 7)
 ggsave('../plots/ALFAM2_flux_summary.pdf', height = 3.3, width = 7)
