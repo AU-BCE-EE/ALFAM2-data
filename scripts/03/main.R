@@ -11,7 +11,7 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.11' # 22 Sept 2022
+version <- '2.12' # Nov 2022
 
 # Create all html log files (otherwise just missing ones)?
 alllogs <- FALSE
@@ -27,6 +27,7 @@ sink('../../logs/03/make_database_log.txt')
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
+  source('log_pages.R', echo = FALSE)
   source('flags.R', echo = TRUE)
   source('stack_new.R', echo = TRUE)
   source('add_ID.R', echo = TRUE)

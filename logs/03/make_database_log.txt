@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-09-22 15:44:24 EDT"
+[1] "2022-11-09 17:09:12 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -205,6 +205,33 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 +   for (j in names(dat[[i]])) {
 + 
 +     # Check for errors and creat .... [TRUNCATED] 
+
+> # Creates log pages stuff
+> 
+> # Remove all files from docs
+> log.list <- list.files('../../docs/', full.names = TRUE)
+
+> file.remove(log.list)
+ [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+
+> # Copy all html logs into docs
+> log.list <- list.files('../../logs/03/html/', full.names = TRUE)
+
+> file.copy(log.list, '../../docs/', overwrite = TRUE)
+ [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+
+> # List of log files
+> log.list <- list.files('../../docs/')
+
+> # Remove extension for link names
+> log.list <- gsub('\\.html', '', log.list)
+
+> log.list <- log.list[!grepl('^index', log.list)]
+
+> # Create index with links to all logs
+> sink('../../docs/index.html')
 
 > # Sort out int- and plot-level flags
 > 
