@@ -51,18 +51,25 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   cat('  Plots . . .')
   if (tempver < 6) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
-                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
-  } else {
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+  } else if (tempver < 7) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
-                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+  } else {
+    nms <- c('proj', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 'soil.samp.z', 
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
   }
 
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
