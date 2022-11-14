@@ -55,3 +55,9 @@ idat = pd.read_csv('ALFAM2_interval.csv.gz')
 ```
 
 For some more information, see the `analysis` directory.
+
+# Submitting data
+To inquire about submitting data to the ALFAM2 dataset, send a message to `sasha.hafner AT bce.au.dk` through email or else used [this form](https://sites.google.com/hafnerconsulting.com/hafnerconsulting/contact?authuser=0).
+
+# Checking data
+To check submitted data, find your completed template file in [this list](https://sashahafner.github.io/ALFAM2-data/) and follow the instructions you will see at the top of the linked file.
