@@ -785,47 +785,47 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## air.temp.4  numeric, range: 1 32.62 
-## Missing values: 1911 
+## Missing values: 1907 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.6  numeric, range: -2.9688 35 
-## Missing values: 324 
+## Missing values: 320 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.12  numeric, range: -2.8371 35.505 
-## Missing values: 294 
+## Missing values: 288 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.24  numeric, range: -4.1838 28.927 
-## Missing values: 268 
+## Missing values: 262 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.48  numeric, range: -3.9696 29.125 
-## Missing values: 269 
+## Missing values: 263 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.72  numeric, range: -3.5854 29.75 
-## Missing values: 224 
+## Missing values: 218 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.96  numeric, range: 0.73273 28.158 
-## Missing values: 1905 
+## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.168  numeric, range: 1.0756 28.158 
-## Missing values: 1905 
+## Missing values: 1899 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.mn  numeric, range: -3.5964 29.75 
-## Missing values: 232 
+## Missing values: 226 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -849,7 +849,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 1.5
 ## 
 ## 1.8 
-## Missing values: 308 
+## Missing values: 302 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1033,47 +1033,47 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## wind.4  numeric, range: 0.1 5 
-## Missing values: 1945 
+## Missing values: 1941 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.6  numeric, range: 0.1 16.022 
-## Missing values: 237 
+## Missing values: 233 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.12  numeric, range: 0.1 16.022 
-## Missing values: 209 
+## Missing values: 203 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.24  numeric, range: 0.1 9.5 
-## Missing values: 185 
+## Missing values: 179 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.48  numeric, range: 0.1 10.991 
-## Missing values: 185 
+## Missing values: 179 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.72  numeric, range: 0.1 10.991 
-## Missing values: 134 
+## Missing values: 128 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.96  numeric, range: 0.1 4.0546 
-## Missing values: 1939 
+## Missing values: 1933 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.168  numeric, range: 0.1 3.9372 
-## Missing values: 1939 
+## Missing values: 1933 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.mn  numeric, range: 0.10794 19.939 
-## Missing values: 107 
+## Missing values: 101 
 ## 
 ## 
 ## -----------------------------------------------------
