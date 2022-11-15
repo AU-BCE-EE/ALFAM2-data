@@ -11,7 +11,7 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.12' # Nov 2022
+version <- '2.13' # Nov 2022
 
 # Create all html log files (otherwise just missing ones)?
 alllogs <- FALSE

@@ -541,7 +541,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  22 rows and 229 columns
+##  22 rows and 230 columns
 ##  22 unique rows
 ##                    institute
 ## Class              character
@@ -559,7 +559,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                                   <NA>
 ## Unique (excld. NA)                                                                                                                                                                       22
 ## Missing values                                                                                                                                                                            0
-## Sorted                                                                                                                                                                                FALSE
+## Sorted                                                                                                                                                                                 TRUE
 ##                                                                                                                                                                                            
 ##                       pub.id      proj     exper       field      plot
 ## Class              character character character   character character
@@ -568,7 +568,7 @@ title: 'Submitted data summary'
 ## Mean                    <NA>      <NA>      <NA>        <NA>      <NA>
 ## Unique (excld. NA)         0         1         3           1         9
 ## Missing values            22         0         0           0         0
-## Sorted                  <NA>      TRUE     FALSE        TRUE     FALSE
+## Sorted                  <NA>      TRUE      TRUE        TRUE     FALSE
 ##                                                                       
 ##                          rep plot.area     lat    long   country      topo
 ## Class              character   numeric numeric numeric character character
@@ -586,7 +586,7 @@ title: 'Submitted data summary'
 ## Mean                     9      24      65    <NA>      <NA>      0.232
 ## Unique (excld. NA)       1       1       1       0         0          2
 ## Missing values           0       0       0      22        22          0
-## Sorted                TRUE    TRUE    TRUE    <NA>      <NA>      FALSE
+## Sorted                TRUE    TRUE    TRUE    <NA>      <NA>       TRUE
 ##                                                                        
 ##                    soil.water.v soil.moist soil.ph soil.dens  crop.res
 ## Class                   numeric  character numeric   numeric character
@@ -640,7 +640,7 @@ title: 'Submitted data summary'
 ## Mean                  7.84 2021-10-06 21:44:38 2021-10-06 21:44:38       <NA>
 ## Unique (excld. NA)       2                  22                  22          1
 ## Missing values           0                   0                   0          0
-## Sorted               FALSE               FALSE               FALSE       TRUE
+## Sorted                TRUE               FALSE               FALSE       TRUE
 ##                                                                              
 ##                    app.rate app.rate.unit    incorp time.incorp man.area
 ## Class               numeric     character character     numeric  numeric
@@ -703,7 +703,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                   <NA>
 ## Unique (excld. NA)                                                                                                                                                       22
 ## Missing values                                                                                                                                                            0
-## Sorted                                                                                                                                                                FALSE
+## Sorted                                                                                                                                                                 TRUE
 ##                                                                                                                                                                            
 ##                                        ceid flag.plot         submitter tan.app
 ## Class                             character character         character numeric
@@ -712,7 +712,7 @@ title: 'Submitted data summary'
 ## Mean                                   <NA>      <NA>              <NA>    66.4
 ## Unique (excld. NA)                        3         1                 1       3
 ## Missing values                            0         0                 0       0
-## Sorted                                FALSE      TRUE              TRUE   FALSE
+## Sorted                                 TRUE      TRUE              TRUE   FALSE
 ##                                                                                
 ##                        e.1     e.4     e.6    e.12    e.24    e.48    e.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
@@ -928,7 +928,7 @@ title: 'Submitted data summary'
 ## Mean                  <NA>                  1430                 1560    <NA>
 ## Unique (excld. NA)       0                    22                   22       4
 ## Missing values          22                     0                    0       0
-## Sorted                <NA>                 FALSE                FALSE   FALSE
+## Sorted                <NA>                  TRUE                 TRUE   FALSE
 ##                                                                              
 ##                        dt1  j.rel1  j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric numeric numeric numeric numeric numeric numeric
@@ -937,7 +937,7 @@ title: 'Submitted data summary'
 ## Mean                  1.48  0.0281    1.92    1.48    1.48    1.48     193
 ## Unique (excld. NA)       2      22      22       2       2       2       4
 ## Missing values           0       0       0       0       0       0       0
-## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+## Sorted                TRUE   FALSE   FALSE    TRUE    TRUE    TRUE   FALSE
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
@@ -975,23 +975,23 @@ title: 'Submitted data summary'
 ## Missing values                   0                            0           0
 ## Sorted                        TRUE                         TRUE        TRUE
 ##                                                                            
-##                    incorp.orig date.start  flag.int    inst     eid     pid
-## Class                character       Date character numeric integer integer
-## Minimum                   None 2021-08-11               205     343    1900
-## Maximum                   None 2022-01-05               205     346    1921
-## Mean                      <NA>       <NA>      <NA>     205    <NA>    <NA>
-## Unique (excld. NA)           1          3         1       1       3      22
-## Missing values               0          0         0       0       0       0
-## Sorted                    TRUE      FALSE      TRUE    TRUE   FALSE   FALSE
-##                                                                            
-##                       pmid
-## Class              integer
-## Minimum               1904
-## Maximum               1925
-## Mean                  <NA>
-## Unique (excld. NA)      22
-## Missing values           0
-## Sorted               FALSE
+##                    incorp.orig date.start  flag.int soil.samp.z    inst     eid
+## Class                character       Date character     numeric numeric integer
+## Minimum                   None 2021-08-11                  <NA>     205     343
+## Maximum                   None 2022-01-05                  <NA>     205     346
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
+## Unique (excld. NA)           1          3         1           0       1       3
+## Missing values               0          0         0          22       0       0
+## Sorted                    TRUE       TRUE      TRUE        <NA>    TRUE    TRUE
+##                                                                                
+##                        pid    pmid
+## Class              integer integer
+## Minimum               1900    1904
+## Maximum               1921    1925
+## Mean                  <NA>    <NA>
+## Unique (excld. NA)      22      22
+## Missing values           0       0
+## Sorted                TRUE    TRUE
 ## 
 ```
 
