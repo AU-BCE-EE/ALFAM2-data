@@ -24,7 +24,7 @@ for (i in names(dat)) {
     #}
 
     # Skip if log file already exists unless all were requested
-    if (!file.exists(paste0('../../logs/03/html/', fn)) | alllogs) { 
+    if (!file.exists(paste0('../../logs/03/html/', fn, '.html')) | alllogs) { 
       options(warn = 1) 
       render('check_sub.Rmd', output_file = fn, output_dir = '../../logs/03/html/', quiet = TRUE)
       options(warn = 2) 
