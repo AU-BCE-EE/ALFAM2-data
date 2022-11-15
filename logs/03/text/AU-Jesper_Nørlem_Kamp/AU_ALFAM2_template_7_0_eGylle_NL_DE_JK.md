@@ -399,7 +399,54 @@ title: 'Submitted data summary'
 ## 
 ## air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   
 ## 
-## air.temp.mn  vs. pmid
+## air.temp.mn  vs. pmid 
+##      +-----------+------------------+------------------+-------+
+## 1944 +  *                                                      +
+##      |                                                         |
+## 1943 +  *                                                      +
+##      |                                                         |
+##      |                                                         |
+## 1942 +  *                                                      +
+##      |                                                         |
+## 1941 +                                                      *  +
+##      |                                                         |
+##      |                                                         |
+## 1940 +                                                      *  +
+##      |                                                         |
+## 1939 +                                                      *  +
+##      +-----------+------------------+------------------+-------+
+##                 10                 15                 20        
+## 
+## air.temp.mn  vs. row.in.file.plot 
+##     +-----------+-------------------+------------------+-------+
+##   6 +  *                                                       +
+##     |                                                          |
+## 5.8 +                                                          +
+##     |                                                          |
+##     |                                                          |
+## 5.6 +                                                          +
+##     |                                                          |
+## 5.4 +                                                          +
+##     |                                                          |
+##     |                                                          |
+## 5.2 +                                                          +
+##     |                                                          |
+##   5 +                                                       *  +
+##     +-----------+-------------------+------------------+-------+
+##                10                  15                 20        
+## 
+## stem and leaf plot of  air.temp.mn 
+## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   0 | 888
+##   1 | 
+##   1 | 
+##   2 | 111
+## 
+## wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   
+## 
+## wind.2m.mn  vs. pmid
 ```
 
 ```
@@ -648,21 +695,21 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                    air.temp.1 air.temp.4 air.temp.6 air.temp.12 air.temp.24
 ## Class                 numeric    numeric    numeric     numeric     numeric
-## Minimum                  <NA>       <NA>       <NA>        <NA>        <NA>
-## Maximum                  <NA>       <NA>       <NA>        <NA>        <NA>
-## Mean                     <NA>       <NA>       <NA>        <NA>        <NA>
-## Unique (excld. NA)          0          0          0           0           0
-## Missing values              6          6          6           6           6
-## Sorted                   <NA>       <NA>       <NA>        <NA>        <NA>
+## Minimum                  <NA>        9.3        9.3        9.97        7.03
+## Maximum                  <NA>       16.1       16.5        16.5        13.4
+## Mean                     <NA>         11       11.1        13.2        10.2
+## Unique (excld. NA)          0          2          2           3           3
+## Missing values              6          2          2           0           0
+## Sorted                   <NA>      FALSE      FALSE       FALSE       FALSE
 ##                                                                            
 ##                    air.temp.48 air.temp.72 air.temp.96 air.temp.168 air.temp.mn
 ## Class                  numeric     numeric     numeric      numeric     numeric
-## Minimum                   <NA>        <NA>        <NA>         <NA>        <NA>
-## Maximum                   <NA>        <NA>        <NA>         <NA>        <NA>
-## Mean                      <NA>        <NA>        <NA>         <NA>        <NA>
-## Unique (excld. NA)           0           0           0            0           0
-## Missing values               6           6           6            6           6
-## Sorted                    <NA>        <NA>        <NA>         <NA>        <NA>
+## Minimum                   7.29        7.41        7.41          7.5         7.5
+## Maximum                   13.3        13.5        14.1         14.7        21.4
+## Mean                      10.3        10.5        10.7         11.1        14.5
+## Unique (excld. NA)           4           4           4            4           4
+## Missing values               0           0           0            0           0
+## Sorted                   FALSE       FALSE       FALSE        FALSE       FALSE
 ##                                                                                
 ##                    soil.temp.1 soil.temp.4 soil.temp.6 soil.temp.12
 ## Class                  numeric     numeric     numeric      numeric
@@ -711,21 +758,21 @@ title: 'Submitted data summary'
 ##                                                                         
 ##                    soil.temp.surf.168 soil.temp.surf.mn  wind.1  wind.4  wind.6
 ## Class                         numeric           numeric numeric numeric numeric
-## Minimum                          <NA>              <NA>    <NA>    <NA>    <NA>
-## Maximum                          <NA>              <NA>    <NA>    <NA>    <NA>
-## Mean                             <NA>              <NA>    <NA>    <NA>    <NA>
-## Unique (excld. NA)                  0                 0       0       0       0
-## Missing values                      6                 6       6       6       6
-## Sorted                           <NA>              <NA>    <NA>    <NA>    <NA>
+## Minimum                          <NA>              <NA>    <NA>    2.72    2.72
+## Maximum                          <NA>              <NA>    <NA>    2.73    2.98
+## Mean                             <NA>              <NA>    <NA>    2.72    2.78
+## Unique (excld. NA)                  0                 0       0       2       2
+## Missing values                      6                 6       6       2       2
+## Sorted                           <NA>              <NA>    <NA>   FALSE   FALSE
 ##                                                                                
 ##                    wind.12 wind.24 wind.48 wind.72 wind.96 wind.168 wind.mn
 ## Class              numeric numeric numeric numeric numeric  numeric numeric
-## Minimum               <NA>    <NA>    <NA>    <NA>    <NA>     <NA>    <NA>
-## Maximum               <NA>    <NA>    <NA>    <NA>    <NA>     <NA>    <NA>
-## Mean                  <NA>    <NA>    <NA>    <NA>    <NA>     <NA>    <NA>
-## Unique (excld. NA)       0       0       0       0       0        0       0
-## Missing values           6       6       6       6       6        6       6
-## Sorted                <NA>    <NA>    <NA>    <NA>    <NA>     <NA>    <NA>
+## Minimum                2.5    1.54    1.31    1.36    1.24     1.78    1.78
+## Maximum               3.18    1.88    1.41    1.42    1.42     2.08    3.33
+## Mean                  2.83     1.7    1.36    1.39    1.34     1.93    2.55
+## Unique (excld. NA)       3       3       4       4       4        4       4
+## Missing values           0       0       0       0       0        0       0
+## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE    FALSE   FALSE
 ##                                                                            
 ##                    wind.2m.1 wind.2m.4 wind.2m.6 wind.2m.12 wind.2m.24
 ## Class                numeric   numeric   numeric    numeric    numeric
@@ -810,12 +857,12 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
-## Minimum            2021-08-20 11:05:00 2021-08-29 08:13:00       <NA>
-## Maximum            2021-09-11 10:20:00 2021-12-11 08:55:00       <NA>
-## Mean               2021-08-31 10:47:30 2021-10-20 09:22:40       <NA>
-## Unique (excld. NA)                   4                   4          0
-## Missing values                       0                   0          6
-## Sorted                            TRUE               FALSE       <NA>
+## Minimum            2021-08-20 11:05:00 2021-08-29 08:13:00          2
+## Maximum            2021-11-09 10:20:00 2021-11-12 08:55:00          2
+## Mean               2021-09-29 22:47:30 2021-10-05 21:22:40       <NA>
+## Unique (excld. NA)                   4                   4          1
+## Missing values                       0                   0          0
+## Sorted                            TRUE               FALSE       TRUE
 ##                                                                      
 ##                    soil.temp.z  wind.z  wind.loc far.loc  pub.info soil.type2
 ## Class                character numeric character numeric character    logical
@@ -847,7 +894,7 @@ title: 'Submitted data summary'
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     eid
 ## Class                character       Date character     numeric numeric integer
 ## Minimum                   None 2021-08-20                     9     205     348
-## Maximum                   None 2021-09-11       m i          16     205     349
+## Maximum                   None 2021-11-09       m i          16     205     349
 ## Mean                      <NA>       <NA>      <NA>        12.5     205    <NA>
 ## Unique (excld. NA)           1          2         2           2       1       2
 ## Missing values               0          0         0           0       0       0
