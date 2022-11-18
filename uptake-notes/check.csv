@@ -1,19 +1,19 @@
-                                                                file,check
-                 data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx,FALSE
-                 data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx,FALSE
-data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx,FALSE
-       data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx,FALSE
-       data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx,FALSE
-      data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx,FALSE
-       data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx,FALSE
-      data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx,FALSE
-  data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx,FALSE
-   data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx,FALSE
-     data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx,FALSE
-  data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx,FALSE
-           data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx,FALSE
-              data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx,FALSE
-      data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx,FALSE
-                data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx,FALSE
-         data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013.xlsx,FALSE
-data-submitted/03/AU/JNK drafts/ALFAM2_template_6_1_eGylle_NL_DE_JK.xlsx,FALSE
+                                                                    file,check,       date,date.create, ver,commit
+                     data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx,FALSE,           ,           ,    ,
+                     data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx,FALSE,           ,           ,    ,
+    data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx,FALSE,           ,           ,    ,
+           data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx,FALSE,           ,           ,    ,
+           data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx,FALSE,           ,           ,    ,
+          data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx,FALSE,           ,           ,    ,
+           data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx,FALSE,           ,           ,    ,
+          data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx,FALSE,           ,           ,    ,
+      data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx,FALSE,           ,           ,    ,
+       data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx,FALSE,           ,           ,    ,
+         data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx,FALSE,           ,           ,    ,
+      data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx,FALSE,           ,           ,    ,
+               data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx,FALSE,           ,           ,    ,
+                  data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx,FALSE,           ,           ,    ,
+          data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx,FALSE,           ,           ,    ,
+                    data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx,FALSE,           ,           ,    ,
+             data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013.xlsx,FALSE,           ,           ,    ,
+data-submitted/03/AU/JNK drafts/ALFAM2_template_6_1_eGylle_NL_DE_JK.xlsx, TRUE,17 Nov 2022,15 Nov 2022,2.13,1e7b702eb50b0b5bc56fc065d11d9a01bd3d2e22

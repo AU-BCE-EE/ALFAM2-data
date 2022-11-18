@@ -7,6 +7,15 @@ output:
 
 # 0. Instructions for submitters
 Submitters should use this file to check for problems with submitted data.
+Send either a list of problems or confirmation that everything looks OK to Sasha by email.
+Be sure to reference the dataset version and file creation date/time when doing so.
+These are:
+
+```{r, echo = FALSE}
+cat('Version: ', version, '\n')
+print(paste('Date/time:', Sys.time()))
+```
+
 Each of these html files contains a summary of the data from a single submitted spreadsheet file.
 The html name is based on the name of the submitted file.
 Use the details below to check:
@@ -31,6 +40,7 @@ kable(dat[[i]][[j]]$submitter[, -1], row.names = FALSE)
 ```{r, echo = FALSE}
 kable(dat[[i]][[j]]$contrib, row.names = FALSE)
 ```
+
 # 3. File and directory names
 ```{r, echo = FALSE}
 print(i)
@@ -424,11 +434,29 @@ if (any(is.na(plots$meas.tech))) {
 ## Calculated cumulative emission
 Cumulative emission.
 Missing values imputed (linear interpolation).
+Numeric labels show position of data in data file: row in the "Plots" sheet and first row in the "Emission" sheet.
+Labels in center of the first plot have measurement method, manure source, and application method.
+The same emission data are plotted a few different ways to facilitate checking for problems, e.g., comparing plot to each other or checking application dates.
+The same colors should be be used for particular field plots throughout this section. 
 
 ```{r, echo=FALSE}
 d$first.rows <- factor(paste('Plots', d$row.plot, 'Emis.', d$first.row))
 
-ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+p1 <- ggplot(d, aes(ct, e.rel, colour = first.rows)) + 
+  geom_line() + geom_point() + 
+  theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+
+ylim <- layer_scales(p1)$y$get_limits()
+xlim <- layer_scales(p1)$x$get_limits()
+xl <- mean(xlim)
+yl <- mean(ylim)
+
+dl <- unique(d[, c('first.rows', 'meas.tech', 'man.source', 'app.method')])
+dl <- cbind(x = xl, y = yl, dl)
+
+p1 + geom_text(data = dl, aes(x = x, y = y, label = paste(meas.tech, man.source, app.method, sep = ', '))) +
+  geom_line() + geom_point() 
+
 ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
 
 if (!(all(is.na(d$cta)))) {
