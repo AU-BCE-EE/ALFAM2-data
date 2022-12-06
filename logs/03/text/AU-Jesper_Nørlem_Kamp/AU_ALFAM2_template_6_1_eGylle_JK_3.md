@@ -715,10 +715,10 @@ title: 'Submitted data summary'
 ##                                                                                                                                                                               
 ##                                            ceid flag.plot          submitter
 ## Class                                 character character          character
-## Minimum            D:1.I:AU.Pr:eGylle.E:eGylle1           Jesper Nørlem Kamp
+## Minimum            D:1.I:AU.Pr:eGylle.E:eGylle1       m i Jesper Nørlem Kamp
 ## Maximum            D:1.I:AU.Pr:eGylle.E:eGylle4       m i Jesper Nørlem Kamp
 ## Mean                                       <NA>      <NA>               <NA>
-## Unique (excld. NA)                            4         2                  1
+## Unique (excld. NA)                            4         1                  1
 ## Missing values                                0         0                  0
 ## Sorted                                     TRUE      TRUE               TRUE
 ##                                                                             
@@ -985,10 +985,10 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     eid
 ## Class                character       Date character     numeric numeric integer
-## Minimum                   None 2021-08-09                  <NA>     205     347
+## Minimum                   None 2021-08-09       m i        <NA>     205     347
 ## Maximum                   None 2022-01-04       m i        <NA>     205     350
 ## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
-## Unique (excld. NA)           1          4         2           0       1       4
+## Unique (excld. NA)           1          4         1           0       1       4
 ## Missing values               0          0         0           4       0       0
 ## Sorted                    TRUE       TRUE      TRUE        <NA>    TRUE    TRUE
 ##                                                                                
