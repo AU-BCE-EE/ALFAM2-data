@@ -51,18 +51,25 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   cat('  Plots . . .')
   if (tempver < 6) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
-                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
-  } else {
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+  } else if (tempver < 7) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-                      'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-                      'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
-                      'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-                      'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-                      'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+  } else {
+    nms <- c('proj', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 'soil.samp.z', 
+             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
+             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
+             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
+             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
+             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
   }
 
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
@@ -115,7 +122,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   }
   pubs <- data.frame(pubs)
 
-  return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file))
+  return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file, tempver = tempver))
 
 }
 
@@ -446,9 +453,11 @@ addVars <- function(dat) {
 getVars <- function(obj) {
 
   # NTS: cut these extraction lines not needed below
+  exper <- obj$exper
   plots <- obj$plots
   emis <- obj$emis
   pubs <- obj$pubs
+  tempver <- obj$tempver
 
   # Pull out some stuff from the emission data
   # All by cpmid
@@ -476,6 +485,10 @@ getVars <- function(obj) {
   plots <- merge(plots, pld, by = 'cpmid')
 
   # Pub info
+  if (tempver >= 7) {
+    plots <- merge(plots, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
+    emis <- merge(emis, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
+  }
   plots <- merge(plots, pubs, by = 'pub.id', all.x = TRUE)
   emis <- merge(emis, pubs, by = 'pub.id', all.x = TRUE)
 

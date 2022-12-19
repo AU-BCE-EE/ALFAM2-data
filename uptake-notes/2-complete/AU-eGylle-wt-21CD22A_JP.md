@@ -25,3 +25,9 @@ I don't think application rate has been resolved.
 # 10 August 2022
 JP confirmed application rate by email today.
 
+# 19 Dec 2022
+Noticed a few issues that are not actually problems after seeing answers from JP.
+Documenting here.
+
+* Emission is kg given as NH3 (not N). Other submissions are kg N. Just inconsistent, no error in reported values (they are actually kg NH3 not N).
+* Entered emission rate is from trapezoidal method, so it effectively accounts for fact that rate was measured at start of interval. So it *is* appropriate to interprete values as average over the reported intervals.

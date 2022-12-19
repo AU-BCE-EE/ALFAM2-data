@@ -21,19 +21,19 @@ title: 'Submitted data summary'
 ## 
 ## e.cum.final  vs. pmid 
 ##      +---------------+----------------+---------------+--------+
-## 2224 +    *                                                    +
+## 2230 +    *                                                    +
 ##      |                                                         |
-## 2223 +  *                                                      +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                                           *             +
-##      |                                                         |
-## 2221 +                           *                             +
+## 2229 +  *                                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                             *                           +
+## 2228 +                                           *             +
 ##      |                                                         |
-## 2219 +                                                      *  +
+## 2227 +                           *                             +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                             *                           +
+##      |                                                         |
+## 2225 +                                                      *  +
 ##      +---------------+----------------+---------------+--------+
 ##                     20               25              30         
 ## 
@@ -68,19 +68,19 @@ title: 'Submitted data summary'
 ## 
 ## e.rel.final  vs. pmid 
 ##      +-+-------------+-------------+--------------+------------+
-## 2224 +         *                                               +
+## 2230 +         *                                               +
 ##      |                                                         |
-## 2223 +  *                                                      +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                                                     *   +
-##      |                                                         |
-## 2221 +                  *                                      +
+## 2229 +  *                                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                                      *                  +
+## 2228 +                                                     *   +
 ##      |                                                         |
-## 2219 +                                          *              +
+## 2227 +                  *                                      +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                                      *                  +
+##      |                                                         |
+## 2225 +                                          *              +
 ##      +-+-------------+-------------+--------------+------------+
 ##      0.08           0.1          0.12           0.14            
 ## 
@@ -115,19 +115,19 @@ title: 'Submitted data summary'
 ## 
 ## app.rate  vs. pmid 
 ##      +-+----------+----------+----------+----------+----------++
-## 2224 +  *                                                      +
+## 2230 +  *                                                      +
 ##      |                                                         |
-## 2223 +                                                      *  +
-##      |                                                         |
-##      |                                                         |
-## 2222 +  *                                                      +
-##      |                                                         |
-## 2221 +                                                      *  +
+## 2229 +                                                      *  +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +  *                                                      +
+## 2228 +  *                                                      +
 ##      |                                                         |
-## 2219 +                                                      *  +
+## 2227 +                                                      *  +
+##      |                                                         |
+##      |                                                         |
+## 2226 +  *                                                      +
+##      |                                                         |
+## 2225 +                                                      *  +
 ##      +-+----------+----------+----------+----------+----------++
 ##        0         10         20         30         40         50 
 ## 
@@ -163,19 +163,19 @@ title: 'Submitted data summary'
 ## 
 ## man.dm  vs. pmid 
 ##      +-------+-----------+----------+-----------+----------+---+
-## 2224 +                                                     *   +
+## 2230 +                                                     *   +
 ##      |                                                         |
-## 2223 +  *                                                      +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                                                     *   +
-##      |                                                         |
-## 2221 +  *                                                      +
+## 2229 +  *                                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                                                     *   +
+## 2228 +                                                     *   +
 ##      |                                                         |
-## 2219 +  *                                                      +
+## 2227 +  *                                                      +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                                                     *   +
+##      |                                                         |
+## 2225 +  *                                                      +
 ##      +-------+-----------+----------+-----------+----------+---+
 ##             20          40         60          80         100   
 ## 
@@ -212,19 +212,19 @@ title: 'Submitted data summary'
 ## 
 ## man.ph  vs. pmid 
 ##      +--+------------+-----------+------------+------------+---+
-## 2223 +                           *                             +
+## 2229 +                           *                             +
 ##      |                                                         |
 ##      |                                                         |
-## 2222 +                                                         +
+## 2228 +                                                         +
 ##      |                                                         |
 ##      |                                                         |
-## 2221 +  *                                                      +
+## 2227 +  *                                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                                                         +
+## 2226 +                                                         +
 ##      |                                                         |
 ##      |                                                         |
-## 2219 +                                                     *   +
+## 2225 +                                                     *   +
 ##      +--+------------+-----------+------------+------------+---+
 ##        8.4         8.45         8.5         8.55          8.6   
 ## 
@@ -260,19 +260,19 @@ title: 'Submitted data summary'
 ## 
 ## man.tan  vs. pmid 
 ##      +-+----------+-----------+----------+----------+----------+
-## 2224 +                                                     *   +
+## 2230 +                                                     *   +
 ##      |                                                         |
-## 2223 +  *                                                      +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                                                     *   +
-##      |                                                         |
-## 2221 +  *                                                      +
+## 2229 +  *                                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                                                     *   +
+## 2228 +                                                     *   +
 ##      |                                                         |
-## 2219 +  *                                                      +
+## 2227 +  *                                                      +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                                                     *   +
+##      |                                                         |
+## 2225 +  *                                                      +
 ##      +-+----------+-----------+----------+----------+----------+
 ##        0         100         200        300        400          
 ## 
@@ -308,19 +308,19 @@ title: 'Submitted data summary'
 ## 
 ## tan.app  vs. pmid 
 ##      +--------+-----------+----------+----------+----------+---+
-## 2224 +  *                                                      +
+## 2230 +  *                                                      +
 ##      |                                                         |
-## 2223 +                  *                                      +
-##      |                                                         |
-##      |                                                         |
-## 2222 +  *                                                      +
-##      |                                                         |
-## 2221 +                                                     *   +
+## 2229 +                  *                                      +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +  *                                                      +
+## 2228 +  *                                                      +
 ##      |                                                         |
-## 2219 +                                                     *   +
+## 2227 +                                                     *   +
+##      |                                                         |
+##      |                                                         |
+## 2226 +  *                                                      +
+##      |                                                         |
+## 2225 +                                                     *   +
 ##      +--------+-----------+----------+----------+----------+---+
 ##              190         200        210        220        230   
 ## 
@@ -357,19 +357,19 @@ title: 'Submitted data summary'
 ## 
 ## ct.max  vs. pmid 
 ##      +--+--------+---------+--------+---------+--------+-------+
-## 2224 +                                        *                +
+## 2230 +                                        *                +
 ##      |                                                         |
-## 2223 +                                        *                +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                                                      *  +
-##      |                                                         |
-## 2221 +                                                      *  +
+## 2229 +                                        *                +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +  *                                                      +
+## 2228 +                                                      *  +
 ##      |                                                         |
-## 2219 +  *                                                      +
+## 2227 +                                                      *  +
+##      |                                                         |
+##      |                                                         |
+## 2226 +  *                                                      +
+##      |                                                         |
+## 2225 +  *                                                      +
 ##      +--+--------+---------+--------+---------+--------+-------+
 ##        78       80        82       84        86       88        
 ## 
@@ -403,19 +403,19 @@ title: 'Submitted data summary'
 ## 
 ## air.temp.mn  vs. pmid 
 ##      +----+---------+----------+----------+---------+----------+
-## 2224 +                                               *         +
+## 2230 +                                               *         +
 ##      |                                                         |
-## 2223 +                                               *         +
-##      |                                                         |
-##      |                                                         |
-## 2222 +  *                                                      +
-##      |                                                         |
-## 2221 +  *                                                      +
+## 2229 +                                               *         +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                                                      *  +
+## 2228 +  *                                                      +
 ##      |                                                         |
-## 2219 +                                                      *  +
+## 2227 +  *                                                      +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                                                      *  +
+##      |                                                         |
+## 2225 +                                                      *  +
 ##      +----+---------+----------+----------+---------+----------+
 ##          15        16         17         18        19         20
 ## 
@@ -452,19 +452,19 @@ title: 'Submitted data summary'
 ## 
 ## wind.2m.mn  vs. pmid 
 ##      +--------+--------+--------+--------+---------+--------+--+
-## 2224 +                                                     *   +
+## 2230 +                                                     *   +
 ##      |                                                         |
-## 2223 +                                                     *   +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                      *                                  +
-##      |                                                         |
-## 2221 +                      *                                  +
+## 2229 +                                                     *   +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +  *                                                      +
+## 2228 +                      *                                  +
 ##      |                                                         |
-## 2219 +  *                                                      +
+## 2227 +                      *                                  +
+##      |                                                         |
+##      |                                                         |
+## 2226 +  *                                                      +
+##      |                                                         |
+## 2225 +  *                                                      +
 ##      +--------+--------+--------+--------+---------+--------+--+
 ##              1.8       2       2.2      2.4       2.6      2.8  
 ## 
@@ -498,19 +498,19 @@ title: 'Submitted data summary'
 ## 
 ## rain.rate.mn  vs. pmid 
 ##      +-------------+--------------+--------------+-------------+
-## 2224 +                            *                            +
+## 2230 +                            *                            +
 ##      |                                                         |
-## 2223 +                            *                            +
-##      |                                                         |
-##      |                                                         |
-## 2222 +                            *                            +
-##      |                                                         |
-## 2221 +                            *                            +
+## 2229 +                            *                            +
 ##      |                                                         |
 ##      |                                                         |
-## 2220 +                            *                            +
+## 2228 +                            *                            +
 ##      |                                                         |
-## 2219 +                            *                            +
+## 2227 +                            *                            +
+##      |                                                         |
+##      |                                                         |
+## 2226 +                            *                            +
+##      |                                                         |
+## 2225 +                            *                            +
 ##      +-------------+--------------+--------------+-------------+
 ##     -1           -0.5             0             0.5            1
 ## 
@@ -543,7 +543,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  6 rows and 229 columns
+##  6 rows and 230 columns
 ##  6 unique rows
 ##                    institute
 ## Class              character
@@ -561,7 +561,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                                                                                            <NA>
 ## Unique (excld. NA)                                                                                                                                                                                                                                 6
 ## Missing values                                                                                                                                                                                                                                     0
-## Sorted                                                                                                                                                                                                                                         FALSE
+## Sorted                                                                                                                                                                                                                                          TRUE
 ##                                                                                                                                                                                                                                                     
 ##                              pub.id      proj     exper     field      plot
 ## Class                     character character character character character
@@ -570,7 +570,7 @@ title: 'Submitted data summary'
 ## Mean                           <NA>      <NA>      <NA>      <NA>      <NA>
 ## Unique (excld. NA)                1         1         3         1         2
 ## Missing values                    0         0         0         0         0
-## Sorted                         TRUE      TRUE     FALSE      TRUE     FALSE
+## Sorted                         TRUE      TRUE      TRUE      TRUE     FALSE
 ##                                                                            
 ##                          rep plot.area     lat    long   country      topo
 ## Class              character   numeric numeric numeric character character
@@ -624,7 +624,7 @@ title: 'Submitted data summary'
 ## Mean                  4.04    7.83     232    <NA>    <NA>    <NA>     8.5
 ## Unique (excld. NA)       1       2       4       0       0       0       3
 ## Missing values           3       3       0       6       6       6       3
-## Sorted                TRUE   FALSE   FALSE    <NA>    <NA>    <NA>    TRUE
+## Sorted                TRUE   FALSE   FALSE    <NA>    <NA>    <NA>   FALSE
 ##                                                                           
 ##                              app.start             app.end app.method app.rate
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character  numeric
@@ -633,7 +633,7 @@ title: 'Submitted data summary'
 ## Mean               2019-05-03 03:00:00 2019-05-03 04:00:00       <NA>     24.4
 ## Unique (excld. NA)                   3                   3          2        2
 ## Missing values                       0                   0          0        0
-## Sorted                           FALSE               FALSE      FALSE    FALSE
+## Sorted                            TRUE                TRUE      FALSE    FALSE
 ##                                                                               
 ##                    app.rate.unit    incorp time.incorp man.area dist.inj
 ## Class                  character character     numeric  numeric  numeric
@@ -660,7 +660,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                             <NA>
 ## Unique (excld. NA)                                                                                                                  2
 ## Missing values                                                                                                                      4
-## Sorted                                                                                                                          FALSE
+## Sorted                                                                                                                           TRUE
 ##                                                                                                                                      
 ##                    row.in.file.plot  man.trt3  uptake
 ## Class                       numeric character numeric
@@ -714,7 +714,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                                 <NA>
 ## Unique (excld. NA)                                                                                                                                                                      6
 ## Missing values                                                                                                                                                                          0
-## Sorted                                                                                                                                                                              FALSE
+## Sorted                                                                                                                                                                               TRUE
 ##                                                                                                                                                                                          
 ##                                                     ceid flag.plot
 ## Class                                          character character
@@ -723,7 +723,7 @@ title: 'Submitted data summary'
 ## Mean                                                <NA>      <NA>
 ## Unique (excld. NA)                                     3         1
 ## Missing values                                         0         0
-## Sorted                                             FALSE      TRUE
+## Sorted                                              TRUE      TRUE
 ##                                                                   
 ##                                        submitter tan.app     e.1     e.4
 ## Class                                  character numeric numeric numeric
@@ -867,7 +867,7 @@ title: 'Submitted data summary'
 ## Mean                  <NA>    <NA>    1.77    1.77    2.44    2.02    2.38
 ## Unique (excld. NA)       0       0       3       3       3       3       3
 ## Missing values           6       6       0       0       0       0       0
-## Sorted                <NA>    <NA>   FALSE   FALSE   FALSE   FALSE   FALSE
+## Sorted                <NA>    <NA>   FALSE   FALSE   FALSE   FALSE    TRUE
 ##                                                                           
 ##                    wind.96 wind.168 wind.mn wind.2m.1 wind.2m.4 wind.2m.6
 ## Class              numeric  numeric numeric   numeric   numeric   numeric
@@ -876,7 +876,7 @@ title: 'Submitted data summary'
 ## Mean                  2.18     2.18    2.18      <NA>      <NA>      1.77
 ## Unique (excld. NA)       3        3       3         0         0         3
 ## Missing values           0        0       0         6         6         0
-## Sorted               FALSE    FALSE   FALSE      <NA>      <NA>     FALSE
+## Sorted                TRUE     TRUE    TRUE      <NA>      <NA>     FALSE
 ##                                                                          
 ##                    wind.2m.12 wind.2m.24 wind.2m.48 wind.2m.72 wind.2m.96
 ## Class                 numeric    numeric    numeric    numeric    numeric
@@ -885,7 +885,7 @@ title: 'Submitted data summary'
 ## Mean                     1.77       2.44       2.02       2.38       2.18
 ## Unique (excld. NA)          3          3          3          3          3
 ## Missing values              0          0          0          0          0
-## Sorted                  FALSE      FALSE      FALSE      FALSE      FALSE
+## Sorted                  FALSE      FALSE      FALSE       TRUE       TRUE
 ##                                                                          
 ##                    wind.2m.168 wind.2m.mn   rad.1   rad.4   rad.6  rad.12
 ## Class                  numeric    numeric numeric numeric numeric numeric
@@ -894,7 +894,7 @@ title: 'Submitted data summary'
 ## Mean                      2.18       2.18    <NA>    <NA>     206     206
 ## Unique (excld. NA)           3          3       0       0       3       3
 ## Missing values               0          0       6       6       0       0
-## Sorted                   FALSE      FALSE    <NA>    <NA>   FALSE   FALSE
+## Sorted                    TRUE       TRUE    <NA>    <NA>    TRUE    TRUE
 ##                                                                          
 ##                     rad.24  rad.48  rad.72  rad.96 rad.168  rad.mn rain.rate.1
 ## Class              numeric numeric numeric numeric numeric numeric     numeric
@@ -903,7 +903,7 @@ title: 'Submitted data summary'
 ## Mean                   274     247     268     267     267     267        <NA>
 ## Unique (excld. NA)       3       3       3       3       3       3           0
 ## Missing values           0       0       0       0       0       0           6
-## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE        <NA>
+## Sorted                TRUE   FALSE   FALSE   FALSE   FALSE   FALSE        <NA>
 ##                                                                               
 ##                    rain.rate.4 rain.rate.6 rain.rate.12 rain.rate.24
 ## Class                  numeric     numeric      numeric      numeric
@@ -948,7 +948,7 @@ title: 'Submitted data summary'
 ## Mean                               35.5    <NA>       6 0.00229   0.477    5.67
 ## Unique (excld. NA)                    6       1       1       6       6       2
 ## Missing values                        0       0       0       0       0       0
-## Sorted                            FALSE    TRUE    TRUE   FALSE   FALSE   FALSE
+## Sorted                            FALSE    TRUE    TRUE   FALSE   FALSE    TRUE
 ##                                                                                
 ##                     dt.max  ct.min  ct.max           t.start.p
 ## Class              numeric numeric numeric     POSIXct, POSIXt
@@ -957,7 +957,7 @@ title: 'Submitted data summary'
 ## Mean                  16.3       6    84.3 2019-05-03 08:40:00
 ## Unique (excld. NA)       3       1       3                   3
 ## Missing values           0       0       0                   0
-## Sorted               FALSE    TRUE   FALSE               FALSE
+## Sorted               FALSE    TRUE   FALSE                TRUE
 ##                                                               
 ##                                t.end.p air.temp.z soil.temp.z  wind.z
 ## Class                  POSIXct, POSIXt  character   character numeric
@@ -966,7 +966,7 @@ title: 'Submitted data summary'
 ## Mean               2019-05-06 11:20:00       <NA>        <NA>       2
 ## Unique (excld. NA)                   3          0           0       1
 ## Missing values                       0          6           6       0
-## Sorted                           FALSE       <NA>        <NA>    TRUE
+## Sorted                            TRUE       <NA>        <NA>    TRUE
 ##                                                                      
 ##                           wind.loc far.loc
 ## Class                    character numeric
@@ -1004,23 +1004,23 @@ title: 'Submitted data summary'
 ## Missing values             0               0                   0           0
 ## Sorted                  TRUE           FALSE               FALSE       FALSE
 ##                                                                             
-##                    incorp.orig date.start  flag.int    inst     eid     pid
-## Class                character       Date character numeric integer integer
-## Minimum                   <NA> 2018-04-23               303     381    2215
-## Maximum                   <NA> 2020-05-28               303     383    2220
-## Mean                      <NA>       <NA>      <NA>     303    <NA>    <NA>
-## Unique (excld. NA)           0          3         1       1       3       6
-## Missing values               6          0         0       0       0       0
-## Sorted                    <NA>      FALSE      TRUE    TRUE   FALSE   FALSE
-##                                                                            
-##                       pmid
-## Class              integer
-## Minimum               2219
-## Maximum               2224
-## Mean                  <NA>
-## Unique (excld. NA)       6
-## Missing values           0
-## Sorted               FALSE
+##                    incorp.orig date.start  flag.int soil.samp.z    inst     eid
+## Class                character       Date character     numeric numeric integer
+## Minimum                   <NA> 2018-04-23                  <NA>     303     381
+## Maximum                   <NA> 2020-05-28                  <NA>     303     383
+## Mean                      <NA>       <NA>      <NA>        <NA>     303    <NA>
+## Unique (excld. NA)           0          3         1           0       1       3
+## Missing values               6          0         0           6       0       0
+## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
+##                                                                                
+##                        pid    pmid
+## Class              integer integer
+## Minimum               2221    2225
+## Maximum               2226    2230
+## Mean                  <NA>    <NA>
+## Unique (excld. NA)       6       6
+## Missing values           0       0
+## Sorted                TRUE    TRUE
 ## 
 ```
 

@@ -11,17 +11,22 @@ for (i in names(dat)) {
     inst <- dat[[i]][[j]]$submitter$inst.abbrev
     submitter <- dat[[i]][[j]]$submitter$submitter
 
-    # Check and make institution directory if needed
-    idir <- paste0('../../logs/03/html/', inst, '-', gsub(' |,', '_', submitter))
-    if (!dir.exists(idir)) {
-      dir.create(idir)
-    }
+    # Add institute and submitter to file name
+    fn <- paste0(inst, '_', submitter, '_', fn)
+    fn <- gsub(',', '_', fn)
+    fn <- gsub(' ', '_', fn)
+    fn <- gsub('__', '_', fn)
 
-    # Skip if log file already exists unless all were request
-    lfn <- paste0(inst, '_', fn, '.html')
-    if (!file.exists(paste0(idir, '/', lfn)) | alllogs) { 
+    ## Check and make institution directory if needed
+    #idir <- paste0('../../logs/03/html/', inst, '-', gsub(' |,', '_', submitter))
+    #if (!dir.exists(idir)) {
+    #  dir.create(idir)
+    #}
+
+    # Skip if log file already exists unless all were requested
+    if (!file.exists(paste0('../../logs/03/html/', fn, '.html')) | alllogs) { 
       options(warn = 1) 
-      render('check_sub.Rmd', output_file = lfn, output_dir = idir, quiet = TRUE)
+      render('check_sub.Rmd', output_file = fn, output_dir = '../../logs/03/html/', quiet = TRUE)
       options(warn = 2) 
     } 
 

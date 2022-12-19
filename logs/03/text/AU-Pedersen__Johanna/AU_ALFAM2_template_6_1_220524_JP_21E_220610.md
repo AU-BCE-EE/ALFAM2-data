@@ -454,7 +454,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  9 rows and 229 columns
+##  9 rows and 230 columns
 ##  9 unique rows
 ##                    institute
 ## Class              character
@@ -879,14 +879,23 @@ title: 'Submitted data summary'
 ## Missing values                   0                   0           0           0
 ## Sorted                        TRUE                TRUE        TRUE        TRUE
 ##                                                                               
-##                    date.start  flag.int    inst     eid     pid    pmid
-## Class                    Date character numeric integer integer integer
-## Minimum            2021-11-09       m i     205     345    1922    1926
-## Maximum            2021-11-09       m i     205     345    1930    1934
-## Mean                     <NA>      <NA>     205    <NA>    <NA>    <NA>
-## Unique (excld. NA)          1         1       1       1       9       9
-## Missing values              0         0       0       0       0       0
-## Sorted                   TRUE      TRUE    TRUE    TRUE    TRUE    TRUE
+##                    date.start  flag.int soil.samp.z    inst     eid     pid
+## Class                    Date character     numeric numeric integer integer
+## Minimum            2021-11-09       m i        <NA>     205     345    1922
+## Maximum            2021-11-09       m i        <NA>     205     345    1930
+## Mean                     <NA>      <NA>        <NA>     205    <NA>    <NA>
+## Unique (excld. NA)          1         1           0       1       1       9
+## Missing values              0         0           9       0       0       0
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
+##                                                                            
+##                       pmid
+## Class              integer
+## Minimum               1926
+## Maximum               1934
+## Mean                  <NA>
+## Unique (excld. NA)       9
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 
