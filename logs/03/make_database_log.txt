@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2022-09-22 15:44:24 EDT"
+[1] "2022-12-19 17:17:59 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -145,6 +145,48 @@ See cleanALFAM() function.
 10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
 # … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
 #   `` <dbl>, `` <dbl>
+   file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+
+[1] "File: ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx"
+plots:
+    proj   exper       field plot rep plot.area      lat     long country topo
+1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+2 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+3 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+4 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
+5 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
+6 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
+plots.orig:
+    proj   exper       field plot rep plot.area      lat     long country topo
+1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+2 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
+Unique emis:
+     proj   exper       field plot rep                          treat meas.tech
+1  eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha1       bLS
+20 eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha2       bLS
+39 eGylle eGylle2 FoulumgårdD    1   1                     eGylle_DTM       DTM
+78 eGylle eGylle3         WUR    1   1                     eGylle_IHF       IHF
+87 eGylle eGylle3         WUR    1   1            eGylle_bLS_avg_time       bLS
+96 eGylle eGylle3         WUR    1   1 eGylle_bLS_acid_traps_3heights       bLS
+    meas.tech.det
+1  Alpha samplers
+20 Alpha samplers
+39           <NA>
+78     Acid traps
+87      CRDS avg.
+96     Acid traps
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 

@@ -528,7 +528,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  4 rows and 229 columns
+##  4 rows and 230 columns
 ##  4 unique rows
 ##                    institute
 ## Class              character
@@ -627,7 +627,7 @@ title: 'Submitted data summary'
 ## Mean                    100     <NA>     13.3     <NA>      <NA>       0
 ## Unique (excld. NA)        1        0        2        0         1       1
 ## Missing values            0        4        1        4         0       0
-## Sorted                 TRUE     <NA>     TRUE     <NA>      TRUE    TRUE
+## Sorted                 TRUE     <NA>    FALSE     <NA>      TRUE    TRUE
 ##                                                                         
 ##                    crop.area     lai notes.plot row.in.file.plot  man.trt3
 ## Class                numeric logical  character          numeric character
@@ -953,14 +953,23 @@ title: 'Submitted data summary'
 ## Missing values                   0               0           0           0
 ## Sorted                        TRUE            TRUE        TRUE       FALSE
 ##                                                                           
-##                    date.start  flag.int    inst     eid     pid    pmid
-## Class                    Date character numeric integer integer integer
-## Minimum                  <NA>               302     342    1896    1900
-## Maximum                  <NA>               302     342    1899    1903
-## Mean                     <NA>      <NA>     302    <NA>    <NA>    <NA>
-## Unique (excld. NA)          0         1       1       1       4       4
-## Missing values              4         0       0       0       0       0
-## Sorted                   <NA>      TRUE    TRUE    TRUE   FALSE   FALSE
+##                    date.start  flag.int soil.samp.z    inst     eid     pid
+## Class                    Date character     numeric numeric integer integer
+## Minimum                  <NA>                  <NA>     302     342    1896
+## Maximum                  <NA>                  <NA>     302     342    1899
+## Mean                     <NA>      <NA>        <NA>     302    <NA>    <NA>
+## Unique (excld. NA)          0         1           0       1       1       4
+## Missing values              4         0           4       0       0       0
+## Sorted                   <NA>      TRUE        <NA>    TRUE    TRUE   FALSE
+##                                                                            
+##                       pmid
+## Class              integer
+## Minimum               1900
+## Maximum               1903
+## Mean                  <NA>
+## Unique (excld. NA)       4
+## Missing values           0
+## Sorted               FALSE
 ## 
 ```
 

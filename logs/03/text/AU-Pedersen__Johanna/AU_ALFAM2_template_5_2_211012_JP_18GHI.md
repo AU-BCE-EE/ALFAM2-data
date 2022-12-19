@@ -22,19 +22,19 @@ title: 'Submitted data summary'
 ## e.cum.final  vs. pmid 
 ##      +-------+----------+----------+-----------+----------+----+
 ##      |                  **                                     |
-## 2090 +         *                                            *  +
+## 2095 +         *                                            *  +
 ##      |             *                           *               |
-## 2085 +     *                           *                       +
-##      |               *          *                              |
+##      |     *                           *                       |
+## 2090 +               *          *                              +
 ##      |                       *                                 |
-## 2080 +  *            *                                         +
+## 2085 +  *            *                                         +
 ##      |    *           *         *                              |
-## 2075 +              *             *                            +
+## 2080 +              *             *                            +
 ##      |               *   *                                     |
-## 2070 +   *                                                     +
-##      |  * *                                                    |
+##      |   *                                                     |
+## 2075 +  * *                                                    +
 ##      |   *      *                                              |
-## 2065 +-------+----------+----------+-----------+----------+----+
+##      +-------+----------+----------+-----------+----------+----+
 ##             25         30         35          40         45     
 ## 
 ## e.cum.final  vs. row.in.file.plot 
@@ -78,19 +78,19 @@ title: 'Submitted data summary'
 ## e.rel.final  vs. pmid 
 ##      +-----+---------+----------+---------+---------+----------+
 ##      |                  * *                                    |
-## 2090 +          *                                          *   +
+## 2095 +          *                                          *   +
 ##      |              *                          *               |
-## 2085 +      *                          *                       +
-##      |              *            *                             |
+##      |      *                          *                       |
+## 2090 +              *            *                             +
 ##      |                     *                                   |
-## 2080 +  *          *                                           +
+## 2085 +  *          *                                           +
 ##      |   *          *        *                                 |
-## 2075 +             *             *                             +
+## 2080 +             *             *                             +
 ##      |              *   *                                      |
-## 2070 +   *                                                     +
-##      |  * *                                                    |
+##      |   *                                                     |
+## 2075 +  * *                                                    +
 ##      |   *      *                                              |
-## 2065 +-----+---------+----------+---------+---------+----------+
+##      +-----+---------+----------+---------+---------+----------+
 ##          0.25       0.3       0.35       0.4      0.45          
 ## 
 ## e.rel.final  vs. row.in.file.plot 
@@ -127,19 +127,19 @@ title: 'Submitted data summary'
 ## app.rate  vs. pmid 
 ##      +-------+----------+---------+---------+----------+-------+
 ##      |                            *                            |
+## 2095 +                            *                            +
+##      |                            *                            |
+##      |                            *                            |
 ## 2090 +                            *                            +
 ##      |                            *                            |
 ## 2085 +                            *                            +
 ##      |                            *                            |
-##      |                            *                            |
 ## 2080 +                            *                            +
+##      |                            *                            |
 ##      |                            *                            |
 ## 2075 +                            *                            +
 ##      |                            *                            |
-## 2070 +                            *                            +
-##      |                            *                            |
-##      |                            *                            |
-## 2065 +-------+----------+---------+---------+----------+-------+
+##      +-------+----------+---------+---------+----------+-------+
 ##             25         30        35        40         45        
 ## 
 ## app.rate  vs. row.in.file.plot 
@@ -171,19 +171,19 @@ title: 'Submitted data summary'
 ## man.dm  vs. pmid 
 ##      ++------------+------------+-------------+------------+---+
 ##      |  *                                                      |
-## 2090 +  *                                                      +
+## 2095 +  *                                                      +
 ##      |  *                                                      |
-## 2085 +  *                                                      +
-##      |  *                     *                                |
+##      |  *                                                      |
+## 2090 +  *                     *                                +
 ##      |                        *                                |
-## 2080 +                        *                                +
+## 2085 +                        *                                +
 ##      |                        *                                |
-## 2075 +                        *                            *   +
-##      |                                                     *   |
-## 2070 +                                                     *   +
+## 2080 +                        *                            *   +
 ##      |                                                     *   |
 ##      |                                                     *   |
-## 2065 ++------------+------------+-------------+------------+---+
+## 2075 +                                                     *   +
+##      |                                                     *   |
+##      ++------------+------------+-------------+------------+---+
 ##      8.6          8.8           9            9.2          9.4   
 ## 
 ## man.dm  vs. row.in.file.plot 
@@ -223,19 +223,19 @@ title: 'Submitted data summary'
 ## man.ph  vs. pmid 
 ##      +------+---------+--------+--------+---------+--------+---+
 ##      |  *                                                      |
-## 2090 +  *                                                      +
+## 2095 +  *                                                      +
 ##      |  *                                                      |
-## 2085 +  *                                                      +
-##      |  *                                                  *   |
+##      |  *                                                      |
+## 2090 +  *                                                  *   +
+##      |                                                     *   |
+## 2085 +                                                     *   +
 ##      |                                                     *   |
 ## 2080 +                                                     *   +
 ##      |                                                     *   |
+##      |                                                     *   |
 ## 2075 +                                                     *   +
 ##      |                                                     *   |
-## 2070 +                                                     *   +
-##      |                                                     *   |
-##      |                                                     *   |
-## 2065 +------+---------+--------+--------+---------+--------+---+
+##      +------+---------+--------+--------+---------+--------+---+
 ##           6.84      6.86     6.88      6.9      6.92     6.94   
 ## 
 ## man.ph  vs. row.in.file.plot 
@@ -273,19 +273,19 @@ title: 'Submitted data summary'
 ## man.tan  vs. pmid 
 ##      +--+--------+--------+---------+--------+---------+-------+
 ##      |  *                                                      |
-## 2090 +  *                                                      +
+## 2095 +  *                                                      +
 ##      |  *                                                      |
-## 2085 +  *                                                      +
-##      |  *                                                  *   |
+##      |  *                                                      |
+## 2090 +  *                                                  *   +
 ##      |                                                     *   |
-## 2080 +                                                     *   +
+## 2085 +                                                     *   +
 ##      |                                                     *   |
-## 2075 +                                  *                  *   +
-##      |                                  *                      |
-## 2070 +                                  *                      +
+## 2080 +                                  *                  *   +
 ##      |                                  *                      |
 ##      |                                  *                      |
-## 2065 +--+--------+--------+---------+--------+---------+-------+
+## 2075 +                                  *                      +
+##      |                                  *                      |
+##      +--+--------+--------+---------+--------+---------+-------+
 ##       2.72     2.74     2.76      2.78      2.8      2.82       
 ## 
 ## man.tan  vs. row.in.file.plot 
@@ -322,19 +322,19 @@ title: 'Submitted data summary'
 ## tan.app  vs. pmid 
 ##      +-------------+------------+-------------+-------------+--+
 ##      |  *                                                      |
-## 2090 +  *                                                      +
+## 2095 +  *                                                      +
 ##      |  *                                                      |
-## 2085 +  *                                                      +
-##      |  *                                                   *  |
+##      |  *                                                      |
+## 2090 +  *                                                   *  +
 ##      |                                                      *  |
-## 2080 +                                                      *  +
+## 2085 +                                                      *  +
 ##      |                                                      *  |
-## 2075 +                                   *                  *  +
-##      |                                   *                     |
-## 2070 +                                   *                     +
+## 2080 +                                   *                  *  +
 ##      |                                   *                     |
 ##      |                                   *                     |
-## 2065 +-------------+------------+-------------+-------------+--+
+## 2075 +                                   *                     +
+##      |                                   *                     |
+##      +-------------+------------+-------------+-------------+--+
 ##                   96           97            98            99   
 ## 
 ## tan.app  vs. row.in.file.plot 
@@ -374,19 +374,19 @@ title: 'Submitted data summary'
 ## ct.max  vs. pmid 
 ##      +--+---------+---------+---------+---------+--------+-----+
 ##      |                                                  *  *   |
-## 2090 +                                                  *      +
+## 2095 +                                                  *      +
 ##      |                                                  *      |
-## 2085 +                                                  *  *   +
-##      |  *                                                  *   |
+##      |                                                  *  *   |
+## 2090 +  *                                                  *   +
 ##      |  *                                                      |
-## 2080 +  *                                                      +
+## 2085 +  *                                                      +
 ##      |  **                                                     |
-## 2075 +   *                       *                             +
+## 2080 +   *                       *                             +
 ##      |                           *                             |
-## 2070 +                 *         *                             +
+##      |                 *         *                             |
+## 2075 +                         * *                             +
 ##      |                         * *                             |
-##      |                         * *                             |
-## 2065 +--+---------+---------+---------+---------+--------+-----+
+##      +--+---------+---------+---------+---------+--------+-----+
 ##        90        100       110       120       130      140     
 ## 
 ## ct.max  vs. row.in.file.plot 
@@ -424,19 +424,19 @@ title: 'Submitted data summary'
 ## air.temp.mn  vs. pmid 
 ##      +----------+------------+-----------+------------+--------+
 ##      |                               *                         |
-## 2090 +                               *                         +
+## 2095 +                               *                         +
 ##      |                                *  *                     |
-## 2085 +                               *     *                   +
-##      |                                        *   *            |
+##      |                               *     *                   |
+## 2090 +                                        *   *            +
 ##      |                                           *     *       |
-## 2080 +                                                     *   +
+## 2085 +                                                     *   +
 ##      |                                        *            *   |
-## 2075 +            *                                      *     +
+## 2080 +            *                                      *     +
 ##      |           *                                             |
-## 2070 +        *               *                                +
-##      |  *         *                                            |
+##      |        *               *                                |
+## 2075 +  *         *                                            +
 ##      |    *       *                                            |
-## 2065 +----------+------------+-----------+------------+--------+
+##      +----------+------------+-----------+------------+--------+
 ##               16.2         16.4        16.6         16.8        
 ## 
 ## air.temp.mn  vs. row.in.file.plot 
@@ -484,7 +484,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  27 rows and 229 columns
+##  27 rows and 230 columns
 ##  27 unique rows
 ##                    institute
 ## Class              character
@@ -502,7 +502,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                            <NA>
 ## Unique (excld. NA)                                                                                                                                                                27
 ## Missing values                                                                                                                                                                     0
-## Sorted                                                                                                                                                                          TRUE
+## Sorted                                                                                                                                                                         FALSE
 ##                                                                                                                                                                                     
 ##                       pub.id      proj     exper       field      plot
 ## Class              character character character   character character
@@ -511,7 +511,7 @@ title: 'Submitted data summary'
 ## Mean                    <NA>      <NA>      <NA>        <NA>      <NA>
 ## Unique (excld. NA)         1         1         3           2         9
 ## Missing values             0         0         0           0         0
-## Sorted                  TRUE      TRUE      TRUE        TRUE     FALSE
+## Sorted                  TRUE      TRUE     FALSE       FALSE     FALSE
 ##                                                                       
 ##                          rep plot.area     lat    long   country      topo
 ## Class              character   numeric numeric numeric character character
@@ -520,7 +520,7 @@ title: 'Submitted data summary'
 ## Mean                    <NA>       0.2    56.5    9.56      <NA>      <NA>
 ## Unique (excld. NA)         3         1       2       2         1         1
 ## Missing values             0         0       0       0         0         0
-## Sorted                 FALSE      TRUE    TRUE    TRUE      TRUE      TRUE
+## Sorted                 FALSE      TRUE   FALSE   FALSE      TRUE      TRUE
 ##                                                                           
 ##                       clay    silt    sand      oc soil.type soil.water
 ## Class              numeric numeric numeric numeric character    numeric
@@ -538,7 +538,7 @@ title: 'Submitted data summary'
 ## Mean                       <NA>       <NA>     5.2       1.3      <NA>
 ## Unique (excld. NA)            0          0       3         2         1
 ## Missing values               27         27       0         0         0
-## Sorted                     <NA>       <NA>   FALSE      TRUE      TRUE
+## Sorted                     <NA>       <NA>   FALSE     FALSE      TRUE
 ##                                                                       
 ##                         till man.source man.source.det   man.bed   man.con
 ## Class              character  character      character character character
@@ -637,7 +637,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                            <NA>
 ## Unique (excld. NA)                                                                                                                                                27
 ## Missing values                                                                                                                                                     0
-## Sorted                                                                                                                                                          TRUE
+## Sorted                                                                                                                                                         FALSE
 ##                                                                                                                                                                     
 ##                                      ceid flag.plot         submitter tan.app
 ## Class                           character character         character numeric
@@ -646,7 +646,7 @@ title: 'Submitted data summary'
 ## Mean                                 <NA>      <NA>              <NA>    97.3
 ## Unique (excld. NA)                      3         2                 1       3
 ## Missing values                          0         0                 0       0
-## Sorted                               TRUE     FALSE              TRUE   FALSE
+## Sorted                              FALSE     FALSE              TRUE   FALSE
 ##                                                                              
 ##                        e.1     e.4     e.6    e.12    e.24    e.48    e.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
@@ -918,23 +918,23 @@ title: 'Submitted data summary'
 ## Missing values             0               0                            0
 ## Sorted                  TRUE            TRUE                        FALSE
 ##                                                                          
-##                    app.method2 incorp.orig date.start  flag.int    inst     eid
-## Class                character   character       Date character numeric integer
-## Minimum                   bsth        None 2018-06-22               205     358
-## Maximum                     ts        None 2018-07-05       m i     205     360
-## Mean                      <NA>        <NA>       <NA>      <NA>     205    <NA>
-## Unique (excld. NA)           2           1          3         2       1       3
-## Missing values               0           0          0         0       0       0
-## Sorted                   FALSE        TRUE       TRUE     FALSE    TRUE    TRUE
-##                                                                                
-##                        pid    pmid
-## Class              integer integer
-## Minimum               2062    2066
-## Maximum               2088    2092
-## Mean                  <NA>    <NA>
-## Unique (excld. NA)      27      27
-## Missing values           0       0
-## Sorted                TRUE    TRUE
+##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
+## Class                character   character       Date character     numeric
+## Minimum                   bsth        None 2018-06-22                  <NA>
+## Maximum                     ts        None 2018-07-05       m i        <NA>
+## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           2           1          3         2           0
+## Missing values               0           0          0         0          27
+## Sorted                   FALSE        TRUE      FALSE     FALSE        <NA>
+##                                                                            
+##                       inst     eid     pid    pmid
+## Class              numeric integer integer integer
+## Minimum                205     358    2068    2072
+## Maximum                205     360    2094    2098
+## Mean                   205    <NA>    <NA>    <NA>
+## Unique (excld. NA)       1       3      27      27
+## Missing values           0       0       0       0
+## Sorted                TRUE   FALSE   FALSE   FALSE
 ## 
 ```
 
