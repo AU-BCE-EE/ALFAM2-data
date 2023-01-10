@@ -217,7 +217,7 @@ title: 'Submitted data summary'
 ##        |                                                       |
 ## 1937.5 +                                                       +
 ##        |                                                       |
-##   1937 +                                                       +
+##   1937 + *                                                     +
 ##        |                                                       |
 ## 1936.5 +                                                       +
 ##        |                                                       |
@@ -235,7 +235,7 @@ title: 'Submitted data summary'
 ##     |                                                          |
 ## 7.5 +                                                          +
 ##     |                                                          |
-##   7 +                                                          +
+##   7 +  *                                                       +
 ##     |                                                          |
 ## 6.5 +                                                          +
 ##     |                                                          |
@@ -251,7 +251,7 @@ title: 'Submitted data summary'
 ## 
 ##   The decimal point is 1 digit(s) to the left of the |
 ## 
-##   77 | 0
+##   77 | 00
 ##   77 | 
 ##   78 | 
 ##   78 | 
@@ -645,10 +645,10 @@ title: 'Submitted data summary'
 ## Class              numeric     POSIXct, POSIXt     POSIXct, POSIXt  character
 ## Minimum                7.7 2021-08-11 16:20:00 2021-08-11 16:20:00       bsth
 ## Maximum                7.9 2022-01-05 14:23:00 2022-01-05 14:23:00         os
-## Mean                  7.83 2021-10-12 00:59:00 2021-10-12 01:00:15       <NA>
+## Mean                   7.8 2021-10-12 00:59:00 2021-10-12 01:00:15       <NA>
 ## Unique (excld. NA)       2                   4                   4          2
-## Missing values           1                   0                   0          0
-## Sorted                TRUE                TRUE                TRUE      FALSE
+## Missing values           0                   0                   0          0
+## Sorted               FALSE                TRUE                TRUE      FALSE
 ##                                                                              
 ##                    app.rate app.rate.unit    incorp time.incorp man.area
 ## Class               numeric     character character     numeric  numeric
