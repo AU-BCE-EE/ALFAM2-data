@@ -496,7 +496,7 @@ title: 'Submitted data summary'
 ##                                                                                                                                                                                          cpmid
 ## Class                                                                                                                                                                                character
 ## Minimum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18A.F:semi-field facilities.P:1.T:TH.R:1.R2:.T:2018-05-15 13:18:00.M:Wind tunnelNA
-## Maximum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18C.F:semi-field facilities.P:9.T:TH.R:3.R2:.T:2018-08-29 14:04:00.M:Wind tunnelNA
+## Maximum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18C.F:semi-field facilities.P:9.T:TH.R:3.R2:.T:2018-05-29 14:04:00.M:Wind tunnelNA
 ## Mean                                                                                                                                                                                      <NA>
 ## Unique (excld. NA)                                                                                                                                                                          27
 ## Missing values                                                                                                                                                                               0
@@ -568,8 +568,8 @@ title: 'Submitted data summary'
 ##                              app.start             app.end app.method app.rate
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character  numeric
 ## Minimum            2018-05-15 13:18:00 2018-05-15 13:18:00       bsth       45
-## Maximum            2018-08-29 14:28:00 2018-08-29 14:28:00         ts       45
-## Mean               2018-06-18 20:10:42 2018-06-18 20:10:42       <NA>       45
+## Maximum            2018-05-29 14:28:00 2018-05-29 14:28:00         ts       45
+## Mean               2018-05-22 13:57:22 2018-05-22 13:57:22       <NA>       45
 ## Unique (excld. NA)                  27                  27          2        1
 ## Missing values                       0                   0          0        0
 ## Sorted                           FALSE               FALSE      FALSE     TRUE
@@ -613,7 +613,7 @@ title: 'Submitted data summary'
 ##                        treat   meas.tech meas.tech.det   app.start.orig
 ## Class              character   character     character        character
 ## Minimum                   Bo Wind tunnel          <NA> 15-05-2018 13:18
-## Maximum                   Vo Wind tunnel          <NA> 29-08-2018 14:28
+## Maximum                   Vo Wind tunnel          <NA> 29-05-2018 14:28
 ## Mean                    <NA>        <NA>          <NA>             <NA>
 ## Unique (excld. NA)         3           1             0               27
 ## Missing values             0           0            27                0
@@ -622,7 +622,7 @@ title: 'Submitted data summary'
 ##                        app.end.orig
 ## Class                     character
 ## Minimum            15-05-2018 13:18
-## Maximum            29-08-2018 14:28
+## Maximum            29-05-2018 14:28
 ## Mean                           <NA>
 ## Unique (excld. NA)               27
 ## Missing values                    0
@@ -631,7 +631,7 @@ title: 'Submitted data summary'
 ##                                                                                                                                                                           cpid
 ## Class                                                                                                                                                                character
 ## Minimum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18A.F:semi-field facilities.P:1.T:TH.R:1.R2:.T:2018-05-15 13:18:00
-## Maximum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18C.F:semi-field facilities.P:9.T:TH.R:3.R2:.T:2018-08-29 14:04:00
+## Maximum            D:1.I:AU.Pr:NUGA.F:../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx.E:18C.F:semi-field facilities.P:9.T:TH.R:3.R2:.T:2018-05-29 14:04:00
 ## Mean                                                                                                                                                                      <NA>
 ## Unique (excld. NA)                                                                                                                                                          27
 ## Missing values                                                                                                                                                               0
