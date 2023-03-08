@@ -500,46 +500,46 @@ title: 'Submitted data summary'
 ## rain.rate.mn   rain.rate.mn   rain.rate.mn   rain.rate.mn   rain.rate.mn   
 ## 
 ## rain.rate.mn  vs. pmid 
-##        +-+--------------+-------------+-------------+----------+
+##        ++--------------+-------------+--------------+----------+
 ##   1938 +                                *                      +
 ##        |                                                       |
 ## 1937.5 +                                                       +
 ##        |                                                       |
-##   1937 + *                                                     +
+##   1937 +         *                                             +
 ##        |                                                       |
 ## 1936.5 +                                                       +
 ##        |                                                       |
-##   1936 +  *                                                    +
+##   1936 + *                                                     +
 ##        |                                                       |
 ## 1935.5 +                                                       +
 ##        |                                                       |
 ##   1935 +                                                   *   +
-##        +-+--------------+-------------+-------------+----------+
-##          0            0.05           0.1          0.15          
+##        ++--------------+-------------+--------------+----------+
+##         0            0.05           0.1           0.15          
 ## 
 ## rain.rate.mn  vs. row.in.file.plot 
-##     +--+-------------+--------------+--------------+-----------+
-##   8 +                                  *                       +
+##     +-+--------------+--------------+--------------+-----------+
+##   8 +                                 *                        +
 ##     |                                                          |
 ## 7.5 +                                                          +
 ##     |                                                          |
-##   7 +  *                                                       +
+##   7 +          *                                               +
 ##     |                                                          |
 ## 6.5 +                                                          +
 ##     |                                                          |
-##   6 +   *                                                      +
+##   6 +  *                                                       +
 ##     |                                                          |
 ## 5.5 +                                                          +
 ##     |                                                          |
 ##   5 +                                                      *   +
-##     +--+-------------+--------------+--------------+-----------+
-##        0           0.05            0.1           0.15           
+##     +-+--------------+--------------+--------------+-----------+
+##       0            0.05            0.1           0.15           
 ## 
 ## stem and leaf plot of  rain.rate.mn 
 ## 
 ##   The decimal point is 1 digit(s) to the left of the |
 ## 
-##   0 | 00
+##   0 | 03
 ##   0 | 
 ##   1 | 1
 ##   1 | 8
@@ -652,12 +652,12 @@ title: 'Submitted data summary'
 ##                                                                              
 ##                    app.rate app.rate.unit    incorp time.incorp man.area
 ## Class               numeric     character character     numeric  numeric
-## Minimum                17.5          t/ha      none        <NA>     <NA>
-## Maximum                35.9          t/ha      none        <NA>     <NA>
-## Mean                   31.3          <NA>      <NA>        <NA>     <NA>
-## Unique (excld. NA)        2             1         1           0        0
-## Missing values            0             0         0           4        4
-## Sorted                FALSE          TRUE      TRUE        <NA>     <NA>
+## Minimum                17.5          t/ha      none        <NA>       27
+## Maximum                35.9          t/ha      none        <NA>       40
+## Mean                   31.3          <NA>      <NA>        <NA>     33.5
+## Unique (excld. NA)        2             1         1           0        2
+## Missing values            0             0         0           4        2
+## Sorted                FALSE          TRUE      TRUE        <NA>    FALSE
 ##                                                                         
 ##                    dist.inj furrow.z furrow.w      crop  crop.z crop.area
 ## Class               numeric  numeric  logical character numeric   numeric
@@ -913,9 +913,9 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                    rain.rate.96 rain.rate.168 rain.rate.mn    rh.1    rh.4
 ## Class                   numeric       numeric      numeric numeric numeric
-## Minimum                       0             0            0    60.5    68.1
+## Minimum                       0       0.00298      0.00357    60.5    68.1
 ## Maximum                  0.0854         0.146        0.177      84      87
-## Mean                     0.0367        0.0613       0.0723    74.9    75.9
+## Mean                     0.0367         0.068       0.0798    74.9    75.9
 ## Unique (excld. NA)            4             4            4       3       3
 ## Missing values                0             0            0       1       1
 ## Sorted                    FALSE         FALSE        FALSE    TRUE    TRUE
