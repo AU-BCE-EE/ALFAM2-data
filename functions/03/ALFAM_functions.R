@@ -1230,8 +1230,10 @@ fixDateTime <- function(x){
 
     for(i in 1:length(x)) {
       if(!is.na(x[i]) & nchar(x[i])>8) {
+        # Replace / with - in date
         x[i] <- gsub('/', '-', x[i])
         if (grepl('\\.', x[i])) flag[i] <-'decimal point'
+        # Replace . with : in time (so doesn't work if user has . in date)
         x[i] <- gsub('\\.', ':', x[i])
         # Assume day comes before month by default
         day <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][1]))

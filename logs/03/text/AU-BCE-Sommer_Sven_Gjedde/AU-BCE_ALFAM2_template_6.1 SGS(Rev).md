@@ -627,7 +627,7 @@ title: 'Submitted data summary'
 ## Mean                    100     <NA>     13.3     <NA>      <NA>       0
 ## Unique (excld. NA)        1        0        2        0         1       1
 ## Missing values            0        4        1        4         0       0
-## Sorted                 TRUE     <NA>    FALSE     <NA>      TRUE    TRUE
+## Sorted                 TRUE     <NA>     TRUE     <NA>      TRUE    TRUE
 ##                                                                         
 ##                    crop.area     lai notes.plot row.in.file.plot  man.trt3
 ## Class                numeric logical  character          numeric character
