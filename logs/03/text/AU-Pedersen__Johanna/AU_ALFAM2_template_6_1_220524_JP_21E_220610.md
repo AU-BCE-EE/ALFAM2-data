@@ -472,7 +472,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                                  <NA>
 ## Unique (excld. NA)                                                                                                                                                                       9
 ## Missing values                                                                                                                                                                           0
-## Sorted                                                                                                                                                                                TRUE
+## Sorted                                                                                                                                                                               FALSE
 ##                                                                                                                                                                                           
 ##                       pub.id      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -481,7 +481,7 @@ title: 'Submitted data summary'
 ## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
 ## Unique (excld. NA)         0         1         1         1         9         3
 ## Missing values             9         0         0         0         0         0
-## Sorted                  <NA>      TRUE      TRUE      TRUE      TRUE     FALSE
+## Sorted                  <NA>      TRUE      TRUE      TRUE     FALSE     FALSE
 ##                                                                               
 ##                    plot.area     lat    long   country      topo    clay
 ## Class                numeric numeric numeric character character numeric
@@ -607,7 +607,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                  <NA>
 ## Unique (excld. NA)                                                                                                                                                       9
 ## Missing values                                                                                                                                                           0
-## Sorted                                                                                                                                                                TRUE
+## Sorted                                                                                                                                                               FALSE
 ##                                                                                                                                                                           
 ##                                        ceid flag.plot         submitter tan.app
 ## Class                             character character         character numeric
@@ -760,7 +760,7 @@ title: 'Submitted data summary'
 ## Mean                  0.33    0.33    0.33    0.33    0.33     0.33   0.338
 ## Unique (excld. NA)       1       2       2       2       2        2       3
 ## Missing values           0       0       0       0       0        0       0
-## Sorted                TRUE   FALSE   FALSE    TRUE    TRUE     TRUE   FALSE
+## Sorted                TRUE   FALSE   FALSE   FALSE   FALSE    FALSE   FALSE
 ##                                                                            
 ##                    wind.2m.1 wind.2m.4 wind.2m.6 wind.2m.12 wind.2m.24
 ## Class                numeric   numeric   numeric    numeric    numeric
@@ -832,7 +832,7 @@ title: 'Submitted data summary'
 ## Mean                  <NA>                   384                  478    <NA>
 ## Unique (excld. NA)       0                     9                    9       3
 ## Missing values           9                     0                    0       0
-## Sorted                <NA>                  TRUE                 TRUE   FALSE
+## Sorted                <NA>                 FALSE                FALSE   FALSE
 ##                                                                              
 ##                        dt1  j.rel1  j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric numeric numeric numeric numeric numeric numeric
@@ -841,7 +841,7 @@ title: 'Submitted data summary'
 ## Mean                  1.73 0.00639   0.245    1.73    9.64    1.73     171
 ## Unique (excld. NA)       1       9       9       1       2       1       3
 ## Missing values           0       0       0       0       0       0       0
-## Sorted                TRUE   FALSE   FALSE    TRUE    TRUE    TRUE   FALSE
+## Sorted                TRUE   FALSE   FALSE    TRUE   FALSE    TRUE   FALSE
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
@@ -886,7 +886,7 @@ title: 'Submitted data summary'
 ## Mean                     <NA>      <NA>        <NA>     205    <NA>    <NA>
 ## Unique (excld. NA)          1         1           0       1       1       9
 ## Missing values              0         0           9       0       0       0
-## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE   FALSE
 ##                                                                            
 ##                       pmid
 ## Class              integer
@@ -895,7 +895,7 @@ title: 'Submitted data summary'
 ## Mean                  <NA>
 ## Unique (excld. NA)       9
 ## Missing values           0
-## Sorted                TRUE
+## Sorted               FALSE
 ## 
 ```
 

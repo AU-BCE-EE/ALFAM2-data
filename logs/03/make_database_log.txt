@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-03-08 10:03:41 EST"
+[1] "2023-03-20 14:28:59 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -165,28 +165,32 @@ plots:
 1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
 2 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
 3 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
-4 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
-5 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
+4 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+5 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
 6 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
 plots.orig:
     proj   exper       field plot rep plot.area      lat     long country topo
 1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
 2 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
 Unique emis:
-     proj   exper       field plot rep                          treat meas.tech
-1  eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha1       bLS
-20 eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha2       bLS
-39 eGylle eGylle2 FoulumgårdD    1   1                     eGylle_DTM       DTM
-78 eGylle eGylle3         WUR    1   1                     eGylle_IHF       IHF
-87 eGylle eGylle3         WUR    1   1            eGylle_bLS_avg_time       bLS
-96 eGylle eGylle3         WUR    1   1 eGylle_bLS_acid_traps_3heights       bLS
-    meas.tech.det
-1  Alpha samplers
-20 Alpha samplers
-39           <NA>
-78     Acid traps
-87      CRDS avg.
-96     Acid traps
+      proj   exper       field plot rep                          treat
+1   eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha1
+20  eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha2
+39  eGylle eGylle2 FoulumgårdD    1   1                    eGylle_DTM1
+78  eGylle eGylle2 FoulumgårdD    1   1                    eGylle_DTM2
+117 eGylle eGylle2 FoulumgårdD    1   1                    eGylle_DTM3
+154 eGylle eGylle3         WUR    1   1                     eGylle_IHF
+163 eGylle eGylle3         WUR    1   1            eGylle_bLS_avg_time
+172 eGylle eGylle3         WUR    1   1 eGylle_bLS_acid_traps_3heights
+    meas.tech  meas.tech.det
+1         bLS Alpha samplers
+20        bLS Alpha samplers
+39        DTM           <NA>
+78        DTM           <NA>
+117       DTM           <NA>
+154       IHF     Acid traps
+163       bLS      CRDS avg.
+172       bLS     Acid traps
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
