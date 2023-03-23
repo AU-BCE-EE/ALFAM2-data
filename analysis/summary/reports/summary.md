@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "07 July, 2022"
+date: "23 March, 2023"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 2231  220
+## [1] 2243  221
 ```
 
 ```r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 2231
+## [1] 2243
 ```
 
 ```r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 2227
+## [1] 2239
 ```
 
 
@@ -46,7 +46,7 @@ table(pdat$uptake)
 ```
 ## 
 ##    1    2    3 
-##  800 1099  332
+##  800 1099  344
 ```
 
 ```r
@@ -56,7 +56,7 @@ table(up$uptake)
 ```
 ## 
 ##    1    2    3 
-##  800 1099  328
+##  800 1099  340
 ```
 
 ```r
@@ -69,11 +69,11 @@ table(country = up$country, uptake = up$uptake)
 ##      CA   0 229  64
 ##      CH 121  47   0
 ##      DE   0 197   0
-##      DK  46 251 227
+##      DK  46 251 232
 ##      FR   0  25   0
 ##      IE   0  68   0
-##      IT  75   8   9
-##      NL 119 163  10
+##      IT  75   8  13
+##      NL 119 163  13
 ##      NO   9   0   0
 ##      SE  88   0  18
 ##      UK 342 109   0
@@ -95,12 +95,10 @@ table(pdat$man.trt2)
 
 ```
 ## 
-##                           Ammonia stripping   Anaerobic digestion 
-##                   201                     3                    16 
-##           Floculation Mechanical separation                  none 
-##                     9                    52                  1526 
-##                  None 
-##                   272
+##                           Ammonia stripping   Anaerobic digestion           Floculation Mechanical separation 
+##                   201                     3                    16                     9                    52 
+##                  none                  None 
+##                  1526                   272
 ```
 
 
@@ -115,15 +113,17 @@ table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), 
 ##                                         FALSE TRUE
 ##   3 CA AU cat wt                           64    0
 ##   3 DK AU cat wt                           63   26
-##   3 DK AU mix micro met                     0   10
+##   3 DK AU mix DTM                           0    3
+##   3 DK AU mix micro met                     0   12
 ##   3 DK AU mix wt                            0   22
 ##   3 DK AU pig wt                          102    0
 ##   3 DK AU-BCE cat micro met                 4    0
 ##   3 IT DiSAA-IT sewage sludge micro met     0    3
 ##   3 IT DiSAA-IT urea 46% micro met          3    0
+##   3 IT UNIMI cat micro met                  0    4
 ##   3 IT UNINA cat micro met                  1    1
 ##   3 IT UNINA cat wt                         2    3
-##   3 NL AU cat micro met                     1    0
+##   3 NL AU cat micro met                     4    0
 ##   3 NL AU cat wt                            9    0
 ##   3 SE AU cat wt                           12    0
 ##   3 SE AU mix wt                            0    6
@@ -136,7 +136,7 @@ table(u3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   261    71
+##   264    80
 ```
 
 ```r
@@ -146,7 +146,7 @@ table(up3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   258    70
+##   261    79
 ```
 
 
@@ -156,8 +156,8 @@ table(u3$meas.tech2)
 
 ```
 ## 
-## micro met        wt 
-##        23       309
+##       DTM micro met        wt 
+##         3        32       309
 ```
 
 ```r
@@ -166,8 +166,8 @@ table(up3$meas.tech2)
 
 ```
 ## 
-## micro met        wt 
-##        22       306
+##       DTM micro met        wt 
+##         3        31       306
 ```
 
 
@@ -178,7 +178,7 @@ table(up3$country)
 ```
 ## 
 ##  CA  DK  IT  NL  SE 
-##  64 227   9  10  18
+##  64 232  13  13  18
 ```
 
 ```r
@@ -188,7 +188,7 @@ table(u3$country)
 ```
 ## 
 ##  CA  DK  IT  NL  SE 
-##  64 227  13  10  18
+##  64 232  17  13  18
 ```
 
 Acidification table.
@@ -216,7 +216,7 @@ acidtab
 ##   Anaerobic digestion Floculation NA                          9    0
 ##   Anaerobic digestion Mechanical separation NA               10    0
 ##   Anaerobic digestion Mechanical separation None             18    0
-##   Anaerobic digestion NA NA                                  32    0
+##   Anaerobic digestion NA NA                                  41    0
 ##   anaerobic digestion none NA                                 1    0
 ##   Anaerobic digestion none NA                               137    0
 ##   Anaerobic digestion None NA                                 6    0
@@ -234,7 +234,7 @@ acidtab
 ##   None  NA                                                   97    0
 ##   None Anaerobic digestion NA                                 8    0
 ##   None Mechanical separation NA                               8    0
-##   None NA NA                                                 66    0
+##   None NA NA                                                 69    0
 ##   none none NA                                              231    0
 ##   None none NA                                              950    0
 ##   None None NA                                              218    0
@@ -349,6 +349,14 @@ trttab
 ##   Disc injection                                          11    0
 ##   E                                                        4    0
 ##   eGylle_bLS                                               4    0
+##   eGylle_bLS_acid_traps_3heights                           1    0
+##   eGylle_bLS_Alpha1                                        1    0
+##   eGylle_bLS_Alpha2                                        1    0
+##   eGylle_bLS_avg_time                                      1    0
+##   eGylle_DTM1                                              1    0
+##   eGylle_DTM2                                              1    0
+##   eGylle_DTM3                                              1    0
+##   eGylle_IHF                                               1    0
 ##   ES CS0910                                                3    0
 ##   ES CS10                                                  6    0
 ##   ES CS1011                                                9    0
@@ -399,6 +407,9 @@ trttab
 ##   separated SSD                                            8    0
 ##   Shallow Injection                                        2    0
 ##   Shallow Injection - Conc                                 1    0
+##   SIC-13_EC                                                1    0
+##   SIC-13_IDM                                               1    0
+##   SIC-13_TAGM                                              1    0
 ##   Simpel tine                                              3    0
 ##   slurry_bov                                               4    0
 ##   slurry_pig                                               2    0
@@ -415,6 +426,7 @@ trttab
 ##   Spring 2011 D                                            3    0
 ##   Spring 2011 UD                                           2    0
 ##   SS                                                       2    0
+##   SS-13_IDM                                                1    0
 ##   SSD                                                     12    0
 ##   stored                                                   3    0
 ##   Summer 2009 D                                            3    0
