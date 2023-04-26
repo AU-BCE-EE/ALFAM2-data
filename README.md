@@ -2,10 +2,11 @@
 The ALFAM2 dataset on ammonia loss from field-applied manure. This repository contains the **"ALFAM2 dataset"**, the code used to generate it from data files submitted by researchers who made the emission measurements, and those original data files. The repository serves at least two purposes: data, progress, and code tracking (for dataset developers) and version control (primarily for dataset users). 
 
 # Quick tips
-* Look in [data-output/03](https://github.com/sashahafner/ALFAM2-data/tree/master/data-output/03) for the latest version of the **ALFAM2 dataset**. Typically it makes sense to use the version available in the latest [release](https://github.com/sashahafner/ALFAM2-data/releases). 
+* Look in [data-output/03](https://github.com/sashahafner/ALFAM2-data/tree/master/data-output/03) for the latest version of the **ALFAM2 dataset**. Typically it makes sense to use the version available in the latest [release](https://github.com/sashahafner/ALFAM2-data/releases), which will also correspond to a [version available through Zenodo](https://zenodo.org/search?page=1&size=20&q=alfam2). 
 * For more details on the ALFAM2 project, and access to project products see <http://alfam.dk>
-* For a "database" with an interface to subset (filter) by country, application method, or more, use this web app: <https://biotransformers.shinyapps.io/ALFAM2/>. 
+* For a database interface that can be used to subset (filter) by country, application method, or more, use this web app: <https://biotransformers.shinyapps.io/ALFAM2/>. 
 * Looking for the ALFAM2 model R package? You want the ALFAM2 repo: <https://github.com/sashahafner/ALFAM2>.
+* Zenodo versions can be found [here](https://zenodo.org/search?page=1&size=20&q=alfam2)
 
 # More details
 The dataset consists of two files: one with plot- and one with measurement-level observations.
@@ -23,9 +24,14 @@ Earlier versions are saved to facilitate addition of data without rebuilding old
 See the `Data handling tips` below for more information on working with the data.
 
 # Citations
-Please use the data included in an official [release](https://github.com/sashahafner/ALFAM2-data/releases) and **note the version number used** in any citation.
-In papers or reports, authors can cite [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027), list this GitHub URL, and mention the release version number. 
-You can find the dataset version number in the release tags or in a text file here: [data-output/03/data_version.txt](https://github.com/sashahafner/ALFAM2-data/tree/master/data-output/03/data_version.txt)
+The best way to refer to this work if you use the data in a publication is to cite the [version available through Zenodo](https://zenodo.org/search?page=1&size=20&q=alfam2).
+In addition to a doi, this Zenodo version includes an author list.
+Alternatively, individual [releases](https://github.com/sashahafner/ALFAM2-data/releases) can be cited.
+In either case, be sure to **note the version number used** in any citation.
+If you have used a version not included in a release or a Zenodo dataset, please contact me ([here](https://sites.google.com/hafnerconsulting.com/hafnerconsulting/contact) or [here](https://au.dk/sasha.hafner@bce))and I will create the necessary release or dataset.
+Authors may also want to cite (and read!) [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027).
+But again, include the dataset version number in any citation.
+You can find the dataset version number in the release tags or in a text file here: [data-output/03/data_version.txt](https://github.com/sashahafner/ALFAM2-data/tree/master/data-output/03/data_version.txt).
 
 # References
 For a description of the dataset, see this paper: <https://doi.org/10.1016/j.agrformet.2017.11.027>. For the ALFAM2 model for ammonia emission, with parameter estimation based on the ALFAM2 dataset, see this paper: <https://doi.org/10.1016/j.agrformet.2017.11.027>. 
