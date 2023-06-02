@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "23 March, 2023"
+date: "02 June, 2023"
 ---
 
 
@@ -95,10 +95,12 @@ table(pdat$man.trt2)
 
 ```
 ## 
-##                           Ammonia stripping   Anaerobic digestion           Floculation Mechanical separation 
-##                   201                     3                    16                     9                    52 
-##                  none                  None 
-##                  1526                   272
+##                           Ammonia stripping   Anaerobic digestion 
+##                   201                     3                    16 
+##           Floculation Mechanical separation                  none 
+##                     9                    52                  1526 
+##                  None 
+##                   272
 ```
 
 

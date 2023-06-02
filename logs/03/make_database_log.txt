@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-03-22 11:39:45 EDT"
+[1] "2023-06-02 11:34:38 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -32,21 +32,21 @@ unique(emis[, c('plot', 'rep')])
 
 [1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area
-1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
-2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
-3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
-4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000
-          lat       long country
-1 56°27'12''N 9°32'26''E      DK
-2 56°27'12''N 9°32'26''E      DK
-3 56°27'12''N 9°32'26''E      DK
-4 56°27'12''N 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area         lat
+1 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 Atmos1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+2 9°32'26''E      DK
+3 9°32'26''E      DK
+4 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000
-          lat       long country
-1 56°27'12''N 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area         lat
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_Aug          1   1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_Aug          1   1 CRDS_1m       bLS
@@ -69,19 +69,19 @@ unique(emis[, c('plot', 'rep')])
 
 [1] "File: ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx"
 plots:
-            proj              exper field plot rep pub.id plot.area
-1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
-2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
-3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000
-          lat       long country
-1 56°27'12''N 9°32'26''E      DK
-2 56°27'12''N 9°32'26''E      DK
-3 56°27'12''N 9°32'26''E      DK
+            proj              exper field plot rep pub.id plot.area         lat
+1 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+2 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+3 Vejrumbro_2019 Vejrumbro_2019_May          1   1 Atmos1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
+2 9°32'26''E      DK
+3 9°32'26''E      DK
 plots.orig:
-            proj pub.id              exper field plot rep plot.area
-1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000
-          lat       long country
-1 56°27'12''N 9°32'26''E      DK
+            proj pub.id              exper field plot rep plot.area         lat
+1 Vejrumbro_2019 Atmos1 Vejrumbro_2019_May          1   1    260000 56°27'12''N
+        long country
+1 9°32'26''E      DK
 Unique emis:
               proj              exper field plot rep   treat meas.tech
 1   Vejrumbro_2019 Vejrumbro_2019_May          1   1 CRDS_1m       bLS
@@ -131,20 +131,20 @@ See cleanALFAM() function.
    file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 26 × 18
-      `` ``        ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
-   <dbl> <chr>     <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
- 1     1 "3.\tSom… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 2    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 3    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 4    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 5    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 6    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 7    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 8    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
- 9    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-10    NA  <NA>     NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-# … with 16 more rows, and 6 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
-#   `` <dbl>, `` <dbl>, `` <dbl>
+      `` ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
+   <dbl> <chr> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
+ 1     1 "3.\… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 2    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 3    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 4    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 5    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 6    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 7    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+# … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
+#   `` <dbl>, `` <dbl>
    file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -161,27 +161,17 @@ unique(emis[, c('plot', 'rep')])
 
 [1] "File: ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx"
 plots:
-    proj   exper       field plot rep plot.area      lat     long country
-1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-2 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-3 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-4 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-5 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-6 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL
-  topo
-1 Flat
-2 Flat
-3 Flat
-4 Flat
-5 Flat
-6 Flat
+    proj   exper       field plot rep plot.area      lat     long country topo
+1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+2 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+3 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+4 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+5 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+6 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
 plots.orig:
-    proj   exper       field plot rep plot.area      lat     long country
-1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK
-2 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL
-  topo
-1 Flat
-2 Flat
+    proj   exper       field plot rep plot.area      lat     long country topo
+1 eGylle eGylle2 FoulumgårdD    1   1     778.2 56.49353 9.560641      DK Flat
+2 eGylle eGylle3         WUR    1   1    1543.2 51.99500 5.647365      NL Flat
 Unique emis:
       proj   exper       field plot rep                          treat
 1   eGylle eGylle2 FoulumgårdD    1   1              eGylle_bLS_Alpha1
@@ -241,16 +231,11 @@ plots.orig:
 1      IT
 2      IT
 Unique emis:
-      proj   exper  field plot rep       treat meas.tech
-1   ARMOSA LAND_13 SIC-13    1   0   SIC-13_EC        EC
-285 ARMOSA LAND_13 SIC-13    1   0  SIC-13_IDM       bLS
-569 ARMOSA LAND_13 SIC-13    1   0 SIC-13_TAGM       AGM
-853 ARMOSA LAND_13  SS-13    1   0   SS-13_IDM       bLS
-            meas.tech.det
-1           150 cm height
-285         150 cm height
-569 30, 70, 150 cm height
-853         150 cm height
+      proj   exper  field plot rep       treat meas.tech         meas.tech.det
+1   ARMOSA LAND_13 SIC-13    1   0   SIC-13_EC        EC         150 cm height
+285 ARMOSA LAND_13 SIC-13    1   0  SIC-13_IDM       bLS         150 cm height
+569 ARMOSA LAND_13 SIC-13    1   0 SIC-13_TAGM       AGM 30, 70, 150 cm height
+853 ARMOSA LAND_13  SS-13    1   0   SS-13_IDM       bLS         150 cm height
 Directory  ../../data-submitted/03/WUR 
 
 > cat('Done! Read', length(dat), ' directories\n')

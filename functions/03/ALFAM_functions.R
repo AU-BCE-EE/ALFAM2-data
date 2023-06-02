@@ -557,7 +557,7 @@ calcEmis <- function(obj, na = 'impute') {
   for (i in unique(emis$cpmid)) {
     dd <- emis[emis$cpmid == i, ]
     # First cumulative variables
-    for (vv in c('e', 'e.cum', 'e.rel', 'rain')) {
+    for (vv in c('e', 'e.cum', 'e.rel', 'rain.cum')) {
       if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
         for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
           pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = tt)$y
@@ -579,6 +579,9 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Merge interpolated results with plots
   plots <- merge(plots, pld, by = 'cpmid')
+
+  # Rename rain.cum.24 etc.
+  names(plots) <- gsub('rain\\.cum', 'rain', names(plots))
 
   obj$plots <- plots
   obj$emis <- emis

@@ -1155,7 +1155,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## rain.4  numeric, range: 0 0 
+## rain.4  numeric, range: 0 7.8 
 ## Missing values: 1907 
 ## 
 ## 
@@ -1185,12 +1185,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## rain.96  numeric, range: 0 2.723 
+## rain.96  numeric, range: 0 28.6 
 ## Missing values: 2015 
 ## 
 ## 
 ## -----------------------------------------------------
-## rain.168  numeric, range: 0 0 
+## rain.168  numeric, range: 0 24.6 
 ## Missing values: 2185 
 ## 
 ## 

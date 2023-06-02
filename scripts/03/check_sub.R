@@ -4,7 +4,7 @@ for (i in names(dat)) {
   for (j in names(dat[[i]])) {
 
     # Check for errors and create log with details
-    # Note: the Rmd file overwrites 'dd', so keep this script for last if possible
+    # Note: the Rmd file overwrites object 'dd', so keep this script for last if possible
     fn <- strsplit(j, '/')
     fn <- fn[[1]][length(fn[[1]])]
     fn <- sub('\\.xlsx$', '', fn)
