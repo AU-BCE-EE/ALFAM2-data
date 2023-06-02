@@ -496,8 +496,8 @@ if (!(all(is.na(d$cta)))) {
 ```{r, echo=FALSE}
 ggplot(d, aes(ct, wind, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'Wind (m/s', colour = 'Rows in file')
 ggplot(d, aes(ct, air.temp, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Air temp. (deg. C)', colour = 'Rows in file')
-ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm/h)', colour = 'Rows in file')
-ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain (mm)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.rate, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Rain rate (mm/h)', colour = 'Rows in file')
+ggplot(d, aes(ct, rain.cum, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Elapsed time (h)', y = 'Cumulative rain (mm)', colour = 'Rows in file')
 ```
 
 ## Manure and application
@@ -515,7 +515,13 @@ if (nrow(plots) < 5) {
 ```
 
 # 10. `dfsumm` summary 
+## Plot-level data
 ```{r, echo=FALSE}
-print(dfsumm(d))
+dfsumm(plots)
+```
+
+## Interval-level emission data
+```{r, echo=FALSE}
+dfsumm(d)
 ```
 
