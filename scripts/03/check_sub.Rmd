@@ -224,7 +224,7 @@ if (nrow(xx) == 0) {
   xx <- d[d$interval == 0, c('cpmid', 'row.in.file.int', 'row.in.file.plot')]
 }
 names(xx)[2:3] <- c('first.row.int', 'row.plot')
-d <- merge(d, xx, by = 'cpmid')
+d <- merge(d, xx, by = 'cpmid', all.x = TRUE)
 ```
 
 ## Duplicated intervals

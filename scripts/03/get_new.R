@@ -19,6 +19,8 @@ for(i in ddir) {
     check4missing(dd)
     # Basic data cleaning, add *character* IDs, add time (ct, etc) . . .
     dd <- cleanALFAM(dd)
+    # Check again now that cpmid is available
+    check4missing(dd)
     # Fix weather data, including rain calcs and interpolation as needed
     dd <- fixWeather(dd, na = 'impute')
     # Calculate emission, including merge with plots data frame, adding mean weather and emission to plots
