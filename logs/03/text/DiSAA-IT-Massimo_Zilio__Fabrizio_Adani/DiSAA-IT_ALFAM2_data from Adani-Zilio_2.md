@@ -545,132 +545,24 @@ title: 'Submitted data summary'
 ## 
 ##  6 rows and 230 columns
 ##  6 unique rows
-##                    institute
-## Class              character
-## Minimum             DiSAA-IT
-## Maximum             DiSAA-IT
-## Mean                    <NA>
-## Unique (excld. NA)         1
-## Missing values             0
-## Sorted                  TRUE
-##                             
-##                                                                                                                                                                                                                                                cpmid
-## Class                                                                                                                                                                                                                                      character
-## Minimum            D:1.I:DiSAA-IT.Pr:SYSTEMIC.F:../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx.E:SYS 2018.F:.P:Digestate.T:Digestate.R:NA.R2:.T:2018-04-23 11:00:00.M:bLSALPHA passive samplers plus Windtrax dispersion model
-## Maximum                      D:1.I:DiSAA-IT.Pr:SYSTEMIC.F:../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx.E:SYS 2020.F:.P:Urea.T:Urea.R:NA.R2:.T:2020-05-28 11:00:00.M:bLSALPHA passive samplers plus Windtrax dispersion model
-## Mean                                                                                                                                                                                                                                            <NA>
-## Unique (excld. NA)                                                                                                                                                                                                                                 6
-## Missing values                                                                                                                                                                                                                                     0
-## Sorted                                                                                                                                                                                                                                          TRUE
-##                                                                                                                                                                                                                                                     
-##                              pub.id      proj     exper     field      plot
-## Class                     character character character character character
-## Minimum            Zilio et al 2019  SYSTEMIC  SYS 2018           Digestate
-## Maximum            Zilio et al 2019  SYSTEMIC  SYS 2020                Urea
-## Mean                           <NA>      <NA>      <NA>      <NA>      <NA>
-## Unique (excld. NA)                1         1         3         1         2
-## Missing values                    0         0         0         0         0
-## Sorted                         TRUE      TRUE      TRUE      TRUE     FALSE
-##                                                                            
-##                          rep plot.area     lat    long   country      topo
-## Class              character   numeric numeric numeric character character
-## Minimum                 <NA>       350    45.3    9.11        IT      Flat
-## Maximum                 <NA>       350    45.3    9.11        IT      Flat
-## Mean                    <NA>       350    45.3    9.11      <NA>      <NA>
-## Unique (excld. NA)         0         1       1       1         1         1
-## Missing values             6         0       0       0         0         0
-## Sorted                  <NA>      TRUE    TRUE    TRUE      TRUE      TRUE
-##                                                                           
-##                       clay    silt    sand      oc soil.type soil.water
-## Class              numeric numeric numeric numeric character    numeric
-## Minimum                 12      39      46    1.13      Loam       <NA>
-## Maximum                 12      43      49    1.23      Loam       <NA>
-## Mean                    12      41    47.5    1.18      <NA>       <NA>
-## Unique (excld. NA)       1       2       2       2         1          0
-## Missing values           0       0       0       0         0          6
-## Sorted                TRUE   FALSE   FALSE   FALSE      TRUE       <NA>
-##                                                                        
-##                    soil.water.v soil.moist soil.ph soil.dens  crop.res
-## Class                   numeric  character numeric   numeric character
-## Minimum                    <NA>        Dry    7.05      <NA>       Yes
-## Maximum                    <NA>        Dry    7.06      <NA>       Yes
-## Mean                       <NA>       <NA>    7.06      <NA>      <NA>
-## Unique (excld. NA)            0          1       2         0         1
-## Missing values                6          0       0         6         0
-## Sorted                     <NA>       TRUE   FALSE      <NA>      TRUE
-##                                                                       
-##                         till    man.source man.source.det   man.bed   man.con
-## Class              character     character      character character character
-## Minimum                   No sewage sludge           <NA>      None    Slurry
-## Maximum                   No      urea 46%           <NA>      None     Solid
-## Mean                    <NA>          <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1             2              0         1         2
-## Missing values             0             0              6         0         0
-## Sorted                  TRUE         FALSE           <NA>      TRUE     FALSE
-##                                                                              
-##                               man.trt1          man.trt2 man.stor  man.dm
-## Class                        character         character  numeric numeric
-## Minimum            Anaerobic digestion Ammonia stripping       50    10.3
-## Maximum            Anaerobic digestion Ammonia stripping       50     100
-## Mean                              <NA>              <NA>       50    55.2
-## Unique (excld. NA)                   1                 1        1       3
-## Missing values                       3                 3        3       0
-## Sorted                            TRUE              TRUE     TRUE   FALSE
-##                                                                          
-##                     man.vs man.tkn man.tan man.tic  man.ua man.vfa  man.ph
-## Class              numeric numeric numeric logical logical numeric numeric
-## Minimum               4.04     7.7     4.1    <NA>    <NA>    <NA>     8.4
-## Maximum               4.04     7.9     460    <NA>    <NA>    <NA>     8.6
-## Mean                  4.04    7.83     232    <NA>    <NA>    <NA>     8.5
-## Unique (excld. NA)       1       2       4       0       0       0       3
-## Missing values           3       3       0       6       6       6       3
-## Sorted                TRUE   FALSE   FALSE    <NA>    <NA>    <NA>   FALSE
-##                                                                           
-##                              app.start             app.end app.method app.rate
-## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character  numeric
-## Minimum            2018-04-23 11:00:00 2018-04-23 12:00:00         bc      0.4
-## Maximum            2020-05-28 11:00:00 2020-05-28 12:00:00         os     48.5
-## Mean               2019-05-03 03:00:00 2019-05-03 04:00:00       <NA>     24.4
-## Unique (excld. NA)                   3                   3          2        2
-## Missing values                       0                   0          0        0
-## Sorted                            TRUE                TRUE      FALSE    FALSE
+##                    institute      proj     exper     field      plot       rep
+## Class              character character character character character character
+## Minimum             DiSAA-IT  SYSTEMIC  SYS 2018           Digestate      <NA>
+## Maximum             DiSAA-IT  SYSTEMIC  SYS 2020                Urea      <NA>
+## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
+## Unique (excld. NA)         1         1         3         1         2         0
+## Missing values             0         0         0         0         0         6
+## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE      <NA>
 ##                                                                               
-##                    app.rate.unit    incorp time.incorp man.area dist.inj
-## Class                  character character     numeric  numeric  numeric
-## Minimum                     t/ha      <NA>        <NA>     <NA>     <NA>
-## Maximum                     t/ha      <NA>        <NA>     <NA>     <NA>
-## Mean                        <NA>      <NA>        <NA>     <NA>     <NA>
-## Unique (excld. NA)             1         0           0        0        0
-## Missing values                 0         6           6        6        6
-## Sorted                      TRUE      <NA>        <NA>     <NA>     <NA>
-##                                                                         
-##                    furrow.z furrow.w      crop  crop.z crop.area     lai
-## Class               numeric  logical character numeric   numeric logical
-## Minimum                <NA>     <NA> bare soil       0         0    <NA>
-## Maximum                <NA>     <NA> bare soil       0         0    <NA>
-## Mean                   <NA>     <NA>      <NA>       0         0    <NA>
-## Unique (excld. NA)        0        0         1       1         1       0
-## Missing values            6        6         0       0         0       6
-## Sorted                 <NA>     <NA>      TRUE    TRUE      TRUE    <NA>
-##                                                                         
-##                                                                                                                            notes.plot
-## Class                                                                                                                       character
-## Minimum            The plot for Digestate experiments is the same. We carried out measurements on the same plot in 3 consecutve years
-## Maximum                 The plot for Urea experiments is the same. We carried out measurements on the same plot in 3 consecutve years
-## Mean                                                                                                                             <NA>
-## Unique (excld. NA)                                                                                                                  2
-## Missing values                                                                                                                      4
-## Sorted                                                                                                                           TRUE
-##                                                                                                                                      
-##                    row.in.file.plot  man.trt3  uptake
-## Class                       numeric character numeric
-## Minimum                           5      <NA>       3
-## Maximum                          10      <NA>       3
-## Mean                            7.5      <NA>       3
-## Unique (excld. NA)                6         0       1
-## Missing values                    0         6       0
-## Sorted                        FALSE      <NA>    TRUE
-##                                                      
+##                              app.start  uptake
+## Class                  POSIXct, POSIXt numeric
+## Minimum            2018-04-23 11:00:00       3
+## Maximum            2020-05-28 11:00:00       3
+## Mean               2019-05-03 03:00:00       3
+## Unique (excld. NA)                   3       1
+## Missing values                       0       0
+## Sorted                            TRUE    TRUE
+##                                               
 ##                                                                                    file
 ## Class                                                                         character
 ## Minimum            ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx
@@ -698,15 +590,123 @@ title: 'Submitted data summary'
 ## Missing values                                                         0
 ## Sorted                                                              TRUE
 ##                                                                         
-##                      app.start.orig     app.end.orig
-## Class                     character        character
-## Minimum            16-04-2019 11:00 16-04-2019 12:00
-## Maximum            28-05-2020 11:00 28-05-2020 12:00
-## Mean                           <NA>             <NA>
-## Unique (excld. NA)                3                3
-## Missing values                    0                0
-## Sorted                        FALSE            FALSE
-##                                                     
+##                       rep2
+## Class              logical
+## Minimum               <NA>
+## Maximum               <NA>
+## Mean                  <NA>
+## Unique (excld. NA)       0
+## Missing values           6
+## Sorted                <NA>
+##                           
+##                                                                                                                                                                                                                                                cpmid
+## Class                                                                                                                                                                                                                                      character
+## Minimum            D:1.I:DiSAA-IT.Pr:SYSTEMIC.F:../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx.E:SYS 2018.F:.P:Digestate.T:Digestate.R:NA.R2:.T:2018-04-23 11:00:00.M:bLSALPHA passive samplers plus Windtrax dispersion model
+## Maximum                      D:1.I:DiSAA-IT.Pr:SYSTEMIC.F:../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx.E:SYS 2020.F:.P:Urea.T:Urea.R:NA.R2:.T:2020-05-28 11:00:00.M:bLSALPHA passive samplers plus Windtrax dispersion model
+## Mean                                                                                                                                                                                                                                            <NA>
+## Unique (excld. NA)                                                                                                                                                                                                                                 6
+## Missing values                                                                                                                                                                                                                                     0
+## Sorted                                                                                                                                                                                                                                          TRUE
+##                                                                                                                                                                                                                                                     
+##                              pub.id plot.area     lat    long   country
+## Class                     character   numeric numeric numeric character
+## Minimum            Zilio et al 2019       350    45.3    9.11        IT
+## Maximum            Zilio et al 2019       350    45.3    9.11        IT
+## Mean                           <NA>       350    45.3    9.11      <NA>
+## Unique (excld. NA)                1         1       1       1         1
+## Missing values                    0         0       0       0         0
+## Sorted                         TRUE      TRUE    TRUE    TRUE      TRUE
+##                                                                        
+##                         topo    clay    silt    sand      oc soil.type
+## Class              character numeric numeric numeric numeric character
+## Minimum                 Flat      12      39      46    1.13      Loam
+## Maximum                 Flat      12      43      49    1.23      Loam
+## Mean                    <NA>      12      41    47.5    1.18      <NA>
+## Unique (excld. NA)         1       1       2       2       2         1
+## Missing values             0       0       0       0       0         0
+## Sorted                  TRUE    TRUE   FALSE   FALSE   FALSE      TRUE
+##                                                                       
+##                    soil.water soil.water.v soil.moist soil.ph soil.dens
+## Class                 numeric      numeric  character numeric   numeric
+## Minimum                  <NA>         <NA>        Dry    7.05      <NA>
+## Maximum                  <NA>         <NA>        Dry    7.06      <NA>
+## Mean                     <NA>         <NA>       <NA>    7.06      <NA>
+## Unique (excld. NA)          0            0          1       2         0
+## Missing values              6            6          0       0         6
+## Sorted                   <NA>         <NA>       TRUE   FALSE      <NA>
+##                                                                        
+##                     crop.res      till    man.source man.source.det   man.bed
+## Class              character character     character      character character
+## Minimum                  Yes        No sewage sludge           <NA>      None
+## Maximum                  Yes        No      urea 46%           <NA>      None
+## Mean                    <NA>      <NA>          <NA>           <NA>      <NA>
+## Unique (excld. NA)         1         1             2              0         1
+## Missing values             0         0             0              6         0
+## Sorted                  TRUE      TRUE         FALSE           <NA>      TRUE
+##                                                                              
+##                      man.con            man.trt1          man.trt2 man.stor
+## Class              character           character         character  numeric
+## Minimum               Slurry Anaerobic digestion Ammonia stripping       50
+## Maximum                Solid Anaerobic digestion Ammonia stripping       50
+## Mean                    <NA>                <NA>              <NA>       50
+## Unique (excld. NA)         2                   1                 1        1
+## Missing values             0                   3                 3        3
+## Sorted                 FALSE                TRUE              TRUE     TRUE
+##                                                                            
+##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
+## Class              numeric numeric numeric numeric logical logical numeric
+## Minimum               10.3    4.04     7.7     4.1    <NA>    <NA>    <NA>
+## Maximum                100    4.04     7.9     460    <NA>    <NA>    <NA>
+## Mean                  55.2    4.04    7.83     232    <NA>    <NA>    <NA>
+## Unique (excld. NA)       3       1       2       4       0       0       0
+## Missing values           0       3       3       0       6       6       6
+## Sorted               FALSE    TRUE   FALSE   FALSE    <NA>    <NA>    <NA>
+##                                                                           
+##                     man.ph             app.end app.method app.rate
+## Class              numeric     POSIXct, POSIXt  character  numeric
+## Minimum                8.4 2018-04-23 12:00:00         bc      0.4
+## Maximum                8.6 2020-05-28 12:00:00         os     48.5
+## Mean                   8.5 2019-05-03 04:00:00       <NA>     24.4
+## Unique (excld. NA)       3                   3          2        2
+## Missing values           3                   0          0        0
+## Sorted               FALSE                TRUE      FALSE    FALSE
+##                                                                   
+##                    app.rate.unit    incorp time.incorp man.area dist.inj
+## Class                  character character     numeric  numeric  numeric
+## Minimum                     t/ha      <NA>        <NA>     <NA>     <NA>
+## Maximum                     t/ha      <NA>        <NA>     <NA>     <NA>
+## Mean                        <NA>      <NA>        <NA>     <NA>     <NA>
+## Unique (excld. NA)             1         0           0        0        0
+## Missing values                 0         6           6        6        6
+## Sorted                      TRUE      <NA>        <NA>     <NA>     <NA>
+##                                                                         
+##                    furrow.z furrow.w      crop  crop.z crop.area     lai
+## Class               numeric  logical character numeric   numeric logical
+## Minimum                <NA>     <NA> bare soil       0         0    <NA>
+## Maximum                <NA>     <NA> bare soil       0         0    <NA>
+## Mean                   <NA>     <NA>      <NA>       0         0    <NA>
+## Unique (excld. NA)        0        0         1       1         1       0
+## Missing values            6        6         0       0         0       6
+## Sorted                 <NA>     <NA>      TRUE    TRUE      TRUE    <NA>
+##                                                                         
+##                                                                                                                            notes.plot
+## Class                                                                                                                       character
+## Minimum            The plot for Digestate experiments is the same. We carried out measurements on the same plot in 3 consecutve years
+## Maximum                 The plot for Urea experiments is the same. We carried out measurements on the same plot in 3 consecutve years
+## Mean                                                                                                                             <NA>
+## Unique (excld. NA)                                                                                                                  2
+## Missing values                                                                                                                      4
+## Sorted                                                                                                                           TRUE
+##                                                                                                                                      
+##                    row.in.file.plot  man.trt3   app.start.orig     app.end.orig
+## Class                       numeric character        character        character
+## Minimum                           5      <NA> 16-04-2019 11:00 16-04-2019 12:00
+## Maximum                          10      <NA> 28-05-2020 11:00 28-05-2020 12:00
+## Mean                            7.5      <NA>             <NA>             <NA>
+## Unique (excld. NA)                6         0                3                3
+## Missing values                    0         6                0                0
+## Sorted                        FALSE      <NA>            FALSE            FALSE
+##                                                                                
 ##                                                                                                                                                                                      cpid
 ## Class                                                                                                                                                                           character
 ## Minimum            D:1.I:DiSAA-IT.Pr:SYSTEMIC.F:../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx.E:SYS 2018.F:.P:Digestate.T:Digestate.R:NA.R2:.T:2018-04-23 11:00:00
@@ -986,15 +986,15 @@ title: 'Submitted data summary'
 ## Missing values                                                                                                                                                                                                                               0
 ## Sorted                                                                                                                                                                                                                                    TRUE
 ##                                                                                                                                                                                                                                               
-##                    soil.type2  exper2    rep2    acid meas.tech.orig meas.tech2
-## Class                 logical logical logical logical      character  character
-## Minimum                  <NA>    <NA>    <NA>   FALSE            bLS  micro met
-## Maximum                  <NA>    <NA>    <NA>   FALSE            bLS  micro met
-## Mean                     <NA>    <NA>    <NA>  0 TRUE           <NA>       <NA>
-## Unique (excld. NA)          0       0       0       1              1          1
-## Missing values              6       6       6       0              0          0
-## Sorted                   <NA>    <NA>    <NA>    TRUE           TRUE       TRUE
-##                                                                                
+##                    soil.type2  exper2    acid meas.tech.orig meas.tech2
+## Class                 logical logical logical      character  character
+## Minimum                  <NA>    <NA>   FALSE            bLS  micro met
+## Maximum                  <NA>    <NA>   FALSE            bLS  micro met
+## Mean                     <NA>    <NA>  0 TRUE           <NA>       <NA>
+## Unique (excld. NA)          0       0       1              1          1
+## Missing values              6       6       0              0          0
+## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
+##                                                                        
 ##                    crop.orig man.source.orig     app.method.orig app.method2
 ## Class              character       character           character   character
 ## Minimum            Bare soil   Sewage sludge           Broadcast          bc
@@ -1004,21 +1004,21 @@ title: 'Submitted data summary'
 ## Missing values             0               0                   0           0
 ## Sorted                  TRUE           FALSE               FALSE       FALSE
 ##                                                                             
-##                    incorp.orig date.start  flag.int soil.samp.z    inst     eid
+##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character     numeric numeric integer
-## Minimum                   <NA> 2018-04-23                  <NA>     303     381
-## Maximum                   <NA> 2020-05-28                  <NA>     303     383
+## Minimum                   <NA> 2018-04-23                  <NA>     303    2223
+## Maximum                   <NA> 2020-05-28                  <NA>     303    2228
 ## Mean                      <NA>       <NA>      <NA>        <NA>     303    <NA>
-## Unique (excld. NA)           0          3         1           0       1       3
+## Unique (excld. NA)           0          3         1           0       1       6
 ## Missing values               6          0         0           6       0       0
 ## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
 ##                                                                                
-##                        pid    pmid
+##                       pmid     eid
 ## Class              integer integer
-## Minimum               2223    2227
-## Maximum               2228    2232
+## Minimum               2227     381
+## Maximum               2232     383
 ## Mean                  <NA>    <NA>
-## Unique (excld. NA)       6       6
+## Unique (excld. NA)       6       3
 ## Missing values           0       0
 ## Sorted                TRUE    TRUE
 ## 

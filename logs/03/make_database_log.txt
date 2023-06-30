@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-06-02 11:34:38 EDT"
+[1] "2023-06-30 15:58:22 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -143,8 +143,9 @@ See cleanALFAM() function.
  8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
  9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
 10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
-# … with 16 more rows, and 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>,
-#   `` <dbl>, `` <dbl>
+# ℹ 16 more rows
+# ℹ 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>
+# ℹ Use `print(n = ...)` to see more rows
    file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -182,15 +183,23 @@ Unique emis:
 149 eGylle eGylle3         WUR    1   1                     eGylle_IHF
 158 eGylle eGylle3         WUR    1   1            eGylle_bLS_avg_time
 167 eGylle eGylle3         WUR    1   1 eGylle_bLS_acid_traps_3heights
-    meas.tech  meas.tech.det
-1         bLS Alpha samplers
-20        bLS Alpha samplers
-39        DTM           <NA>
-76        DTM           <NA>
-113       DTM           <NA>
-149       IHF     Acid traps
-158       bLS      CRDS avg.
-167       bLS     Acid traps
+176 eGylle eGylle3         WUR    1   1                    eGylle_FC_1
+188 eGylle eGylle3         WUR    1   1                    eGylle_FC_2
+200 eGylle eGylle3         WUR    1   1                    eGylle_FC_3
+212 eGylle eGylle3         WUR    1   1                    eGylle_FC_4
+          meas.tech  meas.tech.det
+1               bLS Alpha samplers
+20              bLS Alpha samplers
+39              DTM           <NA>
+76              DTM           <NA>
+113             DTM           <NA>
+149             IHF     Acid traps
+158             bLS      CRDS avg.
+167             bLS     Acid traps
+176 Dynamic chamber     Acid traps
+188 Dynamic chamber     Acid traps
+200 Dynamic chamber     Acid traps
+212 Dynamic chamber     Acid traps
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
@@ -272,6 +281,18 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 
 > # Add plot and institute ID codes to new data
 > 
+> # Get original pmid from latest GitHub release
+> 
+> p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
+
+> pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
+
+> dim(pdatr)
+[1] 344  16
+
+> dim(pdat)
+[1] 348 226
+
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
 
@@ -282,20 +303,23 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 >  .... [TRUNCATED] 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
+> # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
+
 > # Experiment ID (includes uptake, inst, proj, exper)
-> pdat$ .... [TRUNCATED] 
+> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat.old$ .... [TRUNCATED] 
 
 > # Add plot and plot x meas tech IDs
-> pdat$pid <- as.integer(factor(pdat$cpid)) + max(pdat.old$pid)
+> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat .... [TRUNCATED] 
 
-> pdat$pmid <- as.integer(factor(pdat$cpmid)) + max(pdat.old$pmid)
+> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + max(c(pdat.old$pmid, na.omit(pdat$pmid)))
 
 > # Merge IDs into interval level data
 > # Should alternatively be able to switch to interger directly in idat
 > idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
 
 > # Add observation ID
-> idat <- idat[order(idat$pmid, idat$int), ]
+> # Is not copied from earlier uptake but because any new obs (should) have a large pmid, they will also have a higher oid
+> id .... [TRUNCATED] 
 
 > idat$oid <- 1:nrow(idat) + max(idat.old$oid)
 
@@ -381,6 +405,41 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 
 > knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
 [1] "../../logs/03/check_final.md"
+
+> # Compare version number to what is on GitHub
+> 
+> lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/03/data_ver .... [TRUNCATED] 
+
+> lastmain <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/03/data_version.txt'
+
+> release <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/03/data_version.txt')
+
+> vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])
+
+> vlm <- gsub('\\.$', '', as.data.frame(data.table::fread(lastmain))[[3]])
+
+> vr <- gsub('\\.$', '', as.data.frame(data.table::fread(release))[[3]])
+
+> cat('Checking versions\n')
+Checking versions
+
+> if (oldrelease != vr) {
++   cat('Version number in old release does not match release tag!\n')
++ }
+
+> vdat <- data.frame(Where = c('main.R (in R)', 'Release tag', 'Release', 'Main branch', 'Dev branch'),
++                    Version = c(version, oldr .... [TRUNCATED] 
+
+> print(vdat, row.names = FALSE)
+         Where Version
+ main.R (in R)    2.23
+   Release tag    2.22
+       Release    2.22
+   Main branch    2.22
+    Dev branch    2.22
+
+> if (version %in% c(oldrelease, vr, vlm, vld)) {
++   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
 
 > # Write regular csv files
 > write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)

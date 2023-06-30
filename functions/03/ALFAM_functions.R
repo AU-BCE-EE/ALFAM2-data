@@ -142,6 +142,18 @@ check4missing <- function(obj) {
   }
 
   # Check for missing interval 0 or 1
+  if ('cpmid' %in% names(emis)) {
+    for (i in unique(emis$cpmid)) {
+      d <- emis[emis$cpmid == i, ]
+      if (!min(d$interval[d$interval >= 0]) %in% 0:1) {
+        cat('Missing interval 0 or 1. May just be problem with entry of interval numbers\n')
+        cat('File ', d$file[1], '\n')
+        cat('cpmid ', d$cpmid[1], '\n')
+        cat('First row in file: ', min(d$row.in.file.plot), '\n')
+        stop('Missing interval 0 or 1. Check make_database_log.txt for more details.')
+      }
+    }
+  }
 
   # If dt is missing, must have t.start and t.end
   if (any(ii <- is.na(emis[, 'dt']))) {
@@ -372,6 +384,9 @@ cleanALFAM <- function(obj) {
     # Elapsed time since application (cta = cumulative time since application (ended), bta = cumulative time since application *began*)
     emis$cta <- as.numeric(difftime(emis$t.end, emis$app.start, units = 'hours'))
     emis$bta <- as.numeric(difftime(emis$t.start, emis$app.start, units = 'hours'))
+
+    # In case cta is NA (presumably because application time is missing) set it to ct
+    emis$cta[is.na(emis$cta)] <- emis$ct[is.na(emis$cta)]
   }
 
   # Add file
@@ -560,6 +575,14 @@ calcEmis <- function(obj, na = 'impute') {
     for (vv in c('e', 'e.cum', 'e.rel', 'rain.cum')) {
       if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
         for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
+          if (nrow(emis[emis$cpmid == i, ]) %in% 0:1) {
+            message('< 2 rows, so cannot interpolate emission. Look for gjqoo81 in ALFAM_functions.R')
+            browser()
+          }
+          if (any(is.na(c(emis[emis$cpmid == i, 'ct'],emis[emis$cpmid == i, vv])))) {
+            message('Missing values. See hjhjhq1 in ALFAM_functions.R')
+            browser()
+          }
           pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = tt)$y
         }
         pld[pld$cpmid == i, paste0(vv, '.final')] <- emis[emis$cpmid == i & (emis[, 'ct'] == max(emis[emis$cpmid == i, 'ct'])), vv]

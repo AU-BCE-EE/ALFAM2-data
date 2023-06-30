@@ -526,15 +526,42 @@ title: 'Submitted data summary'
 ## 
 ##  4 rows and 230 columns
 ##  4 unique rows
-##                    institute
-## Class              character
-## Minimum                UNIMI
-## Maximum                UNIMI
-## Mean                    <NA>
-## Unique (excld. NA)         1
-## Missing values             0
-## Sorted                  TRUE
-##                             
+##                    institute      proj     exper     field      plot       rep
+## Class              character character character character character character
+## Minimum                UNIMI    ARMOSA   LAND_13    SIC-13         1         0
+## Maximum                UNIMI    ARMOSA   LAND_13     SS-13         1         0
+## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
+## Unique (excld. NA)         1         1         1         2         1         1
+## Missing values             0         0         0         0         0         0
+## Sorted                  TRUE      TRUE      TRUE      TRUE      TRUE      TRUE
+##                                                                               
+##                              app.start  uptake
+## Class                  POSIXct, POSIXt numeric
+## Minimum            2013-06-19 09:10:00       3
+## Maximum            2013-06-19 15:05:00       3
+## Mean               2013-06-19 10:38:45       3
+## Unique (excld. NA)                   2       1
+## Missing values                       0       0
+## Sorted                            TRUE    TRUE
+##                                               
+##                                                                                    file
+## Class                                                                         character
+## Minimum            ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx
+## Maximum            ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx
+## Mean                                                                               <NA>
+## Unique (excld. NA)                                                                    1
+## Missing values                                                                        0
+## Sorted                                                                             TRUE
+##                                                                                        
+##                        treat meas.tech         meas.tech.det    rep2
+## Class              character character             character logical
+## Minimum            SIC-13_EC       AGM         150 cm height    <NA>
+## Maximum            SS-13_IDM        EC 30, 70, 150 cm height    <NA>
+## Mean                    <NA>      <NA>                  <NA>    <NA>
+## Unique (excld. NA)         4         3                     2       0
+## Missing values             0         0                     0       4
+## Sorted                  TRUE     FALSE                 FALSE    <NA>
+##                                                                     
 ##                                                                                                                                                                                              cpmid
 ## Class                                                                                                                                                                                    character
 ## Minimum            D:1.I:UNIMI.Pr:ARMOSA.F:../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx.E:LAND_13.F:SIC-13.P:1.T:SIC-13_EC.R:0.R2:.T:2013-06-19 09:10:00.M:EC150 cm height
@@ -542,71 +569,62 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                                          <NA>
 ## Unique (excld. NA)                                                                                                                                                                               4
 ## Missing values                                                                                                                                                                                   0
-## Sorted                                                                                                                                                                                       FALSE
+## Sorted                                                                                                                                                                                        TRUE
 ##                                                                                                                                                                                                   
-##                       pub.id      proj     exper     field      plot       rep
-## Class              character character character character character character
-## Minimum                 <NA>    ARMOSA   LAND_13    SIC-13         1         0
-## Maximum                 <NA>    ARMOSA   LAND_13     SS-13         1         0
-## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
-## Unique (excld. NA)         0         1         1         2         1         1
-## Missing values             4         0         0         0         0         0
-## Sorted                  <NA>      TRUE      TRUE     FALSE      TRUE      TRUE
-##                                                                               
-##                    plot.area     lat    long   country      topo    clay
-## Class                numeric numeric numeric character character numeric
-## Minimum                10000    45.3    9.26        IT      Flat    13.5
-## Maximum                39800    45.3    9.27        IT      Flat    18.1
-## Mean                   32400    45.3    9.27      <NA>      <NA>    16.9
-## Unique (excld. NA)         2       2       2         1         1       2
-## Missing values             0       0       0         0         0       0
-## Sorted                 FALSE   FALSE   FALSE      TRUE      TRUE   FALSE
-##                                                                         
-##                       silt    sand      oc soil.type soil.water soil.water.v
-## Class              numeric numeric numeric character    numeric      numeric
-## Minimum               48.9    33.1    2.12      <NA>      0.146         20.4
-## Maximum               51.5      35    2.47      <NA>      0.157         20.9
-## Mean                  49.5    33.6    2.38      <NA>      0.154         20.5
-## Unique (excld. NA)       2       2       2         0          2            2
-## Missing values           0       0       0         4          0            0
-## Sorted               FALSE   FALSE   FALSE      <NA>      FALSE        FALSE
-##                                                                             
-##                    soil.moist soil.ph soil.dens  crop.res      till man.source
-## Class               character numeric   numeric character character  character
-## Minimum                   Wet       7       1.3        No        No        cat
-## Maximum                   Wet    7.65      1.43        No        No        cat
-## Mean                     <NA>    7.49      1.33      <NA>      <NA>       <NA>
-## Unique (excld. NA)          1       2         2         1         1          1
-## Missing values              0       0         0         0         0          0
-## Sorted                   TRUE   FALSE     FALSE      TRUE      TRUE       TRUE
-##                                                                               
-##                    man.source.det   man.bed   man.con            man.trt1
-## Class                   character character character           character
-## Minimum                     Dairy     Straw    Slurry Anaerobic digestion
-## Maximum                     Dairy     Straw    Slurry Anaerobic digestion
-## Mean                         <NA>      <NA>      <NA>                <NA>
-## Unique (excld. NA)              1         1         1                   1
-## Missing values                  0         0         0                   0
-## Sorted                       TRUE      TRUE      TRUE                TRUE
+##                       pub.id plot.area     lat    long   country      topo
+## Class              character   numeric numeric numeric character character
+## Minimum                 <NA>     10000    45.3    9.26        IT      Flat
+## Maximum                 <NA>     39800    45.3    9.27        IT      Flat
+## Mean                    <NA>     32400    45.3    9.27      <NA>      <NA>
+## Unique (excld. NA)         0         2       2       2         1         1
+## Missing values             4         0       0       0         0         0
+## Sorted                  <NA>     FALSE   FALSE    TRUE      TRUE      TRUE
+##                                                                           
+##                       clay    silt    sand      oc soil.type soil.water
+## Class              numeric numeric numeric numeric character    numeric
+## Minimum               13.5    48.9    33.1    2.12      <NA>      0.146
+## Maximum               18.1    51.5      35    2.47      <NA>      0.157
+## Mean                  16.9    49.5    33.6    2.38      <NA>      0.154
+## Unique (excld. NA)       2       2       2       2         0          2
+## Missing values           0       0       0       0         4          0
+## Sorted               FALSE    TRUE    TRUE   FALSE      <NA>      FALSE
+##                                                                        
+##                    soil.water.v soil.moist soil.ph soil.dens  crop.res
+## Class                   numeric  character numeric   numeric character
+## Minimum                    20.4        Wet       7       1.3        No
+## Maximum                    20.9        Wet    7.65      1.43        No
+## Mean                       20.5       <NA>    7.49      1.33      <NA>
+## Unique (excld. NA)            2          1       2         2         1
+## Missing values                0          0       0         0         0
+## Sorted                     TRUE       TRUE   FALSE      TRUE      TRUE
+##                                                                       
+##                         till man.source man.source.det   man.bed   man.con
+## Class              character  character      character character character
+## Minimum                   No        cat          Dairy     Straw    Slurry
+## Maximum                   No        cat          Dairy     Straw    Slurry
+## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
+## Unique (excld. NA)         1          1              1         1         1
+## Missing values             0          0              0         0         0
+## Sorted                  TRUE       TRUE           TRUE      TRUE      TRUE
+##                                                                           
+##                               man.trt1  man.trt2 man.stor  man.dm  man.vs
+## Class                        character character  numeric numeric numeric
+## Minimum            Anaerobic digestion      <NA>     <NA>    6.49    <NA>
+## Maximum            Anaerobic digestion      <NA>     <NA>    6.49    <NA>
+## Mean                              <NA>      <NA>     <NA>    6.49    <NA>
+## Unique (excld. NA)                   1         0        0       1       0
+## Missing values                       0         4        4       0       4
+## Sorted                            TRUE      <NA>     <NA>    TRUE    <NA>
 ##                                                                          
-##                     man.trt2 man.stor  man.dm  man.vs man.tkn man.tan man.tic
-## Class              character  numeric numeric numeric numeric numeric logical
-## Minimum                 <NA>     <NA>    6.49    <NA>    4.93     2.2    <NA>
-## Maximum                 <NA>     <NA>    6.49    <NA>    4.93     2.2    <NA>
-## Mean                    <NA>     <NA>    6.49    <NA>    4.93     2.2    <NA>
-## Unique (excld. NA)         0        0       1       0       1       1       0
-## Missing values             4        4       0       4       0       0       4
-## Sorted                  <NA>     <NA>    TRUE    <NA>    TRUE    TRUE    <NA>
-##                                                                              
-##                     man.ua man.vfa  man.ph           app.start
-## Class              logical numeric numeric     POSIXct, POSIXt
-## Minimum               <NA>    <NA>    8.36 2013-06-19 09:10:00
-## Maximum               <NA>    <NA>    8.36 2013-06-19 15:05:00
-## Mean                  <NA>    <NA>    8.36 2013-06-19 10:38:45
-## Unique (excld. NA)       0       0       1                   2
-## Missing values           4       4       0                   0
-## Sorted                <NA>    <NA>    TRUE               FALSE
-##                                                               
+##                    man.tkn man.tan man.tic  man.ua man.vfa  man.ph
+## Class              numeric numeric logical logical numeric numeric
+## Minimum               4.93     2.2    <NA>    <NA>    <NA>    8.36
+## Maximum               4.93     2.2    <NA>    <NA>    <NA>    8.36
+## Mean                  4.93     2.2    <NA>    <NA>    <NA>    8.36
+## Unique (excld. NA)       1       1       0       0       0       1
+## Missing values           0       0       4       4       4       0
+## Sorted                TRUE    TRUE    <NA>    <NA>    <NA>    TRUE
+##                                                                   
 ##                                app.end app.method app.rate app.rate.unit
 ## Class                  POSIXct, POSIXt  character  numeric     character
 ## Minimum            2013-06-19 13:30:00         bc     43.6         m3/ha
@@ -614,7 +632,7 @@ title: 'Submitted data summary'
 ## Mean               2013-06-19 14:08:45       <NA>     44.6          <NA>
 ## Unique (excld. NA)                   2          1        2             1
 ## Missing values                       0          0        0             0
-## Sorted                           FALSE       TRUE    FALSE          TRUE
+## Sorted                            TRUE       TRUE    FALSE          TRUE
 ##                                                                         
 ##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
 ## Class              character     numeric  numeric  numeric  numeric  logical
@@ -632,44 +650,17 @@ title: 'Submitted data summary'
 ## Mean                    <NA>    17.5        50    <NA>       <NA>
 ## Unique (excld. NA)         1       2         1       0          1
 ## Missing values             0       0         0       4          1
-## Sorted                  TRUE   FALSE      TRUE    <NA>       TRUE
+## Sorted                  TRUE    TRUE      TRUE    <NA>       TRUE
 ##                                                                  
-##                    row.in.file.plot  man.trt3  uptake
-## Class                       numeric character numeric
-## Minimum                           5      <NA>       3
-## Maximum                           6      <NA>       3
-## Mean                           5.25      <NA>       3
-## Unique (excld. NA)                2         0       1
-## Missing values                    0         4       0
-## Sorted                        FALSE      <NA>    TRUE
-##                                                      
-##                                                                                    file
-## Class                                                                         character
-## Minimum            ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx
-## Maximum            ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx
-## Mean                                                                               <NA>
-## Unique (excld. NA)                                                                    1
-## Missing values                                                                        0
-## Sorted                                                                             TRUE
-##                                                                                        
-##                        treat meas.tech         meas.tech.det   app.start.orig
-## Class              character character             character        character
-## Minimum            SIC-13_EC       AGM         150 cm height 19-06-2013 09:10
-## Maximum            SS-13_IDM        EC 30, 70, 150 cm height 19-06-2013 15:05
-## Mean                    <NA>      <NA>                  <NA>             <NA>
-## Unique (excld. NA)         4         3                     2                2
-## Missing values             0         0                     0                0
-## Sorted                 FALSE     FALSE                 FALSE            FALSE
-##                                                                              
-##                        app.end.orig
-## Class                     character
-## Minimum            19-06-2013 13:30
-## Maximum            19-06-2013 16:05
-## Mean                           <NA>
-## Unique (excld. NA)                2
-## Missing values                    0
-## Sorted                        FALSE
-##                                    
+##                    row.in.file.plot  man.trt3   app.start.orig     app.end.orig
+## Class                       numeric character        character        character
+## Minimum                           5      <NA> 19-06-2013 09:10 19-06-2013 13:30
+## Maximum                           6      <NA> 19-06-2013 15:05 19-06-2013 16:05
+## Mean                           5.25      <NA>             <NA>             <NA>
+## Unique (excld. NA)                2         0                2                2
+## Missing values                    0         4                0                0
+## Sorted                         TRUE      <NA>             TRUE             TRUE
+##                                                                                
 ##                                                                                                                                                                             cpid
 ## Class                                                                                                                                                                  character
 ## Minimum            D:1.I:UNIMI.Pr:ARMOSA.F:../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx.E:LAND_13.F:SIC-13.P:1.T:SIC-13_EC.R:0.R2:.T:2013-06-19 09:10:00
@@ -677,7 +668,7 @@ title: 'Submitted data summary'
 ## Mean                                                                                                                                                                        <NA>
 ## Unique (excld. NA)                                                                                                                                                             4
 ## Missing values                                                                                                                                                                 0
-## Sorted                                                                                                                                                                     FALSE
+## Sorted                                                                                                                                                                      TRUE
 ##                                                                                                                                                                                 
 ##                                               ceid flag.plot     submitter
 ## Class                                    character character     character
@@ -821,7 +812,7 @@ title: 'Submitted data summary'
 ## Mean                             <NA>              <NA>  0.0789   0.218   0.242
 ## Unique (excld. NA)                  0                 0       2       2       2
 ## Missing values                      4                 4       0       0       0
-## Sorted                           <NA>              <NA>   FALSE   FALSE   FALSE
+## Sorted                           <NA>              <NA>    TRUE    TRUE    TRUE
 ##                                                                                
 ##                    wind.12 wind.24 wind.48 wind.72 wind.96 wind.168 wind.mn
 ## Class              numeric numeric numeric numeric numeric  numeric numeric
@@ -830,7 +821,7 @@ title: 'Submitted data summary'
 ## Mean                 0.405   0.697   0.857   0.948    1.05     1.13    1.13
 ## Unique (excld. NA)       2       2       2       2       2        2       2
 ## Missing values           0       0       0       0       0        0       0
-## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE    FALSE   FALSE
+## Sorted                TRUE    TRUE    TRUE    TRUE    TRUE     TRUE    TRUE
 ##                                                                            
 ##                    wind.2m.1 wind.2m.4 wind.2m.6 wind.2m.12 wind.2m.24
 ## Class                numeric   numeric   numeric    numeric    numeric
@@ -839,7 +830,7 @@ title: 'Submitted data summary'
 ## Mean                  0.0841     0.232     0.257      0.431      0.743
 ## Unique (excld. NA)         2         2         2          2          2
 ## Missing values             0         0         0          0          0
-## Sorted                 FALSE     FALSE     FALSE      FALSE      FALSE
+## Sorted                  TRUE      TRUE      TRUE       TRUE       TRUE
 ##                                                                       
 ##                    wind.2m.48 wind.2m.72 wind.2m.96 wind.2m.168 wind.2m.mn
 ## Class                 numeric    numeric    numeric     numeric    numeric
@@ -848,7 +839,7 @@ title: 'Submitted data summary'
 ## Mean                    0.913       1.01       1.12        1.21       1.21
 ## Unique (excld. NA)          2          2          2           2          2
 ## Missing values              0          0          0           0          0
-## Sorted                  FALSE      FALSE      FALSE       FALSE      FALSE
+## Sorted                   TRUE       TRUE       TRUE        TRUE       TRUE
 ##                                                                           
 ##                      rad.1   rad.4   rad.6  rad.12  rad.24  rad.48  rad.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
@@ -902,7 +893,7 @@ title: 'Submitted data summary'
 ## Mean                  65.5                   431                  714    <NA>
 ## Unique (excld. NA)       1                     4                    4       1
 ## Missing values           0                     0                    0       0
-## Sorted                TRUE                 FALSE                FALSE    TRUE
+## Sorted                TRUE                  TRUE                 TRUE    TRUE
 ##                                                                              
 ##                        dt1    j.rel1   j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric   numeric  numeric numeric numeric numeric numeric
@@ -931,15 +922,15 @@ title: 'Submitted data summary'
 ## Missing values               4       0         0       0         4          4
 ## Sorted                    <NA>    TRUE      TRUE    TRUE      <NA>       <NA>
 ##                                                                              
-##                     exper2    rep2    acid meas.tech.orig meas.tech2 crop.orig
-## Class              logical logical logical      character  character character
-## Minimum               <NA>    <NA>   FALSE            AGM  micro met     Grass
-## Maximum               <NA>    <NA>   FALSE             EC  micro met     Grass
-## Mean                  <NA>    <NA>  0 TRUE           <NA>       <NA>      <NA>
-## Unique (excld. NA)       0       0       1              3          1         1
-## Missing values           4       4       0              0          0         0
-## Sorted                <NA>    <NA>    TRUE          FALSE       TRUE      TRUE
-##                                                                               
+##                     exper2    acid meas.tech.orig meas.tech2 crop.orig
+## Class              logical logical      character  character character
+## Minimum               <NA>   FALSE            AGM  micro met     Grass
+## Maximum               <NA>   FALSE             EC  micro met     Grass
+## Mean                  <NA>  0 TRUE           <NA>       <NA>      <NA>
+## Unique (excld. NA)       0       1              3          1         1
+## Missing values           4       0              0          0         0
+## Sorted                <NA>    TRUE          FALSE       TRUE      TRUE
+##                                                                       
 ##                    man.source.orig app.method.orig app.method2 incorp.orig
 ## Class                    character       character   character   character
 ## Minimum                     Cattle       Broadcast          bc        None
@@ -949,23 +940,23 @@ title: 'Submitted data summary'
 ## Missing values                   0               0           0           0
 ## Sorted                        TRUE            TRUE        TRUE       FALSE
 ##                                                                           
-##                    date.start  flag.int soil.samp.z    inst     eid     pid
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
 ## Class                    Date character     numeric numeric integer integer
-## Minimum            2013-06-18                  <NA>     304     384    2229
-## Maximum            2013-06-18                  <NA>     304     384    2232
+## Minimum            2013-06-18                  <NA>     304    2229    2233
+## Maximum            2013-06-18                  <NA>     304    2232    2236
 ## Mean                     <NA>      <NA>        <NA>     304    <NA>    <NA>
-## Unique (excld. NA)          1         1           0       1       1       4
+## Unique (excld. NA)          1         1           0       1       4       4
 ## Missing values              0         0           4       0       0       0
-## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE   FALSE
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
 ##                                                                            
-##                       pmid
+##                        eid
 ## Class              integer
-## Minimum               2233
-## Maximum               2236
+## Minimum                384
+## Maximum                384
 ## Mean                  <NA>
-## Unique (excld. NA)       4
+## Unique (excld. NA)       1
 ## Missing values           0
-## Sorted               FALSE
+## Sorted                TRUE
 ## 
 ```
 
