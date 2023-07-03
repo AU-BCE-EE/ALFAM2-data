@@ -18,7 +18,7 @@ for(i in ddir) {
     # Simple error check to save searching
     check4missing(dd)
     # Basic data cleaning, add *character* IDs, add time (ct, etc) . . .
-    dd <- cleanALFAM(dd)
+    dd <- cleanALFAM(dd, uptake = uptake)
     # Check again now that cpmid is available
     check4missing(dd)
     # Fix weather data, including rain calcs and interpolation as needed

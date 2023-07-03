@@ -179,7 +179,7 @@ check4missing <- function(obj) {
 }
 
 # Clean up data just read in
-cleanALFAM <- function(obj) {
+cleanALFAM <- function(obj, uptake) {
 
   submitter <- obj$submitter
   contrib <- obj$contrib
@@ -193,7 +193,7 @@ cleanALFAM <- function(obj) {
   # Work with plots data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   plots$institute <- submitter$inst.abbrev
   # Add uptake ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
-  plots$uptake <- 3
+  plots$uptake <- uptake
   # Add file
   plots$file <- file
 
