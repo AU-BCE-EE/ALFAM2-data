@@ -256,6 +256,7 @@ cleanALFAM <- function(obj, uptake) {
 
   # Add submitter info
   plots$submitter <- submitter$submitter[1]
+  #plots$contribs <- paste(contrib[,1, drop = TRUE], collapse = '; ')
 
   # Applied TAN (kg N/ha)
   plots$tan.app <- plots$app.rate * plots$man.tan
