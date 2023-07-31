@@ -64,7 +64,7 @@ title: 'Submitted data summary'
 ##   26 | 057
 ##   28 | 557938
 ##   30 | 45
-##   32 | 2447
+##   32 | 2446
 ##   34 | 6
 ##   36 | 6
 ##   38 | 
@@ -81,7 +81,7 @@ title: 'Submitted data summary'
 ##      |          *                                          *   |
 ## 2095 +              *                          *               +
 ##      |      *                          *                       |
-##      |              *            *                             |
+##      |              *           *                              |
 ## 2090 +                     *                                   +
 ##      |  *          *                                           |
 ## 2085 +   *          *        *                                 +
@@ -99,7 +99,7 @@ title: 'Submitted data summary'
 ##    |                   **                                      |
 ##    |          *                                            *   |
 ## 25 +              *                           *                +
-##    |   *                        *                              |
+##    |   *                       *                               |
 ## 20 +              *         *                                  +
 ##    |                     **                                    |
 ## 15 +  *           **                                           +
@@ -377,7 +377,7 @@ title: 'Submitted data summary'
 ##      |                                                  *      |
 ## 2095 +                                                  *      +
 ##      |                                                  *  *   |
-##      |  *                                                  *   |
+##      |  *                                                 *    |
 ## 2090 +  *                                                      +
 ##      |  *                                                      |
 ## 2085 +  **                                                     +
@@ -395,7 +395,7 @@ title: 'Submitted data summary'
 ##    |                                                    *  *   |
 ##    |                                                    *      |
 ## 25 +                                                    *      +
-##    |  *                                                    *   |
+##    |  *                                                  *     |
 ## 20 +  *                                                        +
 ##    |  *                                                        |
 ## 15 +  **                                                       +
@@ -417,7 +417,7 @@ title: 'Submitted data summary'
 ##   11 | 44555555
 ##   12 | 
 ##   13 | 888888
-##   14 | 222
+##   14 | 022
 ## 
 ## air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   
 ## 
@@ -427,7 +427,7 @@ title: 'Submitted data summary'
 ##      |                               *                         |
 ## 2095 +                                *  *                     +
 ##      |                               *     *                   |
-##      |                                        *   *            |
+##      |                                     *      *            |
 ## 2090 +                                           *     *       +
 ##      |                                                     *   |
 ## 2085 +                                        *            *   +
@@ -445,7 +445,7 @@ title: 'Submitted data summary'
 ##    |                                *                          |
 ##    |                                *                          |
 ## 25 +                                 *  *                      +
-##    |                                         *                 |
+##    |                                      *  *                 |
 ## 20 +                                         *    *            +
 ##    |                                            *      *       |
 ## 15 +                                                      **   +
@@ -467,7 +467,7 @@ title: 'Submitted data summary'
 ##   163 | 
 ##   164 | 2
 ##   165 | 3334459
-##   166 | 2777
+##   166 | 2377
 ##   167 | 23
 ##   168 | 25788
 ## 
@@ -850,8 +850,8 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   66      50
 ## Maximum               <NA>                  1660                 1740      82
-## Mean                  <NA>                   782                  846    <NA>
-## Unique (excld. NA)       0                    27                   27       6
+## Mean                  <NA>                   782                  845    <NA>
+## Unique (excld. NA)       0                    27                   27       7
 ## Missing values          27                     0                    0       0
 ## Sorted                <NA>                 FALSE                FALSE   FALSE
 ##                                                                              
@@ -859,8 +859,8 @@ title: 'Submitted data summary'
 ## Class              numeric numeric numeric numeric numeric numeric numeric
 ## Minimum               1.73  0.0042    0.41    1.73    1.73    1.73    89.8
 ## Maximum               1.73  0.0308    2.93    1.73    9.72    1.73     142
-## Mean                  1.73  0.0122    1.19    1.73    5.19    1.73     115
-## Unique (excld. NA)       1      27      27       1       3       1       7
+## Mean                  1.73  0.0122    1.19    1.73    5.19    1.73     114
+## Unique (excld. NA)       1      27      27       1       3       1       8
 ## Missing values           0       0       0       0       0       0       0
 ## Sorted                TRUE   FALSE   FALSE    TRUE   FALSE    TRUE   FALSE
 ##                                                                           
