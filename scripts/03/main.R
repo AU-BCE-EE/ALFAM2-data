@@ -13,11 +13,11 @@ rm(list = ls())
 
 # Set uptake number and database version
 uptake <- 3
-version <- '2.23' # May 2023
+version <- '2.24' # May 2023
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
-oldrelease <- '2.22'
+oldrelease <- '2.23'
 
 # Create all html log files (otherwise just missing ones)?
 alllogs <- FALSE 
