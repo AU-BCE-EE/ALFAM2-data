@@ -11,12 +11,14 @@ options(warn = 2)
 
 rm(list = ls())
 
-# Set uptake number and database version
+# Set uptake number and new database version
 uptake <- 3
-version <- '2.24' # May 2023
+version <- '2.25' # August 2023
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
+# This may not be the latest pushed version if there was no associated release
+# That should be OK as long as this release number never decreases
 oldrelease <- '2.23'
 
 # Create all html log files (otherwise just missing ones)?
@@ -47,5 +49,6 @@ sink('../../logs/03/make_database_log.txt')
   source('export.R', echo = TRUE)
 sink()
 
+# Check version number
 source('check_version.R')
 
