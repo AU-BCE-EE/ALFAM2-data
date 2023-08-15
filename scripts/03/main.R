@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set uptake number and new database version
 uptake <- 3
-version <- '2.25' # August 2023
+version <- '2.26' # August 2023
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present

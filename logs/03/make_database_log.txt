@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-08-14 16:55:49 EDT"
+[1] "2023-08-15 06:35:35 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -122,7 +122,8 @@ See cleanALFAM() function.
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function.
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx 
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -287,14 +288,17 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
 > pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
-Checking versions
-         Where Version
- main.R (in R)    2.25
-   Release tag    2.23
-       Release    2.23
-   Main branch    2.23
-    Dev branch    2.24
-at <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+
+> dim(pdatr)
+[1] 348  16
+
+> dim(pdat)
+[1] 393 226
+
+> # Extract and reuse old institute codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
 
 > # Create completley new 300s codes for new institutes
 > # NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
@@ -406,16 +410,22 @@ at <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
 
 > # Compare version number to what is on GitHub
 > 
-> lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/03/data_ver .... [TRUNCATED] 
+> # Latest pushed dev
+> lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/d .... [TRUNCATED] 
 
+> # Latest pushed main
 > lastmain <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/03/data_version.txt'
 
+> # Latest release
 > release <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/03/data_version.txt')
 
+> # Latest pushed dev
 > vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])
 
+> # Latest pushed main
 > vlm <- gsub('\\.$', '', as.data.frame(data.table::fread(lastmain))[[3]])
 
+> # Latest release
 > vr <- gsub('\\.$', '', as.data.frame(data.table::fread(release))[[3]])
 
 > cat('Checking versions\n')
@@ -430,11 +440,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
          Where Version
- main.R (in R)    2.25
+ main.R (in R)    2.26
    Release tag    2.23
        Release    2.23
    Main branch    2.23
-    Dev branch    2.24
+    Dev branch    2.25
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
