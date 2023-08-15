@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-08-15 06:35:35 EDT"
+[1] "2023-08-15 13:16:42 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -99,8 +99,15 @@ See cleanALFAM() function.
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+Checking versions
+
+                Where Version
+ main.R (new version)    2.27
+          Release tag    2.23
+              Release    2.23
+          Main branch    2.26
+           Dev branch    2.26
+ .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
@@ -435,16 +442,19 @@ Checking versions
 +   cat('Version number in old release does not match release tag!\n')
 + }
 
-> vdat <- data.frame(Where = c('main.R (in R)', 'Release tag', 'Release', 'Main branch', 'Dev branch'),
-+                    Version = c(version, oldr .... [TRUNCATED] 
+> vdat <- data.frame(Where = c('main.R (new version)', 'Release tag', 'Release', 'Main branch', 'Dev branch'),
++                    Version = c(versio .... [TRUNCATED] 
+
+> cat('\n')
+
 
 > print(vdat, row.names = FALSE)
-         Where Version
- main.R (in R)    2.26
-   Release tag    2.23
-       Release    2.23
-   Main branch    2.23
-    Dev branch    2.25
+                Where Version
+ main.R (new version)    2.27
+          Release tag    2.23
+              Release    2.23
+          Main branch    2.26
+           Dev branch    2.26
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
