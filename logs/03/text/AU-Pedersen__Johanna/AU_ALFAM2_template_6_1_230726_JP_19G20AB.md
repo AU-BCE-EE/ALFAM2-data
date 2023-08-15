@@ -958,8 +958,8 @@ title: 'Submitted data summary'
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
 ## Minimum            2019-05-15 16:48:00 2019-05-20 07:28:00          2
-## Maximum            2020-04-23 14:08:00 2020-04-28 09:36:00          2
-## Mean               2019-12-28 22:53:20 2020-01-02 16:45:00       <NA>
+## Maximum            2020-04-23 14:08:00 2020-04-28 09:35:00          2
+## Mean               2019-12-28 22:53:20 2020-01-02 16:44:40       <NA>
 ## Unique (excld. NA)                  27                  27          1
 ## Missing values                       0                   0          0
 ## Sorted                           FALSE               FALSE       TRUE
