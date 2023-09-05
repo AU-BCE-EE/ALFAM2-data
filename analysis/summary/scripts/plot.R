@@ -32,4 +32,14 @@ ggplot(dd, aes(x = x, y = log10(j.NH3.norm), xend = xend, yend = log10(j.NH3.nor
 ggsave('../plots/ALFAM2_flux_summary.png', height = 2.3, width = 7)
 ggsave('../plots/ALFAM2_flux_summary.pdf', height = 3.3, width = 7)
 
+dd <- subset(dd, cta >= 0)
+ggplot(dd, aes(x = cta, y = e.rel, colour = app.mthd, group = pmid)) +
+  geom_line(alpha = 0.15) +
+  coord_cartesian(ylim = c(0, 1.0), xlim = c(0, 168)) +
+  labs(x = 'Time since application (h)', y = 'Relative emission (frac. applied TAN)', colour = '') +
+  theme_bw() +
+  theme(legend.position = 'none')
+ggsave('../plots/ALFAM2_emis_summary.png', height = 2.3, width = 7)
+ggsave('../plots/ALFAM2_emis_summary.pdf', height = 3.3, width = 7)
+
 
