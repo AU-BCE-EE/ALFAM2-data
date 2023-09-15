@@ -1,11 +1,12 @@
-# Summary of ALFAM2 submissions
-
+# Summary of ALFAM2 data
 
 rm(list = ls())
 
 source('packages.R')
+source('functions.R')
 source('load.R')
 source('merge.R')
 source('norm.R')
 source('plot.R')
+source('plot_pmid.R')
 knit('summary.Rmd', output = '../reports/summary.md')
