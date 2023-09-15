@@ -1,5 +1,4 @@
 
-
 dd <- subset(pdat, app.method %in% c('bc', 'bsth', 'ts', 'os', 'cs'))
 dd$app.mthd <- factor(dd$app.method, levels = c('bc', 'bsth', 'ts', 'os', 'cs'), 
                       labels = c('Broadcast', 'Trailing hose', 'Trailing shoe', 'Open slot injection', 'Closed slot injection'))
@@ -41,5 +40,26 @@ ggplot(dd, aes(x = cta, y = e.rel, colour = app.mthd, group = pmid)) +
   theme(legend.position = 'none')
 ggsave('../plots/ALFAM2_emis_summary.png', height = 2.3, width = 7)
 ggsave('../plots/ALFAM2_emis_summary.pdf', height = 3.3, width = 7)
+
+# A few example lines
+set.seed(10)
+pps <- sample(unique(idat$pmid), 20)
+dd <- subset(cdat, app.method %in% c('bc', 'bsth', 'ts', 'os', 'cs'))
+dd$app.mthd <- factor(dd$app.method, levels = c('bc', 'bsth', 'ts', 'os', 'cs'), 
+                      labels = c('Broadcast', 'Trailing hose', 'Trailing shoe', 'Open slot injection', 'Closed slot injection'))
+dd <- subset(dd, cta >= 0 & pmid %in% pps)
+d0 <- dd[!duplicated(dd$pmid), c('pmid', 'app.mthd')]
+d0$cta <- 0
+d0$e.rel <- 0
+dd <- rbindf(dd, d0)
+ggplot(dd, aes(x = cta, y = e.rel, colour = app.mthd, group = pmid)) +
+  geom_line() +
+  coord_cartesian(ylim = c(0, 1.0), xlim = c(0, 168)) +
+  labs(x = 'Time since application (h)', y = 'Relative emission (frac. applied TAN)', colour = '') +
+  theme_bw() +
+  theme(legend.position = c(0.17, 0.78))
+ggsave('../plots/ALFAM2_emis_sel.png', height = 3.3, width = 7)
+ggsave('../plots/ALFAM2_emis_sel.pdf', height = 3.3, width = 7)
+
 
 
