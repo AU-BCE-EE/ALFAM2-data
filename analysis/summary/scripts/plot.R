@@ -2,6 +2,7 @@
 dd <- subset(pdat, app.method %in% c('bc', 'bsth', 'ts', 'os', 'cs'))
 dd$app.mthd <- factor(dd$app.method, levels = c('bc', 'bsth', 'ts', 'os', 'cs'), 
                       labels = c('Broadcast', 'Trailing hose', 'Trailing shoe', 'Open slot injection', 'Closed slot injection'))
+set.seed(123)
 ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   geom_jitter(alpha = 0.6) +
   scale_color_brewer(palette = "Set1") +
@@ -13,6 +14,22 @@ ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   guides(colour = guide_legend(nrow = 2))
 ggsave('../plots/ALFAM2_data_summary.pdf', height = 3.3, width = 6.7)
 ggsave('../plots/ALFAM2_data_summary.png', height = 3.0, width = 5)
+
+ddd <- subset(dd, inst == 205)
+set.seed(123)
+ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
+  geom_jitter(alpha = 0.6, colour = 'gray45') +
+  geom_jitter(data = ddd, alpha = 0.6) +
+  scale_color_brewer(palette = "Set1") +
+  labs(x = 'Country', y = 'Relative emission (% TAN)', colour = '', shape = '') +
+  theme_bw() +
+  theme(legend.position = 'top', axis.text.x = element_text(angle=90, vjust=.5, hjust=1)) +
+  facet_wrap(~ paste('Uptake', uptake)) +
+  coord_cartesian(ylim = c(0, 1.3)) +
+  guides(colour = guide_legend(nrow = 2))
+ggsave('../plots/ALFAM2_data_summary_AU.pdf', height = 3.3, width = 6.7)
+ggsave('../plots/ALFAM2_data_summary_AU.png', height = 3.0, width = 5)
+
 
 dd <- subset(cdat, app.method %in% c('bc', 'bsth', 'ts', 'os', 'cs'))
 dd$app.mthd <- factor(dd$app.method, levels = c('bc', 'bsth', 'ts', 'os', 'cs'), 
