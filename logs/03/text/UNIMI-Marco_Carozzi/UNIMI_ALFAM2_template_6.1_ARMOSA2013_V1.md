@@ -941,7 +941,7 @@ title: 'Submitted data summary'
 ## Sorted                        TRUE            TRUE        TRUE       FALSE
 ##                                                                           
 ##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character     numeric numeric integer integer
+## Class                    Date character   character numeric integer integer
 ## Minimum            2013-06-18                  <NA>     304    2229    2233
 ## Maximum            2013-06-18                  <NA>     304    2232    2236
 ## Mean                     <NA>      <NA>        <NA>     304    <NA>    <NA>

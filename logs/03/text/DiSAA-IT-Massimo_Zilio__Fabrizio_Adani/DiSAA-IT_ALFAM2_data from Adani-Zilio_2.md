@@ -1005,7 +1005,7 @@ title: 'Submitted data summary'
 ## Sorted                  TRUE           FALSE               FALSE       FALSE
 ##                                                                             
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character     numeric numeric integer
+## Class                character       Date character   character numeric integer
 ## Minimum                   <NA> 2018-04-23                  <NA>     303    2223
 ## Maximum                   <NA> 2020-05-28                  <NA>     303    2228
 ## Mean                      <NA>       <NA>      <NA>        <NA>     303    <NA>

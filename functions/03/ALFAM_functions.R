@@ -439,6 +439,7 @@ addVars <- function(dat) {
   dat$meas.tech2 <- dat$meas.tech
   dat$meas.tech2[tolower(dat$meas.tech) %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
   dat$meas.tech2[tolower(dat$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
+  dat$meas.tech2[grep('chamber', tolower(dat$meas.tech))] <- 'chamber'
   
   dat$crop.orig <- dat$crop
   dat$crop <- tolower(dat$crop)
@@ -671,6 +672,8 @@ fixALFAMFactors <- function(d) {
   # Simplify measurement techniques
   d$meas.tech2 <- d$meas.tech
   d$meas.tech2[d$meas.tech %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fides', 'ec')] <- 'micro met'
+  d$meas.tech2[tolower(d$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
+  d$meas.tech2[grep('chamber', tolower(d$meas.tech))] <- 'chamber'
   print(table(d$meas.tech, d$meas.tech2))
 
   # Sort out incorporation
