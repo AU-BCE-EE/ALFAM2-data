@@ -910,7 +910,7 @@ title: 'Submitted data summary'
 ## Sorted                  TRUE            TRUE                        FALSE
 ##                                                                          
 ##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
-## Class                character   character       Date character     numeric
+## Class                character   character       Date character   character
 ## Minimum                   bsth        None 2018-06-22                  <NA>
 ## Maximum                     ts        None 2018-07-05       m i        <NA>
 ## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>

@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-08-15 13:16:42 EDT"
+[1] "2023-11-11 07:56:07 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -99,15 +99,8 @@ See cleanALFAM() function.
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
-Checking versions
-
-                Where Version
- main.R (new version)    2.27
-          Release tag    2.23
-              Release    2.23
-          Main branch    2.26
-           Dev branch    2.26
- .  Publications . . .Emission rate unit not available for conversion:  NA 
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
@@ -209,6 +202,12 @@ Unique emis:
 188 Dynamic chamber     Acid traps
 200 Dynamic chamber     Acid traps
 212 Dynamic chamber     Acid traps
+   file  ../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
@@ -260,8 +259,57 @@ Directory  ../../data-submitted/03/WUR
 Done! Read 6  directories
 
 > print(warnings())
-Warning message:
-In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
+Warning messages:
+1: Expecting logical in AE2944 / R2944C31: got 'hPa'
+2: Expecting logical in AH2944 / R2944C34: got 'Field'
+3: Expecting logical in AE2945 / R2945C31: got 'hPa'
+4: Expecting logical in AH2945 / R2945C34: got 'Field'
+5: Expecting logical in AE2946 / R2946C31: got 'hPa'
+6: Expecting logical in AH2946 / R2946C34: got 'Field'
+7: Expecting logical in AE2947 / R2947C31: got 'hPa'
+8: Expecting logical in AH2947 / R2947C34: got 'Field'
+9: Expecting logical in AE2948 / R2948C31: got 'hPa'
+10: Expecting logical in AH2948 / R2948C34: got 'Field'
+11: Expecting logical in AE2949 / R2949C31: got 'hPa'
+12: Expecting logical in AH2949 / R2949C34: got 'Field'
+13: Expecting logical in AE2950 / R2950C31: got 'hPa'
+14: Expecting logical in AH2950 / R2950C34: got 'Field'
+15: Expecting logical in AE2951 / R2951C31: got 'hPa'
+16: Expecting logical in AH2951 / R2951C34: got 'Field'
+17: Expecting logical in AE2952 / R2952C31: got 'hPa'
+18: Expecting logical in AH2952 / R2952C34: got 'Field'
+19: Expecting logical in AE2953 / R2953C31: got 'hPa'
+20: Expecting logical in AH2953 / R2953C34: got 'Field'
+21: Expecting logical in AE2954 / R2954C31: got 'hPa'
+22: Expecting logical in AH2954 / R2954C34: got 'Field'
+23: Expecting logical in AE2955 / R2955C31: got 'hPa'
+24: Expecting logical in AH2955 / R2955C34: got 'Field'
+25: Expecting logical in AE2956 / R2956C31: got 'hPa'
+26: Expecting logical in AH2956 / R2956C34: got 'Field'
+27: Expecting logical in AE2957 / R2957C31: got 'hPa'
+28: Expecting logical in AH2957 / R2957C34: got 'Field'
+29: Expecting logical in AE2958 / R2958C31: got 'hPa'
+30: Expecting logical in AH2958 / R2958C34: got 'Field'
+31: Expecting logical in AE2959 / R2959C31: got 'hPa'
+32: Expecting logical in AH2959 / R2959C34: got 'Field'
+33: Expecting logical in AE2960 / R2960C31: got 'hPa'
+34: Expecting logical in AH2960 / R2960C34: got 'Field'
+35: Expecting logical in AE2961 / R2961C31: got 'hPa'
+36: Expecting logical in AH2961 / R2961C34: got 'Field'
+37: Expecting logical in AE2962 / R2962C31: got 'hPa'
+38: Expecting logical in AH2962 / R2962C34: got 'Field'
+39: Expecting logical in AE2963 / R2963C31: got 'hPa'
+40: Expecting logical in AH2963 / R2963C34: got 'Field'
+41: Expecting logical in AE2964 / R2964C31: got 'hPa'
+42: Expecting logical in AH2964 / R2964C34: got 'Field'
+43: Expecting logical in AE2965 / R2965C31: got 'hPa'
+44: Expecting logical in AH2965 / R2965C34: got 'Field'
+45: Expecting logical in AE2966 / R2966C31: got 'hPa'
+46: Expecting logical in AH2966 / R2966C34: got 'Field'
+47: Expecting logical in AE2967 / R2967C31: got 'hPa'
+48: Expecting logical in AH2967 / R2967C34: got 'Field'
+49: Expecting logical in AE2968 / R2968C31: got 'hPa'
+50: Expecting logical in AH2968 / R2968C34: got 'Field'
 
 > # Check for errors and create a log before merge
 > 
@@ -300,7 +348,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 [1] 348  16
 
 > dim(pdat)
-[1] 393 226
+[1] 430 226
 
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -450,10 +498,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.27
+ main.R (new version)    2.28
           Release tag    2.23
               Release    2.23
-          Main branch    2.26
+          Main branch    2.27
            Dev branch    2.26
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

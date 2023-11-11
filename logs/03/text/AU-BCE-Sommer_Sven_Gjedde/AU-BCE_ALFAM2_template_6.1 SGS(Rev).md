@@ -945,7 +945,7 @@ title: 'Submitted data summary'
 ## Sorted                        TRUE        TRUE       FALSE       <NA>      TRUE
 ##                                                                                
 ##                    soil.samp.z    inst     pid    pmid     eid
-## Class                  numeric numeric integer integer integer
+## Class                character numeric integer integer integer
 ## Minimum                   <NA>     302    1896    1900     342
 ## Maximum                   <NA>     302    1899    1903     342
 ## Mean                      <NA>     302    <NA>    <NA>    <NA>

@@ -18,7 +18,7 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] magrittr_2.0.3 ggplot2_3.4.0  txtplot_1.0-4  leaflet_2.1.1  knitr_1.39    
+[1] magrittr_2.0.3 ggplot2_3.4.3  txtplot_1.0-4  leaflet_2.1.1  knitr_1.39    
 [6] rmarkdown_2.14 plyr_1.8.7     readxl_1.4.1   nvimcom_0.9-82
 
 loaded via a namespace (and not attached):

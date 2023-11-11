@@ -888,7 +888,7 @@ title: 'Submitted data summary'
 ##                                                                              
 ##                     exper2    acid meas.tech.orig meas.tech2 crop.orig
 ## Class              logical logical      character  character character
-## Minimum               <NA>   FALSE            bLS        DTM     Grass
+## Minimum               <NA>   FALSE            bLS    chamber     Grass
 ## Maximum               <NA>   FALSE            IHF  micro met   Stubble
 ## Mean                  <NA>  0 TRUE           <NA>       <NA>      <NA>
 ## Unique (excld. NA)       0       1              4          3         2
@@ -905,13 +905,13 @@ title: 'Submitted data summary'
 ## Sorted                       FALSE                         TRUE        TRUE
 ##                                                                            
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character     numeric numeric integer
-## Minimum                   None 2021-08-20                     9     205    1935
-## Maximum                   None 2021-11-09       m i          16     205    2243
-## Mean                      <NA>       <NA>      <NA>        13.1     205    <NA>
+## Class                character       Date character   character numeric integer
+## Minimum                   None 2021-08-20                    16     205    1935
+## Maximum                   None 2021-11-09       m i           9     205    2243
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
 ## Unique (excld. NA)           1          2         2           2       1      12
 ## Missing values               0          0         0           0       0       0
-## Sorted                    TRUE       TRUE      TRUE        TRUE    TRUE   FALSE
+## Sorted                    TRUE       TRUE      TRUE       FALSE    TRUE   FALSE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
