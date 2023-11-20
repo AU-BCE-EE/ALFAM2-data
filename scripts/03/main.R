@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set uptake number and new database version
 uptake <- 3
-version <- '2.28' # August 2023
+version <- '2.29' # November 2023
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -51,4 +51,6 @@ sink()
 
 # Check version number
 source('check_version.R')
-
+sink('../../logs/03/check_version.txt')
+  source('check_version.R')
+sink()
