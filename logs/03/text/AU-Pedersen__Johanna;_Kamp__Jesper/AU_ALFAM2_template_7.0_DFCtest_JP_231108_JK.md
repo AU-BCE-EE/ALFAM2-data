@@ -1025,12 +1025,12 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
-## Minimum                   None 2022-10-11                  0-10     205    2244
-## Maximum                   None 2022-11-24       m i         0-9     205    2280
+## Minimum                   None 2022-10-11                   0-5     205    2244
+## Maximum                   None 2022-11-24       m i         0-5     205    2280
 ## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
-## Unique (excld. NA)           1          3         2          12       1      37
+## Unique (excld. NA)           1          3         2           1       1      37
 ## Missing values               0          0         0           0       0       0
-## Sorted                    TRUE       TRUE     FALSE       FALSE    TRUE    TRUE
+## Sorted                    TRUE       TRUE     FALSE        TRUE    TRUE    TRUE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
