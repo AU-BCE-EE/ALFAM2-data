@@ -1034,8 +1034,8 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
-## Minimum               2248     390
-## Maximum               2284     392
+## Minimum               2248     395
+## Maximum               2284     397
 ## Mean                  <NA>    <NA>
 ## Unique (excld. NA)      37       3
 ## Missing values           0       0

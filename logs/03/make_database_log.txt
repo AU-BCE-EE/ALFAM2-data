@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-11-20 06:32:04 EST"
+[1] "2023-11-20 15:12:28 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -208,6 +208,12 @@ Unique emis:
   ``   
   <chr>
 1 .    
+   file  ../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 Directory  ../../data-submitted/03/DiSSA-IT 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
@@ -260,7 +266,7 @@ Done! Read 6  directories
 
 > print(warnings())
 Warning message:
-In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
+In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -299,7 +305,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 [1] 348  16
 
 > dim(pdat)
-[1] 430 226
+[1] 505 226
 
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -449,10 +455,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.30
+ main.R (new version)    2.31
           Release tag    2.23
               Release    2.23
-          Main branch    2.29
+          Main branch    2.30
            Dev branch    2.26
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
