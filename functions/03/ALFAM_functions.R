@@ -207,15 +207,25 @@ cleanALFAM <- function(obj, uptake) {
   if (nr1 != nr2) {
     cat('Number of rows changed after plots/emis merge in cleanALAM()\nMay be entry error or multiple treatments per plot (i.e., no error)\n(e.g., multiple parallel measurement methods)')
     cat("\nProblem is often caused by plot/rep entry error.\nGet in here with browser() and look at:\nunique(plots.orig[, c('plot', 'rep')]) \nunique(emis[, c('plot', 'rep')])\n")
+    cat('See below for some information that might be helpful.')
     cat('\n')
 
-    print(paste('File:', file))
-    cat('plots:\n')
-    print(head(plots[, 1:10]))
-    cat('plots.orig:\n')
-    print(head(plots.orig[, 1:10]))
-    cat('Unique emis:\n')
-    print(unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))
+    plots.orig$fromplots <- 1
+    emis$fromemis <- 1
+    pp <- merge(plots.orig[,  c('proj', 'exper', 'field', 'plot', 'rep', 'fromplots')], 
+                unique(emis[, c('proj', 'exper', 'field', 'plot', 'rep', 'fromemis', 'meas.tech', 'meas.tech.det')]),
+                 by =         c('proj', 'exper', 'field', 'plot', 'rep'), all = TRUE)
+    cat('Duplicated combinations:\n')
+    print(pp[duplicated(pp[, c('proj', 'exper', 'field', 'plot', 'rep')]), ])
+
+    cat('\n')
+    cat('Combinations missing from plots df:\n')
+    print(pp[is.na(pp$fromplots), ])
+
+    cat('\n')
+    cat('Combinations missing from emis df:\n')
+    print(pp[is.na(pp$fromemis), ])
+
   }
 
   # Sort out lat and long (change to decimal degrees if needed, add negative for W/S)

@@ -441,55 +441,56 @@ title: 'Submitted data summary'
 ## air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   
 ## 
 ## air.temp.mn  vs. pmid 
-## 2360 +--+----------+----------+-----------+----------+---------+
-##      |  *                                                      |
-##      |  *                                                      |
-##      |  *                                                      |
-## 2340 +  *                                                      +
-##      |  *                                                      |
-##      |  *                                                      |
-## 2320 +  *                                                      +
-##      |  *                                                  *   |
-##      |                                                     *   |
-##      |                                                     *   |
-## 2300 +  *                                                  *   +
-##      |  *                                                      |
-##      |  *                                                      |
-##      +--+----------+----------+-----------+----------+---------+
-##         2        2.02       2.04        2.06       2.08         
+## 2360 +----------+----------+----------+---------+----------+---+
+##      |                                      **                 |
+##      |                                      **                 |
+##      |                                      **           **    |
+## 2340 +                                                   *     +
+##      |                                                   **    |
+##      |                                                   * **  |
+## 2320 +                                                    ***  +
+##      |                  *                                  **  |
+##      |                **                                       |
+##      |                **                                       |
+## 2300 +  **             **                                      +
+##      |  **                                                     |
+##      |  **                                                     |
+##      +----------+----------+----------+---------+----------+---+
+##      8          9         10         11        12         13    
 ## 
 ## air.temp.mn  vs. row.in.file.plot 
-## 80 +--+----------+-----------+-----------+-----------+---------+
-##    |  *                                                        |
-##    |  *                                                        |
-##    |  *                                                        |
-## 60 +  *                                                        +
-##    |  *                                                        |
-##    |  *                                                        |
-## 40 +  *                                                        +
-##    |  *                                                    *   |
-##    |                                                       *   |
-##    |                                                       *   |
-## 20 +  *                                                    *   +
-##    |  *                                                        |
-##    |  *                                                        |
-##    +--+----------+-----------+-----------+-----------+---------+
-##       2        2.02        2.04        2.06        2.08         
+## 80 +----------+-----------+----------+----------+----------+---+
+##    |                                       **                  |
+##    |                                       **                  |
+##    |                                       **            *     |
+## 60 +                                                     *     +
+##    |                                                     *     |
+##    |                                                     ***   |
+## 40 +                                                      ***  +
+##    |                 *                                    ***  |
+##    |                 **                                        |
+##    |                 **                                        |
+## 20 +  **              *                                        +
+##    |  **                                                       |
+##    |  **                                                       |
+##    +----------+-----------+----------+----------+----------+---+
+##    8          9          10         11         12         13    
 ## 
 ## stem and leaf plot of  air.temp.mn 
 ## 
-##   The decimal point is 2 digit(s) to the left of the |
+##   The decimal point is at the |
 ## 
-##   200 | 000000000000000000000000000000000000000000000000000000000000
-##   201 | 
-##   202 | 
-##   203 | 
-##   204 | 
-##   205 | 
-##   206 | 
-##   207 | 
-##   208 | 
-##   209 | 111111111111111
+##    8 | 233333333333334
+##    8 | 
+##    9 | 
+##    9 | 666666677777777
+##   10 | 
+##   10 | 
+##   11 | 
+##   11 | 666666666677777
+##   12 | 
+##   12 | 888888888888888999999
+##   13 | 000000011
 ## 
 ## wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   
 ## 
@@ -742,21 +743,21 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                    air.temp.4 air.temp.6 air.temp.12 air.temp.24 air.temp.48
 ## Class                 numeric    numeric     numeric     numeric     numeric
-## Minimum                     2          2           2           2           2
-## Maximum                     2          2           2           2           2
-## Mean                        2          2           2           2           2
-## Unique (excld. NA)          1          1           1           1           1
+## Minimum                   7.2       6.65         6.3        6.81        6.54
+## Maximum                  18.2       17.5        15.1          13          13
+## Mean                     13.4       12.5        10.5        9.66        9.94
+## Unique (excld. NA)         15         28          36          45          68
 ## Missing values              0          0           0           0           0
-## Sorted                   TRUE       TRUE        TRUE        TRUE        TRUE
+## Sorted                  FALSE      FALSE       FALSE       FALSE       FALSE
 ##                                                                             
 ##                    air.temp.72 air.temp.96 air.temp.168 air.temp.mn soil.temp.1
 ## Class                  numeric     numeric      numeric     numeric     numeric
-## Minimum                      2           2            2           2        <NA>
-## Maximum                      2           2            2        2.09        <NA>
-## Mean                         2           2            2        2.02        <NA>
-## Unique (excld. NA)           1           1            1           2           0
+## Minimum                   7.17        7.76         8.23        8.23        <NA>
+## Maximum                   13.8        14.1         13.1        13.1        <NA>
+## Mean                      10.6        11.2           11        11.1        <NA>
+## Unique (excld. NA)          66          69           72          70           0
 ## Missing values               0           0            0           0          75
-## Sorted                    TRUE        TRUE         TRUE       FALSE        <NA>
+## Sorted                   FALSE       FALSE        FALSE       FALSE        <NA>
 ##                                                                                
 ##                    soil.temp.4 soil.temp.6 soil.temp.12 soil.temp.24
 ## Class                  numeric     numeric      numeric      numeric
@@ -898,18 +899,18 @@ title: 'Submitted data summary'
 ## Minimum               2.52 0.00157  0.0819     0.8    2.53    2.52     137
 ## Maximum               2.53  0.0469    2.45    2.53    3.22    2.53     175
 ## Mean                  2.53  0.0239    1.23    2.51    2.66    2.53     159
-## Unique (excld. NA)       2      75      75       3       2       2       8
+## Unique (excld. NA)       2      75      75       3       3       2       8
 ## Missing values           0       0       0       0       0       0       0
 ## Sorted                TRUE   FALSE   FALSE   FALSE   FALSE    TRUE   FALSE
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
-## Minimum            2023-04-12 14:45:00 2023-04-19 06:41:00       <NA>
-## Maximum            2023-05-24 16:07:00 2023-05-31 04:42:00       <NA>
+## Minimum            2023-04-12 14:45:00 2023-04-19 06:41:00          2
+## Maximum            2023-05-24 16:07:00 2023-05-31 04:42:00          2
 ## Mean               2023-05-05 02:55:58 2023-05-11 18:19:06       <NA>
-## Unique (excld. NA)                  75                  75          0
-## Missing values                       0                   0         75
-## Sorted                           FALSE               FALSE       <NA>
+## Unique (excld. NA)                  75                  75          1
+## Missing values                       0                   0          0
+## Sorted                           FALSE               FALSE       TRUE
 ##                                                                      
 ##                    soil.temp.z  wind.z  wind.loc far.loc  pub.info soil.type2
 ## Class                character numeric character numeric character    logical
