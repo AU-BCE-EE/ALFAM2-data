@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-11-30 06:02:56 EST"
+[1] "2023-12-05 07:35:42 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -220,7 +220,7 @@ Done! Read 6  directories
 
 > print(warnings())
 Warning message:
-In undebug(cleanALFAM) : argument is not being debugged
+In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 
 > # Check for errors and create a log before merge
 > 
@@ -409,10 +409,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.32
+ main.R (new version)    2.33
           Release tag    2.23
               Release    2.23
-          Main branch    2.31
+          Main branch    2.32
            Dev branch    2.26
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
