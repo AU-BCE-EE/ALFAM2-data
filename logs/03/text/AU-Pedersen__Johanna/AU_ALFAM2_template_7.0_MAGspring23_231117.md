@@ -520,7 +520,7 @@ title: 'Submitted data summary'
 ## Class                  POSIXct, POSIXt numeric
 ## Minimum            2023-04-12 14:45:00       3
 ## Maximum            2023-05-24 16:07:00       3
-## Mean               2023-05-05 02:55:58       3
+## Mean               2023-05-05 00:46:00       3
 ## Unique (excld. NA)                  75       1
 ## Missing values                       0       0
 ## Sorted                           FALSE    TRUE
@@ -907,7 +907,7 @@ title: 'Submitted data summary'
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
 ## Minimum            2023-04-12 14:45:00 2023-04-19 06:41:00          2
 ## Maximum            2023-05-24 16:07:00 2023-05-31 04:42:00          2
-## Mean               2023-05-05 02:55:58 2023-05-11 18:19:06       <NA>
+## Mean               2023-05-05 00:46:00 2023-05-11 18:19:06       <NA>
 ## Unique (excld. NA)                  75                  75          1
 ## Missing values                       0                   0          0
 ## Sorted                           FALSE               FALSE       TRUE
@@ -946,7 +946,7 @@ title: 'Submitted data summary'
 ## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
 ## Unique (excld. NA)           1          5         1           1       1      75
 ## Missing values               0          0         0           0       0       0
-## Sorted                    TRUE      FALSE      TRUE        TRUE    TRUE    TRUE
+## Sorted                    TRUE       TRUE      TRUE        TRUE    TRUE    TRUE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
