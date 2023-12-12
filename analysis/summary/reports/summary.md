@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "02 June, 2023"
+date: "12 December, 2023"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 2243  221
+## [1] 2404  221
 ```
 
 ```r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 2243
+## [1] 2404
 ```
 
 ```r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 2239
+## [1] 2400
 ```
 
 
@@ -46,7 +46,7 @@ table(pdat$uptake)
 ```
 ## 
 ##    1    2    3 
-##  800 1099  344
+##  800 1099  505
 ```
 
 ```r
@@ -56,7 +56,7 @@ table(up$uptake)
 ```
 ## 
 ##    1    2    3 
-##  800 1099  340
+##  800 1099  501
 ```
 
 ```r
@@ -69,11 +69,11 @@ table(country = up$country, uptake = up$uptake)
 ##      CA   0 229  64
 ##      CH 121  47   0
 ##      DE   0 197   0
-##      DK  46 251 232
+##      DK  46 251 385
 ##      FR   0  25   0
 ##      IE   0  68   0
-##      IT  75   8  13
-##      NL 119 163  13
+##      IT  75   8  17
+##      NL 119 163  17
 ##      NO   9   0   0
 ##      SE  88   0  18
 ##      UK 342 109   0
@@ -95,12 +95,12 @@ table(pdat$man.trt2)
 
 ```
 ## 
-##                           Ammonia stripping   Anaerobic digestion 
-##                   201                     3                    16 
-##           Floculation Mechanical separation                  none 
-##                     9                    52                  1526 
-##                  None 
-##                   272
+##                               Acidification     Ammonia stripping 
+##                   201                     9                     3 
+##   Anaerobic digestion           Floculation Mechanical separation 
+##                    16                     9                    52 
+##                  none                  None 
+##                  1526                   272
 ```
 
 
@@ -114,17 +114,19 @@ table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), 
 ##                                        
 ##                                         FALSE TRUE
 ##   3 CA AU cat wt                           64    0
-##   3 DK AU cat wt                           63   26
+##   3 DK AU cat wt                           69   38
+##   3 DK AU mix chamber                      75   31
 ##   3 DK AU mix DTM                           0    3
-##   3 DK AU mix micro met                     0   12
-##   3 DK AU mix wt                            0   22
-##   3 DK AU pig wt                          102    0
+##   3 DK AU mix micro met                     0   15
+##   3 DK AU mix wt                            0   25
+##   3 DK AU pig wt                          129    0
 ##   3 DK AU-BCE cat micro met                 4    0
 ##   3 IT DiSAA-IT sewage sludge micro met     0    3
 ##   3 IT DiSAA-IT urea 46% micro met          3    0
 ##   3 IT UNIMI cat micro met                  0    4
 ##   3 IT UNINA cat micro met                  1    1
 ##   3 IT UNINA cat wt                         2    3
+##   3 NL AU cat chamber                       4    0
 ##   3 NL AU cat micro met                     4    0
 ##   3 NL AU cat wt                            9    0
 ##   3 SE AU cat wt                           12    0
@@ -138,7 +140,7 @@ table(u3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   264    80
+##   376   129
 ```
 
 ```r
@@ -148,7 +150,7 @@ table(up3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   261    79
+##   372   129
 ```
 
 
@@ -158,8 +160,8 @@ table(u3$meas.tech2)
 
 ```
 ## 
-##       DTM micro met        wt 
-##         3        32       309
+##   chamber       DTM micro met        wt 
+##       110         3        35       357
 ```
 
 ```r
@@ -168,8 +170,8 @@ table(up3$meas.tech2)
 
 ```
 ## 
-##       DTM micro met        wt 
-##         3        31       306
+##   chamber       DTM micro met        wt 
+##       110         3        35       353
 ```
 
 
@@ -180,7 +182,7 @@ table(up3$country)
 ```
 ## 
 ##  CA  DK  IT  NL  SE 
-##  64 232  13  13  18
+##  64 385  17  17  18
 ```
 
 ```r
@@ -190,7 +192,7 @@ table(u3$country)
 ```
 ## 
 ##  CA  DK  IT  NL  SE 
-##  64 232  17  13  18
+##  64 389  17  17  18
 ```
 
 Acidification table.
@@ -206,23 +208,26 @@ acidtab
 ##                                                          
 ##                                                           FALSE TRUE
 ##   Acidification None NA                                       0   42
-##   Acidification NA NA                                         0   24
+##   Acidification NA NA                                         0   30
 ##   Field acidification  NA                                     0   14
 ##   Barn acidification  NA                                      0   12
 ##   Acidification Anaerobic digestion NA                        0    8
 ##   Acidification Mechanical separation NA                      0    8
 ##   Anaerobic digestion Mechanical separation Acidification     0    8
+##   Mechanical separation Acidification NA                      0    6
+##   Disruption Acidification NA                                 0    3
 ##    none NA                                                   72    0
 ##   Anaerobic digestion  NA                                    26    0
 ##   Anaerobic digestion Ammonia stripping NA                    3    0
 ##   Anaerobic digestion Floculation NA                          9    0
 ##   Anaerobic digestion Mechanical separation NA               10    0
 ##   Anaerobic digestion Mechanical separation None             18    0
-##   Anaerobic digestion NA NA                                  41    0
+##   Anaerobic digestion NA NA                                  90    0
 ##   anaerobic digestion none NA                                 1    0
 ##   Anaerobic digestion none NA                               137    0
 ##   Anaerobic digestion None NA                                 6    0
 ##   Dilution NA NA                                              3    0
+##   Disruption NA NA                                            3    0
 ##   Filtration  NA                                             21    0
 ##   Floculation  NA                                            10    0
 ##   Gravity separation  NA                                     21    0
@@ -230,13 +235,14 @@ acidtab
 ##   In-house separation none NA                                62    0
 ##   Low DM none NA                                             12    0
 ##   Low protein diet none NA                                    9    0
+##   Mechanical separation NA NA                                 9    0
 ##   Mechanical separation none NA                               4    0
 ##   Mechanical separation None NA                               6    0
 ##   NA NA NA                                                    3    0
 ##   None  NA                                                   97    0
 ##   None Anaerobic digestion NA                                 8    0
 ##   None Mechanical separation NA                               8    0
-##   None NA NA                                                 69    0
+##   None NA NA                                                154    0
 ##   none none NA                                              231    0
 ##   None none NA                                              950    0
 ##   None None NA                                              218    0
@@ -265,6 +271,11 @@ trttab
 ##   SA                                                       0    8
 ##   acidified                                                0    6
 ##   ES                                                       0    4
+##   A acid                                                   0    3
+##   A dis acid                                               0    3
+##   A sep acid                                               0    3
+##   B acid                                                   0    3
+##   B sep acid                                               0    3
 ##   16                                                       0    1
 ##   acidified_5.2                                            0    1
 ##   acidified_5.6                                            0    1
@@ -299,7 +310,9 @@ trttab
 ##   7,2                                                      6    0
 ##   8                                                        6    0
 ##   9                                                        4    0
-##   A                                                        1    0
+##   A                                                       16    0
+##   A dis                                                    3    0
+##   A sep                                                    3    0
 ##   AER20                                                    2    0
 ##   AER25                                                    8    0
 ##   AER30                                                    2    0
@@ -319,16 +332,21 @@ trttab
 ##   Autumn 2008 UD                                           3    0
 ##   Autumn 2010 D                                            3    0
 ##   Autumn 2010 UD                                           3    0
-##   B                                                        1    0
+##   B                                                       10    0
+##   B sep                                                    3    0
 ##   BACK                                                     2    0
 ##   BACK                                                     2    0
 ##   Band                                                     3    0
+##   bLS                                                      1    0
+##   bLS_inj                                                  1    0
+##   bLS_th                                                   1    0
 ##   Bo                                                      21    0
 ##   Bomech                                                   9    0
 ##   Breeding Pig Slurry                                      2    0
 ##   broadband & incorporation                                1    0
 ##   broadcast                                                1    0
-##   C                                                        8    0
+##   C                                                       14    0
+##   C sep                                                    3    0
 ##   Cattle Slurry                                            2    0
 ##   Cattle Slurry - HighDM15                                 1    0
 ##   Cattle Slurry - HighDM30                                 1    0
@@ -340,16 +358,21 @@ trttab
 ##   CRDS_1m                                                  2    0
 ##   CRDS_2m                                                  2    0
 ##   cs                                                      23    0
-##   D                                                        8    0
+##   D                                                       11    0
+##   D-CM                                                     6    0
+##   D-CM-CC                                                  6    0
 ##   decanted                                                21    0
 ##   Decanted-MAI                                            24    0
 ##   Decanted-Surface                                        24    0
+##   DFC                                                     18    0
+##   DFC_inj                                                  7    0
+##   DFC_th                                                   6    0
 ##   dig_slurry_pig                                           2    0
 ##   Digestate                                                3    0
 ##   digested                                                30    0
 ##   Disc                                                    15    0
 ##   Disc injection                                          11    0
-##   E                                                        4    0
+##   E                                                        7    0
 ##   eGylle_bLS                                               4    0
 ##   eGylle_bLS_acid_traps_3heights                           1    0
 ##   eGylle_bLS_Alpha1                                        1    0
@@ -358,12 +381,17 @@ trttab
 ##   eGylle_DTM1                                              1    0
 ##   eGylle_DTM2                                              1    0
 ##   eGylle_DTM3                                              1    0
+##   eGylle_FC_1                                              1    0
+##   eGylle_FC_2                                              1    0
+##   eGylle_FC_3                                              1    0
+##   eGylle_FC_4                                              1    0
 ##   eGylle_IHF                                               1    0
 ##   ES CS0910                                                3    0
 ##   ES CS10                                                  6    0
 ##   ES CS1011                                                9    0
 ##   ES PS0910                                                3    0
 ##   ES PS1011                                                3    0
+##   F                                                        3    0
 ##   F1                                                       1    0
 ##   F2                                                       1    0
 ##   F3                                                       1    0
@@ -372,8 +400,10 @@ trttab
 ##   filtered                                                21    0
 ##   floculated                                              19    0
 ##   Foulum                                                   6    0
+##   G                                                        3    0
+##   H                                                        3    0
 ##   Harso                                                    1    0
-##   I                                                        4    0
+##   I                                                        7    0
 ##   inc_slurry_bov                                           4    0
 ##   INCORP                                                   2    0
 ##   irrigation                                              18    0
@@ -394,6 +424,7 @@ trttab
 ##   no incorp                                                2    0
 ##   No prestorage                                            2    0
 ##   none                                                    18    0
+##   NUGA                                                     9    0
 ##   NUGA-tine                                                3    0
 ##   P                                                        8    0
 ##   PE CS1011                                                3    0
@@ -443,6 +474,7 @@ trttab
 ##   TH                                                      30    0
 ##   TH20                                                     9    0
 ##   Trail hose                                              26    0
+##   Trailing hose                                            9    0
 ##   Trailing Hose                                            5    0
 ##   Trailing Hose - Evening                                  1    0
 ##   Trailing Hose - Long Grass                               1    0
@@ -450,7 +482,9 @@ trttab
 ##   Trailing Hose - Noon                                     1    0
 ##   Trailing Hose - Short Grass                              1    0
 ##   trailing shoe                                            1    0
+##   Trailing shoe                                            9    0
 ##   Trailing Shoe                                            5    0
+##   U-CM                                                     6    0
 ##   UM                                                       1    0
 ##   Unter                                                    1    0
 ##   untreat                                                  2    0
@@ -466,6 +500,7 @@ trttab
 ##   Whole-MAI                                               24    0
 ##   Whole-Surface                                           24    0
 ##   Winge tine                                               3    0
+##   WT                                                       3    0
 ##   zodebem                                                 55    0
 ```
 
