@@ -6,7 +6,7 @@ set.seed(123)
 ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   geom_jitter(alpha = 0.6) +
   scale_color_brewer(palette = "Set1") +
-  labs(x = 'Country', y = 'Relative emission (% TAN)', colour = '', shape = '') +
+  labs(x = 'Country', y = 'Relative emission (frac. TAN)', colour = '', shape = '') +
   theme_bw() +
   theme(legend.position = 'top', axis.text.x = element_text(angle=90, vjust=.5, hjust=1)) +
   facet_wrap(~ paste('Uptake', uptake)) +
@@ -21,7 +21,7 @@ ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   geom_jitter(alpha = 0.6, colour = 'gray45') +
   geom_jitter(data = ddd, alpha = 0.6) +
   scale_color_brewer(palette = "Set1") +
-  labs(x = 'Country', y = 'Relative emission (% TAN)', colour = '', shape = '') +
+  labs(x = 'Country', y = 'Relative emission (frac. TAN)', colour = '', shape = '') +
   theme_bw() +
   theme(legend.position = 'top', axis.text.x = element_text(angle=90, vjust=.5, hjust=1)) +
   facet_wrap(~ paste('Uptake', uptake)) +
