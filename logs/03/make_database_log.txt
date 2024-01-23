@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2023-12-05 07:35:42 EST"
+[1] "2024-01-22 20:30:53 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -147,8 +147,8 @@ Duplicated combinations:
     proj   exper       field plot rep fromplots fromemis       meas.tech
 2 eGylle eGylle2 FoulumgårdD    1   1         1        1             DTM
 4 eGylle eGylle3         WUR    1   1         1        1             bLS
-5 eGylle eGylle3         WUR    1   1         1        1             bLS
-6 eGylle eGylle3         WUR    1   1         1        1 Dynamic chamber
+5 eGylle eGylle3         WUR    1   1         1        1 Dynamic chamber
+6 eGylle eGylle3         WUR    1   1         1        1             bLS
   meas.tech.det
 2          <NA>
 4     CRDS avg.
@@ -259,7 +259,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 [1] 348  16
 
 > dim(pdat)
-[1] 505 226
+[1] 507 226
 
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -409,11 +409,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.33
+ main.R (new version)    2.34
           Release tag    2.23
               Release    2.23
-          Main branch    2.32
-           Dev branch    2.26
+          Main branch    2.33
+           Dev branch    2.33
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
