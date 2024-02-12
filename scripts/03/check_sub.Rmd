@@ -165,7 +165,7 @@ if (nrow(m2) == nrow(emis)) {
   print('Rows with NAs in row.in.file.int (from emis):')
   print(m2[is.na(m2$row.in.file.int), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')][1:5, ])
   print(m2[is.na(m2$row.in.file.int), ][1:5, ])
-  stop('Merge problem 5, see Rmd file')
+  stop('Merge problem 5, see check_sub.Rmd')
   stop('Might be a problem with proj, exper, pub.id, or treat mismatch.')
   #intersect(names(m1), names(emis))
   #intersect(names(exper), names(treat))
