@@ -863,10 +863,10 @@ title: 'Submitted data summary'
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
-## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
+## Class                  POSIXct, POSIXt     POSIXct, POSIXt    numeric
 ## Minimum            2018-05-15 13:26:00 2018-05-19 04:39:00          2
 ## Maximum            2018-05-29 14:36:00 2018-06-03 00:22:00          2
-## Mean               2018-05-22 14:05:00 2018-05-27 11:30:46       <NA>
+## Mean               2018-05-22 14:05:00 2018-05-27 11:30:46          2
 ## Unique (excld. NA)                  27                  27          1
 ## Missing values                       0                   0          0
 ## Sorted                           FALSE               FALSE       TRUE

@@ -860,10 +860,10 @@ title: 'Submitted data summary'
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
 ##                                                                           
 ##                              t.start.p             t.end.p air.temp.z
-## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character
+## Class                  POSIXct, POSIXt     POSIXct, POSIXt    numeric
 ## Minimum            2021-08-20 11:05:00 2021-08-28 13:53:00          2
 ## Maximum            2021-11-09 10:20:00 2021-11-15 08:47:00          2
-## Mean               2021-10-11 12:24:51 2021-10-17 09:00:21       <NA>
+## Mean               2021-10-11 12:24:51 2021-10-17 09:00:21          2
 ## Unique (excld. NA)                   6                   7          1
 ## Missing values                       0                   0          4
 ## Sorted                            TRUE               FALSE       TRUE

@@ -909,10 +909,10 @@ title: 'Submitted data summary'
 ## Sorted                TRUE   FALSE   FALSE    TRUE    TRUE    TRUE    TRUE
 ##                                                                           
 ##                          t.start.p         t.end.p air.temp.z soil.temp.z
-## Class              POSIXct, POSIXt POSIXct, POSIXt  character   character
+## Class              POSIXct, POSIXt POSIXct, POSIXt    numeric   character
 ## Minimum                       <NA>            <NA>         10        <NA>
 ## Maximum                       <NA>            <NA>         10        <NA>
-## Mean                          <NA>            <NA>       <NA>        <NA>
+## Mean                          <NA>            <NA>         10        <NA>
 ## Unique (excld. NA)               0               0          1           0
 ## Missing values                   4               4          0           4
 ## Sorted                        <NA>            <NA>       TRUE        <NA>

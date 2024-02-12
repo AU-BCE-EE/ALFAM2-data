@@ -960,7 +960,7 @@ title: 'Submitted data summary'
 ## Sorted               FALSE    TRUE   FALSE                TRUE
 ##                                                               
 ##                                t.end.p air.temp.z soil.temp.z  wind.z
-## Class                  POSIXct, POSIXt  character   character numeric
+## Class                  POSIXct, POSIXt    numeric   character numeric
 ## Minimum            2018-04-26 18:00:00       <NA>        <NA>       2
 ## Maximum            2020-05-31 20:00:00       <NA>        <NA>       2
 ## Mean               2019-05-06 11:20:00       <NA>        <NA>       2

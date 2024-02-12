@@ -90,19 +90,21 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # Emission
   cat('  Emission . . .')
   nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
-                   'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
-                   'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
-                   'rad', 'wind', 'wind.z', 
-                   # Check these
-                   'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+           'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
+           'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
+           'rad', 'wind', 'wind.z', 
+           # Check these
+           'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
   # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
   emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
   emis <- data.frame(emis)
   emis$row.in.file.int <- 1:nrow(emis) + 4
   emis <- emis[rowSums(!is.na(emis)) > 1, ]
 
+  # Fix some column type problems
   # NTS need to do this in read call!
   emis$soil.temp <- as.numeric(emis$soil.temp)
+  emis$air.temp.z <- as.numeric(emis$air.temp.z)
 
   # Field commonly missing but needed for *id
   if (all(is.na(c(plots$field, emis$field)))) {
