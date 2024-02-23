@@ -169,7 +169,7 @@ check4missing <- function(obj) {
 
   # Check for missing application time in plots
   plots <- obj$plots
-  for (i in c('proj', 'exper', 'field', 'plot', 'app.start', 'app.end', 'app.method')) {
+  for (i in c('proj', 'exper', 'field', 'plot', 'app.method')) {
     if (any(ii <- is.na(plots[, i]))) {
       cat('Error in\n')
       print('First 10 rows:')
@@ -242,7 +242,7 @@ cleanALFAM <- function(obj, uptake) {
   plots$app.end <- fixDateTime(plots$app.end.orig)
 
   # Character IDs (need institute, uptake, and file from above)
-  # After sortin out app.start/end because we need same values in emis and plots data frames
+  # After sorting out app.start/end because we need same values in emis and plots data frames
   plots$cpmid <- addCPMID(plots)
   plots$cpid <- addCPID(plots)
   # Unique experiment IDs
@@ -283,6 +283,11 @@ cleanALFAM <- function(obj, uptake) {
   emis.orig <- emis
   emis <- merge(plots, emis, by = c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det'), suffixes = c('.plot', '.int'), all = TRUE)
   emis <- emis[order(emis$row.in.file.int, emis$proj, emis$exper, emis$field, emis$plot, emis$rep, emis$interval), ] 
+  if (any(idup <- duplicated(plots[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))) {
+    print('See these rows:')
+    print(plots[idup, 'row.in.file.plot'])
+    stop('Duplicated combos in plots. Entering browser. See ALFAM2_functions.R bobdopx around line 288.')
+  }
   if (nrow(emis) != nn) {
     for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
       print(i)
@@ -309,9 +314,9 @@ cleanALFAM <- function(obj, uptake) {
     print(merge(pu, eu, all = TRUE))
 
     cat('Error: Merge problem with plots and emis, probably a typo in project, experiment, etc.\n')
-    cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 272.')
+    cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 316')
     browser()
-    stop()
+    stop('Entering browser. See ALFAM2_functions.R bb7124dhg around line 316')
   }
 
   # Unique character plot IDs
@@ -466,6 +471,7 @@ addVars <- function(dat) {
           `NUGA-tine` = 'ts', # NTS: Check with JMP
           `Open slot injection` = 'os',
           `Trailing shoe` = 'ts',
+          `NarrowBand` = 'bsth',
           `Wide band` = 'bsth')
   dat$app.method.orig <- dat$app.method
   dat$app.method <- am[dat$app.method.orig]

@@ -1,0 +1,295 @@
+project,experiment,plot_code,treatment_descrip
+"",G1989-13,001,SurfaceBroadcast None 
+"",G1989-13,003,ShallowInjection None 
+"",G1989-15,004,SurfaceBroadcast None 
+"",G1989-15,006,ShallowInjection None 
+"",G1989-27,008,ShallowInjection None 
+"",G1989-28,009,SurfaceBroadcast None 
+"",G1989-28,011,ShallowInjection None 
+"",G1990-11,018,SurfaceBroadcast None 
+"",G1990-11,019,SurfaceBroadcast None 
+"",G1990-12,020,SurfaceBroadcast None 
+"",G1990-12,021,NarrowBand None high rate
+"",G1990-12,022,NarrowBand None low rate
+"",G1990-12,023,ShallowInjection None 
+"",G1990-17,111,SurfaceBroadcast None 
+"",G1990-17,112,ShallowInjection None 
+"",G1990-18,024,SurfaceBroadcast None 
+"",G1990-20,026,ShallowInjection None 
+"",G1990-20,027,NarrowBand None low rate
+"",G1990-20,028,SurfaceBroadcast None 
+"",G1990-20,029,NarrowBand None high rate
+"",G1990-22,113,SurfaceBroadcast None 
+"",G1990-22,114,ShallowInjection None 
+"",G1990-23,030,NarrowBand None low rate
+"",G1990-23,031,NarrowBand None high rate
+"",G1990-23,032,SurfaceBroadcast None 
+"",G1990-23,033,ShallowInjection None 
+"",G1990-24,012,SurfaceBroadcast None 
+"",G1990-24,014,ShallowInjection None 
+"",G1990-24,034,NarrowBand None 
+"",G1990-24,035,NarrowBand None 
+"",G1990-24,036,SurfaceBroadcast None 
+"",G1990-24,037,SurfaceBroadcast None 
+"",G1990-25,038,SurfaceBroadcast None 
+"",G1990-26,015,SurfaceBroadcast None 
+"",G1990-26,017,ShallowInjection None 
+"",G1990-27,040,SurfaceBroadcast None 
+"",G1990-29,041,SurfaceBroadcast None 
+"",G1990-30,042,SurfaceBroadcast None 
+"",G1990-31,043,SurfaceBroadcast None 
+"",G1990-35,143,SurfaceBroadcast None 
+"",G1990-36,115,SurfaceBroadcast None 
+"",G1990-36,116,ShallowInjection None 
+"",G1991-15,044,SurfaceBroadcast None high grass
+"",G1991-15,045,NarrowBand None high grass
+"",G1991-15,046,NarrowBand None low grass
+"",G1991-15,047,SurfaceBroadcast None low grass
+"",G1991-16,048,SurfaceBroadcast None high grass
+"",G1991-16,049,NarrowBand None high grass
+"",G1991-16,050,NarrowBand None low grass
+"",G1991-16,051,SurfaceBroadcast None low grass
+"",G1991-24,052,NarrowBand None 
+"",G1991-24,053,SurfaceBroadcast None 
+"",G1991-29,055,SurfaceBroadcast None 
+"",G1991-30,056,SurfaceBroadcast None 
+"",G1991-36,057,SurfaceBroadcast None 
+"",G1992-11,058,SurfaceBroadcast None 
+"",G1992-12,059,SurfaceBroadcast None 
+"",G1992-16,060,SurfaceBroadcast None low grass
+"",G1992-16,061,ShallowInjection None low grass
+"",G1992-16,062,ShallowInjection None high grass
+"",G1992-16,063,ShallowInjection None low grass
+"",G1992-17,064,SurfaceBroadcast None low grass
+"",G1992-17,065,NarrowBand None low grass
+"",G1992-17,066,NarrowBand None high grass
+"",G1992-21,067,SurfaceBroadcast None 
+"",G1992-25,068,ShallowInjection None effect rate
+"",G1992-25,069,ShallowInjection None effect rate
+"",G1992-25,070,ShallowInjection None effect rate
+"",G1992-25,071,ShallowInjection None effect rate
+"",G1992-26,072,SurfaceBroadcast None low rate
+"",G1992-26,073,NarrowBand None low rate
+"",G1992-26,074,NarrowBand None low rate
+"",G1992-26,075,NarrowBand None high rate
+"",G1992-26,076,NarrowBand None high rate
+"",G1992-27,077,SurfaceBroadcast None low grass
+"",G1992-27,078,NarrowBand None low grass
+"",G1992-27,079,NarrowBand None high grass
+"",G1992-27,080,ShallowInjection None low grass
+"",G1992-27,081,ShallowInjection None low grass
+"",G1992-28,082,SurfaceBroadcast None 
+"",G1992-35,083,SurfaceBroadcast None 
+"",G1992-38,084,SurfaceBroadcast None low rate
+"",G1992-38,085,ShallowInjection None high rate
+"",G1992-38,086,ShallowInjection None low rate
+"",G1993-10,087,SurfaceBroadcast None 
+"",G1993-10,088,SurfaceBroadcast None 
+"",G1993-11,089,SurfaceBroadcast None 
+"",G1993-11,090,SurfaceBroadcast None 
+"",G1993-11,091,NarrowBand None track 1
+"",G1993-11,092,NarrowBand None track 2
+"",G1993-11,093,NarrowBand None no track 1
+"",G1993-11,094,NarrowBand None no track 2
+"",G1993-12,095,SurfaceBroadcast None 
+"",G1993-12,096,SurfaceBroadcast None 
+"",G1993-18,097,ShallowInjection None slit distance 15
+"",G1993-18,098,ShallowInjection None slit distance 15
+"",G1993-18,099,ShallowInjection None slit distance 20
+"",G1993-18,100,ShallowInjection None slit distance 20
+"",G1993-21,101,ShallowInjection None rate 20 m3
+"",G1993-21,102,ShallowInjection None rate 20 m3
+"",G1993-21,103,ShallowInjection None rate 20 m3
+"",G1993-21,104,ShallowInjection None rate 30 m3
+"",G1993-21,105,ShallowInjection None rate 45 m3
+"",G1993-21,106,ShallowInjection None rate 45 m3
+"",G1993-22,107,NarrowBand None 1 band distance 15
+"",G1993-22,108,NarrowBand None 2 band distance 15
+"",G1993-22,109,NarrowBand None 1 band distance 25
+"",G1993-22,110,NarrowBand None 2 band distance 25
+"",G2005-29,400,NarrowBand None 
+"",G1997-24,001,SurfaceBroadcast None low rate
+"",G1997-24,002,SurfaceBroadcast None high rate
+"",G1997-24,004,ShallowInjection None 
+"",G1997-25,002,SurfaceBroadcast None high rate
+"",G1997-25,004,ShallowInjection None 
+"",G1997-26,001,SurfaceBroadcast None low rate
+"",G1997-26,002,SurfaceBroadcast None high rate
+"",G1997-26,004,ShallowInjection None 
+"",G1997-28,001,SurfaceBroadcast None low rate
+"",G1997-28,002,SurfaceBroadcast None high rate
+"",G1997-28,004,ShallowInjection None 
+"",G1997-29,001,SurfaceBroadcast None low rate
+"",G1997-29,002,SurfaceBroadcast None high rate
+"",G1997-29,004,ShallowInjection None 
+"",G1997-30,001,SurfaceBroadcast None low rate
+"",G1997-30,002,SurfaceBroadcast None high rate
+"",G1997-30,004,ShallowInjection None 
+"",G1997-31,001,SurfaceBroadcast None low rate
+"",G1997-31,002,SurfaceBroadcast None high rate
+"",G1997-31,004,ShallowInjection None 
+"",G1997-33,001,SurfaceBroadcast None low rate
+"",G1997-33,002,SurfaceBroadcast None high rate
+"",G1997-33,004,ShallowInjection None 
+"",G1998-28,001,SurfaceBroadcast None 
+"",G1998-28,002,SurfaceBroadcast None 
+"",G1998-28,003,SurfaceBroadcast None 
+"",G1998-28,004,SurfaceBroadcast None 
+"",G1998-30,001,SurfaceBroadcast None 
+"",G1998-30,002,SurfaceBroadcast None 
+"",G1998-30,003,SurfaceBroadcast None 
+"",G1998-30,004,SurfaceBroadcast None 
+"",G1998-32,001,SurfaceBroadcast None 
+"",G1998-32,002,SurfaceBroadcast None 
+"",G1998-32,003,SurfaceBroadcast None 
+"",G1998-32,004,SurfaceBroadcast None 
+"",G1999-19,001,ShallowInjection None 
+"",G1999-19,002,ShallowInjection None 
+"",G1999-19,003,ShallowInjection None 
+"",G1999-19,004,ShallowInjection None 
+"",G1999-19,005,ShallowInjection None 
+"",G1999-20,003,ShallowInjection None 
+"",G1999-20,004,ShallowInjection None 
+"",G1999-20,005,ShallowInjection None 
+"",G1999-22,001,ShallowInjection None 
+"",G1999-22,002,ShallowInjection None 
+"",G1999-26,001,ShallowInjection None 
+"",G1999-26,002,ShallowInjection None 
+"",G1999-27,001,ShallowInjection None 
+"",G1999-27,002,ShallowInjection None 
+"",G1999-27,003,ShallowInjection None 
+"",G1999-27,004,ShallowInjection None 
+"",G1999-27,005,ShallowInjection None 
+"",G1999-30,001,ShallowInjection None 
+"",G1999-30,002,ShallowInjection None 
+"",G1999-30,003,ShallowInjection None 
+"",G1999-30,004,ShallowInjection None 
+"",G1999-30,005,ShallowInjection None 
+"",G1999-35,001,ShallowInjection None 
+"",G1999-35,002,ShallowInjection None 
+"",G2000-08,001,ShallowInjection None 
+"",G2000-08,002,ShallowInjection None 
+"",G2000-08,003,ShallowInjection None 
+"",G2000-08,004,ShallowInjection None 
+"",G2000-08,005,ShallowInjection None 
+"",G2000-09,001,ShallowInjection None 
+"",G2000-09,002,ShallowInjection None 
+"",G2000-11,001,ShallowInjection None 
+"",G2000-11,002,ShallowInjection None 
+"",G2000-12,001,ShallowInjection None 
+"",G2000-12,002,ShallowInjection None 
+"",G2000-12,003,ShallowInjection None 
+"",G2000-12,004,ShallowInjection None 
+"",G2000-12,005,ShallowInjection None 
+"",G2000-19,001,ShallowInjection None 
+"",G2000-19,002,ShallowInjection None 
+"",G2000-19,003,ShallowInjection None 
+"",G2000-19,004,ShallowInjection None 
+"",G2000-19,005,ShallowInjection None 
+"",G2002-10,001,ShallowInjection None 
+"",G2002-10,002,ShallowInjection None 
+"",G2002-23,001,ShallowInjection None 
+"",G2002-23,002,ShallowInjection None 
+"",G2003-10,001,SurfaceBroadcast None 
+"",G2003-10,003,SurfaceBroadcast None 
+"",G2003-10,004,SurfaceBroadcast None 
+"",G2003-11,001,SurfaceBroadcast None 
+"",G2003-11,002,SurfaceBroadcast None 
+"",G2003-11,003,SurfaceBroadcast None 
+"",G2003-11,004,SurfaceBroadcast None 
+"",G2010-20,001,ShallowInjection None 
+"",G2010-20,002,ShallowInjection None 
+"",G2010-20,003,ShallowInjection None 
+"",G2010-20,004,ShallowInjection None 
+"",G2010-21,001,ShallowInjection None 
+"",G2010-21,002,ShallowInjection None 
+"",G2010-21,003,ShallowInjection None 
+"",G2010-21,004,ShallowInjection None 
+"",G2013-15a,001,NarrowBand None reference
+"",G2013-15a,002,NarrowBand Diluted dilution 1:1
+"",G2013-15b,003,NarrowBand None reference
+"",G2013-15b,004,NarrowBand Diluted dilution 1:1
+"",G2013-16a,001,NarrowBand None reference
+"",G2013-16a,002,NarrowBand Diluted dilution 1:1
+"",G2013-16b,003,NarrowBand None reference
+"",G2013-16b,004,NarrowBand Diluted dilution 1:1
+"",G2013-24a,001,NarrowBand None reference
+"",G2013-24a,002,NarrowBand Diluted dilution 1:1
+"",G2013-24b,003,NarrowBand None reference
+"",G2013-24b,004,NarrowBand Diluted dilution 1:1
+"",G2014-11a,001,NarrowBand None reference
+"",G2014-11a,002,NarrowBand Diluted dilution 1:0.5
+"",G2014-12a,003,NarrowBand None reference
+"",G2014-12a,004,NarrowBand Diluted dilution 1:0.5
+"",G2014-12b,001,NarrowBand None reference
+"",G2014-12b,002,NarrowBand Diluted dilution 1:0.5
+"",G2014-13,003,NarrowBand None reference
+"",G2014-13,004,NarrowBand Diluted dilution 1:0.5
+"",G2014-17,001,NarrowBand None reference
+"",G2014-17,002,NarrowBand Diluted dilution 1:0.5
+"",G2014-18a,003,NarrowBand None reference
+"",G2014-18a,004,NarrowBand Diluted dilution 1:0.5
+"",G2014-20,001,NarrowBand None reference
+"",G2014-20,002,NarrowBand Diluted dilution 1:0.5
+"",G2014-21,003,NarrowBand None reference
+"",G2014-21,004,NarrowBand Diluted dilution 1:0.5
+"",G2014-18b,001,NarrowBand Acidified pH 6.0
+"",G2014-18b,002,NarrowBand Acidified pH 6.6
+"",G2014-18b,003,NarrowBand None reference
+"",G2014-19,001,NarrowBand Acidified pH 6.1
+"",G2014-19,002,NarrowBand Acidified pH 6.6
+"",G2014-19,003,NarrowBand None reference
+"",G2014-23a,001,NarrowBand Acidified pH 6.5
+"",G2014-23a,002,NarrowBand Acidified pH 7.1
+"",G2014-23a,003,NarrowBand None reference
+"",G2014-23b,001,NarrowBand Acidified pH 6.5
+"",G2014-23b,002,NarrowBand Acidified pH 7.0
+"",G2014-23b,003,NarrowBand None reference
+"",G2015-35,001,BroadcastIrrigated Irrigated 
+"",G2015-35,002,ShallowInjection None 
+"",G2016-13,001,BroadcastIrrigated Irrigated 
+"",G2016-13,002,ShallowInjection None 
+"",G2016-26,001,BroadcastIrrigated Irrigated 
+"",G2016-26,002,ShallowInjection None 
+"",G2016-26,003,ShallowInjection None raker
+"",G2016-27,001,BroadcastIrrigated Irrigated 
+"",G2016-27,002,ShallowInjection None 
+"",G2016-34,001,BroadcastIrrigated Irrigated 
+"",G2016-34,002,ShallowInjection None raker
+"",G2016-34,003,ShallowInjection None 
+"",G2016-14,001,NarrowBand Diluted dilution 1:0.5
+"",G2016-14,002,NarrowBand None reference
+"",G2016-14,003,NarrowBand Diluted dilution 1:0.25
+"",G2016-20,001,NarrowBand None reference
+"",G2016-20,002,NarrowBand Diluted dilution 1:0.5
+"",G2016-20,003,NarrowBand Diluted dilution 1:0.25
+"",G2016-21,002,NarrowBand Diluted dilution 1:0.25
+"",G2016-21,003,NarrowBand Diluted dilution 1:0.5
+"",G2016-33,001,NarrowBand None reference
+"",G2016-33,002,NarrowBand Diluted dilution 1:0.5
+"",G2016-33,003,NarrowBand Diluted dilution 1:0.25
+"",G2017-20a,001,NarrowBand Diluted dilution 1:0.33
+"",G2017-20a,002,NarrowBand None reference
+"",G2017-20b,001,NarrowBand Diluted dilution 1:0.33
+"",G2017-20b,002,NarrowBand None reference
+"",G2017-25,001,NarrowBand Diluted dilution 1:0.33
+"",G2017-25,002,NarrowBand None reference
+"",G2017-35,001,NarrowBand Diluted dilution 1:0.33
+"",G2017-35,002,NarrowBand None reference
+"",G2020-21,001,ShallowInjection None reference
+"",G2020-21,002,ShallowInjection Diluted dilution 1:0.5
+"",G2020-22,003,ShallowInjection None reference
+"",G2020-22,004,ShallowInjection Diluted dilution 1:0.5
+"",G2020-27,001,ShallowInjection None reference
+"",G2020-27,002,ShallowInjection Diluted dilution 1:0.5
+"",G2020-28,003,ShallowInjection None reference
+"",G2020-28,004,ShallowInjection Diluted dilution 1:0.5
+"",G2021-12,001,ShallowInjection None reference
+"",G2021-12,002,ShallowInjection Diluted dilution 1:0.5
+"",G2021-13,003,ShallowInjection None reference
+"",G2021-13,004,ShallowInjection Diluted dilution 1:0.5
+"",G2021-23,001,ShallowInjection None reference
+"",G2021-23,002,ShallowInjection Diluted dilution 1:0.5
+"",G2021-29,003,ShallowInjection None reference
+"",G2021-29,004,ShallowInjection Diluted dilution 1:0.5
+"",G2021-45,001,ShallowInjection None 
