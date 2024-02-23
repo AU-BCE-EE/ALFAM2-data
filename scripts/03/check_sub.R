@@ -30,6 +30,11 @@ for (i in names(dat)) {
       options(warn = 2) 
     } 
 
+    if (exists('newsubmission')) { 
+      cat('Stopping after check_sub.Rmd because new file has been read in!\nManually move on if desired, otherwise comment out and rm() newsubmission in main.R')
+      stop()
+    }
+
   }
 }
 

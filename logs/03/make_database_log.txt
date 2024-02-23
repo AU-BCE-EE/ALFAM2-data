@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-02-12 07:30:42 EST"
+[1] "2024-02-23 13:41:46 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -17,10 +17,12 @@
 > dat <- list()
 
 > for(i in ddir) {
-+   cat('Directory ', i,'\n')
++   cat('\nDirectory ', i,'\n')
 +   f <- list.files(i, pattern = 'xls', full.names = TRUE)
-+   # Omit temporary Excel files (created  .... [TRUNCATED] 
++   # Omit temporary Excel files (create .... [TRUNCATED] 
+
 Directory  ../../data-submitted/03/AU 
+
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
 May be entry error or multiple treatments per plot (i.e., no error)
@@ -49,6 +51,7 @@ Combinations missing from emis df:
 [1] proj          exper         field         plot          rep          
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
+
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
 May be entry error or multiple treatments per plot (i.e., no error)
@@ -75,42 +78,56 @@ Combinations missing from emis df:
 Emission rate unit not available for conversion:  NA 
 But  µgNH3/m2/s  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
   ``   
   <chr>
 1 .    
+
    file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 26 × 18
@@ -129,6 +146,7 @@ See cleanALFAM() function.
 # ℹ 16 more rows
 # ℹ 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>
 # ℹ Use `print(n = ...)` to see more rows
+
    file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -164,28 +182,39 @@ Combinations missing from emis df:
 [1] proj          exper         field         plot          rep          
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
+
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 0 × 0
+
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
   ``   
   <chr>
 1 .    
+
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
   ``   
   <chr>
 1 .    
+
 Directory  ../../data-submitted/03/DiSSA-IT 
+
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/INIA 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+Directory  ../../data-submitted/03/INIA 
+
 Directory  ../../data-submitted/03/INRAE 
+
 Directory  ../../data-submitted/03/UNINA 
+
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Directory  ../../data-submitted/03/UNINI 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+Directory  ../../data-submitted/03/UNINI 
+
    file  ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -217,10 +246,27 @@ Combinations missing from emis df:
 [1] proj          exper         field         plot          rep          
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
+
 Directory  ../../data-submitted/03/WUR 
 
+   file  ../../data-submitted/03/WUR/WUR_arable_2024.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+
+   file  ../../data-submitted/03/WUR/WUR_grass_2024.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+
+Directory  ../../data-submitted/03/WUR-wim 
+
 > cat('Done! Read', length(dat), ' directories\n')
-Done! Read 7  directories
+Done! Read 8  directories
 
 > print(warnings())
 Warning message:
@@ -263,7 +309,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 [1] 348  16
 
 > dim(pdat)
-[1] 543 226
+[1] 957 226
 
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -362,6 +408,409 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
 > ## Columns missing in .... [TRUNCATED] 
 
+> # Remove old NL results that have been updated in uptake 3
+> 
+> # Old IMAG experiment codes are missing B or G at beginning
+> pdat.comb[pdat.comb$in .... [TRUNCATED] 
+
+> # Missing 0 in 2 uptake 2 experiment codes
+> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-8', 'exper'] <- 'G2000-08'
+
+> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-9', 'exper'] <- 'G2000-09'
+
+> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+
+> print(table(pdat.nl$exper, pdat.nl$uptake))
+           
+            1 2 3
+  B1990-15  0 3 3
+  B1990-35  0 3 3
+  B1990-37  0 4 4
+  B1990-38  0 8 8
+  B1990-39  0 2 2
+  B1991-13  0 2 2
+  B1991-14  0 1 1
+  B1991-18  0 1 1
+  B1991-36  0 1 1
+  B1991-37  0 4 4
+  B1991-38  0 1 1
+  B1992-10  0 2 2
+  B1992-14  0 5 5
+  B1992-19  0 1 1
+  B1992-20  0 1 1
+  B1992-24  0 1 1
+  B1992-37  0 3 3
+  B1992-38  0 3 3
+  B1992-39  0 3 3
+  B1993-15  0 4 4
+  B1993-17  0 1 1
+  B1998-39  0 2 4
+  B1998-40  0 2 4
+  B2002-13  0 0 2
+  B2002-14  0 0 3
+  B2002-15  0 0 3
+  B2002-17  0 0 3
+  B2002-19  0 0 3
+  B2006-17  0 0 2
+  B2006-18  0 0 2
+  B2006-19  0 0 2
+  B2007-13  0 0 4
+  B2007-16  0 0 4
+  B2007-17  0 0 4
+  B2008-15  0 0 4
+  B2008-17  0 0 4
+  B2008-39  0 0 2
+  B2010-16  0 0 4
+  B2010-19  0 0 4
+  B2011-16  0 0 4
+  B2011-17  0 0 4
+  G1989-13  3 0 2
+  G1989-15  3 0 2
+  G1989-27  2 0 1
+  G1989-28  3 0 2
+  G1989-38  2 0 0
+  G1990-11  2 0 2
+  G1990-12  4 0 4
+  G1990-17  2 0 2
+  G1990-18  2 0 1
+  G1990-20  4 0 4
+  G1990-22  2 0 2
+  G1990-23  4 0 4
+  G1990-24  7 0 6
+  G1990-25  1 0 1
+  G1990-26  3 0 2
+  G1990-27  2 0 1
+  G1990-29  1 0 1
+  G1990-30  1 0 1
+  G1990-31  1 0 1
+  G1990-35  1 0 1
+  G1990-36  2 0 2
+  G1991-15  4 0 4
+  G1991-16  4 0 4
+  G1991-24  3 0 2
+  G1991-29  1 0 1
+  G1991-30  1 0 1
+  G1991-36  1 0 1
+  G1992-11  1 0 1
+  G1992-12  1 0 1
+  G1992-16  4 0 4
+  G1992-17  3 0 3
+  G1992-21  1 0 1
+  G1992-25  4 0 4
+  G1992-26  5 0 5
+  G1992-27  5 0 5
+  G1992-28  1 0 1
+  G1992-35  1 0 1
+  G1992-38  3 0 3
+  G1993-10  2 0 2
+  G1993-11  6 0 6
+  G1993-12  2 0 2
+  G1993-18  4 0 4
+  G1993-21  6 0 6
+  G1993-22  4 0 4
+  G1997-24  0 3 3
+  G1997-25  0 2 2
+  G1997-26  0 3 3
+  G1997-28  0 3 3
+  G1997-29  0 3 3
+  G1997-30  0 3 3
+  G1997-31  0 3 3
+  G1997-33  0 3 3
+  G1998-28  0 4 4
+  G1998-30  0 4 4
+  G1998-32  0 4 4
+  G1999-19  0 5 5
+  G1999-20  0 3 3
+  G1999-22  0 2 2
+  G1999-26  0 2 2
+  G1999-27  0 5 5
+  G1999-30  0 5 5
+  G1999-35  0 2 2
+  G2000-08  0 5 5
+  G2000-09  0 2 2
+  G2000-11  0 2 2
+  G2000-12  0 5 5
+  G2000-19  0 5 5
+  G2002-10  0 2 2
+  G2002-23  0 2 2
+  G2003-10  0 3 3
+  G2003-11  0 4 4
+  G2005-29  0 0 1
+  G2010-20  0 0 4
+  G2010-21  0 0 4
+  G2013-15a 0 0 2
+  G2013-15b 0 0 2
+  G2013-16a 0 0 2
+  G2013-16b 0 0 2
+  G2013-24a 0 0 2
+  G2013-24b 0 0 2
+  G2014-11a 0 0 2
+  G2014-12a 0 0 2
+  G2014-12b 0 0 2
+  G2014-13  0 0 2
+  G2014-17  0 0 2
+  G2014-18a 0 0 2
+  G2014-18b 0 0 3
+  G2014-19  0 0 3
+  G2014-20  0 0 2
+  G2014-21  0 0 2
+  G2014-23a 0 0 3
+  G2014-23b 0 0 3
+  G2015-35  0 0 2
+  G2016-13  0 0 2
+  G2016-14  0 0 3
+  G2016-20  0 0 3
+  G2016-21  0 0 2
+  G2016-26  0 0 3
+  G2016-27  0 0 2
+  G2016-33  0 0 3
+  G2016-34  0 0 3
+  G2017-20a 0 0 2
+  G2017-20b 0 0 2
+  G2017-25  0 0 2
+  G2017-35  0 0 2
+  G2020-21  0 0 2
+  G2020-22  0 0 2
+  G2020-27  0 0 2
+  G2020-28  0 0 2
+  G2021-12  0 0 2
+  G2021-13  0 0 2
+  G2021-23  0 0 2
+  G2021-29  0 0 2
+  G2021-45  0 0 1
+  IHF_13    0 4 0
+  IHF_6     0 2 0
+  IHF_7     0 2 0
+  WIND_10   0 2 0
+  WIND_4    0 2 0
+  WIND_6    0 2 0
+  WIND_8    0 2 0
+
+> print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
+           
+              1   2   3
+  bare soil   0  29   0
+  grass     119 105 294
+  stubble     0  29   0
+  <NA>        0   0 120
+
+> # Get new results
+> exper.new <- pdat.nl[pdat.nl$uptake == 3, 'exper']
+
+> # Find matching old ones that should be swapped out
+> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$uptake %in% 1:2, 'pmid']
+
+> # Remove old pmid
+> print(dim(pdat.comb))
+[1] 2856  220
+
+> print(dim(idat.comb))
+[1] 75230    47
+
+> pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
+
+> idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
+
+> print(dim(pdat.comb))
+[1] 2592  220
+
+> print(dim(idat.comb))
+[1] 72978    47
+
+> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+
+> print(table(pdat.nl$exper, pdat.nl$uptake))
+           
+            1 2 3
+  B1990-15  0 0 3
+  B1990-35  0 0 3
+  B1990-37  0 0 4
+  B1990-38  0 0 8
+  B1990-39  0 0 2
+  B1991-13  0 0 2
+  B1991-14  0 0 1
+  B1991-18  0 0 1
+  B1991-36  0 0 1
+  B1991-37  0 0 4
+  B1991-38  0 0 1
+  B1992-10  0 0 2
+  B1992-14  0 0 5
+  B1992-19  0 0 1
+  B1992-20  0 0 1
+  B1992-24  0 0 1
+  B1992-37  0 0 3
+  B1992-38  0 0 3
+  B1992-39  0 0 3
+  B1993-15  0 0 4
+  B1993-17  0 0 1
+  B1998-39  0 0 4
+  B1998-40  0 0 4
+  B2002-13  0 0 2
+  B2002-14  0 0 3
+  B2002-15  0 0 3
+  B2002-17  0 0 3
+  B2002-19  0 0 3
+  B2006-17  0 0 2
+  B2006-18  0 0 2
+  B2006-19  0 0 2
+  B2007-13  0 0 4
+  B2007-16  0 0 4
+  B2007-17  0 0 4
+  B2008-15  0 0 4
+  B2008-17  0 0 4
+  B2008-39  0 0 2
+  B2010-16  0 0 4
+  B2010-19  0 0 4
+  B2011-16  0 0 4
+  B2011-17  0 0 4
+  G1989-13  0 0 2
+  G1989-15  0 0 2
+  G1989-27  0 0 1
+  G1989-28  0 0 2
+  G1989-38  2 0 0
+  G1990-11  0 0 2
+  G1990-12  0 0 4
+  G1990-17  0 0 2
+  G1990-18  0 0 1
+  G1990-20  0 0 4
+  G1990-22  0 0 2
+  G1990-23  0 0 4
+  G1990-24  0 0 6
+  G1990-25  0 0 1
+  G1990-26  0 0 2
+  G1990-27  0 0 1
+  G1990-29  0 0 1
+  G1990-30  0 0 1
+  G1990-31  0 0 1
+  G1990-35  0 0 1
+  G1990-36  0 0 2
+  G1991-15  0 0 4
+  G1991-16  0 0 4
+  G1991-24  0 0 2
+  G1991-29  0 0 1
+  G1991-30  0 0 1
+  G1991-36  0 0 1
+  G1992-11  0 0 1
+  G1992-12  0 0 1
+  G1992-16  0 0 4
+  G1992-17  0 0 3
+  G1992-21  0 0 1
+  G1992-25  0 0 4
+  G1992-26  0 0 5
+  G1992-27  0 0 5
+  G1992-28  0 0 1
+  G1992-35  0 0 1
+  G1992-38  0 0 3
+  G1993-10  0 0 2
+  G1993-11  0 0 6
+  G1993-12  0 0 2
+  G1993-18  0 0 4
+  G1993-21  0 0 6
+  G1993-22  0 0 4
+  G1997-24  0 0 3
+  G1997-25  0 0 2
+  G1997-26  0 0 3
+  G1997-28  0 0 3
+  G1997-29  0 0 3
+  G1997-30  0 0 3
+  G1997-31  0 0 3
+  G1997-33  0 0 3
+  G1998-28  0 0 4
+  G1998-30  0 0 4
+  G1998-32  0 0 4
+  G1999-19  0 0 5
+  G1999-20  0 0 3
+  G1999-22  0 0 2
+  G1999-26  0 0 2
+  G1999-27  0 0 5
+  G1999-30  0 0 5
+  G1999-35  0 0 2
+  G2000-08  0 0 5
+  G2000-09  0 0 2
+  G2000-11  0 0 2
+  G2000-12  0 0 5
+  G2000-19  0 0 5
+  G2002-10  0 0 2
+  G2002-23  0 0 2
+  G2003-10  0 0 3
+  G2003-11  0 0 4
+  G2005-29  0 0 1
+  G2010-20  0 0 4
+  G2010-21  0 0 4
+  G2013-15a 0 0 2
+  G2013-15b 0 0 2
+  G2013-16a 0 0 2
+  G2013-16b 0 0 2
+  G2013-24a 0 0 2
+  G2013-24b 0 0 2
+  G2014-11a 0 0 2
+  G2014-12a 0 0 2
+  G2014-12b 0 0 2
+  G2014-13  0 0 2
+  G2014-17  0 0 2
+  G2014-18a 0 0 2
+  G2014-18b 0 0 3
+  G2014-19  0 0 3
+  G2014-20  0 0 2
+  G2014-21  0 0 2
+  G2014-23a 0 0 3
+  G2014-23b 0 0 3
+  G2015-35  0 0 2
+  G2016-13  0 0 2
+  G2016-14  0 0 3
+  G2016-20  0 0 3
+  G2016-21  0 0 2
+  G2016-26  0 0 3
+  G2016-27  0 0 2
+  G2016-33  0 0 3
+  G2016-34  0 0 3
+  G2017-20a 0 0 2
+  G2017-20b 0 0 2
+  G2017-25  0 0 2
+  G2017-35  0 0 2
+  G2020-21  0 0 2
+  G2020-22  0 0 2
+  G2020-27  0 0 2
+  G2020-28  0 0 2
+  G2021-12  0 0 2
+  G2021-13  0 0 2
+  G2021-23  0 0 2
+  G2021-29  0 0 2
+  G2021-45  0 0 1
+  IHF_13    0 4 0
+  IHF_6     0 2 0
+  IHF_7     0 2 0
+  WIND_10   0 2 0
+  WIND_4    0 2 0
+  WIND_6    0 2 0
+  WIND_8    0 2 0
+
+> print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
+       
+          1   2   3
+  grass   2  16 294
+  <NA>    0   0 120
+
+> # Which ones are remaining from uptakes 1 and 2?
+> pdat.remain <- pdat.comb[pdat.comb$uptake %in% 1:2 & grepl('IMAG|NMI|WUR', pdat.comb$institute),  .... [TRUNCATED] 
+
+> print(table(pdat.remain$exper, pdat.remain$uptake))
+          
+           1 2
+  G1989-38 2 0
+  IHF_13   0 4
+  IHF_6    0 2
+  IHF_7    0 2
+  WIND_10  0 2
+  WIND_4   0 2
+  WIND_6   0 2
+  WIND_8   0 2
+
+> print(table(pdat.remain$crop, pdat.remain$uptake, exclude = NULL))
+       
+         1  2
+  grass  2 16
+
 > # Make text plot summaries for uptake 3 only
 > 
 > for (i in unique(pdat$file)) {
@@ -413,11 +862,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.37
+ main.R (new version)    2.38
           Release tag    2.23
               Release    2.23
-          Main branch    2.36
-           Dev branch    2.36
+          Main branch    2.37
+           Dev branch    2.37
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
