@@ -469,9 +469,11 @@ addVars <- function(dat) {
   am <- c(`Band spread or trailing hose` = 'bsth',
           Broadcast = 'bc',
           `NUGA-tine` = 'ts', # NTS: Check with JMP
+          `NUGA` = 'ts', # NTS: Check with JMP
           `Open slot injection` = 'os',
+          `Closed slot injection` = 'os',
           `Trailing shoe` = 'ts',
-          `NarrowBand` = 'bsth',
+          `Trailing hose` = 'bsth',
           `Wide band` = 'bsth')
   dat$app.method.orig <- dat$app.method
   dat$app.method <- am[dat$app.method.orig]

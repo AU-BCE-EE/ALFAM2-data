@@ -2,11 +2,12 @@
 
 arablep <- merge(arable1, arable2)
 arablep[, app_incorp_method := paste(method, methodDetail)]
-arablep[, treatment_descrip := methodDetail]
+arablep[, treatment_descrip := paste(method, methodDetail, treatment, info)]
+#arablep[, treatment_descrip := methodDetail]
 
 # Sort out names and units
-arablep[, project := '']
-arablep[, experiment := paste0('B', substr(id, 1, 7))]
+arablep[, project := id2exper(id, 'B')]
+arablep[, experiment := id2exper(id, 'B')]
 arablep[, field := paste0(ifelse(!is.na(idField), paste0(idField, '-'), ''), location)]
 arablep[, plot_code := substr(id, 9, 12)]
 arablep[, replicate := '']
@@ -35,6 +36,8 @@ arablep[, app_method := method]
 arablep[grepl('[Bb]roadcast', app_method), app_method := 'Broadcast']
 arablep[grepl('[Dd]eep placement', app_method), app_method := 'Closed slot injection']
 arablep[grepl('[Ss]hallow[Ii]njection', app_method), app_method := 'Open slot injection']
+# NTS: Check with Jan, there 
+arablep[grepl('NarrowBand', app_method), app_method := 'Trailing hose']
 arablep[, app_rate := rate]
 arablep[, app_unit := 't/ha']
 # NTS: check incorp interpretation!
@@ -42,7 +45,9 @@ arablep[, incorp := 'None']
 arablep[grepl('[Ii]ncorp|[Cc]ultiv', app_incorp_method), incorp := 'Shallow']
 arablep[grepl('[Pp]lough', app_incorp_method), incorp := 'Deep']
 # NTS: And incorporation time!
-arablep[, incorp_time := -999]
+arablep[, incorp_time := 0]
+arablep[incorp != 'None', incorp_time := 0.1]
+arablep[incorp == 'None', incorp_time := NA]
 
 # Plot sheet
 arableplot <- arablep[, project:incorp_time]
@@ -54,9 +59,9 @@ arabletreat <- arablep[, .(project, experiment, plot_code, treatment_descrip)]
 
 # Emission sheet
 # Fix id problem from one sheet
-arable3[, id := gsub("^'", '', id)]
-arable3[, experiment := paste0('B', substr(id, 1, 7))]
-arable4[, experiment := paste0('B', substr(id, 1, 7))]
+arable3[, id := gsub("^'", '', id, 'B')]
+arable3[, experiment := id2exper(id, 'B')]
+arable4[, experiment := id2exper(id, 'B')]
 # Merge by experiment not id, because of missing values
 # Get more than 973 rows when merging on time and timeCum, so omitted here
 arablee <- merge(arable3, arable4, by = c('nr', 'experiment', 'shift'), suffixes = c('.3', '.4'), all = TRUE)

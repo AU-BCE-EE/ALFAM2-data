@@ -13,13 +13,17 @@ rm(list = ls())
 
 # Set uptake number and new database version
 uptake <- 3
-version <- '2.37' # February 2024
+version <- '2.38' # February 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
 oldrelease <- '2.23'
+
+# For checking a particular new file
+#newsubmission <- 'WUR_grass_2024'
+#rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
 alllogs <- FALSE 
@@ -42,6 +46,7 @@ sink('../../logs/03/make_database_log.txt')
   source('add_ID.R', echo = TRUE)
   source('merge_plot.R', echo = TRUE)
   source('merge_int.R', echo = TRUE)
+  source('NL_swap.R', echo = TRUE)
   source('text_summ.R', echo = TRUE)
   source('save_csvs.R', echo = TRUE)
   source('check_final.R', echo = TRUE)

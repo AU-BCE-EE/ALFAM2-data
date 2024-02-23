@@ -7,9 +7,9 @@ grassp[, treatment_descrip := paste(method, treatment, info)]
 
 # Sort out names and units
 # NTS: Note gsub '-' to deal with e.g., 2014-23a vs. without a
-grassp[, project := '']
+grassp[, project := id2exper(id, 'G')]
 # NTS copy to arable???
-grassp[, experiment := id2exper(id)]
+grassp[, experiment := id2exper(id, 'G')]
 grassp[, field := paste0(ifelse(!is.na(idField), paste0(idField, '-'), ''), location)]
 # NTS copy to arable???
 grassp[, plot_code := gsub('-', '', substr(id, 9, 12))]
@@ -39,17 +39,19 @@ grassp[, app_method := method]
 grassp[grepl('[Bb]roadcast', app_method), app_method := 'Broadcast']
 grassp[grepl('[Dd]eep placement', app_method), app_method := 'Closed slot injection']
 grassp[grepl('[Ss]hallow[Ii]njection', app_method), app_method := 'Open slot injection']
+# NTS: check next with Jan
+grassp[grepl('[Nn]arrow[Bb]and', app_method), app_method := 'Trailing hose']
 grassp[, app_rate := rate]
 grassp[, app_unit := 't/ha']
-# NTS: check incorp interpretation!
+# NTS: check no incorporation!
 grassp[, incorp := 'None']
-grassp[grepl('[Ii]ncorp|[Cc]ultiv', app_incorp_method), incorp := 'Shallow']
-grassp[grepl('[Pp]lough', app_incorp_method), incorp := 'Deep']
-# NTS: And incorporation time!
-grassp[, incorp_time := -999]
+grassp[, incorp_time := '']
+grassp[, `:=` (man_area = '', inj_dist = '', fur_depth = '', fur_width = '')]
+grassp[, crop := 'grass']
+grassp[, crop_height := hgrass]
 
 # Plot sheet
-grassplot <- grassp[, project:incorp_time]
+grassplot <- grassp[, project:crop_height]
 
 # Experments and Treatments worksheets are subsets of Plots here (because notes are missing there is nothing more to include)????
 grassexper <- unique(grassp[, .(project, experiment)])
@@ -60,8 +62,8 @@ grasstreat <- grassp[, .(project, experiment, plot_code, treatment_descrip)]
 # Fix id problem from one sheet
 grass3[, id := gsub("^'", '', id)]
 # NTS: fix in arable too!
-grass3[, experiment := id2exper(id)]
-grass4[, experiment := id2exper(id)]
+grass3[, experiment := id2exper(id, 'G')]
+grass4[, experiment := id2exper(id, 'G')]
 ##grass3[, experiment := paste0('G', substr(id, 1, 7))]
 ##grass4[, experiment := paste0('G', substr(id, 1, 7))]
 # Merge by experiment not id, because of missing values

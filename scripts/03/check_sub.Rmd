@@ -60,10 +60,14 @@ ll <- unique(plots[, c('lat', 'long')])
 subscr <- data.frame(lat=c(ll$lat),
                     lon=c(ll$long))
 
+if (all(!is.na(subscr))) {
 leaflet() %>% addTiles() %>% 
   addCircleMarkers(data = subscr,
                    lat = ~lat, lng = ~lon,
                    color = "blue")
+} else {
+  cat('Skipping map because lat/long not provided.')
+}
 
 ```
 
@@ -122,26 +126,39 @@ if (all(emis$exper %in% exper$exper)) {
 
 ## Code merge check (matching project, experiment, field, plot, treatment)
 ```{r, echo = FALSE}
+# First check for duplicated values (to avoid difficulty figuring out merge problems below)
+if (any(duplicated(exper))) {
+  stop('Duplicated values in Experiments sheet.')
+}
+
+if (any(duplicated(treat))) {
+  stop('Duplicated values in Treatments sheet.')
+}
+
+if (any(duplicated(emis))) {
+  stop('Duplicated values in Emission sheet.')
+}
+
 m1 <- merge(exper, treat, all = TRUE)
 m2 <- merge(m1, emis, all = TRUE)
 
 if (nrow(m1) == nrow(treat)) {
   cat('OK\n')
 } else {
-  print('Merge problem 1')
   print(intersect(names(exper), names(treat)))
+  stop('Merge problem 1')
 }
 
 if (sum(is.na(c(m1$proj, m1$exper, m1$treat))) == 0) {
   cat('OK\n')
 } else {
-  print('Merge problem 2')
+  stop('Merge problem 2')
 }
 
 if (nrow(m1) == max(nrow(treat), nrow(exper))) {
   cat('OK\n')
 } else {
-  print('Merge problem 3')
+  stop('Merge problem 3')
 }
 
 if (sum(is.na(c(m2$proj, m2$exper, m2$treat, m2$field, m2$plot))) == 0) {
@@ -448,37 +465,57 @@ The same colors should be be used for particular field plots throughout this sec
 ```{r, echo=FALSE}
 d$first.rows <- factor(paste('Plots', d$row.plot, 'Emis.', d$first.row))
 
-p1 <- ggplot(d, aes(ct, e.rel, colour = first.rows)) + 
-  geom_line() + geom_point() + 
-  theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
-
-ylim <- layer_scales(p1)$y$get_limits()
-xlim <- layer_scales(p1)$x$get_limits()
-xl <- mean(xlim)
-yl <- mean(ylim)
-
-dl <- unique(d[, c('first.rows', 'meas.tech', 'man.source', 'app.method')])
-dl <- cbind(x = xl, y = yl, dl)
-
-p1 + geom_text(data = dl, aes(x = x, y = y, label = paste(meas.tech, man.source, app.method, sep = ', '))) +
-  geom_line() + geom_point() 
-
-ggplot(d, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
-
-if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+ngroups <- ceiling(length(unique(d$row.in.file.plot)) / 6)
+if (ngroups > 1) {
+  d$ggplotgroup <- cut(d$row.in.file.plot, ngroups)
+} else {
+  d$ggplotgroup <- 1
 }
 
-if (!(all(is.na(d$t.end)))) {
-  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
-  ggplot(d, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  p1 <- ggplot(ddd, aes(ct, e.rel, colour = first.rows)) + 
+    geom_line() + geom_point() + 
+    theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+  
+  ylim <- layer_scales(p1)$y$get_limits()
+  xlim <- layer_scales(p1)$x$get_limits()
+  xl <- mean(xlim)
+  yl <- mean(ylim)
+  
+  dl <- unique(ddd[, c('first.rows', 'meas.tech', 'man.source', 'app.method')])
+  dl <- cbind(x = xl, y = yl, dl)
+  
+  p1 <- p1 + geom_text(data = dl, aes(x = x, y = y, label = paste(meas.tech, man.source, app.method, sep = ', '))) +
+    geom_line() + geom_point() 
+  print(p1)
+}
+
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  ggplot(ddd, aes(ct, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+}
+
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  if (!(all(is.na(d$cta)))) {
+    ggplot(ddd, aes(cta, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (after application) (h)', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+  }
+}
+
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  if (!(all(is.na(d$t.end)))) {
+    ggplot(ddd, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+    ggplot(ddd, aes(t.end, e.rel, colour = first.rows)) + geom_line() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Date/time', y = 'NH3 emission (frac. app. TAN)', colour = 'Rows in file')
+  }
 }
 ```
 
 ## Final cumulative emission
 
 ```{r, echo = FALSE}
-ggplot(plots, aes(e.rel.final, fill = treat)) + geom_histogram() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)')
+ggplot(plots, aes(e.rel.final, fill = factor(treat))) + geom_histogram() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)')
 ```
 
 ## Relative versus absolute emission
@@ -490,10 +527,24 @@ ggplot(plots, aes(e.rel.final, e.final)) + geom_point() + facet_grid(meas.tech ~
 ## Flux
 
 ```{r, echo = FALSE}
-ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
-ggplot(d, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file') 
-if (!(all(is.na(d$cta)))) {
-  ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  p <- ggplot(ddd, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'none') + facet_wrap(~ first.rows) + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+  print(p)
+}
+
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  p <- ggplot(ddd, aes(ct, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file') 
+  print(p)
+}
+
+for (ggg in unique(d$ggplotgroup)) {
+  ddd <- d[d$ggplotgroup == ggg, ]
+  if (!(all(is.na(d$cta)))) {
+    p <- ggplot(d, aes(cta, j.NH3, colour = first.rows)) + geom_step() + geom_point() + theme(legend.position = 'top') + labs(x = 'Elapsed time (from application) (h)', y = 'NH3 flux (kg N/ha-h)', colour = 'Rows in file')
+    print(p)
+  }
 }
 ```
 
