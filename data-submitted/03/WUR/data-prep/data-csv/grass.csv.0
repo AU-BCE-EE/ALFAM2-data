@@ -1,0 +1,295 @@
+nr,id,year,landuse,method,methodDetail,treatment,pair,nshift,timeStart,manure,ph,dm,totalN,concNH4,rate,soil,soilMois,hgrass,stubble,info,dilution,idField,inSeas,inIHF,location,dir,file
+-109,1989-13-001,1989,grass,SurfaceBroadcast,,None,24,9,10.22,dairy,,11.2,6.38,3.18,17.2,sand,,6,,,,1,,,Hardenberg,,
+-108,1989-13-003,1989,grass,ShallowInjection,,None,24,9,10.32,dairy,,11.3,4.29,3.28,26.8,sand,,6,,,,3,1,,Hardenberg,,
+-107,1989-15-004,1989,grass,SurfaceBroadcast,,None,25,9,10.67,pig,7.1,11.9,8.81,6,10,sand,,6,,,,4,,,Hardenberg,,
+-106,1989-15-006,1989,grass,ShallowInjection,,None,25,9,10.18,pig,7.1,11,8.21,5.82,26,sand,,5.82,,,,6,,,Hardenberg,,
+-105,1989-27-008,1989,grass,ShallowInjection,,None,26,9,9.78,dairy,7.3,9.3,5.33,2.76,14,clay,,6,,,,8,1,,Swifterbant,,
+-104,1989-28-009,1989,grass,SurfaceBroadcast,,None,27,9,9.92,pig,7.8,10.6,8.05,5.38,12.7,clay,,6,,,,9,,,Swifterbant,,
+-103,1989-28-011,1989,grass,ShallowInjection,,None,27,9,9.78,pig,7.8,10.5,8.31,5.34,15.4,clay,,6,,,,11,,,Swifterbant,,
+-102,1990-11-018,1990,grass,SurfaceBroadcast,,None,28,5,9.57,dairy,7.6,8.54,5.64,3.28,16.3,clay,37,,,,,18,,,Duiven,,
+-101,1990-11-019,1990,grass,SurfaceBroadcast,,None,28,5,10.08,dairy,7.6,8.54,5.64,3.28,12.5,clay,37,,,,,19,,,Duiven,,
+-100,1990-12-020,1990,grass,SurfaceBroadcast,,None,29,9,9.67,dairy,7.1,8.83,5.27,2.23,19.7,clay,40,10,,,,20,1,,Duiven,,
+-99,1990-12-021,1990,grass,NarrowBand,,None,29,9,10.25,dairy,7.1,8.83,5.27,2.23,19,clay,40,10,,"high rate",,21,1,,Duiven,,
+-98,1990-12-022,1990,grass,NarrowBand,,None,29,9,9.62,dairy,7.1,8.83,,2.2,6.6,clay,45,10,,"low rate",,22,1,,Duiven,,
+-97,1990-12-023,1990,grass,ShallowInjection,,None,29,9,9.67,dairy,7.1,8.83,5.27,2.23,16.8,clay,40,10,,,,23,1,,Duiven,,
+-96,1990-17-111,1990,grass,SurfaceBroadcast,,None,30,9,8.95,dairy,7.5,7.31,4.6,2.2,10.2,peat,61,10,,,,111,1,,Zegveld,,
+-95,1990-17-112,1990,grass,ShallowInjection,,None,30,9,9,dairy,7.5,7.31,4.6,2.2,17.8,peat,61,6,,,,112,1,,Zegveld,,
+-94,1990-18-024,1990,grass,SurfaceBroadcast,,None,31,9,11.68,dairy,7.4,7.03,5.01,2.8,8.7,peat,50,8,,,,24,1,,Zegveld,,
+-93,1990-20-026,1990,grass,ShallowInjection,,None,32,9,9.42,dairy,7.4,8.34,5.05,2.22,18.8,clay,35,8,,,,26,1,,Duiven,,
+-92,1990-20-027,1990,grass,NarrowBand,,None,32,9,9.53,dairy,7.4,8.34,5.05,2.22,8.4,clay,40,8,,"low rate",,27,1,,Duiven,,
+-91,1990-20-028,1990,grass,SurfaceBroadcast,,None,32,9,10,dairy,7.4,8.34,5.05,2.22,16.1,clay,35,8,,,,28,1,,Duiven,,
+-90,1990-20-029,1990,grass,NarrowBand,,None,32,9,10.03,dairy,7.4,8.34,5.05,2.22,17.3,clay,35,8,,"high rate",,29,1,,Duiven,,
+-89,1990-22-113,1990,grass,SurfaceBroadcast,,None,33,9,9.12,dairy,7.1,8.27,4.6,2.3,9.8,peat,42,10,,,,113,1,,Zegveld,,
+-88,1990-22-114,1990,grass,ShallowInjection,,None,33,9,9.08,dairy,7.1,8.27,4.6,2.3,18.2,peat,42,10,,,,114,1,,Zegveld,,
+-87,1990-23-030,1990,grass,NarrowBand,,None,34,8,9.83,pig,8,11.3,9.81,6.31,7.9,clay,28,8,,"low rate",,30,,,Duiven,,
+-86,1990-23-031,1990,grass,NarrowBand,,None,34,8,10.18,pig,8,11.3,9.81,6.31,14.9,clay,28,8,,"high rate",,31,,,Duiven,,
+-85,1990-23-032,1990,grass,SurfaceBroadcast,,None,34,8,10.13,pig,8,11.3,9.81,6.31,17.5,clay,28,8,,,,32,,,Duiven,,
+-84,1990-23-033,1990,grass,ShallowInjection,,None,34,8,9.82,pig,8,11.3,9.81,6.31,17.3,clay,28,8,,,,33,,,Duiven,,
+-83,1990-24-012,1990,grass,SurfaceBroadcast,,None,35,9,10.5,dairy,7.2,8.3,4.49,2.33,9.9,sand,,8,,,,12,,,Luttenberg,,
+-82,1990-24-014,1990,grass,ShallowInjection,,None,35,9,10.78,dairy,7.3,8.3,4.67,2.3,22.2,sand,,8,,,,14,1,,Luttenberg,,
+-81,1990-24-034,1990,grass,NarrowBand,,None,36.1,9,9.5,pig,7.2,11.3,,6.4,8.8,clay,33,5,,,,34,,,Duiven,,
+-80,1990-24-035,1990,grass,NarrowBand,,None,36.2,9,10.33,dairy,7.2,8.45,,2.3,8.6,clay,33,5,,,,35,1,,Duiven,,
+-79,1990-24-036,1990,grass,SurfaceBroadcast,,None,36.1,9,9.4,pig,7.2,11.3,,6.4,8.6,clay,33,5,,,,36,,,Duiven,,
+-78,1990-24-037,1990,grass,SurfaceBroadcast,,None,36.2,9,10.25,dairy,7.2,8.45,,2.3,8.3,clay,33,5,,,,37,1,,Duiven,,
+-77,1990-25-038,1990,grass,SurfaceBroadcast,,None,37,9,10.95,dairy,,8.33,,2.4,8.8,clay,25,6,,,,38,1,,Duiven,,
+-76,1990-26-015,1990,grass,SurfaceBroadcast,,None,38,9,9.35,dairy,7.4,8.34,4.42,2.28,9.8,sand,,8,,,,15,,,Luttenberg,,
+-75,1990-26-017,1990,grass,ShallowInjection,,None,38,9,9.33,dairy,7.4,8.19,4.58,2.4,25,sand,,8,,,,17,1,,Luttenberg,,
+-74,1990-27-040,1990,grass,SurfaceBroadcast,,None,39,9,10.98,dairy,7.2,5.82,4.06,2.23,8.7,peat,50,9,,,,40,1,,Zegveld,,
+-73,1990-29-041,1990,grass,SurfaceBroadcast,,None,40,9,11.23,dairy,,7.82,,2.3,8.7,clay,19,7,,,,41,1,,Duiven,,
+-72,1990-30-042,1990,grass,SurfaceBroadcast,,None,41,9,10.7,dairy,7.9,7.29,3.89,2.18,8.6,clay,19,8,,,,42,1,,Duiven,,
+-71,1990-31-043,1990,grass,SurfaceBroadcast,,None,42,9,10.12,pig,7.8,5.13,5.52,3.51,8.4,clay,22,8,,,,43,,,Duiven,,
+-70,1990-35-143,1990,grass,SurfaceBroadcast,,None,43,9,10.27,dairy,7.1,7.29,3.9,2,12.7,peat,58,8,,,,143,1,,Zegveld,,
+-69,1990-36-115,1990,grass,SurfaceBroadcast,,None,44,9,10.63,dairy,7.4,7.59,4.5,2.3,9.6,peat,48,10,,,,115,1,,Zegveld,,
+-68,1990-36-116,1990,grass,ShallowInjection,,None,44,9,10.45,dairy,7.4,7.59,4.5,2.3,15.1,peat,48,10,,,,116,1,,Zegveld,,
+-67,1991-15-044,1991,grass,SurfaceBroadcast,,None,45.1,9,10.48,dairy,7.2,7.48,4.26,1.9,15.3,clay,34,12,,"high grass",,44,1,,Duiven,,
+-66,1991-15-045,1991,grass,NarrowBand,,None,45.1,9,10.6,dairy,7.2,7.48,4.26,1.9,10.6,clay,34,12,,"high grass",,45,1,,Duiven,,
+-65,1991-15-046,1991,grass,NarrowBand,,None,45.2,9,10.02,dairy,7.2,7.48,,1.9,10.7,clay,34,6,,"low grass",,46,1,,Duiven,,
+-64,1991-15-047,1991,grass,SurfaceBroadcast,,None,45.2,9,9.92,dairy,7.2,7.48,,1.9,16.2,clay,34,6,,"low grass",,47,1,,Duiven,,
+-63,1991-16-048,1991,grass,SurfaceBroadcast,,None,46.1,7,9.5,pig,7.3,8.66,8.155,5,15.2,clay,24,12,,"high grass",,48,,,Duiven,,
+-62,1991-16-049,1991,grass,NarrowBand,,None,46.1,7,9.8,pig,7.3,8.66,8.155,5,10.6,clay,24,12,,"high grass",,49,,,Duiven,,
+-61,1991-16-050,1991,grass,NarrowBand,,None,46.2,7,9.32,pig,7.3,8.66,,5,12,clay,24,6,,"low grass",,50,,,Duiven,,
+-60,1991-16-051,1991,grass,SurfaceBroadcast,,None,46.2,7,9.25,pig,7.3,8.66,,5,16.3,clay,24,6,,"low grass",,51,,,Duiven,,
+-59,1991-24-052,1991,grass,NarrowBand,,None,47,9,9.6,dairy,7.1,8.82,4.35,1.8,24.6,clay,28,6,,,,52,1,,Duiven,,
+-58,1991-24-053,1991,grass,SurfaceBroadcast,,None,47,9,9.27,dairy,7.1,8.82,4.35,1.8,13,clay,28,7,,,,53,1,,Duiven,,
+-57,1991-29-055,1991,grass,SurfaceBroadcast,,None,48,9,9.07,dairy,7,7.22,3.873,1.453,9.8,clay,21,6,,,,55,1,,Duiven,,
+-56,1991-30-056,1991,grass,SurfaceBroadcast,,None,49,9,11.88,dairy,7.1,7.8,4.178,1.6,14,clay,24,7,,,,56,1,,Duiven,,
+-55,1991-36-057,1991,grass,SurfaceBroadcast,,None,50,9,9.82,dairy,7.6,6.02,4.483,2.5,16.4,clay,14,9,,,,57,1,,Zeewolde,,
+-54,1992-11-058,1992,grass,SurfaceBroadcast,,None,51,8,9.85,dairy,7.4,6.64,3.7,2.1,17.3,clay,39,7,,,,58,1,,Duiven,,
+-53,1992-12-059,1992,grass,SurfaceBroadcast,,None,52,9,9.68,dairy,7.3,6.57,3.8,2.2,17.6,clay,34,7,,,,59,1,,Duiven,,
+-52,1992-16-060,1992,grass,SurfaceBroadcast,,None,53,9,8.7,dairy,6.9,6.71,3.6,1.8,18.7,clay,40,6,,"low grass",,60,1,,Duiven,,
+-51,1992-16-061,1992,grass,ShallowInjection,,None,53,9,9.27,dairy,6.9,6.71,3.6,1.8,19.1,clay,40,6,,"low grass",,61,1,,Duiven,,
+-50,1992-16-062,1992,grass,ShallowInjection,,None,53,9,8.67,dairy,6.9,6.71,,1.8,17.9,clay,40,11,,"high grass",,62,1,,Duiven,,
+-49,1992-16-063,1992,grass,ShallowInjection,,None,53,9,9.45,dairy,6.9,6.71,3.6,1.8,19.2,clay,40,6,,"low grass",,63,1,,Duiven,,
+-48,1992-17-064,1992,grass,SurfaceBroadcast,,None,54,9,8.83,dairy,7.2,7.58,4.6,2.6,24.9,peat,67,6,,"low grass",,64,1,,Zegveld,,
+-47,1992-17-065,1992,grass,NarrowBand,,None,54,9,9.35,dairy,7.2,7.58,4.6,2.6,13.5,peat,67,6,,"low grass",,65,1,,Zegveld,,
+-46,1992-17-066,1992,grass,NarrowBand,,None,54,9,8.8,dairy,7.2,7.58,,2.6,14,peat,67,11,,"high grass",,66,1,,Zegveld,,
+-45,1992-21-067,1992,grass,SurfaceBroadcast,,None,55,9,9.67,dairy,6.8,8.68,4,2,11.6,clay,31,8,,,,67,1,,Duiven,,
+-44,1992-25-068,1992,grass,ShallowInjection,,None,56,9,8.35,dairy,7.1,8.43,4.1,2,15.6,clay,29,7,,"effect rate",,68,1,,Duiven,,
+-43,1992-25-069,1992,grass,ShallowInjection,,None,56,9,8.58,dairy,7.1,8.43,,2,20.6,clay,29,7,,"effect rate",,69,1,,Duiven,,
+-42,1992-25-070,1992,grass,ShallowInjection,,None,56,9,8.92,dairy,7.1,8.43,,2,30.8,clay,29,7,,"effect rate",,70,1,,Duiven,,
+-41,1992-25-071,1992,grass,ShallowInjection,,None,56,9,9.28,dairy,7.1,8.43,,2,31.3,clay,29,7,,"effect rate",,71,1,,Duiven,,
+-40,1992-26-072,1992,grass,SurfaceBroadcast,,None,57,9,8.52,dairy,7,8.45,4,2.1,13.7,clay,25,6,,"low rate",,72,1,,Duiven,,
+-39,1992-26-073,1992,grass,NarrowBand,,None,57,9,8.67,dairy,7,8.45,4,2.1,15,clay,25,6,,"low rate",,73,1,,Duiven,,
+-38,1992-26-074,1992,grass,NarrowBand,,None,57,9,9.35,dairy,7,8.45,4,2.1,13.6,clay,25,6,,"low rate",,74,1,,Duiven,,
+-37,1992-26-075,1992,grass,NarrowBand,,None,57,9,8.97,dairy,7,8.45,,2.1,28.1,clay,25,6,,"high rate",,75,1,,Duiven,,
+-36,1992-26-076,1992,grass,NarrowBand,,None,57,9,9.82,dairy,7,8.45,,2.1,27.1,clay,25,6,,"high rate",,76,1,,Duiven,,
+-35,1992-27-077,1992,grass,SurfaceBroadcast,,None,58,9,9.03,dairy,7.6,5.62,3.6,2.3,13.6,peat,42,5,,"low grass",,77,1,,Zegveld,,
+-34,1992-27-078,1992,grass,NarrowBand,,None,58,9,9.13,dairy,7.6,5.62,3.6,2.3,16.2,peat,42,5,,"low grass",,78,1,,Zegveld,,
+-33,1992-27-079,1992,grass,NarrowBand,,None,58,9,8.85,dairy,7.6,5.62,,2.3,11.5,peat,42,7,,"high grass",,79,1,,Zegveld,,
+-32,1992-27-080,1992,grass,ShallowInjection,,None,58,9,8.63,dairy,7.6,5.62,3.6,2.3,17.1,peat,42,5,,"low grass",,80,1,,Zegveld,,
+-31,1992-27-081,1992,grass,ShallowInjection,,None,58,9,8.65,dairy,7.6,5.62,3.6,2.3,18.9,peat,42,5,,"low grass",,81,1,,Zegveld,,
+-30,1992-28-082,1992,grass,SurfaceBroadcast,,None,59,9,10.07,dairy,7.2,5.41,3.5,2.3,14.6,peat,50,7,,,,82,1,,Zegveld,,
+-29,1992-35-083,1992,grass,SurfaceBroadcast,,None,60,9,9.45,dairy,7.2,4.62,3.1,2,15.5,peat,62,8,,,,83,1,,Zegveld,,
+-28,1992-38-084,1992,grass,SurfaceBroadcast,,None,61,9,8.77,dairy,7.3,6.92,3.5,2,16.3,clay,24,9,,"low rate",,84,1,,Duiven,,
+-27,1992-38-085,1992,grass,ShallowInjection,,None,61,9,9.6,dairy,7.3,6.92,7.3,2,25,clay,24,9,,"high rate",,85,1,,Duiven,,
+-26,1992-38-086,1992,grass,ShallowInjection,,None,61,9,8.87,dairy,7.3,6.92,3.5,2,17.8,clay,24,9,,"low rate",,86,1,,Duiven,,
+-25,1993-10-087,1993,grass,SurfaceBroadcast,,None,62,9,10.42,dairy,6.9,8.32,4.2,2.2,17.9,clay,38,4,,,,87,1,,Duiven,,
+-24,1993-10-088,1993,grass,SurfaceBroadcast,,None,62,9,10.73,dairy,6.9,8.32,4.2,2.2,18.5,clay,38,4,,,,88,1,,Duiven,,
+-23,1993-11-089,1993,grass,SurfaceBroadcast,,None,63,9,8.6,dairy,6.9,8.94,4.4,2.1,15.1,clay,34,6,,,,89,1,,Duiven,,
+-22,1993-11-090,1993,grass,SurfaceBroadcast,,None,63,9,8.92,dairy,6.9,8.94,4.4,2.1,15.8,clay,34,6,,,,90,1,,Duiven,,
+-21,1993-11-091,1993,grass,NarrowBand,,None,63,9,9.82,dairy,6.9,8.94,4.4,2.1,11.6,clay,34,6,,"track 1",,91,1,,Duiven,,
+-20,1993-11-092,1993,grass,NarrowBand,,None,63,9,9.57,dairy,6.9,8.94,4.4,2.1,10,clay,34,6,,"track 2",,92,1,,Duiven,,
+-19,1993-11-093,1993,grass,NarrowBand,,None,63,9,8.62,dairy,6.9,8.94,4.4,2.1,10.4,clay,34,6,,"no track 1",,93,1,,Duiven,,
+-18,1993-11-094,1993,grass,NarrowBand,,None,63,9,8.92,dairy,6.9,8.94,4.4,2.1,10.3,clay,34,6,,"no track 2",,94,1,,Duiven,,
+-17,1993-12-095,1993,grass,SurfaceBroadcast,,None,64,9,9.07,dairy,6.9,8.27,3.9,2.1,19.4,clay,33,5,,,,95,1,,Duiven,,
+-16,1993-12-096,1993,grass,SurfaceBroadcast,,None,64,9,8.77,dairy,6.9,8.27,3.9,2.1,19,clay,41,7,,,,96,1,,Duiven,,
+-15,1993-18-097,1993,grass,ShallowInjection,,None,65,9,9.22,dairy,7.6,5.2,2.8,1.6,18.5,clay,29,7,,"slit distance 15",,97,1,,Duiven,,
+-14,1993-18-098,1993,grass,ShallowInjection,,None,65,9,8.67,dairy,7.6,5.2,2.8,1.6,17.5,clay,29,7,,"slit distance 15",,98,1,,Duiven,,
+-13,1993-18-099,1993,grass,ShallowInjection,,None,65,9,8.85,dairy,7.6,5.2,2.8,1.6,17.8,clay,29,7,,"slit distance 20",,99,1,,Duiven,,
+-12,1993-18-100,1993,grass,ShallowInjection,,None,65,9,9.23,dairy,7.6,5.2,2.8,1.6,20.8,clay,29,7,,"slit distance 20",,100,1,,Duiven,,
+-11,1993-21-101,1993,grass,ShallowInjection,,None,66,9,9.47,dairy,6.8,8.15,4.1,2,20.2,clay,24,8,,"rate 20 m3",,101,1,,Duiven,,
+-10,1993-21-102,1993,grass,ShallowInjection,,None,66,9,9.92,dairy,6.8,8.15,4.1,2,19.5,clay,24,8,,"rate 20 m3",,102,1,,Duiven,,
+-9,1993-21-103,1993,grass,ShallowInjection,,None,66,9,10.32,dairy,6.8,8.15,4.1,2,19.8,clay,24,8,,"rate 20 m3",,103,1,,Duiven,,
+-8,1993-21-104,1993,grass,ShallowInjection,,None,66,9,9.63,dairy,6.8,8.15,,2,32.7,clay,24,8,,"rate 30 m3",,104,1,,Duiven,,
+-7,1993-21-105,1993,grass,ShallowInjection,,None,66,9,10.03,dairy,6.8,8.15,,2,45.5,clay,24,8,,"rate 45 m3",,105,1,,Duiven,,
+-6,1993-21-106,1993,grass,ShallowInjection,,None,66,9,10.48,dairy,6.8,8.15,,2,44.2,clay,24,8,,"rate 45 m3",,106,1,,Duiven,,
+-5,1993-22-107,1993,grass,NarrowBand,,None,67,8,9.87,dairy,7.2,7.04,4,2,14.4,clay,28,9,,"1 band distance 15",,107,1,,Duiven,,
+-4,1993-22-108,1993,grass,NarrowBand,,None,67,8,11.02,dairy,7.2,7.04,4,2,15.7,clay,28,9,,"2 band distance 15",,108,1,,Duiven,,
+-3,1993-22-109,1993,grass,NarrowBand,,None,67,8,9.75,dairy,7.2,7.04,4,2,14.8,clay,28,9,,"1 band distance 25",,109,1,,Duiven,,
+-2,1993-22-110,1993,grass,NarrowBand,,None,67,8,10.97,dairy,7.2,7.04,4,2,15.5,clay,28,9,,"2 band distance 25",,110,1,,Duiven,,
+-1,2005-29-400,2005,grass,NarrowBand,,None,68,6,11.58,dairy,7.2,4.7,3.6,1.56,16,peat,,,,,,400,,,Zegveld,,
+1,1997-24-001,1997,grass,SurfaceBroadcast,,None,69,9,9.55,dairy,6.8,7.2,3.9,2.04,12.1035247273879,peat,,9.2,,"low rate",,200,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 24 Field 1 and 2.xlsx"
+2,1997-24-002,1997,grass,SurfaceBroadcast,,None,69,9,8.83,dairy,6.9,7.2,3.8,1.98,20.8103807075529,peat,,9.4,,"high rate",,201,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 24 Field 1 and 2.xlsx"
+3,1997-24-004,1997,grass,ShallowInjection,,None,69,9,8.57,dairy,6.7,7.4,3.9,2.12,15.3856445247174,peat,,9,,,,202,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 24 Field 4.xlsx"
+4,1997-25-002,1997,grass,SurfaceBroadcast,,None,70,9,8.52,dairy,7.1,7.1,4.1,2.3,20.8011700658162,peat,,6.7,,"high rate",,203,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 25 Field 2 and 4.xlsx"
+5,1997-25-004,1997,grass,ShallowInjection,,None,70,8,8.32,dairy,7,7.3,4.1,2.2,20.1300984528833,peat,,6.2,,,,204,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 25 Field 2 and 4.xlsx"
+6,1997-26-001,1997,grass,SurfaceBroadcast,,None,71,8,8.97,dairy,7.1,7.8,3.7,1.99,12.4667119210485,clay,,9.4,,"low rate",,205,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 26 Field 1 and 2.xlsx"
+7,1997-26-002,1997,grass,SurfaceBroadcast,,None,71,8,9.52,dairy,7.1,7.5,3.8,2,19.365630830599,clay,,10,,"high rate",,206,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 26 Field 1 and 2.xlsx"
+8,1997-26-004,1997,grass,ShallowInjection,,None,71,8,9.33,dairy,7,7.5,3.8,1.99,24.1466616654164,clay,,6.3,,,,207,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 26 Field 4.xlsx"
+9,1997-28-001,1997,grass,SurfaceBroadcast,,None,72,9,9.28,dairy,7.1,6.4,3.3,1.75,16.6568698575356,clay,,6,,"low rate",,208,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 28 Field 1 and 2.xlsx"
+10,1997-28-002,1997,grass,SurfaceBroadcast,,None,72,9,8.98,dairy,7.1,6.4,3.2,1.73,20.0641262542631,clay,,6.8,,"high rate",,209,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 28 Field 1 and 2.xlsx"
+11,1997-28-004,1997,grass,ShallowInjection,,None,72,9,8.68,dairy,7,6.3,3.2,1.73,24.3164445315563,clay,,6.4,,,,210,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 28 Field 4.xlsx"
+12,1997-29-001,1997,grass,SurfaceBroadcast,,None,73,9,8.73,dairy,7.4,7.2,3.6,1.94,16.4176130703327,clay,,7.5,,"low rate",,211,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 29 Field 1 and 2.xlsx"
+13,1997-29-002,1997,grass,SurfaceBroadcast,,None,73,9,8.27,dairy,7.3,7.2,3.6,1.93,19.8616077933166,clay,,7.6,,"high rate",,212,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 29 Field 1 and 2.xlsx"
+14,1997-29-004,1997,grass,ShallowInjection,,None,73,9,8.4,dairy,7.3,7.1,3.6,1.93,20.5548716144917,clay,,7,,,,213,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 29 Field 4.xlsx"
+15,1997-30-001,1997,grass,SurfaceBroadcast,,None,74,8,8.92,dairy,6.9,6.5,2.9,1.51,15.1390788873689,peat,,5.2,,"low rate",,214,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 30 Field 1 and 2.xlsx"
+16,1997-30-002,1997,grass,SurfaceBroadcast,,None,74,9,9.22,dairy,6.9,6.7,3.2,1.54,19.3886861313869,peat,,8.3,,"high rate",,215,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 30 Field 1 and 2.xlsx"
+17,1997-30-004,1997,grass,ShallowInjection,,None,74,9,9.73,dairy,6.8,7.2,3.2,1.68,31.570315703157,peat,,7.2,,,,216,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 30 Field 4.xlsx"
+18,1997-31-001,1997,grass,SurfaceBroadcast,,None,75,9,9.13,dairy,6.9,7,3.3,1.68,14.2595705887414,peat,13.1,8,,"low rate",,217,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 31 Field 1 and 2.xlsx"
+19,1997-31-002,1997,grass,SurfaceBroadcast,,None,75,9,9.33,dairy,6.9,7,3.3,1.7,22.1187210330404,peat,14,6.8,,"high rate",,218,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 31 Field 1 and 2.xlsx"
+20,1997-31-004,1997,grass,ShallowInjection,,None,75,9,8.72,dairy,6.9,7.3,3.4,1.67,34.4439758189231,peat,,6.3,,,,219,1,1,Zegveld,"Grassland/1997 SI vs SB","1997 SI vs SB Week 31 Field 4.xlsx"
+21,1997-33-001,1997,grass,SurfaceBroadcast,,None,76,9,8.78,dairy,7.4,6.4,3.3,1.79,15.5812689774987,clay,,7.2,,"low rate",,220,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 33 Field 1 and 2.xlsx"
+22,1997-33-002,1997,grass,SurfaceBroadcast,,None,76,9,9.27,dairy,7.4,6.6,3.2,1.77,19.3293751648874,clay,,6.8,,"high rate",,221,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 33 Field 1 and 2.xlsx"
+23,1997-33-004,1997,grass,ShallowInjection,,None,76,9,8.73,dairy,7.3,6.7,3.3,1.78,21.6204612365064,clay,,6.3,,,,222,1,1,Duiven,"Grassland/1997 SI vs SB","1997 SI vs SB Week 33 Field 4.xlsx"
+24,1998-28-001,1998,grass,SurfaceBroadcast,,None,77,9,8.35,dairy,7.25,7.2,4.4,2.535,13.3172822369457,clay,,8.7,,,,223,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 28 Field 1 and 2.xlsx"
+25,1998-28-002,1998,grass,SurfaceBroadcast,,None,77,9,9.28,dairy,7.15,7.3,4.4,2.555,14.2551186834023,clay,,7.5,,,,224,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 28 Field 1 and 2.xlsx"
+26,1998-28-003,1998,grass,SurfaceBroadcast,,None,77,9,8.63,dairy,6.9,10.2,4.9,2.375,13.1971051511281,clay,,8.4,,,,225,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 28 Field 3 and 4.xlsx"
+27,1998-28-004,1998,grass,SurfaceBroadcast,,None,77,9,9.28,dairy,6.85,10.7,5,2.355,13.4717235986208,clay,,8.6,,,,226,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 28 Field 3 and 4.xlsx"
+28,1998-30-001,1998,grass,SurfaceBroadcast,,None,78,8,8.47,dairy,7.25,10.3,5.1,2.43,12.4785920317289,clay,36.9,9.3,,,,227,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 30 Field 1 and 2.xlsx"
+29,1998-30-002,1998,grass,SurfaceBroadcast,,None,78,8,9.18,dairy,7.2,10.7,5.1,2.395,12.2004083439702,clay,37,10,,,,228,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 30 Field 1 and 2.xlsx"
+30,1998-30-003,1998,grass,SurfaceBroadcast,,None,78,8,8.28,dairy,7.1,11.2,5.9,2.325,13.1176958284592,clay,40.2,9.5,,,,229,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 30 Field 3 and 4.xlsx"
+31,1998-30-004,1998,grass,SurfaceBroadcast,,None,78,8,9,dairy,7.2,11.1,5.1,2.375,12.1805021093065,clay,41.2,10.4,,,,230,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 30 Field 3 and 4.xlsx"
+32,1998-32-001,1998,grass,SurfaceBroadcast,,None,79,9,8.42,dairy,6.95,11.1,5,2.285,12.7406880310385,clay,26.1,7.6,,,,231,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 32 Field 1 and 2.xlsx"
+33,1998-32-002,1998,grass,SurfaceBroadcast,,None,79,9,8.22,dairy,7,10.8,5.1,2.34,13.0637986373107,clay,28,7.5,,,,232,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 32 Field 1 and 2.xlsx"
+34,1998-32-003,1998,grass,SurfaceBroadcast,,None,79,9,9.18,dairy,7,11,5.1,2.32,12.4696712233804,clay,27.8,7.6,,,,233,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 32 Field 3 and 4.xlsx"
+35,1998-32-004,1998,grass,SurfaceBroadcast,,None,79,9,9.02,dairy,7,10.6,5.1,2.36,13.0373502466526,clay,26.3,7.2,,,,234,1,1,Duiven,"Grassland/1998 SB","1998 SB Week 32 Field 3 and 4.xlsx"
+36,1999-19-001,1999,grass,ShallowInjection,,None,80,8,8,dairy,7.07,7.2,3.7,1.883,12.0281703235403,sand,21.9,9.8,,,,235,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 19 Field 1 and 2.xlsx"
+37,1999-19-002,1999,grass,ShallowInjection,,None,80,8,8.33,dairy,7.07,7.2,3.7,1.883,24.9511446119486,sand,25.8,10,,,,236,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 19 Field 1 and 2.xlsx"
+38,1999-19-003,1999,grass,ShallowInjection,,None,81,8,10.33,dairy,7.07,8.7,4.2,1.83,16.3157626571708,clay,36.4,10.7,,,,237,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 19 Field 3 and 4.xlsx"
+39,1999-19-004,1999,grass,ShallowInjection,,None,81,8,10.12,dairy,7,9.3,4.4,1.83,27.6103072525902,clay,34.2,10.4,,,,238,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 19 Field 3 and 4.xlsx"
+40,1999-19-005,1999,grass,ShallowInjection,,None,81,8,9.72,dairy,7,9.3,4.4,1.76,38.3610681114551,clay,35.1,11.1,,,,239,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 19 Field 5.xlsx"
+41,1999-20-003,1999,grass,ShallowInjection,,None,82,8,9.28,dairy,6.8,9.9,4.6,1.887,13.625703564728,clay,47.8,10.3,,,,242,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 20 Field 3 and 4.xlsx"
+42,1999-20-004,1999,grass,ShallowInjection,,None,82,8,9.53,dairy,6.8,9.9,4.6,1.887,29.6792948237059,clay,48.8,10.3,,,,243,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 20 Field 3 and 4.xlsx"
+43,1999-20-005,1999,grass,ShallowInjection,,None,82,8,10.02,dairy,6.8,9.8,4.5,1.885,38.8232823002241,clay,50.3,9.7,,,,244,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 20 Field 5.xlsx"
+44,1999-22-001,1999,grass,ShallowInjection,,None,83,8,8.65,dairy,7.4,7.1,3.6,1.93,14.7066002733841,sand,23.3,9.1,,,,240,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 20 Field 1 and 2.xlsx"
+45,1999-22-002,1999,grass,ShallowInjection,,None,83,8,8.38,dairy,7.4,7.1,3.6,1.93,26.7166344294004,sand,28.8,9.6,,,,241,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 20 Field 1 and 2.xlsx"
+46,1999-26-001,1999,grass,ShallowInjection,,None,84,8,8.33,dairy,7.3,6.8,3.6,1.913,14.1935639737147,sand,19.4,8.1,,,,245,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 26 Field 1 and 2.xlsx"
+47,1999-26-002,1999,grass,ShallowInjection,,None,84,8,8.58,dairy,7.3,6.8,3.6,1.913,26.4830508474576,sand,19.9,7.5,,,,246,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 26 Field 1 and 2.xlsx"
+48,1999-27-001,1999,grass,ShallowInjection,,None,85,8,8.1,dairy,7.5,6.7,3.7,1.92,14.2264660493827,sand,30.2,14.1,,,,247,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 27 Field 1 and 2.xlsx"
+49,1999-27-002,1999,grass,ShallowInjection,,None,85,8,8.4,dairy,7.5,6.7,3.7,1.92,26.3767056530214,sand,31.8,12.4,,,,248,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 27 Field 1 and 2.xlsx"
+50,1999-27-003,1999,grass,ShallowInjection,,None,86,8,9.5,dairy,7.1,8.2,4.1,2.11,14.6184456928839,clay,44.5,10,,,,249,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 27 Field 3 and 4.xlsx"
+51,1999-27-004,1999,grass,ShallowInjection,,None,86,8,9.73,dairy,7.1,8.2,4.1,2.11,28.2096528042732,clay,41.2,9.4,,,,250,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 27 Field 3 and 4.xlsx"
+52,1999-27-005,1999,grass,ShallowInjection,,None,86,8,10.08,dairy,7.1,8.4,4.1,2.1,37.1646970549615,clay,41.8,8.9,,,,251,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 27 Field 5.xlsx"
+53,1999-30-001,1999,grass,ShallowInjection,,None,87,8,8.32,dairy,7.8,8.3,3.9,1.99,13.5372545244513,sand,18.1,8.1,,,,252,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 30 Field 1 and 2.xlsx"
+54,1999-30-002,1999,grass,ShallowInjection,,None,87,8,8.55,dairy,7.8,8.3,3.9,1.99,25.5188223938224,sand,16.8,7.4,,,,253,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 30 Field 1 and 2.xlsx"
+55,1999-30-003,1999,grass,ShallowInjection,,None,88,8,9.62,dairy,7.4,8.8,4.3,2.09,14.9971020092736,clay,19,7.3,,,,254,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 30 Field 3 and 4.xlsx"
+56,1999-30-004,1999,grass,ShallowInjection,,None,88,8,9.9,dairy,7.4,8.8,4.3,2.09,27.9078844652615,clay,19.5,9,,,,255,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 30 Field 3 and 4.xlsx"
+57,1999-30-005,1999,grass,ShallowInjection,,None,88,8,10.33,dairy,7.4,8.8,4.3,2.09,37.2361219702893,clay,17.9,8.2,,,,256,1,1,Duiven,"Grassland/1999 SI","1999 SI Week 30 Field 5.xlsx"
+58,1999-35-001,1999,grass,ShallowInjection,,None,89,8,8.23,dairy,7.4,7.3,3.5,1.767,14.0673299845441,sand,13.1,7.8,,,,257,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 35 Field 1 and 2.xlsx"
+59,1999-35-002,1999,grass,ShallowInjection,,None,89,8,8.5,dairy,7.4,7.3,3.5,1.767,26.1425251742835,sand,14,9.8,,,,258,1,1,"Hengelo (gld)","Grassland/1999 SI","1999 SI Week 35 Field 1 and 2.xlsx"
+60,2000-08-001,2000,grass,ShallowInjection,,None,90,4,8.3,dairy,7.4,7.6,3.7,1.88,13.1813366718028,sand,23.2,4.8,,,,259,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 08 Field 1 and 2.xlsx"
+61,2000-08-002,2000,grass,ShallowInjection,,None,90,4,8.47,dairy,7.4,7.6,3.7,1.88,25.5968442313468,sand,26.3,5.1,,,,260,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 08 Field 1 and 2.xlsx"
+62,2000-08-003,2000,grass,ShallowInjection,,None,91,4,10.32,dairy,7.6,9.7,4.7,2.24,35.5552903264307,clay,42.5,6.7,,,,261,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 08 Field 3 and 4.xlsx"
+63,2000-08-004,2000,grass,ShallowInjection,,None,91,4,9.93,dairy,7.6,9.7,4.7,2.22,18.6345322327044,clay,38.3,6.6,,,,262,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 08 Field 3 and 4.xlsx"
+64,2000-08-005,2000,grass,ShallowInjection,,None,91,4,9.8,dairy,7.6,9.7,4.7,2.22,16.2110933758978,clay,40.9,5.9,,,,263,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 08 Field 5.xlsx"
+65,2000-09-001,2000,grass,ShallowInjection,,None,92,6,8.38,dairy,7.2,7.3,3.7,1.86,12.7736342502906,sand,24.5,4.8,,,,264,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 09 Field 1 and 2.xlsx"
+66,2000-09-002,2000,grass,ShallowInjection,,None,92,6,8.58,dairy,7.2,7.3,3.7,1.86,24.8505806190743,sand,23.7,5.5,,,,265,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 09 Field 1 and 2.xlsx"
+67,2000-11-001,2000,grass,ShallowInjection,,None,93,8,7.82,dairy,7.3,7.4,3.6,1.88,10.3800312622118,sand,24.5,7.1,,,,266,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 11 Field 1 and 2.xlsx"
+68,2000-11-002,2000,grass,ShallowInjection,,None,93,8,8.03,dairy,7.3,7.4,3.6,1.88,25.9180595315049,sand,23.7,6.1,,,,267,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 11 Field 1 and 2.xlsx"
+69,2000-12-001,2000,grass,ShallowInjection,,None,94,8,11.03,dairy,7.5,7.6,3.7,1.89,14.2398179242345,sand,19.5,5.7,,,,268,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 12 Field 1 and 2.xlsx"
+70,2000-12-002,2000,grass,ShallowInjection,,None,94,8,11.27,dairy,7.5,7.6,3.7,1.89,26.5042438952686,sand,21.1,5.2,,,,269,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 12 Field 1 and 2.xlsx"
+71,2000-12-003,2000,grass,ShallowInjection,,None,95,8,9.73,dairy,7.6,9.5,4.9,2.3,27.6771881577894,clay,40.1,8.5,,,,270,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 12 Field 3 and 4.xlsx"
+72,2000-12-004,2000,grass,ShallowInjection,,None,95,8,9.5,dairy,7.6,9.5,4.9,2.3,15.0227142975079,clay,43.3,8,,,,271,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 12 Field 3 and 4.xlsx"
+73,2000-12-005,2000,grass,ShallowInjection,,None,95,8,10.2,dairy,7.6,9.6,4.8,2.3,38.4712244980305,clay,41.7,9,,,,272,1,1,Duiven,"Grassland/2000 SI","2000 SI Week 12 Field 5.xlsx"
+74,2000-19-001,2000,grass,ShallowInjection,,None,96,8,7.6,dairy,7.5,7.3,3.6,1.887,13.3034277094146,sand,17.5,7.9,,,,273,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 19 Field 1 and 2.xlsx"
+75,2000-19-002,2000,grass,ShallowInjection,,None,96,8,7.85,dairy,7.5,7.3,3.6,1.887,24.8279724290816,sand,14.1,7.7,,,,274,1,1,"Hengelo (gld)","Grassland/2000 SI","2000 SI Week 19 Field 1 and 2.xlsx"
+76,2000-19-003,2000,grass,ShallowInjection,,None,97,5,8.45,dairy,7.7,9,4.5,2.15,25.0168029731726,clay,31.3,,,,,275,,1,Duiven,"Grassland/2000 SI","2000 SI Week 19 Field 3 and 4.xlsx"
+77,2000-19-004,2000,grass,ShallowInjection,,None,97,5,9.27,dairy,7.7,9,4.5,2.15,13.2265195088353,clay,27.5,,,,,276,,1,Duiven,"Grassland/2000 SI","2000 SI Week 19 Field 3 and 4.xlsx"
+78,2000-19-005,2000,grass,ShallowInjection,,None,97,5,9.85,dairy,7.7,9.3,4.6,2.19,34.9601012066952,clay,28.2,,,,,277,,1,Duiven,"Grassland/2000 SI","2000 SI Week 19 Field 5.xlsx"
+79,2002-10-001,2002,grass,ShallowInjection,,None,98,8,9.67,dairy,,7.7,3.8,1.84,22.70091543909,sand,24.4,6.4,,,,278,1,1,Gorssel,"Grassland/2002 SI","2002 SI Week 10 Field 1 and 2.xlsx"
+80,2002-10-002,2002,grass,ShallowInjection,,None,98,8,8.95,dairy,,7.7,3.8,1.92,22.6614538082827,sand,27,6.5,,,,279,1,1,Gorssel,"Grassland/2002 SI","2002 SI Week 10 Field 1 and 2.xlsx"
+81,2002-23-001,2002,grass,ShallowInjection,,None,99,8,9.72,dairy,7.2,9.9,4.9,2.057,14.9275646045419,clay,31.1,12.7,,,,280,1,1,Waardenburg,"Grassland/2002 SI","2002 SI Week 23 Field 1 and 2.xlsx"
+82,2002-23-002,2002,grass,ShallowInjection,,None,99,8,9.22,dairy,7.2,9.9,4.9,2.057,14.5058023209284,clay,29.5,12.9,,,,281,1,1,Waardenburg,"Grassland/2002 SI","2002 SI Week 23 Field 1 and 2.xlsx"
+83,2003-10-001,2003,grass,SurfaceBroadcast,,None,100,8,9.63,dairy,7.9,6.6,5,3.17,20.2783690508173,clay,22.2,4.2,,,,282,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 10 Field 1 and 3.xlsx"
+84,2003-10-003,2003,grass,SurfaceBroadcast,,None,100,8,8.35,dairy,7.7,7.8,3.3,1.52,19.4177776272032,clay,23.7,4,,,,283,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 10 Field 1 and 3.xlsx"
+85,2003-10-004,2003,grass,SurfaceBroadcast,,None,100,8,9.88,dairy,7.9,7.7,3.3,1.51,17.1375235538124,clay,30.4,5,,,,284,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 10 Field 4.xlsx"
+86,2003-11-001,2003,grass,SurfaceBroadcast,,None,101,8,9.53,dairy,7.5,7.7,3.3,1.49,19.401725940971,clay,25.5,4.1,,,,285,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 11 Field 1 and 2.xlsx"
+87,2003-11-002,2003,grass,SurfaceBroadcast,,None,101,8,9.67,dairy,7.9,6.5,4.8,3.08,20.181859867444,clay,25.2,5.1,,,,286,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 11 Field 1 and 2.xlsx"
+88,2003-11-003,2003,grass,SurfaceBroadcast,,None,101,8,8.22,dairy,7.5,7.6,3.2,1.475,19.164259422747,clay,24.2,4.9,,,,287,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 11 Field 3 and 4.xlsx"
+89,2003-11-004,2003,grass,SurfaceBroadcast,,None,101,8,8.17,dairy,7.9,6.6,4.8,3.05,19.0071389786591,clay,32.6,3.7,,,,288,1,1,Surhuisterveen,"Grassland/2003 SB","2003 SB Week 11 Field 3 and 4.xlsx"
+90,2010-20-001,2010,grass,ShallowInjection,,None,102.1,8,8.93,dairy,6.9,7.4,,1.57,27.2308625634238,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 20 Field 1 and 2.xlsx"
+91,2010-20-002,2010,grass,ShallowInjection,,None,102.1,8,9.15,mineralconcentrate,8.2,4,,7.095,11.2453843571668,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 20 Field 1 and 2.xlsx"
+92,2010-20-003,2010,grass,ShallowInjection,,None,102.2,8,9.52,dairy,6.9,7.4,,1.57,22.7368421052632,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 20 Field 3 and 4.xlsx"
+93,2010-20-004,2010,grass,ShallowInjection,,None,102.2,8,9.72,mineralconcentrate,8.2,4,,7.095,10.2112892328481,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 20 Field 3 and 4.xlsx"
+94,2010-21-001,2010,grass,ShallowInjection,,None,103.1,8,8.4,dairy,6.9,6.6,,1.55,21.7733849018765,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 21 Field 1 and 2.xlsx"
+95,2010-21-002,2010,grass,ShallowInjection,,None,103.1,8,8.63,mineralconcentrate,8.1,4.1,,7.125,13.215333196917,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 21 Field 1 and 2.xlsx"
+96,2010-21-003,2010,grass,ShallowInjection,,None,103.2,8,8.83,dairy,6.9,6.6,,1.55,22.7368421052632,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 21 Field 3 and 4.xlsx"
+97,2010-21-004,2010,grass,ShallowInjection,,None,103.2,8,9.05,mineralconcentrate,8.1,4.1,,7.125,13.7294501133787,clay,,,,,,,,,Lelystad,"Grassland/2010 SI Mineralconcentrate","2010 SI Mineralconcentrate Week 21 Field 3 and 4.xlsx"
+98,2013-15a-001,2013,grass,NarrowBand,,None,104,6,9.78,dairy,7.1,8.8,4.08,1.93,24.27763338939,peat,,6,,reference,,289,1,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 15 Field 1 and 2.xlsx"
+99,2013-15a-002,2013,grass,NarrowBand,,Diluted,104,6,9.4,dairy,6.9,4.7,2.21,1.045,36.5160556976414,peat,,6,,"dilution 1:1",1:1,,,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 15 Field 1 and 2.xlsx"
+100,2013-15b-003,2013,grass,NarrowBand,,None,105,6,9.47,dairy,7.1,9,4.28,2.085,24.5881310894597,peat,,6,,reference,,290,1,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 15 Field 3 and 4.xlsx"
+101,2013-15b-004,2013,grass,NarrowBand,,Diluted,105,6,9.13,dairy,7,3.8,1.96,0.96,53.7807400597564,peat,,6,,"dilution 1:1",1:1,,,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 15 Field 3 and 4.xlsx"
+102,2013-16a-001,2013,grass,NarrowBand,,None,106,5,9.08,dairy,7.1,8.6,4.42,2.13,23.3831681505123,clay,,8,,reference,,291,1,1,Kamerik,"Grassland/2013 NB Dilution","2013 NB Dilution Week 16 Field 1 and 2.xlsx"
+103,2013-16a-002,2013,grass,NarrowBand,,Diluted,106,5,9.38,dairy,7,4.3,2.26,1.05,38.0501990840774,clay,,8,,"dilution 1:1",1:1,,,1,Kamerik,"Grassland/2013 NB Dilution","2013 NB Dilution Week 16 Field 1 and 2.xlsx"
+104,2013-16b-003,2013,grass,NarrowBand,,None,107,6,8.52,dairy,7.1,8.7,4.37,2.095,18.0440771349862,clay,,8.5,,reference,,292,1,1,Kamerik,"Grassland/2013 NB Dilution","2013 NB Dilution Week 16 Field 3 and 4.xlsx"
+105,2013-16b-004,2013,grass,NarrowBand,,Diluted,107,6,8.77,dairy,7.2,4.5,2.24,1.0635,36.9598443796026,clay,,8.5,,"dilution 1:1",1:1,,,1,Kamerik,"Grassland/2013 NB Dilution","2013 NB Dilution Week 16 Field 3 and 4.xlsx"
+106,2013-24a-001,2013,grass,NarrowBand,,None,108,6,9.13,dairy,6.7,7.3,3.27,1.523,20.1629942650166,peat,,6,,reference,,293,1,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 24 Field 1 and 2.xlsx"
+107,2013-24a-002,2013,grass,NarrowBand,,Diluted,108,6,8.83,dairy,6.7,3.4,1.63,0.75,36.3523057748234,peat,,6,,"dilution 1:1",1:1,,,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 24 Field 1 and 2.xlsx"
+108,2013-24b-003,2013,grass,NarrowBand,,None,109,6,8.65,dairy,6.7,7.5,3.28,1.53,21.5074168959737,peat,,7.5,,reference,,294,1,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 24 Field 3 and 4.xlsx"
+109,2013-24b-004,2013,grass,NarrowBand,,Diluted,109,6,8.18,dairy,6.7,3.4,1.61,0.751,36.6435090587113,peat,,7.5,,"dilution 1:1",1:1,,,1,Zegveld,"Grassland/2013 NB Dilution","2013 NB Dilution Week 24 Field 3 and 4.xlsx"
+110,2014-11a-001,2014,grass,NarrowBand,,None,110,6,10.2,dairy,7,9.5,4.66,2.24,26.2073452862927,clay,,7.6,,reference,,299,1,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 11 Field 1 and 2.xlsx"
+111,2014-11a-002,2014,grass,NarrowBand,,Diluted,110,6,9.85,dairy,7,6,2.99,1.39,26.5878877400295,clay,,9.6,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 11 Field 1 and 2.xlsx"
+112,2014-12a-003,2014,grass,NarrowBand,,None,111,6,8.92,dairy,7,9.1,4.57,2.22,20.6911531031014,clay,,8.8,,reference,,300,1,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 12a Field 3 and 4.xlsx"
+113,2014-12a-004,2014,grass,NarrowBand,,Diluted,111,6,8.67,dairy,7.1,5.9,3.02,1.44,31.6061813859171,clay,,12.2,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 12a Field 3 and 4.xlsx"
+114,2014-12b-001,2014,grass,NarrowBand,,None,112,6,9.37,dairy,7,5.4,3.08,1.7,21.9481605351171,peat,,5.8,,reference,,301,1,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 12b Field 1 and 2.xlsx"
+115,2014-12b-002,2014,grass,NarrowBand,,Diluted,112,6,9.08,dairy,7.2,3.8,2.2,1.14,36.9986467421036,peat,,5.2,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 12b Field 1 and 2.xlsx"
+116,2014-13-003,2014,grass,NarrowBand,,None,113,4,9.05,dairy,7.1,5.2,2.99,1.62,21.1609951386903,peat,,7.5,,reference,,302,1,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 13 Field 3 and 4.xlsx"
+117,2014-13-004,2014,grass,NarrowBand,,Diluted,113,4,8.72,dairy,7.2,3.5,2,1.06,34.9768225874421,peat,,6.6,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 13 Field 3 and 4.xlsx"
+118,2014-17-001,2014,grass,NarrowBand,,None,114,6,9.05,dairy,7.1,9.6,4.66,2.21,20.2339908438365,clay,,6.5,,reference,,303,1,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 17 Field 1 and 2.xlsx"
+119,2014-17-002,2014,grass,NarrowBand,,Diluted,114,6,8.78,dairy,7.2,6.1,3.03,1.47,32.8666552842752,clay,,6.5,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 17 Field 1 and 2.xlsx"
+120,2014-18a-003,2014,grass,NarrowBand,,None,115,6,8.53,dairy,7,9.4,4.64,2.22,19.0161088608067,clay,,7.6,,reference,,304,1,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 18a Field 3 and 4.xlsx"
+121,2014-18a-004,2014,grass,NarrowBand,,Diluted,115,6,8.28,dairy,7.3,5.8,3.02,1.48,31.855249745158,clay,,8,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2013 NB Dilution","2014 NB Dilution Week 18a Field 3 and 4.xlsx"
+122,2014-20-001,2014,grass,NarrowBand,,None,116,5,8.97,dairy,7.2,7.2,3.49,1.76,20.5269664372567,peat,,5,,reference,,305,1,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 20 Field 1 and 2.xlsx"
+123,2014-20-002,2014,grass,NarrowBand,,Diluted,116,5,8.73,dairy,7.2,4.8,2.31,1.16,31.8242036749035,peat,,5,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 20 Field 1 and 2.xlsx"
+124,2014-21-003,2014,grass,NarrowBand,,None,117,6,8.75,dairy,7.2,7.2,3.45,1.71,18.4076669097721,peat,,6,,reference,,306,1,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 21 Field 3 and 4.xlsx"
+125,2014-21-004,2014,grass,NarrowBand,,Diluted,117,6,8.45,dairy,7.3,4.5,2.21,1.09,26.9850355711832,peat,,6,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2013 NB Dilution","2014 NB Dilution Week 21 Field 3 and 4.xlsx"
+126,2014-18b-001,2014,grass,NarrowBand,,Acidified,118,8,9.58,dairy,6,9.3,4.62,2.19,22.3700976921988,clay,,10.7,,"pH 6.0",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 18b Field 1 and 2.xlsx"
+127,2014-18b-002,2014,grass,NarrowBand,,Acidified,118,8,8.47,dairy,6.6,9.15,4.62,2.155,21.8673572147892,clay,,8.7,,"pH 6.6",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 18b Field 1 and 2.xlsx"
+128,2014-18b-003,2014,grass,NarrowBand,,None,118,8,8.72,dairy,7.1,9.1,4.65,2.155,23.5450910706353,clay,,9.8,,reference,,295,1,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 18b Field 3.xlsx"
+129,2014-19-001,2014,grass,NarrowBand,,Acidified,119,7,9.12,dairy,6.1,8.57,4.24,2,19.8776969479453,clay,,12,,"pH 6.1",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 19 Field 1 and 2.xlsx"
+130,2014-19-002,2014,grass,NarrowBand,,Acidified,119,7,8.47,dairy,6.6,8.43,4.24,1.98,19.8216055500496,clay,,11.2,,"pH 6.6",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 19 Field 1 and 2.xlsx"
+131,2014-19-003,2014,grass,NarrowBand,,None,119,7,8.67,dairy,7.1,9,4.63,2.11,21.3153835366709,clay,,11.4,,reference,,296,1,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 19 Field 3.xlsx"
+132,2014-23a-001,2014,grass,NarrowBand,,Acidified,120,7,10,dairy,6.5,8.17,4.06,1.93,20.1841118308899,clay,,5.3,,"pH 6.5",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23a Field 1 and 2.xlsx"
+133,2014-23a-002,2014,grass,NarrowBand,,Acidified,120,7,9.45,dairy,7.1,7.99,4.05,1.9,19.8289242466718,clay,,4.9,,"pH 7.1",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23a Field 1 and 2.xlsx"
+134,2014-23a-003,2014,grass,NarrowBand,,None,120,7,9.67,dairy,7.2,8.1,4,1.89,21.6147488874762,clay,,5.1,,reference,,297,1,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23a Field 3.xlsx"
+135,2014-23b-001,2014,grass,NarrowBand,,Acidified,121,8,9.4,dairy,6.5,8.38,4.16,2,20.5688885207656,clay,,5.5,,"pH 6.5",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23b Field 1 and 2.xlsx"
+136,2014-23b-002,2014,grass,NarrowBand,,Acidified,121,8,8.8,dairy,7,8.27,4.2,1.98,20.3635573777168,clay,,5.7,,"pH 7.0",,,,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23b Field 1 and 2.xlsx"
+137,2014-23b-003,2014,grass,NarrowBand,,None,121,8,8.97,dairy,7.1,8.3,4.23,2.02,20.8791828903561,clay,,5,,reference,,298,1,1,Kamerik,"Grassland/2014 NB Acidifcation","2014 NB Acidifcation Week 23b Field 3.xlsx"
+138,2015-35-001,2015,grass,BroadcastIrrigated,,Irrigated,122,8,10.27,dairy,7.5,5.2,2.84,1.4895,20.0292397660819,clay,,6.7,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2015 BroadcastIrrigated Week 35 Field 1 and 2.xlsx"
+139,2015-35-002,2015,grass,ShallowInjection,,None,122,8,10.47,dairy,7.4,5.4,2.8,1.472,23.7868696479543,clay,,7.5,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2015 BroadcastIrrigated Week 35 Field 1 and 2.xlsx"
+140,2016-13-001,2016,grass,BroadcastIrrigated,,Irrigated,123,8,10.8,dairy,7.2,8.9,4.45,2.051,17.4363389577797,clay,,4.1,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 13 Field 1 and 2.xlsx"
+141,2016-13-002,2016,grass,ShallowInjection,,None,123,8,10.95,dairy,7.3,8.7,4.39,2.082,20.787478601125,clay,,5.4,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 13 Field 1 and 2.xlsx"
+142,2016-26-001,2016,grass,BroadcastIrrigated,,Irrigated,124,4,10.85,dairy,7.4,8.8,4.25,1.953,18.5785468783488,clay,,6.1,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 26 Field 1 and 2.xlsx"
+143,2016-26-002,2016,grass,ShallowInjection,,None,124,4,11.05,dairy,7.4,8.5,4.31,1.929,21.6822499524454,clay,,6.4,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 26 Field 1 and 2.xlsx"
+144,2016-26-003,2016,grass,ShallowInjection,,None,124,4,12.38,dairy,7.4,8.6,4.23,1.929,21.1531239174066,clay,,6.4,,raker,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 26 Field 3.xlsx"
+145,2016-27-001,2016,grass,BroadcastIrrigated,,Irrigated,125,9,9.55,dairy,7.2,8.6,4.24,1.967,15.3537153905142,clay,,5.4,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 27 Field 1 and 2.xlsx"
+146,2016-27-002,2016,grass,ShallowInjection,,None,125,9,9.7,dairy,7.2,8.6,4.2,1.924,20.6793382611756,clay,,5.1,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 27 Field 1 and 2.xlsx"
+147,2016-34-001,2016,grass,BroadcastIrrigated,,Irrigated,126,7,10.6,dairy,7.4,5.5,2.9,1.48,22.7859947510834,clay,,6.5,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 34 Field 1 and 2.xlsx"
+148,2016-34-002,2016,grass,ShallowInjection,,None,126,7,11.88,dairy,7.4,5.7,3,1.544,19.8010508700569,clay,,6,,raker,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 34 Field 1 and 2.xlsx"
+149,2016-34-003,2016,grass,ShallowInjection,,None,126,7,10.77,dairy,7.4,5.7,3,1.544,20.2685203604794,clay,,5.8,,,,,,1,Kamerik,"Grassland/2016 BroadcastIrrigated","2016 BroadcastIrrigated Week 34 Field 3.xlsx"
+150,2016-14-001,2016,grass,NarrowBand,,Diluted,127,5,10.3,dairy,7.3,5.6,2.83,1.306,35.5439006666456,peat,,4.9,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2016 NB Dilution","2016 NB Dilution Week 14 Field 1 and 2.xlsx"
+151,2016-14-002,2016,grass,NarrowBand,,None,127,5,10.83,dairy,7.2,8.76,4.34,2.004,22.8909243466914,peat,,6.3,,reference,,307,,1,Zegveld,"Grassland/2016 NB Dilution","2016 NB Dilution Week 14 Field 1 and 2.xlsx"
+152,2016-14-003,2016,grass,NarrowBand,,Diluted,127,5,9.93,dairy,7.2,7,3.49,1.61,24.2420873518067,peat,,8.5,,"dilution 1:0.25",1:0.25,,,1,Zegveld,"Grassland/2016 NB Dilution","2016 NB Dilution Week 14 Field 3.xlsx"
+153,2016-20-001,2016,grass,NarrowBand,,None,128,9,11.1,dairy,7.2,9.03,4.6,2.172,26.2904457752637,clay,,7.4,,reference,,308,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 20 Field 1 and 2.xlsx"
+154,2016-20-002,2016,grass,NarrowBand,,Diluted,128,9,10.3,dairy,7.2,5.1,2.65,1.273,35.3493794545193,clay,,7.7,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 20 Field 1 and 2.xlsx"
+155,2016-20-003,2016,grass,NarrowBand,,Diluted,128,9,10.03,dairy,7.1,7.1,3.6,1.724,20.9661425131038,clay,,7.1,,"dilution 1:0.25",1:0.25,,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 20 Field 3.xlsx"
+156,2016-21-002,2016,grass,NarrowBand,,Diluted,129,8,7.72,dairy,7,7.1,3.07,1.309,23.3205435120588,peat,,6.7,,"dilution 1:0.25",1:0.25,,,1,Zegveld,"Grassland/2016 NB Dilution","2016 NB Dilution Week 21 Field 2 and 3.xlsx"
+157,2016-21-003,2016,grass,NarrowBand,,Diluted,129,9,8.27,dairy,7.1,5.7,2.59,1.103,28.9103188930736,peat,,8.6,,"dilution 1:0.5",1:0.5,,,1,Zegveld,"Grassland/2016 NB Dilution","2016 NB Dilution Week 21 Field 2 and 3.xlsx"
+158,2016-33-001,2016,grass,NarrowBand,,None,130,8,10.88,dairy,7.5,5.1,3.21,1.7715,21.8706812113406,clay,,5.7,,reference,,309,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 33 Field 1 and 2.xlsx"
+159,2016-33-002,2016,grass,NarrowBand,,Diluted,130,8,9.7,dairy,7.4,3.5,2.16,1.1725,24.0213365989791,clay,,5.7,,"dilution 1:0.5",1:0.5,,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 33 Field 1 and 2.xlsx"
+160,2016-33-003,2016,grass,NarrowBand,,Diluted,130,8,9.38,dairy,7.4,4.2,2.6,1.424,27.4725274725275,clay,,5.8,,"dilution 1:0.25",1:0.25,,,1,Kamerik,"Grassland/2016 NB Dilution","2016 NB Dilution Week 33 Field 3.xlsx"
+161,2017-20a-001,2017,grass,NarrowBand,,Diluted,131,9,8.28,dairy,7.2,4.9,2.61,1.293,24.8037676609105,clay,,6.8,,"dilution 1:0.33",1:0.33,,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 20a Field 1 and 2.xlsx"
+162,2017-20a-002,2017,grass,NarrowBand,,None,131,9,9.62,dairy,7.2,6.8,3.64,1.816,21.4578321087197,clay,,6.6,,reference,,310,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 20a Field 1 and 2.xlsx"
+163,2017-20b-001,2017,grass,NarrowBand,,Diluted,132,9,9.97,dairy,7.3,5.1,2.79,1.381,27.0464387353085,clay,,7.9,,"dilution 1:0.33",1:0.33,,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 20b Field 1 and 2.xlsx"
+164,2017-20b-002,2017,grass,NarrowBand,,None,132,9,11.25,dairy,7.2,6.8,3.74,1.866,20.6507053256408,clay,,9.3,,reference,,311,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 20b Field 1 and 2.xlsx"
+165,2017-25-001,2017,grass,NarrowBand,,Diluted,133,8,8.25,dairy,6.9,5.6,2.61,1.108,19.53064927875,clay,,6.4,,"dilution 1:0.33",1:0.33,,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 25 Field 1 and 2.xlsx"
+166,2017-25-002,2017,grass,NarrowBand,,None,133,8,9.6,dairy,6.9,7.4,3.46,1.4795,17.3185163804301,clay,,6.7,,reference,,312,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 25 Field 1 and 2.xlsx"
+167,2017-35-001,2017,grass,NarrowBand,,Diluted,134,9,8.93,dairy,7.3,4,2.1,1.026,27.4513295346629,clay,,5.6,,"dilution 1:0.33",1:0.33,,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 35 Field 1 and 2.xlsx"
+168,2017-35-002,2017,grass,NarrowBand,,None,134,9,10.15,dairy,7.4,5,2.65,1.355,21.9868698129568,clay,,6.3,,reference,,313,,1,Kamerik,"Grassland/2017 NB Dilution","2017 NB Dilution Week 35 Field 1 and 2.xlsx"
+169,2020-21-001,2020,grass,ShallowInjection,,None,135,9,8.55,dairy,,9.36478226083873,4.752,2.395,18.1863040597426,sand,,7.6,,reference,,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 21 Field 1 and 2.xlsx"
+170,2020-21-002,2020,grass,ShallowInjection,,Diluted,135,9,9.02,dairy,,6.20734138022277,3.3025,1.634,28.1836482888499,sand,,8.2,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 21 Field 1 and 2.xlsx"
+171,2020-22-003,2020,grass,ShallowInjection,,None,136,9,8.3,dairy,,9.35460287060304,4.802,2.425,16.5896433226686,sand,,8,,reference,,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 22 Field 3 and 4.xlsx"
+172,2020-22-004,2020,grass,ShallowInjection,,Diluted,136,9,8.82,dairy,,6.24306708664765,3.29,1.674,25.7430075555727,sand,,8.4,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 22 Field 3 and 4.xlsx"
+173,2020-27-001,2020,grass,ShallowInjection,,None,137,8,8.08,dairy,,8.35975530280748,4.3255,2.195,18.5116973148594,sand,,9.5,,reference,,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 27 Field 1 and 2.xlsx"
+174,2020-27-002,2020,grass,ShallowInjection,,Diluted,137,8,8.5,dairy,,5.58379282519442,3.0255,1.528,28.0990139002309,sand,,9,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 27 Field 1 and 2.xlsx"
+175,2020-28-003,2020,grass,ShallowInjection,,None,138,8,8.63,dairy,,8.09013982319614,4.339,2.164,17.9271543589385,sand,,9.7,,reference,,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 28 Field 3 and 4.xlsx"
+176,2020-28-004,2020,grass,ShallowInjection,,Diluted,138,8,9.02,dairy,,5.35492762908826,2.9905,1.496,28.4099720242415,sand,,10.2,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2020 SI Dilution","2020 SI Dilution Week 28 Field 3 and 4.xlsx"
+177,2021-12-001,2021,grass,ShallowInjection,,None,139,8,8.53,dairy,,5.76729710095512,3.8145,2.054,18.9103546969232,sand,,,,reference,,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 12 Field 1 and 2.xlsx"
+178,2021-12-002,2021,grass,ShallowInjection,,Diluted,139,8,9.02,dairy,,4.0024138944822,2.765,1.447,27.6015425763513,sand,,,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 12 Field 1 and 2.xlsx"
+179,2021-13-003,2021,grass,ShallowInjection,,None,140,9,8.97,dairy,,5.83112264,3.8,2.06,18.4716888847263,sand,,,,reference,,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 13 Field 3 and 4.xlsx"
+180,2021-13-004,2021,grass,ShallowInjection,,Diluted,140,9,9.38,dairy,,4.183477743,2.708,1.471,27.5813258811713,sand,,,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 13 Field 3 and 4.xlsx"
+181,2021-23-001,2021,grass,ShallowInjection,,None,141,9,11.1,dairy,,9.41678028130285,5.189,2.67,18.5841299552109,sand,,7,,reference,,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 23 Field 1 and 2.xlsx"
+182,2021-23-002,2021,grass,ShallowInjection,,Diluted,141,9,11.5,dairy,,6.32743057894727,3.46,1.783,28.8540288540289,sand,,7,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 23 Field 1 and 2.xlsx"
+183,2021-29-003,2021,grass,ShallowInjection,,None,142,9,9.63,dairy,,6.13365889636499,3.467,1.783,19.0374758703322,sand,,9.8,,reference,,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 29 Field 3 and 4.xlsx"
+184,2021-29-004,2021,grass,ShallowInjection,,Diluted,142,9,10.07,dairy,,4.1455,2.382,1.242,28.3547642598088,sand,,11,,"dilution 1:0.5",1:0.5,,,,Wageningen,"Grassland/2021 SI Dilution","2021 SI Dilution Week 29 Field 3 and 4.xlsx"
+185,2021-45-001,2021,grass,ShallowInjection,,None,143,8,10.33,dairy,,6.90586157896611,3.472,1.726,17.4997672903286,sand,,7.6,,,,,,,Wageningen,"Grassland/2021 SI Single","2021 SI Single Week 45 Field 1.xlsx"
