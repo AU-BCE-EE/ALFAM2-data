@@ -22,7 +22,7 @@ arablep[, `:=` (soil_water_g = '', soil_water_v = soilMois, soil_moist = '')]
 arablep[, soil_pH := '']
 arablep[, soil_dens := '']
 arablep[, crop_res := '']
-arablep[, till_before := '']
+arablep[, till_before := ifelse(grepl('plough|cult|pretil', info), 'yes', 'no')]
 arablep[, source := manure]
 arablep[, source_det := '']
 arablep[, `:=` (bedding = '', consist = '')]
@@ -48,9 +48,16 @@ arablep[grepl('[Pp]lough', app_incorp_method), incorp := 'Deep']
 arablep[, incorp_time := 0]
 arablep[incorp != 'None', incorp_time := 0.1]
 arablep[incorp == 'None', incorp_time := NA]
+arablep[, `:=` (man_area = '', inj_dist = '', fur_depth = '', fur_width = '')]
+# Sort out crop--this info is in multiple columns in original data
+arablep[, crop := 'None']
+arablep[landuse != 'baresoil', crop := landuse]
+arablep[!is.na(stubble) & stubble > 0, crop := 'stubble']
+arablep[grepl('stubble', info), crop := 'stubble']
+arablep[, crop_height := stubble]
 
 # Plot sheet
-arableplot <- arablep[, project:incorp_time]
+arableplot <- arablep[, project:crop_height]
 
 # Experments and Treatments worksheets are subsets of Plots here (because notes are missing there is nothing more to include)????
 arableexper <- unique(arablep[, .(project, experiment)])
@@ -79,6 +86,7 @@ arablee[, flux_unit := 'kg N/ha-hr']
 arablee[, surf_pH := '']
 arablee[, air_temp_z := 10]
 arablee[, `:=` (soil_temp = '', soil_temp_z = '', soil_surf_temp = '')]
+arablee[, wind_z := 2]
 arableemis <- arablee[, .(project, experiment, field, plot_code, plot_code, replicate, shift, t_start, t_end, time.4,
                           meas_tech, meas_tech_det, detect_lim, d_val, d_unit, flux, flux_unit, surf_pH, temp,
-                          air_temp_z, soil_temp, soil_temp_z, soil_surf_temp, radiation, wind2m)] 
+                          air_temp_z, soil_temp, soil_temp_z, soil_surf_temp, radiation, wind2m, wind_z)] 
