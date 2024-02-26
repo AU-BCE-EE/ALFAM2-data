@@ -83,6 +83,7 @@ grasse[, flux_unit := 'kg N/ha-hr']
 grasse[, surf_pH := '']
 grasse[, air_temp_z := 10]
 grasse[, `:=` (soil_temp = '', soil_temp_z = '', soil_surf_temp = '')]
+grasse[, wind_z := 2]
 grassemis <- grasse[, .(project, experiment, field, plot_code, plot_code, replicate, shift, t_start, t_end, time.4,
                           meas_tech, meas_tech_det, detect_lim, d_val, d_unit, flux, flux_unit, surf_pH, temp,
-                          air_temp_z, soil_temp, soil_temp_z, soil_surf_temp, radiation, wind2m)] 
+                          air_temp_z, soil_temp, soil_temp_z, soil_surf_temp, radiation, wind2m, wind_z)] 
