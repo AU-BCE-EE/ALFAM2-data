@@ -682,7 +682,7 @@ title: 'Submitted data summary'
 ## Maximum                    ts       30          t/ha      none        <NA>
 ## Mean                     <NA>     27.7          <NA>      <NA>        <NA>
 ## Unique (excld. NA)          2        2             1         1           0
-## Missing values              9        0             0         0          27
+## Missing values              0        0             0         0          27
 ## Sorted                  FALSE     TRUE          TRUE      TRUE        <NA>
 ##                                                                           
 ##                    man.area dist.inj furrow.z furrow.w      crop  crop.z
@@ -1006,7 +1006,7 @@ title: 'Submitted data summary'
 ## Maximum                     ts        None 2020-04-23                  <NA>
 ## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
 ## Unique (excld. NA)           2           1          3         1           0
-## Missing values               9           0          0         0          27
+## Missing values               0           0          0         0          27
 ## Sorted                   FALSE        TRUE       TRUE      TRUE        <NA>
 ##                                                                            
 ##                       inst     pid    pmid     eid

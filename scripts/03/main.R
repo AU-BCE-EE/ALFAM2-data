@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set uptake number and new database version
 uptake <- 3
-version <- '2.39' # Feb 2024
+version <- '2.40' # 1 March 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -21,12 +21,13 @@ version <- '2.39' # Feb 2024
 # That should be OK as long as this release number never decreases
 oldrelease <- '2.23'
 
-# For checking a particular new file
-#newsubmission <- 'WUR_grass_2024'
+# For checking only a particular new file (partial matching)
+#newsubmission <- 'META_METHA'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
 alllogs <- FALSE 
+
 # End settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Packages

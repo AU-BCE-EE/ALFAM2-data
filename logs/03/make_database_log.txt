@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-02-23 13:41:46 EST"
+[1] "2024-03-01 14:05:30 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -209,6 +209,8 @@ Directory  ../../data-submitted/03/INIA
 
 Directory  ../../data-submitted/03/INRAE 
 
+   file  ../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/UNINA 
 
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
@@ -309,7 +311,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 [1] 348  16
 
 > dim(pdat)
-[1] 957 226
+[1] 978 226
 
 > # Extract and reuse old institute codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -591,8 +593,9 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
               1   2   3
   bare soil   0  29   0
   grass     119 105 294
-  stubble     0  29   0
-  <NA>        0   0 120
+  none        0   0  49
+  stubble     0  29  34
+  wheat       0   0  37
 
 > # Get new results
 > exper.new <- pdat.nl[pdat.nl$uptake == 3, 'exper']
@@ -602,20 +605,20 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 
 > # Remove old pmid
 > print(dim(pdat.comb))
-[1] 2856  220
+[1] 2877  220
 
 > print(dim(idat.comb))
-[1] 75230    47
+[1] 75351    47
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
 
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 2592  220
+[1] 2613  220
 
 > print(dim(idat.comb))
-[1] 72978    47
+[1] 73099    47
 
 > pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 
@@ -786,10 +789,12 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
   WIND_8    0 2 0
 
 > print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
-       
-          1   2   3
-  grass   2  16 294
-  <NA>    0   0 120
+         
+            1   2   3
+  grass     2  16 294
+  none      0   0  49
+  stubble   0   0  34
+  wheat     0   0  37
 
 > # Which ones are remaining from uptakes 1 and 2?
 > pdat.remain <- pdat.comb[pdat.comb$uptake %in% 1:2 & grepl('IMAG|NMI|WUR', pdat.comb$institute),  .... [TRUNCATED] 
@@ -862,11 +867,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.38
+ main.R (new version)    2.40
           Release tag    2.23
               Release    2.23
           Main branch    2.37
-           Dev branch    2.37
+           Dev branch    2.39
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
