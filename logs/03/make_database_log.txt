@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-03-01 14:05:30 EST"
+[1] "2024-03-01 14:13:36 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -308,7 +308,7 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 348  16
+[1] 505  16
 
 > dim(pdat)
 [1] 978 226
@@ -867,11 +867,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.40
-          Release tag    2.23
-              Release    2.23
-          Main branch    2.37
-           Dev branch    2.39
+ main.R (new version)    2.41
+          Release tag    2.33
+              Release    2.33
+          Main branch    2.40
+           Dev branch    2.40
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 
