@@ -1456,9 +1456,9 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## Ammonia stripping
 ## 
-## Plasma
+## Acidification
 ## 
-## Acidification 
+## Plasma 
 ## Missing values: 757 
 ## 
 ## 
