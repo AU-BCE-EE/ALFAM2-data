@@ -89,12 +89,21 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Emission
   cat('  Emission . . .')
-  nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
-           'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
-           'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
-           'rad', 'wind', 'wind.z', 
-           # Check these
-           'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+  if (tempver >= 8) {
+    nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
+             'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.type', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
+             'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
+             'rad', 'wind', 'wind.z', 
+             # Check these
+             'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+  } else {
+    nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
+             'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
+             'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
+             'rad', 'wind', 'wind.z', 
+             'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+  }
+
   # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
   emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
   emis <- data.frame(emis)
@@ -111,6 +120,11 @@ readALFAM2File <- function(file, institute, version = '3.3') {
     plots$field <- ''
     emis$field <- ''
   }
+
+  if (tempver < 8) {
+    emis$j.type <- 'Emission rate'
+  }
+  emis$j.type <- tolower(emis$j.type)
 
   # Publications
   cat('  Publications . . .')
@@ -151,7 +165,8 @@ check4missing <- function(obj) {
         cat('Missing interval 0 or 1. May just be problem with entry of interval numbers\n')
         cat('File ', d$file[1], '\n')
         cat('cpmid ', d$cpmid[1], '\n')
-        cat('First row in file: ', min(d$row.in.file.plot), '\n')
+        cat('Row in file (plot): ', min(d$row.in.file.plot), '\n')
+        cat('First row in file (emission): ', min(d$row.in.file.int), '\n')
         stop('Missing interval 0 or 1. Check make_database_log.txt for more details.')
       }
     }
@@ -333,7 +348,9 @@ cleanALFAM <- function(obj, uptake) {
   emis$t.end <- fixDateTime(emis$t.end)
 
   # Sort out emission units
-  cf <- c(`kg N/ha-hr` = 1, 
+  cf <- c(
+          # Start with flux
+          `kg N/ha-hr` = 1, 
           `kg N/ha/hr` = 1, 
           `kg N/ha/h` = 1, 
           `kg NH3/ha-hr` = 14.007/17.031, 
@@ -342,17 +359,29 @@ cleanALFAM <- function(obj, uptake) {
           `kg TAN/ha-hr` = 1, 
           `kg TAN/ha/hr` = 1, 
           `kg TAN/ha/h` = 1, 
-	  `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 14.007/17.03 * 1E4 * 3600, 
-	  `ng/m2-s` = 1/1E12 * 1E4 * 3600, 
-	  `ug/m2-s` = 1/1E9 * 1E4 * 3600, 
-	  `mg N/m2-hr` = 1/1E6*1E4, 
+          `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
+          `ng/m2-s` = 1/1E12 * 1E4 * 3600, 
+          `ug/m2-s` = 1/1E9 * 1E4 * 3600, 
+          `mg N/m2-hr` = 1/1E6*1E4, 
           `ng NH3 m-2 s-1` = 14.007/17.031 * 1/1E12 * 1E4 * 3600, 
           `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
           `ug/m2/s` = 1/1E9 * 1E4 * 3600,
           `ug NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
           `µg/m2/s` = 1/1E9 * 1E4 * 3600,
           `µg NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
-          `ng NH3/m2/s` = 14.007/17.031 * 1/1E12 * 1E4 * 3600
+          `ng NH3/m2/s` = 14.007/17.031 * 1/1E12 * 1E4 * 3600,
+          # Emission (cumulative or interval)
+          `kg N/ha` = 1, 
+          `kg NH3/ha` = 14.007/17.031, 
+          `kg TAN/ha` = 1, 
+          `ng/m2` = 1/1E12 * 1E4, 
+          `ng NH3 m-2` = 14.007/17.031 * 1/1E12 * 1E4, 
+          `ng NH3/m2`  = 14.007/17.031 * 1/1E12 * 1E4,
+          `ug/m2` = 1/1E9 * 1E4, 
+          `µg/m2` = 1/1E9 * 1E4,
+          `ug NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4, 
+          `µg NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4,
+          `mg N/m2` = 1/1E6*1E4
          )
 
   emis$j.NH3.unit.orig <- emis$j.NH3.unit
@@ -393,6 +422,7 @@ cleanALFAM <- function(obj, uptake) {
   #emis$dt.flag[emis$dt != emis$dt.calc] <- paste('reported and calculated dt do not match. Difference of', signif((d$dt - d$dt.calc)[d$dt != d$dt.calc], 2))
 
   # Add elapsed time variables
+  # And convert measured volatilization to flux if needed
   emis <- emis[order(emis$cpmid, emis$interval), ]
   for (i in unique(emis$cpmid)) {
     emis[emis$cpmid == i, 'ct'] <- cumsum(emis[emis$cpmid == i, 'dt'])
@@ -405,6 +435,15 @@ cleanALFAM <- function(obj, uptake) {
 
     # In case cta is NA (presumably because application time is missing) set it to ct
     emis$cta[is.na(emis$cta)] <- emis$ct[is.na(emis$cta)]
+
+    if (emis[emis$cpmid == i, 'j.type'][1] == 'interval emission') {
+      emis[emis$cpmid == i, 'j.NH3'] <- emis[emis$cpmid == i, 'j.NH3']  / emis[emis$cpmid == i, 'dt'] 
+    } else if (emis[emis$cpmid == i, 'j.type'][1] == 'cumulative emission') {
+      emis[emis$cpmid == i, 'j.NH3'] <- diff(c(0, emis[emis$cpmid == i, 'j.NH3']))  / emis[emis$cpmid == i, 'dt'] 
+    } else if (emis[emis$cpmid == i, 'j.type'][1] != 'emission rate') {
+      stop('APY9859 type problem')
+    }
+
   }
 
   # Add file
