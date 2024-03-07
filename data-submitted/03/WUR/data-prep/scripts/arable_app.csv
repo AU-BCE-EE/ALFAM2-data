@@ -1,0 +1,24 @@
+method,methodDetail
+SurfaceBroadcast,01 Surface spreading splash plate
+SurfaceBroadcast Incorporation,04 Spring tine cultivator+roller
+Deep placement,10 Injector
+SurfaceBroadcast Incorporation,05 Spring tine cultivator+clodbreaker
+SurfaceBroadcast Incorporation,02 Rigid tine cultivator
+SurfaceBroadcast Incorporation,08 Driven rotary harrow
+Deep placement,09 Mouldboard plough
+SurfaceBroadcast Incorporation,06 Disc harrow+rigid tine cultivator (medium duty)
+SurfaceBroadcast Incorporation,07 Dyna-drive
+SurfaceBroadcast Incorporation,03 Disc harrow (medium duty)
+SurfaceBroadcast Incorporation,06 Disc harrow+rigid tine cultivator (medium duty); 0.5 hrs delay
+SurfaceBroadcast Incorporation,06 Disc harrow+rigid tine cultivator (medium duty); 1.5 hrs delay
+ShallowInjection,11 Shallow injection
+ShallowInjection Incorporation,11+15 Shallow injection + weeder harrow
+ShallowInjection Incorporation,11+04 Shallow injection + Spring tine cultivator+roller (ploughed land)
+ShallowInjection Incorporation,11+04 Shallow injection + Spring tine cultivator+roller (ploughed land precultivated)
+SurfaceBroadcast Incorporation,04 Spring tine cultivator+roller (precultivated land)
+SurfaceBroadcast Incorporation,13 Ridger (precultivated ridges)
+NarrowBand Incorporation,12+15 Narrow band application + weeder harrow
+NarrowBand,12 Narrow band application
+SurfaceBroadcast,01 Surface spreading splash plate (precultivated ridges)
+NarrowBand (hose),16 Narrow band application (hose)
+SurfaceBroadcast Incorporation,14 Direct incorporation by ridger
