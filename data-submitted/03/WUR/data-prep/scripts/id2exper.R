@@ -1,4 +1,6 @@
 # Convert id experiment
+# Replaces .1 with a, .2 with b, and A/B to lowercase
+# Fixes problem with unequal char length I think
 
 id2exper <- function(x, pref) {
   x <- gsub('\\.1', 'a', x)
