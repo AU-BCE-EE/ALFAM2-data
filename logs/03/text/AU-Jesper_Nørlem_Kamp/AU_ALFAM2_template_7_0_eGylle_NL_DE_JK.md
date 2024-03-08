@@ -882,7 +882,7 @@ title: 'Submitted data summary'
 ## Minimum               <NA>   FALSE            bLS    chamber     Grass
 ## Maximum               <NA>   FALSE            IHF  micro met   Stubble
 ## Mean                  <NA>  0 TRUE           <NA>       <NA>      <NA>
-## Unique (excld. NA)       0       1              4          3         2
+## Unique (excld. NA)       0       1              4          2         2
 ## Missing values          14       0              0          0         0
 ## Sorted                <NA>    TRUE          FALSE      FALSE     FALSE
 ##                                                                       

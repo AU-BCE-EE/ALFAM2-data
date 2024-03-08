@@ -492,10 +492,15 @@ addVars <- function(dat) {
   # Some other derived columns
   # NTS: Use a function here, can apply to idat too
   dat$meas.tech.orig <- dat$meas.tech
-  dat$meas.tech2 <- dat$meas.tech
+  dat$meas.tech2 <- NA
   dat$meas.tech2[tolower(dat$meas.tech) %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
   dat$meas.tech2[tolower(dat$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
   dat$meas.tech2[grep('chamber', tolower(dat$meas.tech))] <- 'chamber'
+  dat$meas.tech2[grep('dtm', tolower(dat$meas.tech))] <- 'chamber'
+  dat$meas.tech2[grepl('inversion dispersion small plots', tolower(dat$meas.tech))] <- 'micro met'
+  if (any(wn <- is.na(dat$meas.tech2))) {
+    stop(paste('Problem with unmatched meas. method names for:', unique(dat$meas.tech.orig[wn]), '.\n    Add new values to addVars() func in ALFAM_functions.R')) 
+  }
   
   dat$crop.orig <- dat$crop
   dat$crop <- tolower(dat$crop)

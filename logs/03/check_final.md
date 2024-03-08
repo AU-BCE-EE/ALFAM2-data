@@ -456,11 +456,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## chamber
 ## 
-## cps
-## 
-## DTM
-## 
-## Inversion Dispersion small plots 
+## cps 
 ## Missing values: 0 
 ## 
 ## 
