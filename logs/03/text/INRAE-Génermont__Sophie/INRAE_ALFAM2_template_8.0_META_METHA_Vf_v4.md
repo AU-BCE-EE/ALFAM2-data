@@ -1000,9 +1000,9 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
-## Minimum                304    2440    2444     408
-## Maximum                304    2460    2464     428
-## Mean                   304    <NA>    <NA>    <NA>
+## Minimum                208    2440    2444     408
+## Maximum                208    2460    2464     428
+## Mean                   208    <NA>    <NA>    <NA>
 ## Unique (excld. NA)       1      21      21      21
 ## Missing values           0       0       0       0
 ## Sorted                TRUE    TRUE    TRUE    TRUE

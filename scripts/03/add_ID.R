@@ -8,14 +8,18 @@ pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.
 dim(pdatr)
 dim(pdat)
 
-# Extract and reuse old institute codes
+# Extract and reuse old institution codes
 inst.old <- unique(pdat.old[, c('institute', 'inst')])
 pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
-table(pdat$inst)
+
+# Sort out institution codes for ones with changed names
+pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
 
 # Create completely new 300s codes for new institutes
-# NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
-pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute))[is.na(pdat$inst)]
+# Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped inst values)
+pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
+
+table(pdat$inst)
 
 # ID codes created in plots data frame and then merged into interval level data frame
 # First add ones already created in earlier release, to avoid changing existing keys with every release
