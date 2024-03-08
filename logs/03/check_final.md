@@ -16,7 +16,7 @@ for (i in 1:ncol(pdat.comb)) {
 ```
 ## 
 ## -----------------------------------------------------
-## inst  numeric, range: 101 306 
+## inst  numeric, range: 101 304 
 ## Missing values: 0 
 ## 
 ## 

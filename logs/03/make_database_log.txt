@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-03-08 12:28:35 EST"
+[1] "2024-03-08 13:26:18 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -313,14 +313,21 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > dim(pdat)
 [1] 978 226
 
-> # Extract and reuse old institute codes
+> # Extract and reuse old institution codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
 
 > pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
 
-> # Create completley new 300s codes for new institutes
-> # NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
->  .... [TRUNCATED] 
+> # Sort out institution codes for ones with changed names
+> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
+
+> # Create completely new 300s codes for new institutes
+> # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
+
+> table(pdat$inst)
+
+205 208 214 301 302 303 304 
+522  21 414   4   6   4   7 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
 > # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
@@ -867,7 +874,7 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.42
+ main.R (new version)    2.43
           Release tag    2.33
               Release    2.33
           Main branch    2.41
