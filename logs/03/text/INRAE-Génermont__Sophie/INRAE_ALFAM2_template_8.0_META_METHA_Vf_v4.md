@@ -971,50 +971,41 @@ title: 'Submitted data summary'
 ## Missing values              21       0         0      21        21         21
 ## Sorted                    <NA>    TRUE      TRUE    <NA>      <NA>       <NA>
 ##                                                                              
-##                     exper2    acid                   meas.tech.orig
-## Class              logical logical                        character
-## Minimum               <NA>   FALSE Inversion Dispersion small plots
-## Maximum               <NA>   FALSE Inversion Dispersion small plots
-## Mean                  <NA>  0 TRUE                             <NA>
-## Unique (excld. NA)       0       1                                1
-## Missing values          21       0                                0
-## Sorted                <NA>    TRUE                             TRUE
-##                                                                    
-##                                          meas.tech2 crop.orig man.source.orig
-## Class                                     character character       character
-## Minimum            Inversion Dispersion small plots Bare soil          Cattle
-## Maximum            Inversion Dispersion small plots  Rapeseed             Mix
-## Mean                                           <NA>      <NA>            <NA>
-## Unique (excld. NA)                                1         3               2
-## Missing values                                    0         0               0
-## Sorted                                         TRUE     FALSE           FALSE
-##                                                                              
-##                                 app.method.orig app.method2 incorp.orig
-## Class                                 character   character   character
-## Minimum            Band spread or trailing hose          bc        None
-## Maximum                               Broadcast        bsth     Shallow
-## Mean                                       <NA>        <NA>        <NA>
-## Unique (excld. NA)                            2           2           2
-## Missing values                                0           0           0
-## Sorted                                    FALSE       FALSE       FALSE
-##                                                                        
-##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character   character numeric integer integer
-## Minimum            2017-03-22                  0-20     304    2440    2444
-## Maximum            2019-03-12                  0-20     304    2460    2464
-## Mean                     <NA>      <NA>        <NA>     304    <NA>    <NA>
-## Unique (excld. NA)          7         1           1       1      21      21
-## Missing values              0         0           0       0       0       0
-## Sorted                   TRUE      TRUE        TRUE    TRUE    TRUE    TRUE
+##                     exper2    acid                   meas.tech.orig meas.tech2
+## Class              logical logical                        character  character
+## Minimum               <NA>   FALSE Inversion Dispersion small plots  micro met
+## Maximum               <NA>   FALSE Inversion Dispersion small plots  micro met
+## Mean                  <NA>  0 TRUE                             <NA>       <NA>
+## Unique (excld. NA)       0       1                                1          1
+## Missing values          21       0                                0          0
+## Sorted                <NA>    TRUE                             TRUE       TRUE
+##                                                                               
+##                    crop.orig man.source.orig              app.method.orig
+## Class              character       character                    character
+## Minimum            Bare soil          Cattle Band spread or trailing hose
+## Maximum             Rapeseed             Mix                    Broadcast
+## Mean                    <NA>            <NA>                         <NA>
+## Unique (excld. NA)         3               2                            2
+## Missing values             0               0                            0
+## Sorted                 FALSE           FALSE                        FALSE
+##                                                                          
+##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
+## Class                character   character       Date character   character
+## Minimum                     bc        None 2017-03-22                  0-20
+## Maximum                   bsth     Shallow 2019-03-12                  0-20
+## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           2           2          7         1           1
+## Missing values               0           0          0         0           0
+## Sorted                   FALSE       FALSE       TRUE      TRUE        TRUE
 ##                                                                            
-##                        eid
-## Class              integer
-## Minimum                408
-## Maximum                428
-## Mean                  <NA>
-## Unique (excld. NA)      21
-## Missing values           0
-## Sorted                TRUE
+##                       inst     pid    pmid     eid
+## Class              numeric integer integer integer
+## Minimum                304    2440    2444     408
+## Maximum                304    2460    2464     428
+## Mean                   304    <NA>    <NA>    <NA>
+## Unique (excld. NA)       1      21      21      21
+## Missing values           0       0       0       0
+## Sorted                TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

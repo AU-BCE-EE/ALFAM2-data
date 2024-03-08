@@ -11,8 +11,9 @@ dim(pdat)
 # Extract and reuse old institute codes
 inst.old <- unique(pdat.old[, c('institute', 'inst')])
 pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+table(pdat$inst)
 
-# Create completley new 300s codes for new institutes
+# Create completely new 300s codes for new institutes
 # NTS: needs tweak to leave out inst codes already recognized so e.g., 301 is not skipped
 pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute))[is.na(pdat$inst)]
 
