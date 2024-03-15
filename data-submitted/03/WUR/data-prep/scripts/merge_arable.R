@@ -44,6 +44,10 @@ arablep[, app_unit := 't/ha']
 arablep[, incorp := 'None']
 arablep[grepl('[Ii]ncorp|[Cc]ultiv', app_incorp_method), incorp := 'Shallow']
 arablep[grepl('[Pp]lough', app_incorp_method), incorp := 'Deep']
+# Take any "mouldboard plough" in methodDetail as broadcast application
+# This will override some of the os values that were based on "deep placement" in method above!
+# NTS: Is this correct? Waiting on Jan's answer. . .
+arablep[grepl('[Mm]ouldboard plough', app_incorp_method), app_method := 'Broadcast']
 # NTS: And incorporation time!
 arablep[, incorp_time := 0]
 arablep[incorp != 'None', incorp_time := 0.1]
