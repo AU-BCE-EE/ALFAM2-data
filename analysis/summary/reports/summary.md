@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "12 December, 2023"
+date: "19 March, 2024"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 2404  221
+## [1] 2613  221
 ```
 
 ```r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 2404
+## [1] 2613
 ```
 
 ```r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 2400
+## [1] 2609
 ```
 
 
@@ -45,8 +45,8 @@ table(pdat$uptake)
 
 ```
 ## 
-##    1    2    3 
-##  800 1099  505
+##   1   2   3 
+## 683 952 978
 ```
 
 ```r
@@ -55,8 +55,8 @@ table(up$uptake)
 
 ```
 ## 
-##    1    2    3 
-##  800 1099  501
+##   1   2   3 
+## 566 952 830
 ```
 
 ```r
@@ -66,14 +66,14 @@ table(country = up$country, uptake = up$uptake)
 ```
 ##        uptake
 ## country   1   2   3
-##      CA   0 229  64
-##      CH 121  47   0
+##      CA   0 229  31
+##      CH   6  47   0
 ##      DE   0 197   0
-##      DK  46 251 385
-##      FR   0  25   0
+##      DK  46 251 310
+##      FR   0  25  21
 ##      IE   0  68   0
 ##      IT  75   8  17
-##      NL 119 163  17
+##      NL   0  16 433
 ##      NO   9   0   0
 ##      SE  88   0  18
 ##      UK 342 109   0
@@ -98,9 +98,9 @@ table(pdat$man.trt2)
 ##                               Acidification     Ammonia stripping 
 ##                   201                     9                     3 
 ##   Anaerobic digestion           Floculation Mechanical separation 
-##                    16                     9                    52 
-##                  none                  None 
-##                  1526                   272
+##                    16                     9                    71 
+##                  none                  None                Plasma 
+##                  1262                   279                     6
 ```
 
 
@@ -115,20 +115,24 @@ table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), 
 ##                                         FALSE TRUE
 ##   3 CA AU cat wt                           64    0
 ##   3 DK AU cat wt                           69   38
-##   3 DK AU mix chamber                      75   31
-##   3 DK AU mix DTM                           0    3
+##   3 DK AU mix chamber                      75   34
 ##   3 DK AU mix micro met                     0   15
-##   3 DK AU mix wt                            0   25
-##   3 DK AU pig wt                          129    0
+##   3 DK AU mix wt                            0   43
+##   3 DK AU pig wt                          147    0
 ##   3 DK AU-BCE cat micro met                 4    0
+##   3 FR INRAE cat micro met                  7    0
+##   3 FR INRAE mix micro met                  0   14
 ##   3 IT DiSAA-IT sewage sludge micro met     0    3
 ##   3 IT DiSAA-IT urea 46% micro met          3    0
 ##   3 IT UNIMI cat micro met                  0    4
 ##   3 IT UNINA cat micro met                  1    1
 ##   3 IT UNINA cat wt                         2    3
 ##   3 NL AU cat chamber                       4    0
-##   3 NL AU cat micro met                     4    0
+##   3 NL AU cat micro met                     6    0
 ##   3 NL AU cat wt                            9    0
+##   3 NL WUR dairy micro met                276    0
+##   3 NL WUR mineralconcentrate micro met    12    0
+##   3 NL WUR pig micro met                  126    0
 ##   3 SE AU cat wt                           12    0
 ##   3 SE AU mix wt                            0    6
 ```
@@ -140,7 +144,7 @@ table(u3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   376   129
+##   817   161
 ```
 
 ```r
@@ -150,7 +154,7 @@ table(up3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   372   129
+##   670   160
 ```
 
 
@@ -160,8 +164,8 @@ table(u3$meas.tech2)
 
 ```
 ## 
-##   chamber       DTM micro met        wt 
-##       110         3        35       357
+##   chamber micro met        wt 
+##       113       472       393
 ```
 
 ```r
@@ -170,8 +174,8 @@ table(up3$meas.tech2)
 
 ```
 ## 
-##   chamber       DTM micro met        wt 
-##       110         3        35       353
+##   chamber micro met        wt 
+##       113       472       245
 ```
 
 
@@ -181,8 +185,8 @@ table(up3$country)
 
 ```
 ## 
-##  CA  DK  IT  NL  SE 
-##  64 385  17  17  18
+##  CA  DK  FR  IT  NL  SE 
+##  31 310  21  17 433  18
 ```
 
 ```r
@@ -191,8 +195,8 @@ table(u3$country)
 
 ```
 ## 
-##  CA  DK  IT  NL  SE 
-##  64 389  17  17  18
+##  CA  DK  FR  IT  NL  SE 
+##  64 425  21  17 433  18
 ```
 
 Acidification table.
@@ -213,6 +217,7 @@ acidtab
 ##   Barn acidification  NA                                      0   12
 ##   Acidification Anaerobic digestion NA                        0    8
 ##   Acidification Mechanical separation NA                      0    8
+##   Acidified NA NA                                             0    8
 ##   Anaerobic digestion Mechanical separation Acidification     0    8
 ##   Mechanical separation Acidification NA                      0    6
 ##   Disruption Acidification NA                                 0    3
@@ -220,12 +225,14 @@ acidtab
 ##   Anaerobic digestion  NA                                    26    0
 ##   Anaerobic digestion Ammonia stripping NA                    3    0
 ##   Anaerobic digestion Floculation NA                          9    0
-##   Anaerobic digestion Mechanical separation NA               10    0
+##   Anaerobic digestion Mechanical separation NA               23    0
 ##   Anaerobic digestion Mechanical separation None             18    0
-##   Anaerobic digestion NA NA                                  90    0
+##   Anaerobic digestion Mechanical separation Plasma            6    0
+##   Anaerobic digestion NA NA                                  96    0
 ##   anaerobic digestion none NA                                 1    0
 ##   Anaerobic digestion none NA                               137    0
-##   Anaerobic digestion None NA                                 6    0
+##   Anaerobic digestion None NA                                13    0
+##   Diluted NA NA                                              34    0
 ##   Dilution NA NA                                              3    0
 ##   Disruption NA NA                                            3    0
 ##   Filtration  NA                                             21    0
@@ -233,18 +240,20 @@ acidtab
 ##   Gravity separation  NA                                     21    0
 ##   Gravity separation NA NA                                   24    0
 ##   In-house separation none NA                                62    0
+##   Irrigated NA NA                                             5    0
 ##   Low DM none NA                                             12    0
 ##   Low protein diet none NA                                    9    0
-##   Mechanical separation NA NA                                 9    0
+##   Mechanical separation NA NA                                15    0
 ##   Mechanical separation none NA                               4    0
 ##   Mechanical separation None NA                               6    0
-##   NA NA NA                                                    3    0
+##   Mechanical separation Plasma NA                             6    0
+##   NA NA NA                                                    9    0
 ##   None  NA                                                   97    0
 ##   None Anaerobic digestion NA                                 8    0
 ##   None Mechanical separation NA                               8    0
-##   None NA NA                                                154    0
+##   None NA NA                                                530    0
 ##   none none NA                                              231    0
-##   None none NA                                              950    0
+##   None none NA                                              686    0
 ##   None None NA                                              218    0
 ##   Surface none NA                                            48    0
 ```
@@ -270,6 +279,8 @@ trttab
 ##   PA                                                       0    8
 ##   SA                                                       0    8
 ##   acidified                                                0    6
+##   1                                                      308    4
+##   2                                                      275    4
 ##   ES                                                       0    4
 ##   A acid                                                   0    3
 ##   A dis acid                                               0    3
@@ -286,30 +297,128 @@ trttab
 ##   0,0                                                      6    0
 ##   0,5                                                      2    0
 ##   0,6                                                      2    0
-##   1                                                      314    0
-##   10                                                       5    0
-##   2                                                      242    0
+##   10                                                       2    0
+##   100                                                      1    0
+##   101                                                      1    0
+##   102                                                      1    0
+##   103                                                      1    0
+##   104                                                      1    0
+##   105                                                      1    0
+##   106                                                      1    0
+##   107                                                      1    0
+##   108                                                      1    0
+##   109                                                      1    0
+##   11                                                       2    0
+##   110                                                      1    0
+##   111                                                      1    0
+##   112                                                      1    0
+##   113                                                      1    0
+##   114                                                      1    0
+##   115                                                      1    0
+##   116                                                      1    0
+##   12                                                       2    0
+##   14                                                       1    0
+##   143                                                      1    0
+##   15                                                       1    0
+##   17                                                       1    0
+##   18                                                       1    0
+##   19                                                       1    0
 ##   2-BRM                                                    3    0
 ##   2,5                                                     10    0
 ##   2,6                                                      2    0
-##   20                                                       3    0
+##   20                                                       4    0
 ##   20diluted                                                3    0
-##   21                                                       1    0
-##   25                                                       1    0
-##   3                                                      149    0
+##   21                                                       3    0
+##   22                                                       2    0
+##   23                                                       1    0
+##   24                                                       1    0
+##   25                                                       2    0
+##   26                                                       1    0
+##   27                                                       2    0
+##   28                                                       2    0
+##   29                                                       2    0
+##   3                                                      179    0
 ##   3-BLD                                                    4    0
-##   30                                                       3    0
-##   4                                                       72    0
-##   41                                                       1    0
-##   42                                                       1    0
-##   5                                                       65    0
-##   6                                                       23    0
+##   30                                                       5    0
+##   31                                                       2    0
+##   32                                                       2    0
+##   33                                                       2    0
+##   34                                                       1    0
+##   35                                                       1    0
+##   36                                                       1    0
+##   37                                                       1    0
+##   38                                                       1    0
+##   39                                                       1    0
+##   4                                                      106    0
+##   40                                                       1    0
+##   400                                                      1    0
+##   41                                                       2    0
+##   42                                                       3    0
+##   43                                                       2    0
+##   44                                                       2    0
+##   45                                                       2    0
+##   46                                                       2    0
+##   47                                                       2    0
+##   48                                                       2    0
+##   49                                                       2    0
+##   5                                                       68    0
+##   50                                                       2    0
+##   51                                                       2    0
+##   52                                                       1    0
+##   53                                                       2    0
+##   54                                                       1    0
+##   55                                                       2    0
+##   56                                                       2    0
+##   57                                                       2    0
+##   58                                                       2    0
+##   59                                                       2    0
+##   6                                                       16    0
 ##   6 h shallow                                              1    0
-##   7                                                       11    0
+##   60                                                       2    0
+##   61                                                       1    0
+##   62                                                       1    0
+##   63                                                       2    0
+##   64                                                       2    0
+##   65                                                       1    0
+##   66                                                       1    0
+##   67                                                       2    0
+##   68                                                       2    0
+##   69                                                       2    0
+##   7                                                       10    0
 ##   7,0                                                      6    0
 ##   7,2                                                      6    0
+##   70                                                       2    0
+##   71                                                       2    0
+##   72                                                       2    0
+##   73                                                       2    0
+##   74                                                       2    0
+##   75                                                       2    0
+##   76                                                       2    0
+##   77                                                       2    0
+##   78                                                       2    0
+##   79                                                       1    0
 ##   8                                                        6    0
-##   9                                                        4    0
+##   80                                                       1    0
+##   81                                                       1    0
+##   82                                                       2    0
+##   83                                                       1    0
+##   84                                                       1    0
+##   85                                                       1    0
+##   86                                                       1    0
+##   87                                                       1    0
+##   88                                                       1    0
+##   89                                                       1    0
+##   9                                                        3    0
+##   90                                                       1    0
+##   91                                                       1    0
+##   92                                                       1    0
+##   93                                                       1    0
+##   94                                                       1    0
+##   95                                                       1    0
+##   96                                                       1    0
+##   97                                                       1    0
+##   98                                                       1    0
+##   99                                                       1    0
 ##   A                                                       16    0
 ##   A dis                                                    3    0
 ##   A sep                                                    3    0
@@ -368,13 +477,29 @@ trttab
 ##   DFC_inj                                                  7    0
 ##   DFC_th                                                   6    0
 ##   dig_slurry_pig                                           2    0
+##   DIGB_1                                                   1    0
+##   DIGB_2                                                   1    0
+##   DIGB_3                                                   1    0
+##   DIGB_4                                                   1    0
+##   DIGB_5                                                   1    0
+##   DIGB_6                                                   1    0
+##   DIGB_7                                                   1    0
 ##   Digestate                                                3    0
 ##   digested                                                30    0
+##   DIGL_1                                                   1    0
+##   DIGL_2                                                   1    0
+##   DIGL_3                                                   1    0
+##   DIGL_4                                                   1    0
+##   DIGL_5                                                   1    0
+##   DIGS_1                                                   1    0
+##   DIGS_2                                                   1    0
 ##   Disc                                                    15    0
 ##   Disc injection                                          11    0
 ##   E                                                        7    0
 ##   eGylle_bLS                                               4    0
-##   eGylle_bLS_acid_traps_3heights                           1    0
+##   eGylle_bLS_acid_traps_0.25m                              1    0
+##   eGylle_bLS_acid_traps_0.54m                              1    0
+##   eGylle_bLS_acid_traps_1.04m                              1    0
 ##   eGylle_bLS_Alpha1                                        1    0
 ##   eGylle_bLS_Alpha2                                        1    0
 ##   eGylle_bLS_avg_time                                      1    0
@@ -400,6 +525,8 @@ trttab
 ##   filtered                                                21    0
 ##   floculated                                              19    0
 ##   Foulum                                                   6    0
+##   FUM_1                                                    1    0
+##   FUM_2                                                    1    0
 ##   G                                                        3    0
 ##   H                                                        3    0
 ##   Harso                                                    1    0
@@ -413,6 +540,11 @@ trttab
 ##   Jyndevad                                                 3    0
 ##   Jyndevand                                                3    0
 ##   KIM                                                      1    0
+##   LIS_1                                                    1    0
+##   LIS_2                                                    1    0
+##   LIS_3                                                    1    0
+##   LIS_4                                                    1    0
+##   LIS_5                                                    1    0
 ##   LS CS0910                                                3    0
 ##   LS CS1011                                                3    0
 ##   LS PS0910                                                3    0
@@ -429,12 +561,14 @@ trttab
 ##   P                                                        8    0
 ##   PE CS1011                                                3    0
 ##   PE PS1011                                                3    0
+##   Plasma                                                  12    0
 ##   Prestorage                                               1    0
 ##   ps                                                      47    0
-##   ref                                                     34    0
+##   Reference                                               12    0
 ##   Rønhave                                                  6    0
 ##   S                                                        8    0
 ##   separated                                                6    0
+##   Separated                                               12    0
 ##   separated broadcast                                      8    0
 ##   separated narrow banded                                  8    0
 ##   separated SSD                                            8    0
@@ -501,6 +635,5 @@ trttab
 ##   Whole-Surface                                           24    0
 ##   Winge tine                                               3    0
 ##   WT                                                       3    0
-##   zodebem                                                 55    0
 ```
 
