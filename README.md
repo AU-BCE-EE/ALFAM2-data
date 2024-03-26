@@ -70,7 +70,7 @@ To inquire about submitting data to the ALFAM2 dataset, send a message to `sasha
 To check submitted data, find your completed template file in [this list](https://sashahafner.github.io/ALFAM2-data/) and follow the instructions you will see at the top of the linked file.
 
 # Building the database
-The process of creating the ALFAM2 database from submitted data can be completely repeated by running two scripts in R (<https://www.r-project.org/>) sequentially:
+After cloning this repo, the process of creating the ALFAM2 database from submitted data can be completely repeated by running two scripts in R (<https://www.r-project.org/>) sequentially:
 
 1. `scripts/02/main.R`
 2. `scripts/03/main.R`
