@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-03-15 13:49:26 EDT"
+[1] "2024-03-26 13:00:28 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -272,7 +272,7 @@ Done! Read 8  directories
 
 > print(warnings())
 Warning message:
-In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
+NAs introduced by coercion
 
 > # Check for errors and create a log before merge
 > 
@@ -306,22 +306,23 @@ In normalizePath("~") : path[1]="/sbuild-nonexistent": No such file or directory
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
 > pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
+Checking versions
 
-> dim(pdatr)
-[1] 505  16
+                Where Version
+ main.R (new version)    2.45
+          Release tag    2.33
+              Release    2.33
+          Main branch    2.44
+           Dev branch    2.41
+Checking versions
 
-> dim(pdat)
-[1] 978 226
-
-> # Extract and reuse old institution codes
-> inst.old <- unique(pdat.old[, c('institute', 'inst')])
-
-> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
-
-> # Sort out institution codes for ones with changed names
-> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
-
-> # Create completely new 300s codes for new institutes
+                Where Version
+ main.R (new version)    2.45
+          Release tag    2.33
+              Release    2.33
+          Main branch    2.44
+           Dev branch    2.41
+des for new institutes
 > # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
 
 > table(pdat$inst)
@@ -874,10 +875,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.44
+ main.R (new version)    2.45
           Release tag    2.33
               Release    2.33
-          Main branch    2.43
+          Main branch    2.44
            Dev branch    2.41
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

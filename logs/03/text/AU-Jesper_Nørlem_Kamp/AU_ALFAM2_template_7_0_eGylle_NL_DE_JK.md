@@ -845,7 +845,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   22       8
 ## Maximum               <NA>                   237                  244      37
-## Mean                  <NA>                   145                  160    <NA>
+## Mean                  <NA>                   145                  160    16.4
 ## Unique (excld. NA)       0                    14                   14       5
 ## Missing values          14                     0                    0       0
 ## Sorted                <NA>                 FALSE                FALSE   FALSE
@@ -897,18 +897,18 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
-## Minimum                   None 2021-08-20                    16     205    1935
-## Maximum                   None 2021-11-09                     9     205    2403
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
+## Minimum                   None 2021-08-20                    16     205    1940
+## Maximum                   None 2021-11-09                     9     205    2400
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    2120
 ## Unique (excld. NA)           1          2         1           2       1      14
 ## Missing values               0          0         0           0       0       0
 ## Sorted                    TRUE       TRUE      TRUE       FALSE    TRUE   FALSE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
-## Minimum               1939     348
-## Maximum               2407     403
-## Mean                  <NA>    <NA>
+## Minimum               1940     348
+## Maximum               2410     403
+## Mean                  2130     372
 ## Unique (excld. NA)      14       4
 ## Missing values           0       0
 ## Sorted               FALSE   FALSE

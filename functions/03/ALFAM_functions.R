@@ -24,7 +24,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # Read date again to get correct format
   sdate <- as.vector(read_xlsx(file, sheet = 2, skip = 5, col_names = c('x', 'y'), na = na.strings)[1, 2])
   sdate <- sdate[[1]]
-  sdate <- as.character(sdate, format = '%Y-%m-%d')
+  sdate <- format(sdate, format = '%Y-%m-%d')
   submitter$date <- sdate
 
   # Contributers - to save by institute and file eventually
@@ -1212,7 +1212,7 @@ date2char <- function(d) {
 
   for(i in names(d)) {
 
-    if(class(d[ , i])[1] == 'POSIXct') d[ , i] <- as.character(d[ , i], format = '%d-%m-%Y %H:%M')
+    if(class(d[ , i])[1] == 'POSIXct') d[ , i] <- format(d[ , i], format = '%d-%m-%Y %H:%M')
 
   }
 
@@ -1262,7 +1262,7 @@ vsumm <- function(x) {
      } else if(iclass == "logical") {
        s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
      } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
+       s[2:4, i] <- format(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
      } else {
        s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
      }
@@ -1316,7 +1316,7 @@ fixDateTime <- function(x){
   }
 
   # First check for proper POSIXct format
-  if (!all(grepl('^[12][0-9]{3}-[0-9]{2}-[0-9]{2}', x))) {
+  if (!all(grepl('^[12][0-9]{3}-[0-9]{2}-[0-9]{2}', x[!is.na(x)]))) {
 
     x <- as.character(x)
     # Remove extra quotes
@@ -1326,6 +1326,8 @@ fixDateTime <- function(x){
       if(!is.na(x[i]) & nchar(x[i])>8) {
         # Replace / with - in date
         x[i] <- gsub('/', '-', x[i])
+        # And "T" in between date and time with space
+        x[i] <- gsub('T', ' ', x[i])
         if (grepl('\\.', x[i])) flag[i] <-'decimal point'
         # Replace . with : in time (so doesn't work if user has . in date)
         x[i] <- gsub('\\.', ':', x[i])
@@ -1334,6 +1336,7 @@ fixDateTime <- function(x){
         month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
         year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
         tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
+        if(is.na(year)) browser()
         if(nchar(year) != 4) {
           #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
           if(year > 50) {
