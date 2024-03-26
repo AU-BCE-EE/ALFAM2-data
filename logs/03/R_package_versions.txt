@@ -30,9 +30,10 @@ loaded via a namespace (and not attached):
  [9] jquerylib_0.1.4   scales_1.3.0      yaml_2.3.8        fastmap_1.1.1    
 [13] R6_2.5.1          labeling_0.4.3    generics_0.1.3    htmlwidgets_1.6.4
 [17] tibble_3.2.1      munsell_0.5.0     bslib_0.6.1       pillar_1.9.0     
-[21] rlang_1.1.3       utf8_1.2.4        cachem_1.0.8      xfun_0.42        
-[25] sass_0.4.9        cli_3.6.2         withr_3.0.0       crosstalk_1.2.1  
-[29] digest_0.6.35     grid_4.3.3        lifecycle_1.0.4   vctrs_0.6.5      
-[33] data.table_1.15.2 evaluate_0.23     glue_1.7.0        farver_2.1.1     
-[37] cellranger_1.1.0  fansi_1.0.6       colorspace_2.1-0  tools_4.3.3      
-[41] pkgconfig_2.0.3   htmltools_0.5.7  
+[21] R.utils_2.12.3    rlang_1.1.3       utf8_1.2.4        cachem_1.0.8     
+[25] xfun_0.42         sass_0.4.9        cli_3.6.2         withr_3.0.0      
+[29] crosstalk_1.2.1   digest_0.6.35     grid_4.3.3        lifecycle_1.0.4  
+[33] R.oo_1.26.0       R.methodsS3_1.8.2 vctrs_0.6.5       data.table_1.15.2
+[37] evaluate_0.23     glue_1.7.0        farver_2.1.1      cellranger_1.1.0 
+[41] fansi_1.0.6       colorspace_2.1-0  tools_4.3.3       pkgconfig_2.0.3  
+[45] htmltools_0.5.7  
