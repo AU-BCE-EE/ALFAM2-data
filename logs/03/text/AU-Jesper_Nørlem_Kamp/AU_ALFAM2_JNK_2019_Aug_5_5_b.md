@@ -878,7 +878,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               81.7                     5                  325     321
 ## Maximum               81.7                   971                 1290     321
-## Mean                  81.7                   488                  808    <NA>
+## Mean                  81.7                   488                  808     321
 ## Unique (excld. NA)       1                     4                    4       1
 ## Missing values           0                     0                    0       0
 ## Sorted                TRUE                 FALSE                FALSE    TRUE
@@ -939,9 +939,9 @@ title: 'Submitted data summary'
 ##                                                                             
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
-## Minimum                   <NA> 2019-08-14       m i        <NA>     205    2216
-## Maximum                   <NA> 2019-08-14       m i        <NA>     205    2219
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
+## Minimum                   <NA> 2019-08-14       m i        <NA>     205    2220
+## Maximum                   <NA> 2019-08-14       m i        <NA>     205    2220
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    2220
 ## Unique (excld. NA)           0          1         1           0       1       4
 ## Missing values               4          0         0           4       0       0
 ## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
@@ -949,8 +949,8 @@ title: 'Submitted data summary'
 ##                       pmid     eid
 ## Class              integer integer
 ## Minimum               2220     379
-## Maximum               2223     379
-## Mean                  <NA>    <NA>
+## Maximum               2220     379
+## Mean                  2220     379
 ## Unique (excld. NA)       4       1
 ## Missing values           0       0
 ## Sorted                TRUE    TRUE

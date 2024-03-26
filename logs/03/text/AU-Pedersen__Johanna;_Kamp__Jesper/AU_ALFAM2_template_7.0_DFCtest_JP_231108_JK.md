@@ -973,7 +973,7 @@ title: 'Submitted data summary'
 ## Class                            numeric              numeric integer numeric
 ## Minimum                                5                   30      19     0.5
 ## Maximum                             3620                 3960     337     2.4
-## Mean                                1150                 1250    <NA>    1.71
+## Mean                                1150                 1250     107    1.71
 ## Unique (excld. NA)                    37                   37      16       4
 ## Missing values                         0                    0       0       0
 ## Sorted                             FALSE                FALSE   FALSE   FALSE
@@ -1025,18 +1025,18 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
-## Minimum                   None 2022-10-11                   0-5     205    2244
+## Minimum                   None 2022-10-11                   0-5     205    2240
 ## Maximum                   None 2022-11-24       m i         0-5     205    2280
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    2260
 ## Unique (excld. NA)           1          3         2           1       1      37
 ## Missing values               0          0         0           0       0       0
 ## Sorted                    TRUE       TRUE     FALSE        TRUE    TRUE    TRUE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
-## Minimum               2248     395
-## Maximum               2284     397
-## Mean                  <NA>    <NA>
+## Minimum               2250     395
+## Maximum               2280     397
+## Mean                  2270     396
 ## Unique (excld. NA)      37       3
 ## Missing values           0       0
 ## Sorted                TRUE    TRUE

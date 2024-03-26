@@ -820,7 +820,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                  100      94
 ## Maximum               <NA>                   762                  855      96
-## Mean                  <NA>                   384                  478    <NA>
+## Mean                  <NA>                   384                  478    94.6
 ## Unique (excld. NA)       0                     9                    9       3
 ## Missing values           9                     0                    0       0
 ## Sorted                <NA>                  TRUE                 TRUE   FALSE
@@ -872,9 +872,9 @@ title: 'Submitted data summary'
 ##                                                                               
 ##                    date.start  flag.int soil.samp.z    inst     pid    pmid
 ## Class                    Date character   character numeric integer integer
-## Minimum            2021-11-09       m i        <NA>     205    1922    1926
-## Maximum            2021-11-09       m i        <NA>     205    1930    1934
-## Mean                     <NA>      <NA>        <NA>     205    <NA>    <NA>
+## Minimum            2021-11-09       m i        <NA>     205    1920    1930
+## Maximum            2021-11-09       m i        <NA>     205    1930    1930
+## Mean                     <NA>      <NA>        <NA>     205    1930    1930
 ## Unique (excld. NA)          1         1           0       1       9       9
 ## Missing values              0         0           9       0       0       0
 ## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
@@ -883,7 +883,7 @@ title: 'Submitted data summary'
 ## Class              integer
 ## Minimum                345
 ## Maximum                345
-## Mean                  <NA>
+## Mean                   345
 ## Unique (excld. NA)       1
 ## Missing values           0
 ## Sorted                TRUE

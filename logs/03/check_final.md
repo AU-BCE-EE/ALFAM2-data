@@ -790,52 +790,52 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## air.temp.1  numeric, range: 2.4 28.66 
-## Missing values: 2291 
+## Missing values: 2284 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.4  numeric, range: 1 32.62 
-## Missing values: 1695 
+## Missing values: 1683 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.6  numeric, range: -2.9688 35 
-## Missing values: 367 
+## Missing values: 355 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.12  numeric, range: -2.8371 35.505 
-## Missing values: 329 
+## Missing values: 317 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.24  numeric, range: -4.1838 29.2 
-## Missing values: 297 
+## Missing values: 285 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.48  numeric, range: -3.9696 29.125 
-## Missing values: 294 
+## Missing values: 282 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.72  numeric, range: -3.5854 29.75 
-## Missing values: 249 
+## Missing values: 237 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.96  numeric, range: 0.73273 28.158 
-## Missing values: 1670 
+## Missing values: 1658 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.168  numeric, range: 1.0756 28.158 
-## Missing values: 1670 
+## Missing values: 1658 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.mn  numeric, range: -3.5964 49.556 
-## Missing values: 257 
+## Missing values: 245 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -968,158 +968,158 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.1  numeric, range: 0 303.9 
-## Missing values: 2372 
+## rad.1  numeric, range: 0 867.62 
+## Missing values: 2367 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.4  numeric, range: 0 733 
-## Missing values: 2352 
+## rad.4  numeric, range: 0 1382.8 
+## Missing values: 2345 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.6  numeric, range: 0 1158.6 
-## Missing values: 1316 
+## rad.6  numeric, range: 0 1389.7 
+## Missing values: 1309 
 ## 
 ## 
 ## -----------------------------------------------------
-## rad.12  numeric, range: 0 1756.9 
-## Missing values: 1294 
-## 
-## 
-## -----------------------------------------------------
-## rad.24  numeric, range: 0 2241.8 
-## Missing values: 1285 
-## 
-## 
-## -----------------------------------------------------
-## rad.48  numeric, range: 0 3957.7 
-## Missing values: 1285 
-## 
-## 
-## -----------------------------------------------------
-## rad.72  numeric, range: 0 5281.6 
-## Missing values: 1285 
-## 
-## 
-## -----------------------------------------------------
-## rad.96  numeric, range: 0.35417 6607.9 
-## Missing values: 2329 
-## 
-## 
-## -----------------------------------------------------
-## rad.168  numeric, range: 0.33929 6821.5 
-## Missing values: 2329 
-## 
-## 
-## -----------------------------------------------------
-## rad.mn  numeric, range: 0 6821.5 
+## rad.12  numeric, range: 0 1538.3 
 ## Missing values: 1287 
 ## 
 ## 
 ## -----------------------------------------------------
+## rad.24  numeric, range: 0 1502.4 
+## Missing values: 1278 
+## 
+## 
+## -----------------------------------------------------
+## rad.48  numeric, range: 0 990.92 
+## Missing values: 1278 
+## 
+## 
+## -----------------------------------------------------
+## rad.72  numeric, range: 0 971.37 
+## Missing values: 1278 
+## 
+## 
+## -----------------------------------------------------
+## rad.96  numeric, range: 0.35417 990.52 
+## Missing values: 2322 
+## 
+## 
+## -----------------------------------------------------
+## rad.168  numeric, range: 0.33929 990.52 
+## Missing values: 2322 
+## 
+## 
+## -----------------------------------------------------
+## rad.mn  numeric, range: 0 990.52 
+## Missing values: 1280 
+## 
+## 
+## -----------------------------------------------------
 ## wind.1  numeric, range: 0.06115 8 
-## Missing values: 2290 
+## Missing values: 2283 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.4  numeric, range: 0.1 11.158 
-## Missing values: 1710 
+## Missing values: 1698 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.6  numeric, range: 0.1 16.022 
-## Missing values: 260 
+## Missing values: 248 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.12  numeric, range: 0.1 16.022 
-## Missing values: 223 
+## Missing values: 211 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.24  numeric, range: 0.1 9.5 
-## Missing values: 191 
+## Missing values: 179 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.48  numeric, range: 0.1 10.991 
-## Missing values: 187 
+## Missing values: 175 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.72  numeric, range: 0.1 10.991 
-## Missing values: 136 
+## Missing values: 124 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.96  numeric, range: 0.1 7.5838 
-## Missing values: 1685 
+## Missing values: 1673 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.168  numeric, range: 0.1 7.5838 
-## Missing values: 1685 
+## Missing values: 1673 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.mn  numeric, range: 0.10794 19.939 
-## Missing values: 108 
+## Missing values: 96 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.z  numeric, range: 0.125 10 
-## Missing values: 585 
+## Missing values: 459 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.1  numeric, range: 0.06497 8 
-## Missing values: 2354 
+## Missing values: 2286 
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.2m.4  numeric, range: 0.1 8.5833 
-## Missing values: 2198 
+## wind.2m.4  numeric, range: 0.1 11.158 
+## Missing values: 2072 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.6  numeric, range: 0.1 16.347 
-## Missing values: 750 
+## Missing values: 624 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.12  numeric, range: 0.1 16.347 
-## Missing values: 715 
+## Missing values: 589 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.24  numeric, range: 0.1 9.6927 
-## Missing values: 685 
+## Missing values: 559 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.48  numeric, range: 0.1 11.214 
-## Missing values: 685 
+## Missing values: 559 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.72  numeric, range: 0.1 11.214 
-## Missing values: 634 
+## Missing values: 508 
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.2m.96  numeric, range: 0.1 6.7797 
-## Missing values: 2178 
+## wind.2m.96  numeric, range: 0.1 7.5838 
+## Missing values: 2052 
 ## 
 ## 
 ## -----------------------------------------------------
-## wind.2m.168  numeric, range: 0.1 6.7797 
-## Missing values: 2178 
+## wind.2m.168  numeric, range: 0.1 7.5838 
+## Missing values: 2052 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.mn  numeric, range: 0.10794 20.343 
-## Missing values: 606 
+## Missing values: 480 
 ## 
 ## 
 ## -----------------------------------------------------

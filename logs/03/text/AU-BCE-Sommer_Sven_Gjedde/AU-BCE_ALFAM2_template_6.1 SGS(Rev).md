@@ -894,7 +894,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   10       6
 ## Maximum               <NA>                    23                   28       6
-## Mean                  <NA>                    14                   19    <NA>
+## Mean                  <NA>                    14                   19       6
 ## Unique (excld. NA)       0                     4                    4       1
 ## Missing values           4                     0                    0       0
 ## Sorted                <NA>                  TRUE                 TRUE    TRUE
@@ -946,9 +946,9 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                    soil.samp.z    inst     pid    pmid     eid
 ## Class                character numeric integer integer integer
-## Minimum                   <NA>     301    1896    1900     342
-## Maximum                   <NA>     301    1899    1903     342
-## Mean                      <NA>     301    <NA>    <NA>    <NA>
+## Minimum                   <NA>     301    1900    1900     342
+## Maximum                   <NA>     301    1900    1900     342
+## Mean                      <NA>     301    1900    1900     342
 ## Unique (excld. NA)           0       1       4       4       1
 ## Missing values               4       0       0       0       0
 ## Sorted                    <NA>    TRUE    TRUE    TRUE    TRUE

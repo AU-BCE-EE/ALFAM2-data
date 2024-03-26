@@ -519,7 +519,7 @@ title: 'Submitted data summary'
 ##      |           *     *     * ***  *      *    ****           |
 ## 2800 +      **     ****      * ***  * *                        +
 ##      |       **  *           *     *      ***                  |
-## 2750 +        * ***                       ** *   *     *       +
+## 2750 +  **    * * *      *                ** *   *     *       +
 ##      |                     *        **  * ***   *   *          |
 ## 2700 +                          **   **   *      *             +
 ##      |     *     *     *         *  ***                        |
@@ -537,7 +537,7 @@ title: 'Submitted data summary'
 ## 250 +                 *      ***** *   *  *     * **           +
 ##     |      **     ****      *  **   **                         |
 ## 200 +        *  *           *      *      **                   +
-##     |        * * *                        * *    *     *       |
+##     |  **    * * *      *                 * *    *     *       |
 ## 150 +                     *         *  *  **    *   *          +
 ##     |                          ***  **           *             |
 ## 100 +     *      *    *          * * **                        +
@@ -552,19 +552,19 @@ title: 'Submitted data summary'
 ## 
 ##   The decimal point is at the |
 ## 
-##    4 | 23
+##    4 | 2344478
 ##    5 | 55
 ##    6 | 00001112334566666677999
-##    7 | 4455589
-##    8 | 1111222222222233579
+##    7 | 445555589
+##    8 | 111122222222335779
 ##    9 | 111467
-##   10 | 11333333444445569
-##   11 | 000
-##   12 | 008888889999
-##   13 | 000001233557889
-##   14 | 0000111111112222455566666799
+##   10 | 113333334444445569
+##   11 | 00023
+##   12 | 008888899999
+##   13 | 0000012335578899
+##   14 | 00001111111122224555566666799
 ##   15 | 004444555555566678888889999999
-##   16 | 0000122222333333444445555777
+##   16 | 00001222223333334444445555777
 ##   17 | 2222223333345556789
 ##   18 | 0011223333334444557777888888
 ##   19 | 1111233366666
@@ -578,57 +578,59 @@ title: 'Submitted data summary'
 ## wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   
 ## 
 ## wind.2m.mn  vs. pmid 
-##      +---------+---------+---------+--------+---------+--------+
-##      |               *                                         |
-##      |                                                         |
-## 2750 +  *    * * ** *                                          +
-##      |         *  **  ***                                      |
-##      |        *       **    *                                  |
-## 2700 +           ***  * *                                      +
-##      |            *           *       **       *               |
-##      |        * *  *  *               *        *               |
-## 2650 +                *     *      *    *                      +
-##      |          **  **  *          *   **                   *  |
-##      |  *  ***  **    *    *           *                       |
-## 2600 +  * *  ** *     *     *                                  +
-##      |         * **  *     *   ****                            |
-##      +---------+---------+---------+--------+---------+--------+
-##      1         2         3         4        5         6         
+##      +---------+---------------+---------------+---------------+
+##      |  *  ***  **    *   *         *                          |
+## 2850 +        ***   **    *****             *                  +
+##      |    **  **  * **   *   *              *                  |
+## 2800 +        *  **   *   *     * *** *                     *  +
+##      |         ** ***   ** *  *                                |
+## 2750 +   *   *  ** * **  *         *                           +
+##      |       * **** ***                                        |
+## 2700 +        *  ** **   *                                     +
+##      |           **  **    *      **     **                    |
+##      |        * * * *     *       ***    *                     |
+## 2650 +          *  ** *   *    ** **                *          +
+##      |   ****** *    *  **         *                           |
+## 2600 +         **** **   *  ****                               +
+##      +---------+---------------+---------------+---------------+
+##                2               4               6                
 ## 
 ## wind.2m.mn  vs. row.in.file.plot 
-##     +---------+---------+---------+---------+---------+--------+
-##     |  *    *   **  *                                          |
-## 150 +       * *  **  ***                                       +
-##     |        *   *    *    *                                   |
-##     |        *  ***  *                                         |
-##     |            ** * **                                       |
-## 100 +                        **      ***       *               +
-##     |        * **  * *                *       **               |
-##     |                *     **          **                      |
-##     |          *   **  *          **  **                    *  |
-##  50 +     **    *         *        *   *                       +
-##     |  * *  *   *    *                **                       |
-##     |       ** *      *    *     *                             |
-##     |         *  ** *         ** **                            |
-##   0 +---------+---------+---------+---------+---------+--------+
-##     1         2         3         4         5         6         
+##     +---------+----------------+---------------+---------------+
+## 300 +  *  ***  **    *   *          *                          +
+##     |        ***   **    ** ***             *                  |
+## 250 +    **  **  *  *   *   *                                  +
+##     |        *  ***  *   *     ** ****                      *  |
+## 200 +          *  **    *  * *                                 +
+##     |   *   *  ** ****  *         *                            |
+## 150 +       * * **  **                                         +
+##     |        *  ** **    *                                     |
+## 100 +            * ***     *     **      *                     +
+##     |        * *  * *    *       * *     *                     |
+##  50 +          *  ** *   *     *  **                *          +
+##     |   * **** *    *   *         **                           |
+##     |         **** **   ** ****                                |
+##   0 +---------+----------------+---------------+---------------+
+##               2                4               6                
 ## 
 ## stem and leaf plot of  wind.2m.mn 
 ## 
 ##   The decimal point is at the |
 ## 
-##   1 | 222233
-##   1 | 555788888888999999
-##   2 | 00001111111111122222222222333333333333444444444
-##   2 | 5555666677777777777777788888888999999
-##   3 | 22333333333333
-##   3 | 5555556799999
-##   4 | 000113344444444
-##   4 | 55555555555
+##   1 | 1122222233334
+##   1 | 55555557778888888888888899999999999
+##   2 | 00000000000111111111111111122222222222222333333333333333333344444444
+##   2 | 555555555566666666667777777777777777777777788888888888899999999
+##   3 | 222222222233333333333334444
+##   3 | 55555555667777777888889999999999
+##   4 | 000111233444444444444
+##   4 | 5555555555555666688
 ##   5 | 222333
-##   5 | 
+##   5 | 666
 ##   6 | 
 ##   6 | 6
+##   7 | 
+##   7 | 56
 ## 
 ## rain.rate.mn   rain.rate.mn   rain.rate.mn   rain.rate.mn   rain.rate.mn   
 ## 
@@ -774,7 +776,7 @@ title: 'Submitted data summary'
 ##                    man.tic  man.ua man.vfa  man.ph         app.end app.method
 ## Class              logical logical numeric numeric POSIXct, POSIXt  character
 ## Minimum               <NA>    <NA>    <NA>       6            <NA>         bc
-## Maximum               <NA>    <NA>    <NA>     8.2            <NA>         os
+## Maximum               <NA>    <NA>    <NA>     8.2            <NA>         ts
 ## Mean                  <NA>    <NA>    <NA>    7.22            <NA>       <NA>
 ## Unique (excld. NA)       0       0       0      25               0          3
 ## Missing values         294     294     294      23             294          0
@@ -899,20 +901,20 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                    air.temp.1 air.temp.4 air.temp.6 air.temp.12 air.temp.24
 ## Class                 numeric    numeric    numeric     numeric     numeric
-## Minimum                   2.4       4.81       5.05        4.77        3.14
+## Minimum                   2.4       3.27       3.27        4.39        3.14
 ## Maximum                  28.7       29.9       30.3        30.2        25.2
-## Mean                     15.3       16.2       16.7        17.4        14.9
-## Unique (excld. NA)        150        274        278         281         281
-## Missing values             79         13         13          13          13
+## Mean                       15       15.9       16.3        17.1        14.7
+## Unique (excld. NA)        154        286        290         293         293
+## Missing values             72          1          1           1           1
 ## Sorted                  FALSE      FALSE      FALSE       FALSE       FALSE
 ##                                                                            
 ##                    air.temp.48 air.temp.72 air.temp.96 air.temp.168 air.temp.mn
 ## Class                  numeric     numeric     numeric      numeric     numeric
 ## Minimum                   3.72        4.24        4.24         4.24        4.24
 ## Maximum                   25.5        25.5        25.5         25.5        25.5
-## Mean                      14.6        14.4        14.4         14.4        14.4
-## Unique (excld. NA)         281         281         281          281         281
-## Missing values              13          13          13           13          13
+## Mean                      14.4        14.2        14.2         14.2        14.2
+## Unique (excld. NA)         293         293         293          293         293
+## Missing values               1           1           1            1           1
 ## Sorted                   FALSE       FALSE       FALSE        FALSE       FALSE
 ##                                                                                
 ##                    soil.temp.1 soil.temp.4 soil.temp.6 soil.temp.12
@@ -962,56 +964,56 @@ title: 'Submitted data summary'
 ##                                                                         
 ##                    soil.temp.surf.168 soil.temp.surf.mn  wind.1  wind.4  wind.6
 ## Class                         numeric           numeric numeric numeric numeric
-## Minimum                          <NA>              <NA>     0.7   0.909   0.916
+## Minimum                          <NA>              <NA>     0.7   0.909   0.912
 ## Maximum                          <NA>              <NA>    7.45    11.2    11.6
-## Mean                             <NA>              <NA>    3.08    3.41    3.49
-## Unique (excld. NA)                  0                 0     153     275     277
-## Missing values                    294               294      78      12      12
+## Mean                             <NA>              <NA>    3.06    3.38    3.46
+## Unique (excld. NA)                  0                 0     160     287     289
+## Missing values                    294               294      71       0       0
 ## Sorted                           <NA>              <NA>   FALSE   FALSE   FALSE
 ##                                                                                
 ##                    wind.12 wind.24 wind.48 wind.72 wind.96 wind.168 wind.mn
 ## Class              numeric numeric numeric numeric numeric  numeric numeric
 ## Minimum               1.28   0.695   0.778   0.889    1.05     1.11    1.11
 ## Maximum               10.6    7.58    7.58    7.58    7.58     7.58    7.58
-## Mean                   3.5    2.82    2.87     2.9    2.92     2.91    2.91
-## Unique (excld. NA)     282     282     282     282     282      282     282
-## Missing values          12      12      12      12      12       12      12
+## Mean                  3.48    2.82    2.87    2.92    2.93     2.93    2.93
+## Unique (excld. NA)     294     294     294     294     294      294     294
+## Missing values           0       0       0       0       0        0       0
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE    FALSE   FALSE
 ##                                                                            
 ##                    wind.2m.1 wind.2m.4 wind.2m.6 wind.2m.12 wind.2m.24
 ## Class                numeric   numeric   numeric    numeric    numeric
-## Minimum                  0.7     0.933     0.933       1.45      0.995
-## Maximum                 7.45      7.51      7.56       7.69       5.89
-## Mean                    3.18       3.5       3.6       3.51       2.77
-## Unique (excld. NA)        92       161       163        168        168
-## Missing values           139       126       126        126        126
+## Minimum                  0.7     0.909     0.912       1.28      0.695
+## Maximum                 7.45      11.2      11.6       10.6       7.58
+## Mean                    3.06      3.38      3.46       3.48       2.82
+## Unique (excld. NA)       160       287       289        294        294
+## Missing values            71         0         0          0          0
 ## Sorted                 FALSE     FALSE     FALSE      FALSE      FALSE
 ##                                                                       
 ##                    wind.2m.48 wind.2m.72 wind.2m.96 wind.2m.168 wind.2m.mn
 ## Class                 numeric    numeric    numeric     numeric    numeric
-## Minimum                  1.23      0.889       1.05        1.23       1.23
-## Maximum                  6.27       6.62       6.62        6.62       6.62
-## Mean                     2.91        2.9       2.92        2.92       2.92
-## Unique (excld. NA)        168        168        168         168        168
-## Missing values            126        126        126         126        126
+## Minimum                 0.778      0.889       1.05        1.11       1.11
+## Maximum                  7.58       7.58       7.58        7.58       7.58
+## Mean                     2.87       2.92       2.93        2.93       2.93
+## Unique (excld. NA)        294        294        294         294        294
+## Missing values              0          0          0           0          0
 ## Sorted                  FALSE      FALSE      FALSE       FALSE      FALSE
 ##                                                                           
 ##                      rad.1   rad.4   rad.6  rad.12  rad.24  rad.48  rad.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
-## Minimum                  7    37.2    73.6     104     104     228     587
-## Maximum                304     709    1160    1760    2240    3830    5170
-## Mean                  95.7     372     566     954    1240    2010    2720
-## Unique (excld. NA)     130     182     182     182     182     182     182
-## Missing values         128     112     112     112     112     112     112
+## Minimum               38.9      57    80.5     104     102    72.6    92.6
+## Maximum                868    1380    1380    1540    1500     991     971
+## Mean                   415     724     793     887     600     481     482
+## Unique (excld. NA)     135     189     189     189     189     189     189
+## Missing values         123     105     105     105     105     105     105
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
 ##                                                                           
 ##                     rad.96 rad.168  rad.mn rain.rate.1 rain.rate.4 rain.rate.6
 ## Class              numeric numeric numeric     numeric     numeric     numeric
-## Minimum                615     656     656           0           0           0
-## Maximum               6480    6820    6820           0           0           0
-## Mean                  3260    3500    3500           0           0           0
-## Unique (excld. NA)     182     182     182           1           1           1
-## Missing values         112     112     112          71           0           0
+## Minimum               98.7     122     122           0           0           0
+## Maximum                991     991     991           0           0           0
+## Mean                   512     528     528           0           0           0
+## Unique (excld. NA)     189     189     189           1           1           1
+## Missing values         105     105     105          71           0           0
 ## Sorted               FALSE   FALSE   FALSE        TRUE        TRUE        TRUE
 ##                                                                               
 ##                    rain.rate.12 rain.rate.24 rain.rate.48 rain.rate.72
@@ -1045,7 +1047,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   13       4
 ## Maximum               <NA>                  2350                 2360       9
-## Mean                  <NA>                  1220                 1230    <NA>
+## Mean                  <NA>                  1220                 1230    8.01
 ## Unique (excld. NA)       0                   294                  294       6
 ## Missing values         294                     0                    0       0
 ## Sorted                <NA>                 FALSE                FALSE   FALSE
@@ -1061,9 +1063,9 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                          t.start.p         t.end.p air.temp.z soil.temp.z
 ## Class              POSIXct, POSIXt POSIXct, POSIXt    numeric   character
-## Minimum                       <NA>            <NA>         10        <NA>
-## Maximum                       <NA>            <NA>         10        <NA>
-## Mean                          <NA>            <NA>         10        <NA>
+## Minimum                       <NA>            <NA>        1.5        <NA>
+## Maximum                       <NA>            <NA>        1.5        <NA>
+## Mean                          <NA>            <NA>        1.5        <NA>
 ## Unique (excld. NA)               0               0          1           0
 ## Missing values                 294             294          0         294
 ## Sorted                        <NA>            <NA>       TRUE        <NA>
@@ -1074,7 +1076,7 @@ title: 'Submitted data summary'
 ## Maximum                  2      <NA>    <NA>      <NA>       <NA>    <NA>
 ## Mean                     2      <NA>    <NA>      <NA>       <NA>    <NA>
 ## Unique (excld. NA)       1         0       0         0          0       0
-## Missing values         126       294     294       294        294     294
+## Missing values           0       294     294       294        294     294
 ## Sorted                TRUE      <NA>    <NA>      <NA>       <NA>    <NA>
 ##                                                                          
 ##                                       acid meas.tech.orig meas.tech2 crop.orig
@@ -1089,7 +1091,7 @@ title: 'Submitted data summary'
 ##                    man.source.orig app.method.orig app.method2 incorp.orig
 ## Class                    character       character   character   character
 ## Minimum                      dairy       Broadcast          bc        None
-## Maximum                        pig   Trailing hose          os        None
+## Maximum                        pig   Trailing shoe          ts        None
 ## Mean                          <NA>            <NA>        <NA>        <NA>
 ## Unique (excld. NA)               3               3           3           1
 ## Missing values                   0               0           0           0
@@ -1097,9 +1099,9 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                    date.start  flag.int soil.samp.z    inst     pid    pmid
 ## Class                    Date character   character numeric integer integer
-## Minimum                  <NA>                  <NA>     214    2581    2585
-## Maximum                  <NA>                  <NA>     214    2874    2878
-## Mean                     <NA>      <NA>        <NA>     214    <NA>    <NA>
+## Minimum                  <NA>                  <NA>     214    2580    2580
+## Maximum                  <NA>                  <NA>     214    2870    2880
+## Mean                     <NA>      <NA>        <NA>     214    2730    2730
 ## Unique (excld. NA)          0         1           0       1     294     294
 ## Missing values            294         0         294       0       0       0
 ## Sorted                   <NA>      TRUE        <NA>    TRUE    TRUE    TRUE
@@ -1108,7 +1110,7 @@ title: 'Submitted data summary'
 ## Class              integer
 ## Minimum                470
 ## Maximum                582
-## Mean                  <NA>
+## Mean                   525
 ## Unique (excld. NA)     113
 ## Missing values           0
 ## Sorted                TRUE

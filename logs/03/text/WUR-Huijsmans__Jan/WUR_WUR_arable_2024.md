@@ -739,7 +739,7 @@ title: 'Submitted data summary'
 ##                    man.tic  man.ua man.vfa  man.ph         app.end app.method
 ## Class              logical logical numeric numeric POSIXct, POSIXt  character
 ## Minimum               <NA>    <NA>    <NA>     7.2            <NA>         bc
-## Maximum               <NA>    <NA>    <NA>     8.5            <NA>         os
+## Maximum               <NA>    <NA>    <NA>     8.5            <NA>         ts
 ## Mean                  <NA>    <NA>    <NA>    7.87            <NA>       <NA>
 ## Unique (excld. NA)       0       0       0      13               0          3
 ## Missing values         120     120     120      62             120          0
@@ -747,12 +747,12 @@ title: 'Submitted data summary'
 ##                                                                              
 ##                    app.rate app.rate.unit    incorp time.incorp man.area
 ## Class               numeric     character character     numeric  numeric
-## Minimum                12.1          t/ha      deep         0.1     <NA>
-## Maximum                42.8          t/ha   shallow         0.1     <NA>
-## Mean                     23          <NA>      <NA>         0.1     <NA>
-## Unique (excld. NA)      113             1         3           1        0
+## Minimum                12.1          t/ha      deep        0.05     <NA>
+## Maximum                42.8          t/ha   shallow         1.5     <NA>
+## Mean                     23          <NA>      <NA>       0.128     <NA>
+## Unique (excld. NA)      113             1         3           3        0
 ## Missing values            0             0         0          71      120
-## Sorted                FALSE          TRUE     FALSE        TRUE     <NA>
+## Sorted                FALSE          TRUE     FALSE       FALSE     <NA>
 ##                                                                         
 ##                    dist.inj furrow.z furrow.w      crop  crop.z crop.area
 ## Class               numeric  numeric  logical character numeric   numeric
@@ -867,7 +867,7 @@ title: 'Submitted data summary'
 ## Minimum                  4.47       5.61       5.61        7.95        5.37
 ## Maximum                  23.7       25.7       28.6        30.8        24.4
 ## Mean                     13.1       14.2       14.8        15.2          13
-## Unique (excld. NA)         72        119        119         120         120
+## Unique (excld. NA)         71        119        119         120         120
 ## Missing values             34          0          0           0           0
 ## Sorted                  FALSE      FALSE      FALSE       FALSE       FALSE
 ##                                                                            
@@ -963,18 +963,18 @@ title: 'Submitted data summary'
 ##                                                                           
 ##                      rad.1   rad.4   rad.6  rad.12  rad.24  rad.48  rad.72
 ## Class              numeric numeric numeric numeric numeric numeric numeric
-## Minimum                2.5      29    64.5     175     271     477     479
-## Maximum                111     557    1100    1690    2220    3960    5280
-## Mean                  46.3     250     426     696     887    1540    2050
-## Unique (excld. NA)      53      58      58      58      58      58      58
+## Minimum               13.9    59.4     116     180     110     108     108
+## Maximum                616    1260    1390    1490     945     783     821
+## Mean                   257     533     595     691     438     341     353
+## Unique (excld. NA)      52      58      58      58      58      58      58
 ## Missing values          62      62      62      62      62      62      62
 ## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
 ##                                                                           
 ##                     rad.96 rad.168  rad.mn rain.rate.1 rain.rate.4 rain.rate.6
 ## Class              numeric numeric numeric     numeric     numeric     numeric
-## Minimum                623     623     623           0           0           0
-## Maximum               6610    6610    6610           0           0           0
-## Mean                  2510    2580    2580           0           0           0
+## Minimum                139     158     158           0           0           0
+## Maximum                925     925     925           0           0           0
+## Mean                   382     387     387           0           0           0
 ## Unique (excld. NA)      58      58      58           1           1           1
 ## Missing values          62      62      62          34           0           0
 ## Sorted               FALSE   FALSE   FALSE        TRUE        TRUE        TRUE
@@ -1010,7 +1010,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   13       4
 ## Maximum               <NA>                   971                  977       9
-## Mean                  <NA>                   505                  512    <NA>
+## Mean                  <NA>                   505                  512    8.11
 ## Unique (excld. NA)       0                   120                  120       5
 ## Missing values         120                     0                    0       0
 ## Sorted                <NA>                 FALSE                FALSE   FALSE
@@ -1026,9 +1026,9 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                          t.start.p         t.end.p air.temp.z soil.temp.z
 ## Class              POSIXct, POSIXt POSIXct, POSIXt    numeric   character
-## Minimum                       <NA>            <NA>         10        <NA>
-## Maximum                       <NA>            <NA>         10        <NA>
-## Mean                          <NA>            <NA>         10        <NA>
+## Minimum                       <NA>            <NA>        1.5        <NA>
+## Maximum                       <NA>            <NA>        1.5        <NA>
+## Mean                          <NA>            <NA>        1.5        <NA>
 ## Unique (excld. NA)               0               0          1           0
 ## Missing values                 120             120          0         120
 ## Sorted                        <NA>            <NA>       TRUE        <NA>
@@ -1054,7 +1054,7 @@ title: 'Submitted data summary'
 ##                    app.method.orig app.method2 incorp.orig date.start  flag.int
 ## Class                    character   character   character       Date character
 ## Minimum                  Broadcast          bc        Deep       <NA>          
-## Maximum              Trailing hose          os     Shallow       <NA>          
+## Maximum              Trailing shoe          ts     Shallow       <NA>          
 ## Mean                          <NA>        <NA>        <NA>       <NA>      <NA>
 ## Unique (excld. NA)               4           3           3          0         1
 ## Missing values                   0           0           0        120         0
@@ -1062,9 +1062,9 @@ title: 'Submitted data summary'
 ##                                                                                
 ##                    soil.samp.z    inst     pid    pmid     eid
 ## Class                character numeric integer integer integer
-## Minimum                   <NA>     214    2461    2465     429
-## Maximum                   <NA>     214    2580    2584     469
-## Mean                      <NA>     214    <NA>    <NA>    <NA>
+## Minimum                   <NA>     214    2460    2460     429
+## Maximum                   <NA>     214    2580    2580     469
+## Mean                      <NA>     214    2520    2520     450
 ## Unique (excld. NA)           0       1     120     120      41
 ## Missing values             120       0       0       0       0
 ## Sorted                    <NA>    TRUE    TRUE    TRUE    TRUE

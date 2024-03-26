@@ -797,7 +797,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               80.7                     5                  280     276
 ## Maximum               80.7                   559                  834     276
-## Mean                  80.7                   282                  557    <NA>
+## Mean                  80.7                   282                  557     276
 ## Unique (excld. NA)       1                     3                    3       1
 ## Missing values           0                     0                    0       0
 ## Sorted                TRUE                 FALSE                FALSE    TRUE
@@ -859,17 +859,17 @@ title: 'Submitted data summary'
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
 ## Minimum                   <NA> 2019-05-21       m i        <NA>     205    2220
-## Maximum                   <NA> 2019-05-21       m i        <NA>     205    2222
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    <NA>
+## Maximum                   <NA> 2019-05-21       m i        <NA>     205    2220
+## Mean                      <NA>       <NA>      <NA>        <NA>     205    2220
 ## Unique (excld. NA)           0          1         1           0       1       3
 ## Missing values               3          0         0           3       0       0
 ## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
 ##                                                                                
 ##                       pmid     eid
 ## Class              integer integer
-## Minimum               2224     380
-## Maximum               2226     380
-## Mean                  <NA>    <NA>
+## Minimum               2220     380
+## Maximum               2230     380
+## Mean                  2220     380
 ## Unique (excld. NA)       3       1
 ## Missing values           0       0
 ## Sorted                TRUE    TRUE

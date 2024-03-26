@@ -849,7 +849,7 @@ title: 'Submitted data summary'
 ## Class              numeric               numeric              numeric integer
 ## Minimum               <NA>                     5                   13       9
 ## Maximum               <NA>                   572                  580       9
-## Mean                  <NA>                   288                  296    <NA>
+## Mean                  <NA>                   288                  296       9
 ## Unique (excld. NA)       0                    64                   64       1
 ## Missing values          64                     0                    0       0
 ## Sorted                <NA>                  TRUE                 TRUE    TRUE
@@ -919,9 +919,9 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
-## Minimum                205    1979    1983     375
-## Maximum                205    2042    2046     378
-## Mean                   205    <NA>    <NA>    <NA>
+## Minimum                205    1980    1980     375
+## Maximum                205    2040    2050     378
+## Mean                   205    2010    2010     376
 ## Unique (excld. NA)       1      64      64       4
 ## Missing values           0       0       0       0
 ## Sorted                TRUE    TRUE    TRUE    TRUE
