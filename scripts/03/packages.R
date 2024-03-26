@@ -8,7 +8,7 @@ library(leaflet)
 library(txtplot)
 library(ggplot2)
 
-sink('../../logs/03/versions.txt')
+sink('../../logs/03/R_package_versions.txt')
   print(sessionInfo())
 sink()
 
