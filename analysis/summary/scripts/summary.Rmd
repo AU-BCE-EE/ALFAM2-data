@@ -22,6 +22,7 @@ up <- pdat[unique(pdat$pid), ]
 table(pdat$uptake)
 table(up$uptake)
 table(country = up$country, uptake = up$uptake)
+table(institute = up$institute, uptake = up$uptake)
 ```
 
 ```{r}

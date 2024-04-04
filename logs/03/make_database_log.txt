@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-03-26 13:00:28 EDT"
+[1] "2024-04-04 14:10:47 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -271,8 +271,7 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 8  directories
 
 > print(warnings())
-Warning message:
-NAs introduced by coercion
+NULL
 
 > # Check for errors and create a log before merge
 > 
@@ -306,23 +305,22 @@ NAs introduced by coercion
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
 > pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
-Checking versions
 
-                Where Version
- main.R (new version)    2.45
-          Release tag    2.33
-              Release    2.33
-          Main branch    2.44
-           Dev branch    2.41
-Checking versions
+> dim(pdatr)
+[1] 978  16
 
-                Where Version
- main.R (new version)    2.45
-          Release tag    2.33
-              Release    2.33
-          Main branch    2.44
-           Dev branch    2.41
-des for new institutes
+> dim(pdat)
+[1] 978 226
+
+> # Extract and reuse old institution codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+
+> # Sort out institution codes for ones with changed names
+> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
+
+> # Create completely new 300s codes for new institutes
 > # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
 
 > table(pdat$inst)
@@ -419,9 +417,7 @@ des for new institutes
 > ## Columns missing in .... [TRUNCATED] 
 
 > # Remove old NL results that have been updated in uptake 3
-> 
-> # Old IMAG experiment codes are missing B or G at beginning
-> pdat.comb[pdat.comb$in .... [TRUNCATED] 
+> # Note: Uptake/period info, and whole correction is very much tailored to uptake 3 and  .... [TRUNCATED] 
 
 > # Missing 0 in 2 uptake 2 experiment codes
 > pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-8', 'exper'] <- 'G2000-08'
@@ -611,6 +607,11 @@ des for new institutes
 > # Find matching old ones that should be swapped out
 > pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$uptake %in% 1:2, 'pmid']
 
+> # Sort out old experiments that are being replaced, to update uptake
+> exper.old <- unique(pdat.nl[pdat.nl$uptake %in% 1:2, 'exper'])
+
+> exper.old.in.new <- exper.old[exper.old %in% exper.new]
+
 > # Remove old pmid
 > print(dim(pdat.comb))
 [1] 2877  220
@@ -628,34 +629,43 @@ des for new institutes
 > print(dim(idat.comb))
 [1] 73099    47
 
+> # Set uptake/period
+> pmid.corrected <- pdat.comb[pdat.comb$exper %in% exper.old.in.new & grepl('IMAG|NMI|WUR', pdat.comb$institute), 'pmid']
+
+> pdat.comb[pdat.comb$uptake == 3 & pdat.comb$pmid %in% pmid.corrected, 'uptake'] <- 2
+
+> pdat.comb$corr.period <- NA
+
+> pdat.comb[pdat.comb$pmid %in% pmid.corrected, 'corr.period'] <- 3
+
 > pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 
 > print(table(pdat.nl$exper, pdat.nl$uptake))
            
             1 2 3
-  B1990-15  0 0 3
-  B1990-35  0 0 3
-  B1990-37  0 0 4
-  B1990-38  0 0 8
-  B1990-39  0 0 2
-  B1991-13  0 0 2
-  B1991-14  0 0 1
-  B1991-18  0 0 1
-  B1991-36  0 0 1
-  B1991-37  0 0 4
-  B1991-38  0 0 1
-  B1992-10  0 0 2
-  B1992-14  0 0 5
-  B1992-19  0 0 1
-  B1992-20  0 0 1
-  B1992-24  0 0 1
-  B1992-37  0 0 3
-  B1992-38  0 0 3
-  B1992-39  0 0 3
-  B1993-15  0 0 4
-  B1993-17  0 0 1
-  B1998-39  0 0 4
-  B1998-40  0 0 4
+  B1990-15  0 3 0
+  B1990-35  0 3 0
+  B1990-37  0 4 0
+  B1990-38  0 8 0
+  B1990-39  0 2 0
+  B1991-13  0 2 0
+  B1991-14  0 1 0
+  B1991-18  0 1 0
+  B1991-36  0 1 0
+  B1991-37  0 4 0
+  B1991-38  0 1 0
+  B1992-10  0 2 0
+  B1992-14  0 5 0
+  B1992-19  0 1 0
+  B1992-20  0 1 0
+  B1992-24  0 1 0
+  B1992-37  0 3 0
+  B1992-38  0 3 0
+  B1992-39  0 3 0
+  B1993-15  0 4 0
+  B1993-17  0 1 0
+  B1998-39  0 4 0
+  B1998-40  0 4 0
   B2002-13  0 0 2
   B2002-14  0 0 3
   B2002-15  0 0 3
@@ -674,77 +684,77 @@ des for new institutes
   B2010-19  0 0 4
   B2011-16  0 0 4
   B2011-17  0 0 4
-  G1989-13  0 0 2
-  G1989-15  0 0 2
-  G1989-27  0 0 1
-  G1989-28  0 0 2
+  G1989-13  0 2 0
+  G1989-15  0 2 0
+  G1989-27  0 1 0
+  G1989-28  0 2 0
   G1989-38  2 0 0
-  G1990-11  0 0 2
-  G1990-12  0 0 4
-  G1990-17  0 0 2
-  G1990-18  0 0 1
-  G1990-20  0 0 4
-  G1990-22  0 0 2
-  G1990-23  0 0 4
-  G1990-24  0 0 6
-  G1990-25  0 0 1
-  G1990-26  0 0 2
-  G1990-27  0 0 1
-  G1990-29  0 0 1
-  G1990-30  0 0 1
-  G1990-31  0 0 1
-  G1990-35  0 0 1
-  G1990-36  0 0 2
-  G1991-15  0 0 4
-  G1991-16  0 0 4
-  G1991-24  0 0 2
-  G1991-29  0 0 1
-  G1991-30  0 0 1
-  G1991-36  0 0 1
-  G1992-11  0 0 1
-  G1992-12  0 0 1
-  G1992-16  0 0 4
-  G1992-17  0 0 3
-  G1992-21  0 0 1
-  G1992-25  0 0 4
-  G1992-26  0 0 5
-  G1992-27  0 0 5
-  G1992-28  0 0 1
-  G1992-35  0 0 1
-  G1992-38  0 0 3
-  G1993-10  0 0 2
-  G1993-11  0 0 6
-  G1993-12  0 0 2
-  G1993-18  0 0 4
-  G1993-21  0 0 6
-  G1993-22  0 0 4
-  G1997-24  0 0 3
-  G1997-25  0 0 2
-  G1997-26  0 0 3
-  G1997-28  0 0 3
-  G1997-29  0 0 3
-  G1997-30  0 0 3
-  G1997-31  0 0 3
-  G1997-33  0 0 3
-  G1998-28  0 0 4
-  G1998-30  0 0 4
-  G1998-32  0 0 4
-  G1999-19  0 0 5
-  G1999-20  0 0 3
-  G1999-22  0 0 2
-  G1999-26  0 0 2
-  G1999-27  0 0 5
-  G1999-30  0 0 5
-  G1999-35  0 0 2
-  G2000-08  0 0 5
-  G2000-09  0 0 2
-  G2000-11  0 0 2
-  G2000-12  0 0 5
-  G2000-19  0 0 5
-  G2002-10  0 0 2
-  G2002-23  0 0 2
-  G2003-10  0 0 3
-  G2003-11  0 0 4
+  G1990-11  0 2 0
+  G1990-12  0 4 0
+  G1990-17  0 2 0
+  G1990-18  0 1 0
+  G1990-20  0 4 0
+  G1990-22  0 2 0
+  G1990-23  0 4 0
+  G1990-24  0 6 0
+  G1990-25  0 1 0
+  G1990-26  0 2 0
+  G1990-27  0 1 0
+  G1990-29  0 1 0
+  G1990-30  0 1 0
+  G1990-31  0 1 0
+  G1990-35  0 1 0
+  G1990-36  0 2 0
+  G1991-15  0 4 0
+  G1991-16  0 4 0
+  G1991-24  0 2 0
+  G1991-29  0 1 0
+  G1991-30  0 1 0
+  G1991-36  0 1 0
+  G1992-11  0 1 0
+  G1992-12  0 1 0
+  G1992-16  0 4 0
+  G1992-17  0 3 0
+  G1992-21  0 1 0
+  G1992-25  0 4 0
+  G1992-26  0 5 0
+  G1992-27  0 5 0
+  G1992-28  0 1 0
+  G1992-35  0 1 0
+  G1992-38  0 3 0
+  G1993-10  0 2 0
+  G1993-11  0 6 0
+  G1993-12  0 2 0
+  G1993-18  0 4 0
+  G1993-21  0 6 0
+  G1993-22  0 4 0
+  G1997-24  0 3 0
+  G1997-25  0 2 0
+  G1997-26  0 3 0
+  G1997-28  0 3 0
+  G1997-29  0 3 0
+  G1997-30  0 3 0
+  G1997-31  0 3 0
+  G1997-33  0 3 0
+  G1998-28  0 4 0
+  G1998-30  0 4 0
+  G1998-32  0 4 0
+  G1999-19  0 5 0
+  G1999-20  0 3 0
+  G1999-22  0 2 0
+  G1999-26  0 2 0
+  G1999-27  0 5 0
+  G1999-30  0 5 0
+  G1999-35  0 2 0
+  G2000-08  0 5 0
+  G2000-09  0 2 0
+  G2000-11  0 2 0
+  G2000-12  0 5 0
+  G2000-19  0 5 0
+  G2002-10  0 2 0
+  G2002-23  0 2 0
+  G2003-10  0 3 0
+  G2003-11  0 4 0
   G2005-29  0 0 1
   G2010-20  0 0 4
   G2010-21  0 0 4
@@ -796,12 +806,17 @@ des for new institutes
   WIND_6    0 2 0
   WIND_8    0 2 0
 
+> print(table(pdat.nl$uptake))
+
+  1   2   3 
+  2 275 155 
+
 > print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
          
             1   2   3
-  grass     2  16 294
-  none      0   0  49
-  stubble   0   0  34
+  grass     2 213  97
+  none      0  29  20
+  stubble   0  33   1
   wheat     0   0  37
 
 > # Which ones are remaining from uptakes 1 and 2?
@@ -810,7 +825,100 @@ des for new institutes
 > print(table(pdat.remain$exper, pdat.remain$uptake))
           
            1 2
+  B1990-15 0 3
+  B1990-35 0 3
+  B1990-37 0 4
+  B1990-38 0 8
+  B1990-39 0 2
+  B1991-13 0 2
+  B1991-14 0 1
+  B1991-18 0 1
+  B1991-36 0 1
+  B1991-37 0 4
+  B1991-38 0 1
+  B1992-10 0 2
+  B1992-14 0 5
+  B1992-19 0 1
+  B1992-20 0 1
+  B1992-24 0 1
+  B1992-37 0 3
+  B1992-38 0 3
+  B1992-39 0 3
+  B1993-15 0 4
+  B1993-17 0 1
+  B1998-39 0 4
+  B1998-40 0 4
+  G1989-13 0 2
+  G1989-15 0 2
+  G1989-27 0 1
+  G1989-28 0 2
   G1989-38 2 0
+  G1990-11 0 2
+  G1990-12 0 4
+  G1990-17 0 2
+  G1990-18 0 1
+  G1990-20 0 4
+  G1990-22 0 2
+  G1990-23 0 4
+  G1990-24 0 6
+  G1990-25 0 1
+  G1990-26 0 2
+  G1990-27 0 1
+  G1990-29 0 1
+  G1990-30 0 1
+  G1990-31 0 1
+  G1990-35 0 1
+  G1990-36 0 2
+  G1991-15 0 4
+  G1991-16 0 4
+  G1991-24 0 2
+  G1991-29 0 1
+  G1991-30 0 1
+  G1991-36 0 1
+  G1992-11 0 1
+  G1992-12 0 1
+  G1992-16 0 4
+  G1992-17 0 3
+  G1992-21 0 1
+  G1992-25 0 4
+  G1992-26 0 5
+  G1992-27 0 5
+  G1992-28 0 1
+  G1992-35 0 1
+  G1992-38 0 3
+  G1993-10 0 2
+  G1993-11 0 6
+  G1993-12 0 2
+  G1993-18 0 4
+  G1993-21 0 6
+  G1993-22 0 4
+  G1997-24 0 3
+  G1997-25 0 2
+  G1997-26 0 3
+  G1997-28 0 3
+  G1997-29 0 3
+  G1997-30 0 3
+  G1997-31 0 3
+  G1997-33 0 3
+  G1998-28 0 4
+  G1998-30 0 4
+  G1998-32 0 4
+  G1999-19 0 5
+  G1999-20 0 3
+  G1999-22 0 2
+  G1999-26 0 2
+  G1999-27 0 5
+  G1999-30 0 5
+  G1999-35 0 2
+  G2000-08 0 5
+  G2000-09 0 2
+  G2000-11 0 2
+  G2000-12 0 5
+  G2000-19 0 5
+  G2002-10 0 2
+  G2002-23 0 2
+  G2003-10 0 3
+  G2003-11 0 4
   IHF_13   0 4
   IHF_6    0 2
   IHF_7    0 2
@@ -820,9 +928,11 @@ des for new institutes
   WIND_8   0 2
 
 > print(table(pdat.remain$crop, pdat.remain$uptake, exclude = NULL))
-       
-         1  2
-  grass  2 16
+         
+            1   2
+  grass     2 213
+  none      0  29
+  stubble   0  33
 
 > # Make text plot summaries for uptake 3 only
 > 
@@ -875,10 +985,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.45
-          Release tag    2.33
-              Release    2.33
-          Main branch    2.44
+ main.R (new version)    2.46
+          Release tag    2.45
+              Release    2.45
+          Main branch    2.45
            Dev branch    2.41
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

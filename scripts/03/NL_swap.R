@@ -1,4 +1,6 @@
 # Remove old NL results that have been updated in uptake 3
+# Note: Uptake/period info, and whole correction is very much tailored to uptake 3 and the new data from NL
+# Note: It may not transfer at all to higher uptakes
 
 # Old IMAG experiment codes are missing B or G at beginning
 pdat.comb[pdat.comb$institute == 'IMAG' & pdat.comb$crop == 'grass', 'exper'] <- paste0('G', pdat.comb[pdat.comb$institute == 'IMAG' & pdat.comb$crop == 'grass', 'exper'])
@@ -17,6 +19,10 @@ exper.new <- pdat.nl[pdat.nl$uptake == 3, 'exper']
 # Find matching old ones that should be swapped out
 pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$uptake %in% 1:2, 'pmid']
 
+# Sort out old experiments that are being replaced, to update uptake
+exper.old <- unique(pdat.nl[pdat.nl$uptake %in% 1:2, 'exper'])
+exper.old.in.new <- exper.old[exper.old %in% exper.new]
+
 # Remove old pmid
 print(dim(pdat.comb))
 print(dim(idat.comb))
@@ -25,8 +31,15 @@ idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 print(dim(pdat.comb))
 print(dim(idat.comb))
 
+# Set uptake/period
+pmid.corrected <- pdat.comb[pdat.comb$exper %in% exper.old.in.new & grepl('IMAG|NMI|WUR', pdat.comb$institute), 'pmid']
+pdat.comb[pdat.comb$uptake == 3 & pdat.comb$pmid %in% pmid.corrected, 'uptake'] <- 2
+pdat.comb$corr.period <- NA
+pdat.comb[pdat.comb$pmid %in% pmid.corrected, 'corr.period'] <- 3
+
 pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 print(table(pdat.nl$exper, pdat.nl$uptake))
+print(table(pdat.nl$uptake))
 print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
 
 # Which ones are remaining from uptakes 1 and 2?

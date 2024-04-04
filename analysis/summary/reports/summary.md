@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "26 March, 2024"
+date: "27 March, 2024"
 ---
 
 
@@ -78,6 +78,41 @@ table(country = up$country, uptake = up$uptake)
 ##      SE  88   0  18
 ##      UK 342 109   0
 ##      US   0   2   0
+```
+
+```r
+table(institute = up$institute, uptake = up$uptake)
+```
+
+```
+##           uptake
+## institute    1   2   3
+##   AAFC       0 109   0
+##   ADAS      79   0   0
+##   ADAS-RR    0 109   0
+##   ARDC       0 120   0
+##   AT         0  26   0
+##   AU         0  87 374
+##   AU-BCE     0   0   4
+##   AUN        9   0   0
+##   CAU-LU     0 197   0
+##   CRPA      75   0   0
+##   DIAS      46   0   0
+##   DiSAA-IT   0   0   6
+##   IGER     263   0   0
+##   INH-HAFL   0  47   0
+##   INRA       0  25   0
+##   INRAE      0   0  21
+##   IUL/FAT    6   0   0
+##   JTI       88   0   0
+##   MU         0   8   0
+##   NMI-WUR    0  16   0
+##   SDU        0 138   0
+##   TEAGASC    0  68   0
+##   UNIMI      0   0   4
+##   UNINA      0   0   7
+##   USDA       0   2   0
+##   WUR        0   0 414
 ```
 
 

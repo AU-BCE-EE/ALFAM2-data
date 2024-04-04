@@ -1844,7 +1844,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## d
 ## 
 ## m i 
-## Missing values: 0
+## Missing values: 0 
+## 
+## 
+## -----------------------------------------------------
+## corr.period  numeric, range: 3 3 
+## Missing values: 2354
 ```
 
 
