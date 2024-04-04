@@ -3,7 +3,8 @@ inst,"Unique institute identification code",integer,,"100 < inst < 200 is used f
 eid,"Unique experiment identification code",integer,,
 pid,"Unique plot identification code",integer,,
 pmid,"Unique plot-measurement technique identification code",integer,,
-uptake,"Uptake event identification code",integer,,"1 for original ALFAM data, 2 for original ALFAM2 work, 3 for later submissions"
+sub.period,"Submission period identification code",integer,,"1 for original ALFAM data, 2 for original ALFAM2 work, 3 for later submissions"
+cor.period,"Correct period identification code",integer,,"Gives submission period during which data were revised, if at all"
 proj,"Project code",character,,"Unique within institute only"
 exper,"Experiment code",character,,"Unique within institute only"
 exper2,"Second experiment code",character,,"From ALFAM"

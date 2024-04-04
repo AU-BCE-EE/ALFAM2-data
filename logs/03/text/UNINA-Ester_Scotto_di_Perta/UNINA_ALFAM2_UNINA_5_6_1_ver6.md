@@ -548,15 +548,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE     FALSE      TRUE     FALSE     FALSE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2016-07-28 08:07:00       3
-## Maximum            2017-07-18 10:53:00       3
-## Mean               2017-02-16 06:31:51       3
-## Unique (excld. NA)                   7       1
-## Missing values                       0       0
-## Sorted                           FALSE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2016-07-28 08:07:00          3
+## Maximum            2017-07-18 10:53:00          3
+## Mean               2017-02-16 06:31:51          3
+## Unique (excld. NA)                   7          1
+## Missing values                       0          0
+## Sorted                           FALSE       TRUE
+##                                                  
 ##                                                                          file
 ## Class                                                               character
 ## Minimum            ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx

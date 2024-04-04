@@ -535,15 +535,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE      TRUE      TRUE      TRUE      TRUE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2013-06-19 09:10:00       3
-## Maximum            2013-06-19 15:05:00       3
-## Mean               2013-06-19 10:38:45       3
-## Unique (excld. NA)                   2       1
-## Missing values                       0       0
-## Sorted                            TRUE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2013-06-19 09:10:00          3
+## Maximum            2013-06-19 15:05:00          3
+## Mean               2013-06-19 10:38:45          3
+## Unique (excld. NA)                   2          1
+## Missing values                       0          0
+## Sorted                            TRUE       TRUE
+##                                                  
 ##                                                                                    file
 ## Class                                                                         character
 ## Minimum            ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx

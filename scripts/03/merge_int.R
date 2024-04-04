@@ -6,7 +6,7 @@ idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
 
 # Rename some old columns
 names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
-names(idat.old)[names(idat.old) == 'database'] <- 'uptake'
+names(idat.old)[names(idat.old) == 'database'] <- 'sub.period'
 names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
 names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
 

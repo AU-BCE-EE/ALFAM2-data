@@ -36,8 +36,13 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## uptake  numeric, range: 1 3 
+## sub.period  numeric, range: 1 3 
 ## Missing values: 0 
+## 
+## 
+## -----------------------------------------------------
+## corr.period  numeric, range: 3 3 
+## Missing values: 2354 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1844,12 +1849,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## d
 ## 
 ## m i 
-## Missing values: 0 
-## 
-## 
-## -----------------------------------------------------
-## corr.period  numeric, range: 3 3 
-## Missing values: 2354
+## Missing values: 0
 ```
 
 

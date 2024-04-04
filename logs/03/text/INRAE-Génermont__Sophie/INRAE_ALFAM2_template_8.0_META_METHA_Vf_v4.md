@@ -557,15 +557,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0                     0                  0
 ## Sorted                  TRUE      TRUE                  TRUE               TRUE
 ##                                                                                
-##                         plot       rep           app.start  uptake
-## Class              character character     POSIXct, POSIXt numeric
-## Minimum                    A      <NA> 2017-03-22 10:06:00       3
-## Maximum                    E      <NA> 2019-03-12 13:10:00       3
-## Mean                    <NA>      <NA> 2018-03-13 05:26:22       3
-## Unique (excld. NA)         3         0                  20       1
-## Missing values             0        21                   0       0
-## Sorted                 FALSE      <NA>               FALSE    TRUE
-##                                                                   
+##                         plot       rep           app.start sub.period
+## Class              character character     POSIXct, POSIXt    numeric
+## Minimum                    A      <NA> 2017-03-22 10:06:00          3
+## Maximum                    E      <NA> 2019-03-12 13:10:00          3
+## Mean                    <NA>      <NA> 2018-03-13 05:26:22          3
+## Unique (excld. NA)         3         0                  20          1
+## Missing values             0        21                   0          0
+## Sorted                 FALSE      <NA>               FALSE       TRUE
+##                                                                      
 ##                                                                                       file
 ## Class                                                                            character
 ## Minimum            ../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx

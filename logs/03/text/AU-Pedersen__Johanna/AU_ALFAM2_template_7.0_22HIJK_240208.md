@@ -494,15 +494,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE     FALSE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2022-06-08 12:56:00       3
-## Maximum            2022-06-29 14:37:00       3
-## Mean               2022-06-19 01:07:35       3
-## Unique (excld. NA)                  36       1
-## Missing values                       0       0
-## Sorted                           FALSE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2022-06-08 12:56:00          3
+## Maximum            2022-06-29 14:37:00          3
+## Mean               2022-06-19 01:07:35          3
+## Unique (excld. NA)                  36          1
+## Missing values                       0          0
+## Sorted                           FALSE       TRUE
+##                                                  
 ##                                                                                 file
 ## Class                                                                      character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx

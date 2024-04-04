@@ -472,15 +472,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0           0         0
 ## Sorted                  TRUE      TRUE      TRUE        TRUE      TRUE
 ##                                                                       
-##                          rep           app.start  uptake
-## Class              character     POSIXct, POSIXt numeric
-## Minimum                    1 2021-08-20 10:58:00       3
-## Maximum                    1 2021-11-09 10:15:00       3
-## Mean                    <NA> 2021-10-11 12:13:12       3
-## Unique (excld. NA)         1                   2       1
-## Missing values             0                   0       0
-## Sorted                  TRUE                TRUE    TRUE
-##                                                         
+##                          rep           app.start sub.period
+## Class              character     POSIXct, POSIXt    numeric
+## Minimum                    1 2021-08-20 10:58:00          3
+## Maximum                    1 2021-11-09 10:15:00          3
+## Mean                    <NA> 2021-10-11 12:13:12          3
+## Unique (excld. NA)         1                   2          1
+## Missing values             0                   0          0
+## Sorted                  TRUE                TRUE       TRUE
+##                                                            
 ##                                                                                   file
 ## Class                                                                        character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx

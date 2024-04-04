@@ -3,7 +3,12 @@
 # Get original pmid from latest GitHub release
 
 p <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease)
-pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, meas.tech.det, pid, pmid, eid)])
+pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
+# Fix name of uptake -> sub.period if needed (because of change around v2.47)
+if (any(names(pdatrelease) == 'uptake')) {
+  pdatrelease[, sub.period := uptake]
+}
+pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, meas.tech.det, pid, pmid, eid)])
 
 dim(pdatr)
 dim(pdat)
@@ -23,9 +28,9 @@ table(pdat$inst)
 
 # ID codes created in plots data frame and then merged into interval level data frame
 # First add ones already created in earlier release, to avoid changing existing keys with every release
-# For all, start with 1 + previous maximum from old (uptake 1 + 2 *and* last uptake 3 release (if any were actually merged in above))
+# For all, start with 1 + previous maximum from old (sub.period 1 + 2 *and* last sub.period 3 release (if any were actually merged in above))
 pdat <- merge(pdat, pdatr, all.x = TRUE)
-# Experiment ID (includes uptake, inst, proj, exper)
+# Experiment ID (includes sub.period, inst, proj, exper)
 pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat.old$eid, na.omit(pdat$eid)))
 # Add plot and plot x meas tech IDs
 pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat$pid)))
@@ -36,7 +41,7 @@ pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) 
 idat <- merge(idat, pdat[, c('cpmid', 'eid', 'pid', 'pmid')], by = c('cpmid'), all.x = TRUE)
 
 # Add observation ID
-# Is not copied from earlier uptake but because any new obs (should) have a large pmid, they will also have a higher oid
+# Is not copied from earlier sub.period but because any new obs (should) have a large pmid, they will also have a higher oid
 idat <- idat[order(idat$pmid, idat$int), ]
 idat$oid <- 1:nrow(idat) + max(idat.old$oid)
 

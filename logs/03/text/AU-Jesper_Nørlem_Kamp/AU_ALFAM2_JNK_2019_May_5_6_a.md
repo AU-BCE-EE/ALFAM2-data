@@ -442,15 +442,15 @@ title: 'Submitted data summary'
 ## Missing values             0              0                  0         0
 ## Sorted                  TRUE           TRUE               TRUE      TRUE
 ##                                                                         
-##                         plot       rep           app.start  uptake
-## Class              character character     POSIXct, POSIXt numeric
-## Minimum                    1         1 2019-05-21 06:00:00       3
-## Maximum                    1         1 2019-05-21 06:00:00       3
-## Mean                    <NA>      <NA> 2019-05-21 06:00:00       3
-## Unique (excld. NA)         1         1                   1       1
-## Missing values             0         0                   0       0
-## Sorted                  TRUE      TRUE                TRUE    TRUE
-##                                                                   
+##                         plot       rep           app.start sub.period
+## Class              character character     POSIXct, POSIXt    numeric
+## Minimum                    1         1 2019-05-21 06:00:00          3
+## Maximum                    1         1 2019-05-21 06:00:00          3
+## Mean                    <NA>      <NA> 2019-05-21 06:00:00          3
+## Unique (excld. NA)         1         1                   1          1
+## Missing values             0         0                   0          0
+## Sorted                  TRUE      TRUE                TRUE       TRUE
+##                                                                      
 ##                                                                         file
 ## Class                                                              character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx

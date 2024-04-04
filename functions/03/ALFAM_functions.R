@@ -196,7 +196,7 @@ check4missing <- function(obj) {
 }
 
 # Clean up data just read in
-cleanALFAM <- function(obj, uptake) {
+cleanALFAM <- function(obj, sub.period) {
 
   submitter <- obj$submitter
   contrib <- obj$contrib
@@ -209,8 +209,8 @@ cleanALFAM <- function(obj, uptake) {
 
   # Work with plots data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   plots$institute <- submitter$inst.abbrev
-  # Add uptake ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
-  plots$uptake <- uptake
+  # Add sub.period ALFAM(1) = 1, ALFAM2 = 2, and new = 2 + n
+  plots$sub.period <- sub.period
   # Add file
   plots$file <- file
 
@@ -256,7 +256,7 @@ cleanALFAM <- function(obj, uptake) {
   plots$app.start <- fixDateTime(plots$app.start.orig)
   plots$app.end <- fixDateTime(plots$app.end.orig)
 
-  # Character IDs (need institute, uptake, and file from above)
+  # Character IDs (need institute, sub.period, and file from above)
   # After sorting out app.start/end because we need same values in emis and plots data frames
   plots$cpmid <- addCPMID(plots)
   plots$cpid <- addCPID(plots)
@@ -291,7 +291,7 @@ cleanALFAM <- function(obj, uptake) {
 
   # Work with emis data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   # Add plot info (including application rate) to emis
-  # This brings in institute, uptake, and file (as well as many other columns)
+  # This brings in institute, sub.period, and file (as well as many other columns)
   # Keep all = TRUE in order to later check for missing codes
   # treat, meas.tech, meas.tech.det originally came from emis, merged with plots above
   nn <- nrow(emis)
@@ -463,25 +463,25 @@ cleanALFAM <- function(obj, uptake) {
 }
 
 addCPMID <- function(d) {
-  cpmid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
+  cpmid <- paste0('D:', as.numeric(factor(d$sub.period)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
                   '.P:', d$plot, '.T:', d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start, 
                   '.M:', d$meas.tech, d$meas.tech.det)
   return(cpmid)
 }
 
 addCPID <- function(d) {
-  cpid <-  paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
+  cpid <-  paste0('D:', as.numeric(factor(d$sub.period)), '.I:', d$institute, '.Pr:', d$proj, '.F:', d$file, '.E:', d$exper, '.F:', d$field, 
                   '.P:', d$plot, '.T:', d$treat, '.R:', d$rep, '.R2:', d$rep2, '.T:', d$app.start) 
   return(cpid)
 }
 
 addCEID <- function(d) {
-  ceid <- paste0('D:', as.numeric(factor(d$uptake)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
+  ceid <- paste0('D:', as.numeric(factor(d$sub.period)), '.I:', d$institute, '.Pr:', d$proj, '.E:', d$exper)
   return(ceid)
 }
 
 addVars <- function(dat) {
-  # Other variables to prepare for merge with uptake 2 data
+  # Other variables to prepare for merge with sub.period 2 data
   # Fill in some columns no longer used, just to be explicit about it
 
   dat$soil.type2 <- NA

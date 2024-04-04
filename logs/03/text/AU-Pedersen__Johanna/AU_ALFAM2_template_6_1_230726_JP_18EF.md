@@ -416,15 +416,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0          0         0         0
 ## Sorted                  TRUE      TRUE      TRUE       TRUE     FALSE     FALSE
 ##                                                                                
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2018-05-01 13:08:00       3
-## Maximum            2018-05-08 12:36:00       3
-## Mean               2018-05-05 00:50:40       3
-## Unique (excld. NA)                  18       1
-## Missing values                       0       0
-## Sorted                            TRUE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2018-05-01 13:08:00          3
+## Maximum            2018-05-08 12:36:00          3
+## Mean               2018-05-05 00:50:40          3
+## Unique (excld. NA)                  18          1
+## Missing values                       0          0
+## Sorted                            TRUE       TRUE
+##                                                  
 ##                                                                                  file
 ## Class                                                                       character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx

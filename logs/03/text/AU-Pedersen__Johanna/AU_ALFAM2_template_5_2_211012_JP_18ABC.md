@@ -493,15 +493,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0                     0
 ## Sorted                  TRUE      TRUE      TRUE                  TRUE
 ##                                                                       
-##                         plot       rep           app.start  uptake
-## Class              character character     POSIXct, POSIXt numeric
-## Minimum                    1         1 2018-05-15 13:18:00       3
-## Maximum                    9         3 2018-05-29 14:28:00       3
-## Mean                    <NA>      <NA> 2018-05-22 13:57:22       3
-## Unique (excld. NA)         9         3                  27       1
-## Missing values             0         0                   0       0
-## Sorted                 FALSE     FALSE               FALSE    TRUE
-##                                                                   
+##                         plot       rep           app.start sub.period
+## Class              character character     POSIXct, POSIXt    numeric
+## Minimum                    1         1 2018-05-15 13:18:00          3
+## Maximum                    9         3 2018-05-29 14:28:00          3
+## Mean                    <NA>      <NA> 2018-05-22 13:57:22          3
+## Unique (excld. NA)         9         3                  27          1
+## Missing values             0         0                   0          0
+## Sorted                 FALSE     FALSE               FALSE       TRUE
+##                                                                      
 ##                                                                                   file
 ## Class                                                                        character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx
