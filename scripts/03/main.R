@@ -13,13 +13,13 @@ rm(list = ls())
 
 # Set uptake number and new database version
 uptake <- 3
-version <- '2.45' # 26 March 2024
+version <- '2.46' # 4 April 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
-oldrelease <- '2.33'
+oldrelease <- '2.45'
 
 # For checking only a particular new file (partial matching)
 #newsubmission <- 'META_METHA'
