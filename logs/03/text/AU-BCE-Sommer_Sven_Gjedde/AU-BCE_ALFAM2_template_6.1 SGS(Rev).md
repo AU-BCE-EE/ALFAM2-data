@@ -539,15 +539,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE      TRUE      TRUE      TRUE      TRUE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2004-04-22 09:00:00       3
-## Maximum            2004-04-22 10:30:00       3
-## Mean               2004-04-22 09:45:00       3
-## Unique (excld. NA)                   4       1
-## Missing values                       0       0
-## Sorted                            TRUE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2004-04-22 09:00:00          3
+## Maximum            2004-04-22 10:30:00          3
+## Mean               2004-04-22 09:45:00          3
+## Unique (excld. NA)                   4          1
+## Missing values                       0          0
+## Sorted                            TRUE       TRUE
+##                                                  
 ##                                                                            file
 ## Class                                                                 character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx

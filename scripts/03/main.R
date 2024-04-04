@@ -1,7 +1,7 @@
 # Runs everything necessary for making database from submitted data
 # Creates interval-level and plot-level files for ALFAM2 database
-# This version processes only data from uptake 3 in ALFAM2
-# ALFAM(1) data and uptake 2 data from ALFAM2 are simply read from output in data-output/02
+# This version processes only data from submission period 3 in ALFAM2
+# ALFAM(1) data and submission period 2 data from ALFAM2 are simply read from output in data-output/02
 # Keys are pulled from previous GitHub release, if available, to prevent changes to keys in existing observations
 # REMINDER: in case of any errors, see make_database_log.txt for more details 
 
@@ -11,9 +11,9 @@
 
 rm(list = ls())
 
-# Set uptake number and new database version
-uptake <- 3
-version <- '2.46' # 4 April 2024
+# Set submission period number and new database version
+sub.period <- 3
+version <- '2.47' # 4 April 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -26,7 +26,7 @@ oldrelease <- '2.45'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
-alllogs <- FALSE 
+alllogs <- TRUE 
 
 # End settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

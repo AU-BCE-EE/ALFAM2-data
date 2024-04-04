@@ -692,15 +692,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0            0         0
 ## Sorted                  TRUE      TRUE      TRUE        FALSE     FALSE
 ##                                                                        
-##                          rep       app.start  uptake
-## Class              character POSIXct, POSIXt numeric
-## Minimum                 <NA>            <NA>       3
-## Maximum                 <NA>            <NA>       3
-## Mean                    <NA>            <NA>       3
-## Unique (excld. NA)         0               0       1
-## Missing values           294             294       0
-## Sorted                  <NA>            <NA>    TRUE
-##                                                     
+##                          rep       app.start sub.period
+## Class              character POSIXct, POSIXt    numeric
+## Minimum                 <NA>            <NA>          3
+## Maximum                 <NA>            <NA>          3
+## Mean                    <NA>            <NA>          3
+## Unique (excld. NA)         0               0          1
+## Missing values           294             294          0
+## Sorted                  <NA>            <NA>       TRUE
+##                                                        
 ##                                                               file     treat
 ## Class                                                    character character
 ## Minimum            ../../data-submitted/03/WUR/WUR_grass_2024.xlsx         1

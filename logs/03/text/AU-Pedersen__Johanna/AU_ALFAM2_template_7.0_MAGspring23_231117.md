@@ -516,15 +516,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE     FALSE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2023-04-12 14:45:00       3
-## Maximum            2023-05-24 16:07:00       3
-## Mean               2023-05-05 00:46:00       3
-## Unique (excld. NA)                  75       1
-## Missing values                       0       0
-## Sorted                           FALSE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2023-04-12 14:45:00          3
+## Maximum            2023-05-24 16:07:00          3
+## Mean               2023-05-05 00:46:00          3
+## Unique (excld. NA)                  75          1
+## Missing values                       0          0
+## Sorted                           FALSE       TRUE
+##                                                  
 ##                                                                                      file
 ## Class                                                                           character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx

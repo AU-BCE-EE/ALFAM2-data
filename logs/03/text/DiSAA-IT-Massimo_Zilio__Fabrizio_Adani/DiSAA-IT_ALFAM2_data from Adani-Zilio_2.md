@@ -554,15 +554,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         6
 ## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE      <NA>
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2018-04-23 11:00:00       3
-## Maximum            2020-05-28 11:00:00       3
-## Mean               2019-05-03 03:00:00       3
-## Unique (excld. NA)                   3       1
-## Missing values                       0       0
-## Sorted                            TRUE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2018-04-23 11:00:00          3
+## Maximum            2020-05-28 11:00:00          3
+## Mean               2019-05-03 03:00:00          3
+## Unique (excld. NA)                   3          1
+## Missing values                       0          0
+## Sorted                            TRUE       TRUE
+##                                                  
 ##                                                                                    file
 ## Class                                                                         character
 ## Minimum            ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx

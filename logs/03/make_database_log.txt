@@ -1,5 +1,5 @@
 
-> # Load data from uptakes 1 and 2 (the original "ALFAM2" work)
+> # Load data from sub.periods 1 and 2 (the original "ALFAM2" work)
 > 
 > idat.old <- read.csv('../../data-output/02/ALFAM2_interval.csv')
 
@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-04-04 14:10:47 EDT"
+[1] "2024-04-04 14:46:02 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -271,7 +271,8 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 8  directories
 
 > print(warnings())
-NULL
+Warning message:
+In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -304,7 +305,13 @@ NULL
 > 
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
-> pdatr <- as.data.frame(data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))[uptake == 3, .(uptake, institute, proj, file, exper, field .... [TRUNCATED] 
+> pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
+
+> # Fix name of uptake -> sub.period if needed (because of change around v2.47)
+> if (any(names(pdatrelease) == 'uptake')) {
++   pdatrelease[, sub.per .... [TRUNCATED] 
+
+> pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
 
 > dim(pdatr)
 [1] 978  16
@@ -331,8 +338,8 @@ NULL
 > # ID codes created in plots data frame and then merged into interval level data frame
 > # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
 
-> # Experiment ID (includes uptake, inst, proj, exper)
-> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat.old$ .... [TRUNCATED] 
+> # Experiment ID (includes sub.period, inst, proj, exper)
+> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat. .... [TRUNCATED] 
 
 > # Add plot and plot x meas tech IDs
 > pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat .... [TRUNCATED] 
@@ -344,20 +351,20 @@ NULL
 > idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
 
 > # Add observation ID
-> # Is not copied from earlier uptake but because any new obs (should) have a large pmid, they will also have a higher oid
-> id .... [TRUNCATED] 
+> # Is not copied from earlier sub.period but because any new obs (should) have a large pmid, they will also have a higher oid
+ .... [TRUNCATED] 
 
 > idat$oid <- 1:nrow(idat) + max(idat.old$oid)
 
-> # Combine new (uptake 3) with old data
+> # Combine new (sub.period 3) with old data
 > 
 > # First plot-level data
 > # Rename some old columns
-> names(pdat.old)[names(pdat.old) %in% c('first.row. .... [TRUNCATED] 
+> names(pdat.old)[names(pdat.old) %in% c('first. .... [TRUNCATED] 
 
 > names(pdat.old)[names(pdat.old) == 'row.in.file'] <- 'row.in.file.plot'
 
-> names(pdat.old)[names(pdat.old) == 'database'] <- 'uptake'
+> names(pdat.old)[names(pdat.old) == 'database'] <- 'sub.period'
 
 > names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
 
@@ -369,10 +376,13 @@ NULL
 > # Combine
 > pdat.comb <- rbindf(pdat, pdat.old)
 
+> # Add blank column for use with NL corrections
+> pdat.comb$corr.period <- NA
+
 > # Select and order columns (and order rows)
 > pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
 +   c('inst', 'eid', 'pid', 'pmid', 
-+     'uptake', 'p .... [TRUNCATED] 
++     'sub.period' .... [TRUNCATED] 
 
 > # Round
 > pdat.comb <- rounddf(pdat.comb, 5, func = signif)
@@ -391,7 +401,7 @@ NULL
 > # Rename some old columns
 > names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
 
-> names(idat.old)[names(idat.old) == 'database'] <- 'uptake'
+> names(idat.old)[names(idat.old) == 'database'] <- 'sub.period'
 
 > names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
 
@@ -416,17 +426,17 @@ NULL
 > #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
 > ## Columns missing in .... [TRUNCATED] 
 
-> # Remove old NL results that have been updated in uptake 3
-> # Note: Uptake/period info, and whole correction is very much tailored to uptake 3 and  .... [TRUNCATED] 
+> # Remove old NL results that have been updated in sub.period 3
+> # Note: Sub/correction period info, and whole correction is very much tailored to s .... [TRUNCATED] 
 
-> # Missing 0 in 2 uptake 2 experiment codes
+> # Missing 0 in 2 sub.period 2 experiment codes
 > pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-8', 'exper'] <- 'G2000-08'
 
 > pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-9', 'exper'] <- 'G2000-09'
 
 > pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 
-> print(table(pdat.nl$exper, pdat.nl$uptake))
+> print(table(pdat.nl$exper, pdat.nl$sub.period))
            
             1 2 3
   B1990-15  0 3 3
@@ -592,7 +602,7 @@ NULL
   WIND_6    0 2 0
   WIND_8    0 2 0
 
-> print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
+> print(table(pdat.nl$crop, pdat.nl$sub.period, exclude = NULL))
            
               1   2   3
   bare soil   0  29   0
@@ -602,19 +612,19 @@ NULL
   wheat       0   0  37
 
 > # Get new results
-> exper.new <- pdat.nl[pdat.nl$uptake == 3, 'exper']
+> exper.new <- pdat.nl[pdat.nl$sub.period == 3, 'exper']
 
 > # Find matching old ones that should be swapped out
-> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$uptake %in% 1:2, 'pmid']
+> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$sub.period %in% 1:2, 'pmid']
 
-> # Sort out old experiments that are being replaced, to update uptake
-> exper.old <- unique(pdat.nl[pdat.nl$uptake %in% 1:2, 'exper'])
+> # Sort out old experiments that are being replaced, to update sub.period
+> exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
 
 > exper.old.in.new <- exper.old[exper.old %in% exper.new]
 
 > # Remove old pmid
 > print(dim(pdat.comb))
-[1] 2877  220
+[1] 2877  221
 
 > print(dim(idat.comb))
 [1] 75351    47
@@ -624,15 +634,15 @@ NULL
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 2613  220
+[1] 2613  221
 
 > print(dim(idat.comb))
 [1] 73099    47
 
-> # Set uptake/period
+> # Set sub.period/period
 > pmid.corrected <- pdat.comb[pdat.comb$exper %in% exper.old.in.new & grepl('IMAG|NMI|WUR', pdat.comb$institute), 'pmid']
 
-> pdat.comb[pdat.comb$uptake == 3 & pdat.comb$pmid %in% pmid.corrected, 'uptake'] <- 2
+> pdat.comb[pdat.comb$sub.period == 3 & pdat.comb$pmid %in% pmid.corrected, 'sub.period'] <- 2
 
 > pdat.comb$corr.period <- NA
 
@@ -640,7 +650,7 @@ NULL
 
 > pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 
-> print(table(pdat.nl$exper, pdat.nl$uptake))
+> print(table(pdat.nl$exper, pdat.nl$sub.period))
            
             1 2 3
   B1990-15  0 3 0
@@ -806,12 +816,12 @@ NULL
   WIND_6    0 2 0
   WIND_8    0 2 0
 
-> print(table(pdat.nl$uptake))
+> print(table(pdat.nl$sub.period))
 
   1   2   3 
   2 275 155 
 
-> print(table(pdat.nl$crop, pdat.nl$uptake, exclude = NULL))
+> print(table(pdat.nl$crop, pdat.nl$sub.period, exclude = NULL))
          
             1   2   3
   grass     2 213  97
@@ -819,10 +829,10 @@ NULL
   stubble   0  33   1
   wheat     0   0  37
 
-> # Which ones are remaining from uptakes 1 and 2?
-> pdat.remain <- pdat.comb[pdat.comb$uptake %in% 1:2 & grepl('IMAG|NMI|WUR', pdat.comb$institute),  .... [TRUNCATED] 
+> # Which ones are remaining from sub.periods 1 and 2?
+> pdat.remain <- pdat.comb[pdat.comb$sub.period %in% 1:2 & grepl('IMAG|NMI|WUR', pdat.comb$inst .... [TRUNCATED] 
 
-> print(table(pdat.remain$exper, pdat.remain$uptake))
+> print(table(pdat.remain$exper, pdat.remain$sub.period))
           
            1 2
   B1990-15 0 3
@@ -927,20 +937,19 @@ NULL
   WIND_6   0 2
   WIND_8   0 2
 
-> print(table(pdat.remain$crop, pdat.remain$uptake, exclude = NULL))
+> print(table(pdat.remain$crop, pdat.remain$sub.period, exclude = NULL))
          
             1   2
   grass     2 213
   none      0  29
   stubble   0  33
 
-> # Make text plot summaries for uptake 3 only
+> # Make text plot summaries for sub.period 3 only
 > 
 > for (i in unique(pdat$file)) {
 + 
 +   fn <- strsplit(i, '/')
-+   fn <- fn[[1]][length(fn[[1]])]
-+  .... [TRUNCATED] 
++   fn <- fn[[1]][length(fn[[1]]) .... [TRUNCATED] 
 
 > # Saves a copy of plot and internval data by flie
 > # Main purpose is to have a text-based (works with Git) record of submitted data
@@ -985,7 +994,7 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.46
+ main.R (new version)    2.47
           Release tag    2.45
               Release    2.45
           Main branch    2.45

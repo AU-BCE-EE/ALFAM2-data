@@ -494,15 +494,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0         0         0         0
 ## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE     FALSE
 ##                                                                               
-##                              app.start  uptake
-## Class                  POSIXct, POSIXt numeric
-## Minimum            2019-05-27 10:22:00       3
-## Maximum            2019-06-26 09:13:00       3
-## Mean               2019-06-11 03:40:15       3
-## Unique (excld. NA)                   4       1
-## Missing values                       0       0
-## Sorted                            TRUE    TRUE
-##                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2019-05-27 10:22:00          3
+## Maximum            2019-06-26 09:13:00          3
+## Mean               2019-06-11 03:40:15          3
+## Unique (excld. NA)                   4          1
+## Missing values                       0          0
+## Sorted                            TRUE       TRUE
+##                                                  
 ##                                                                                          file
 ## Class                                                                               character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx

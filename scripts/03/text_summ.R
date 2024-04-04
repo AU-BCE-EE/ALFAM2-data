@@ -1,4 +1,4 @@
-# Make text plot summaries for uptake 3 only
+# Make text plot summaries for sub.period 3 only
 
 for (i in unique(pdat$file)) {
 

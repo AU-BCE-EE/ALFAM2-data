@@ -586,15 +586,15 @@ title: 'Submitted data summary'
 ## Missing values             0         0         0           0         0
 ## Sorted                  TRUE      TRUE      TRUE       FALSE     FALSE
 ##                                                                       
-##                          rep           app.start  uptake
-## Class              character     POSIXct, POSIXt numeric
-## Minimum                    1 2019-05-15 16:48:00       3
-## Maximum                    3 2020-04-23 14:08:00       3
-## Mean                    <NA> 2019-12-28 22:53:20       3
-## Unique (excld. NA)         3                  27       1
-## Missing values             0                   0       0
-## Sorted                 FALSE               FALSE    TRUE
-##                                                         
+##                          rep           app.start sub.period
+## Class              character     POSIXct, POSIXt    numeric
+## Minimum                    1 2019-05-15 16:48:00          3
+## Maximum                    3 2020-04-23 14:08:00          3
+## Mean                    <NA> 2019-12-28 22:53:20          3
+## Unique (excld. NA)         3                  27          1
+## Missing values             0                   0          0
+## Sorted                 FALSE               FALSE       TRUE
+##                                                            
 ##                                                                                     file
 ## Class                                                                          character
 ## Minimum            ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx
