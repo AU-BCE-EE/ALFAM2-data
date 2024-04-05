@@ -26,7 +26,7 @@ oldrelease <- '2.45'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
-alllogs <- TRUE 
+alllogs <- FALSE
 
 # End settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
