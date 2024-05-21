@@ -19,10 +19,10 @@ length(unique(pdat$pid))
 
 ```{r}
 up <- pdat[unique(pdat$pid), ]
-table(pdat$uptake)
-table(up$uptake)
-table(country = up$country, uptake = up$uptake)
-table(institute = up$institute, uptake = up$uptake)
+table(pdat$sub.period)
+table(up$sub.period)
+table(country = up$country, sub.period = up$sub.period)
+table(institute = up$institute, sub.period = up$sub.period)
 ```
 
 ```{r}
@@ -31,9 +31,9 @@ table(pdat$man.trt2)
 ```
 
 ```{r}
-u3 <- subset(pdat, uptake == 3)
-up3 <- subset(up, uptake == 3)
-table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
+u3 <- subset(pdat, sub.period == 3)
+up3 <- subset(up, sub.period == 3)
+table(paste(u3$sub.period, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
 table(u3$digested)
 table(up3$digested)
 ```
