@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-04-04 14:46:02 EDT"
+[1] "2024-05-21 06:57:17 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -211,6 +211,8 @@ Directory  ../../data-submitted/03/INRAE
 
    file  ../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+Directory  ../../data-submitted/03/TI 
+
 Directory  ../../data-submitted/03/UNINA 
 
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
@@ -268,11 +270,9 @@ Directory  ../../data-submitted/03/WUR
 Directory  ../../data-submitted/03/WUR-wim 
 
 > cat('Done! Read', length(dat), ' directories\n')
-Done! Read 8  directories
+Done! Read 9  directories
 
 > print(warnings())
-Warning message:
-In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -375,9 +375,6 @@ In sink() : no sink to remove
 
 > # Combine
 > pdat.comb <- rbindf(pdat, pdat.old)
-
-> # Add blank column for use with NL corrections
-> pdat.comb$corr.period <- NA
 
 > # Select and order columns (and order rows)
 > pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
@@ -617,14 +614,15 @@ In sink() : no sink to remove
 > # Find matching old ones that should be swapped out
 > pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$sub.period %in% 1:2, 'pmid']
 
-> # Sort out old experiments that are being replaced, to update sub.period
-> exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
+> # Find sub.periods (original, could be 1 or 2) for new experiments
+> exper.old.in.new <- merge(unique(pdat.nl[pdat.nl$sub.period %in% 1:2, c('exper' .... [TRUNCATED] 
 
-> exper.old.in.new <- exper.old[exper.old %in% exper.new]
+> exper.old.in.new$corr.period <- 3
 
-> # Remove old pmid
-> print(dim(pdat.comb))
-[1] 2877  221
+> ## Sort out old experiments that are being replaced, to update sub.period
+> #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
+> #e .... [TRUNCATED] 
+[1] 2877  220
 
 > print(dim(idat.comb))
 [1] 75351    47
@@ -634,301 +632,213 @@ In sink() : no sink to remove
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 2613  221
+[1] 2613  220
 
 > print(dim(idat.comb))
 [1] 73099    47
 
 > # Set sub.period/period
-> pmid.corrected <- pdat.comb[pdat.comb$exper %in% exper.old.in.new & grepl('IMAG|NMI|WUR', pdat.comb$institute), 'pmid']
+> pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
 
-> pdat.comb[pdat.comb$sub.period == 3 & pdat.comb$pmid %in% pmid.corrected, 'sub.period'] <- 2
+> # nrow should not change
+> print(dim(pdat.comb))
+[1] 2613  223
 
-> pdat.comb$corr.period <- NA
+> # Check--should all be TRUE
+> all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
+[1] TRUE
 
-> pdat.comb[pdat.comb$pmid %in% pmid.corrected, 'corr.period'] <- 3
+> # Use old sub.period values
+> pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub.period'] <- pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub. .... [TRUNCATED] 
 
 > pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
 
-> print(table(pdat.nl$exper, pdat.nl$sub.period))
+> print(table(pdat.nl$exper, paste(pdat.nl$corr.period, pdat.nl$sub.period)))
            
-            1 2 3
-  B1990-15  0 3 0
-  B1990-35  0 3 0
-  B1990-37  0 4 0
-  B1990-38  0 8 0
-  B1990-39  0 2 0
-  B1991-13  0 2 0
-  B1991-14  0 1 0
-  B1991-18  0 1 0
-  B1991-36  0 1 0
-  B1991-37  0 4 0
-  B1991-38  0 1 0
-  B1992-10  0 2 0
-  B1992-14  0 5 0
-  B1992-19  0 1 0
-  B1992-20  0 1 0
-  B1992-24  0 1 0
-  B1992-37  0 3 0
-  B1992-38  0 3 0
-  B1992-39  0 3 0
-  B1993-15  0 4 0
-  B1993-17  0 1 0
-  B1998-39  0 4 0
-  B1998-40  0 4 0
-  B2002-13  0 0 2
-  B2002-14  0 0 3
-  B2002-15  0 0 3
-  B2002-17  0 0 3
-  B2002-19  0 0 3
-  B2006-17  0 0 2
-  B2006-18  0 0 2
-  B2006-19  0 0 2
-  B2007-13  0 0 4
-  B2007-16  0 0 4
-  B2007-17  0 0 4
-  B2008-15  0 0 4
-  B2008-17  0 0 4
-  B2008-39  0 0 2
-  B2010-16  0 0 4
-  B2010-19  0 0 4
-  B2011-16  0 0 4
-  B2011-17  0 0 4
-  G1989-13  0 2 0
-  G1989-15  0 2 0
-  G1989-27  0 1 0
-  G1989-28  0 2 0
-  G1989-38  2 0 0
-  G1990-11  0 2 0
-  G1990-12  0 4 0
-  G1990-17  0 2 0
-  G1990-18  0 1 0
-  G1990-20  0 4 0
-  G1990-22  0 2 0
-  G1990-23  0 4 0
-  G1990-24  0 6 0
-  G1990-25  0 1 0
-  G1990-26  0 2 0
-  G1990-27  0 1 0
-  G1990-29  0 1 0
-  G1990-30  0 1 0
-  G1990-31  0 1 0
-  G1990-35  0 1 0
-  G1990-36  0 2 0
-  G1991-15  0 4 0
-  G1991-16  0 4 0
-  G1991-24  0 2 0
-  G1991-29  0 1 0
-  G1991-30  0 1 0
-  G1991-36  0 1 0
-  G1992-11  0 1 0
-  G1992-12  0 1 0
-  G1992-16  0 4 0
-  G1992-17  0 3 0
-  G1992-21  0 1 0
-  G1992-25  0 4 0
-  G1992-26  0 5 0
-  G1992-27  0 5 0
-  G1992-28  0 1 0
-  G1992-35  0 1 0
-  G1992-38  0 3 0
-  G1993-10  0 2 0
-  G1993-11  0 6 0
-  G1993-12  0 2 0
-  G1993-18  0 4 0
-  G1993-21  0 6 0
-  G1993-22  0 4 0
-  G1997-24  0 3 0
-  G1997-25  0 2 0
-  G1997-26  0 3 0
-  G1997-28  0 3 0
-  G1997-29  0 3 0
-  G1997-30  0 3 0
-  G1997-31  0 3 0
-  G1997-33  0 3 0
-  G1998-28  0 4 0
-  G1998-30  0 4 0
-  G1998-32  0 4 0
-  G1999-19  0 5 0
-  G1999-20  0 3 0
-  G1999-22  0 2 0
-  G1999-26  0 2 0
-  G1999-27  0 5 0
-  G1999-30  0 5 0
-  G1999-35  0 2 0
-  G2000-08  0 5 0
-  G2000-09  0 2 0
-  G2000-11  0 2 0
-  G2000-12  0 5 0
-  G2000-19  0 5 0
-  G2002-10  0 2 0
-  G2002-23  0 2 0
-  G2003-10  0 3 0
-  G2003-11  0 4 0
-  G2005-29  0 0 1
-  G2010-20  0 0 4
-  G2010-21  0 0 4
-  G2013-15a 0 0 2
-  G2013-15b 0 0 2
-  G2013-16a 0 0 2
-  G2013-16b 0 0 2
-  G2013-24a 0 0 2
-  G2013-24b 0 0 2
-  G2014-11a 0 0 2
-  G2014-12a 0 0 2
-  G2014-12b 0 0 2
-  G2014-13  0 0 2
-  G2014-17  0 0 2
-  G2014-18a 0 0 2
-  G2014-18b 0 0 3
-  G2014-19  0 0 3
-  G2014-20  0 0 2
-  G2014-21  0 0 2
-  G2014-23a 0 0 3
-  G2014-23b 0 0 3
-  G2015-35  0 0 2
-  G2016-13  0 0 2
-  G2016-14  0 0 3
-  G2016-20  0 0 3
-  G2016-21  0 0 2
-  G2016-26  0 0 3
-  G2016-27  0 0 2
-  G2016-33  0 0 3
-  G2016-34  0 0 3
-  G2017-20a 0 0 2
-  G2017-20b 0 0 2
-  G2017-25  0 0 2
-  G2017-35  0 0 2
-  G2020-21  0 0 2
-  G2020-22  0 0 2
-  G2020-27  0 0 2
-  G2020-28  0 0 2
-  G2021-12  0 0 2
-  G2021-13  0 0 2
-  G2021-23  0 0 2
-  G2021-29  0 0 2
-  G2021-45  0 0 1
-  IHF_13    0 4 0
-  IHF_6     0 2 0
-  IHF_7     0 2 0
-  WIND_10   0 2 0
-  WIND_4    0 2 0
-  WIND_6    0 2 0
-  WIND_8    0 2 0
+            3 1 3 2 NA 1 NA 2 NA 3
+  B1990-15    0   3    0    0    0
+  B1990-35    0   3    0    0    0
+  B1990-37    0   4    0    0    0
+  B1990-38    0   8    0    0    0
+  B1990-39    0   2    0    0    0
+  B1991-13    0   2    0    0    0
+  B1991-14    0   1    0    0    0
+  B1991-18    0   1    0    0    0
+  B1991-36    0   1    0    0    0
+  B1991-37    0   4    0    0    0
+  B1991-38    0   1    0    0    0
+  B1992-10    0   2    0    0    0
+  B1992-14    0   5    0    0    0
+  B1992-19    0   1    0    0    0
+  B1992-20    0   1    0    0    0
+  B1992-24    0   1    0    0    0
+  B1992-37    0   3    0    0    0
+  B1992-38    0   3    0    0    0
+  B1992-39    0   3    0    0    0
+  B1993-15    0   4    0    0    0
+  B1993-17    0   1    0    0    0
+  B1998-39    0   4    0    0    0
+  B1998-40    0   4    0    0    0
+  B2002-13    0   0    0    0    2
+  B2002-14    0   0    0    0    3
+  B2002-15    0   0    0    0    3
+  B2002-17    0   0    0    0    3
+  B2002-19    0   0    0    0    3
+  B2006-17    0   0    0    0    2
+  B2006-18    0   0    0    0    2
+  B2006-19    0   0    0    0    2
+  B2007-13    0   0    0    0    4
+  B2007-16    0   0    0    0    4
+  B2007-17    0   0    0    0    4
+  B2008-15    0   0    0    0    4
+  B2008-17    0   0    0    0    4
+  B2008-39    0   0    0    0    2
+  B2010-16    0   0    0    0    4
+  B2010-19    0   0    0    0    4
+  B2011-16    0   0    0    0    4
+  B2011-17    0   0    0    0    4
+  G1989-13    2   0    0    0    0
+  G1989-15    2   0    0    0    0
+  G1989-27    1   0    0    0    0
+  G1989-28    2   0    0    0    0
+  G1989-38    0   0    2    0    0
+  G1990-11    2   0    0    0    0
+  G1990-12    4   0    0    0    0
+  G1990-17    2   0    0    0    0
+  G1990-18    1   0    0    0    0
+  G1990-20    4   0    0    0    0
+  G1990-22    2   0    0    0    0
+  G1990-23    4   0    0    0    0
+  G1990-24    6   0    0    0    0
+  G1990-25    1   0    0    0    0
+  G1990-26    2   0    0    0    0
+  G1990-27    1   0    0    0    0
+  G1990-29    1   0    0    0    0
+  G1990-30    1   0    0    0    0
+  G1990-31    1   0    0    0    0
+  G1990-35    1   0    0    0    0
+  G1990-36    2   0    0    0    0
+  G1991-15    4   0    0    0    0
+  G1991-16    4   0    0    0    0
+  G1991-24    2   0    0    0    0
+  G1991-29    1   0    0    0    0
+  G1991-30    1   0    0    0    0
+  G1991-36    1   0    0    0    0
+  G1992-11    1   0    0    0    0
+  G1992-12    1   0    0    0    0
+  G1992-16    4   0    0    0    0
+  G1992-17    3   0    0    0    0
+  G1992-21    1   0    0    0    0
+  G1992-25    4   0    0    0    0
+  G1992-26    5   0    0    0    0
+  G1992-27    5   0    0    0    0
+  G1992-28    1   0    0    0    0
+  G1992-35    1   0    0    0    0
+  G1992-38    3   0    0    0    0
+  G1993-10    2   0    0    0    0
+  G1993-11    6   0    0    0    0
+  G1993-12    2   0    0    0    0
+  G1993-18    4   0    0    0    0
+  G1993-21    6   0    0    0    0
+  G1993-22    4   0    0    0    0
+  G1997-24    0   3    0    0    0
+  G1997-25    0   2    0    0    0
+  G1997-26    0   3    0    0    0
+  G1997-28    0   3    0    0    0
+  G1997-29    0   3    0    0    0
+  G1997-30    0   3    0    0    0
+  G1997-31    0   3    0    0    0
+  G1997-33    0   3    0    0    0
+  G1998-28    0   4    0    0    0
+  G1998-30    0   4    0    0    0
+  G1998-32    0   4    0    0    0
+  G1999-19    0   5    0    0    0
+  G1999-20    0   3    0    0    0
+  G1999-22    0   2    0    0    0
+  G1999-26    0   2    0    0    0
+  G1999-27    0   5    0    0    0
+  G1999-30    0   5    0    0    0
+  G1999-35    0   2    0    0    0
+  G2000-08    0   5    0    0    0
+  G2000-09    0   2    0    0    0
+  G2000-11    0   2    0    0    0
+  G2000-12    0   5    0    0    0
+  G2000-19    0   5    0    0    0
+  G2002-10    0   2    0    0    0
+  G2002-23    0   2    0    0    0
+  G2003-10    0   3    0    0    0
+  G2003-11    0   4    0    0    0
+  G2005-29    0   0    0    0    1
+  G2010-20    0   0    0    0    4
+  G2010-21    0   0    0    0    4
+  G2013-15a   0   0    0    0    2
+  G2013-15b   0   0    0    0    2
+  G2013-16a   0   0    0    0    2
+  G2013-16b   0   0    0    0    2
+  G2013-24a   0   0    0    0    2
+  G2013-24b   0   0    0    0    2
+  G2014-11a   0   0    0    0    2
+  G2014-12a   0   0    0    0    2
+  G2014-12b   0   0    0    0    2
+  G2014-13    0   0    0    0    2
+  G2014-17    0   0    0    0    2
+  G2014-18a   0   0    0    0    2
+  G2014-18b   0   0    0    0    3
+  G2014-19    0   0    0    0    3
+  G2014-20    0   0    0    0    2
+  G2014-21    0   0    0    0    2
+  G2014-23a   0   0    0    0    3
+  G2014-23b   0   0    0    0    3
+  G2015-35    0   0    0    0    2
+  G2016-13    0   0    0    0    2
+  G2016-14    0   0    0    0    3
+  G2016-20    0   0    0    0    3
+  G2016-21    0   0    0    0    2
+  G2016-26    0   0    0    0    3
+  G2016-27    0   0    0    0    2
+  G2016-33    0   0    0    0    3
+  G2016-34    0   0    0    0    3
+  G2017-20a   0   0    0    0    2
+  G2017-20b   0   0    0    0    2
+  G2017-25    0   0    0    0    2
+  G2017-35    0   0    0    0    2
+  G2020-21    0   0    0    0    2
+  G2020-22    0   0    0    0    2
+  G2020-27    0   0    0    0    2
+  G2020-28    0   0    0    0    2
+  G2021-12    0   0    0    0    2
+  G2021-13    0   0    0    0    2
+  G2021-23    0   0    0    0    2
+  G2021-29    0   0    0    0    2
+  G2021-45    0   0    0    0    1
+  IHF_13      0   0    0    4    0
+  IHF_6       0   0    0    2    0
+  IHF_7       0   0    0    2    0
+  WIND_10     0   0    0    2    0
+  WIND_4      0   0    0    2    0
+  WIND_6      0   0    0    2    0
+  WIND_8      0   0    0    2    0
 
 > print(table(pdat.nl$sub.period))
 
   1   2   3 
-  2 275 155 
+110 167 155 
 
 > print(table(pdat.nl$crop, pdat.nl$sub.period, exclude = NULL))
          
             1   2   3
-  grass     2 213  97
+  grass   110 105  97
   none      0  29  20
   stubble   0  33   1
   wheat     0   0  37
 
 > # Which ones are remaining from sub.periods 1 and 2?
-> pdat.remain <- pdat.comb[pdat.comb$sub.period %in% 1:2 & grepl('IMAG|NMI|WUR', pdat.comb$inst .... [TRUNCATED] 
+> pdat.remain <- pdat.comb[is.na(pdat.comb$corr.period) & pdat.comb$sub.period %in% 1:2 & grepl .... [TRUNCATED] 
 
 > print(table(pdat.remain$exper, pdat.remain$sub.period))
           
            1 2
-  B1990-15 0 3
-  B1990-35 0 3
-  B1990-37 0 4
-  B1990-38 0 8
-  B1990-39 0 2
-  B1991-13 0 2
-  B1991-14 0 1
-  B1991-18 0 1
-  B1991-36 0 1
-  B1991-37 0 4
-  B1991-38 0 1
-  B1992-10 0 2
-  B1992-14 0 5
-  B1992-19 0 1
-  B1992-20 0 1
-  B1992-24 0 1
-  B1992-37 0 3
-  B1992-38 0 3
-  B1992-39 0 3
-  B1993-15 0 4
-  B1993-17 0 1
-  B1998-39 0 4
-  B1998-40 0 4
-  G1989-13 0 2
-  G1989-15 0 2
-  G1989-27 0 1
-  G1989-28 0 2
   G1989-38 2 0
-  G1990-11 0 2
-  G1990-12 0 4
-  G1990-17 0 2
-  G1990-18 0 1
-  G1990-20 0 4
-  G1990-22 0 2
-  G1990-23 0 4
-  G1990-24 0 6
-  G1990-25 0 1
-  G1990-26 0 2
-  G1990-27 0 1
-  G1990-29 0 1
-  G1990-30 0 1
-  G1990-31 0 1
-  G1990-35 0 1
-  G1990-36 0 2
-  G1991-15 0 4
-  G1991-16 0 4
-  G1991-24 0 2
-  G1991-29 0 1
-  G1991-30 0 1
-  G1991-36 0 1
-  G1992-11 0 1
-  G1992-12 0 1
-  G1992-16 0 4
-  G1992-17 0 3
-  G1992-21 0 1
-  G1992-25 0 4
-  G1992-26 0 5
-  G1992-27 0 5
-  G1992-28 0 1
-  G1992-35 0 1
-  G1992-38 0 3
-  G1993-10 0 2
-  G1993-11 0 6
-  G1993-12 0 2
-  G1993-18 0 4
-  G1993-21 0 6
-  G1993-22 0 4
-  G1997-24 0 3
-  G1997-25 0 2
-  G1997-26 0 3
-  G1997-28 0 3
-  G1997-29 0 3
-  G1997-30 0 3
-  G1997-31 0 3
-  G1997-33 0 3
-  G1998-28 0 4
-  G1998-30 0 4
-  G1998-32 0 4
-  G1999-19 0 5
-  G1999-20 0 3
-  G1999-22 0 2
-  G1999-26 0 2
-  G1999-27 0 5
-  G1999-30 0 5
-  G1999-35 0 2
-  G2000-08 0 5
-  G2000-09 0 2
-  G2000-11 0 2
-  G2000-12 0 5
-  G2000-19 0 5
-  G2002-10 0 2
-  G2002-23 0 2
-  G2003-10 0 3
-  G2003-11 0 4
   IHF_13   0 4
   IHF_6    0 2
   IHF_7    0 2
@@ -938,11 +848,9 @@ In sink() : no sink to remove
   WIND_8   0 2
 
 > print(table(pdat.remain$crop, pdat.remain$sub.period, exclude = NULL))
-         
-            1   2
-  grass     2 213
-  none      0  29
-  stubble   0  33
+       
+         1  2
+  grass  2 16
 
 > # Make text plot summaries for sub.period 3 only
 > 
@@ -994,11 +902,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.47
+ main.R (new version)    2.48
           Release tag    2.45
               Release    2.45
-          Main branch    2.45
-           Dev branch    2.41
+          Main branch    2.47
+           Dev branch    2.47
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 

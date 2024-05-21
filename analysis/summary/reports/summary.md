@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "27 March, 2024"
+date: "21 May, 2024"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 2613  221
+## [1] 2613  224
 ```
 
 ```r
@@ -40,31 +40,31 @@ length(unique(pdat$pid))
 
 ```r
 up <- pdat[unique(pdat$pid), ]
-table(pdat$uptake)
+table(pdat$sub.period)
 ```
 
 ```
 ## 
-##   1   2   3 
-## 683 952 978
+##    1    2    3 
+##  791 1103  719
 ```
 
 ```r
-table(up$uptake)
+table(up$sub.period)
 ```
 
 ```
 ## 
-##   1   2   3 
-## 566 952 830
+##    1    2    3 
+##  674 1103  571
 ```
 
 ```r
-table(country = up$country, uptake = up$uptake)
+table(country = up$country, sub.period = up$sub.period)
 ```
 
 ```
-##        uptake
+##        sub.period
 ## country   1   2   3
 ##      CA   0 229  31
 ##      CH   6  47   0
@@ -73,7 +73,7 @@ table(country = up$country, uptake = up$uptake)
 ##      FR   0  25  21
 ##      IE   0  68   0
 ##      IT  75   8  17
-##      NL   0  16 433
+##      NL 108 167 174
 ##      NO   9   0   0
 ##      SE  88   0  18
 ##      UK 342 109   0
@@ -81,11 +81,11 @@ table(country = up$country, uptake = up$uptake)
 ```
 
 ```r
-table(institute = up$institute, uptake = up$uptake)
+table(institute = up$institute, sub.period = up$sub.period)
 ```
 
 ```
-##           uptake
+##           sub.period
 ## institute    1   2   3
 ##   AAFC       0 109   0
 ##   ADAS      79   0   0
@@ -112,7 +112,7 @@ table(institute = up$institute, uptake = up$uptake)
 ##   UNIMI      0   0   4
 ##   UNINA      0   0   7
 ##   USDA       0   2   0
-##   WUR        0   0 414
+##   WUR      108 151 155
 ```
 
 
@@ -140,9 +140,9 @@ table(pdat$man.trt2)
 
 
 ```r
-u3 <- subset(pdat, uptake == 3)
-up3 <- subset(up, uptake == 3)
-table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
+u3 <- subset(pdat, sub.period == 3)
+up3 <- subset(up, sub.period == 3)
+table(paste(u3$sub.period, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
 ```
 
 ```
@@ -165,9 +165,9 @@ table(paste(u3$uptake, u3$country, u3$institute, u3$man.source, u3$meas.tech2), 
 ##   3 NL AU cat chamber                       4    0
 ##   3 NL AU cat micro met                     6    0
 ##   3 NL AU cat wt                            9    0
-##   3 NL WUR dairy micro met                276    0
+##   3 NL WUR dairy micro met                 93    0
 ##   3 NL WUR mineralconcentrate micro met    12    0
-##   3 NL WUR pig micro met                  126    0
+##   3 NL WUR pig micro met                   50    0
 ##   3 SE AU cat wt                           12    0
 ##   3 SE AU mix wt                            0    6
 ```
@@ -179,7 +179,7 @@ table(u3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   817   161
+##   558   161
 ```
 
 ```r
@@ -189,7 +189,7 @@ table(up3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   670   160
+##   411   160
 ```
 
 
@@ -200,7 +200,7 @@ table(u3$meas.tech2)
 ```
 ## 
 ##   chamber micro met        wt 
-##       113       472       393
+##       113       213       393
 ```
 
 ```r
@@ -210,7 +210,7 @@ table(up3$meas.tech2)
 ```
 ## 
 ##   chamber micro met        wt 
-##       113       472       245
+##       113       213       245
 ```
 
 
@@ -221,7 +221,7 @@ table(up3$country)
 ```
 ## 
 ##  CA  DK  FR  IT  NL  SE 
-##  31 310  21  17 433  18
+##  31 310  21  17 174  18
 ```
 
 ```r
@@ -231,7 +231,7 @@ table(u3$country)
 ```
 ## 
 ##  CA  DK  FR  IT  NL  SE 
-##  64 425  21  17 433  18
+##  64 425  21  17 174  18
 ```
 
 Acidification table.

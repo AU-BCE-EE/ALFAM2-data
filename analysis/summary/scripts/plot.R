@@ -9,7 +9,7 @@ ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   labs(x = 'Country', y = 'Relative emission (frac. TAN)', colour = '', shape = '') +
   theme_bw() +
   theme(legend.position = 'top', axis.text.x = element_text(angle=90, vjust=.5, hjust=1)) +
-  facet_wrap(~ paste('Uptake', uptake)) +
+  facet_wrap(~ paste('Submission period', sub.period)) +
   coord_cartesian(ylim = c(0, 1.3)) +
   guides(colour = guide_legend(nrow = 2))
 ggsave('../plots/ALFAM2_data_summary.pdf', height = 3.3, width = 6.7)
@@ -24,7 +24,7 @@ ggplot(dd, aes(country, e.rel.final, colour = app.mthd, shape = app.mthd)) +
   labs(x = 'Country', y = 'Relative emission (frac. TAN)', colour = '', shape = '') +
   theme_bw() +
   theme(legend.position = 'top', axis.text.x = element_text(angle=90, vjust=.5, hjust=1)) +
-  facet_wrap(~ paste('Uptake', uptake)) +
+  facet_wrap(~ paste('Submission period', sub.period)) +
   coord_cartesian(ylim = c(0, 1.3)) +
   guides(colour = guide_legend(nrow = 2))
 ggsave('../plots/ALFAM2_data_summary_AU.pdf', height = 3.3, width = 6.7)

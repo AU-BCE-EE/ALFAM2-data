@@ -14,13 +14,10 @@ pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
 # Combine
 pdat.comb <- rbindf(pdat, pdat.old)
 
-# Add blank column for use with NL corrections
-pdat.comb$corr.period <- NA
-
 # Select and order columns (and order rows)
 pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
   c('inst', 'eid', 'pid', 'pmid', 
-    'sub.period', 'corr.period', 
+    'sub.period', 
     'proj', 'exper', 'exper2', 
     'institute', 'country', 
     'submitter', 
