@@ -13,13 +13,13 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.48' # 21 May 2024
+version <- '2.49' # 29 May 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
-oldrelease <- '2.45'
+oldrelease <- '2.48'
 
 # For checking only a particular new file (partial matching)
 #newsubmission <- 'META_METHA'
@@ -48,6 +48,7 @@ sink('../../logs/03/make_database_log.txt')
   source('merge_plot.R', echo = TRUE)
   source('merge_int.R', echo = TRUE)
   source('NL_swap.R', echo = TRUE)
+  source('select.R', echo = TRUE)
   source('text_summ.R', echo = TRUE)
   source('save_csvs.R', echo = TRUE)
   source('check_final.R', echo = TRUE)

@@ -16,28 +16,33 @@ for (i in 1:ncol(pdat.comb)) {
 ```
 ## 
 ## -----------------------------------------------------
-## pmid  numeric, range: 1 2878 
-## Missing values: 0 
-## 
-## 
-## -----------------------------------------------------
 ## inst  numeric, range: 101 304 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## eid  numeric, range: 1 582 
+## eid  numeric, range: 1 675 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pid  numeric, range: 1 2874 
+## pid  numeric, range: 1 3133 
+## Missing values: 0 
+## 
+## 
+## -----------------------------------------------------
+## pmid  numeric, range: 1 3137 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
 ## sub.period  numeric, range: 1 3 
 ## Missing values: 0 
+## 
+## 
+## -----------------------------------------------------
+## corr.period  numeric, range: 3 3 
+## Missing values: 2354 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1762,9 +1767,9 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## rapeseed
 ## 
-## none
+## wheat
 ## 
-## wheat 
+## none 
 ## Missing values: 95 
 ## 
 ## 
@@ -1844,41 +1849,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## d
 ## 
 ## m i 
-## Missing values: 0 
-## 
-## 
-## -----------------------------------------------------
-## exper.nlmerge  character/factor, unique (first 10): 
-##  NA
-## 
-## B1990-15
-## 
-## B1990-35
-## 
-## B1990-37
-## 
-## B1990-38
-## 
-## B1990-39
-## 
-## B1991-13
-## 
-## B1991-14
-## 
-## B1991-18
-## 
-## B1991-36 
-## Missing values: 2354 
-## 
-## 
-## -----------------------------------------------------
-## sub.period.nlmerge  numeric, range: 1 2 
-## Missing values: 2354 
-## 
-## 
-## -----------------------------------------------------
-## corr.period  numeric, range: 3 3 
-## Missing values: 2354
+## Missing values: 0
 ```
 
 

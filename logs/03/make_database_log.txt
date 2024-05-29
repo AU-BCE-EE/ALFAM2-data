@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-05-21 06:57:17 EDT"
+[1] "2024-05-29 13:09:05 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -314,7 +314,7 @@ Done! Read 9  directories
 > pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 978  16
+[1] 719  16
 
 > dim(pdat)
 [1] 978 226
@@ -376,14 +376,6 @@ Done! Read 9  directories
 > # Combine
 > pdat.comb <- rbindf(pdat, pdat.old)
 
-> # Select and order columns (and order rows)
-> pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
-+   c('inst', 'eid', 'pid', 'pmid', 
-+     'sub.period' .... [TRUNCATED] 
-
-> # Round
-> pdat.comb <- rounddf(pdat.comb, 5, func = signif)
-
 > ## Checks:
 > ## Columns missing in new data
 > #names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
@@ -407,16 +399,10 @@ Done! Read 9  directories
 > # Combine
 > idat.comb <- rbindf(idat, idat.old)
 
-> # Order and select columns for database distribution
-> # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
-
 > # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
 > nn <- c('soil.temp.z', 'air.temp.z', 'wind .... [TRUNCATED] 
 
 > names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
-
-> # Round 
-> idat.comb <- rounddf(idat.comb, 5, func = signif)
 
 > ## Checks
 > ## Columns missing in new data
@@ -622,27 +608,27 @@ Done! Read 9  directories
 > ## Sort out old experiments that are being replaced, to update sub.period
 > #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
 > #e .... [TRUNCATED] 
-[1] 2877  220
+[1] 2877  230
 
 > print(dim(idat.comb))
-[1] 75351    47
+[1] 75351   140
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
 
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 2613  220
+[1] 2613  230
 
 > print(dim(idat.comb))
-[1] 73099    47
+[1] 73099   140
 
 > # Set sub.period/period
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
 
 > # nrow should not change
 > print(dim(pdat.comb))
-[1] 2613  223
+[1] 2613  233
 
 > # Check--should all be TRUE
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
@@ -852,6 +838,21 @@ Done! Read 9  directories
          1  2
   grass  2 16
 
+> # Select and order columns (and order rows)
+> 
+> pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
++   c('inst', 'eid', 'pid', 'pmid', 
++     'sub.peri .... [TRUNCATED] 
+
+> # Round
+> pdat.comb <- rounddf(pdat.comb, 5, func = signif)
+
+> # Order and select columns for database distribution
+> # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
+
+> # Round 
+> idat.comb <- rounddf(idat.comb, 5, func = signif)
+
 > # Make text plot summaries for sub.period 3 only
 > 
 > for (i in unique(pdat$file)) {
@@ -902,11 +903,11 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.48
-          Release tag    2.45
-              Release    2.45
-          Main branch    2.47
-           Dev branch    2.47
+ main.R (new version)    2.49
+          Release tag    2.48
+              Release    2.48
+          Main branch    2.48
+           Dev branch    2.48
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did y .... [TRUNCATED] 

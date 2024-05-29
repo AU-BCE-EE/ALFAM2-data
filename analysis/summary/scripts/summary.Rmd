@@ -62,3 +62,8 @@ trttab <- trttab[order(-trttab[, 'TRUE']), ]
 trttab
 ```
 
+```{r}
+unique(pdat[, c('inst', 'institute', 'country')])
+```
+
+
