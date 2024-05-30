@@ -515,7 +515,7 @@ addVars <- function(dat) {
           `NUGA-tine` = 'ts', # NTS: Check with JMP
           `NUGA` = 'ts', # NTS: Check with JMP
           `Open slot injection` = 'os',
-          `Closed slot injection` = 'os',
+          `Closed slot injection` = 'cs',
           `Trailing shoe` = 'ts',
           `Trailing hose` = 'bsth',
           `Wide band` = 'bsth')

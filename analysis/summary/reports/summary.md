@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "21 May, 2024"
+date: "30 May, 2024"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 2613  224
+## [1] 2613  222
 ```
 
 ```r
@@ -56,7 +56,7 @@ table(up$sub.period)
 ```
 ## 
 ##    1    2    3 
-##  674 1103  571
+##  612 1070  571
 ```
 
 ```r
@@ -73,7 +73,7 @@ table(country = up$country, sub.period = up$sub.period)
 ##      FR   0  25  21
 ##      IE   0  68   0
 ##      IT  75   8  17
-##      NL 108 167 174
+##      NL  46 134 174
 ##      NO   9   0   0
 ##      SE  88   0  18
 ##      UK 342 109   0
@@ -112,7 +112,7 @@ table(institute = up$institute, sub.period = up$sub.period)
 ##   UNIMI      0   0   4
 ##   UNINA      0   0   7
 ##   USDA       0   2   0
-##   WUR      108 151 155
+##   WUR       46 118 155
 ```
 
 
@@ -671,4 +671,104 @@ trttab
 ##   Winge tine                                               3    0
 ##   WT                                                       3    0
 ```
+
+
+```r
+unique(pdat[, c('inst', 'institute', 'country')])
+```
+
+```
+##      inst institute country
+## 1     101      ADAS      UK
+## 80    102       AUN      NO
+## 89    103      CRPA      IT
+## 164   104      DIAS      DK
+## 210   105      IGER      UK
+## 473   106      IMAG      NL
+## 475   107   IUL/FAT      CH
+## 596   108       JTI      SE
+## 684   201      AAFC      CA
+## 793   202   ADAS-RR      UK
+## 902   203      ARDC      CA
+## 1022  204        AT      DK
+## 1048  205        AU      DK
+## 1135  206    CAU-LU      DE
+## 1332  207  INH-HAFL      CH
+## 1379  208      INRA      FR
+## 1404  209        MU      IT
+## 1412  210   NMI-WUR      NL
+## 1428  211       SDU      DK
+## 1566  212   TEAGASC      IE
+## 1634  213      USDA      US
+## 1636  301    AU-BCE      DK
+## 1662  205        AU      NL
+## 1718  205        AU      CA
+## 1911  205        AU      SE
+## 1962  302  DiSAA-IT      IT
+## 1968  303     UNIMI      IT
+## 1972  304     UNINA      IT
+## 2179  208     INRAE      FR
+## 2200  214       WUR      NL
+```
+
+
+```r
+table(pdat[, c('institute', 'app.method')])
+```
+
+```
+##           app.method
+## institute   bc bss bsth  cs  os  pi  ts
+##   AAFC     109   0    0   0   0   0   0
+##   ADAS      79   0    0   0   0   0   0
+##   ADAS-RR    0   0   63   0   0   0  46
+##   ARDC      60  60    0   0   0   0   0
+##   AT         8   0   11   0   7   0   0
+##   AU        16   0  392  16  75   0 110
+##   AU-BCE     4   0    0   0   0   0   0
+##   AUN        3   0    3   0   0   3   0
+##   CAU-LU     0   0  197   0   0   0   0
+##   CRPA      52   0   18   0   5   0   0
+##   DIAS      23   0   21   2   0   0   0
+##   DiSAA-IT   3   0    0   0   3   0   0
+##   IGER     245   0    3   0   6   0   9
+##   IMAG       1   0    0   0   1   0   0
+##   INH-HAFL  27   0   12   0   3   0   5
+##   INRA      10   0    8   0   0   0   1
+##   INRAE      4   0   17   0   0   0   0
+##   IUL/FAT  117   0    2   0   2   0   0
+##   JTI       17   0   34   3  26   0   8
+##   MU         7   0    0   0   1   0   0
+##   NMI-WUR   16   0    0   0   0   0   0
+##   SDU        0   0  106   4   0   0   0
+##   TEAGASC   20   0   18   0   0   0  30
+##   UNIMI      4   0    0   0   0   0   0
+##   UNINA      7   0    0   0   0   0   0
+##   USDA       2   0    0   0   0   0   0
+##   WUR      158   0    0   4 149   0 103
+```
+
+```r
+table(pdat[, c('sub.period', 'app.method')])
+```
+
+```
+##           app.method
+## sub.period  bc bss bsth  cs  os  pi  ts
+##          1 583   0   81   5  73   3  46
+##          2 351  60  476  24  76   0  82
+##          3  58   0  348   0 129   0 184
+```
+
+```r
+table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
+```
+
+```
+##            app.method
+## corr.period  bc bss bsth  cs  os  pi  ts <NA>
+##        3    138   0    0   4  88   0  29    0
+##        <NA> 854  60  905  25 190   3 283   34
+```
+
 

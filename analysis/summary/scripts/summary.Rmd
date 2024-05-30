@@ -66,4 +66,10 @@ trttab
 unique(pdat[, c('inst', 'institute', 'country')])
 ```
 
+```{r}
+table(pdat[, c('institute', 'app.method')])
+table(pdat[, c('sub.period', 'app.method')])
+table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
+```
+
 
