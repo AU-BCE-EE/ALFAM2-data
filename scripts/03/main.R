@@ -13,13 +13,13 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.49' # 29 May 2024
+version <- '2.50' # 30 May 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
-oldrelease <- '2.48'
+oldrelease <- '2.49'
 
 # For checking only a particular new file (partial matching)
 #newsubmission <- 'META_METHA'

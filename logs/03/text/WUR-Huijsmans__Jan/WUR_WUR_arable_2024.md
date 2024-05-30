@@ -741,7 +741,7 @@ title: 'Submitted data summary'
 ## Minimum               <NA>    <NA>    <NA>     7.2            <NA>         bc
 ## Maximum               <NA>    <NA>    <NA>     8.5            <NA>         ts
 ## Mean                  <NA>    <NA>    <NA>    7.87            <NA>       <NA>
-## Unique (excld. NA)       0       0       0      13               0          3
+## Unique (excld. NA)       0       0       0      13               0          4
 ## Missing values         120     120     120      62             120          0
 ## Sorted                <NA>    <NA>    <NA>   FALSE            <NA>      FALSE
 ##                                                                              
@@ -1056,7 +1056,7 @@ title: 'Submitted data summary'
 ## Minimum                  Broadcast          bc        Deep       <NA>          
 ## Maximum              Trailing shoe          ts     Shallow       <NA>          
 ## Mean                          <NA>        <NA>        <NA>       <NA>      <NA>
-## Unique (excld. NA)               4           3           3          0         1
+## Unique (excld. NA)               4           4           3          0         1
 ## Missing values                   0           0           0        120         0
 ## Sorted                       FALSE       FALSE       FALSE       <NA>      TRUE
 ##                                                                                
