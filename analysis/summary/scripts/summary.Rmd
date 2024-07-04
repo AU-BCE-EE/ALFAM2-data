@@ -16,6 +16,12 @@ length(unique(pdat$pmid))
 length(unique(pdat$pid))
 ```
 
+```{r}
+dim(idat)
+```
+
+
+
 
 ```{r}
 up <- pdat[unique(pdat$pid), ]

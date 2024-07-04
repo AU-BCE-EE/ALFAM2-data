@@ -37,6 +37,17 @@ length(unique(pdat$pid))
 ```
 
 
+```r
+dim(idat)
+```
+
+```
+## [1] 73099    47
+```
+
+
+
+
 
 ```r
 up <- pdat[unique(pdat$pid), ]
