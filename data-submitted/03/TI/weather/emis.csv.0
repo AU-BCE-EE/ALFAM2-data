@@ -1,0 +1,34 @@
+"ALFAM2 database data entry template"
+"Use for submission of measurements of ammonia emission from field-applied manure to the public ALFAM2 database"
+"For more information on the project, see www.alfam.dk"
+
+
+"There are seven worksheets that should be completed: “Submitter”, “Contributors”, “Experiments”, “Treatments”, “Plots”, ""Emission"",  and ""Publications"". "
+
+"Before starting:"
+"Use this link to check for the latest template version. If a version higher than 6.1 is available, please use it!"
+
+"1. The “Submitter” sheet is for documenting the source of the data. Please enter the requested information about yourself and your institution."
+
+"2. Use the “Contributors” sheet if there is more than one person to list for measurements or data entry."
+
+"3. The ""Experiments"" worksheet is for you to describe your experiments. Please at least enter data in columns A, B, and D, and more if possible. Grouping measurements together in a single “experiment” is somewhat arbitrary but is up to you to decide. Enter one row per experiment."
+
+"4. The ""Treatment"" worksheet is for you to describe your treatments. There are no constraints on the data entered in this worksheet, but please provide enough information for us to understand what was unique about the treatment. You can use the ""What was varied/tested?"" column to identify the variable that was varied in the experiment. Examples might include: acidification of manure, application timing, application method, or manure separation."
+
+"5. The “Plots” worksheet is for plot-level data, including location, soil, manure, and application information. The columns in the ""Identification"" section are for the identifiers you used in your experiment--they should allow you to find the original data, and can be text or numbers or a combination of these. If the data have been described in a publication, please create a code for each publication (e.g, 1, 2, 3, . . .) and list the complete citations in the ""Publications"" worksheet. Enter one row per physical field plot."
+
+"6. The ""Emission"" worksheet is for your ammonia emission measurements and accompanying weather measurements, all at the measurement interval level. Enter one row per measurement interval. For some columns, such as ""Measurement technique"" only some specific values can be entered. Entries can be selected from the drop-down list, copied and pasted, or typed in manually. Before copying and pasting, be sure to check that you have used allowed values. The worksheet ""Input options"" provides the allowed values along with some additional information. If necessary, you can add additional values in the boxes in the ""Input options"" sheet--this may be necessary for crop type or measurement method, for example."
+
+"7. The ""Publications"" worksheet is for the citations that correspond with the publication codes in the ""Emission"" worksheet."
+
+"If you have any questions or would like to arrange a virtual data entry meeting, send a message to Sasha Hafner at sasha@hafnerconsulting.com."
+
+"Other notes:"
+"* In general, data should only entered in cells with a white background"
+"* Do not edit “Revision history”"
+"* Add/edit/replace values in “Input options (lists)” if you need other options for data entry (e.g., different method)"
+"* In most cases, data will be missing for some or even many variables"
+"* Where data are missing, leave cells blank, use NA, or add new values in the “Missing values” sheet"
+"* Look for comments (hover to see) with some details"
+"* If desired, blank rows or formatting (bold, background color) can be used to assist with data entry"

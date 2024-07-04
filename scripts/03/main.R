@@ -22,7 +22,7 @@ version <- '2.50' # 30 May 2024
 oldrelease <- '2.49'
 
 # For checking only a particular new file (partial matching)
-#newsubmission <- 'META_METHA'
+newsubmission <- 'Best'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?

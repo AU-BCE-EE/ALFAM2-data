@@ -78,5 +78,38 @@ ggplot(dd, aes(x = cta, y = e.rel, colour = app.mthd, group = pmid)) +
 ggsave('../plots/ALFAM2_emis_sel.png', height = 3.3, width = 7)
 ggsave('../plots/ALFAM2_emis_sel.pdf', height = 3.3, width = 7)
 
+setDT(dd)
+dd[, man.trts := paste(man.trt1, man.trt2, man.trt3)]
+dd[, digested := grepl('[Dd]igest', man.trts)]
+dd[, separated := grepl('[Ss]epar', man.trts)]
+dd[, treat.nm := factor(ifelse(acid, 'Acid', ifelse(digested, 'AD', ifelse(separated, 'Separated', 'None/other'))),
+                          levels = c('Acid', 'AD', 'Separated', 'None/other'))]
+dd[is.na(treat.nm), treat.nm := 'None/other']
 
+mms <- c(chamber = 'Other chamber', cps = 'Other chamber', wt = 'Wind tunnel', `micro met` = 'Micromet.')
+dd[, meas.tech.nm := factor(mms[meas.tech2], levels = c('Micromet.', 'Wind tunnel', 'Other chamber'))]
 
+dd <- dd[!is.na(app.method) & app.method != 'pi' & app.method != 'bss', ]
+dd[, app.mthd.nm := factor(app.method, levels = c('bc', 'bsth', 'ts', 'os', 'cs'),
+                               labels = c('Broadcast', 'Trailing hose', 'Trailing shoe', 'Open slot\ninjection', 'Closed slot\ninjection'))]
+
+dd[, app.mthd.simp := as.character(app.mthd)]
+dd[app.mthd.simp %in% c('bsth', 'ts'), app.mthd.simp := 'bs'] 
+dd[app.mthd.simp %in% c('os', 'cs'), app.mthd.simp := 'i'] 
+dd[, app.mthd.simp.nm := factor(app.mthd.simp, levels = c('bc', 'bs', 'i'), labels = c('Broadcast', 'Band application', 'Injection'))]
+
+dd[, period := as.character(sub.period)]
+dd[corr.period == 3, period := '2/3']
+dd[, period.nm := factor(paste('Period', period))]
+dd[, sub.period.nm := factor(paste('Period', sub.period))]
+# Without na.translate = FALSE I get an NA entry in legend although there are no NA values for treat.nm
+ggplot(dd, aes(app.mthd.nm, e.rel.final, colour = country, shape = treat.nm)) +
+  geom_jitter(height = 0) +
+  stat_summary(aes(app.mthd.nm, e.rel.final, group = app.mthd.nm), colour = 'gray45', lwd = 1, geom = 'tile', fun = function(x) mean(x, na.rm = TRUE)) +
+  scale_shape_discrete(na.translate = FALSE) +
+  theme_bw() +
+  labs(x = 'Application method', y = 'Total emission (frac. applied TAN)', shape = 'Slurry treatment', colour = 'Country') +
+  scale_x_discrete(guide = guide_axis(angle = 90)) +
+  ylim(0, 1.5) +
+  facet_grid(meas.tech.nm ~ sub.period.nm)
+ggsave('../plots/emis_summ.png', height = 5, width = 9)
