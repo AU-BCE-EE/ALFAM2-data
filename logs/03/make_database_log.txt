@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-05-30 09:38:16 EDT"
+[1] "2024-07-15 14:55:18 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -83,15 +83,24 @@ See cleanALFAM() function.
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
-But  kgN/ha-hr  is OK.
-See cleanALFAM() function.
+But  kgN/ha-hr  Checking versions
 
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
-But  kgN/ha-hr  is OK.
-See cleanALFAM() function.
+                Where Version
+ main.R (new version)    2.51
+          Release tag    2.49
+              Release    2.49
+          Main branch    2.50
+           Dev branch    2.49
+Checking versions
 
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+                Where Version
+ main.R (new version)    2.51
+          Release tag    2.49
+              Release    2.49
+          Main branch    2.50
+           Dev branch    2.49
+[1] 99.30833
+e_5_2_211012_JP_18KLRS.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
@@ -213,6 +222,8 @@ Directory  ../../data-submitted/03/INRAE
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/TI 
 
+   file  ../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/UNINA 
 
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
@@ -273,6 +284,57 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 9  directories
 
 > print(warnings())
+Warning messages:
+1: In DMS2DD(plots$lat) : NAs introduced by coercion
+2: In DMS2DD(plots$lat) : NAs introduced by coercion
+3: In DMS2DD(plots$lat) : NAs introduced by coercion
+4: In DMS2DD(plots$lat) : NAs introduced by coercion
+5: In DMS2DD(plots$lat) : NAs introduced by coercion
+6: In DMS2DD(plots$lat) : NAs introduced by coercion
+7: In DMS2DD(plots$lat) : NAs introduced by coercion
+8: In DMS2DD(plots$lat) : NAs introduced by coercion
+9: In DMS2DD(plots$lat) : NAs introduced by coercion
+10: In DMS2DD(plots$lat) : NAs introduced by coercion
+11: In DMS2DD(plots$lat) : NAs introduced by coercion
+12: In DMS2DD(plots$lat) : NAs introduced by coercion
+13: In DMS2DD(plots$lat) : NAs introduced by coercion
+14: In DMS2DD(plots$lat) : NAs introduced by coercion
+15: In DMS2DD(plots$lat) : NAs introduced by coercion
+16: In DMS2DD(plots$lat) : NAs introduced by coercion
+17: In DMS2DD(plots$lat) : NAs introduced by coercion
+18: In DMS2DD(plots$lat) : NAs introduced by coercion
+19: In DMS2DD(plots$lat) : NAs introduced by coercion
+20: In DMS2DD(plots$lat) : NAs introduced by coercion
+21: In DMS2DD(plots$lat) : NAs introduced by coercion
+22: In DMS2DD(plots$lat) : NAs introduced by coercion
+23: In DMS2DD(plots$lat) : NAs introduced by coercion
+24: In DMS2DD(plots$lat) : NAs introduced by coercion
+25: In DMS2DD(plots$lat) : NAs introduced by coercion
+26: In DMS2DD(plots$lat) : NAs introduced by coercion
+27: In DMS2DD(plots$lat) : NAs introduced by coercion
+28: In DMS2DD(plots$lat) : NAs introduced by coercion
+29: In DMS2DD(plots$lat) : NAs introduced by coercion
+30: In DMS2DD(plots$lat) : NAs introduced by coercion
+31: In DMS2DD(plots$lat) : NAs introduced by coercion
+32: In DMS2DD(plots$lat) : NAs introduced by coercion
+33: In DMS2DD(plots$lat) : NAs introduced by coercion
+34: In DMS2DD(plots$lat) : NAs introduced by coercion
+35: In DMS2DD(plots$lat) : NAs introduced by coercion
+36: In DMS2DD(plots$lat) : NAs introduced by coercion
+37: In DMS2DD(plots$lat) : NAs introduced by coercion
+38: In DMS2DD(plots$lat) : NAs introduced by coercion
+39: In DMS2DD(plots$lat) : NAs introduced by coercion
+40: In DMS2DD(plots$lat) : NAs introduced by coercion
+41: In DMS2DD(plots$lat) : NAs introduced by coercion
+42: In DMS2DD(plots$lat) : NAs introduced by coercion
+43: In DMS2DD(plots$lat) : NAs introduced by coercion
+44: In DMS2DD(plots$lat) : NAs introduced by coercion
+45: In DMS2DD(plots$lat) : NAs introduced by coercion
+46: In DMS2DD(plots$lat) : NAs introduced by coercion
+47: In DMS2DD(plots$lat) : NAs introduced by coercion
+48: In DMS2DD(plots$lat) : NAs introduced by coercion
+49: In DMS2DD(plots$lat) : NAs introduced by coercion
+50: In DMS2DD(plots$lat) : NAs introduced by coercion
 
 > # Check for errors and create a log before merge
 > 
@@ -317,7 +379,7 @@ Done! Read 9  directories
 [1] 719  16
 
 > dim(pdat)
-[1] 978 226
+[1] 1202  226
 
 > # Extract and reuse old institution codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -332,8 +394,8 @@ Done! Read 9  directories
 
 > table(pdat$inst)
 
-205 208 214 301 302 303 304 
-522  21 414   4   6   4   7 
+205 208 214 301 302 303 304 305 
+522  21 414   4   6 224   4   7 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
 > # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
@@ -608,27 +670,27 @@ Done! Read 9  directories
 > ## Sort out old experiments that are being replaced, to update sub.period
 > #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
 > #e .... [TRUNCATED] 
-[1] 2877  230
+[1] 3101  230
 
 > print(dim(idat.comb))
-[1] 75351   140
+[1] 79650   140
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
 
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 2613  230
+[1] 2837  230
 
 > print(dim(idat.comb))
-[1] 73099   140
+[1] 77398   140
 
 > # Set sub.period/period
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
 
 > # nrow should not change
 > print(dim(pdat.comb))
-[1] 2613  233
+[1] 2837  233
 
 > # Check--should all be TRUE
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
@@ -903,10 +965,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.50
+ main.R (new version)    2.51
           Release tag    2.49
               Release    2.49
-          Main branch    2.49
+          Main branch    2.50
            Dev branch    2.49
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

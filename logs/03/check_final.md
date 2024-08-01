@@ -16,22 +16,22 @@ for (i in 1:ncol(pdat.comb)) {
 ```
 ## 
 ## -----------------------------------------------------
-## inst  numeric, range: 101 304 
+## inst  numeric, range: 101 305 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## eid  numeric, range: 1 675 
+## eid  numeric, range: 1 683 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pid  numeric, range: 1 3133 
+## pid  numeric, range: 1 3357 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pmid  numeric, range: 1 3137 
+## pmid  numeric, range: 1 3361 
 ## Missing values: 0 
 ## 
 ## 
@@ -42,7 +42,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## corr.period  numeric, range: 3 3 
-## Missing values: 2354 
+## Missing values: 2578 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -95,7 +95,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## exper2  numeric, range: 1 29 
-## Missing values: 1930 
+## Missing values: 2154 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -388,7 +388,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rep2  numeric, range: 1 7 
-## Missing values: 1930 
+## Missing values: 2154 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -405,12 +405,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## Missing values: 
 ## 
 ## -----------------------------------------------------
-## dt1  numeric, range: 0.15 145 
+## dt1  numeric, range: -0.26667 145 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## dt.min  numeric, range: 0.13333 145 
+## dt.min  numeric, range: -0.26667 145 
 ## Missing values: 0 
 ## 
 ## 
@@ -520,17 +520,17 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## j.rel1  numeric, range: -0.013169 1.1931 
-## Missing values: 37 
+## Missing values: 133 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.1  numeric, range: -1.453 35.626 
-## Missing values: 1820 
+## Missing values: 2019 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.4  numeric, range: -0.44 182.99 
-## Missing values: 323 
+## Missing values: 333 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -564,8 +564,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.168  numeric, range: 0.062687 39.167 
-## Missing values: 2515 
+## e.168  numeric, range: 0.062687 90.644 
+## Missing values: 2694 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -575,12 +575,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## e.cum.1  numeric, range: -0.0091828 30.318 
-## Missing values: 2279 
+## Missing values: 2478 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.cum.4  numeric, range: -0.047383 86.584 
-## Missing values: 1660 
+## Missing values: 1670 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -609,68 +609,68 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.96  numeric, range: 0.1477 99.872 
+## e.cum.96  numeric, range: 0.1477 122.15 
 ## Missing values: 2082 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.168  numeric, range: 0.062687 39.167 
-## Missing values: 2515 
+## e.cum.168  numeric, range: 0.062687 90.644 
+## Missing values: 2694 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.cum.final  numeric, range: -0.60675 125.14 
+## e.cum.final  numeric, range: -0.60675 181.79 
 ## Missing values: 1635 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.1  numeric, range: -0.013169 0.6082 
-## Missing values: 1826 
+## Missing values: 2035 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.4  numeric, range: -0.0059949 3.2046 
-## Missing values: 341 
+## Missing values: 441 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.6  numeric, range: -0.0053061 3.9345 
-## Missing values: 210 
+## Missing values: 306 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.12  numeric, range: -0.012519 4.3729 
-## Missing values: 184 
+## Missing values: 280 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.24  numeric, range: -0.0022194 5.1649 
-## Missing values: 158 
+## Missing values: 254 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.48  numeric, range: -0.0018363 5.6564 
-## Missing values: 343 
+## Missing values: 439 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.72  numeric, range: -0.0073379 5.8617 
-## Missing values: 702 
+## Missing values: 798 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.96  numeric, range: -0.010592 5.8726 
-## Missing values: 1359 
+## Missing values: 1455 
 ## 
 ## 
 ## -----------------------------------------------------
-## e.rel.168  numeric, range: 0.0026688 0.59315 
-## Missing values: 2515 
+## e.rel.168  numeric, range: 0.0026688 1.3342 
+## Missing values: 2718 
 ## 
 ## 
 ## -----------------------------------------------------
 ## e.rel.final  numeric, range: -0.11627 6.8612 
-## Missing values: 76 
+## Missing values: 172 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -684,7 +684,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## sand  numeric, range: 7 92.3 
+## sand  numeric, range: 1.9 92.3 
 ## Missing values: 951 
 ## 
 ## 
@@ -728,17 +728,17 @@ for (i in 1:ncol(pdat.comb)) {
 ## organic
 ## 
 ## NA 
-## Missing values: 978 
+## Missing values: 1202 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.water  numeric, range: 0.005 1 
-## Missing values: 1384 
+## Missing values: 1608 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.water.v  numeric, range: 9 67 
-## Missing values: 2387 
+## Missing values: 2611 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -754,7 +754,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Dry
 ## 
 ## Wet 
-## Missing values: 1448 
+## Missing values: 1672 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -775,7 +775,9 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## Yes
 ## 
-##  
+## 
+## 
+## no 
 ## Missing values: 1319 
 ## 
 ## 
@@ -795,12 +797,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## air.temp.1  numeric, range: 2.4 28.66 
-## Missing values: 2284 
+## Missing values: 2483 
 ## 
 ## 
 ## -----------------------------------------------------
 ## air.temp.4  numeric, range: 1 32.62 
-## Missing values: 1683 
+## Missing values: 1693 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -850,12 +852,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## soil.temp.1  numeric, range: 1 17.8 
-## Missing values: 2600 
+## Missing values: 2799 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.4  numeric, range: 1 25.99 
-## Missing values: 2400 
+## Missing values: 2410 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -900,52 +902,52 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.1  numeric, range: 1 19.175 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.4  numeric, range: 1 16.619 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.6  numeric, range: 1 16.175 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.12  numeric, range: 1 16.515 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.24  numeric, range: 1 15.217 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.48  numeric, range: -0.58073 15.306 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.72  numeric, range: -0.081597 15.765 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.96  numeric, range: 0.13099 16.147 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.168  numeric, range: 0.45268 15.567 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
 ## soil.temp.surf.mn  numeric, range: 0.78869 21.095 
-## Missing values: 2600 
+## Missing values: 2824 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -974,62 +976,62 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rad.1  numeric, range: 0 867.62 
-## Missing values: 2367 
+## Missing values: 2591 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.4  numeric, range: 0 1382.8 
-## Missing values: 2345 
+## Missing values: 2569 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.6  numeric, range: 0 1389.7 
-## Missing values: 1309 
+## Missing values: 1533 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.12  numeric, range: 0 1538.3 
-## Missing values: 1287 
+## Missing values: 1511 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.24  numeric, range: 0 1502.4 
-## Missing values: 1278 
+## Missing values: 1502 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.48  numeric, range: 0 990.92 
-## Missing values: 1278 
+## Missing values: 1502 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.72  numeric, range: 0 971.37 
-## Missing values: 1278 
+## Missing values: 1502 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.96  numeric, range: 0.35417 990.52 
-## Missing values: 2322 
+## Missing values: 2546 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.168  numeric, range: 0.33929 990.52 
-## Missing values: 2322 
+## Missing values: 2546 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rad.mn  numeric, range: 0 990.52 
-## Missing values: 1280 
+## Missing values: 1504 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.1  numeric, range: 0.06115 8 
-## Missing values: 2283 
+## Missing values: 2482 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.4  numeric, range: 0.1 11.158 
-## Missing values: 1698 
+## Missing values: 1708 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1079,12 +1081,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## wind.2m.1  numeric, range: 0.06497 8 
-## Missing values: 2286 
+## Missing values: 2485 
 ## 
 ## 
 ## -----------------------------------------------------
 ## wind.2m.4  numeric, range: 0.1 11.158 
-## Missing values: 2072 
+## Missing values: 2082 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1147,12 +1149,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rain.1  numeric, range: 0 3.5 
-## Missing values: 1880 
+## Missing values: 2079 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rain.4  numeric, range: 0 7.8 
-## Missing values: 1660 
+## Missing values: 1670 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1187,7 +1189,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rain.168  numeric, range: 0 24.6 
-## Missing values: 2515 
+## Missing values: 2694 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1197,12 +1199,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rain.rate.1  numeric, range: 0 3.5 
-## Missing values: 1880 
+## Missing values: 2079 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rain.rate.4  numeric, range: 0 1.95 
-## Missing values: 1660 
+## Missing values: 1670 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1247,52 +1249,52 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## rh.1  numeric, range: 1 91.9 
-## Missing values: 2596 
+## Missing values: 2820 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.4  numeric, range: 1 92.7 
-## Missing values: 2590 
+## Missing values: 2814 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.6  numeric, range: 1 100.5 
-## Missing values: 1857 
+## Missing values: 2081 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.12  numeric, range: 1 100 
-## Missing values: 1828 
+## Missing values: 2052 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.24  numeric, range: 1 100 
-## Missing values: 1805 
+## Missing values: 2029 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.48  numeric, range: 1 100 
-## Missing values: 1795 
+## Missing values: 2019 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.72  numeric, range: 1 100 
-## Missing values: 1795 
+## Missing values: 2019 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.96  numeric, range: 1 97.904 
-## Missing values: 2567 
+## Missing values: 2791 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.168  numeric, range: 1 89.757 
-## Missing values: 2567 
+## Missing values: 2791 
 ## 
 ## 
 ## -----------------------------------------------------
 ## rh.mn  numeric, range: 1.003 354.02 
-## Missing values: 1795 
+## Missing values: 2019 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1316,7 +1318,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 250
 ## 
 ## 800 
-## Missing values: 2165 
+## Missing values: 2389 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1380,7 +1382,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## mix of slurry co-digested with other agricultural residues
 ## 
 ## see "experiments" 
-## Missing values: 2399 
+## Missing values: 2623 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1394,7 +1396,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## NA
 ## 
 ##  
-## Missing values: 1451 
+## Missing values: 1675 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1412,7 +1414,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Slurry
 ## 
 ## Liquid 
-## Missing values: 758 
+## Missing values: 982 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1460,7 +1462,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Acidification
 ## 
 ## Plasma 
-## Missing values: 757 
+## Missing values: 981 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1472,52 +1474,52 @@ for (i in 1:ncol(pdat.comb)) {
 ## Acidification
 ## 
 ## Plasma 
-## Missing values: 2581 
+## Missing values: 2805 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.stor  numeric, range: 0 182 
-## Missing values: 2348 
+## Missing values: 2572 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.dm  numeric, range: 0.55 100 
-## Missing values: 37 
+## Missing values: 69 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.vs  numeric, range: 4.04 5.74 
-## Missing values: 2607 
+## Missing values: 2831 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.tkn  numeric, range: 0.18 31.9 
-## Missing values: 563 
+## Missing values: 595 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.tan  numeric, range: 0.07 460 
-## Missing values: 34 
+## Missing values: 66 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.vfa  numeric, range: 0.15 14.1 
-## Missing values: 2364 
+## Missing values: 2588 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.tic  numeric, range: 0.31 3.81 
-## Missing values: 2503 
+## Missing values: 2727 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.ua  numeric, range: 0 0 
-## Missing values: 2567 
+## Missing values: 2791 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.ph  numeric, range: 3.29 9.96 
-## Missing values: 312 
+## Missing values: 344 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1581,7 +1583,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 11-08-2021 16:47
 ## 
 ## 11-08-2021 16:55 
-## Missing values: 2049 
+## Missing values: 2273 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1648,12 +1650,12 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## -----------------------------------------------------
 ## app.rate  numeric, range: 0.4 315 
-## Missing values: 34 
+## Missing values: 130 
 ## 
 ## 
 ## -----------------------------------------------------
 ## tan.app  numeric, range: 2.45 602.1 
-## Missing values: 34 
+## Missing values: 130 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1665,7 +1667,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## deep
 ## 
 ## NA 
-## Missing values: 13 
+## Missing values: 237 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1683,22 +1685,22 @@ for (i in 1:ncol(pdat.comb)) {
 ## Deep
 ## 
 ## NA 
-## Missing values: 13 
+## Missing values: 237 
 ## 
 ## 
 ## -----------------------------------------------------
 ## time.incorp  numeric, range: 0 48 
-## Missing values: 2446 
+## Missing values: 2670 
 ## 
 ## 
 ## -----------------------------------------------------
 ## man.area  numeric, range: 0 100 
-## Missing values: 2199 
+## Missing values: 2423 
 ## 
 ## 
 ## -----------------------------------------------------
 ## dist.inj  numeric, range: 17 120 
-## Missing values: 2493 
+## Missing values: 2653 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1722,7 +1724,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 3.9
 ## 
 ## 4.3 
-## Missing values: 2440 
+## Missing values: 2600 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1746,7 +1748,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 15
 ## 
 ## 5 
-## Missing values: 2465 
+## Missing values: 2689 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1770,7 +1772,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## wheat
 ## 
 ## none 
-## Missing values: 95 
+## Missing values: 96 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1794,22 +1796,22 @@ for (i in 1:ncol(pdat.comb)) {
 ## wheat
 ## 
 ## maize 
-## Missing values: 93 
+## Missing values: 94 
 ## 
 ## 
 ## -----------------------------------------------------
 ## crop.z  numeric, range: 0 76.5 
-## Missing values: 774 
+## Missing values: 998 
 ## 
 ## 
 ## -----------------------------------------------------
 ## crop.area  numeric, range: 0 100 
-## Missing values: 2321 
+## Missing values: 2545 
 ## 
 ## 
 ## -----------------------------------------------------
 ## lai  numeric, range: 0 4.7 
-## Missing values: 2422 
+## Missing values: 2646 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1833,7 +1835,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## AirTemp - Manually Filled. Single nearest weatherobservation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Single weather observation covering multiple shifts AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp  - Manually filled. Average of nearest datapoints.  AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Average of nearest datapoints.
 ## 
 ## AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observation covering multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints.  
-## Missing values: 923 
+## Missing values: 1115 
 ## 
 ## 
 ## -----------------------------------------------------

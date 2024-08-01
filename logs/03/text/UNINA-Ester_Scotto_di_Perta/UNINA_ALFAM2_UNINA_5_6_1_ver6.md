@@ -973,9 +973,9 @@ title: 'Submitted data summary'
 ##                                                                         
 ##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
 ## Class                character       Date character   character numeric integer
-## Minimum                   None 2016-07-28                  <NA>     304    2230
-## Maximum                   None 2017-07-18                  <NA>     304    2240
-## Mean                      <NA>       <NA>      <NA>        <NA>     304    2240
+## Minimum                   None 2016-07-28                  <NA>     305    2230
+## Maximum                   None 2017-07-18                  <NA>     305    2240
+## Mean                      <NA>       <NA>      <NA>        <NA>     305    2240
 ## Unique (excld. NA)           1          2         1           0       1       7
 ## Missing values               0          0         0           7       0       0
 ## Sorted                    TRUE      FALSE      TRUE        <NA>    TRUE    TRUE
