@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.50' # 30 May 2024
+version <- '2.51' # July 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -22,7 +22,7 @@ version <- '2.50' # 30 May 2024
 oldrelease <- '2.49'
 
 # For checking only a particular new file (partial matching)
-newsubmission <- 'Best'
+#newsubmission <- 'Best'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
@@ -61,3 +61,4 @@ source('check_version.R')
 sink('../../logs/03/check_version.txt')
   source('check_version.R')
 sink()
+source('check_version.R')

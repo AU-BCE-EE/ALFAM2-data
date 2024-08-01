@@ -141,6 +141,7 @@ if (any(duplicated(emis))) {
 
 m1 <- merge(exper, treat, all = TRUE)
 m2 <- merge(m1, emis, all = TRUE)
+#intersect(names(m1), names(emis))
 
 if (nrow(m1) == nrow(treat)) {
   cat('OK\n')

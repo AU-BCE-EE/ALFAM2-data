@@ -497,6 +497,7 @@ addVars <- function(dat) {
   dat$meas.tech2[tolower(dat$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
   dat$meas.tech2[grep('chamber', tolower(dat$meas.tech))] <- 'chamber'
   dat$meas.tech2[grep('dtm', tolower(dat$meas.tech))] <- 'chamber'
+  dat$meas.tech2[grep('cps', tolower(dat$meas.tech))] <- 'chamber'
   dat$meas.tech2[grepl('inversion dispersion small plots', tolower(dat$meas.tech))] <- 'micro met'
   if (any(wn <- is.na(dat$meas.tech2))) {
     stop(paste('Problem with unmatched meas. method names for:', unique(dat$meas.tech.orig[wn]), '.\n    Add new values to addVars() func in ALFAM_functions.R')) 
@@ -973,6 +974,7 @@ rounddf <- function(x, digits = 2) {
 # Convert lat/long in degrees min sec to decimal degrees
 # From 10d12m12.2s (or ) to 10.xxxx
 DMS2DD <- function(x) {
+  neg <- grepl('[SsWw]$', x)
   x <- gsub(' ', '', x)
   x <- gsub('°', 'd', x)
   x <- gsub('\'\'', 's', x)
@@ -980,7 +982,6 @@ DMS2DD <- function(x) {
   x <- gsub("'", 'm', x)
   x <- gsub('′', 'm', x)
   x <- gsub('"', 's', x)
-  neg <- grepl('[SsWw]$', x)
   x <- gsub('[NnSsEeWw]$', '', x)
   y <- suppressWarnings(as.numeric(x))
   for(i in which(grepl('[dms]', x))) {
