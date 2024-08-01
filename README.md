@@ -67,7 +67,7 @@ For some more information, see the `analysis` directory.
 To inquire about submitting data to the ALFAM2 dataset, send a message to `sasha.hafner AT bce.au.dk` through email or else used [this form](https://sites.google.com/hafnerconsulting.com/hafnerconsulting/contact?authuser=0).
 
 # Checking data
-To check submitted data, find your completed template file in [this list](https://sashahafner.github.io/ALFAM2-data/) and follow the instructions you will see at the top of the linked file.
+To check submitted data, find your completed template file in [this list](https://au-bce-ee.github.io/ALFAM2-data/) and follow the instructions you will see at the top of the linked file.
 
 # Building the database
 After cloning this repo, the process of creating the ALFAM2 database from submitted data can be completely repeated by running two scripts in R (<https://www.r-project.org/>) sequentially:
@@ -89,7 +89,7 @@ The record of R and add-on package versions in `logs/*/R_package_version.txt` sh
 * `data-ALFAM1` the original ALFAM database, developed by Sven G. Sommer et al., considered "uptake period 1", and read in by `scripts/02/make_database.R`
 * `data-output` output: ALFAM2 database files, with latest version in subdirectory with highest uptake number
 * `data-submitted` data as submitted by data submitters, in spreadsheet templates, in some cases with data processing etc. by database developers
-* `docs` html logs or summaries of submitted data for checking by submitters or others through this page: <https://sashahafner.github.io/ALFAM2-data/>
+* `docs` html logs or summaries of submitted data for checking by submitters or others through this page: <https://au-bce-ee.github.io/ALFAM2-data/>
 * `functions` R functions for building database, some from <https://github.com/sashahafner/jumbled>
 * `headers` detailed description of data file headers (variable names)
 * `logs` various logs created when database is built
