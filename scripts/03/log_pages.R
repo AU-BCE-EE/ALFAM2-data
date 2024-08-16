@@ -25,7 +25,7 @@ sink('../../docs/index.html')
   cat('\n')
   cat('<ol>\n')
   for (f in log.list) {
-    cat(paste0('<li> <a href="https://sashahafner.github.io/ALFAM2-data/', f, '.html">', f, '</a> </li>\n'))
+    cat(paste0('<li> <a href="https://au-bce-ee.github.io/ALFAM2-data/', f, '.html">', f, '</a> </li>\n'))
   }
   cat('</ol>\n')
 sink()
