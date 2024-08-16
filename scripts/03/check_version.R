@@ -26,7 +26,9 @@ cat('\n')
 print(vdat, row.names = FALSE)
 
 if (version %in% c(oldrelease, vr, vlm, vld)) {
-  warning('Version number set in main.R matches\n   one or more existing verion numbers!\n   Did you forget to change it?')
+  warning('Version number set in main.R matches\n   one or more existing version numbers!\n   Did you forget to change it?')
   print(c(`latest release` = vr, `latest main push` = vlm, `latest dev push` = vld))
   print(c(`Version number setting` = version))
+} else {
+  cat('\nNew version number seems OK.\n')
 }
