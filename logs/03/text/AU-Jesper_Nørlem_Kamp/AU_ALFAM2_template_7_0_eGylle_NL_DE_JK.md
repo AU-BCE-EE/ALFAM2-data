@@ -536,13 +536,13 @@ title: 'Submitted data summary'
 ## Sorted                     <NA>       TRUE    TRUE     FALSE      TRUE
 ##                                                                       
 ##                         till man.source
-## Class              character  character
-## Minimum                   No        cat
-## Maximum                   No        mix
+## Class              character     factor
+## Minimum                   No       <NA>
+## Maximum                   No       <NA>
 ## Mean                    <NA>       <NA>
-## Unique (excld. NA)         1          2
-## Missing values             0          0
-## Sorted                  TRUE      FALSE
+## Unique (excld. NA)         1          0
+## Missing values             0         14
+## Sorted                  TRUE       <NA>
 ##                                        
 ##                                                                  man.source.det
 ## Class                                                                 character
@@ -553,15 +553,15 @@ title: 'Submitted data summary'
 ## Missing values                                                                9
 ## Sorted                                                                     TRUE
 ##                                                                                
-##                      man.bed   man.con            man.trt1  man.trt2 man.stor
-## Class              character character           character character  numeric
-## Minimum                 <NA>    Slurry Anaerobic digestion      <NA>     <NA>
-## Maximum                 <NA>    Slurry                None      <NA>     <NA>
-## Mean                    <NA>      <NA>                <NA>      <NA>     <NA>
-## Unique (excld. NA)         0         1                   2         0        0
-## Missing values            14         0                   0        14       14
-## Sorted                  <NA>      TRUE                TRUE      <NA>     <NA>
-##                                                                              
+##                      man.bed man.con            man.trt1  man.trt2 man.stor
+## Class              character  factor           character character  numeric
+## Minimum                 <NA>  slurry Anaerobic digestion      <NA>     <NA>
+## Maximum                 <NA>   solid                None      <NA>     <NA>
+## Mean                    <NA>  slurry                <NA>      <NA>     <NA>
+## Unique (excld. NA)         0       1                   2         0        0
+## Missing values            14       0                   0        14       14
+## Sorted                  <NA>    TRUE                TRUE      <NA>     <NA>
+##                                                                            
 ##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
 ## Class              numeric numeric numeric numeric logical logical numeric
 ## Minimum               4.95    <NA>     2.8    1.73    <NA>    <NA>     0.3
@@ -886,32 +886,32 @@ title: 'Submitted data summary'
 ## Missing values          14       0              0          0         0
 ## Sorted                <NA>    TRUE          FALSE      FALSE     FALSE
 ##                                                                       
-##                    man.source.orig              app.method.orig app.method2
-## Class                    character                    character   character
-## Minimum                     Cattle Band spread or trailing hose        bsth
-## Maximum                        Mix          Open slot injection          os
-## Mean                          <NA>                         <NA>        <NA>
-## Unique (excld. NA)               2                            2           2
-## Missing values                   0                            0           0
-## Sorted                       FALSE                         TRUE        TRUE
+##                                 app.method.orig app.method2 incorp.orig
+## Class                                 character   character   character
+## Minimum            Band spread or trailing hose        bsth        None
+## Maximum                     Open slot injection          os        None
+## Mean                                       <NA>        <NA>        <NA>
+## Unique (excld. NA)                            2           2           1
+## Missing values                                0           0           0
+## Sorted                                     TRUE        TRUE        TRUE
+##                                                                        
+##                    man.source.orig date.start  flag.int soil.samp.z    inst
+## Class                    character       Date character   character numeric
+## Minimum                     Cattle 2021-08-20                    16     205
+## Maximum                        Mix 2021-11-09                     9     205
+## Mean                          <NA>       <NA>      <NA>        <NA>     205
+## Unique (excld. NA)               2          2         1           2       1
+## Missing values                   0          0         0           0       0
+## Sorted                       FALSE       TRUE      TRUE       FALSE    TRUE
 ##                                                                            
-##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character   character numeric integer
-## Minimum                   None 2021-08-20                    16     205    1940
-## Maximum                   None 2021-11-09                     9     205    2400
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    2120
-## Unique (excld. NA)           1          2         1           2       1      14
-## Missing values               0          0         0           0       0       0
-## Sorted                    TRUE       TRUE      TRUE       FALSE    TRUE   FALSE
-##                                                                                
-##                       pmid     eid
-## Class              integer integer
-## Minimum               1940     348
-## Maximum               2410     403
-## Mean                  2130     372
-## Unique (excld. NA)      14       4
-## Missing values           0       0
-## Sorted               FALSE   FALSE
+##                        pid    pmid     eid
+## Class              integer integer integer
+## Minimum               1940    1940     348
+## Maximum               2400    2410     403
+## Mean                  2120    2130     372
+## Unique (excld. NA)      14      14       4
+## Missing values           0       0       0
+## Sorted               FALSE   FALSE   FALSE
 ## 
 ```
 

@@ -602,15 +602,15 @@ title: 'Submitted data summary'
 ## Missing values                4          4       4         4         0
 ## Sorted                     <NA>       <NA>    <NA>      <NA>      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat          Dairy     Straw     Solid
-## Maximum                   No        cat          Dairy     Straw     Solid
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          1              1         1         1
-## Missing values             0          0              0         0         0
-## Sorted                  TRUE       TRUE           TRUE      TRUE      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No       <NA>          Dairy     Straw  slurry
+## Maximum                   No       <NA>          Dairy     Straw   solid
+## Mean                    <NA>       <NA>           <NA>      <NA>   solid
+## Unique (excld. NA)         1          0              1         1       1
+## Missing values             0          4              0         0       0
+## Sorted                  TRUE       <NA>           TRUE      TRUE    TRUE
+##                                                                         
 ##                     man.trt1  man.trt2 man.stor  man.dm  man.vs man.tkn man.tan
 ## Class              character character  numeric numeric numeric numeric numeric
 ## Minimum                 None      <NA>     <NA>    31.6    <NA>       6    0.86
@@ -926,23 +926,23 @@ title: 'Submitted data summary'
 ## Missing values           0               0       0         4          4       4
 ## Sorted                TRUE            TRUE    TRUE      <NA>       <NA>    <NA>
 ##                                                                                
-##                       acid meas.tech.orig meas.tech2 crop.orig man.source.orig
+##                       acid meas.tech.orig meas.tech2 crop.orig app.method.orig
 ## Class              logical      character  character character       character
-## Minimum              FALSE          ZINST  micro met Bare soil          Cattle
-## Maximum              FALSE          ZINST  micro met Bare soil          Cattle
+## Minimum              FALSE          ZINST  micro met Bare soil       Broadcast
+## Maximum              FALSE          ZINST  micro met Bare soil       Broadcast
 ## Mean                0 TRUE           <NA>       <NA>      <NA>            <NA>
 ## Unique (excld. NA)       1              1          1         1               1
 ## Missing values           0              0          0         0               0
 ## Sorted                TRUE           TRUE       TRUE      TRUE            TRUE
 ##                                                                               
-##                    app.method.orig app.method2 incorp.orig date.start  flag.int
-## Class                    character   character   character       Date character
-## Minimum                  Broadcast          bc        Deep       <NA>          
-## Maximum                  Broadcast          bc     Shallow       <NA>          
-## Mean                          <NA>        <NA>        <NA>       <NA>      <NA>
-## Unique (excld. NA)               1           1           3          0         1
-## Missing values                   0           0           0          4         0
-## Sorted                        TRUE        TRUE       FALSE       <NA>      TRUE
+##                    app.method2 incorp.orig man.source.orig date.start  flag.int
+## Class                character   character       character       Date character
+## Minimum                     bc        Deep          Cattle       <NA>          
+## Maximum                     bc     Shallow          Cattle       <NA>          
+## Mean                      <NA>        <NA>            <NA>       <NA>      <NA>
+## Unique (excld. NA)           1           3               1          0         1
+## Missing values               0           0               0          4         0
+## Sorted                    TRUE       FALSE            TRUE       <NA>      TRUE
 ##                                                                                
 ##                    soil.samp.z    inst     pid    pmid     eid
 ## Class                character numeric integer integer integer

@@ -559,15 +559,15 @@ title: 'Submitted data summary'
 ## Missing values               36         36       0         0         0
 ## Sorted                     <NA>       <NA>   FALSE     FALSE      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat           <NA>      <NA>    Slurry
-## Maximum                   No        pig           <NA>      <NA>    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          2              0         0         1
-## Missing values             0          0             36        36         0
-## Sorted                  TRUE      FALSE           <NA>      <NA>      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No        cat           <NA>      <NA>  slurry
+## Maximum                   No       none           <NA>      <NA>   solid
+## Mean                    <NA>        pig           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          1              0         0       1
+## Missing values             0         18             36        36       0
+## Sorted                  TRUE       TRUE           <NA>      <NA>    TRUE
+##                                                                         
 ##                     man.trt1  man.trt2 man.stor  man.dm  man.vs man.tkn man.tan
 ## Class              character character  numeric numeric numeric numeric numeric
 ## Minimum                 None      None     <NA>    3.02    <NA>    1.71    1.16
@@ -901,24 +901,24 @@ title: 'Submitted data summary'
 ## Missing values             36      36       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig man.source.orig              app.method.orig
-## Class              character       character                    character
-## Minimum                 <NA>          Cattle Band spread or trailing hose
-## Maximum                 <NA>             Pig                Trailing shoe
-## Mean                    <NA>            <NA>                         <NA>
-## Unique (excld. NA)         0               2                            3
-## Missing values            36               0                            0
-## Sorted                  <NA>           FALSE                        FALSE
-##                                                                          
-##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
-## Class                character   character       Date character   character
-## Minimum                   bsth        None 2018-08-15                  <NA>
-## Maximum                     ts        None 2018-10-10       m i        <NA>
-## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
-## Unique (excld. NA)           3           1          4         2           0
-## Missing values               0           0          0         0          36
-## Sorted                   FALSE        TRUE       TRUE     FALSE        <NA>
-##                                                                            
+##                    crop.orig              app.method.orig app.method2
+## Class              character                    character   character
+## Minimum                 <NA> Band spread or trailing hose        bsth
+## Maximum                 <NA>                Trailing shoe          ts
+## Mean                    <NA>                         <NA>        <NA>
+## Unique (excld. NA)         0                            3           3
+## Missing values            36                            0           0
+## Sorted                  <NA>                        FALSE       FALSE
+##                                                                      
+##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
+## Class                character       character       Date character   character
+## Minimum                   None          Cattle 2018-08-15                  <NA>
+## Maximum                   None             Pig 2018-10-10       m i        <NA>
+## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           1               2          4         2           0
+## Missing values               0               0          0         0          36
+## Sorted                    TRUE           FALSE       TRUE     FALSE        <NA>
+##                                                                                
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
 ## Minimum                205    2100    2100     361

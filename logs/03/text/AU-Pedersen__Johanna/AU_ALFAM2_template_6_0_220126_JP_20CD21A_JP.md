@@ -559,15 +559,15 @@ title: 'Submitted data summary'
 ## Missing values               26         26       0         0         0
 ## Sorted                     <NA>       <NA>    TRUE     FALSE      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat           <NA>     Straw    Slurry
-## Maximum                   No        cat           <NA>     Straw    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          1              0         1         1
-## Missing values             0          0             26         0         0
-## Sorted                  TRUE       TRUE           <NA>      TRUE      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No       <NA>           <NA>     Straw  slurry
+## Maximum                   No       <NA>           <NA>     Straw   solid
+## Mean                    <NA>       <NA>           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          0              0         1       1
+## Missing values             0         26             26         0       0
+## Sorted                  TRUE       <NA>           <NA>      TRUE    TRUE
+##                                                                         
 ##                               man.trt1              man.trt2 man.stor  man.dm
 ## Class                        character             character  numeric numeric
 ## Minimum            Anaerobic digestion Mechanical separation     <NA>    3.35
@@ -910,24 +910,24 @@ title: 'Submitted data summary'
 ## Missing values             26      26                      0              0
 ## Sorted                   <NA>    <NA>                  FALSE           TRUE
 ##                                                                            
-##                    meas.tech2 crop.orig man.source.orig     app.method.orig
-## Class               character character       character           character
-## Minimum                    wt     Grass          Cattle Open slot injection
-## Maximum                    wt     Grass          Cattle       Trailing shoe
-## Mean                     <NA>      <NA>            <NA>                <NA>
-## Unique (excld. NA)          1         1               1                   2
-## Missing values              0         0               0                   0
-## Sorted                   TRUE      TRUE            TRUE               FALSE
-##                                                                            
-##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
-## Class                character   character       Date character   character
-## Minimum                     os        None 2020-06-03                  <NA>
-## Maximum                     ts        None 2021-03-16       m i        <NA>
-## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
-## Unique (excld. NA)           2           1          3         2           0
-## Missing values               0           0          0         0          26
-## Sorted                   FALSE        TRUE       TRUE     FALSE        <NA>
-##                                                                            
+##                    meas.tech2 crop.orig     app.method.orig app.method2
+## Class               character character           character   character
+## Minimum                    wt     Grass Open slot injection          os
+## Maximum                    wt     Grass       Trailing shoe          ts
+## Mean                     <NA>      <NA>                <NA>        <NA>
+## Unique (excld. NA)          1         1                   2           2
+## Missing values              0         0                   0           0
+## Sorted                   TRUE      TRUE               FALSE       FALSE
+##                                                                        
+##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
+## Class                character       character       Date character   character
+## Minimum                   None          Cattle 2020-06-03                  <NA>
+## Maximum                   None          Cattle 2021-03-16       m i        <NA>
+## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           1               1          3         2           0
+## Missing values               0               0          0         0          26
+## Sorted                    TRUE            TRUE       TRUE     FALSE        <NA>
+##                                                                                
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
 ## Minimum                205    2190    2190     372
