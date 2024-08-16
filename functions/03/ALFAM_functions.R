@@ -528,21 +528,25 @@ addVars <- function(dat) {
 
   # Slurry source
   dat$man.source.orig <- dat$man.source
-  dat$man.source <- gsub('cattle', 'cat', tolower(dat$man.source))
+  dat$man.source <- tolower(dat$man.source)
   dat$man.source[dat$man.source.orig == 'silage maize'] <- 'Other'
 
   # Extract types from more detailed names
-  for(i in c('Pig', 'Cattle', 'Poultry', 'Mixed', 'Concentrate')) {
-    dat$man.source[grepl(tolower(i), tolower(dat$man.source))] <- i
+  for(i in c('pig', 'cattle', 'poultry', 'mix', 'concentrate', 'urea', 'digestate')) {
+    dat$man.source[grepl(i, dat$man.source)] <- i
   }
 
   # Change dairy to cattle
-  dat$man.source[grepl('dairy', tolower(dat$man.source))] <- 'Cattle'
+  dat$man.source[grepl('dairy', dat$man.source)] <- 'cattle'
 
   dat$man.source <- factor(dat$man.source, 
-			 levels = c('Cattle', 'Pig', 'Poultry', 'Mink', 'Sewage sludge', 'Mixed', 'Concentrate', 'Other', 'None'), 
-			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',        'other', 'none')
+			 levels = c('cattle', 'pig', 'poultry', 'mink', 'sewage sludge', 'mix', 'concentrate', 'digestate', 'urea', 'other', 'none'), 
+			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',      'digestate', 'urea', 'other', 'none')
 			 )
+
+  if (any(wn <- is.na(dat$man.source))) {
+    stop(paste('Problem with unmatched slurry sources for:', unique(dat$man.source.orig[wn]), '.\n    Add new values to addVars() func in ALFAM_functions.R'))
+  }
 
   # Manure consistency (reported)
   dat$man.con[dat$man.con == ''] <- NA

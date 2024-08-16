@@ -537,12 +537,12 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                         till man.source
 ## Class              character     factor
-## Minimum                   No       <NA>
-## Maximum                   No       <NA>
-## Mean                    <NA>       <NA>
-## Unique (excld. NA)         1          0
-## Missing values             0         14
-## Sorted                  TRUE       <NA>
+## Minimum                   No        cat
+## Maximum                   No       none
+## Mean                    <NA>    poultry
+## Unique (excld. NA)         1          2
+## Missing values             0          0
+## Sorted                  TRUE      FALSE
 ##                                        
 ##                                                                  man.source.det
 ## Class                                                                 character

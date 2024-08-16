@@ -617,12 +617,12 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                         till man.source
 ## Class              character     factor
-## Minimum                   No       <NA>
-## Maximum                   No       <NA>
-## Mean                    <NA>       <NA>
-## Unique (excld. NA)         1          0
-## Missing values             0         22
-## Sorted                  TRUE       <NA>
+## Minimum                   No        cat
+## Maximum                   No       none
+## Mean                    <NA>        mix
+## Unique (excld. NA)         1          1
+## Missing values             0          0
+## Sorted                  TRUE       TRUE
 ##                                        
 ##                                                                  man.source.det
 ## Class                                                                 character

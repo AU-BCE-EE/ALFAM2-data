@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.55' # August 2024
+version <- '2.56' # August 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -62,3 +62,8 @@ sink('../../logs/03/check_version.txt')
   source('check_version.R')
 sink()
 source('check_version.R')
+
+table(pdat.comb$man.source, exclude = NULL)
+unique(pdat.comb[is.na(pdat.comb$man.source), 'file'])
+pdat.comb[is.na(pdat.comb$man.source), 'man.source.orig']
+

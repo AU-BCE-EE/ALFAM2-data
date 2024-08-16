@@ -637,12 +637,12 @@ title: 'Submitted data summary'
 ##                                                                        
 ##                     crop.res      till man.source man.source.det   man.bed
 ## Class              character character     factor      character character
-## Minimum                  Yes        No       <NA>           <NA>      None
-## Maximum                  Yes        No       <NA>           <NA>      None
-## Mean                    <NA>      <NA>       <NA>           <NA>      <NA>
-## Unique (excld. NA)         1         1          0              0         1
-## Missing values             0         0          6              6         0
-## Sorted                  TRUE      TRUE       <NA>           <NA>      TRUE
+## Minimum                  Yes        No        cat           <NA>      None
+## Maximum                  Yes        No       none           <NA>      None
+## Mean                    <NA>      <NA>       conc           <NA>      <NA>
+## Unique (excld. NA)         1         1          2              0         1
+## Missing values             0         0          0              6         0
+## Sorted                  TRUE      TRUE      FALSE           <NA>      TRUE
 ##                                                                           
 ##                    man.con            man.trt1          man.trt2 man.stor
 ## Class               factor           character         character  numeric
