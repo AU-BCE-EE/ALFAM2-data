@@ -644,7 +644,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  120 rows and 230 columns
+##  120 rows and 229 columns
 ##  120 unique rows
 ##                    institute      proj     exper       field      plot
 ## Class              character character character   character character
@@ -1051,23 +1051,23 @@ title: 'Submitted data summary'
 ## Missing values           0              0          0         0               0
 ## Sorted                TRUE           TRUE       TRUE     FALSE           FALSE
 ##                                                                               
-##                    app.method2 incorp.orig man.source.orig date.start  flag.int
-## Class                character   character       character       Date character
-## Minimum                     bc        Deep           dairy       <NA>          
-## Maximum                     ts     Shallow             pig       <NA>          
-## Mean                      <NA>        <NA>            <NA>       <NA>      <NA>
-## Unique (excld. NA)           4           3               3          0         1
-## Missing values               0           0               0        120         0
-## Sorted                   FALSE       FALSE           FALSE       <NA>      TRUE
+##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
+## Class                character       character       Date character   character
+## Minimum                   Deep           dairy       <NA>                  <NA>
+## Maximum                Shallow             pig       <NA>                  <NA>
+## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           3               3          0         1           0
+## Missing values               0               0        120         0         120
+## Sorted                   FALSE           FALSE       <NA>      TRUE        <NA>
 ##                                                                                
-##                    soil.samp.z    inst     pid    pmid     eid
-## Class                character numeric integer integer integer
-## Minimum                   <NA>     214    2520    2530     452
-## Maximum                   <NA>     214    3180    3180     616
-## Mean                      <NA>     214    2860    2860     535
-## Unique (excld. NA)           0       1     120     120      41
-## Missing values             120       0       0       0       0
-## Sorted                    <NA>    TRUE   FALSE   FALSE   FALSE
+##                       inst     pid    pmid     eid
+## Class              numeric integer integer integer
+## Minimum                214    2520    2530     452
+## Maximum                214    3180    3180     616
+## Mean                   214    2860    2860     535
+## Unique (excld. NA)       1     120     120      41
+## Missing values           0       0       0       0
+## Sorted                TRUE   FALSE   FALSE   FALSE
 ## 
 ```
 

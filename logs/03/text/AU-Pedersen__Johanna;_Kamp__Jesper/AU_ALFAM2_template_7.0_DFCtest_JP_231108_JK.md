@@ -580,7 +580,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  37 rows and 230 columns
+##  37 rows and 229 columns
 ##  37 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -1014,32 +1014,32 @@ title: 'Submitted data summary'
 ## Missing values          37       0              0          0         0
 ## Sorted                <NA>    TRUE          FALSE      FALSE      TRUE
 ##                                                                       
-##                                 app.method.orig app.method2 incorp.orig
-## Class                                 character   character   character
-## Minimum            Band spread or trailing hose        bsth        None
-## Maximum                     Open slot injection          os        None
-## Mean                                       <NA>        <NA>        <NA>
-## Unique (excld. NA)                            2           2           1
-## Missing values                                0           0           0
-## Sorted                                    FALSE       FALSE        TRUE
-##                                                                        
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum                        Mix 2022-10-11                   0-5     205
-## Maximum                        Mix 2022-11-24       m i         0-5     205
-## Mean                          <NA>       <NA>      <NA>        <NA>     205
-## Unique (excld. NA)               1          3         2           1       1
-## Missing values                   0          0         0           0       0
-## Sorted                        TRUE       TRUE     FALSE        TRUE    TRUE
+##                                 app.method.orig incorp.orig man.source.orig
+## Class                                 character   character       character
+## Minimum            Band spread or trailing hose        None             Mix
+## Maximum                     Open slot injection        None             Mix
+## Mean                                       <NA>        <NA>            <NA>
+## Unique (excld. NA)                            2           1               1
+## Missing values                                0           0               0
+## Sorted                                    FALSE        TRUE            TRUE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2240    2250     395
-## Maximum               2280    2280     397
-## Mean                  2260    2270     396
-## Unique (excld. NA)      37      37       3
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2022-10-11                   0-5     205    2240    2250
+## Maximum            2022-11-24       m i         0-5     205    2280    2280
+## Mean                     <NA>      <NA>        <NA>     205    2260    2270
+## Unique (excld. NA)          3         2           1       1      37      37
+## Missing values              0         0           0       0       0       0
+## Sorted                   TRUE     FALSE        TRUE    TRUE    TRUE    TRUE
+##                                                                            
+##                        eid
+## Class              integer
+## Minimum                395
+## Maximum                397
+## Mean                   396
+## Unique (excld. NA)       3
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 

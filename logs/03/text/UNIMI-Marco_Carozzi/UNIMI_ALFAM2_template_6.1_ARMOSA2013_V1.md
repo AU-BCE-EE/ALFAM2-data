@@ -524,7 +524,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  4 rows and 230 columns
+##  4 rows and 229 columns
 ##  4 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -931,32 +931,23 @@ title: 'Submitted data summary'
 ## Missing values           4       0              0          0         0
 ## Sorted                <NA>    TRUE          FALSE       TRUE      TRUE
 ##                                                                       
-##                    app.method.orig app.method2 incorp.orig man.source.orig
-## Class                    character   character   character       character
-## Minimum                  Broadcast          bc        None          Cattle
-## Maximum                  Broadcast          bc     Shallow          Cattle
-## Mean                          <NA>        <NA>        <NA>            <NA>
-## Unique (excld. NA)               1           1           2               1
-## Missing values                   0           0           0               0
-## Sorted                        TRUE        TRUE       FALSE            TRUE
-##                                                                           
-##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character   character numeric integer integer
-## Minimum            2013-06-18                  <NA>     304    2230    2230
-## Maximum            2013-06-18                  <NA>     304    2230    2240
-## Mean                     <NA>      <NA>        <NA>     304    2230    2230
-## Unique (excld. NA)          1         1           0       1       4       4
-## Missing values              0         0           4       0       0       0
-## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
-##                                                                            
-##                        eid
-## Class              integer
-## Minimum                384
-## Maximum                384
-## Mean                   384
-## Unique (excld. NA)       1
-## Missing values           0
-## Sorted                TRUE
+##                    app.method.orig incorp.orig man.source.orig date.start
+## Class                    character   character       character       Date
+## Minimum                  Broadcast        None          Cattle 2013-06-18
+## Maximum                  Broadcast     Shallow          Cattle 2013-06-18
+## Mean                          <NA>        <NA>            <NA>       <NA>
+## Unique (excld. NA)               1           2               1          1
+## Missing values                   0           0               0          0
+## Sorted                        TRUE       FALSE            TRUE       TRUE
+##                                                                          
+##                     flag.int soil.samp.z    inst     pid    pmid     eid
+## Class              character   character numeric integer integer integer
+## Minimum                             <NA>     304    2230    2230     384
+## Maximum                             <NA>     304    2230    2240     384
+## Mean                    <NA>        <NA>     304    2230    2230     384
+## Unique (excld. NA)         1           0       1       4       4       1
+## Missing values             0           4       0       0       0       0
+## Sorted                  TRUE        <NA>    TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

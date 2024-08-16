@@ -431,7 +431,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  3 rows and 230 columns
+##  3 rows and 229 columns
 ##  3 unique rows
 ##                    institute           proj              exper     field
 ## Class              character      character          character character
@@ -847,32 +847,32 @@ title: 'Submitted data summary'
 ## Missing values              3       3       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig     app.method.orig app.method2 incorp.orig
-## Class              character           character   character   character
-## Minimum                Grass Open slot injection          os        <NA>
-## Maximum                Grass Open slot injection          os        <NA>
-## Mean                    <NA>                <NA>        <NA>        <NA>
-## Unique (excld. NA)         1                   1           1           0
-## Missing values             0                   0           0           3
-## Sorted                  TRUE                TRUE        TRUE        <NA>
-##                                                                         
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum                        Mix 2019-05-21       m i        <NA>     205
-## Maximum                        Mix 2019-05-21       m i        <NA>     205
-## Mean                          <NA>       <NA>      <NA>        <NA>     205
-## Unique (excld. NA)               1          1         1           0       1
-## Missing values                   0          0         0           3       0
-## Sorted                        TRUE       TRUE      TRUE        <NA>    TRUE
+##                    crop.orig     app.method.orig incorp.orig man.source.orig
+## Class              character           character   character       character
+## Minimum                Grass Open slot injection        <NA>             Mix
+## Maximum                Grass Open slot injection        <NA>             Mix
+## Mean                    <NA>                <NA>        <NA>            <NA>
+## Unique (excld. NA)         1                   1           0               1
+## Missing values             0                   0           3               0
+## Sorted                  TRUE                TRUE        <NA>            TRUE
+##                                                                             
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2019-05-21       m i        <NA>     205    2220    2220
+## Maximum            2019-05-21       m i        <NA>     205    2220    2230
+## Mean                     <NA>      <NA>        <NA>     205    2220    2220
+## Unique (excld. NA)          1         1           0       1       3       3
+## Missing values              0         0           3       0       0       0
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2220    2220     380
-## Maximum               2220    2230     380
-## Mean                  2220    2220     380
-## Unique (excld. NA)       3       3       1
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                        eid
+## Class              integer
+## Minimum                380
+## Maximum                380
+## Mean                   380
+## Unique (excld. NA)       1
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 
