@@ -630,68 +630,59 @@ title: 'Submitted data summary'
 ## Sorted                  TRUE      FALSE         <NA>       <NA>   FALSE
 ##                                                                        
 ##                    soil.dens  crop.res      till man.source    man.source.det
-## Class                numeric character character  character         character
-## Minimum                 1.36        No        No        cat             Dairy
-## Maximum                 1.36       Yes        No        mix see "experiments"
+## Class                numeric character character     factor         character
+## Minimum                 1.36        No        No       <NA>             Dairy
+## Maximum                 1.36       Yes        No       <NA> see "experiments"
 ## Mean                    1.36      <NA>      <NA>       <NA>              <NA>
-## Unique (excld. NA)         1         2         1          2                 2
-## Missing values             0         9         0          0                 0
-## Sorted                  TRUE     FALSE      TRUE      FALSE             FALSE
+## Unique (excld. NA)         1         2         1          0                 2
+## Missing values             0         9         0         21                 0
+## Sorted                  TRUE     FALSE      TRUE       <NA>             FALSE
 ##                                                                              
-##                      man.bed   man.con            man.trt1
-## Class              character character           character
-## Minimum                 <NA>    Liquid Anaerobic digestion
-## Maximum                 <NA>     Solid                None
-## Mean                    <NA>      <NA>                <NA>
-## Unique (excld. NA)         0         2                   2
-## Missing values            21         0                   0
-## Sorted                  <NA>     FALSE               FALSE
-##                                                           
-##                                 man.trt2 man.stor  man.dm  man.vs man.tkn
-## Class                          character  numeric numeric numeric numeric
-## Minimum            Mechanical separation      182   0.772    <NA>    0.98
-## Maximum                             None      182      35    <NA>    8.57
-## Mean                                <NA>      182    9.84    <NA>    4.48
-## Unique (excld. NA)                     2        1      21       0      21
-## Missing values                         7        0       0      21       0
-## Sorted                             FALSE     TRUE   FALSE    <NA>   FALSE
-##                                                                          
-##                    man.tan man.tic  man.ua man.vfa  man.ph             app.end
-## Class              numeric logical logical numeric numeric     POSIXct, POSIXt
-## Minimum              0.579    <NA>    <NA>    <NA>     6.6 2017-03-22 10:19:00
-## Maximum               3.87    <NA>    <NA>    <NA>    9.96 2019-03-12 13:10:00
-## Mean                  1.88    <NA>    <NA>    <NA>    8.14 2018-03-13 05:38:22
-## Unique (excld. NA)      21       0       0       0      18                  20
-## Missing values           0      21      21      21       0                   0
-## Sorted               FALSE    <NA>    <NA>    <NA>   FALSE               FALSE
+##                      man.bed man.con            man.trt1              man.trt2
+## Class              character  factor           character             character
+## Minimum                 <NA>  slurry Anaerobic digestion Mechanical separation
+## Maximum                 <NA>   solid                None                  None
+## Mean                    <NA>  liquid                <NA>                  <NA>
+## Unique (excld. NA)         0       2                   2                     2
+## Missing values            21       0                   0                     7
+## Sorted                  <NA>   FALSE               FALSE                 FALSE
 ##                                                                               
-##                    app.method app.rate app.rate.unit    incorp time.incorp
-## Class               character  numeric     character character     numeric
-## Minimum                    bc     12.2          t/ha      none          23
-## Maximum                  bsth     60.4          t/ha   shallow          29
-## Mean                     <NA>       28          <NA>      <NA>        24.9
-## Unique (excld. NA)          2       21             1         2           5
-## Missing values              0        0             0         0          15
-## Sorted                  FALSE    FALSE          TRUE     FALSE       FALSE
+##                    man.stor  man.dm  man.vs man.tkn man.tan man.tic  man.ua
+## Class               numeric numeric numeric numeric numeric logical logical
+## Minimum                 182   0.772    <NA>    0.98   0.579    <NA>    <NA>
+## Maximum                 182      35    <NA>    8.57    3.87    <NA>    <NA>
+## Mean                    182    9.84    <NA>    4.48    1.88    <NA>    <NA>
+## Unique (excld. NA)        1      21       0      21      21       0       0
+## Missing values            0       0      21       0       0      21      21
+## Sorted                 TRUE   FALSE    <NA>   FALSE   FALSE    <NA>    <NA>
+##                                                                            
+##                    man.vfa  man.ph             app.end app.method app.rate
+## Class              numeric numeric     POSIXct, POSIXt  character  numeric
+## Minimum               <NA>     6.6 2017-03-22 10:19:00         bc     12.2
+## Maximum               <NA>    9.96 2019-03-12 13:10:00       bsth     60.4
+## Mean                  <NA>    8.14 2018-03-13 05:38:22       <NA>       28
+## Unique (excld. NA)       0      18                  20          2       21
+## Missing values          21       0                   0          0        0
+## Sorted                <NA>   FALSE               FALSE      FALSE    FALSE
 ##                                                                           
-##                    man.area dist.inj furrow.z furrow.w      crop  crop.z
-## Class               numeric  numeric  numeric  logical character numeric
-## Minimum                  25     <NA>     <NA>     <NA> bare soil       0
-## Maximum                 100     <NA>     <NA>     <NA>  rapeseed      60
-## Mean                     60     <NA>     <NA>     <NA>      <NA>    16.8
-## Unique (excld. NA)        3        0        0        0         3       7
-## Missing values            6       21       21       21         0       0
-## Sorted                FALSE     <NA>     <NA>     <NA>     FALSE   FALSE
+##                    app.rate.unit    incorp time.incorp man.area dist.inj
+## Class                  character character     numeric  numeric  numeric
+## Minimum                     t/ha      none          23       25     <NA>
+## Maximum                     t/ha   shallow          29      100     <NA>
+## Mean                        <NA>      <NA>        24.9       60     <NA>
+## Unique (excld. NA)             1         2           5        3        0
+## Missing values                 0         0          15        6       21
+## Sorted                      TRUE     FALSE       FALSE    FALSE     <NA>
 ##                                                                         
-##                    crop.area     lai
-## Class                numeric logical
-## Minimum                    0    <NA>
-## Maximum                    0    <NA>
-## Mean                       0    <NA>
-## Unique (excld. NA)         1       0
-## Missing values            15      21
-## Sorted                  TRUE    <NA>
-##                                     
+##                    furrow.z furrow.w      crop  crop.z crop.area     lai
+## Class               numeric  logical character numeric   numeric logical
+## Minimum                <NA>     <NA> bare soil       0         0    <NA>
+## Maximum                <NA>     <NA>  rapeseed      60         0    <NA>
+## Mean                   <NA>     <NA>      <NA>    16.8         0    <NA>
+## Unique (excld. NA)        0        0         3       7         1       0
+## Missing values           21       21         0       0        15      21
+## Sorted                 <NA>     <NA>     FALSE   FALSE      TRUE    <NA>
+##                                                                         
 ##                                                                            notes.plot
 ## Class                                                                       character
 ## Minimum                                                        15 cm of crop residues
@@ -980,24 +971,24 @@ title: 'Submitted data summary'
 ## Missing values          21       0                                0          0
 ## Sorted                <NA>    TRUE                             TRUE       TRUE
 ##                                                                               
-##                    crop.orig man.source.orig              app.method.orig
-## Class              character       character                    character
-## Minimum            Bare soil          Cattle Band spread or trailing hose
-## Maximum             Rapeseed             Mix                    Broadcast
-## Mean                    <NA>            <NA>                         <NA>
-## Unique (excld. NA)         3               2                            2
-## Missing values             0               0                            0
-## Sorted                 FALSE           FALSE                        FALSE
-##                                                                          
-##                    app.method2 incorp.orig date.start  flag.int soil.samp.z
-## Class                character   character       Date character   character
-## Minimum                     bc        None 2017-03-22                  0-20
-## Maximum                   bsth     Shallow 2019-03-12                  0-20
-## Mean                      <NA>        <NA>       <NA>      <NA>        <NA>
-## Unique (excld. NA)           2           2          7         1           1
-## Missing values               0           0          0         0           0
-## Sorted                   FALSE       FALSE       TRUE      TRUE        TRUE
-##                                                                            
+##                    crop.orig              app.method.orig app.method2
+## Class              character                    character   character
+## Minimum            Bare soil Band spread or trailing hose          bc
+## Maximum             Rapeseed                    Broadcast        bsth
+## Mean                    <NA>                         <NA>        <NA>
+## Unique (excld. NA)         3                            2           2
+## Missing values             0                            0           0
+## Sorted                 FALSE                        FALSE       FALSE
+##                                                                      
+##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
+## Class                character       character       Date character   character
+## Minimum                   None          Cattle 2017-03-22                  0-20
+## Maximum                Shallow             Mix 2019-03-12                  0-20
+## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           2               2          7         1           1
+## Missing values               0               0          0         0           0
+## Sorted                   FALSE           FALSE       TRUE      TRUE        TRUE
+##                                                                                
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
 ## Minimum                208    2440    2440     408

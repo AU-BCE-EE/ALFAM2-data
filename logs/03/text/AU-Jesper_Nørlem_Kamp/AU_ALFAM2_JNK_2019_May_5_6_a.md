@@ -505,15 +505,15 @@ title: 'Submitted data summary'
 ## Missing values                3          3       3         3         0
 ## Sorted                     <NA>       <NA>    <NA>      <NA>      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        mix           <NA>      <NA>    Slurry
-## Maximum                   No        mix           <NA>      <NA>    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          1              0         0         1
-## Missing values             0          0              3         3         0
-## Sorted                  TRUE       TRUE           <NA>      <NA>      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No       <NA>           <NA>      <NA>  slurry
+## Maximum                   No       <NA>           <NA>      <NA>   solid
+## Mean                    <NA>       <NA>           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          0              0         0       1
+## Missing values             0          3              3         3       0
+## Sorted                  TRUE       <NA>           <NA>      <NA>    TRUE
+##                                                                         
 ##                               man.trt1  man.trt2 man.stor  man.dm  man.vs
 ## Class                        character character  numeric numeric numeric
 ## Minimum            Anaerobic digestion      <NA>     <NA>    5.35    <NA>
@@ -847,32 +847,32 @@ title: 'Submitted data summary'
 ## Missing values              3       3       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig man.source.orig     app.method.orig app.method2
-## Class              character       character           character   character
-## Minimum                Grass             Mix Open slot injection          os
-## Maximum                Grass             Mix Open slot injection          os
-## Mean                    <NA>            <NA>                <NA>        <NA>
-## Unique (excld. NA)         1               1                   1           1
-## Missing values             0               0                   0           0
-## Sorted                  TRUE            TRUE                TRUE        TRUE
-##                                                                             
-##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character   character numeric integer
-## Minimum                   <NA> 2019-05-21       m i        <NA>     205    2220
-## Maximum                   <NA> 2019-05-21       m i        <NA>     205    2220
-## Mean                      <NA>       <NA>      <NA>        <NA>     205    2220
-## Unique (excld. NA)           0          1         1           0       1       3
-## Missing values               3          0         0           3       0       0
-## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
-##                                                                                
-##                       pmid     eid
-## Class              integer integer
-## Minimum               2220     380
-## Maximum               2230     380
-## Mean                  2220     380
-## Unique (excld. NA)       3       1
-## Missing values           0       0
-## Sorted                TRUE    TRUE
+##                    crop.orig     app.method.orig app.method2 incorp.orig
+## Class              character           character   character   character
+## Minimum                Grass Open slot injection          os        <NA>
+## Maximum                Grass Open slot injection          os        <NA>
+## Mean                    <NA>                <NA>        <NA>        <NA>
+## Unique (excld. NA)         1                   1           1           0
+## Missing values             0                   0           0           3
+## Sorted                  TRUE                TRUE        TRUE        <NA>
+##                                                                         
+##                    man.source.orig date.start  flag.int soil.samp.z    inst
+## Class                    character       Date character   character numeric
+## Minimum                        Mix 2019-05-21       m i        <NA>     205
+## Maximum                        Mix 2019-05-21       m i        <NA>     205
+## Mean                          <NA>       <NA>      <NA>        <NA>     205
+## Unique (excld. NA)               1          1         1           0       1
+## Missing values                   0          0         0           3       0
+## Sorted                        TRUE       TRUE      TRUE        <NA>    TRUE
+##                                                                            
+##                        pid    pmid     eid
+## Class              integer integer integer
+## Minimum               2220    2220     380
+## Maximum               2220    2230     380
+## Mean                  2220    2220     380
+## Unique (excld. NA)       3       3       1
+## Missing values           0       0       0
+## Sorted                TRUE    TRUE    TRUE
 ## 
 ```
 

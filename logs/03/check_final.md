@@ -21,17 +21,17 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## 
 ## -----------------------------------------------------
-## eid  numeric, range: 1 683 
+## eid  numeric, range: 1 686 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pid  numeric, range: 1 3357 
+## pid  numeric, range: 1 3372 
 ## Missing values: 0 
 ## 
 ## 
 ## -----------------------------------------------------
-## pmid  numeric, range: 1 3361 
+## pmid  numeric, range: 1 3376 
 ## Missing values: 0 
 ## 
 ## 
@@ -1341,8 +1341,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## mink
 ## 
-## sewage sludge 
-## Missing values: 0 
+## NA 
+## Missing values: 641 
 ## 
 ## 
 ## -----------------------------------------------------
@@ -1407,13 +1407,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## 
 ## liquid
 ## 
-## NA
-## 
-## Solid
-## 
-## Slurry
-## 
-## Liquid 
+## NA 
 ## Missing values: 982 
 ## 
 ## 

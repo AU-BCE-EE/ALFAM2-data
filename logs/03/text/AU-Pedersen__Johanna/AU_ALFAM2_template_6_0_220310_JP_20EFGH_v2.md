@@ -566,15 +566,15 @@ title: 'Submitted data summary'
 ## Missing values               36         36       0         0         0
 ## Sorted                     <NA>       <NA>    TRUE      TRUE      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat           <NA>      <NA>    Slurry
-## Maximum                   No        pig           <NA>      <NA>    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          2              0         0         1
-## Missing values             0          0             36        36         0
-## Sorted                  TRUE      FALSE           <NA>      <NA>      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No        cat           <NA>      <NA>  slurry
+## Maximum                   No       none           <NA>      <NA>   solid
+## Mean                    <NA>        pig           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          1              0         0       1
+## Missing values             0         18             36        36       0
+## Sorted                  TRUE       TRUE           <NA>      <NA>    TRUE
+##                                                                         
 ##                         man.trt1  man.trt2 man.stor  man.dm  man.vs man.tkn
 ## Class                  character character  numeric numeric numeric numeric
 ## Minimum            Acidification      <NA>     <NA>    5.84    <NA>    2.86
@@ -908,41 +908,32 @@ title: 'Submitted data summary'
 ## Missing values             36      36                      0              0
 ## Sorted                   <NA>    <NA>                  FALSE           TRUE
 ##                                                                            
-##                    meas.tech2 crop.orig man.source.orig
-## Class               character character       character
-## Minimum                    wt     Grass          Cattle
-## Maximum                    wt     Grass             Pig
-## Mean                     <NA>      <NA>            <NA>
-## Unique (excld. NA)          1         1               2
-## Missing values              0         0               0
-## Sorted                   TRUE      TRUE           FALSE
-##                                                        
-##                                 app.method.orig app.method2 incorp.orig
-## Class                                 character   character   character
-## Minimum            Band spread or trailing hose        bsth        None
-## Maximum            Band spread or trailing hose        bsth        None
-## Mean                                       <NA>        <NA>        <NA>
-## Unique (excld. NA)                            1           1           1
-## Missing values                                0           0           0
-## Sorted                                     TRUE        TRUE        TRUE
-##                                                                        
-##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character   character numeric integer integer
-## Minimum            2020-11-18                  <NA>     205    1940    1950
-## Maximum            2020-12-09       m i        <NA>     205    1980    1980
-## Mean                     <NA>      <NA>        <NA>     205    1960    1960
-## Unique (excld. NA)          4         2           0       1      36      36
-## Missing values              0         0          36       0       0       0
-## Sorted                   TRUE     FALSE        <NA>    TRUE    TRUE    TRUE
-##                                                                            
-##                        eid
-## Class              integer
-## Minimum                351
-## Maximum                354
-## Mean                   352
-## Unique (excld. NA)       4
-## Missing values           0
-## Sorted                TRUE
+##                    meas.tech2 crop.orig              app.method.orig
+## Class               character character                    character
+## Minimum                    wt     Grass Band spread or trailing hose
+## Maximum                    wt     Grass Band spread or trailing hose
+## Mean                     <NA>      <NA>                         <NA>
+## Unique (excld. NA)          1         1                            1
+## Missing values              0         0                            0
+## Sorted                   TRUE      TRUE                         TRUE
+##                                                                     
+##                    app.method2 incorp.orig man.source.orig date.start  flag.int
+## Class                character   character       character       Date character
+## Minimum                   bsth        None          Cattle 2020-11-18          
+## Maximum                   bsth        None             Pig 2020-12-09       m i
+## Mean                      <NA>        <NA>            <NA>       <NA>      <NA>
+## Unique (excld. NA)           1           1               2          4         2
+## Missing values               0           0               0          0         0
+## Sorted                    TRUE        TRUE           FALSE       TRUE     FALSE
+##                                                                                
+##                    soil.samp.z    inst     pid    pmid     eid
+## Class                character numeric integer integer integer
+## Minimum                   <NA>     205    1940    1950     351
+## Maximum                   <NA>     205    1980    1980     354
+## Mean                      <NA>     205    1960    1960     352
+## Unique (excld. NA)           0       1      36      36       4
+## Missing values              36       0       0       0       0
+## Sorted                    <NA>    TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

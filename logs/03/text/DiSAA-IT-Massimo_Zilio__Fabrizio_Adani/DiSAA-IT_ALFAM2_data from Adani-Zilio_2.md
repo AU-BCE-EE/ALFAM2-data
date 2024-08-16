@@ -635,24 +635,24 @@ title: 'Submitted data summary'
 ## Missing values              6            6          0       0         6
 ## Sorted                   <NA>         <NA>       TRUE   FALSE      <NA>
 ##                                                                        
-##                     crop.res      till    man.source man.source.det   man.bed
-## Class              character character     character      character character
-## Minimum                  Yes        No sewage sludge           <NA>      None
-## Maximum                  Yes        No      urea 46%           <NA>      None
-## Mean                    <NA>      <NA>          <NA>           <NA>      <NA>
-## Unique (excld. NA)         1         1             2              0         1
-## Missing values             0         0             0              6         0
-## Sorted                  TRUE      TRUE         FALSE           <NA>      TRUE
-##                                                                              
-##                      man.con            man.trt1          man.trt2 man.stor
-## Class              character           character         character  numeric
-## Minimum               Slurry Anaerobic digestion Ammonia stripping       50
-## Maximum                Solid Anaerobic digestion Ammonia stripping       50
-## Mean                    <NA>                <NA>              <NA>       50
-## Unique (excld. NA)         2                   1                 1        1
-## Missing values             0                   3                 3        3
-## Sorted                 FALSE                TRUE              TRUE     TRUE
-##                                                                            
+##                     crop.res      till man.source man.source.det   man.bed
+## Class              character character     factor      character character
+## Minimum                  Yes        No       <NA>           <NA>      None
+## Maximum                  Yes        No       <NA>           <NA>      None
+## Mean                    <NA>      <NA>       <NA>           <NA>      <NA>
+## Unique (excld. NA)         1         1          0              0         1
+## Missing values             0         0          6              6         0
+## Sorted                  TRUE      TRUE       <NA>           <NA>      TRUE
+##                                                                           
+##                    man.con            man.trt1          man.trt2 man.stor
+## Class               factor           character         character  numeric
+## Minimum             slurry Anaerobic digestion Ammonia stripping       50
+## Maximum              solid Anaerobic digestion Ammonia stripping       50
+## Mean                liquid                <NA>              <NA>       50
+## Unique (excld. NA)       2                   1                 1        1
+## Missing values           0                   3                 3        3
+## Sorted               FALSE                TRUE              TRUE     TRUE
+##                                                                          
 ##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
 ## Class              numeric numeric numeric numeric logical logical numeric
 ## Minimum               10.3    4.04     7.7     4.1    <NA>    <NA>    <NA>
@@ -995,32 +995,32 @@ title: 'Submitted data summary'
 ## Missing values              6       6       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig man.source.orig     app.method.orig app.method2
-## Class              character       character           character   character
-## Minimum            Bare soil   Sewage sludge           Broadcast          bc
-## Maximum            Bare soil        Urea 46% Open slot injection          os
-## Mean                    <NA>            <NA>                <NA>        <NA>
-## Unique (excld. NA)         1               2                   2           2
-## Missing values             0               0                   0           0
-## Sorted                  TRUE           FALSE               FALSE       FALSE
-##                                                                             
-##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character   character numeric integer
-## Minimum                   <NA> 2018-04-23                  <NA>     302    2220
-## Maximum                   <NA> 2020-05-28                  <NA>     302    2230
-## Mean                      <NA>       <NA>      <NA>        <NA>     302    2230
-## Unique (excld. NA)           0          3         1           0       1       6
-## Missing values               6          0         0           6       0       0
-## Sorted                    <NA>       TRUE      TRUE        <NA>    TRUE    TRUE
-##                                                                                
-##                       pmid     eid
-## Class              integer integer
-## Minimum               2230     381
-## Maximum               2230     383
-## Mean                  2230     382
-## Unique (excld. NA)       6       3
-## Missing values           0       0
-## Sorted                TRUE    TRUE
+##                    crop.orig     app.method.orig app.method2 incorp.orig
+## Class              character           character   character   character
+## Minimum            Bare soil           Broadcast          bc        <NA>
+## Maximum            Bare soil Open slot injection          os        <NA>
+## Mean                    <NA>                <NA>        <NA>        <NA>
+## Unique (excld. NA)         1                   2           2           0
+## Missing values             0                   0           0           6
+## Sorted                  TRUE               FALSE       FALSE        <NA>
+##                                                                         
+##                    man.source.orig date.start  flag.int soil.samp.z    inst
+## Class                    character       Date character   character numeric
+## Minimum              Sewage sludge 2018-04-23                  <NA>     302
+## Maximum                   Urea 46% 2020-05-28                  <NA>     302
+## Mean                          <NA>       <NA>      <NA>        <NA>     302
+## Unique (excld. NA)               2          3         1           0       1
+## Missing values                   0          0         0           6       0
+## Sorted                       FALSE       TRUE      TRUE        <NA>    TRUE
+##                                                                            
+##                        pid    pmid     eid
+## Class              integer integer integer
+## Minimum               2220    2230     381
+## Maximum               2230    2230     383
+## Mean                  2230    2230     382
+## Unique (excld. NA)       6       6       3
+## Missing values           0       0       0
+## Sorted                TRUE    TRUE    TRUE
 ## 
 ```
 

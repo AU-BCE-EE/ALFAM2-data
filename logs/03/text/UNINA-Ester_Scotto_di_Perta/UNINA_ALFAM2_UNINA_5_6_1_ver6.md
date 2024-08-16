@@ -611,15 +611,15 @@ title: 'Submitted data summary'
 ## Missing values                7          7       0         7         0
 ## Sorted                     <NA>       <NA>   FALSE      <NA>     FALSE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat        buffalo      None    Slurry
-## Maximum                  Yes        cat        buffalo      None    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         2          1              1         1         1
-## Missing values             0          0              0         0         0
-## Sorted                  TRUE       TRUE           TRUE      TRUE      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No       <NA>        buffalo      None  slurry
+## Maximum                  Yes       <NA>        buffalo      None   solid
+## Mean                    <NA>       <NA>           <NA>      <NA>  slurry
+## Unique (excld. NA)         2          0              1         1       1
+## Missing values             0          7              0         0       0
+## Sorted                  TRUE       <NA>           TRUE      TRUE    TRUE
+##                                                                         
 ##                               man.trt1              man.trt2 man.stor  man.dm
 ## Class                        character             character  numeric numeric
 ## Minimum            Anaerobic digestion Mechanical separation     <NA>    6.66
@@ -962,32 +962,32 @@ title: 'Submitted data summary'
 ## Missing values              7       7       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE          FALSE      FALSE
 ##                                                                        
-##                    crop.orig man.source.orig app.method.orig app.method2
-## Class              character       character       character   character
-## Minimum            Bare soil          Cattle       Broadcast          bc
-## Maximum              Stubble          Cattle       Broadcast          bc
-## Mean                    <NA>            <NA>            <NA>        <NA>
-## Unique (excld. NA)         2               1               1           1
-## Missing values             0               0               0           0
-## Sorted                 FALSE            TRUE            TRUE        TRUE
-##                                                                         
-##                    incorp.orig date.start  flag.int soil.samp.z    inst     pid
-## Class                character       Date character   character numeric integer
-## Minimum                   None 2016-07-28                  <NA>     305    2230
-## Maximum                   None 2017-07-18                  <NA>     305    2240
-## Mean                      <NA>       <NA>      <NA>        <NA>     305    2240
-## Unique (excld. NA)           1          2         1           0       1       7
-## Missing values               0          0         0           7       0       0
-## Sorted                    TRUE      FALSE      TRUE        <NA>    TRUE    TRUE
-##                                                                                
-##                       pmid     eid
-## Class              integer integer
-## Minimum               2240     385
-## Maximum               2240     388
-## Mean                  2240     387
-## Unique (excld. NA)       7       4
-## Missing values           0       0
-## Sorted                TRUE    TRUE
+##                    crop.orig app.method.orig app.method2 incorp.orig
+## Class              character       character   character   character
+## Minimum            Bare soil       Broadcast          bc        None
+## Maximum              Stubble       Broadcast          bc        None
+## Mean                    <NA>            <NA>        <NA>        <NA>
+## Unique (excld. NA)         2               1           1           1
+## Missing values             0               0           0           0
+## Sorted                 FALSE            TRUE        TRUE        TRUE
+##                                                                     
+##                    man.source.orig date.start  flag.int soil.samp.z    inst
+## Class                    character       Date character   character numeric
+## Minimum                     Cattle 2016-07-28                  <NA>     305
+## Maximum                     Cattle 2017-07-18                  <NA>     305
+## Mean                          <NA>       <NA>      <NA>        <NA>     305
+## Unique (excld. NA)               1          2         1           0       1
+## Missing values                   0          0         0           7       0
+## Sorted                        TRUE      FALSE      TRUE        <NA>    TRUE
+##                                                                            
+##                        pid    pmid     eid
+## Class              integer integer integer
+## Minimum               2230    2240     385
+## Maximum               2240    2240     388
+## Mean                  2240    2240     387
+## Unique (excld. NA)       7       7       4
+## Missing values           0       0       0
+## Sorted                TRUE    TRUE    TRUE
 ## 
 ```
 

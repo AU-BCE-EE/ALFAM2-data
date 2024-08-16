@@ -528,15 +528,15 @@ title: 'Submitted data summary'
 ## Missing values                9          0       0         0         0
 ## Sorted                     <NA>       TRUE    TRUE      TRUE      TRUE
 ##                                                                       
-##                         till man.source man.source.det   man.bed   man.con
-## Class              character  character      character character character
-## Minimum                   No        cat           <NA>      <NA>    Slurry
-## Maximum                   No        cat           <NA>      <NA>    Slurry
-## Mean                    <NA>       <NA>           <NA>      <NA>      <NA>
-## Unique (excld. NA)         1          1              0         0         1
-## Missing values             0          0              9         9         0
-## Sorted                  TRUE       TRUE           <NA>      <NA>      TRUE
-##                                                                           
+##                         till man.source man.source.det   man.bed man.con
+## Class              character     factor      character character  factor
+## Minimum                   No       <NA>           <NA>      <NA>  slurry
+## Maximum                   No       <NA>           <NA>      <NA>   solid
+## Mean                    <NA>       <NA>           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          0              0         0       1
+## Missing values             0          9              9         9       0
+## Sorted                  TRUE       <NA>           <NA>      <NA>    TRUE
+##                                                                         
 ##                     man.trt1  man.trt2 man.stor  man.dm  man.vs man.tkn man.tan
 ## Class              character character  numeric numeric numeric numeric numeric
 ## Minimum             Dilution      <NA>     <NA>    4.47    <NA>     2.3    1.14
@@ -861,14 +861,14 @@ title: 'Submitted data summary'
 ## Missing values           9       0              0          0         0
 ## Sorted                <NA>    TRUE           TRUE       TRUE      TRUE
 ##                                                                       
-##                    man.source.orig     app.method.orig app.method2 incorp.orig
-## Class                    character           character   character   character
-## Minimum                     Cattle Open slot injection          os        None
-## Maximum                     Cattle Open slot injection          os        None
-## Mean                          <NA>                <NA>        <NA>        <NA>
-## Unique (excld. NA)               1                   1           1           1
-## Missing values                   0                   0           0           0
-## Sorted                        TRUE                TRUE        TRUE        TRUE
+##                        app.method.orig app.method2 incorp.orig man.source.orig
+## Class                        character   character   character       character
+## Minimum            Open slot injection          os        None          Cattle
+## Maximum            Open slot injection          os        None          Cattle
+## Mean                              <NA>        <NA>        <NA>            <NA>
+## Unique (excld. NA)                   1           1           1               1
+## Missing values                       0           0           0               0
+## Sorted                            TRUE        TRUE        TRUE            TRUE
 ##                                                                               
 ##                    date.start  flag.int soil.samp.z    inst     pid    pmid
 ## Class                    Date character   character numeric integer integer

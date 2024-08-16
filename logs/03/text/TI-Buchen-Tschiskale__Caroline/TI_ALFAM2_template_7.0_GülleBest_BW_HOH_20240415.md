@@ -21,19 +21,19 @@ title: 'Submitted data summary'
 ## 
 ## e.cum.final  vs. pmid 
 ##      +-+-------------+--------------+-------------+------------+
-## 3100 +         * *******  **  **                               +
-##      |      *      ** * *   *  * ***  *  *                     |
+##      |         * *******  **  **                               |
+## 3100 +      *      ** * *   *  * ***  *  *                     +
 ##      |        * * ** ******                      *      *      |
 ## 3050 +          *    * *  *  *    * ****   *  *       *    *   +
 ##      |       * * ****   *     *                                |
-## 3000 +       **** * ** ***** *      *                          +
-##      |  ***** * *              *                               |
+##      |       **** * ** ***** *      *                          |
+## 3000 +  ***** * *              *                               +
 ##      |  *******  * *                                           |
-## 2950 +  **   ********                                          +
-##      |         ****** ****                                     |
+##      |  **   ********                                          |
+## 2950 +         ****** ****                                     +
 ##      |   * **  * * ** * * *  *                                 |
-## 2900 +  ********                                               +
-##      |    ***** *                                              |
+##      |  ********                                               |
+## 2900 +    ***** *                                              +
 ##      +-+-------------+--------------+-------------+------------+
 ##        0            50             100           150            
 ## 
@@ -83,19 +83,19 @@ title: 'Submitted data summary'
 ## 
 ## e.rel.final  vs. pmid 
 ##      +--------------+-----------------+----------------+-------+
-## 3100 +                   *     *  *     *  *     *             +
-##      |                            * **   *  **                 |
+##      |                   *     *  *     *  *     *             |
+## 3100 +                            * **   *  **                 +
 ##      |                        *   *         *   ***            |
-## 3050 +                      *          **  ***    *        *   +
-##      |                   *    *  * *      *    **              |
+##      |                      *          **  ***    *        *   |
+## 3050 +                   *    *  * *      *    **              +
 ##      |            *    *   **    *   *                 *       |
 ## 3000 +    *  * ** *   *       *                                +
 ##      |  ****    *      **                                      |
-## 2950 +                        *  ** *  ***   *                 +
-##      |                 *   *  ** * ***  ** *   *               |
+##      |                        *  ** *  ***   *                 |
+## 2950 +                 *   *  ** * ***  ** *   *               +
 ##      |       *        * *        * * *   *        *      *     |
-## 2900 +          *   ** *   ***     *                           +
-##      |          * ** ** **    *                                |
+##      |          *   ** *   ***     *                           |
+## 2900 +          * ** ** **    *                                +
 ##      +--------------+-----------------+----------------+-------+
 ##                    0.5                1               1.5       
 ## 
@@ -142,19 +142,19 @@ title: 'Submitted data summary'
 ## 
 ## app.rate  vs. pmid 
 ##      +-----------+----------------+---------------+------------+
+##      |                                                      *  |
 ## 3100 +                                                      *  +
 ##      |                                                      *  |
 ##      |                                                      *  |
-## 3050 +                                                      *  +
-##      |                  *                                      |
+## 3050 +                  *                                      +
 ##      |                  *                                      |
 ## 3000 +                  *                                      +
 ##      |                  *                                      |
-## 2950 +                               *                         +
-##      |                               *                      *  |
+##      |                               *                         |
+## 2950 +                               *                      *  +
 ##      |  *                                                   *  |
-## 2900 +  *                                             *        +
-##      |                                                *        |
+##      |  *                                             *        |
+## 2900 +                                                *        +
 ##      +-----------+----------------+---------------+------------+
 ##                 25               30              35             
 ## 
@@ -202,19 +202,19 @@ title: 'Submitted data summary'
 ## 
 ## man.dm  vs. pmid 
 ##      ++------------+-------------+------------+------------+---+
-## 3100 +        *                                       *   *    +
-##      |        *                                       *        |
+##      |        *                                       *   *    |
+## 3100 +        *                                       *        +
 ##      |           *        *            *                   *   |
-## 3050 +           *                     *                       +
-##      |                *                *  *             *      |
+##      |           *                     *                       |
+## 3050 +                *                *  *             *      +
 ##      |                                *   *                    |
 ## 3000 +  *       *                     *                     *  +
 ##      |  *                                *                  *  |
-## 2950 +        *                          *                     +
-##      |  *     *  *                                             |
+##      |        *                          *                     |
+## 2950 +  *     *  *                                             +
 ##      |           *    *                                        |
-## 2900 +          *     *                   *                    +
-##      |  *       *         *                                    |
+##      |          *     *                   *                    |
+## 2900 +  *       *         *                                    +
 ##      ++------------+-------------+------------+------------+---+
 ##       5            6             7            8            9    
 ## 
@@ -266,19 +266,19 @@ title: 'Submitted data summary'
 ## 
 ## man.ph  vs. pmid 
 ##      +-----------+----------+-----------+----------+-----------+
-## 3100 +        *      *             *                      *    +
-##      |                             *                      *    |
+##      |        *      *             *                      *    |
+## 3100 +                             *                      *    +
 ##      |        *  *                   *               *         |
-## 3050 +                               *               *         +
-##      |      *      *             *                   *         |
+##      |                               *               *         |
+## 3050 +      *      *             *                   *         +
 ##      |                           *                          *  |
 ## 3000 +      *        *             *                        *  +
 ##      |               *             *                 *         |
-## 2950 +  *                          *                 *         +
-##      |        *                    * *                         |
+##      |  *                          *                 *         |
+## 2950 +        *                    * *                         +
 ##      |      *                        *                         |
-## 2900 +      *                    *                             +
-##      |      *                      *                           |
+##      |      *                    *                             |
+## 2900 +      *                      *                           +
 ##      +-----------+----------+-----------+----------+-----------+
 ##     5.5          6         6.5          7         7.5          8
 ## 
@@ -333,19 +333,19 @@ title: 'Submitted data summary'
 ## 
 ## man.tan  vs. pmid 
 ##      +------------+---------------+--------------+-------------+
-## 3100 +   *  *                                        *  *      +
-##      |      *                                           *      |
+##      |   *  *                                        *  *      |
+## 3100 +      *                                           *      +
 ##      |     **                                          **      |
-## 3050 +     *                                            *      +
-##      |      *            *                            * *      |
+##      |     *                                            *      |
+## 3050 +      *            *                            * *      +
 ##      |                   *                            *        |
 ## 3000 +  **                                           **        +
 ##      |  *                                            *     *   |
-## 2950 +   *  *                                              *   +
+##      |   *  *                                              *   |
+## 2950 +     **                                                  +
 ##      |     **                                                  |
-##      |     **                                                  |
-## 2900 +   *  *            *                                     +
-##      |  **                                                     |
+##      |   *  *            *                                     |
+## 2900 +  **                                                     +
 ##      +------------+---------------+--------------+-------------+
 ##                  1.5              2             2.5             
 ## 
@@ -394,19 +394,19 @@ title: 'Submitted data summary'
 ## 
 ## tan.app  vs. pmid 
 ##      +-----+-----------+------------+------------+------------++
-## 3100 +                                             *       *   +
-##      |                                                     *   |
+##      |                                             *       *   |
+## 3100 +                                                     *   +
 ##      |                                                  *   *  |
-## 3050 +                                                  *      +
-##      |                  *                            *         |
+##      |                                                  *      |
+## 3050 +                  *                            *         +
 ##      |                                               *         |
 ## 3000 +        *  *                                             +
 ##      |        *                                                |
-## 2950 +                        *     *                          +
-##      |                              *                   *   *  |
+##      |                        *     *                          |
+## 2950 +                              *                   *   *  +
 ##      |  *                                               *      |
-## 2900 +  *                      *            *                  +
-##      |                                   *  *                  |
+##      |  *                      *            *                  |
+## 2900 +                                   *  *                  +
 ##      +-----+-----------+------------+------------+------------++
 ##           30          35           40           45           50 
 ## 
@@ -459,19 +459,19 @@ title: 'Submitted data summary'
 ## 
 ## ct.max  vs. pmid 
 ##      +---+----------+---------+---------+---------+----------+-+
-## 3100 +                                                  ****   +
-##      |                                                 *****   |
+##      |                                                  ****   |
+## 3100 +                                                 *****   +
 ##      |                         ******                     **   |
 ## 3050 +                         *****                           +
 ##      |           *** **           ***                          |
-## 3000 +           *******                                       +
-##      |               *     *****                               |
+##      |           *******                                       |
+## 3000 +               *     *****                               +
 ##      |                      *****                              |
-## 2950 +                      ***     **                         +
-##      |                             ****   ****                 |
+##      |                      ***     **                         |
+## 2950 +                             ****   ****                 +
 ##      |  ***                               ****           *     |
-## 2900 +   ***              ***                                  +
-##      |                    ******                               |
+##      |   ***              ***                                  |
+## 2900 +                    ******                               +
 ##      +---+----------+---------+---------+---------+----------+-+
 ##         100        120       140       160       180        200 
 ## 
@@ -513,19 +513,19 @@ title: 'Submitted data summary'
 ## 
 ## air.temp.mn  vs. pmid 
 ##      +---+-----------------+-----------------+-----------------+
-## 3100 +                                             *        *  +
 ##      |                                             *        *  |
+## 3100 +                                             *        *  +
 ##      |  ***                                                 *  |
 ## 3050 +  **                                                     +
 ##      |   **                 **                                 |
-## 3000 +                      **                                 +
-##      |        **             *                                 |
+##      |                      **                                 |
+## 3000 +        **             *                                 +
 ##      |        ***                                              |
-## 2950 +        **                                 *             +
-##      |                *     *                    *             |
+##      |        **                                 *             |
+## 2950 +                *     *                    *             +
 ##      |                **    *      *        **                 |
-## 2900 +             *                        **                 +
-##      |             *                                           |
+##      |             *                        **                 |
+## 2900 +             *                                           +
 ##      +---+-----------------+-----------------+-----------------+
 ##          5                10                15                  
 ## 
@@ -572,19 +572,19 @@ title: 'Submitted data summary'
 ## 
 ## wind.2m.mn  vs. pmid 
 ##      +---------+--------------+---------------+---------------++
-## 3100 +                            *    **                      +
 ##      |                            *    **                      |
+## 3100 +                            *    **                      +
 ##      |                                  *                 ***  |
 ## 3050 +                                                     **  +
 ##      |           ***                                       *   |
-## 3000 +           ***                                           +
-##      |            ***                                          |
+##      |           ***                                           |
+## 3000 +            ***                                          +
 ##      |             **                                          |
-## 2950 +             **         *                                +
-##      |                        *             **      **         |
+##      |             **         *                                |
+## 2950 +                        *             **      **         +
 ##      |  *                                   **      *  *       |
-## 2900 +  **        **                                           +
-##      |            **                                           |
+##      |  **        **                                           |
+## 2900 +            **                                           +
 ##      +---------+--------------+---------------+---------------++
 ##                1              2               3               4 
 ## 
@@ -633,10 +633,11 @@ title: 'Submitted data summary'
 ## 
 ## rain.rate.mn  vs. pmid 
 ##      +-------------+--------------+--------------+-------------+
+##      |                            *                            |
 ## 3100 +                            *                            +
 ##      |                            *                            |
-##      |                            *                            |
 ## 3050 +                            *                            +
+##      |                            *                            |
 ##      |                            *                            |
 ## 3000 +                            *                            +
 ##      |                            *                            |
@@ -645,7 +646,6 @@ title: 'Submitted data summary'
 ##      |                            *                            |
 ##      |                            *                            |
 ## 2900 +                            *                            +
-##      |                            *                            |
 ##      +-------------+--------------+--------------+-------------+
 ##     -1           -0.5             0             0.5            1
 ## 
@@ -779,60 +779,60 @@ title: 'Submitted data summary'
 ## Missing values                    0        224          224        224       0
 ## Sorted                         TRUE       <NA>         <NA>       <NA>   FALSE
 ##                                                                               
-##                    soil.dens  crop.res      till       man.source
-## Class                numeric character character        character
-## Minimum                 1.16        no        no biogas digestate
-## Maximum                 1.32        no        no              cat
-## Mean                    1.25      <NA>      <NA>             <NA>
-## Unique (excld. NA)         4         1         1                2
-## Missing values             0         0         0                0
-## Sorted                 FALSE      TRUE      TRUE            FALSE
-##                                                                  
-##                    man.source.det   man.bed   man.con      man.trt1  man.trt2
-## Class                   character character character     character character
-## Minimum                      <NA>      <NA>      <NA> Acidification      <NA>
-## Maximum                      <NA>      <NA>      <NA>          None      <NA>
-## Mean                         <NA>      <NA>      <NA>          <NA>      <NA>
-## Unique (excld. NA)              0         0         0             3         0
-## Missing values                224       224       224             0       224
-## Sorted                       <NA>      <NA>      <NA>         FALSE      <NA>
+##                    soil.dens  crop.res      till man.source man.source.det
+## Class                numeric character character     factor      character
+## Minimum                 1.16        no        no       <NA>           <NA>
+## Maximum                 1.32        no        no       <NA>           <NA>
+## Mean                    1.25      <NA>      <NA>       <NA>           <NA>
+## Unique (excld. NA)         4         1         1          0              0
+## Missing values             0         0         0        224            224
+## Sorted                 FALSE      TRUE      TRUE       <NA>           <NA>
+##                                                                           
+##                      man.bed man.con      man.trt1  man.trt2 man.stor  man.dm
+## Class              character  factor     character character  numeric numeric
+## Minimum                 <NA>    <NA> Acidification      <NA>     <NA>     5.1
+## Maximum                 <NA>    <NA>          None      <NA>     <NA>     9.1
+## Mean                    <NA>    <NA>          <NA>      <NA>     <NA>    6.71
+## Unique (excld. NA)         0       0             3         0        0      15
+## Missing values           224     224             0       224      224      32
+## Sorted                  <NA>    <NA>         FALSE      <NA>     <NA>   FALSE
 ##                                                                              
-##                    man.stor  man.dm  man.vs man.tkn man.tan man.tic  man.ua
-## Class               numeric numeric numeric numeric numeric logical logical
-## Minimum                <NA>     5.1    <NA>    2.13    1.16    <NA>    <NA>
-## Maximum                <NA>     9.1    <NA>    5.11    2.83    <NA>    <NA>
-## Mean                   <NA>    6.71    <NA>     3.3    1.79    <NA>    <NA>
-## Unique (excld. NA)        0      15       0      16      14       0       0
-## Missing values          224      32     224      32      32     224     224
-## Sorted                 <NA>   FALSE    <NA>   FALSE   FALSE    <NA>    <NA>
-##                                                                            
-##                    man.vfa  man.ph         app.end app.method app.rate
-## Class              numeric numeric POSIXct, POSIXt  character  numeric
-## Minimum               <NA>     5.6            <NA>         bc       22
-## Maximum               <NA>     7.9            <NA>         ts       38
-## Mean                  <NA>    6.81            <NA>       <NA>     32.1
-## Unique (excld. NA)       0      12               0          4        5
-## Missing values         224      32             224          0       96
-## Sorted                <NA>   FALSE            <NA>      FALSE    FALSE
-##                                                                       
-##                    app.rate.unit    incorp time.incorp man.area dist.inj
-## Class                  character character     numeric  numeric  numeric
-## Minimum                    m3/ha      <NA>        <NA>     <NA>       25
-## Maximum                    m3/ha      <NA>        <NA>     <NA>       25
-## Mean                        <NA>      <NA>        <NA>     <NA>       25
-## Unique (excld. NA)             1         0           0        0        1
-## Missing values                 0       224         224      224      160
-## Sorted                      TRUE      <NA>        <NA>     <NA>     TRUE
-##                                                                         
-##                    furrow.z furrow.w      crop  crop.z crop.area     lai
-## Class               numeric  logical character numeric   numeric logical
-## Minimum                   5     <NA>    cereal    <NA>      <NA>    <NA>
-## Maximum                   5     <NA>     grass    <NA>      <NA>    <NA>
-## Mean                      5     <NA>      <NA>    <NA>      <NA>    <NA>
-## Unique (excld. NA)        1        0         2       0         0       0
-## Missing values          160      224         1     224       224     224
-## Sorted                 TRUE     <NA>     FALSE    <NA>      <NA>    <NA>
-##                                                                         
+##                     man.vs man.tkn man.tan man.tic  man.ua man.vfa  man.ph
+## Class              numeric numeric numeric logical logical numeric numeric
+## Minimum               <NA>    2.13    1.16    <NA>    <NA>    <NA>     5.6
+## Maximum               <NA>    5.11    2.83    <NA>    <NA>    <NA>     7.9
+## Mean                  <NA>     3.3    1.79    <NA>    <NA>    <NA>    6.81
+## Unique (excld. NA)       0      16      14       0       0       0      12
+## Missing values         224      32      32     224     224     224      32
+## Sorted                <NA>   FALSE   FALSE    <NA>    <NA>    <NA>   FALSE
+##                                                                           
+##                            app.end app.method app.rate app.rate.unit    incorp
+## Class              POSIXct, POSIXt  character  numeric     character character
+## Minimum                       <NA>         bc       22         m3/ha      <NA>
+## Maximum                       <NA>         ts       38         m3/ha      <NA>
+## Mean                          <NA>       <NA>     32.1          <NA>      <NA>
+## Unique (excld. NA)               0          4        5             1         0
+## Missing values                 224          0       96             0       224
+## Sorted                        <NA>      FALSE    FALSE          TRUE      <NA>
+##                                                                               
+##                    time.incorp man.area dist.inj furrow.z furrow.w      crop
+## Class                  numeric  numeric  numeric  numeric  logical character
+## Minimum                   <NA>     <NA>       25        5     <NA>    cereal
+## Maximum                   <NA>     <NA>       25        5     <NA>     grass
+## Mean                      <NA>     <NA>       25        5     <NA>      <NA>
+## Unique (excld. NA)           0        0        1        1        0         2
+## Missing values             224      224      160      160      224         1
+## Sorted                    <NA>     <NA>     TRUE     TRUE     <NA>     FALSE
+##                                                                             
+##                     crop.z crop.area     lai
+## Class              numeric   numeric logical
+## Minimum               <NA>      <NA>    <NA>
+## Maximum               <NA>      <NA>    <NA>
+## Mean                  <NA>      <NA>    <NA>
+## Unique (excld. NA)       0         0       0
+## Missing values         224       224     224
+## Sorted                <NA>      <NA>    <NA>
+##                                             
 ##                                                            notes.plot
 ## Class                                                       character
 ## Minimum            permanent grassland, application rate: 100 kg N/ha
@@ -1130,41 +1130,32 @@ title: 'Submitted data summary'
 ## Missing values            224     224                      0              0
 ## Sorted                   <NA>    <NA>                  FALSE           TRUE
 ##                                                                            
-##                    meas.tech2 crop.orig  man.source.orig
-## Class               character character        character
-## Minimum               chamber    Cereal Biogas digestate
-## Maximum               chamber     Grass           Cattle
-## Mean                     <NA>      <NA>             <NA>
-## Unique (excld. NA)          1         2                2
-## Missing values              0         1                0
-## Sorted                   TRUE     FALSE            FALSE
-##                                                         
-##                                 app.method.orig app.method2 incorp.orig
-## Class                                 character   character   character
-## Minimum            Band spread or trailing hose          bc        <NA>
-## Maximum                           Trailing shoe          ts        <NA>
-## Mean                                       <NA>        <NA>        <NA>
-## Unique (excld. NA)                            4           4           0
-## Missing values                                0           0         224
-## Sorted                                    FALSE       FALSE        <NA>
-##                                                                        
-##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character   character numeric integer integer
-## Minimum            2019-03-20               0-30 cm     303    2880    2880
-## Maximum            2020-05-20               0-30 cm     303    3100    3100
-## Mean                     <NA>      <NA>        <NA>     303    2990    2990
-## Unique (excld. NA)          8         1           1       1     224     224
-## Missing values              0         0           0       0       0       0
-## Sorted                  FALSE      TRUE        TRUE    TRUE    TRUE    TRUE
-##                                                                            
-##                        eid
-## Class              integer
-## Minimum                583
-## Maximum                590
-## Mean                   587
-## Unique (excld. NA)       8
-## Missing values           0
-## Sorted                TRUE
+##                    meas.tech2 crop.orig              app.method.orig
+## Class               character character                    character
+## Minimum               chamber    Cereal Band spread or trailing hose
+## Maximum               chamber     Grass                Trailing shoe
+## Mean                     <NA>      <NA>                         <NA>
+## Unique (excld. NA)          1         2                            4
+## Missing values              0         1                            0
+## Sorted                   TRUE     FALSE                        FALSE
+##                                                                     
+##                    app.method2 incorp.orig  man.source.orig date.start
+## Class                character   character        character       Date
+## Minimum                     bc        <NA> Biogas digestate 2019-03-20
+## Maximum                     ts        <NA>           Cattle 2020-05-20
+## Mean                      <NA>        <NA>             <NA>       <NA>
+## Unique (excld. NA)           4           0                2          8
+## Missing values               0         224                0          0
+## Sorted                   FALSE        <NA>            FALSE      FALSE
+##                                                                       
+##                     flag.int soil.samp.z    inst     pid    pmid     eid
+## Class              character   character numeric integer integer integer
+## Minimum                          0-30 cm     303    2890    2890     586
+## Maximum                          0-30 cm     303    3110    3120     593
+## Mean                    <NA>        <NA>     303    3000    3010     590
+## Unique (excld. NA)         1           1       1     224     224       8
+## Missing values             0           0       0       0       0       0
+## Sorted                  TRUE        TRUE    TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

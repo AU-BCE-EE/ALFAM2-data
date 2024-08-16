@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-07-15 14:55:18 EDT"
+[1] "2024-08-16 06:09:40 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -51,56 +51,55 @@ Combinations missing from emis df:
 [1] proj          exper         field         plot          rep          
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
-
-   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
-May be entry error or multiple treatments per plot (i.e., no error)
-(e.g., multiple parallel measurement methods)
-Problem is often caused by plot/rep entry error.
-Get in here with browser() and look at:
-unique(plots.orig[, c('plot', 'rep')]) 
-unique(emis[, c('plot', 'rep')])
-See below for some information that might be helpful.
-Duplicated combinations:
-[1] proj          exper         field         plot          rep          
-[6] fromplots     fromemis      meas.tech     meas.tech.det
-<0 rows> (or 0-length row.names)
-
-Combinations missing from plots df:
-[1] proj          exper         field         plot          rep          
-[6] fromplots     fromemis      meas.tech     meas.tech.det
-<0 rows> (or 0-length row.names)
-
-Combinations missing from emis df:
-[1] proj          exper         field         plot          rep          
-[6] fromplots     fromemis      meas.tech     meas.tech.det
-<0 rows> (or 0-length row.names)
-Emission rate unit not available for conversion:  NA 
-But  µgNH3/m2/s  is OK.
-See cleanALFAM() function.
-
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
-   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
-But  kgN/ha-hr  Checking versions
+Checking versions
 
                 Where Version
- main.R (new version)    2.51
-          Release tag    2.49
-              Release    2.49
-          Main branch    2.50
+ main.R (new version)    2.53
+          Release tag    2.50
+              Release    2.50
+          Main branch    2.51
            Dev branch    2.49
 Checking versions
 
                 Where Version
- main.R (new version)    2.51
-          Release tag    2.49
-              Release    2.49
-          Main branch    2.50
+ main.R (new version)    2.53
+          Release tag    2.50
+              Release    2.50
+          Main branch    2.51
            Dev branch    2.49
-[1] 99.30833
-e_5_2_211012_JP_18KLRS.xlsx 
+                                  
+                                   chamber cps micro met  wt
+  agm                                    0   0        21   0
+  AGM                                    0   0         2   0
+  bls                                    0   0        62   0
+  bLS                                    0   0        27   0
+  chamber                              132   0         0   0
+  cps                                    0 318         0   0
+  CPS                                  224   0         0   0
+  DTM                                    3   0         0   0
+  Dynamic chamber                      110   0         0   0
+  ec                                     0   0         2   0
+  EC                                     0   0         1   0
+  fides                                  0   0         2   0
+  ihf                                    0   0       230   0
+  IHF                                    0   0       417   0
+  Inversion Dispersion small plots       0   0        21   0
+  micro met                              0   0        39   0
+  Wind tunnel                            0   0         0 393
+  wt                                     0   0         0 682
+  zinst                                  0   0       147   0
+  ZINST                                  0   0         4   0
+
+    cat     pig poultry    mink  sludge     mix    conc   other    none 
+   1172     806       2      16       1      73      13      81      32 
+.
+
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
+
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function.
@@ -284,57 +283,6 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 9  directories
 
 > print(warnings())
-Warning messages:
-1: In DMS2DD(plots$lat) : NAs introduced by coercion
-2: In DMS2DD(plots$lat) : NAs introduced by coercion
-3: In DMS2DD(plots$lat) : NAs introduced by coercion
-4: In DMS2DD(plots$lat) : NAs introduced by coercion
-5: In DMS2DD(plots$lat) : NAs introduced by coercion
-6: In DMS2DD(plots$lat) : NAs introduced by coercion
-7: In DMS2DD(plots$lat) : NAs introduced by coercion
-8: In DMS2DD(plots$lat) : NAs introduced by coercion
-9: In DMS2DD(plots$lat) : NAs introduced by coercion
-10: In DMS2DD(plots$lat) : NAs introduced by coercion
-11: In DMS2DD(plots$lat) : NAs introduced by coercion
-12: In DMS2DD(plots$lat) : NAs introduced by coercion
-13: In DMS2DD(plots$lat) : NAs introduced by coercion
-14: In DMS2DD(plots$lat) : NAs introduced by coercion
-15: In DMS2DD(plots$lat) : NAs introduced by coercion
-16: In DMS2DD(plots$lat) : NAs introduced by coercion
-17: In DMS2DD(plots$lat) : NAs introduced by coercion
-18: In DMS2DD(plots$lat) : NAs introduced by coercion
-19: In DMS2DD(plots$lat) : NAs introduced by coercion
-20: In DMS2DD(plots$lat) : NAs introduced by coercion
-21: In DMS2DD(plots$lat) : NAs introduced by coercion
-22: In DMS2DD(plots$lat) : NAs introduced by coercion
-23: In DMS2DD(plots$lat) : NAs introduced by coercion
-24: In DMS2DD(plots$lat) : NAs introduced by coercion
-25: In DMS2DD(plots$lat) : NAs introduced by coercion
-26: In DMS2DD(plots$lat) : NAs introduced by coercion
-27: In DMS2DD(plots$lat) : NAs introduced by coercion
-28: In DMS2DD(plots$lat) : NAs introduced by coercion
-29: In DMS2DD(plots$lat) : NAs introduced by coercion
-30: In DMS2DD(plots$lat) : NAs introduced by coercion
-31: In DMS2DD(plots$lat) : NAs introduced by coercion
-32: In DMS2DD(plots$lat) : NAs introduced by coercion
-33: In DMS2DD(plots$lat) : NAs introduced by coercion
-34: In DMS2DD(plots$lat) : NAs introduced by coercion
-35: In DMS2DD(plots$lat) : NAs introduced by coercion
-36: In DMS2DD(plots$lat) : NAs introduced by coercion
-37: In DMS2DD(plots$lat) : NAs introduced by coercion
-38: In DMS2DD(plots$lat) : NAs introduced by coercion
-39: In DMS2DD(plots$lat) : NAs introduced by coercion
-40: In DMS2DD(plots$lat) : NAs introduced by coercion
-41: In DMS2DD(plots$lat) : NAs introduced by coercion
-42: In DMS2DD(plots$lat) : NAs introduced by coercion
-43: In DMS2DD(plots$lat) : NAs introduced by coercion
-44: In DMS2DD(plots$lat) : NAs introduced by coercion
-45: In DMS2DD(plots$lat) : NAs introduced by coercion
-46: In DMS2DD(plots$lat) : NAs introduced by coercion
-47: In DMS2DD(plots$lat) : NAs introduced by coercion
-48: In DMS2DD(plots$lat) : NAs introduced by coercion
-49: In DMS2DD(plots$lat) : NAs introduced by coercion
-50: In DMS2DD(plots$lat) : NAs introduced by coercion
 
 > # Check for errors and create a log before merge
 > 
@@ -965,10 +913,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.51
-          Release tag    2.49
-              Release    2.49
-          Main branch    2.50
+ main.R (new version)    2.53
+          Release tag    2.50
+              Release    2.50
+          Main branch    2.51
            Dev branch    2.49
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
