@@ -405,7 +405,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  18 rows and 230 columns
+##  18 rows and 229 columns
 ##  18 unique rows
 ##                    institute      proj     exper      field      plot       rep
 ## Class              character character character  character character character
@@ -821,32 +821,32 @@ title: 'Submitted data summary'
 ## Missing values             18      18       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig              app.method.orig app.method2
+##                    crop.orig              app.method.orig incorp.orig
 ## Class              character                    character   character
-## Minimum               Cereal Band spread or trailing hose        bsth
-## Maximum               Cereal Band spread or trailing hose        bsth
+## Minimum               Cereal Band spread or trailing hose        None
+## Maximum               Cereal Band spread or trailing hose        None
 ## Mean                    <NA>                         <NA>        <NA>
 ## Unique (excld. NA)         1                            1           1
 ## Missing values             0                            0           0
 ## Sorted                  TRUE                         TRUE        TRUE
 ##                                                                      
-##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
-## Class                character       character       Date character   character
-## Minimum                   None          Cattle       <NA>                  <NA>
-## Maximum                   None          Cattle       <NA>                  <NA>
-## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
-## Unique (excld. NA)           1               1          0         1           0
-## Missing values               0               0         18         0          18
-## Sorted                    TRUE            TRUE       <NA>      TRUE        <NA>
-##                                                                                
-##                       inst     pid    pmid     eid
-## Class              numeric integer integer integer
-## Minimum                205    2360    2360     398
-## Maximum                205    2370    2380     399
-## Mean                   205    2360    2370     398
-## Unique (excld. NA)       1      18      18       2
-## Missing values           0       0       0       0
-## Sorted                TRUE    TRUE    TRUE    TRUE
+##                    man.source.orig date.start  flag.int soil.samp.z    inst
+## Class                    character       Date character   character numeric
+## Minimum                     Cattle       <NA>                  <NA>     205
+## Maximum                     Cattle       <NA>                  <NA>     205
+## Mean                          <NA>       <NA>      <NA>        <NA>     205
+## Unique (excld. NA)               1          0         1           0       1
+## Missing values                   0         18         0          18       0
+## Sorted                        TRUE       <NA>      TRUE        <NA>    TRUE
+##                                                                            
+##                        pid    pmid     eid
+## Class              integer integer integer
+## Minimum               2360    2360     398
+## Maximum               2370    2380     399
+## Mean                  2360    2370     398
+## Unique (excld. NA)      18      18       2
+## Missing values           0       0       0
+## Sorted                TRUE    TRUE    TRUE
 ## 
 ```
 

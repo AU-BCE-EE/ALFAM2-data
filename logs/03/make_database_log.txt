@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-08-16 06:09:40 EDT"
+[1] "2024-08-16 06:46:41 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -51,48 +51,40 @@ Combinations missing from emis df:
 [1] proj          exper         field         plot          rep          
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
-Checking versions
 
-                Where Version
- main.R (new version)    2.53
-          Release tag    2.50
-              Release    2.50
-          Main branch    2.51
-           Dev branch    2.49
-Checking versions
+   file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+See below for some information that might be helpful.
+Duplicated combinations:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
 
-                Where Version
- main.R (new version)    2.53
-          Release tag    2.50
-              Release    2.50
-          Main branch    2.51
-           Dev branch    2.49
-                                  
-                                   chamber cps micro met  wt
-  agm                                    0   0        21   0
-  AGM                                    0   0         2   0
-  bls                                    0   0        62   0
-  bLS                                    0   0        27   0
-  chamber                              132   0         0   0
-  cps                                    0 318         0   0
-  CPS                                  224   0         0   0
-  DTM                                    3   0         0   0
-  Dynamic chamber                      110   0         0   0
-  ec                                     0   0         2   0
-  EC                                     0   0         1   0
-  fides                                  0   0         2   0
-  ihf                                    0   0       230   0
-  IHF                                    0   0       417   0
-  Inversion Dispersion small plots       0   0        21   0
-  micro met                              0   0        39   0
-  Wind tunnel                            0   0         0 393
-  wt                                     0   0         0 682
-  zinst                                  0   0       147   0
-  ZINST                                  0   0         4   0
+Combinations missing from plots df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
 
-    cat     pig poultry    mink  sludge     mix    conc   other    none 
-   1172     806       2      16       1      73      13      81      32 
-.
+Combinations missing from emis df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+Emission rate unit not available for conversion:  NA 
+But  µgNH3/m2/s  is OK.
+See cleanALFAM() function.
+
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function.
 
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
@@ -327,7 +319,7 @@ Done! Read 9  directories
 [1] 719  16
 
 > dim(pdat)
-[1] 1202  226
+[1] 1202  225
 
 > # Extract and reuse old institution codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -913,7 +905,7 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.53
+ main.R (new version)    2.54
           Release tag    2.50
               Release    2.50
           Main branch    2.51

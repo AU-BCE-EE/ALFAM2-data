@@ -537,7 +537,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  7 rows and 230 columns
+##  7 rows and 229 columns
 ##  7 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -962,32 +962,32 @@ title: 'Submitted data summary'
 ## Missing values              7       7       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE          FALSE      FALSE
 ##                                                                        
-##                    crop.orig app.method.orig app.method2 incorp.orig
-## Class              character       character   character   character
-## Minimum            Bare soil       Broadcast          bc        None
-## Maximum              Stubble       Broadcast          bc        None
-## Mean                    <NA>            <NA>        <NA>        <NA>
-## Unique (excld. NA)         2               1           1           1
-## Missing values             0               0           0           0
-## Sorted                 FALSE            TRUE        TRUE        TRUE
-##                                                                     
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum                     Cattle 2016-07-28                  <NA>     305
-## Maximum                     Cattle 2017-07-18                  <NA>     305
-## Mean                          <NA>       <NA>      <NA>        <NA>     305
-## Unique (excld. NA)               1          2         1           0       1
-## Missing values                   0          0         0           7       0
-## Sorted                        TRUE      FALSE      TRUE        <NA>    TRUE
+##                    crop.orig app.method.orig incorp.orig man.source.orig
+## Class              character       character   character       character
+## Minimum            Bare soil       Broadcast        None          Cattle
+## Maximum              Stubble       Broadcast        None          Cattle
+## Mean                    <NA>            <NA>        <NA>            <NA>
+## Unique (excld. NA)         2               1           1               1
+## Missing values             0               0           0               0
+## Sorted                 FALSE            TRUE        TRUE            TRUE
+##                                                                         
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2016-07-28                  <NA>     305    2230    2240
+## Maximum            2017-07-18                  <NA>     305    2240    2240
+## Mean                     <NA>      <NA>        <NA>     305    2240    2240
+## Unique (excld. NA)          2         1           0       1       7       7
+## Missing values              0         0           7       0       0       0
+## Sorted                  FALSE      TRUE        <NA>    TRUE    TRUE    TRUE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2230    2240     385
-## Maximum               2240    2240     388
-## Mean                  2240    2240     387
-## Unique (excld. NA)       7       7       4
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                        eid
+## Class              integer
+## Minimum                385
+## Maximum                388
+## Mean                   387
+## Unique (excld. NA)       4
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 

@@ -678,7 +678,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  224 rows and 230 columns
+##  224 rows and 229 columns
 ##  224 unique rows
 ##                    institute      proj            exper     field
 ## Class              character character        character character
@@ -1139,23 +1139,23 @@ title: 'Submitted data summary'
 ## Missing values              0         1                            0
 ## Sorted                   TRUE     FALSE                        FALSE
 ##                                                                     
-##                    app.method2 incorp.orig  man.source.orig date.start
-## Class                character   character        character       Date
-## Minimum                     bc        <NA> Biogas digestate 2019-03-20
-## Maximum                     ts        <NA>           Cattle 2020-05-20
-## Mean                      <NA>        <NA>             <NA>       <NA>
-## Unique (excld. NA)           4           0                2          8
-## Missing values               0         224                0          0
-## Sorted                   FALSE        <NA>            FALSE      FALSE
-##                                                                       
-##                     flag.int soil.samp.z    inst     pid    pmid     eid
-## Class              character   character numeric integer integer integer
-## Minimum                          0-30 cm     303    2890    2890     586
-## Maximum                          0-30 cm     303    3110    3120     593
-## Mean                    <NA>        <NA>     303    3000    3010     590
-## Unique (excld. NA)         1           1       1     224     224       8
-## Missing values             0           0       0       0       0       0
-## Sorted                  TRUE        TRUE    TRUE    TRUE    TRUE    TRUE
+##                    incorp.orig  man.source.orig date.start  flag.int
+## Class                character        character       Date character
+## Minimum                   <NA> Biogas digestate 2019-03-20          
+## Maximum                   <NA>           Cattle 2020-05-20          
+## Mean                      <NA>             <NA>       <NA>      <NA>
+## Unique (excld. NA)           0                2          8         1
+## Missing values             224                0          0         0
+## Sorted                    <NA>            FALSE      FALSE      TRUE
+##                                                                     
+##                    soil.samp.z    inst     pid    pmid     eid
+## Class                character numeric integer integer integer
+## Minimum                0-30 cm     303    2890    2890     586
+## Maximum                0-30 cm     303    3110    3120     593
+## Mean                      <NA>     303    3000    3010     590
+## Unique (excld. NA)           1       1     224     224       8
+## Missing values               0       0       0       0       0
+## Sorted                    TRUE    TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

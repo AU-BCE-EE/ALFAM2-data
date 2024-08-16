@@ -543,7 +543,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  6 rows and 230 columns
+##  6 rows and 229 columns
 ##  6 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -995,32 +995,32 @@ title: 'Submitted data summary'
 ## Missing values              6       6       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig     app.method.orig app.method2 incorp.orig
-## Class              character           character   character   character
-## Minimum            Bare soil           Broadcast          bc        <NA>
-## Maximum            Bare soil Open slot injection          os        <NA>
-## Mean                    <NA>                <NA>        <NA>        <NA>
-## Unique (excld. NA)         1                   2           2           0
-## Missing values             0                   0           0           6
-## Sorted                  TRUE               FALSE       FALSE        <NA>
-##                                                                         
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum              Sewage sludge 2018-04-23                  <NA>     302
-## Maximum                   Urea 46% 2020-05-28                  <NA>     302
-## Mean                          <NA>       <NA>      <NA>        <NA>     302
-## Unique (excld. NA)               2          3         1           0       1
-## Missing values                   0          0         0           6       0
-## Sorted                       FALSE       TRUE      TRUE        <NA>    TRUE
+##                    crop.orig     app.method.orig incorp.orig man.source.orig
+## Class              character           character   character       character
+## Minimum            Bare soil           Broadcast        <NA>   Sewage sludge
+## Maximum            Bare soil Open slot injection        <NA>        Urea 46%
+## Mean                    <NA>                <NA>        <NA>            <NA>
+## Unique (excld. NA)         1                   2           0               2
+## Missing values             0                   0           6               0
+## Sorted                  TRUE               FALSE        <NA>           FALSE
+##                                                                             
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2018-04-23                  <NA>     302    2220    2230
+## Maximum            2020-05-28                  <NA>     302    2230    2230
+## Mean                     <NA>      <NA>        <NA>     302    2230    2230
+## Unique (excld. NA)          3         1           0       1       6       6
+## Missing values              0         0           6       0       0       0
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2220    2230     381
-## Maximum               2230    2230     383
-## Mean                  2230    2230     382
-## Unique (excld. NA)       6       6       3
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                        eid
+## Class              integer
+## Minimum                381
+## Maximum                383
+## Mean                   382
+## Unique (excld. NA)       3
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 

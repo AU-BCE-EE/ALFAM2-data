@@ -483,7 +483,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  36 rows and 230 columns
+##  36 rows and 229 columns
 ##  36 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -908,32 +908,32 @@ title: 'Submitted data summary'
 ## Missing values          36       0              0          0         0
 ## Sorted                <NA>    TRUE           TRUE       TRUE      TRUE
 ##                                                                       
-##                                 app.method.orig app.method2 incorp.orig
-## Class                                 character   character   character
-## Minimum            Band spread or trailing hose        bsth        None
-## Maximum            Band spread or trailing hose        bsth        None
-## Mean                                       <NA>        <NA>        <NA>
-## Unique (excld. NA)                            1           1           1
-## Missing values                                0           0           0
-## Sorted                                     TRUE        TRUE        TRUE
-##                                                                        
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum                        Mix 2022-06-08                0-5 cm     205
-## Maximum                        Pig 2022-06-29                0-5 cm     205
-## Mean                          <NA>       <NA>      <NA>        <NA>     205
-## Unique (excld. NA)               2          4         1           1       1
-## Missing values                   0          0         0           0       0
-## Sorted                       FALSE       TRUE      TRUE        TRUE    TRUE
+##                                 app.method.orig incorp.orig man.source.orig
+## Class                                 character   character       character
+## Minimum            Band spread or trailing hose        None             Mix
+## Maximum            Band spread or trailing hose        None             Pig
+## Mean                                       <NA>        <NA>            <NA>
+## Unique (excld. NA)                            1           1               2
+## Missing values                                0           0               0
+## Sorted                                     TRUE        TRUE           FALSE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2400    2410     404
-## Maximum               2440    2440     407
-## Mean                  2420    2430     406
-## Unique (excld. NA)      36      36       4
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2022-06-08                0-5 cm     205    2400    2410
+## Maximum            2022-06-29                0-5 cm     205    2440    2440
+## Mean                     <NA>      <NA>        <NA>     205    2420    2430
+## Unique (excld. NA)          4         1           1       1      36      36
+## Missing values              0         0           0       0       0       0
+## Sorted                   TRUE      TRUE        TRUE    TRUE    TRUE    TRUE
+##                                                                            
+##                        eid
+## Class              integer
+## Minimum                404
+## Maximum                407
+## Mean                   406
+## Unique (excld. NA)       4
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 

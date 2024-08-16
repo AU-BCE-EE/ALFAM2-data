@@ -492,7 +492,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  36 rows and 230 columns
+##  36 rows and 229 columns
 ##  36 unique rows
 ##                    institute      proj     exper       field      plot
 ## Class              character character character   character character
@@ -917,23 +917,23 @@ title: 'Submitted data summary'
 ## Missing values              0         0                            0
 ## Sorted                   TRUE      TRUE                         TRUE
 ##                                                                     
-##                    app.method2 incorp.orig man.source.orig date.start  flag.int
-## Class                character   character       character       Date character
-## Minimum                   bsth        None          Cattle 2020-11-18          
-## Maximum                   bsth        None             Pig 2020-12-09       m i
-## Mean                      <NA>        <NA>            <NA>       <NA>      <NA>
-## Unique (excld. NA)           1           1               2          4         2
-## Missing values               0           0               0          0         0
-## Sorted                    TRUE        TRUE           FALSE       TRUE     FALSE
+##                    incorp.orig man.source.orig date.start  flag.int soil.samp.z
+## Class                character       character       Date character   character
+## Minimum                   None          Cattle 2020-11-18                  <NA>
+## Maximum                   None             Pig 2020-12-09       m i        <NA>
+## Mean                      <NA>            <NA>       <NA>      <NA>        <NA>
+## Unique (excld. NA)           1               2          4         2           0
+## Missing values               0               0          0         0          36
+## Sorted                    TRUE           FALSE       TRUE     FALSE        <NA>
 ##                                                                                
-##                    soil.samp.z    inst     pid    pmid     eid
-## Class                character numeric integer integer integer
-## Minimum                   <NA>     205    1940    1950     351
-## Maximum                   <NA>     205    1980    1980     354
-## Mean                      <NA>     205    1960    1960     352
-## Unique (excld. NA)           0       1      36      36       4
-## Missing values              36       0       0       0       0
-## Sorted                    <NA>    TRUE    TRUE    TRUE    TRUE
+##                       inst     pid    pmid     eid
+## Class              numeric integer integer integer
+## Minimum                205    1940    1950     351
+## Maximum                205    1980    1980     354
+## Mean                   205    1960    1960     352
+## Unique (excld. NA)       1      36      36       4
+## Missing values           0       0       0       0
+## Sorted                TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 

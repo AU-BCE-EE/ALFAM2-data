@@ -489,7 +489,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  27 rows and 230 columns
+##  27 rows and 229 columns
 ##  27 unique rows
 ##                    institute      proj     exper                 field
 ## Class              character character character             character
@@ -905,32 +905,32 @@ title: 'Submitted data summary'
 ## Missing values             27      27       0              0          0
 ## Sorted                   <NA>    <NA>    TRUE           TRUE       TRUE
 ##                                                                        
-##                    crop.orig app.method.orig app.method2 incorp.orig
-## Class              character       character   character   character
-## Minimum                 <NA>   Trailing shoe          ts        None
-## Maximum                 <NA>   Trailing shoe          ts        None
-## Mean                    <NA>            <NA>        <NA>        <NA>
-## Unique (excld. NA)         0               1           1           1
-## Missing values            27               0           0           0
-## Sorted                  <NA>            TRUE        TRUE        TRUE
-##                                                                     
-##                    man.source.orig date.start  flag.int soil.samp.z    inst
-## Class                    character       Date character   character numeric
-## Minimum                        Pig 2018-08-29                  <NA>     205
-## Maximum                        Pig 2018-09-12                  <NA>     205
-## Mean                          <NA>       <NA>      <NA>        <NA>     205
-## Unique (excld. NA)               1          3         1           0       1
-## Missing values                   0          0         0          27       0
-## Sorted                        TRUE       TRUE      TRUE        <NA>    TRUE
+##                    crop.orig app.method.orig incorp.orig man.source.orig
+## Class              character       character   character       character
+## Minimum                 <NA>   Trailing shoe        None             Pig
+## Maximum                 <NA>   Trailing shoe        None             Pig
+## Mean                    <NA>            <NA>        <NA>            <NA>
+## Unique (excld. NA)         0               1           1               1
+## Missing values            27               0           0               0
+## Sorted                  <NA>            TRUE        TRUE            TRUE
+##                                                                         
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2018-08-29                  <NA>     205    2130    2140
+## Maximum            2018-09-12                  <NA>     205    2160    2160
+## Mean                     <NA>      <NA>        <NA>     205    2150    2150
+## Unique (excld. NA)          3         1           0       1      27      27
+## Missing values              0         0          27       0       0       0
+## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
 ##                                                                            
-##                        pid    pmid     eid
-## Class              integer integer integer
-## Minimum               2130    2140     363
-## Maximum               2160    2160     365
-## Mean                  2150    2150     364
-## Unique (excld. NA)      27      27       3
-## Missing values           0       0       0
-## Sorted                TRUE    TRUE    TRUE
+##                        eid
+## Class              integer
+## Minimum                363
+## Maximum                365
+## Mean                   364
+## Unique (excld. NA)       3
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 

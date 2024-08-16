@@ -492,13 +492,14 @@ addVars <- function(dat) {
   # Some other derived columns
   # NTS: Use a function here, can apply to idat too
   dat$meas.tech.orig <- dat$meas.tech
+  mtl <- tolower(dat$meas.tech)
   dat$meas.tech2 <- NA
-  dat$meas.tech2[tolower(dat$meas.tech) %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
-  dat$meas.tech2[tolower(dat$meas.tech) %in% c('wind tunnel', 'windtunnel')] <- 'wt'
-  dat$meas.tech2[grep('chamber', tolower(dat$meas.tech))] <- 'chamber'
-  dat$meas.tech2[grep('dtm', tolower(dat$meas.tech))] <- 'chamber'
-  dat$meas.tech2[grep('cps', tolower(dat$meas.tech))] <- 'chamber'
-  dat$meas.tech2[grepl('inversion dispersion small plots', tolower(dat$meas.tech))] <- 'micro met'
+  dat$meas.tech2[mtl %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
+  dat$meas.tech2[mtl %in% c('wind tunnel', 'windtunnel')] <- 'wt'
+  dat$meas.tech2[grep('chamber', mtl)] <- 'chamber'
+  dat$meas.tech2[grep('dtm', mtl)] <- 'chamber'
+  dat$meas.tech2[grep('cps', mtl)] <- 'chamber'
+  dat$meas.tech2[grepl('inversion dispersion small plots', mtl)] <- 'micro met'
   if (any(wn <- is.na(dat$meas.tech2))) {
     stop(paste('Problem with unmatched meas. method names for:', unique(dat$meas.tech.orig[wn]), '.\n    Add new values to addVars() func in ALFAM_functions.R')) 
   }
@@ -507,9 +508,6 @@ addVars <- function(dat) {
   dat$crop <- tolower(dat$crop)
   
   dat$soil.type2 <- NA
-  
-  dat$man.source.orig <- dat$man.source
-  dat$man.source <- gsub('cattle', 'cat', tolower(dat$man.source))
   
   am <- c(`Band spread or trailing hose` = 'bsth',
           Broadcast = 'bc',
@@ -522,11 +520,33 @@ addVars <- function(dat) {
           `Wide band` = 'bsth')
   dat$app.method.orig <- dat$app.method
   dat$app.method <- am[dat$app.method.orig]
-  dat$app.method2 <- dat$app.method
+  #dat$app.method2 <- dat$app.method
   
   # Incorporation
   dat$incorp.orig <- dat$incorp
   dat$incorp <- tolower(dat$incorp)
+
+  # Slurry source
+  dat$man.source.orig <- dat$man.source
+  dat$man.source <- gsub('cattle', 'cat', tolower(dat$man.source))
+  dat$man.source[dat$man.source.orig == 'silage maize'] <- 'Other'
+
+  # Extract types from more detailed names
+  for(i in c('Pig', 'Cattle', 'Poultry', 'Mixed', 'Concentrate')) {
+    dat$man.source[grepl(tolower(i), tolower(dat$man.source))] <- i
+  }
+
+  # Change dairy to cattle
+  dat$man.source[grepl('dairy', tolower(dat$man.source))] <- 'Cattle'
+
+  dat$man.source <- factor(dat$man.source, 
+			 levels = c('Cattle', 'Pig', 'Poultry', 'Mink', 'Sewage sludge', 'Mixed', 'Concentrate', 'Other', 'None'), 
+			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',        'other', 'none')
+			 )
+
+  # Manure consistency (reported)
+  dat$man.con[dat$man.con == ''] <- NA
+  dat$man.con <- factor(tolower(dat$man.con), levels = c('slurry', 'liquid', 'solid'))
   
   return(dat)
 
@@ -690,13 +710,16 @@ fixALFAMFactors <- function(d) {
   d$man.source[d$man.source.orig == 'silage maize'] <- 'Other'
 
   # Extract types from more detailed names
-  for(i in c('Pig', 'Cattle', 'Poultry', 'Mixed')) {
+  for(i in c('Pig', 'Cattle', 'Poultry', 'Mixed', 'Concentrate')) {
     d$man.source[grepl(tolower(i), tolower(d$man.source))] <- i
   }
 
+  # Change dairy to cattle
+  d$man.source[grepl('dairy', tolower(d$man.source))] <- 'Cattle'
+
   d$man.source <- factor(d$man.source, 
 			 levels = c('Cattle', 'Pig', 'Poultry', 'Mink', 'Sewage sludge', 'Mixed', 'Concentrate', 'Other', 'None'), 
-			 labels = c('cat', 'pig', 'poultry', 'mink', 'sludge', 'mix', 'conc', 'other', 'none')
+			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',        'other', 'none')
 			 )
 
   # Manure consistency (reported)
@@ -1133,179 +1156,6 @@ insertCol <- function(cc, df, where, name = 'X') {
   return(df)
 }
 
-# Get and organize fixed effects from an lme model
-# Specific for app.method*covariate models
-getFEAMCV <- function(mod, digits, alpha, cols = 'table') {
-
-  feffects <- as.data.frame(summary(mod)$tTable)
-  feffects$coef <- rownames(feffects)
-  feffects$coef <- gsub('app.method', '', feffects$coef)
-  feffects$app.method <- gsub(':.+', '', feffects$coef)
-  feffects$covar <- gsub('.+:', '', feffects$coef)
-  feffects$covar[1:4] <- NA
-  feffects$releffect <- 100*(10^feffects$Value - 1)
-  feffects <- feffects[ , c('app.method', 'covar', 'Value', 'releffect', 'Std.Error', 't-value', 'p-value')]
-  feffects$sig <- ifelse(feffects[ , 'p-value'] < alpha, '*', '')
-  feffects <- rounddf(feffects, digits)
-  if(cols == 'table') {
-    names(feffects) <- c('App. method', 'Covar.', 'Coef.', 'Rel. effect', '*se*', '*t*-value', '*P*-value', 'Sig.')
-  } else if(cols == 'code') {
-    names(feffects) <- c('app.method', 'covar', 'coef', 'releffect', 'se', 'tval', 'pval', 'sig')
-  }
-  rownames(feffects) <- NULL
-
-  return(feffects)
-
-}
-
-# Gets fixed effects from mixed-effects model
-getFE <- function(mod, digits, alpha = 0.05, cols = 'table') {
-
-  feffects <- as.data.frame(summary(mod)$tTable)
-  feffects$coef <- rownames(feffects)
-  feffects$releffect <- 100*(10^feffects$Value - 1)
-  feffects <- feffects[ , c('coef', 'Value', 'Std.Error', 'releffect', 'DF', 't-value', 'p-value')]
-  feffects$sig <- ifelse(feffects[ , 'p-value'] < alpha, '*', '')
-  feffects <- rounddf(feffects, digits)
-  rownames(feffects) <- NULL
-  return(feffects)
-
-}
-
-# Gets random effects coefficients from mixed-effects model
-getREMSAMCV <- function(mod, digits, alpha, cols = 'code') {
-
-  mseffects <- as.data.frame(summary(mod)$coefficients$random$mxs)
-  mseffects$term <- rownames(mseffects)
-  mseffects$inst <- substring(mseffects$term, 1, 3)
-  mseffects$soil <- gsub('^.+\\.', '', mseffects$term)
-  mseffects$meas.tech <- gsub('^.+\\/', '', mseffects$term)
-  mseffects$meas.tech <- gsub('\\..+', '', mseffects$meas.tech)
-  mseffects <- mseffects[ , c('inst', 'meas.tech', 'soil', '(Intercept)')]
-  names(mseffects)[4] <- 'value'
-  mseffects$rel.effect <- 100*(10^mseffects$value - 1)
-  if(cols == 'table') {
-    names(mseffects) <- c('Code', 'Meas. tech.', 'Soil', 'Value', 'Rel. effect')
-  }
-  rownames(mseffects) <- NULL
-  mseffects <- rounddf(mseffects, digits)
-
-  return(mseffects)
-}
-
-getIEAMCV <- function(mod, digits, alpha, cols = 'code') {
-
-  insteffects <- as.data.frame(summary(mod)$coefficients$random$inst)
-  insteffects$inst <- rownames(insteffects)
-  insteffects <- insteffects[ , c('inst', '(Intercept)')]
-  names(insteffects)[2] <- 'value'
-  insteffects$rel.effect <- 100*(10^insteffects$value - 1)
-  if(cols == 'table') {
-    names(insteffects) <- c('Code', 'Value')
-  }
-  rownames(insteffects) <- NULL
-  insteffects <- rounddf(insteffects, digits)
-
-  return(insteffects)
-}
-
-date2char <- function(d) {
-
-  for(i in names(d)) {
-
-    if(class(d[ , i])[1] == 'POSIXct') d[ , i] <- format(d[ , i], format = '%d-%m-%Y %H:%M')
-
-  }
-
-  d
-}
-
-geomean <- function(x) exp(mean(log(x)))
-
-subsetd <- function(d, ...) {
-  droplevels(subset(d, ...))
-}
-
-
-#dropBlankCols <- function(d) {
-#
-#
-#
-#}
-
-
-# A function for summarizing data frames with a single column
-# S. Hafner
-# Modified: 27 April 2016
-vsumm <- function(x) {
-
-   if(!class(x)[1] %in% c("data.frame", "matrix")) 
-     stop("You can't use dfsumm on ", class(x), " objects!")
-
-   s <- matrix(NA, nrow = 7, ncol = ncol(x))
-
-   for(i in 1:ncol(x)) {
-
-     iclass <- class(x[, i])[1]
-
-     s[1, i] <- paste(class(x[, i]), collapse = " ")
-
-     y <- x[, i]
-
-     yc <- na.omit(y)
-
-     if(all(is.na(y))) {
-       s[2:4, i] <- NA
-     } else if(iclass%in%c("factor", "ordered")) { 
-       s[2:4, i] <- levels(yc)[c(1, length(levels(yc)), round(mean(as.integer(yc))))] 
-     } else if(iclass == "numeric") {
-       s[2:4, i] <- as.character(signif(c(min(yc), max(yc), mean(yc)), 3)) 
-     } else if(iclass == "logical") {
-       s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
-     } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- format(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
-     } else {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
-     }
-
-     s[5, i] <- length(unique(yc))
-     s[6, i] <- sum(is.na(y))
-     s[7, i] <- length(y)
-   }
-
-   s <- as.data.frame(s)
-
-   rownames(s) <- c("Class", "Minimum", "Maximum", "Mean", "Unique (excld. NA)", "Missing values", "Total rows") 
-   colnames(s) <- colnames(x)
-
-   cat('\n')
-   print(s)
-
-}
-
-
-
-pr2 <- function(m, p) {
-
-  tss <- sum((m - mean(m))^2)
-  rss <- sum((m - p)^2)
-  return(1 - rss/tss)
-
-}
-
-rmse <- function(m, p) {
-
-  rss <- sum((m - p)^2)
-  return(sqrt(rss/length(m)))
-
-}
-
-mbe <- function(m, p) {
-
-    return(mean(m - p))
-
-}
-
 # Fix a date/time vector
 # Element-by-element, so mix of formats is acceptable
 fixDateTime <- function(x){
@@ -1531,35 +1381,3 @@ fixFlags <- function(obj) {
   return(obj)
 
 }
-
-printVarSumm <- function(x) {
-
-  cat('\n')
-  cat('-----------------------------------------------------\n')
-  if (class(x)[1] %in% c('integer', 'numeric')) {
-    cat(names(pdat.comb)[i], ' numeric, range: ')
-    cat(range(na.omit(x)), '\n')
-    cat('Missing values: ')
-    cat(sum(is.na(x)), '\n')
-  } else if (class(x)[1] %in% c('factor', 'character')) {
-    cat(names(pdat.comb)[i], ' character/factor, unique (first 10): ')
-    vals <- paste(unique(x)[1:min(length(unique(x)), 10)], collapse = '\n\n')
-    cat('\n', vals, '\n')
-    cat('Missing values: ')
-    cat(sum(is.na(x)), '\n')
-    #vals <- paste(sort(unique(x)), collapse = '\n\n')
-    #cat('Unique values: ')
-    #cat('\n', vals, '\n')
-  } else if (class(x)[1] %in% c('logical')) {
-    cat(names(pdat.comb)[i], ' logical, unique: ')
-    cat(unique(x), '\n')
-    cat('Missing values: ')
-  } else {
-    cat(names(pdat.comb)[i], ' something else! ')
-    cat(class(x)[1], '\n')
-    cat('Missing values: ')
-  }
-  cat('\n')
-
-}
-

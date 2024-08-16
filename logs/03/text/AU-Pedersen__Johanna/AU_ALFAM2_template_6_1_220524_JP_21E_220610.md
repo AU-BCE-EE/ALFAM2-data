@@ -454,7 +454,7 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  9 rows and 230 columns
+##  9 rows and 229 columns
 ##  9 unique rows
 ##                    institute      proj     exper     field      plot       rep
 ## Class              character character character character character character
@@ -861,32 +861,23 @@ title: 'Submitted data summary'
 ## Missing values           9       0              0          0         0
 ## Sorted                <NA>    TRUE           TRUE       TRUE      TRUE
 ##                                                                       
-##                        app.method.orig app.method2 incorp.orig man.source.orig
-## Class                        character   character   character       character
-## Minimum            Open slot injection          os        None          Cattle
-## Maximum            Open slot injection          os        None          Cattle
-## Mean                              <NA>        <NA>        <NA>            <NA>
-## Unique (excld. NA)                   1           1           1               1
-## Missing values                       0           0           0               0
-## Sorted                            TRUE        TRUE        TRUE            TRUE
-##                                                                               
-##                    date.start  flag.int soil.samp.z    inst     pid    pmid
-## Class                    Date character   character numeric integer integer
-## Minimum            2021-11-09       m i        <NA>     205    1920    1930
-## Maximum            2021-11-09       m i        <NA>     205    1930    1930
-## Mean                     <NA>      <NA>        <NA>     205    1930    1930
-## Unique (excld. NA)          1         1           0       1       9       9
-## Missing values              0         0           9       0       0       0
-## Sorted                   TRUE      TRUE        <NA>    TRUE    TRUE    TRUE
-##                                                                            
-##                        eid
-## Class              integer
-## Minimum                345
-## Maximum                345
-## Mean                   345
-## Unique (excld. NA)       1
-## Missing values           0
-## Sorted                TRUE
+##                        app.method.orig incorp.orig man.source.orig date.start
+## Class                        character   character       character       Date
+## Minimum            Open slot injection        None          Cattle 2021-11-09
+## Maximum            Open slot injection        None          Cattle 2021-11-09
+## Mean                              <NA>        <NA>            <NA>       <NA>
+## Unique (excld. NA)                   1           1               1          1
+## Missing values                       0           0               0          0
+## Sorted                            TRUE        TRUE            TRUE       TRUE
+##                                                                              
+##                     flag.int soil.samp.z    inst     pid    pmid     eid
+## Class              character   character numeric integer integer integer
+## Minimum                  m i        <NA>     205    1920    1930     345
+## Maximum                  m i        <NA>     205    1930    1930     345
+## Mean                    <NA>        <NA>     205    1930    1930     345
+## Unique (excld. NA)         1           0       1       9       9       1
+## Missing values             0           9       0       0       0       0
+## Sorted                  TRUE        <NA>    TRUE    TRUE    TRUE    TRUE
 ## 
 ```
 
