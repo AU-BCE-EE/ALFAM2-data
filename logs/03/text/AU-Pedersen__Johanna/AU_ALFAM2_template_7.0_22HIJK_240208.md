@@ -561,10 +561,10 @@ title: 'Submitted data summary'
 ## Class              character     factor
 ## Minimum                   No        cat
 ## Maximum                   No       none
-## Mean                    <NA>        pig
-## Unique (excld. NA)         1          1
-## Missing values             0         18
-## Sorted                  TRUE       TRUE
+## Mean                    <NA>       mink
+## Unique (excld. NA)         1          2
+## Missing values             0          0
+## Sorted                  TRUE      FALSE
 ##                                        
 ##                                                                man.source.det
 ## Class                                                               character

@@ -564,9 +564,9 @@ title: 'Submitted data summary'
 ## Minimum                   No        cat           <NA>      <NA>  slurry
 ## Maximum                   No       none           <NA>      <NA>   solid
 ## Mean                    <NA>        pig           <NA>      <NA>  slurry
-## Unique (excld. NA)         1          1              0         0       1
-## Missing values             0         18             36        36       0
-## Sorted                  TRUE       TRUE           <NA>      <NA>    TRUE
+## Unique (excld. NA)         1          2              0         0       1
+## Missing values             0          0             36        36       0
+## Sorted                  TRUE      FALSE           <NA>      <NA>    TRUE
 ##                                                                         
 ##                     man.trt1  man.trt2 man.stor  man.dm  man.vs man.tkn man.tan
 ## Class              character character  numeric numeric numeric numeric numeric

@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-08-16 07:04:10 EDT"
+[1] "2024-08-16 12:35:27 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -275,6 +275,8 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 9  directories
 
 > print(warnings())
+Warning message:
+In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -905,31 +907,28 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.55
+ main.R (new version)    2.56
           Release tag    2.50
               Release    2.50
-          Main branch    2.54
-           Dev branch    2.54
+          Main branch    2.55
+           Dev branch    2.55
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing version numbers!\n   Did  .... [TRUNCATED] 
-Checking versions
 
-                Where Version
- main.R (new version)    2.55
-          Release tag    2.50
-              Release    2.50
-          Main branch    2.54
-           Dev branch    2.54
-Checking versions
+New version number seems OK.
 
-                Where Version
- main.R (new version)    2.55
-          Release tag    2.50
-              Release    2.50
-          Main branch    2.54
-           Dev branch    2.54
-rsion also
+> # Write regular csv files
+> write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
+
+> write.csv(idat.comb, '../../data-output/03/ALFAM2_interval.csv', row.names = FALSE)
+
+> # And then compress them
+> R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
+
+> R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
+
+> # Record data version also
 > cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
 
 > cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../data-output/03/data_version.txt')

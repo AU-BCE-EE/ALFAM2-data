@@ -559,12 +559,12 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                         till man.source man.source.det   man.bed man.con
 ## Class              character     factor      character character  factor
-## Minimum                   No       <NA>           <NA>      <NA>  slurry
-## Maximum                   No       <NA>           <NA>      <NA>   solid
-## Mean                    <NA>       <NA>           <NA>      <NA>  slurry
-## Unique (excld. NA)         1          0              0         0       1
-## Missing values             0         64             64        64       0
-## Sorted                  TRUE       <NA>           <NA>      <NA>    TRUE
+## Minimum                   No        cat           <NA>      <NA>  slurry
+## Maximum                   No       none           <NA>      <NA>   solid
+## Mean                    <NA>        cat           <NA>      <NA>  slurry
+## Unique (excld. NA)         1          1              0         0       1
+## Missing values             0          0             64        64       0
+## Sorted                  TRUE       TRUE           <NA>      <NA>    TRUE
 ##                                                                         
 ##                              man.trt1  man.trt2 man.stor  man.dm  man.vs
 ## Class                       character character  numeric numeric numeric

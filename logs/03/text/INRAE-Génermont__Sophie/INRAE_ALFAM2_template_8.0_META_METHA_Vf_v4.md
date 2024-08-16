@@ -631,12 +631,12 @@ title: 'Submitted data summary'
 ##                                                                        
 ##                    soil.dens  crop.res      till man.source    man.source.det
 ## Class                numeric character character     factor         character
-## Minimum                 1.36        No        No       <NA>             Dairy
-## Maximum                 1.36       Yes        No       <NA> see "experiments"
-## Mean                    1.36      <NA>      <NA>       <NA>              <NA>
-## Unique (excld. NA)         1         2         1          0                 2
-## Missing values             0         9         0         21                 0
-## Sorted                  TRUE     FALSE      TRUE       <NA>             FALSE
+## Minimum                 1.36        No        No        cat             Dairy
+## Maximum                 1.36       Yes        No       none see "experiments"
+## Mean                    1.36      <NA>      <NA>       mink              <NA>
+## Unique (excld. NA)         1         2         1          2                 2
+## Missing values             0         9         0          0                 0
+## Sorted                  TRUE     FALSE      TRUE      FALSE             FALSE
 ##                                                                              
 ##                      man.bed man.con            man.trt1              man.trt2
 ## Class              character  factor           character             character
