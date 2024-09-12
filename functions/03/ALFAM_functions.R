@@ -13,7 +13,10 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   cat('  Starting. . .')
   nms <- c('date', 'who', 'version', 'what')
   chnglog <- as.data.frame(read_xlsx(file, sheet = 11, col_names = nms, skip = 0))
-  tempver <- as.numeric(chnglog[nrow(chnglog), 'version'])
+  tempver <- as.character(chnglog[nrow(chnglog), 'version'])
+  sver <- strsplit(tempver, '\\.')[[1]]
+  mjrver <- sver[1]
+  mnrver <- sver[2]
 
   # Submitter info
   cat('  Submitter info . . .')
@@ -49,14 +52,14 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Plots
   cat('  Plots . . .')
-  if (tempver < 6) {
+  if (mjrver < 6) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
              'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
              'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
              'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
              'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
              'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
-  } else if (tempver < 7) {
+  } else if (mjrver < 7) {
     nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
              'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
              'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
@@ -80,7 +83,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   plots <- plots[rowSums(!is.na(plots)) > 1, ]
 
   # Add col to v < 6. where new col was missing, makes stacking easier
-  if (tempver < 6) {
+  if (mjrver < 6) {
     plots$man.trt3 <- NA
   }
 
@@ -89,19 +92,30 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Emission
   cat('  Emission . . .')
-  if (tempver >= 8) {
-    nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
-             'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.type', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
-             'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
-             'rad', 'wind', 'wind.z', 
-             # Check these
-             'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
-  } else {
+  if (mjrver < 8) {
     nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
              'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
              'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
              'rad', 'wind', 'wind.z', 
              'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+  } else if (mjrver == 8) {
+    if (mnrver < 2) {
+      nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
+               'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.type', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
+               'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
+               'rad', 'wind', 'wind.z', 
+               'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
+    } else {
+      nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
+               'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.type', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
+               'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
+               'rad', 'wind', 'wind.z', 
+               'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 
+               'chamber.vol', 'chamber.flow', 'chamber.AER',
+               'notes.int')
+    }
+  } else {
+    stop('See readALFAM2File() function. Missing header info for new template version. xlq128')
   }
 
   # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
@@ -114,6 +128,8 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   # NTS need to do this in read call!
   emis$soil.temp <- as.numeric(emis$soil.temp)
   emis$air.temp.z <- as.numeric(emis$air.temp.z)
+  emis$rain <- as.numeric(emis$rain)
+  emis$wind.z <- as.numeric(emis$wind.z)
 
   # Field commonly missing but needed for *id
   if (all(is.na(c(plots$field, emis$field)))) {
@@ -121,7 +137,7 @@ readALFAM2File <- function(file, institute, version = '3.3') {
     emis$field <- ''
   }
 
-  if (tempver < 8) {
+  if (mjrver < 8) {
     emis$j.type <- 'Emission rate'
   }
   emis$j.type <- tolower(emis$j.type)
@@ -301,7 +317,7 @@ cleanALFAM <- function(obj, sub.period) {
   if (any(idup <- duplicated(plots[, c('proj', 'exper', 'field', 'plot', 'rep', 'treat', 'meas.tech', 'meas.tech.det')]))) {
     print('See these rows:')
     print(plots[idup, 'row.in.file.plot'])
-    stop('Duplicated combos in plots. Entering browser. See ALFAM2_functions.R bobdopx around line 288.')
+    stop('Duplicated combos in plots. Entering browser. See ALFAM2_functions.R bobdopx.')
   }
   if (nrow(emis) != nn) {
     for (i in c('proj', 'exper', 'field', 'plot', 'rep')) {
@@ -347,65 +363,80 @@ cleanALFAM <- function(obj, sub.period) {
   emis$t.start <- fixDateTime(emis$t.start)
   emis$t.end <- fixDateTime(emis$t.end)
 
-  # Sort out emission units
-  cf <- c(
-          # Start with flux
-          `kg N/ha-hr` = 1, 
-          `kg N/ha/hr` = 1, 
-          `kg N/ha/h` = 1, 
-          `kg NH3/ha-hr` = 14.007/17.031, 
-          `kg NH3/ha/hr` = 14.007/17.031, 
-          `kg NH3/ha/h` = 14.007/17.031, 
-          `kg TAN/ha-hr` = 1, 
-          `kg TAN/ha/hr` = 1, 
-          `kg TAN/ha/h` = 1, 
-          `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
-          `ng/m2-s` = 1/1E12 * 1E4 * 3600, 
-          `ug/m2-s` = 1/1E9 * 1E4 * 3600, 
-          `mg N/m2-hr` = 1/1E6*1E4, 
-          `ng NH3 m-2 s-1` = 14.007/17.031 * 1/1E12 * 1E4 * 3600, 
-          `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
-          `ug/m2/s` = 1/1E9 * 1E4 * 3600,
-          `ug NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
-          `µg/m2/s` = 1/1E9 * 1E4 * 3600,
-          `µg NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
-          `ng NH3/m2/s` = 14.007/17.031 * 1/1E12 * 1E4 * 3600,
-          # Emission (cumulative or interval)
-          `kg N/ha` = 1, 
-          `kg NH3/ha` = 14.007/17.031, 
-          `kg TAN/ha` = 1, 
-          `ng/m2` = 1/1E12 * 1E4, 
-          `ng NH3 m-2` = 14.007/17.031 * 1/1E12 * 1E4, 
-          `ng NH3/m2`  = 14.007/17.031 * 1/1E12 * 1E4,
-          `ug/m2` = 1/1E9 * 1E4, 
-          `µg/m2` = 1/1E9 * 1E4,
-          `ug NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4, 
-          `µg NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4,
-          `mg N/m2` = 1/1E6*1E4
-         )
-
+  # Emission units
+  emis$j.NH3.orig <- NA
+  emis$j.NH3.conv.fact <- NA
   emis$j.NH3.unit.orig <- emis$j.NH3.unit
 
-  # Remove spaces
-  emis$j.NH3.unit <- gsub(' ', '', emis$j.NH3.unit)
-  names(cf) <- gsub(' ', '', names(cf))
+  if (any(ww <- grepl('%appliedTAN/min', gsub(' ', '', emis$j.NH3.unit)))) {
+    emis$j.NH3.orig[ww] <- emis$j.NH3[ww]
+    emis$j.NH3.conv.fact[ww] <- 1 / 100 * emis$tan.app[ww] * 60
+  } 
 
-  # Return error if units are not recognized
-  if (any(!unique(emis$j.NH3.unit) %in% names(cf))) {
-    uu <- unique(emis$j.NH3.unit)
-    unf <- uu[!uu %in% names(cf)]
-    uf <- uu[uu %in% names(cf)]
-    cat('Emission rate unit not available for conversion: ', unf, '\nBut ', uf, ' is OK.\nSee cleanALFAM() function.\n')
+  # If there is still unit conversion needed (typically yes, because % TAN unit above is very unusual)
+  if (any(is.na(emis$j.NH3.conv.fact))) {
+
+    # Sort out emission units
+    cf <- c(
+            # Start with flux
+            `kg N/ha-hr` = 1, 
+            `kg N/ha/hr` = 1, 
+            `kg N/ha/h` = 1, 
+            `kg NH3/ha-hr` = 14.007/17.031, 
+            `kg NH3/ha/hr` = 14.007/17.031, 
+            `kg NH3/ha/h` = 14.007/17.031, 
+            `kg TAN/ha-hr` = 1, 
+            `kg TAN/ha/hr` = 1, 
+            `kg TAN/ha/h` = 1, 
+            `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
+            `ng/m2-s` = 1/1E12 * 1E4 * 3600, 
+            `ug/m2-s` = 1/1E9 * 1E4 * 3600, 
+            `mg N/m2-hr` = 1/1E6*1E4, 
+            `ng NH3 m-2 s-1` = 14.007/17.031 * 1/1E12 * 1E4 * 3600, 
+            `ug NH3/m2-s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600, 
+            `ug/m2/s` = 1/1E9 * 1E4 * 3600,
+            `ug NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
+            `µg/m2/s` = 1/1E9 * 1E4 * 3600,
+            `µg NH3/m2/s` = 14.007/17.031 * 1/1E9 * 1E4 * 3600,
+            `ng NH3/m2/s` = 14.007/17.031 * 1/1E12 * 1E4 * 3600,
+            # Emission (cumulative or interval)
+            `kg N/ha` = 1, 
+            `kg NH3/ha` = 14.007/17.031, 
+            `kg TAN/ha` = 1, 
+            `ng/m2` = 1/1E12 * 1E4, 
+            `ng NH3 m-2` = 14.007/17.031 * 1/1E12 * 1E4, 
+            `ng NH3/m2`  = 14.007/17.031 * 1/1E12 * 1E4,
+            `ug/m2` = 1/1E9 * 1E4, 
+            `µg/m2` = 1/1E9 * 1E4,
+            `ug NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4, 
+            `µg NH3/m2` = 14.007/17.031 * 1/1E9 * 1E4,
+            `mg N/m2` = 1/1E6*1E4
+           )
+
+    # Remove spaces
+    emis$j.NH3.unit <- gsub(' ', '', emis$j.NH3.unit)
+    names(cf) <- gsub(' ', '', names(cf))
+
+    # Return error if units are not recognized
+    if (any(!unique(emis$j.NH3.unit[is.na(emis$j.NH3.conv.fact)]) %in% names(cf))) {
+      uu <- unique(emis$j.NH3.unit[is.na(emis$j.NH3.conv.fact)])
+      unf <- uu[!uu %in% names(cf)]
+      uf <- uu[uu %in% names(cf)]
+      cat('Emission rate unit not available for conversion: ', unf, '\nBut ', uf, ' is OK.\nSee cleanALFAM() function hoppidy2201.\n')
+    }
+
+    # Use indexing to add conversion factor for flux units
+    emis$j.NH3.conv.fact[is.na(emis$j.NH3.conv.fact)] <- cf[emis$j.NH3.unit[is.na(emis$j.NH3.conv.fact)]]
+    emis$j.NH3.unit[is.na(emis$j.NH3.conv.fact)] <- 'kg N/ha-hr'
   }
 
-  # Use indexing to add conversion factor for flux units
+  # Apply converstion factor(s) from above
   emis$j.NH3.orig <- emis$j.NH3
-  emis$j.NH3.conv.fact <- cf[emis$j.NH3.unit]
+  emis$j.NH3 <- emis$j.NH3.orig * emis$j.NH3.conv.fact
   emis$j.NH3.unit <- 'kg N/ha-hr'
-  emis$j.NH3 <- emis$j.NH3.orig*emis$j.NH3.conv.fact
 
   # Calculate dt = interval duration in hours
-  if(sum(!is.na(emis$t.start) & !is.na(emis$t.end))>0) {
+  if(sum(!is.na(emis$t.start) & !is.na(emis$t.end)) > 0) {
     emis$dt.calc <- as.numeric(emis$t.end - emis$t.start, units = 'hours') 
   } else {
     emis$dt.calc <- NA
@@ -564,6 +595,9 @@ getVars <- function(obj) {
   emis <- obj$emis
   pubs <- obj$pubs
   tempver <- obj$tempver
+  sver <- strsplit(tempver, '\\.')[[1]]
+  mjrver <- sver[1]
+  mnrver <- sver[2]
 
   # Pull out some stuff from the emission data
   # All by cpmid
@@ -591,7 +625,7 @@ getVars <- function(obj) {
   plots <- merge(plots, pld, by = 'cpmid')
 
   # Pub info
-  if (tempver >= 7) {
+  if (mjrver >= 7) {
     plots <- merge(plots, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
     emis <- merge(emis, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
   }

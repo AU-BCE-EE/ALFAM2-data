@@ -13,16 +13,16 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.56' # August 2024
+version <- '2.57' # Sept 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
-oldrelease <- '2.50'
+oldrelease <- '2.56'
 
 # For checking only a particular new file (partial matching)
-#newsubmission <- 'Best'
+#newsubmission <- 'MAGspring24'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?
@@ -37,7 +37,7 @@ source('functions.R')
 
 # Make database files
 # NAs by coercion issue. . .
-sink('../../logs/03/make_database_log.txt')
+#sink('../../logs/03/make_database_log.txt')
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
