@@ -7,7 +7,7 @@ The ALFAM2 dataset (database) on ammonia loss through volatilization from field-
 * For a database interface that can be used to subset (filter) by country, application method, or more, use this web app: <https://biotransformers.shinyapps.io/ALFAM2/>. The data available through this interface are generally from the latest release, but always check the version number. 
 * Zenodo versions can be found [here](https://zenodo.org/search?page=1&size=20&q=alfam2)
 * Looking for the ALFAM2 model R package? You want the ALFAM2 repo: <https://github.com/sashahafner/ALFAM2>.
-
+* Checking your submitted data? Find the link in [this list](https://au-bce-ee.github.io/ALFAM2-data/).
 
 # More details
 The dataset consists of two files: one with plot- and one with measurement-level observations.
