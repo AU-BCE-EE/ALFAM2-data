@@ -9,7 +9,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-09-11 10:24:42 EDT"
+[1] "2024-09-15 14:49:53 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -24,65 +24,183 @@
 Directory  ../../data-submitted/03/AU 
 
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+See below for some information that might be helpful.
+Duplicated combinations:
+            proj              exper field plot rep fromplots fromemis meas.tech
+2 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1         1        1       bLS
+3 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1         1        1       bLS
+4 Vejrumbro_2019 Vejrumbro_2019_Aug          1   1         1        1       AGM
+  meas.tech.det
+2       CRDS_2m
+3            MD
+4          <NA>
 
-  Skipping file because of newsubmission setting!
+Combinations missing from plots df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
+Combinations missing from emis df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
    file  ../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+See below for some information that might be helpful.
+Duplicated combinations:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
 
-  Skipping file because of newsubmission setting!
+Combinations missing from plots df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
+Combinations missing from emis df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+Emission rate unit not available for conversion:  NA 
+But  µgNH3/m2/s  is OK.
+See cleanALFAM() function hoppidy2201.
+
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgNH3/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgNH3/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgNH3/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_eGylle_JK_3.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 26 × 18
+      `` ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``    ``   
+   <dbl> <chr> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl> <lgl>
+ 1     1 "3.\… NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 2    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 3    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 4    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 5    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 6    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 7    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 8    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+ 9    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
+# ℹ 16 more rows
+# ℹ 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>
+# ℹ Use `print(n = ...)` to see more rows
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+See below for some information that might be helpful.
+Duplicated combinations:
+    proj   exper       field plot rep fromplots fromemis       meas.tech
+2 eGylle eGylle2 FoulumgårdD    1   1         1        1             DTM
+4 eGylle eGylle3         WUR    1   1         1        1             bLS
+5 eGylle eGylle3         WUR    1   1         1        1 Dynamic chamber
+6 eGylle eGylle3         WUR    1   1         1        1             bLS
+  meas.tech.det
+2          <NA>
+4     CRDS avg.
+5    Acid traps
+6    Acid traps
 
-  Skipping file because of newsubmission setting!
+Combinations missing from plots df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
+Combinations missing from emis df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 0 × 0
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/AU/ALFAM2_template_8.2_MAGspring24_240901.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -93,46 +211,77 @@ Directory  ../../data-submitted/03/AU
 Directory  ../../data-submitted/03/DiSSA-IT 
 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/INIA 
 
 Directory  ../../data-submitted/03/INRAE 
 
    file  ../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/TI 
 
    file  ../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/UNINA 
 
    file  ../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx 
-
-  Skipping file because of newsubmission setting!
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 Directory  ../../data-submitted/03/UNINI 
 
    file  ../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+Number of rows changed after plots/emis merge in cleanALAM()
+May be entry error or multiple treatments per plot (i.e., no error)
+(e.g., multiple parallel measurement methods)
+Problem is often caused by plot/rep entry error.
+Get in here with browser() and look at:
+unique(plots.orig[, c('plot', 'rep')]) 
+unique(emis[, c('plot', 'rep')])
+See below for some information that might be helpful.
+Duplicated combinations:
+    proj   exper  field plot rep fromplots fromemis meas.tech
+2 ARMOSA LAND_13 SIC-13    1   0         1        1       bLS
+3 ARMOSA LAND_13 SIC-13    1   0         1        1       AGM
+          meas.tech.det
+2         150 cm height
+3 30, 70, 150 cm height
 
-  Skipping file because of newsubmission setting!
+Combinations missing from plots df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
+Combinations missing from emis df:
+[1] proj          exper         field         plot          rep          
+[6] fromplots     fromemis      meas.tech     meas.tech.det
+<0 rows> (or 0-length row.names)
+
 Directory  ../../data-submitted/03/WUR 
 
    file  ../../data-submitted/03/WUR/WUR_arable_2024.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 
-  Skipping file because of newsubmission setting!
    file  ../../data-submitted/03/WUR/WUR_grass_2024.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
 
-  Skipping file because of newsubmission setting!
 Directory  ../../data-submitted/03/WUR-wim 
 
 > cat('Done! Read', length(dat), ' directories\n')
 Done! Read 9  directories
 
 > print(warnings())
-Warning message:
-In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -140,4 +289,651 @@ In sink() : no sink to remove
 +   for (j in names(dat[[i]])) {
 + 
 +     # Check for errors and creat .... [TRUNCATED] 
-[1] "proj"  "exper"
+
+> # Sort out int- and plot-level flags
+> 
+> for (i in names(dat)) {
++   for (j in names(dat[[i]])) {
++ 
++     dat[[i]][[j]] <- addFlags(dat[[i]][[j]]) .... [TRUNCATED] 
+
+> # Pull new data from list
+> 
+> # Stack individual interval and plot level data frames from each file together
+> pdat <- idat <- data.frame()
+
+> # Extract and stack plot and interval level data
+> for (i in dat) {
++   for (j in i) {
++     pdat <- rbindf(pdat, j$plots)
++     idat <- rbindf(idat .... [TRUNCATED] 
+
+> # Add plot and institute ID codes to new data
+> 
+> # Get original pmid from latest GitHub release
+> 
+> p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
+
+> pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
+
+> # Fix name of uptake -> sub.period if needed (because of change around v2.47)
+> if (any(names(pdatrelease) == 'uptake')) {
++   pdatrelease[, sub.per .... [TRUNCATED] 
+
+> pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
+
+> dim(pdatr)
+[1] 943  16
+
+> dim(pdat)
+[1] 1434  225
+
+> # Extract and reuse old institution codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+
+> # Sort out institution codes for ones with changed names
+> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
+
+> # Create completely new 300s codes for new institutes
+> # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
+
+> table(pdat$inst)
+
+205 208 214 301 302 303 304 305 
+754  21 414   4   6 224   4   7 
+
+> # ID codes created in plots data frame and then merged into interval level data frame
+> # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
+
+> # Experiment ID (includes sub.period, inst, proj, exper)
+> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat. .... [TRUNCATED] 
+
+> # Add plot and plot x meas tech IDs
+> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat .... [TRUNCATED] 
+
+> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + max(c(pdat.old$pmid, na.omit(pdat$pmid)))
+
+> # Merge IDs into interval level data
+> # Should alternatively be able to switch to interger directly in idat
+> idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
+
+> # Add observation ID
+> # Is not copied from earlier sub.period but because any new obs (should) have a large pmid, they will also have a higher oid
+ .... [TRUNCATED] 
+
+> idat$oid <- 1:nrow(idat) + max(idat.old$oid)
+
+> # Combine new (sub.period 3) with old data
+> 
+> # First plot-level data
+> # Rename some old columns
+> names(pdat.old)[names(pdat.old) %in% c('first. .... [TRUNCATED] 
+
+> names(pdat.old)[names(pdat.old) == 'row.in.file'] <- 'row.in.file.plot'
+
+> names(pdat.old)[names(pdat.old) == 'database'] <- 'sub.period'
+
+> names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
+
+> names(pdat.old)[names(pdat.old) == 'flag'] <- 'flag.plot'
+
+> # And drop others
+> pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
+
+> # Combine
+> pdat.comb <- rbindf(pdat, pdat.old)
+
+> ## Checks:
+> ## Columns missing in new data
+> #names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
+> ## Columns missing i .... [TRUNCATED] 
+
+> # Combine old and new interval-level data
+> 
+> # Interval-level data
+> # Remove some old columns
+> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- .... [TRUNCATED] 
+
+> # Rename some old columns
+> names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
+
+> names(idat.old)[names(idat.old) == 'database'] <- 'sub.period'
+
+> names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
+
+> names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
+
+> # Combine
+> idat.comb <- rbindf(idat, idat.old)
+
+> # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
+> nn <- c('soil.temp.z', 'air.temp.z', 'wind .... [TRUNCATED] 
+
+> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
+
+> ## Checks
+> ## Columns missing in new data
+> #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
+> ## Columns missing in .... [TRUNCATED] 
+
+> # Remove old NL results that have been updated in sub.period 3
+> # Note: Sub/correction period info, and whole correction is very much tailored to s .... [TRUNCATED] 
+
+> # Missing 0 in 2 sub.period 2 experiment codes
+> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-8', 'exper'] <- 'G2000-08'
+
+> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-9', 'exper'] <- 'G2000-09'
+
+> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+
+> print(table(pdat.nl$exper, pdat.nl$sub.period))
+           
+            1 2 3
+  B1990-15  0 3 3
+  B1990-35  0 3 3
+  B1990-37  0 4 4
+  B1990-38  0 8 8
+  B1990-39  0 2 2
+  B1991-13  0 2 2
+  B1991-14  0 1 1
+  B1991-18  0 1 1
+  B1991-36  0 1 1
+  B1991-37  0 4 4
+  B1991-38  0 1 1
+  B1992-10  0 2 2
+  B1992-14  0 5 5
+  B1992-19  0 1 1
+  B1992-20  0 1 1
+  B1992-24  0 1 1
+  B1992-37  0 3 3
+  B1992-38  0 3 3
+  B1992-39  0 3 3
+  B1993-15  0 4 4
+  B1993-17  0 1 1
+  B1998-39  0 2 4
+  B1998-40  0 2 4
+  B2002-13  0 0 2
+  B2002-14  0 0 3
+  B2002-15  0 0 3
+  B2002-17  0 0 3
+  B2002-19  0 0 3
+  B2006-17  0 0 2
+  B2006-18  0 0 2
+  B2006-19  0 0 2
+  B2007-13  0 0 4
+  B2007-16  0 0 4
+  B2007-17  0 0 4
+  B2008-15  0 0 4
+  B2008-17  0 0 4
+  B2008-39  0 0 2
+  B2010-16  0 0 4
+  B2010-19  0 0 4
+  B2011-16  0 0 4
+  B2011-17  0 0 4
+  G1989-13  3 0 2
+  G1989-15  3 0 2
+  G1989-27  2 0 1
+  G1989-28  3 0 2
+  G1989-38  2 0 0
+  G1990-11  2 0 2
+  G1990-12  4 0 4
+  G1990-17  2 0 2
+  G1990-18  2 0 1
+  G1990-20  4 0 4
+  G1990-22  2 0 2
+  G1990-23  4 0 4
+  G1990-24  7 0 6
+  G1990-25  1 0 1
+  G1990-26  3 0 2
+  G1990-27  2 0 1
+  G1990-29  1 0 1
+  G1990-30  1 0 1
+  G1990-31  1 0 1
+  G1990-35  1 0 1
+  G1990-36  2 0 2
+  G1991-15  4 0 4
+  G1991-16  4 0 4
+  G1991-24  3 0 2
+  G1991-29  1 0 1
+  G1991-30  1 0 1
+  G1991-36  1 0 1
+  G1992-11  1 0 1
+  G1992-12  1 0 1
+  G1992-16  4 0 4
+  G1992-17  3 0 3
+  G1992-21  1 0 1
+  G1992-25  4 0 4
+  G1992-26  5 0 5
+  G1992-27  5 0 5
+  G1992-28  1 0 1
+  G1992-35  1 0 1
+  G1992-38  3 0 3
+  G1993-10  2 0 2
+  G1993-11  6 0 6
+  G1993-12  2 0 2
+  G1993-18  4 0 4
+  G1993-21  6 0 6
+  G1993-22  4 0 4
+  G1997-24  0 3 3
+  G1997-25  0 2 2
+  G1997-26  0 3 3
+  G1997-28  0 3 3
+  G1997-29  0 3 3
+  G1997-30  0 3 3
+  G1997-31  0 3 3
+  G1997-33  0 3 3
+  G1998-28  0 4 4
+  G1998-30  0 4 4
+  G1998-32  0 4 4
+  G1999-19  0 5 5
+  G1999-20  0 3 3
+  G1999-22  0 2 2
+  G1999-26  0 2 2
+  G1999-27  0 5 5
+  G1999-30  0 5 5
+  G1999-35  0 2 2
+  G2000-08  0 5 5
+  G2000-09  0 2 2
+  G2000-11  0 2 2
+  G2000-12  0 5 5
+  G2000-19  0 5 5
+  G2002-10  0 2 2
+  G2002-23  0 2 2
+  G2003-10  0 3 3
+  G2003-11  0 4 4
+  G2005-29  0 0 1
+  G2010-20  0 0 4
+  G2010-21  0 0 4
+  G2013-15a 0 0 2
+  G2013-15b 0 0 2
+  G2013-16a 0 0 2
+  G2013-16b 0 0 2
+  G2013-24a 0 0 2
+  G2013-24b 0 0 2
+  G2014-11a 0 0 2
+  G2014-12a 0 0 2
+  G2014-12b 0 0 2
+  G2014-13  0 0 2
+  G2014-17  0 0 2
+  G2014-18a 0 0 2
+  G2014-18b 0 0 3
+  G2014-19  0 0 3
+  G2014-20  0 0 2
+  G2014-21  0 0 2
+  G2014-23a 0 0 3
+  G2014-23b 0 0 3
+  G2015-35  0 0 2
+  G2016-13  0 0 2
+  G2016-14  0 0 3
+  G2016-20  0 0 3
+  G2016-21  0 0 2
+  G2016-26  0 0 3
+  G2016-27  0 0 2
+  G2016-33  0 0 3
+  G2016-34  0 0 3
+  G2017-20a 0 0 2
+  G2017-20b 0 0 2
+  G2017-25  0 0 2
+  G2017-35  0 0 2
+  G2020-21  0 0 2
+  G2020-22  0 0 2
+  G2020-27  0 0 2
+  G2020-28  0 0 2
+  G2021-12  0 0 2
+  G2021-13  0 0 2
+  G2021-23  0 0 2
+  G2021-29  0 0 2
+  G2021-45  0 0 1
+  IHF_13    0 4 0
+  IHF_6     0 2 0
+  IHF_7     0 2 0
+  WIND_10   0 2 0
+  WIND_4    0 2 0
+  WIND_6    0 2 0
+  WIND_8    0 2 0
+
+> print(table(pdat.nl$crop, pdat.nl$sub.period, exclude = NULL))
+           
+              1   2   3
+  bare soil   0  29   0
+  grass     119 105 294
+  none        0   0  49
+  stubble     0  29  34
+  wheat       0   0  37
+
+> # Get new results
+> exper.new <- pdat.nl[pdat.nl$sub.period == 3, 'exper']
+
+> # Find matching old ones that should be swapped out
+> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$sub.period %in% 1:2, 'pmid']
+
+> # Find sub.periods (original, could be 1 or 2) for new experiments
+> exper.old.in.new <- merge(unique(pdat.nl[pdat.nl$sub.period %in% 1:2, c('exper' .... [TRUNCATED] 
+
+> exper.old.in.new$corr.period <- 3
+
+> ## Sort out old experiments that are being replaced, to update sub.period
+> #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
+> #e .... [TRUNCATED] 
+[1] 3333  230
+
+> print(dim(idat.comb))
+[1] 94959   143
+
+> pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
+
+> idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
+
+> print(dim(pdat.comb))
+[1] 3069  230
+
+> print(dim(idat.comb))
+[1] 92707   143
+
+> # Set sub.period/period
+> pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
+
+> # nrow should not change
+> print(dim(pdat.comb))
+[1] 3069  233
+
+> # Check--should all be TRUE
+> all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
+[1] TRUE
+
+> # Use old sub.period values
+> pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub.period'] <- pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub. .... [TRUNCATED] 
+
+> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+
+> print(table(pdat.nl$exper, paste(pdat.nl$corr.period, pdat.nl$sub.period)))
+           
+            3 1 3 2 NA 1 NA 2 NA 3
+  B1990-15    0   3    0    0    0
+  B1990-35    0   3    0    0    0
+  B1990-37    0   4    0    0    0
+  B1990-38    0   8    0    0    0
+  B1990-39    0   2    0    0    0
+  B1991-13    0   2    0    0    0
+  B1991-14    0   1    0    0    0
+  B1991-18    0   1    0    0    0
+  B1991-36    0   1    0    0    0
+  B1991-37    0   4    0    0    0
+  B1991-38    0   1    0    0    0
+  B1992-10    0   2    0    0    0
+  B1992-14    0   5    0    0    0
+  B1992-19    0   1    0    0    0
+  B1992-20    0   1    0    0    0
+  B1992-24    0   1    0    0    0
+  B1992-37    0   3    0    0    0
+  B1992-38    0   3    0    0    0
+  B1992-39    0   3    0    0    0
+  B1993-15    0   4    0    0    0
+  B1993-17    0   1    0    0    0
+  B1998-39    0   4    0    0    0
+  B1998-40    0   4    0    0    0
+  B2002-13    0   0    0    0    2
+  B2002-14    0   0    0    0    3
+  B2002-15    0   0    0    0    3
+  B2002-17    0   0    0    0    3
+  B2002-19    0   0    0    0    3
+  B2006-17    0   0    0    0    2
+  B2006-18    0   0    0    0    2
+  B2006-19    0   0    0    0    2
+  B2007-13    0   0    0    0    4
+  B2007-16    0   0    0    0    4
+  B2007-17    0   0    0    0    4
+  B2008-15    0   0    0    0    4
+  B2008-17    0   0    0    0    4
+  B2008-39    0   0    0    0    2
+  B2010-16    0   0    0    0    4
+  B2010-19    0   0    0    0    4
+  B2011-16    0   0    0    0    4
+  B2011-17    0   0    0    0    4
+  G1989-13    2   0    0    0    0
+  G1989-15    2   0    0    0    0
+  G1989-27    1   0    0    0    0
+  G1989-28    2   0    0    0    0
+  G1989-38    0   0    2    0    0
+  G1990-11    2   0    0    0    0
+  G1990-12    4   0    0    0    0
+  G1990-17    2   0    0    0    0
+  G1990-18    1   0    0    0    0
+  G1990-20    4   0    0    0    0
+  G1990-22    2   0    0    0    0
+  G1990-23    4   0    0    0    0
+  G1990-24    6   0    0    0    0
+  G1990-25    1   0    0    0    0
+  G1990-26    2   0    0    0    0
+  G1990-27    1   0    0    0    0
+  G1990-29    1   0    0    0    0
+  G1990-30    1   0    0    0    0
+  G1990-31    1   0    0    0    0
+  G1990-35    1   0    0    0    0
+  G1990-36    2   0    0    0    0
+  G1991-15    4   0    0    0    0
+  G1991-16    4   0    0    0    0
+  G1991-24    2   0    0    0    0
+  G1991-29    1   0    0    0    0
+  G1991-30    1   0    0    0    0
+  G1991-36    1   0    0    0    0
+  G1992-11    1   0    0    0    0
+  G1992-12    1   0    0    0    0
+  G1992-16    4   0    0    0    0
+  G1992-17    3   0    0    0    0
+  G1992-21    1   0    0    0    0
+  G1992-25    4   0    0    0    0
+  G1992-26    5   0    0    0    0
+  G1992-27    5   0    0    0    0
+  G1992-28    1   0    0    0    0
+  G1992-35    1   0    0    0    0
+  G1992-38    3   0    0    0    0
+  G1993-10    2   0    0    0    0
+  G1993-11    6   0    0    0    0
+  G1993-12    2   0    0    0    0
+  G1993-18    4   0    0    0    0
+  G1993-21    6   0    0    0    0
+  G1993-22    4   0    0    0    0
+  G1997-24    0   3    0    0    0
+  G1997-25    0   2    0    0    0
+  G1997-26    0   3    0    0    0
+  G1997-28    0   3    0    0    0
+  G1997-29    0   3    0    0    0
+  G1997-30    0   3    0    0    0
+  G1997-31    0   3    0    0    0
+  G1997-33    0   3    0    0    0
+  G1998-28    0   4    0    0    0
+  G1998-30    0   4    0    0    0
+  G1998-32    0   4    0    0    0
+  G1999-19    0   5    0    0    0
+  G1999-20    0   3    0    0    0
+  G1999-22    0   2    0    0    0
+  G1999-26    0   2    0    0    0
+  G1999-27    0   5    0    0    0
+  G1999-30    0   5    0    0    0
+  G1999-35    0   2    0    0    0
+  G2000-08    0   5    0    0    0
+  G2000-09    0   2    0    0    0
+  G2000-11    0   2    0    0    0
+  G2000-12    0   5    0    0    0
+  G2000-19    0   5    0    0    0
+  G2002-10    0   2    0    0    0
+  G2002-23    0   2    0    0    0
+  G2003-10    0   3    0    0    0
+  G2003-11    0   4    0    0    0
+  G2005-29    0   0    0    0    1
+  G2010-20    0   0    0    0    4
+  G2010-21    0   0    0    0    4
+  G2013-15a   0   0    0    0    2
+  G2013-15b   0   0    0    0    2
+  G2013-16a   0   0    0    0    2
+  G2013-16b   0   0    0    0    2
+  G2013-24a   0   0    0    0    2
+  G2013-24b   0   0    0    0    2
+  G2014-11a   0   0    0    0    2
+  G2014-12a   0   0    0    0    2
+  G2014-12b   0   0    0    0    2
+  G2014-13    0   0    0    0    2
+  G2014-17    0   0    0    0    2
+  G2014-18a   0   0    0    0    2
+  G2014-18b   0   0    0    0    3
+  G2014-19    0   0    0    0    3
+  G2014-20    0   0    0    0    2
+  G2014-21    0   0    0    0    2
+  G2014-23a   0   0    0    0    3
+  G2014-23b   0   0    0    0    3
+  G2015-35    0   0    0    0    2
+  G2016-13    0   0    0    0    2
+  G2016-14    0   0    0    0    3
+  G2016-20    0   0    0    0    3
+  G2016-21    0   0    0    0    2
+  G2016-26    0   0    0    0    3
+  G2016-27    0   0    0    0    2
+  G2016-33    0   0    0    0    3
+  G2016-34    0   0    0    0    3
+  G2017-20a   0   0    0    0    2
+  G2017-20b   0   0    0    0    2
+  G2017-25    0   0    0    0    2
+  G2017-35    0   0    0    0    2
+  G2020-21    0   0    0    0    2
+  G2020-22    0   0    0    0    2
+  G2020-27    0   0    0    0    2
+  G2020-28    0   0    0    0    2
+  G2021-12    0   0    0    0    2
+  G2021-13    0   0    0    0    2
+  G2021-23    0   0    0    0    2
+  G2021-29    0   0    0    0    2
+  G2021-45    0   0    0    0    1
+  IHF_13      0   0    0    4    0
+  IHF_6       0   0    0    2    0
+  IHF_7       0   0    0    2    0
+  WIND_10     0   0    0    2    0
+  WIND_4      0   0    0    2    0
+  WIND_6      0   0    0    2    0
+  WIND_8      0   0    0    2    0
+
+> print(table(pdat.nl$sub.period))
+
+  1   2   3 
+110 167 155 
+
+> print(table(pdat.nl$crop, pdat.nl$sub.period, exclude = NULL))
+         
+            1   2   3
+  grass   110 105  97
+  none      0  29  20
+  stubble   0  33   1
+  wheat     0   0  37
+
+> # Which ones are remaining from sub.periods 1 and 2?
+> pdat.remain <- pdat.comb[is.na(pdat.comb$corr.period) & pdat.comb$sub.period %in% 1:2 & grepl .... [TRUNCATED] 
+
+> print(table(pdat.remain$exper, pdat.remain$sub.period))
+          
+           1 2
+  G1989-38 2 0
+  IHF_13   0 4
+  IHF_6    0 2
+  IHF_7    0 2
+  WIND_10  0 2
+  WIND_4   0 2
+  WIND_6   0 2
+  WIND_8   0 2
+
+> print(table(pdat.remain$crop, pdat.remain$sub.period, exclude = NULL))
+       
+         1  2
+  grass  2 16
+
+> # Select and order columns (and order rows)
+> 
+> pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
++   c('inst', 'eid', 'pid', 'pmid', 
++     'sub.peri .... [TRUNCATED] 
+
+> # Round
+> pdat.comb <- rounddf(pdat.comb, 5, func = signif)
+
+> # Order and select columns for database distribution
+> # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
+
+> # Round 
+> idat.comb <- rounddf(idat.comb, 5, func = signif)
+
+> # Make text plot summaries for sub.period 3 only
+> 
+> for (i in unique(pdat$file)) {
++ 
++   fn <- strsplit(i, '/')
++   fn <- fn[[1]][length(fn[[1]]) .... [TRUNCATED] 
+
+> # Saves a copy of plot and internval data by flie
+> # Main purpose is to have a text-based (works with Git) record of submitted data
+> 
+> for (i in  .... [TRUNCATED] 
+
+> knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
+[1] "../../logs/03/check_final.md"
+
+> # Compare version number to what is on GitHub
+> 
+> # Latest pushed dev
+> lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/d .... [TRUNCATED] 
+
+> # Latest pushed main
+> lastmain <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/03/data_version.txt'
+
+> # Latest release
+> release <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/03/data_version.txt')
+
+> # Latest pushed dev
+> vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])
+
+> # Latest pushed main
+> vlm <- gsub('\\.$', '', as.data.frame(data.table::fread(lastmain))[[3]])
+
+> # Latest release
+> vr <- gsub('\\.$', '', as.data.frame(data.table::fread(release))[[3]])
+
+> cat('Checking versions\n')
+Checking versions
+
+> if (oldrelease != vr) {
++   cat('Version number in old release does not match release tag!\n')
++ }
+
+> vdat <- data.frame(Where = c('main.R (new version)', 'Release tag', 'Release', 'Main branch', 'Dev branch'),
++                    Version = c(versio .... [TRUNCATED] 
+
+> cat('\n')
+
+
+> print(vdat, row.names = FALSE)
+                Where Version
+ main.R (new version)    2.59
+          Release tag    2.56
+              Release    2.56
+          Main branch    2.57
+           Dev branch    2.56
+
+> if (version %in% c(oldrelease, vr, vlm, vld)) {
++   warning('Version number set in main.R matches\n   one or more existing version numbers!\n   Did  .... [TRUNCATED] 
+
+New version number seems OK.
+
+> # Write regular csv files
+> write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
+
+> write.csv(idat.comb, '../../data-output/03/ALFAM2_interval.csv', row.names = FALSE)
+
+> # And then compress them
+> R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
+
+> R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
+
+> # Record data version also
+> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
+
+> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../data-output/03/data_version.txt')
