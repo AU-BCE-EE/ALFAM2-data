@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.57' # Sept 2024
+version <- '2.59' # Sept 2024
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -37,7 +37,7 @@ source('functions.R')
 
 # Make database files
 # NAs by coercion issue. . .
-#sink('../../logs/03/make_database_log.txt')
+sink('../../logs/03/make_database_log.txt')
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
