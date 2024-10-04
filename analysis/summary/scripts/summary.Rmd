@@ -20,11 +20,8 @@ length(unique(pdat$pid))
 dim(idat)
 ```
 
-
-
-
 ```{r}
-up <- pdat[unique(pdat$pid), ]
+up <- pdat[pdat$pid %in% unique(pdat$pid), ]
 table(pdat$sub.period)
 table(up$sub.period)
 table(country = up$country, sub.period = up$sub.period)
