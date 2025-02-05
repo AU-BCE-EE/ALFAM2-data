@@ -5,11 +5,21 @@
 
 > pdat.old <- read.csv('../../data-output/02/ALFAM2_plot.csv')
 
+> # Fix MF date problem
+> 
+> ## To find names to sort out:
+> #names(idat)[grepl('POS', lapply(idat, class))]
+> #names(pdat)[grepl('POS', lapply(pdat,  .... [TRUNCATED] 
+
+> for(i in c('app.start', 't.start.p', 't.end.p')) {
++   pdat.old[, i] <- as.POSIXct(pdat.old[, i], format = '%Y-%m-%d %H:%M', tz = 'GMT')
++ }
+
 > # 
 > 
 > # Date record
 > print(Sys.time())
-[1] "2024-09-15 14:49:53 EDT"
+[1] "2025-02-05 15:31:29 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -282,6 +292,13 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 9  directories
 
 > print(warnings())
+Warning messages:
+1: In install.packages("leaflet") :
+  installation of package ‘terra’ had non-zero exit status
+2: In install.packages("leaflet") :
+  installation of package ‘raster’ had non-zero exit status
+3: In install.packages("leaflet") :
+  installation of package ‘leaflet’ had non-zero exit status
 
 > # Check for errors and create a log before merge
 > 
@@ -323,7 +340,7 @@ Done! Read 9  directories
 > pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 943  16
+[1] 1175   16
 
 > dim(pdat)
 [1] 1434  225
@@ -912,10 +929,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.59
-          Release tag    2.56
-              Release    2.56
-          Main branch    2.57
+ main.R (new version)    2.60
+          Release tag    2.59
+              Release    2.59
+          Main branch    2.59
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

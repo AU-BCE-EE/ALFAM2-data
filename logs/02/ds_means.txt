@@ -229,7 +229,7 @@ Sorted               FALSE     FALSE   FALSE     FALSE          FALSE
 Class               character      POSIXct POSIXt      POSIXct POSIXt numeric
 Minimum               chamber 1990-06-12 09:30:00 1990-06-16 07:17:00    0.15
 Maximum                    wt 2014-05-01 11:40:00 2014-05-03 15:14:00     145
-Mean                micro met 2002-10-31 01:28:10 2002-11-06 01:58:13     5.6
+Mean                micro met 2002-10-31 01:28:10 2002-11-05 23:20:42     5.6
 Unique (excld. NA)          4                 975                 846     312
 Missing values              0                 464                 464       0
 Sorted                  FALSE               FALSE               FALSE   FALSE
@@ -244,11 +244,11 @@ Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                    n.int.duplicates int.min int.max int.t.mismatches
 Class                       integer integer integer          integer
 Minimum                           0       0       0                0
-Maximum                           0     422    1440                2
+Maximum                           0     422    1440                0
 Mean                              0       1       7                0
-Unique (excld. NA)                1       7      50                3
+Unique (excld. NA)                1       7      50                1
 Missing values                    0       0       0              464
-Sorted                         TRUE   FALSE   FALSE            FALSE
+Sorted                         TRUE   FALSE   FALSE             TRUE
                    missing.ints  j.NH31  j.rel1     e.1     e.4     e.6    e.12
 Class                   numeric numeric numeric numeric numeric numeric numeric
 Minimum                       0   -1.45 -0.0132   -1.45   -0.44  -0.402   -1.19
@@ -525,7 +525,7 @@ Sorted               FALSE     FALSE   FALSE     FALSE          FALSE
 Class               character      POSIXct POSIXt      POSIXct POSIXt numeric
 Minimum               chamber 1990-06-12 09:30:00 1990-06-16 07:17:00    0.15
 Maximum                    wt 2014-05-01 11:40:00 2014-05-03 15:14:00     145
-Mean                micro met 2002-10-31 01:28:10 2002-11-06 01:58:13     5.6
+Mean                micro met 2002-10-31 01:28:10 2002-11-05 23:20:42     5.6
 Unique (excld. NA)          4                 975                 846     312
 Missing values              0                 464                 464       0
 Sorted                  FALSE               FALSE               FALSE   FALSE
@@ -540,11 +540,11 @@ Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
                    n.int.duplicates int.min int.max int.t.mismatches
 Class                       integer integer integer          integer
 Minimum                           0       0       0                0
-Maximum                           0     422    1440                2
+Maximum                           0     422    1440                0
 Mean                              0       1       7                0
-Unique (excld. NA)                1       7      50                3
+Unique (excld. NA)                1       7      50                1
 Missing values                    0       0       0              464
-Sorted                         TRUE   FALSE   FALSE            FALSE
+Sorted                         TRUE   FALSE   FALSE             TRUE
                    missing.ints  j.NH31  j.rel1     e.1     e.4     e.6    e.12
 Class                   numeric numeric numeric numeric numeric numeric numeric
 Minimum                       0   -1.45 -0.0132   -1.45   -0.44  -0.402   -1.19

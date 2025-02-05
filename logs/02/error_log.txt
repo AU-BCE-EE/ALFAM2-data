@@ -74,23 +74,23 @@ Sorted                 FALSE     FALSE      FALSE                   FALSE
 Class              integer  integer      POSIXct POSIXt      POSIXct POSIXt
 Minimum                  1        0 1990-06-12 09:30:00 1990-06-12 10:08:00
 Maximum                  7     1440 2014-05-03 09:56:00 2014-05-03 15:14:00
-Mean                     1       14 2005-10-16 10:50:36 2005-10-16 18:33:04
+Mean                     1       14 2005-10-16 10:50:36 2005-10-16 18:17:22
 Unique (excld. NA)       7     1441               11881               11781
 Missing values       24939        0                3854                3854
 Sorted               FALSE    FALSE               FALSE               FALSE
-                       t.start.orig       t.end.orig      dt dt.calc dt.diff
-Class                     character        character numeric numeric numeric
-Minimum            00-01-1900 00:00 00-01-1900 00:00    0.15    0.15   -1420
-Maximum                9/7/08 11:09     9/7/08 11:09     169    1420    13.2
-Mean               16-06-2010 12:45 16-08-2001 12:00    7.62    6.43  -0.321
-Unique (excld. NA)             9470             9414    1756    1321     391
-Missing values                 8757             8757       0    8761    8761
-Sorted                        FALSE            FALSE   FALSE   FALSE   FALSE
+                       t.start.orig       t.end.orig      dt dt.calc  dt.diff
+Class                     character        character numeric numeric  numeric
+Minimum            00-01-1900 00:00 00-01-1900 00:00    0.15    0.15    -16.7
+Maximum                9/7/08 11:09     9/7/08 11:09     169     169     13.2
+Mean               16-06-2010 12:45 16-08-2001 12:00    7.62    6.11 -0.00165
+Unique (excld. NA)             9470             9414    1756    1318      389
+Missing values                 8757             8757       0    8761     8761
+Sorted                        FALSE            FALSE   FALSE   FALSE    FALSE
                         ct      mt     cta meas.tech meas.tech2
 Class              numeric numeric numeric character  character
 Minimum               0.15   0.075     -65       agm    chamber
-Maximum                508     508    1420     zinst         wt
-Mean                   107     103     128       cps  micro met
+Maximum                508     508     911     zinst         wt
+Mean                   107     103     127       cps  micro met
 Unique (excld. NA)    5298    7225    4531        10          4
 Missing values           0       0   11927         0          0
 Sorted               FALSE   FALSE   FALSE     FALSE      FALSE
@@ -2416,18 +2416,9 @@ character(0)
 > x <- subset(y, problem)
 
 > x[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
-                         file inst institute row.in.file plot
-9116 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         641    3
-9117 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         642    3
-9195 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         648    6
-9286 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         654    9
-9287 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         655    9
-                 t.start               t.end interval j.NH3  overlap
-9116 2010-10-12 10:07:00 2010-12-10 13:28:00        1 0.298 1415.967
-9117 2010-10-12 13:30:00 2010-12-10 16:24:00        2 0.225 1415.950
-9195 2010-10-12 14:20:00 2010-12-10 17:42:00        1 0.479 1415.967
-9286 2010-10-12 12:12:00 2010-12-10 15:08:00        1 0.572 1415.950
-9287 2010-10-12 15:11:00 2010-12-10 17:59:00        2 0.180 1415.967
+ [1] file        inst        institute   row.in.file plot        t.start    
+ [7] t.end       interval    j.NH3       overlap    
+<0 rows> (or 0-length row.names)
 
 > # Very short sets
 > x <- subset(ds, n.ints < 4)
