@@ -6,6 +6,7 @@
 options(warn = 1) 
 
 # Set database version
+# Should no longer be used because uptake/sub set 3 code sets it in main.R
 version <- '1.5' # July 2022
 
 # Packages
@@ -48,4 +49,4 @@ sink()
 
 cat('Note to SASHA: !!!!!!!!!!!!!!!!!!!!!!!!!!1 \n 
     Remember to create a tag/release on GitHub!!! \n
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n')
