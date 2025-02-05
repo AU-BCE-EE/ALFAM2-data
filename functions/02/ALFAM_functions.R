@@ -400,7 +400,7 @@ addALFAMVars <- function(d) {
   d <- d[order(d$cpmid, d$interval), ]
   d <- ddply(d, 'cpmid', transform, ct = cumsum(dt), mt = cumsum(dt) - dt/2, 
              e.cum = cumsum(e.int), rain.cum = cumsum(rain), 
-	           date.start = as.character(min(t.start), format = '%Y-%m-%d'))
+	           date.start = format(min(t.start), format = '%Y-%m-%d'))
   
   ### Response variables must be named j and e for model functions (NTS: revisit)
   ##d$e <- d$e.cum
@@ -1203,7 +1203,7 @@ date2char <- function(d) {
 
   for(i in names(d)) {
 
-    if(class(d[ , i])[1] == 'POSIXct') d[ , i] <- as.character(d[ , i], format = '%d-%m-%Y %H:%M')
+    if(class(d[ , i])[1] == 'POSIXct') d[ , i] <- format(d[ , i], format = '%d-%m-%Y %H:%M')
 
   }
 
@@ -1244,7 +1244,7 @@ dfsumm <- function(x) {
      } else if(iclass == "logical") {
        s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
      } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
+       s[2:4, i] <- format(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
      } else {
        s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
      }
@@ -1295,7 +1295,7 @@ dfsumm <- function(x) {
      } else if(iclass == "logical") {
        s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
      } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
+       s[2:4, i] <- format(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
      } else {
        s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
      }
@@ -1350,7 +1350,7 @@ vsumm <- function(x) {
      } else if(iclass == "logical") {
        s[2:4, i] <- as.logical(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2])) 
      } else if(grepl('POSIX', iclass[1])) {
-       s[2:4, i] <- as.character(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
+       s[2:4, i] <- format(c(min(yc), max(yc), mean(yc)), format = '%Y-%m-%d %H:%M:%S') 
      } else {
        s[2:4, i] <- as.character(c(min(yc), max(yc), sort(yc)[floor(length(yc))/2]))
      }

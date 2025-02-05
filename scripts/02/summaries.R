@@ -64,6 +64,10 @@ ds <- ds[, c('inst', 'eid', 'pid', 'pmid',
 ds <- rounddf(ds, 5)
 
 # Create database file
+# Fix GD date issue in 2025
+for(i in c('t.start.p', 't.end.p', 'app.start', 'date.start')) {
+  ds[, i] <- format(ds[, i], format = '%Y-%m-%d %H:%M')
+}
 write.csv(ds, '../../data-output/02/ALFAM2_plot.csv', row.names = FALSE)
 
 # And a record
