@@ -74,16 +74,16 @@ Sorted                 FALSE     FALSE      FALSE                   FALSE
 Class              integer  integer      POSIXct POSIXt      POSIXct POSIXt
 Minimum                  1        0 1990-06-12 09:30:00 1990-06-12 10:08:00
 Maximum                  7     1440 2014-05-03 09:56:00 2014-05-03 15:14:00
-Mean                     1       14 2005-10-16 11:15:43 2005-10-16 18:33:04
+Mean                     1       14 2005-10-16 10:50:36 2005-10-16 18:33:04
 Unique (excld. NA)       7     1441               11881               11781
 Missing values       24939        0                3854                3854
 Sorted               FALSE    FALSE               FALSE               FALSE
                        t.start.orig       t.end.orig      dt dt.calc dt.diff
 Class                     character        character numeric numeric numeric
-Minimum            00-01-1900 00:00 00-01-1900 00:00    0.15   -1400   -16.7
-Maximum                9/7/08 11:09     9/7/08 11:09     169     169    1420
-Mean               16-06-2010 12:45 16-08-2001 12:00    7.62    5.92    0.19
-Unique (excld. NA)             9470             9414    1756    1318     390
+Minimum            00-01-1900 00:00 00-01-1900 00:00    0.15    0.15   -1420
+Maximum                9/7/08 11:09     9/7/08 11:09     169    1420    13.2
+Mean               16-06-2010 12:45 16-08-2001 12:00    7.62    6.43  -0.321
+Unique (excld. NA)             9470             9414    1756    1321     391
 Missing values                 8757             8757       0    8761    8761
 Sorted                        FALSE            FALSE   FALSE   FALSE   FALSE
                         ct      mt     cta meas.tech meas.tech2
@@ -91,7 +91,7 @@ Class              numeric numeric numeric character  character
 Minimum               0.15   0.075     -65       agm    chamber
 Maximum                508     508    1420     zinst         wt
 Mean                   107     103     128       cps  micro met
-Unique (excld. NA)    5298    7225    4527        10          4
+Unique (excld. NA)    5298    7225    4531        10          4
 Missing values           0       0   11927         0          0
 Sorted               FALSE   FALSE   FALSE     FALSE      FALSE
                      meas.tech.orig   bg.dl  bg.val   bg.unit   j.NH3   j.rel
@@ -158,14 +158,14 @@ Mean                    none      180    5.35    3.42     1.9   FALSE    1.63
 Unique (excld. NA)         6       42     422     332     300       2      43
 Missing values             0    26410    2818    4243    2818       0   27993
 Sorted                 FALSE    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
-                    man.ua  man.ph man.freeNH3 man.eq.gasNH3 date.start
-Class              integer numeric     numeric       numeric  character
-Minimum                  0     3.2    2.48e-07      6.88e-08 1990-06-12
-Maximum                  0    9.22        1.32         0.899 2014-05-01
-Mean                     0    7.48      0.0288        0.0137 2009-08-05
-Unique (excld. NA)       1     182       10101         10152        261
-Missing values       30555    6910        8223          8223       4150
-Sorted                TRUE   FALSE       FALSE         FALSE      FALSE
+                    man.ua  man.ph man.freeNH3 man.eq.gasNH3       date.start
+Class              integer numeric     numeric       numeric        character
+Minimum                  0     3.2    2.48e-07      6.88e-08 1990-06-12 09:30
+Maximum                  0    9.22        1.32         0.899 2014-05-01 11:40
+Mean                     0    7.48      0.0288        0.0137 2009-08-05 09:30
+Unique (excld. NA)       1     182       10101         10152              975
+Missing values       30555    6910        8223          8223             4150
+Sorted                TRUE   FALSE       FALSE         FALSE            FALSE
                              app.start   app.start.orig app.method app.method2
 Class                   POSIXct POSIXt        character  character   character
 Minimum            1990-06-12 09:30:00                          bc        band
@@ -2416,9 +2416,18 @@ character(0)
 > x <- subset(y, problem)
 
 > x[, c('file', 'inst', 'institute', 'row.in.file', 'plot', 't.start', 't.end', 'interval', 'j.NH3', 'overlap')]
- [1] file        inst        institute   row.in.file plot        t.start    
- [7] t.end       interval    j.NH3       overlap    
-<0 rows> (or 0-length row.names)
+                         file inst institute row.in.file plot
+9116 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         641    3
+9117 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         642    3
+9195 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         648    6
+9286 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         654    9
+9287 ALFAM2_ADAS_RRes_v2.xlsx  202   ADAS-RR         655    9
+                 t.start               t.end interval j.NH3  overlap
+9116 2010-10-12 10:07:00 2010-12-10 13:28:00        1 0.298 1415.967
+9117 2010-10-12 13:30:00 2010-12-10 16:24:00        2 0.225 1415.950
+9195 2010-10-12 14:20:00 2010-12-10 17:42:00        1 0.479 1415.967
+9286 2010-10-12 12:12:00 2010-12-10 15:08:00        1 0.572 1415.950
+9287 2010-10-12 15:11:00 2010-12-10 17:59:00        2 0.180 1415.967
 
 > # Very short sets
 > x <- subset(ds, n.ints < 4)
@@ -2924,21 +2933,21 @@ character(0)
       man.dm man.tkn man.tan  acid man.tic man.ua man.ph man.freeNH3
 28457     NA      NA      NA FALSE      NA     NA     NA          NA
 28486     NA      NA      NA FALSE      NA     NA     NA          NA
-      man.eq.gasNH3 date.start           app.start   app.start.orig app.method
-28457            NA 2014-05-01 2014-05-01 08:40:00 01-05-2014 08:40       <NA>
-28486            NA 2014-05-01 2014-05-01 09:41:00 01-05-2014 09:41       <NA>
-      app.method2 app.method.orig app.rate tan.app incorp incorp.orig
-28457        <NA>                       NA      NA   none        None
-28486        <NA>                       NA      NA   none        None
-      time.incorp man.area dist.inj furrow.z furrow.w   crop crop.orig crop.z
-28457          NA       30       NA     <NA>     <NA> cereal    Barley     NA
-28486          NA       30       NA     <NA>     <NA> cereal    Barley     NA
-      crop.area lai                                                   notes
-28457        NA  NA Control. beside the field (further distant background).
-28486        NA  NA Control. beside the field (further distant background).
-      flag
-28457     
-28486     
+      man.eq.gasNH3       date.start           app.start   app.start.orig
+28457            NA 2014-05-01 08:40 2014-05-01 08:40:00 01-05-2014 08:40
+28486            NA 2014-05-01 09:41 2014-05-01 09:41:00 01-05-2014 09:41
+      app.method app.method2 app.method.orig app.rate tan.app incorp
+28457       <NA>        <NA>                       NA      NA   none
+28486       <NA>        <NA>                       NA      NA   none
+      incorp.orig time.incorp man.area dist.inj furrow.z furrow.w   crop
+28457        None          NA       30       NA     <NA>     <NA> cereal
+28486        None          NA       30       NA     <NA>     <NA> cereal
+      crop.orig crop.z crop.area lai
+28457    Barley     NA        NA  NA
+28486    Barley     NA        NA  NA
+                                                        notes flag
+28457 Control. beside the field (further distant background).     
+28486 Control. beside the field (further distant background).     
 
 > # Missing soil type
 > x <- subset(d, is.na(soil.type))

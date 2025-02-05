@@ -3,7 +3,7 @@
 # S. Hafner
 
 # To get errors for any warnings
-options(warn = 2) 
+options(warn = 1) 
 
 # Set database version
 version <- '1.5' # July 2022
@@ -40,6 +40,11 @@ sink()
 file.remove('../../data-output/02/ALFAM_part.csv')
 
 options(warn = 1)
+
+# Save package versions (down here because some are loaded in other scripts, it seems)
+sink('../../logs/02/R_package_versions.txt')
+  print(sessionInfo())
+sink()
 
 cat('Note to SASHA: !!!!!!!!!!!!!!!!!!!!!!!!!!1 \n 
     Remember to create a tag/release on GitHub!!! \n

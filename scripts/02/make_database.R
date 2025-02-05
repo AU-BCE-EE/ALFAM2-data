@@ -61,6 +61,10 @@ d2 <- merge(d2, dp2, by = c('file', 'pub.id'), all.x = TRUE)
 d <- rbindf(d2, d1)
 
 # Write out part
+# Fix GD date issue in 2025
+for(i in c('t.start', 't.end', 'app.start')) {
+  d[, i] <- format(d[, i], format = '%Y-%m-%d %H:%M')
+}
 write.csv(d, '../../data-output/02/ALFAM_part.csv', row.names = FALSE)
 
 ## Start here to save time when only the code below has been updated
@@ -199,6 +203,10 @@ if(sum(duplicated(d[,c('inst', 'plot', 'rep', 'meas.tech', 'ct', 'man.dm', 'man.
 }
 
 # Create database file for release
+# Fix date issue in 2025
+for(i in c('t.start', 't.end', 'app.start')) {
+  d[, i] <- format(d[, i], format = '%Y-%m-%d %H:%M')
+}
 write.csv(d, '../../data-output/02/ALFAM2_interval.csv', row.names = FALSE)
 
 sink('../../logs/02/ALFAM2_database.txt')

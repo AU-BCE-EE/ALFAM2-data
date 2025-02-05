@@ -3,6 +3,10 @@
 do <- read.csv('../../archive/1.4/ALFAM2_interval.csv')
 dso <- read.csv('../../archive/1.4/ALFAM2_plot.csv')
 
+for(i in c('t.start', 't.end', 'app.start')) {
+  do[, i] <- as.POSIXct(do[, i], format = '%Y-%m-%d %H:%M:%S', tz = 'GMT')
+}
+
 # Sort in identical way
 d  <-  d[order( d$inst,  d$file,  d$row.in.file), ]
 do <- do[order(do$inst, do$file, do$row.in.file), ]
@@ -48,3 +52,8 @@ sum(na.omit(ds$e.final) != na.omit(dso$e.final))
 #
 #cbind(ds[ii, 'e.final'], dso[ii, 'e.final'])
 ## Looks like rounding issue
+
+# Date/time BS
+# May be a few from ADAS (other?) changes
+sum(!is.na(d$t.start) & !is.na(do$t.start) & d$t.start != do$t.start)
+

@@ -185,94 +185,102 @@ Mean                  7.45        0.24      0.0309        0.0149   FALSE
 Unique (excld. NA)     180         300         906           904       2
 Missing values         292          34         457           457       0
 Sorted               FALSE       FALSE       FALSE         FALSE   FALSE
-                   date.start           app.start   app.start.orig app.method
-Class               character      POSIXct POSIXt        character  character
-Minimum            1990-06-12 1990-06-12 09:30:00                          bc
-Maximum            2014-05-01 2014-05-01 10:59:00             9:58         ts
-Mean               2000-05-16 2008-03-13 00:50:10 15-06-2010 10:55        bss
-Unique (excld. NA)        261                 648              751          7
-Missing values            464                1029              868         34
-Sorted                  FALSE               FALSE            FALSE      FALSE
-                   app.method.orig app.method2 app.rate tan.app    incorp
-Class                    character   character  numeric numeric character
-Minimum                                   band      6.6    2.45      deep
-Maximum              Trailing shoe          os      315     602   shallow
-Mean                     Broadcast          bc     41.3    75.3      none
-Unique (excld. NA)              10           4      403     843         3
-Missing values                   0          97       34      34         0
-Sorted                       FALSE       FALSE    FALSE   FALSE     FALSE
-                   incorp.orig time.incorp man.area dist.inj  furrow.z
-Class                character     numeric  integer  integer character
-Minimum                   Deep           0        0       19          
-Maximum                Shallow          48      100      120         8
-Mean                      None        1.93       30       20      0-20
-Unique (excld. NA)           6          13       13        5        20
-Missing values               0        1764     1524     1756      1736
-Sorted                   FALSE       FALSE    FALSE    FALSE     FALSE
-                    furrow.w log.app.rate      crop    crop.orig  crop.z
-Class              character      numeric character    character numeric
-Minimum                              0.82 bare soil                    0
-Maximum                    5          2.5   stubble Winter Wheat    76.5
-Mean                     0-5         1.55     grass        Grass    9.23
-Unique (excld. NA)         9          403         6           14     137
-Missing values          1751           34         2            0     459
-Sorted                 FALSE        FALSE     FALSE        FALSE   FALSE
-                   crop.area     lai meas.tech meas.tech.orig meas.tech2
-Class                integer numeric character      character  character
-Minimum                    0       0       agm            AGM    chamber
-Maximum                  100     4.7     zinst      ZINST/bls         wt
-Mean                       0   0.442       ihf      Micro met  micro met
-Unique (excld. NA)         9      13        10             13          4
-Missing values          1601    1708         0              0          0
-Sorted                 FALSE   FALSE     FALSE          FALSE      FALSE
-                             t.start.p             t.end.p     dt1  dt.min
-Class                   POSIXct POSIXt      POSIXct POSIXt numeric numeric
-Minimum            1990-06-12 09:30:00 1990-06-16 07:17:00    0.15    0.15
-Maximum            2014-05-01 11:40:00 2014-05-03 15:14:00     145     145
-Mean               2002-10-31 01:31:13 2002-11-06 01:58:13     5.6    5.46
-Unique (excld. NA)                 975                 846     312     290
-Missing values                     464                 464       0       0
-Sorted                           FALSE               FALSE   FALSE   FALSE
-                    dt.max  ct.min  ct.max     ct1  n.ints n.int.duplicates
-Class              numeric numeric numeric numeric integer          integer
-Minimum               0.25    0.15    1.02    0.15       1                0
-Maximum                169     145     508     145    1310                0
-Mean                  35.3     5.6     124     5.6       8                0
-Unique (excld. NA)     515     312     979     312      49                1
-Missing values           0       0       0       0       0                0
-Sorted               FALSE   FALSE   FALSE   FALSE   FALSE             TRUE
-                   int.min int.max int.t.mismatches missing.ints  j.NH31
-Class              integer integer          integer      numeric numeric
-Minimum                  0       0                0            0   -1.45
-Maximum                422    1440                0            1    53.3
-Mean                     1       7                0       0.0105    3.06
-Unique (excld. NA)       7      50                1            2    1603
-Missing values           0       0              464            0       3
-Sorted               FALSE   FALSE             TRUE        FALSE   FALSE
-                    j.rel1     e.1     e.4     e.6    e.12    e.24    e.48
-Class              numeric numeric numeric numeric numeric numeric numeric
-Minimum            -0.0132   -1.45   -0.44  -0.402   -1.19  -0.321  -0.486
-Maximum               1.19    35.6     183     235     267     328     557
-Mean                0.0567    3.65     9.3      11      13    16.3    20.6
-Unique (excld. NA)    1780     696    1579    1702    1725    1754    1608
-Missing values          37    1196     298     168     143     116     270
-Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
-                      e.72    e.96 e.final e.rel.1  e.rel.4  e.rel.6 e.rel.12
-Class              numeric numeric numeric numeric  numeric  numeric  numeric
-Minimum             -0.873   -1.11   -12.2 -0.0132 -0.00599 -0.00531  -0.0125
-Maximum                651     231     655   0.608      3.2     3.93     4.37
-Mean                  24.6    19.9    24.2  0.0632     0.16    0.186    0.214
-Unique (excld. NA)    1294     801    1804     688     1582     1699     1722
-Missing values         594    1097      42    1202      316      196      173
-Sorted               FALSE   FALSE   FALSE   FALSE    FALSE    FALSE    FALSE
-                   e.rel.24 e.rel.48 e.rel.72 e.rel.96 e.rel.final
-Class               numeric  numeric  numeric  numeric     numeric
-Minimum            -0.00222 -0.00184 -0.00734  -0.0106      -0.116
-Maximum                5.16     5.66     5.86     5.87        6.86
-Mean                  0.255    0.307    0.339    0.309       0.358
-Unique (excld. NA)     1752     1603     1287      796        1807
-Missing values          146      296      612     1103          76
-Sorted                FALSE    FALSE    FALSE    FALSE       FALSE
+                         date.start           app.start   app.start.orig
+Class                     character      POSIXct POSIXt        character
+Minimum            1990-06-12 09:30 1990-06-12 09:30:00                 
+Maximum            2014-05-01 11:40 2014-05-01 10:59:00             9:58
+Mean               2000-05-16 15:00 2008-03-13 00:50:10 15-06-2010 10:55
+Unique (excld. NA)              975                 648              751
+Missing values                  464                1029              868
+Sorted                        FALSE               FALSE            FALSE
+                   app.method app.method.orig app.method2 app.rate tan.app
+Class               character       character   character  numeric numeric
+Minimum                    bc                        band      6.6    2.45
+Maximum                    ts   Trailing shoe          os      315     602
+Mean                      bss       Broadcast          bc     41.3    75.3
+Unique (excld. NA)          7              10           4      403     843
+Missing values             34               0          97       34      34
+Sorted                  FALSE           FALSE       FALSE    FALSE   FALSE
+                      incorp incorp.orig time.incorp man.area dist.inj
+Class              character   character     numeric  integer  integer
+Minimum                 deep        Deep           0        0       19
+Maximum              shallow     Shallow          48      100      120
+Mean                    none        None        1.93       30       20
+Unique (excld. NA)         3           6          13       13        5
+Missing values             0           0        1764     1524     1756
+Sorted                 FALSE       FALSE       FALSE    FALSE    FALSE
+                    furrow.z  furrow.w log.app.rate      crop    crop.orig
+Class              character character      numeric character    character
+Minimum                                        0.82 bare soil             
+Maximum                    8         5          2.5   stubble Winter Wheat
+Mean                    0-20       0-5         1.55     grass        Grass
+Unique (excld. NA)        20         9          403         6           14
+Missing values          1736      1751           34         2            0
+Sorted                 FALSE     FALSE        FALSE     FALSE        FALSE
+                    crop.z crop.area     lai meas.tech meas.tech.orig
+Class              numeric   integer numeric character      character
+Minimum                  0         0       0       agm            AGM
+Maximum               76.5       100     4.7     zinst      ZINST/bls
+Mean                  9.23         0   0.442       ihf      Micro met
+Unique (excld. NA)     137         9      13        10             13
+Missing values         459      1601    1708         0              0
+Sorted               FALSE     FALSE   FALSE     FALSE          FALSE
+                   meas.tech2           t.start.p             t.end.p     dt1
+Class               character      POSIXct POSIXt      POSIXct POSIXt numeric
+Minimum               chamber 1990-06-12 09:30:00 1990-06-16 07:17:00    0.15
+Maximum                    wt 2014-05-01 11:40:00 2014-05-03 15:14:00     145
+Mean                micro met 2002-10-31 01:28:10 2002-11-06 01:58:13     5.6
+Unique (excld. NA)          4                 975                 846     312
+Missing values              0                 464                 464       0
+Sorted                  FALSE               FALSE               FALSE   FALSE
+                    dt.min  dt.max  ct.min  ct.max     ct1  n.ints
+Class              numeric numeric numeric numeric numeric integer
+Minimum               0.15    0.25    0.15    1.02    0.15       1
+Maximum                145     169     145     508     145    1310
+Mean                  5.46    35.3     5.6     124     5.6       8
+Unique (excld. NA)     290     515     312     979     312      49
+Missing values           0       0       0       0       0       0
+Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                   n.int.duplicates int.min int.max int.t.mismatches
+Class                       integer integer integer          integer
+Minimum                           0       0       0                0
+Maximum                           0     422    1440                2
+Mean                              0       1       7                0
+Unique (excld. NA)                1       7      50                3
+Missing values                    0       0       0              464
+Sorted                         TRUE   FALSE   FALSE            FALSE
+                   missing.ints  j.NH31  j.rel1     e.1     e.4     e.6    e.12
+Class                   numeric numeric numeric numeric numeric numeric numeric
+Minimum                       0   -1.45 -0.0132   -1.45   -0.44  -0.402   -1.19
+Maximum                       1    53.3    1.19    35.6     183     235     267
+Mean                     0.0105    3.06  0.0567    3.65     9.3      11      13
+Unique (excld. NA)            2    1603    1780     696    1579    1702    1725
+Missing values                0       3      37    1196     298     168     143
+Sorted                    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                      e.24    e.48    e.72    e.96 e.final e.rel.1  e.rel.4
+Class              numeric numeric numeric numeric numeric numeric  numeric
+Minimum             -0.321  -0.486  -0.873   -1.11   -12.2 -0.0132 -0.00599
+Maximum                328     557     651     231     655   0.608      3.2
+Mean                  16.3    20.6    24.6    19.9    24.2  0.0632     0.16
+Unique (excld. NA)    1754    1608    1294     801    1804     688     1582
+Missing values         116     270     594    1097      42    1202      316
+Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
+                    e.rel.6 e.rel.12 e.rel.24 e.rel.48 e.rel.72 e.rel.96
+Class               numeric  numeric  numeric  numeric  numeric  numeric
+Minimum            -0.00531  -0.0125 -0.00222 -0.00184 -0.00734  -0.0106
+Maximum                3.93     4.37     5.16     5.66     5.86     5.87
+Mean                  0.186    0.214    0.255    0.307    0.339    0.309
+Unique (excld. NA)     1699     1722     1752     1603     1287      796
+Missing values          196      173      146      296      612     1103
+Sorted                FALSE    FALSE    FALSE    FALSE    FALSE    FALSE
+                   e.rel.final
+Class                  numeric
+Minimum                 -0.116
+Maximum                   6.86
+Mean                     0.358
+Unique (excld. NA)        1807
+Missing values              76
+Sorted                   FALSE
                                                                                     notes
 Class                                                                           character
 Minimum                                                                                  
@@ -473,94 +481,102 @@ Mean                  7.45        0.24      0.0309        0.0149   FALSE
 Unique (excld. NA)     180         300         906           904       2
 Missing values         292          34         457           457       0
 Sorted               FALSE       FALSE       FALSE         FALSE   FALSE
-                   date.start           app.start   app.start.orig app.method
-Class               character      POSIXct POSIXt        character  character
-Minimum            1990-06-12 1990-06-12 09:30:00                          bc
-Maximum            2014-05-01 2014-05-01 10:59:00             9:58         ts
-Mean               2000-05-16 2008-03-13 00:50:10 15-06-2010 10:55        bss
-Unique (excld. NA)        261                 648              751          7
-Missing values            464                1029              868         34
-Sorted                  FALSE               FALSE            FALSE      FALSE
-                   app.method.orig app.method2 app.rate tan.app    incorp
-Class                    character   character  numeric numeric character
-Minimum                                   band      6.6    2.45      deep
-Maximum              Trailing shoe          os      315     602   shallow
-Mean                     Broadcast          bc     41.3    75.3      none
-Unique (excld. NA)              10           4      403     843         3
-Missing values                   0          97       34      34         0
-Sorted                       FALSE       FALSE    FALSE   FALSE     FALSE
-                   incorp.orig time.incorp man.area dist.inj  furrow.z
-Class                character     numeric  integer  integer character
-Minimum                   Deep           0        0       19          
-Maximum                Shallow          48      100      120         8
-Mean                      None        1.93       30       20      0-20
-Unique (excld. NA)           6          13       13        5        20
-Missing values               0        1764     1524     1756      1736
-Sorted                   FALSE       FALSE    FALSE    FALSE     FALSE
-                    furrow.w log.app.rate      crop    crop.orig  crop.z
-Class              character      numeric character    character numeric
-Minimum                              0.82 bare soil                    0
-Maximum                    5          2.5   stubble Winter Wheat    76.5
-Mean                     0-5         1.55     grass        Grass    9.23
-Unique (excld. NA)         9          403         6           14     137
-Missing values          1751           34         2            0     459
-Sorted                 FALSE        FALSE     FALSE        FALSE   FALSE
-                   crop.area     lai meas.tech meas.tech.orig meas.tech2
-Class                integer numeric character      character  character
-Minimum                    0       0       agm            AGM    chamber
-Maximum                  100     4.7     zinst      ZINST/bls         wt
-Mean                       0   0.442       ihf      Micro met  micro met
-Unique (excld. NA)         9      13        10             13          4
-Missing values          1601    1708         0              0          0
-Sorted                 FALSE   FALSE     FALSE          FALSE      FALSE
-                             t.start.p             t.end.p     dt1  dt.min
-Class                   POSIXct POSIXt      POSIXct POSIXt numeric numeric
-Minimum            1990-06-12 09:30:00 1990-06-16 07:17:00    0.15    0.15
-Maximum            2014-05-01 11:40:00 2014-05-03 15:14:00     145     145
-Mean               2002-10-31 01:31:13 2002-11-06 01:58:13     5.6    5.46
-Unique (excld. NA)                 975                 846     312     290
-Missing values                     464                 464       0       0
-Sorted                           FALSE               FALSE   FALSE   FALSE
-                    dt.max  ct.min  ct.max     ct1  n.ints n.int.duplicates
-Class              numeric numeric numeric numeric integer          integer
-Minimum               0.25    0.15    1.02    0.15       1                0
-Maximum                169     145     508     145    1310                0
-Mean                  35.3     5.6     124     5.6       8                0
-Unique (excld. NA)     515     312     979     312      49                1
-Missing values           0       0       0       0       0                0
-Sorted               FALSE   FALSE   FALSE   FALSE   FALSE             TRUE
-                   int.min int.max int.t.mismatches missing.ints  j.NH31
-Class              integer integer          integer      numeric numeric
-Minimum                  0       0                0            0   -1.45
-Maximum                422    1440                0            1    53.3
-Mean                     1       7                0       0.0105    3.06
-Unique (excld. NA)       7      50                1            2    1603
-Missing values           0       0              464            0       3
-Sorted               FALSE   FALSE             TRUE        FALSE   FALSE
-                    j.rel1     e.1     e.4     e.6    e.12    e.24    e.48
-Class              numeric numeric numeric numeric numeric numeric numeric
-Minimum            -0.0132   -1.45   -0.44  -0.402   -1.19  -0.321  -0.486
-Maximum               1.19    35.6     183     235     267     328     557
-Mean                0.0567    3.65     9.3      11      13    16.3    20.6
-Unique (excld. NA)    1780     696    1579    1702    1725    1754    1608
-Missing values          37    1196     298     168     143     116     270
-Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
-                      e.72    e.96 e.final e.rel.1  e.rel.4  e.rel.6 e.rel.12
-Class              numeric numeric numeric numeric  numeric  numeric  numeric
-Minimum             -0.873   -1.11   -12.2 -0.0132 -0.00599 -0.00531  -0.0125
-Maximum                651     231     655   0.608      3.2     3.93     4.37
-Mean                  24.6    19.9    24.2  0.0632     0.16    0.186    0.214
-Unique (excld. NA)    1294     801    1804     688     1582     1699     1722
-Missing values         594    1097      42    1202      316      196      173
-Sorted               FALSE   FALSE   FALSE   FALSE    FALSE    FALSE    FALSE
-                   e.rel.24 e.rel.48 e.rel.72 e.rel.96 e.rel.final
-Class               numeric  numeric  numeric  numeric     numeric
-Minimum            -0.00222 -0.00184 -0.00734  -0.0106      -0.116
-Maximum                5.16     5.66     5.86     5.87        6.86
-Mean                  0.255    0.307    0.339    0.309       0.358
-Unique (excld. NA)     1752     1603     1287      796        1807
-Missing values          146      296      612     1103          76
-Sorted                FALSE    FALSE    FALSE    FALSE       FALSE
+                         date.start           app.start   app.start.orig
+Class                     character      POSIXct POSIXt        character
+Minimum            1990-06-12 09:30 1990-06-12 09:30:00                 
+Maximum            2014-05-01 11:40 2014-05-01 10:59:00             9:58
+Mean               2000-05-16 15:00 2008-03-13 00:50:10 15-06-2010 10:55
+Unique (excld. NA)              975                 648              751
+Missing values                  464                1029              868
+Sorted                        FALSE               FALSE            FALSE
+                   app.method app.method.orig app.method2 app.rate tan.app
+Class               character       character   character  numeric numeric
+Minimum                    bc                        band      6.6    2.45
+Maximum                    ts   Trailing shoe          os      315     602
+Mean                      bss       Broadcast          bc     41.3    75.3
+Unique (excld. NA)          7              10           4      403     843
+Missing values             34               0          97       34      34
+Sorted                  FALSE           FALSE       FALSE    FALSE   FALSE
+                      incorp incorp.orig time.incorp man.area dist.inj
+Class              character   character     numeric  integer  integer
+Minimum                 deep        Deep           0        0       19
+Maximum              shallow     Shallow          48      100      120
+Mean                    none        None        1.93       30       20
+Unique (excld. NA)         3           6          13       13        5
+Missing values             0           0        1764     1524     1756
+Sorted                 FALSE       FALSE       FALSE    FALSE    FALSE
+                    furrow.z  furrow.w log.app.rate      crop    crop.orig
+Class              character character      numeric character    character
+Minimum                                        0.82 bare soil             
+Maximum                    8         5          2.5   stubble Winter Wheat
+Mean                    0-20       0-5         1.55     grass        Grass
+Unique (excld. NA)        20         9          403         6           14
+Missing values          1736      1751           34         2            0
+Sorted                 FALSE     FALSE        FALSE     FALSE        FALSE
+                    crop.z crop.area     lai meas.tech meas.tech.orig
+Class              numeric   integer numeric character      character
+Minimum                  0         0       0       agm            AGM
+Maximum               76.5       100     4.7     zinst      ZINST/bls
+Mean                  9.23         0   0.442       ihf      Micro met
+Unique (excld. NA)     137         9      13        10             13
+Missing values         459      1601    1708         0              0
+Sorted               FALSE     FALSE   FALSE     FALSE          FALSE
+                   meas.tech2           t.start.p             t.end.p     dt1
+Class               character      POSIXct POSIXt      POSIXct POSIXt numeric
+Minimum               chamber 1990-06-12 09:30:00 1990-06-16 07:17:00    0.15
+Maximum                    wt 2014-05-01 11:40:00 2014-05-03 15:14:00     145
+Mean                micro met 2002-10-31 01:28:10 2002-11-06 01:58:13     5.6
+Unique (excld. NA)          4                 975                 846     312
+Missing values              0                 464                 464       0
+Sorted                  FALSE               FALSE               FALSE   FALSE
+                    dt.min  dt.max  ct.min  ct.max     ct1  n.ints
+Class              numeric numeric numeric numeric numeric integer
+Minimum               0.15    0.25    0.15    1.02    0.15       1
+Maximum                145     169     145     508     145    1310
+Mean                  5.46    35.3     5.6     124     5.6       8
+Unique (excld. NA)     290     515     312     979     312      49
+Missing values           0       0       0       0       0       0
+Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                   n.int.duplicates int.min int.max int.t.mismatches
+Class                       integer integer integer          integer
+Minimum                           0       0       0                0
+Maximum                           0     422    1440                2
+Mean                              0       1       7                0
+Unique (excld. NA)                1       7      50                3
+Missing values                    0       0       0              464
+Sorted                         TRUE   FALSE   FALSE            FALSE
+                   missing.ints  j.NH31  j.rel1     e.1     e.4     e.6    e.12
+Class                   numeric numeric numeric numeric numeric numeric numeric
+Minimum                       0   -1.45 -0.0132   -1.45   -0.44  -0.402   -1.19
+Maximum                       1    53.3    1.19    35.6     183     235     267
+Mean                     0.0105    3.06  0.0567    3.65     9.3      11      13
+Unique (excld. NA)            2    1603    1780     696    1579    1702    1725
+Missing values                0       3      37    1196     298     168     143
+Sorted                    FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+                      e.24    e.48    e.72    e.96 e.final e.rel.1  e.rel.4
+Class              numeric numeric numeric numeric numeric numeric  numeric
+Minimum             -0.321  -0.486  -0.873   -1.11   -12.2 -0.0132 -0.00599
+Maximum                328     557     651     231     655   0.608      3.2
+Mean                  16.3    20.6    24.6    19.9    24.2  0.0632     0.16
+Unique (excld. NA)    1754    1608    1294     801    1804     688     1582
+Missing values         116     270     594    1097      42    1202      316
+Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE    FALSE
+                    e.rel.6 e.rel.12 e.rel.24 e.rel.48 e.rel.72 e.rel.96
+Class               numeric  numeric  numeric  numeric  numeric  numeric
+Minimum            -0.00531  -0.0125 -0.00222 -0.00184 -0.00734  -0.0106
+Maximum                3.93     4.37     5.16     5.66     5.86     5.87
+Mean                  0.186    0.214    0.255    0.307    0.339    0.309
+Unique (excld. NA)     1699     1722     1752     1603     1287      796
+Missing values          196      173      146      296      612     1103
+Sorted                FALSE    FALSE    FALSE    FALSE    FALSE    FALSE
+                   e.rel.final
+Class                  numeric
+Minimum                 -0.116
+Maximum                   6.86
+Mean                     0.358
+Unique (excld. NA)        1807
+Missing values              76
+Sorted                   FALSE
                                                                                     notes
 Class                                                                           character
 Minimum                                                                                  
