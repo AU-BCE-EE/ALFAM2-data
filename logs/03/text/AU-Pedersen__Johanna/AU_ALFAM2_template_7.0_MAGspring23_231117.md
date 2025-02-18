@@ -597,15 +597,15 @@ title: 'Submitted data summary'
 ## Missing values                                                              0
 ## Sorted                                                                   TRUE
 ##                                                                              
-##                      man.bed man.con      man.trt1      man.trt2 man.stor
-## Class              character  factor     character     character  numeric
-## Minimum                 <NA>  slurry Acidification Acidification     <NA>
-## Maximum                 <NA>   solid          None Acidification     <NA>
-## Mean                    <NA>  slurry          <NA>          <NA>     <NA>
-## Unique (excld. NA)         0       1             4             1        0
-## Missing values            75       0             0            66       75
-## Sorted                  <NA>    TRUE         FALSE          TRUE     <NA>
-##                                                                          
+##                      man.bed man.con            man.trt1      man.trt2 man.stor
+## Class              character  factor           character     character  numeric
+## Minimum                 <NA>  slurry Anaerobic digestion Acidification     <NA>
+## Maximum                 <NA>   solid Anaerobic digestion          None     <NA>
+## Mean                    <NA>  slurry                <NA>          <NA>     <NA>
+## Unique (excld. NA)         0       1                   1             4        0
+## Missing values            75       0                   0             0       75
+## Sorted                  <NA>    TRUE                TRUE         FALSE     <NA>
+##                                                                                
 ##                     man.dm  man.vs man.tkn man.tan man.tic  man.ua man.vfa
 ## Class              numeric numeric numeric numeric logical logical numeric
 ## Minimum               2.52    <NA>    2.59    1.17    <NA>    <NA>    <NA>
@@ -642,15 +642,15 @@ title: 'Submitted data summary'
 ## Missing values           75       75         0       0        75      75
 ## Sorted                 <NA>     <NA>      TRUE   FALSE      <NA>    <NA>
 ##                                                                         
-##                    notes.plot row.in.file.plot  man.trt3 app.start.orig
-## Class               character          numeric character      character
-## Minimum                     .                5      <NA>     1681310700
-## Maximum                     .               79      <NA>     1684944420
-## Mean                     <NA>               42      <NA>           <NA>
-## Unique (excld. NA)          1               75         0             75
-## Missing values             74                0        75              0
-## Sorted                   TRUE            FALSE      <NA>          FALSE
-##                                                                        
+##                    notes.plot row.in.file.plot      man.trt3 app.start.orig
+## Class               character          numeric     character      character
+## Minimum                     .                5 Acidification     1681310700
+## Maximum                     .               79          None     1684944420
+## Mean                     <NA>               42          <NA>           <NA>
+## Unique (excld. NA)          1               75             2             75
+## Missing values             74                0             0              0
+## Sorted                   TRUE            FALSE         FALSE          FALSE
+##                                                                            
 ##                    app.end.orig
 ## Class                 character
 ## Minimum              1681895580
@@ -746,7 +746,7 @@ title: 'Submitted data summary'
 ## Minimum                   7.2       6.65         6.3        6.81        6.54
 ## Maximum                  18.2       17.5        15.1          13          13
 ## Mean                     13.4       12.5        10.5        9.66        9.94
-## Unique (excld. NA)         15         29          36          45          68
+## Unique (excld. NA)         15         28          36          45          68
 ## Missing values              0          0           0           0           0
 ## Sorted                  FALSE      FALSE       FALSE       FALSE       FALSE
 ##                                                                             
@@ -755,7 +755,7 @@ title: 'Submitted data summary'
 ## Minimum                   7.17        7.76         8.23        8.23        <NA>
 ## Maximum                   13.8        14.1         13.1        13.1        <NA>
 ## Mean                      10.6        11.2           11        11.1        <NA>
-## Unique (excld. NA)          66          68           72          70           0
+## Unique (excld. NA)          66          69           72          70           0
 ## Missing values               0           0            0           0          75
 ## Sorted                   FALSE       FALSE        FALSE       FALSE        <NA>
 ##                                                                                
@@ -899,7 +899,7 @@ title: 'Submitted data summary'
 ## Minimum               2.52 0.00157  0.0819     0.8    2.53    2.52     137
 ## Maximum               2.53  0.0469    2.45    2.53    3.22    2.53     175
 ## Mean                  2.53  0.0239    1.23    2.51    2.66    2.53     159
-## Unique (excld. NA)       2      75      75       3       2       2       8
+## Unique (excld. NA)       2      75      75       3       3       2       8
 ## Missing values           0       0       0       0       0       0       0
 ## Sorted                TRUE   FALSE   FALSE   FALSE   FALSE    TRUE   FALSE
 ##                                                                           
