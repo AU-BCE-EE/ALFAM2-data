@@ -1,10 +1,10 @@
 Checking versions
 
                 Where Version
- main.R (new version)    2.60
+ main.R (new version)    2.61
           Release tag    2.59
               Release    2.59
-          Main branch    2.59
+          Main branch    2.60
            Dev branch    2.56
 
 New version number seems OK.

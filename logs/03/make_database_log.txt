@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-02-05 15:31:29 EST"
+[1] "2025-02-18 14:03:45 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -292,13 +292,6 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 9  directories
 
 > print(warnings())
-Warning messages:
-1: In install.packages("leaflet") :
-  installation of package ‘terra’ had non-zero exit status
-2: In install.packages("leaflet") :
-  installation of package ‘raster’ had non-zero exit status
-3: In install.packages("leaflet") :
-  installation of package ‘leaflet’ had non-zero exit status
 
 > # Check for errors and create a log before merge
 > 
@@ -929,10 +922,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.60
+ main.R (new version)    2.61
           Release tag    2.59
               Release    2.59
-          Main branch    2.59
+          Main branch    2.60
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
