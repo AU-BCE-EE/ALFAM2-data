@@ -1,0 +1,34 @@
+R version 4.4.2 (2024-10-31)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.2 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.12.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: America/New_York
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] viridis_0.6.5     viridisLite_0.4.2 ggplot2_3.5.1     knitr_1.48       
+[5] data.table_1.16.2 nvimcom_0.9.60   
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5       cli_3.6.3         rlang_1.1.4       xfun_0.48        
+ [5] generics_0.1.3    glue_1.8.0        colorspace_2.1-1  gridExtra_2.3    
+ [9] scales_1.3.0      fansi_1.0.6       grid_4.4.2        munsell_0.5.1    
+[13] tibble_3.2.1      lifecycle_1.0.4   compiler_4.4.2    dplyr_1.1.4      
+[17] pkgconfig_2.0.3   R.oo_1.26.0       R.utils_2.12.3    R6_2.5.1         
+[21] tidyselect_1.2.1  utf8_1.2.4        pillar_1.9.0      magrittr_2.0.3   
+[25] R.methodsS3_1.8.2 tools_4.4.2       withr_3.0.2       gtable_0.3.6     
