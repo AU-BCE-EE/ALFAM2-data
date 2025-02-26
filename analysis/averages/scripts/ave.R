@@ -8,3 +8,5 @@ cdat <- pdatl[, .(mn = mean(value), n = sum(!is.na(value))), by = .(country, var
 
 # And then overall
 sdat <- cdat[, .(mean_overall = mean(mn), n_country = .N, s_overall = sd(mn)), by = variable]
+
+sdat <- rounddf(sdat, c(0, 1, 0, 2))
