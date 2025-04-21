@@ -1,7 +1,7 @@
 # Calculate averages
 
 pdatl <- melt(pdat, id.vars = c('country', 'man.source'), 
-              measure.vars = c('man.ph', 'man.dm', 'air.temp.24', 'wind.24', 'rain.rate.24'))
+              measure.vars = c('man.ph', 'man.dm', 'app.rate', 'air.temp.24', 'wind.24', 'rain.rate.24'))
 pdatl <- pdatl[!is.na(value) & man.source %in% c('cat', 'pig'), ]
 
 # Mean by country
