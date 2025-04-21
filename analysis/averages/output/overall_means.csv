@@ -1,6 +1,11 @@
-variable,mean_overall,n_country,s_overall
-man.ph,7.6,12,0.43
-man.dm,6,12,1.43
-air.temp.24,13.4,12,2.55
-wind.24,2.2,12,0.95
-rain.rate.24,0.1,12,0.16
+man.source,variable,mean_overall,med_overall,n_obs,n_country,s_overall,s_overall_md
+pig,man.ph,7.6,7.5,703,9,0.37,0.44
+cat,man.ph,7.5,7.3,1377,12,0.45,0.44
+pig,man.dm,4.8,3.9,812,10,1.77,1.83
+cat,man.dm,6.3,6,1531,12,1.4,1.45
+pig,air.temp.24,13.4,13.2,718,9,2.47,2.23
+cat,air.temp.24,13.7,14,1417,12,3.08,3.8
+pig,wind.24,2.4,1.9,769,9,1.44,1.58
+cat,wind.24,2.1,2.1,1454,12,0.91,0.85
+cat,rain.rate.24,0.1,0,1272,12,0.16,0.16
+pig,rain.rate.24,0.1,0,614,8,0.12,0.12
