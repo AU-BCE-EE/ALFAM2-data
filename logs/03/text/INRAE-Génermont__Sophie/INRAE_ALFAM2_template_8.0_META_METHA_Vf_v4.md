@@ -250,10 +250,10 @@ title: 'Submitted data summary'
 ## 
 ##   The decimal point is at the |
 ## 
-##   6 | 6
-##   7 | 5577899999
-##   8 | 011112
-##   9 | 345
+##    6 | 6
+##    7 | 5577899999
+##    8 | 011112
+##    9 | 345
 ##   10 | 0
 ## 
 ## man.tan   man.tan   man.tan   man.tan   man.tan   

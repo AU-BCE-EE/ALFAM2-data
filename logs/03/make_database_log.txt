@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-02-18 14:03:45 EST"
+[1] "2025-05-24 06:48:20 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -270,6 +270,15 @@ Combinations missing from emis df:
 [6] fromplots     fromemis      meas.tech     meas.tech.det
 <0 rows> (or 0-length row.names)
 
+Directory  ../../data-submitted/03/UNITO-DISAFA 
+
+   file  ../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+
 Directory  ../../data-submitted/03/WUR 
 
    file  ../../data-submitted/03/WUR/WUR_arable_2024.xlsx 
@@ -289,7 +298,7 @@ Directory  ../../data-submitted/03/WUR
 Directory  ../../data-submitted/03/WUR-wim 
 
 > cat('Done! Read', length(dat), ' directories\n')
-Done! Read 9  directories
+Done! Read 10  directories
 
 > print(warnings())
 
@@ -325,34 +334,45 @@ Done! Read 9  directories
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
 > pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
+Checking versions
 
-> # Fix name of uptake -> sub.period if needed (because of change around v2.47)
-> if (any(names(pdatrelease) == 'uptake')) {
-+   pdatrelease[, sub.per .... [TRUNCATED] 
+                Where Version
+ main.R (new version)    2.62
+          Release tag    2.59
+              Release    2.59
+          Main branch    2.61
+           Dev branch    2.56
 
-> pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
+New version number seems OK.
+Checking versions
 
-> dim(pdatr)
-[1] 1175   16
+                Where Version
+ main.R (new version)    2.62
+          Release tag    2.59
+              Release    2.59
+          Main branch    2.61
+           Dev branch    2.56
 
-> dim(pdat)
-[1] 1434  225
+New version number seems OK.
+Checking versions
 
-> # Extract and reuse old institution codes
-> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+                Where Version
+ main.R (new version)    2.62
+          Release tag    2.59
+              Release    2.59
+          Main branch    2.61
+           Dev branch    2.56
 
-> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
-
-> # Sort out institution codes for ones with changed names
-> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
+New version number seems OK.
+institute == 'INRA']
 
 > # Create completely new 300s codes for new institutes
 > # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
 
 > table(pdat$inst)
 
-205 208 214 301 302 303 304 305 
-754  21 414   4   6 224   4   7 
+205 208 214 301 302 303 304 305 306 
+754  21 414   4   6 224   4   7  17 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
 > # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
@@ -627,27 +647,27 @@ Done! Read 9  directories
 > ## Sort out old experiments that are being replaced, to update sub.period
 > #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
 > #e .... [TRUNCATED] 
-[1] 3333  230
+[1] 3350  230
 
 > print(dim(idat.comb))
-[1] 94959   143
+[1] 96052   143
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
 
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 3069  230
+[1] 3086  230
 
 > print(dim(idat.comb))
-[1] 92707   143
+[1] 93800   143
 
 > # Set sub.period/period
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
 
 > # nrow should not change
 > print(dim(pdat.comb))
-[1] 3069  233
+[1] 3086  233
 
 > # Check--should all be TRUE
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
@@ -922,10 +942,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.61
+ main.R (new version)    2.62
           Release tag    2.59
               Release    2.59
-          Main branch    2.60
+          Main branch    2.61
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
