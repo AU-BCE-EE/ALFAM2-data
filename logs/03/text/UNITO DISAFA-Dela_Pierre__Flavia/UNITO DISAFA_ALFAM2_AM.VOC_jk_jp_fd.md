@@ -544,15 +544,15 @@ title: 'Submitted data summary'
 ## Missing values                0         0         0          0         0
 ## Sorted                     TRUE      TRUE      TRUE       TRUE      TRUE
 ##                                                                         
-##                          rep       app.start sub.period
-## Class              character POSIXct, POSIXt    numeric
-## Minimum                    1            <NA>          3
-## Maximum                    4            <NA>          3
-## Mean                    <NA>            <NA>          3
-## Unique (excld. NA)         4               0          1
-## Missing values             0              17          0
-## Sorted                 FALSE            <NA>       TRUE
-##                                                        
+##                          rep           app.start sub.period
+## Class              character     POSIXct, POSIXt    numeric
+## Minimum                    1 2024-09-18 12:30:00          3
+## Maximum                    4 2024-09-18 15:00:00          3
+## Mean                    <NA> 2024-09-18 13:28:49          3
+## Unique (excld. NA)         4                  13          1
+## Missing values             0                   0          0
+## Sorted                 FALSE               FALSE       TRUE
+##                                                            
 ##                                                                                file
 ## Class                                                                     character
 ## Minimum            ../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx
@@ -571,15 +571,15 @@ title: 'Submitted data summary'
 ## Missing values                 0               0            17      17
 ## Sorted                     FALSE           FALSE          <NA>    <NA>
 ##                                                                       
-##                                                                                                                                                                                            cpmid
-## Class                                                                                                                                                                                  character
-## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:NA.M:Dynamic chamberNA
-## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:NA.M:Dynamic chamberNA
-## Mean                                                                                                                                                                                        <NA>
-## Unique (excld. NA)                                                                                                                                                                            17
-## Missing values                                                                                                                                                                                 0
-## Sorted                                                                                                                                                                                      TRUE
-##                                                                                                                                                                                                 
+##                                                                                                                                                                                                             cpmid
+## Class                                                                                                                                                                                                   character
+## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:44:00.M:Dynamic chamberNA
+## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:44:00.M:Dynamic chamberNA
+## Mean                                                                                                                                                                                                         <NA>
+## Unique (excld. NA)                                                                                                                                                                                             17
+## Missing values                                                                                                                                                                                                  0
+## Sorted                                                                                                                                                                                                       TRUE
+##                                                                                                                                                                                                                  
 ##                       pub.id plot.area     lat    long   country      topo
 ## Class              character   numeric numeric numeric character character
 ## Minimum                 <NA>      0.38    56.5    9.56        DK      Flat
@@ -661,24 +661,24 @@ title: 'Submitted data summary'
 ## Missing values            17      17         16                0        17
 ## Sorted                  <NA>    <NA>       TRUE            FALSE      <NA>
 ##                                                                           
-##                    app.start.orig app.end.orig
-## Class                   character    character
-## Minimum                      <NA>         <NA>
-## Maximum                      <NA>         <NA>
-## Mean                         <NA>         <NA>
-## Unique (excld. NA)              0            0
-## Missing values                 17           17
-## Sorted                       <NA>         <NA>
-##                                               
-##                                                                                                                                                                         cpid
-## Class                                                                                                                                                              character
-## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:NA
-## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:NA
-## Mean                                                                                                                                                                    <NA>
-## Unique (excld. NA)                                                                                                                                                        17
-## Missing values                                                                                                                                                             0
-## Sorted                                                                                                                                                                  TRUE
-##                                                                                                                                                                             
+##                      app.start.orig app.end.orig
+## Class                     character    character
+## Minimum            18-09-2024 12:30         <NA>
+## Maximum            18-09-2024 15:00         <NA>
+## Mean                           <NA>         <NA>
+## Unique (excld. NA)               13            0
+## Missing values                    0           17
+## Sorted                        FALSE         <NA>
+##                                                 
+##                                                                                                                                                                                          cpid
+## Class                                                                                                                                                                               character
+## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:44:00
+## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:44:00
+## Mean                                                                                                                                                                                     <NA>
+## Unique (excld. NA)                                                                                                                                                                         17
+## Missing values                                                                                                                                                                              0
+## Sorted                                                                                                                                                                                   TRUE
+##                                                                                                                                                                                              
 ##                                                     ceid flag.plot
 ## Class                                          character character
 ## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.E:Fall24          

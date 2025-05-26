@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-05-24 06:48:20 EDT"
+[1] "2025-05-26 15:28:28 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -334,37 +334,26 @@ Done! Read 10  directories
 > p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
 
 > pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
-Checking versions
 
-                Where Version
- main.R (new version)    2.62
-          Release tag    2.59
-              Release    2.59
-          Main branch    2.61
-           Dev branch    2.56
+> # Fix name of uptake -> sub.period if needed (because of change around v2.47)
+> if (any(names(pdatrelease) == 'uptake')) {
++   pdatrelease[, sub.per .... [TRUNCATED] 
 
-New version number seems OK.
-Checking versions
+> pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
 
-                Where Version
- main.R (new version)    2.62
-          Release tag    2.59
-              Release    2.59
-          Main branch    2.61
-           Dev branch    2.56
+> dim(pdatr)
+[1] 1175   16
 
-New version number seems OK.
-Checking versions
+> dim(pdat)
+[1] 1451  225
 
-                Where Version
- main.R (new version)    2.62
-          Release tag    2.59
-              Release    2.59
-          Main branch    2.61
-           Dev branch    2.56
+> # Extract and reuse old institution codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
 
-New version number seems OK.
-institute == 'INRA']
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+
+> # Sort out institution codes for ones with changed names
+> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
 
 > # Create completely new 300s codes for new institutes
 > # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
@@ -942,10 +931,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.62
+ main.R (new version)    2.63
           Release tag    2.59
               Release    2.59
-          Main branch    2.61
+          Main branch    2.62
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
