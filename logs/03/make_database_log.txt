@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-05-26 15:28:28 EDT"
+[1] "2025-05-27 09:23:24 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -301,6 +301,8 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 10  directories
 
 > print(warnings())
+Warning message:
+In sink() : no sink to remove
 
 > # Check for errors and create a log before merge
 > 
@@ -931,10 +933,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.63
+ main.R (new version)    2.64
           Release tag    2.59
               Release    2.59
-          Main branch    2.62
+          Main branch    2.63
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

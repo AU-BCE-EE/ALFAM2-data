@@ -547,8 +547,8 @@ title: 'Submitted data summary'
 ##                          rep           app.start sub.period
 ## Class              character     POSIXct, POSIXt    numeric
 ## Minimum                    1 2024-09-18 12:30:00          3
-## Maximum                    4 2024-09-18 15:00:00          3
-## Mean                    <NA> 2024-09-18 13:28:49          3
+## Maximum                    4 2024-09-18 15:03:00          3
+## Mean                    <NA> 2024-09-18 13:27:38          3
 ## Unique (excld. NA)         4                  13          1
 ## Missing values             0                   0          0
 ## Sorted                 FALSE               FALSE       TRUE
@@ -573,8 +573,8 @@ title: 'Submitted data summary'
 ##                                                                       
 ##                                                                                                                                                                                                             cpmid
 ## Class                                                                                                                                                                                                   character
-## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:44:00.M:Dynamic chamberNA
-## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:44:00.M:Dynamic chamberNA
+## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:30:00.M:Dynamic chamberNA
+## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:30:00.M:Dynamic chamberNA
 ## Mean                                                                                                                                                                                                         <NA>
 ## Unique (excld. NA)                                                                                                                                                                                             17
 ## Missing values                                                                                                                                                                                                  0
@@ -664,7 +664,7 @@ title: 'Submitted data summary'
 ##                      app.start.orig app.end.orig
 ## Class                     character    character
 ## Minimum            18-09-2024 12:30         <NA>
-## Maximum            18-09-2024 15:00         <NA>
+## Maximum            18-09-2024 15:03         <NA>
 ## Mean                           <NA>         <NA>
 ## Unique (excld. NA)               13            0
 ## Missing values                    0           17
@@ -672,8 +672,8 @@ title: 'Submitted data summary'
 ##                                                 
 ##                                                                                                                                                                                          cpid
 ## Class                                                                                                                                                                               character
-## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:44:00
-## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:44:00
+## Minimum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:1.T:Machine plot DFC.R:1.R2:.T:2024-09-18 12:30:00
+## Maximum            D:1.I:UNITO DISAFA.Pr:AM.VOC.F:../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx.E:Fall24.F:Foulumgård.P:8.T:Machine plot DFC.R:2.R2:.T:2024-09-18 12:30:00
 ## Mean                                                                                                                                                                                     <NA>
 ## Unique (excld. NA)                                                                                                                                                                         17
 ## Missing values                                                                                                                                                                              0
@@ -916,8 +916,8 @@ title: 'Submitted data summary'
 ##                              t.start.p             t.end.p air.temp.z
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt    numeric
 ## Minimum            2024-09-18 12:30:00 2024-09-23 12:00:00          2
-## Maximum            2024-09-18 15:08:00 2024-09-24 03:20:00          2
-## Mean               2024-09-18 13:50:56 2024-09-24 01:23:45          2
+## Maximum            2024-09-18 15:03:00 2024-09-24 03:15:00          2
+## Mean               2024-09-18 13:46:14 2024-09-24 01:19:03          2
 ## Unique (excld. NA)                  17                  17          1
 ## Missing values                       0                   0          0
 ## Sorted                           FALSE               FALSE       TRUE
