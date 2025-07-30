@@ -83,7 +83,7 @@ The record of R and add-on package versions in `logs/*/R_package_version.txt` sh
 
 # Directory structure
 
-* `analysis` demo code for reading and plotting data and creating summaries
+* `analysis` contains several subdirectories with demo code for reading data in R or Python, calculating averages of weather and slurry properties, and generating some plots
 * `archive` early versions of the database from before this repository was created
 * `contributors` list of indviduals who have contributed data, used for author list
 * `data-ALFAM1` the original ALFAM database, developed by Sven G. Sommer et al., considered "uptake period 1", and read in by `scripts/02/make_database.R`
