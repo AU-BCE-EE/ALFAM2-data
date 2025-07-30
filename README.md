@@ -18,9 +18,9 @@ Files are saved in a compressed format with the extension `.gz` (gzip) in order 
 The easiest way to get the data into R is to read the files directly with `data.table::fread()`.
 Alternatively, various utilies can be used to extract (unzip) the files, which are regular comma-separated ASCII text files.
 
-The ALFAM2 data are organized into `uptake` periods: 1 is for the original ALFAM work, 2 for the work described in [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027), and 3 for the current effort to expand the database.
+The ALFAM2 data are organized into submission periods: 1 is for the original ALFAM work, 2 for the work described in [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027), and 3 for the current effort to expand the database.
 The latest version will always be in the highest number (3 currently).
-Earlier versions are saved to facilitate addition of data without rebuilding older dataset versions while maintaining the option for revising data submitted in an earlier uptake period.
+Earlier versions are saved to facilitate addition of data without rebuilding older dataset versions while maintaining the option for revising data submitted in an earlier submission period.
 
 See the `Data handling tips` below for more information on working with the data.
 
@@ -77,8 +77,8 @@ After cloning this repo, the process of creating the ALFAM2 database from submit
 
 The only obvious reason for doing so is to update the database after making a correction to submitted data or data processing code.
 (Submitted data, as spreadsheet templates (usually) completed by data submitters, can be found in the `data-submitted` directory.)
-For changes to only the most recent submitted file, only the highest numbered file, for the latest uptake period, needs to be run.
-Because of changes in base R and add-on packages over time, seeing R return an error when updating earlier uptake periods, or even the latest period some time after the latest update by database developers, is possible (e.g., [this](https://github.com/sashahafner/ALFAM2-data/issues/45) problem was caused by a change in base R).
+For changes to only the most recent submitted file, only the highest numbered file, for the latest submission period, needs to be run.
+Because of changes in base R and add-on packages over time, seeing R return an error when updating earlier submission periods, or even the latest period some time after the latest update by database developers, is possible (e.g., [this](https://github.com/sashahafner/ALFAM2-data/issues/45) problem was caused by a change in base R).
 The record of R and add-on package versions in `logs/*/R_package_version.txt` should help sort out any of these problems.
 
 # Directory structure
@@ -86,13 +86,13 @@ The record of R and add-on package versions in `logs/*/R_package_version.txt` sh
 * `analysis` contains several subdirectories with demo code for reading data in R or Python, calculating averages of weather and slurry properties, and generating some plots
 * `archive` early versions of the database from before this repository was created
 * `contributors` list of indviduals who have contributed data, used for author list
-* `data-ALFAM1` the original ALFAM database, developed by Sven G. Sommer et al., considered "uptake period 1", and read in by `scripts/02/make_database.R`
-* `data-output` output: ALFAM2 database files, with latest version in subdirectory with highest uptake number
+* `data-ALFAM1` the original ALFAM database, developed by Sven G. Sommer et al., considered "submission period 1", and read in by `scripts/02/make_database.R`
+* `data-output` output: ALFAM2 database files, with latest version in subdirectory with highest submission period number
 * `data-submitted` data as submitted by data submitters, in spreadsheet templates, in some cases with data processing etc. by database developers
 * `docs` html logs or summaries of submitted data for checking by submitters or others through this page: <https://au-bce-ee.github.io/ALFAM2-data/>
 * `functions` R functions for building database, some from <https://github.com/sashahafner/jumbled>
 * `headers` detailed description of data file headers (variable names)
 * `logs` various logs created when database is built
 * `scripts` the R scripts that are used directly to build the database
-* `uptake-notes` notes on some submitted files
+* `submission-notes` notes on some submitted files
 
