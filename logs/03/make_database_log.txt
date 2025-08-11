@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-05-27 09:23:24 EDT"
+[1] "2025-08-10 21:51:55 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -115,13 +115,27 @@ See cleanALFAM() function hoppidy2201.
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function hoppidy2201.
 
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
-But  kgNH3/ha-hr  is OK.
-See cleanALFAM() function hoppidy2201.
+   file  ../Checking versions
 
-   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
-  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+                Where Version
+ main.R (new version)    2.65
+          Release tag    2.64
+              Release    2.64
+          Main branch    2.64
+           Dev branch    2.56
+
+New version number seems OK.
+Checking versions
+
+                Where Version
+ main.R (new version)    2.65
+          Release tag    2.64
+              Release    2.64
+          Main branch    2.64
+           Dev branch    2.56
+
+New version number seems OK.
+utors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
@@ -344,7 +358,7 @@ In sink() : no sink to remove
 > pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 1175   16
+[1] 1192   16
 
 > dim(pdat)
 [1] 1451  225
@@ -933,10 +947,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.64
-          Release tag    2.59
-              Release    2.59
-          Main branch    2.63
+ main.R (new version)    2.65
+          Release tag    2.64
+              Release    2.64
+          Main branch    2.64
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
