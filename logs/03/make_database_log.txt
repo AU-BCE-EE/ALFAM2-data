@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-08-10 21:51:55 EDT"
+[1] "2025-08-10 22:07:02 EDT"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -115,27 +115,13 @@ See cleanALFAM() function hoppidy2201.
 But  kgNH3/ha-hr  is OK.
 See cleanALFAM() function hoppidy2201.
 
-   file  ../Checking versions
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgNH3/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-                Where Version
- main.R (new version)    2.65
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.64
-           Dev branch    2.56
-
-New version number seems OK.
-Checking versions
-
-                Where Version
- main.R (new version)    2.65
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.64
-           Dev branch    2.56
-
-New version number seems OK.
-utors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220317_JP_21CD22A.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_1_220524_JP_21E_220610.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
@@ -947,28 +933,34 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.65
+ main.R (new version)    2.66
           Release tag    2.64
               Release    2.64
-          Main branch    2.64
+          Main branch    2.65
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +   warning('Version number set in main.R matches\n   one or more existing version numbers!\n   Did  .... [TRUNCATED] 
+Checking versions
+
+                Where Version
+ main.R (new version)    2.66
+          Release tag    2.64
+              Release    2.64
+          Main branch    2.65
+           Dev branch    2.56
 
 New version number seems OK.
+Checking versions
 
-> # Write regular csv files
-> write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
+                Where Version
+ main.R (new version)    2.66
+          Release tag    2.64
+              Release    2.64
+          Main branch    2.65
+           Dev branch    2.56
 
-> write.csv(idat.comb, '../../data-output/03/ALFAM2_interval.csv', row.names = FALSE)
-
-> # And then compress them
-> R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
-
-> R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
-
-> # Record data version also
-> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
+New version number seems OK.
+ase version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
 
 > cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../data-output/03/data_version.txt')
