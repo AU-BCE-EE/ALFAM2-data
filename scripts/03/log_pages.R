@@ -21,7 +21,7 @@ sink('../../docs/index.html')
   cat('<h1>Data submission log files</h1>\n')
   cat(paste0('<h2>Version: ', version, '</h2>\n'))
   cat('</header>\n')
-  cat('Use the links below to check submitted data. Log files names start with institution abbreviation, then submitter name, and end with the name of the completed ALFAM2 template file.\n')
+  cat('Use the links below to check submitted data (latest submission set only). Log files names start with institution abbreviation, then submitter name, and end with the name of the completed ALFAM2 template file.\n')
   cat('\n')
   cat('<ol>\n')
   for (f in log.list) {
