@@ -64,6 +64,7 @@ idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int),
     'pH.surf', 
     'rad', 'wind', 'wind.2m', 
     'soil.temp.z.int', 'air.temp.z.int', 'wind.z.int', 'wind.loc.int', 'far.loc.int', 
+    'chamber.vol', 'chamber.flow', 'chamber.AER',
     'rain', 'rain.rate', 'rain.cum', 
     'rh', 
     'notes.int', 'flag.int')]

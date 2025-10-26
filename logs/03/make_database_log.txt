@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-10-06 10:19:19 EDT"
+[1] "2025-10-26 08:24:15 CET"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -100,37 +100,16 @@ See cleanALFAM() function hoppidy2201.
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgN/ha-hr  is OK.
 See cleanALFAM() function hoppidy2201.
-Checking versions
 
-                Where Version
- main.R (new version)    2.67
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.66
-           Dev branch    2.56
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
+But  kgN/ha-hr  is OK.
+See cleanALFAM() function hoppidy2201.
 
-New version number seems OK.
-Checking versions
-
-                Where Version
- main.R (new version)    2.67
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.66
-           Dev branch    2.56
-
-New version number seems OK.
-Checking versions
-
-                Where Version
- main.R (new version)    2.67
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.66
-           Dev branch    2.56
-
-New version number seems OK.
-utors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
    file  ../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Emission rate unit not available for conversion:  NA 
 But  kgNH3/ha-hr  is OK.
@@ -322,15 +301,10 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 10  directories
 
 > print(warnings())
-Warning messages:
-1: In install.packages("leaflet") :
-  installation of package ‘terra’ had non-zero exit status
-2: In install.packages("leaflet") :
-  installation of package ‘raster’ had non-zero exit status
-3: In install.packages("leaflet") :
-  installation of package ‘sf’ had non-zero exit status
-4: In install.packages("leaflet") :
-  installation of package ‘leaflet’ had non-zero exit status
+Warning message:
+In eval(ei, envir) : Version number set in main.R matches
+   one or more existing version numbers!
+   Did you forget to change it?
 
 > # Check for errors and create a log before merge
 > 
@@ -924,7 +898,6 @@ Warning messages:
 > for (i in  .... [TRUNCATED] 
 
 > knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
-[1] "../../logs/03/check_final.md"
 
 > # Compare version number to what is on GitHub
 > 
@@ -961,10 +934,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.67
+ main.R (new version)    2.68
           Release tag    2.64
               Release    2.64
-          Main branch    2.66
+          Main branch    2.67
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
