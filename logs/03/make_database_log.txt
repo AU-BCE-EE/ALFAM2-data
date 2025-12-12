@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-10-26 08:24:15 CET"
+[1] "2025-12-12 13:43:36 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -218,6 +218,13 @@ Combinations missing from emis df:
   <chr>
 1 .    
 
+   file  ../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+
 Directory  ../../data-submitted/03/DiSSA-IT 
 
    file  ../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx 
@@ -301,10 +308,7 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 10  directories
 
 > print(warnings())
-Warning message:
-In eval(ei, envir) : Version number set in main.R matches
-   one or more existing version numbers!
-   Did you forget to change it?
+NULL
 
 > # Check for errors and create a log before merge
 > 
@@ -349,7 +353,7 @@ In eval(ei, envir) : Version number set in main.R matches
 [1] 1192   16
 
 > dim(pdat)
-[1] 1451  225
+[1] 1528  225
 
 > # Extract and reuse old institution codes
 > inst.old <- unique(pdat.old[, c('institute', 'inst')])
@@ -365,7 +369,7 @@ In eval(ei, envir) : Version number set in main.R matches
 > table(pdat$inst)
 
 205 208 214 301 302 303 304 305 306 
-754  21 414   4   6 224   4   7  17 
+831  21 414   4   6 224   4   7  17 
 
 > # ID codes created in plots data frame and then merged into interval level data frame
 > # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
@@ -640,27 +644,27 @@ In eval(ei, envir) : Version number set in main.R matches
 > ## Sort out old experiments that are being replaced, to update sub.period
 > #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
 > #e .... [TRUNCATED] 
-[1] 3350  230
+[1] 3427  230
 
 > print(dim(idat.comb))
-[1] 96052   143
+[1] 101979    143
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
 
 > idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
 
 > print(dim(pdat.comb))
-[1] 3086  230
+[1] 3163  230
 
 > print(dim(idat.comb))
-[1] 93800   143
+[1] 99727   143
 
 > # Set sub.period/period
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
 
 > # nrow should not change
 > print(dim(pdat.comb))
-[1] 3086  233
+[1] 3163  233
 
 > # Check--should all be TRUE
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
@@ -898,6 +902,7 @@ In eval(ei, envir) : Version number set in main.R matches
 > for (i in  .... [TRUNCATED] 
 
 > knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
+[1] "../../logs/03/check_final.md"
 
 > # Compare version number to what is on GitHub
 > 
@@ -934,10 +939,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.68
-          Release tag    2.64
-              Release    2.64
-          Main branch    2.67
+ main.R (new version)    2.69
+          Release tag    2.68
+              Release    2.68
+          Main branch    2.68
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

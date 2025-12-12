@@ -76,6 +76,9 @@ readALFAM2File <- function(file, institute, version = '3.3') {
   }
 
   plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
+  # No idea why man.tan is character for one particular file
+  # Need to replace the moronic tibble functions with something decent
+  plots$man.tan <- as.numeric(plots$man.tan)
   plots <- data.frame(plots)
   plots$row.in.file.plot <- 1:nrow(plots) + 4
 

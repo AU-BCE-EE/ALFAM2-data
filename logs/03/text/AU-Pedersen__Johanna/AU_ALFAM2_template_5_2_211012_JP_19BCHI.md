@@ -167,317 +167,11 @@ title: 'Submitted data summary'
 ## 
 ## man.dm   man.dm   man.dm   man.dm   man.dm   
 ## 
-## man.dm  vs. pmid 
-##      +-+---------------+---------------+---------------+-------+
-##      |                      *                              *   |
-## 2190 +                   *  *                              *   +
-##      |                      *                              *   |
-## 2185 +                   *                                     +
-##      |                    *                                 *  |
-## 2180 +                    *                                    +
-##      |                    *                                    |
-##      |                                                      *  |
-## 2175 +  *                                                      +
-##      |   *                                                     |
-## 2170 +   *                                                     +
-##      |   *                                                     |
-## 2165 +   *                                                     +
-##      +-+---------------+---------------+---------------+-------+
-##        2               4               6               8        
-## 
-## man.dm  vs. row.in.file.plot 
-## 35 +-+---------------+----------------+---------------+--------+
-##    |                    *  *                                   |
-## 30 +                       *                               *   +
-##    |                    *  *                                   |
-##    |                    *                                  *   |
-## 25 +                    *                                   *  +
-##    |                    *                                   *  |
-## 20 +                    *                                      +
-##    |                    *                                   *  |
-## 15 +  *                                                        +
-##    |   *                                                       |
-## 10 +   *                                                       +
-##    |   *                                                       |
-##  5 +   *                                                       +
-##    +-+---------------+----------------+---------------+--------+
-##      2               4                6               8         
-## 
-## stem and leaf plot of  man.dm 
-## 
-##   The decimal point is at the |
-## 
-##   2 | 111333333333
-##   3 | 
-##   4 | 333444444777
-##   5 | 
-##   6 | 
-##   7 | 
-##   8 | 555777
-## 
-## man.ph   man.ph   man.ph   man.ph   man.ph   
-## 
-## man.ph  vs. pmid 
-##      +-------+------------+------------+------------+----------+
-##      |  *                                                      |
-## 2174 +  *                                                      +
-##      |  *                                                      |
-## 2172 +                                                     *   +
-##      |                                                     *   |
-## 2170 +                                                     *   +
-##      |                                                         |
-##      |                                                     *   |
-## 2168 +                                                     *   +
-##      |                                                     *   |
-## 2166 +                                                     *   +
-##      |                                                     *   |
-## 2164 +                                                     *   +
-##      +-------+------------+------------+------------+----------+
-##             7.8         7.85          7.9         7.95          
-## 
-## man.ph  vs. row.in.file.plot 
-##    +-------+------------+-------------+------------+-----------+
-## 16 +  *                                                        +
-##    |  *                                                        |
-## 14 +  *                                                        +
-##    |                                                       *   |
-## 12 +                                                       *   +
-##    |                                                       *   |
-##    |                                                           |
-## 10 +                                                       *   +
-##    |                                                       *   |
-##  8 +                                                       *   +
-##    |                                                       *   |
-##  6 +                                                       *   +
-##    |                                                       *   |
-##    +-------+------------+-------------+------------+-----------+
-##           7.8         7.85           7.9         7.95           
-## 
-## stem and leaf plot of  man.ph 
-## 
-##   The decimal point is 1 digit(s) to the left of the |
-## 
-##   77 | 888
-##   78 | 
-##   78 | 
-##   79 | 
-##   79 | 888888888
-## 
-## man.tan   man.tan   man.tan   man.tan   man.tan   
-## 
-## man.tan  vs. pmid 
-##      +-----------+-----------+----------+-----------+----------+
-##      |                    *                                 *  |
-## 2190 +                    **                                *  +
-##      |                    *                                 *  |
-## 2185 +                     *                                   +
-##      |                    **                               *   |
-## 2180 +                                                     *   +
-##      |                    *                                    |
-##      |                     *                                   |
-## 2175 +  *                                                      +
-##      |  *                                                      |
-## 2170 +  *                                                      +
-##      |  *                                                      |
-## 2165 +  *                                                      +
-##      +-----------+-----------+----------+-----------+----------+
-##      1          1.5          2         2.5          3           
-## 
-## man.tan  vs. row.in.file.plot 
-## 35 +-----------+-----------+------------+-----------+----------+
-##    |                     *                                  *  |
-## 30 +                     *                                  *  +
-##    |                     *                                  *  |
-##    |                     *                                     |
-## 25 +                     **                                *   +
-##    |                     **                                    |
-## 20 +                                                       *   +
-##    |                     **                                    |
-## 15 +  *                                                        +
-##    |  *                                                        |
-## 10 +  *                                                        +
-##    |  *                                                        |
-##  5 +  *                                                        +
-##    +-----------+-----------+------------+-----------+----------+
-##    1          1.5          2           2.5          3           
-## 
-## stem and leaf plot of  man.tan 
-## 
-##   The decimal point is 1 digit(s) to the left of the |
-## 
-##   10 | 111111111444
-##   12 | 
-##   14 | 
-##   16 | 
-##   18 | 999000222555
-##   20 | 
-##   22 | 
-##   24 | 
-##   26 | 
-##   28 | 
-##   30 | 
-##   32 | 000444
-## 
-## tan.app   tan.app   tan.app   tan.app   tan.app   
-## 
-## tan.app  vs. pmid 
-##      +---------+---------------+--------------+---------------++
-##      |              *                                      *   |
-## 2190 +              **                                     *   +
-##      |              *                                      *   |
-## 2185 +               *                                         +
-##      |              * *                                   *    |
-## 2180 +                                                    *    +
-##      |              *                                          |
-##      |                *                                        |
-## 2175 +   *                                                     +
-##      |  *                                                      |
-## 2170 +  *                                                      +
-##      |  *                                                      |
-## 2165 +  *                                                      +
-##      +---------+---------------+--------------+---------------++
-##               60              80             100             120
-## 
-## tan.app  vs. row.in.file.plot 
-## 35 +----------+---------------+---------------+---------------++
-##    |               *                                       *   |
-## 30 +               *                                       *   +
-##    |               *                                       *   |
-##    |               *                                           |
-## 25 +               **                                     *    +
-##    |               **                                          |
-## 20 +                                                      *    +
-##    |               **                                          |
-## 15 +   *                                                       +
-##    |  *                                                        |
-## 10 +  *                                                        +
-##    |  *                                                        |
-##  5 +  *                                                        +
-##    +----------+---------------+---------------+---------------++
-##              60              80              100             120
-## 
-## stem and leaf plot of  tan.app 
-## 
-##   The decimal point is 1 digit(s) to the right of the |
-## 
-##    4 | 
-##    5 | 000000000111
-##    6 | 666777777888
-##    7 | 
-##    8 | 
-##    9 | 
-##   10 | 
-##   11 | 666777
-## 
-## ct.max   ct.max   ct.max   ct.max   ct.max   
-## 
-## ct.max  vs. pmid 
-##      +-----------------+-------------------+-------------------+
-##      |                  *      *                               |
-## 2190 +                         *                               +
-##      |                  *      *                               |
-## 2185 +                  *      *                               +
-##      |           *                                             |
-## 2180 +           *                                             +
-##      |           *                                             |
-##      |           *                                             |
-## 2175 +  *   *                                                  +
-##      |                                                     *   |
-## 2170 +                                                     *   +
-##      |                                                     *   |
-## 2165 +            *                                        *   +
-##      +-----------------+-------------------+-------------------+
-##                       95                  100                   
-## 
-## ct.max  vs. row.in.file.plot 
-## 35 +------------------+--------------------+-------------------+
-##    |                   *                                       |
-## 30 +                   *      *                                +
-##    |                          *                                |
-##    |                          *                                |
-## 25 +            *                                              +
-##    |            *                                              |
-## 20 +            *                                              +
-##    |            *                                              |
-## 15 +  *   *                                                    +
-##    |                                                       *   |
-## 10 +                                                       *   +
-##    |                                                       *   |
-##  5 +            *                                          *   +
-##    +------------------+--------------------+-------------------+
-##                      95                   100                   
-## 
-## stem and leaf plot of  ct.max 
-## 
-##   The decimal point is at the |
-## 
-##    90 | 0
-##    92 | 004444444446
-##    94 | 222
-##    96 | 999999
-##    98 | 
-##   100 | 
-##   102 | 
-##   104 | 00000000
-## 
-## air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   air.temp.mn   
-## 
-## air.temp.mn  vs. pmid 
-##      +-------+-------------------+-------------------+---------+
-##      |                                                    *    |
-## 2190 +                                                    *    +
-##      |                                                    *    |
-## 2185 +                                                    *    +
-##      |                                                      *  |
-## 2180 +                                                      *  +
-##      |                                                      *  |
-##      |                                                      *  |
-## 2175 +  *                                                      +
-##      |            *                                            |
-## 2170 +            *                                            +
-##      |            *                                            |
-## 2165 +           *                                             +
-##      +-------+-------------------+-------------------+---------+
-##              5                  10                  15          
-## 
-## air.temp.mn  vs. row.in.file.plot 
-## 35 +--------+-------------------+-------------------+----------+
-##    |                                                      *    |
-## 30 +                                                      *    +
-##    |                                                      *    |
-##    |                                                      *    |
-## 25 +                                                        *  +
-##    |                                                        *  |
-## 20 +                                                        *  +
-##    |                                                        *  |
-## 15 +  *                                                        +
-##    |            *                                              |
-## 10 +            *                                              +
-##    |            **                                             |
-##  5 +            **                                             +
-##    +--------+-------------------+-------------------+----------+
-##             5                  10                  15           
-## 
-## stem and leaf plot of  air.temp.mn 
-## 
-##   The decimal point is at the |
-## 
-##    2 | 566
-##    4 | 
-##    6 | 000112222
-##    8 | 
-##   10 | 
-##   12 | 
-##   14 | 
-##   16 | 444444444888899999
-## 
-## wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   wind.2m.mn   
-## 
-## wind.2m.mn  vs. pmid
+## man.dm  vs. pmid
 ```
 
 ```
-## Error in checkValid(x): nothing to plot
+## Error in txtplot(pds[, i], pds$pmid): x and y need to be of type numeric
 ```
 
 # Numeric summary
@@ -541,23 +235,23 @@ title: 'Submitted data summary'
 ## Sorted                  TRUE      TRUE    TRUE    TRUE      TRUE      TRUE
 ##                                                                           
 ##                       clay    silt    sand      oc soil.type soil.water
-## Class              numeric numeric numeric numeric character    numeric
+## Class              numeric numeric numeric numeric character  character
 ## Minimum                  9      24      11     2.5      <NA>       0.16
 ## Maximum                 43      31      71     3.1      <NA>       0.23
-## Mean                  23.4    29.2    45.8    2.86      <NA>        0.2
+## Mean                  23.4    29.2    45.8    2.86      <NA>       <NA>
 ## Unique (excld. NA)       4       2       4       2         0          4
 ## Missing values           0      18       0       0        30          0
 ## Sorted               FALSE   FALSE   FALSE    TRUE      <NA>      FALSE
 ##                                                                        
-##                    soil.water.v soil.moist soil.ph soil.dens  crop.res
-## Class                   numeric  character numeric   numeric character
-## Minimum                    <NA>       <NA>    5.95      1.11       Yes
-## Maximum                    <NA>       <NA>    7.25      1.39       Yes
-## Mean                       <NA>       <NA>    6.42      1.27      <NA>
-## Unique (excld. NA)            0          0       4         4         1
-## Missing values               30         30       0         0         0
-## Sorted                     <NA>       <NA>   FALSE     FALSE      TRUE
-##                                                                       
+##                    soil.water.v soil.moist   soil.ph soil.dens  crop.res
+## Class                   numeric  character character character character
+## Minimum                    <NA>       <NA>      5.95      1.11       Yes
+## Maximum                    <NA>       <NA>      7.25      1.39       Yes
+## Mean                       <NA>       <NA>      <NA>      <NA>      <NA>
+## Unique (excld. NA)            0          0         4         4         1
+## Missing values               30         30         0         0         0
+## Sorted                     <NA>       <NA>     FALSE     FALSE      TRUE
+##                                                                         
 ##                         till man.source man.source.det   man.bed man.con
 ## Class              character     factor      character character  factor
 ## Minimum                   No        cat           <NA>      <NA>  slurry
@@ -567,24 +261,24 @@ title: 'Submitted data summary'
 ## Missing values             0          0             30        30       0
 ## Sorted                  TRUE      FALSE           <NA>      <NA>    TRUE
 ##                                                                         
-##                               man.trt1  man.trt2 man.stor  man.dm  man.vs
-## Class                        character character  numeric numeric numeric
-## Minimum            Anaerobic digestion      None     <NA>    2.09    <NA>
-## Maximum                           None      None     <NA>    8.69    <NA>
-## Mean                              <NA>      <NA>     <NA>    4.38    <NA>
-## Unique (excld. NA)                   3         1        0       7       0
-## Missing values                       0         0       30       0      30
-## Sorted                           FALSE      TRUE     <NA>   FALSE    <NA>
-##                                                                          
-##                    man.tkn man.tan man.tic  man.ua man.vfa  man.ph
-## Class              numeric numeric logical logical numeric numeric
-## Minimum               1.89    1.11    <NA>    <NA>    1.37    7.78
-## Maximum               4.77    3.34    <NA>    <NA>    2.42    7.98
-## Mean                  3.11    1.88    <NA>    <NA>    1.63    7.93
-## Unique (excld. NA)       7       8       0       0       2       2
-## Missing values           0       0      30      30      18      18
-## Sorted               FALSE   FALSE    <NA>    <NA>    TRUE   FALSE
-##                                                                   
+##                               man.trt1  man.trt2 man.stor    man.dm    man.vs
+## Class                        character character  numeric character character
+## Minimum            Anaerobic digestion      None     <NA>      2.09      <NA>
+## Maximum                           None      None     <NA>      8.69      <NA>
+## Mean                              <NA>      <NA>     <NA>      <NA>      <NA>
+## Unique (excld. NA)                   3         1        0         7         0
+## Missing values                       0         0       30         0        30
+## Sorted                           FALSE      TRUE     <NA>     FALSE      <NA>
+##                                                                              
+##                      man.tkn man.tan man.tic  man.ua man.vfa    man.ph
+## Class              character numeric logical logical numeric character
+## Minimum                 1.89    1.11    <NA>    <NA>    1.37      7.78
+## Maximum                 4.77    3.34    <NA>    <NA>    2.42      7.98
+## Mean                    <NA>    1.88    <NA>    <NA>    1.63      <NA>
+## Unique (excld. NA)         7       8       0       0       2         2
+## Missing values             0       0      30      30      18        18
+## Sorted                 FALSE   FALSE    <NA>    <NA>    TRUE     FALSE
+##                                                                       
 ##                                app.end app.method app.rate app.rate.unit
 ## Class                  POSIXct, POSIXt  character  numeric     character
 ## Minimum            2019-02-25 15:23:00       bsth       35         m3/ha
