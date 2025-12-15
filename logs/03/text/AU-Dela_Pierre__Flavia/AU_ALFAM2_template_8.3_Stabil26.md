@@ -410,20 +410,20 @@ title: 'Submitted data summary'
 ##                    e.rel.final e.rel.tot  rain.1  rain.4  rain.6 rain.12
 ## Class                  numeric   numeric numeric numeric numeric numeric
 ## Minimum                 -0.091    -0.091    <NA>       0       0       0
-## Maximum                   1.29      1.29    <NA>   0.501    1.08    1.99
-## Mean                     0.259     0.259    <NA>  0.0413  0.0989   0.219
-## Unique (excld. NA)          77        77       0       9      14      19
+## Maximum                   1.29      1.29    <NA>       0       0       0
+## Mean                     0.259     0.259    <NA>       0       0       0
+## Unique (excld. NA)          77        77       0       1       1       1
 ## Missing values               0         0      77       0       0       0
-## Sorted                   FALSE     FALSE    <NA>   FALSE   FALSE   FALSE
+## Sorted                   FALSE     FALSE    <NA>    TRUE    TRUE    TRUE
 ##                                                                         
 ##                    rain.24 rain.48 rain.72 rain.96 rain.168 rain.final rain.tot
 ## Class              numeric numeric numeric numeric  numeric    numeric  numeric
 ## Minimum                  0       0       0       0     <NA>          0        0
-## Maximum                3.5    13.8    26.4    26.7     <NA>       36.3     36.3
-## Mean                  0.56    2.51    4.35    4.47     <NA>       6.53     6.53
-## Unique (excld. NA)      16      35      34      34        0         40       40
+## Maximum                  0       0       0       0     <NA>          0        0
+## Mean                     0       0       0       0     <NA>          0        0
+## Unique (excld. NA)       1       1       1       1        0          1        1
 ## Missing values           0       0       0       0       77          0        0
-## Sorted               FALSE   FALSE   FALSE   FALSE     <NA>      FALSE    FALSE
+## Sorted                TRUE    TRUE    TRUE    TRUE     <NA>       TRUE     TRUE
 ##                                                                                
 ##                    air.temp.1 air.temp.4 air.temp.6 air.temp.12 air.temp.24
 ## Class                 numeric    numeric    numeric     numeric     numeric
@@ -536,29 +536,29 @@ title: 'Submitted data summary'
 ##                     rad.96 rad.168  rad.mn rain.rate.1 rain.rate.4 rain.rate.6
 ## Class              numeric numeric numeric     numeric     numeric     numeric
 ## Minimum                 41    37.4    37.4        <NA>           0           0
-## Maximum                330     282     282        <NA>           0       0.208
-## Mean                   142     138     138        <NA>           0      0.0175
-## Unique (excld. NA)      77      77      77           0           1           9
+## Maximum                330     282     282        <NA>           0           0
+## Mean                   142     138     138        <NA>           0           0
+## Unique (excld. NA)      77      77      77           0           1           1
 ## Missing values           0       0       0          77           0           0
-## Sorted               FALSE   FALSE   FALSE        <NA>        TRUE       FALSE
+## Sorted               FALSE   FALSE   FALSE        <NA>        TRUE        TRUE
 ##                                                                               
 ##                    rain.rate.12 rain.rate.24 rain.rate.48 rain.rate.72
 ## Class                   numeric      numeric      numeric      numeric
 ## Minimum                       0            0            0            0
-## Maximum                   0.183        0.155        0.288        0.367
-## Mean                     0.0175       0.0244       0.0531       0.0607
-## Unique (excld. NA)           16           30           47           52
+## Maximum                       0            0            0            0
+## Mean                          0            0            0            0
+## Unique (excld. NA)            1            1            1            1
 ## Missing values                0            0            0            0
-## Sorted                    FALSE        FALSE        FALSE        FALSE
+## Sorted                     TRUE         TRUE         TRUE         TRUE
 ##                                                                       
 ##                    rain.rate.96 rain.rate.168 rain.rate.mn    rh.1    rh.4
 ## Class                   numeric       numeric      numeric numeric numeric
 ## Minimum                       0             0            0    <NA>    44.4
-## Maximum                   0.278         0.267        0.267    <NA>      87
-## Mean                     0.0467        0.0474       0.0474    <NA>    62.6
-## Unique (excld. NA)           52            60           60       0      75
+## Maximum                       0             0            0    <NA>      87
+## Mean                          0             0            0    <NA>    62.6
+## Unique (excld. NA)            1             1            1       0      75
 ## Missing values                0             0            0      77       0
-## Sorted                    FALSE         FALSE        FALSE    <NA>   FALSE
+## Sorted                     TRUE          TRUE         TRUE    <NA>   FALSE
 ##                                                                           
 ##                       rh.6   rh.12   rh.24   rh.48   rh.72   rh.96  rh.168
 ## Class              numeric numeric numeric numeric numeric numeric numeric

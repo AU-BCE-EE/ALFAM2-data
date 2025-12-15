@@ -19,7 +19,7 @@
 > 
 > # Date record
 > print(Sys.time())
-[1] "2025-12-12 13:43:36 EST"
+[1] "2025-12-15 11:25:04 EST"
 
 > # Read and check data from files
 > ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
@@ -939,10 +939,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.69
+ main.R (new version)    2.70
           Release tag    2.68
               Release    2.68
-          Main branch    2.68
+          Main branch    2.69
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
