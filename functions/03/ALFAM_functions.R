@@ -1201,6 +1201,9 @@ insertCol <- function(cc, df, where, name = 'X') {
 # Element-by-element, so mix of formats is acceptable
 fixDateTime <- function(x){
 
+  # Get copy of x for debugging
+  x.orig <- x
+
   flag <- character(length(x))
 
   if (class(x)[1] == 'POSIXct') {
@@ -1228,7 +1231,12 @@ fixDateTime <- function(x){
         month <- as.numeric(lapply(x[i], function(x) strsplit(x, '-')[[1]][2]))
         year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
         tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
-        if(is.na(year)) browser()
+        if(is.na(year)) {
+	  cat('Date/time problem in fixDateTime(). Entering browser()')
+	  cat('Value of x.orig:')
+	  print(x.orig)
+	  browser()
+	}
         if(nchar(year) != 4) {
           #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
           if(year > 50) {
