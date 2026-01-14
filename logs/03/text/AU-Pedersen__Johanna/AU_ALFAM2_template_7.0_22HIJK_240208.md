@@ -20,22 +20,22 @@ title: 'Submitted data summary'
 ## e.cum.final   e.cum.final   e.cum.final   e.cum.final   e.cum.final   
 ## 
 ## e.cum.final  vs. pmid 
-##    ++---------------+--------------+---------------+-----------+
-## 30 +           *                      *       *                +
-##    |  *           *                      *                     |
-## 25 +                                                           +
-##    |                                                           |
-## 20 +                                                           +
-##    |                                                           |
-## 15 +                                                           +
-##    |                                                           |
-## 10 +   *                                                    *  +
-##    |     **  *   *        *  *  *  *    *                *     |
-##    |        *                              *       **      *   |
-##  5 +                **               *                         +
-##    |                   **  *   *  *          *  **    **       |
-##  0 ++---------------+--------------+---------------+-----------+
-##     0              10             20              30            
+##      +---------+--------+--------+--------+--------+---------+-+
+##      |          *    *  *                                      |
+## 2440 +   **        *                                           +
+##      |    *     *                                              |
+##      |  *  *                                             *     |
+## 2430 +           *   *                                 *       +
+##      |       *        *                                   *    |
+##      |     *        *                                          |
+##      |  * *            *                                       |
+## 2420 +  **             *                                       +
+##      |     *  *                                         *      |
+##      |              *                                       *  |
+##      |             *   *                                       |
+## 2410 +              *     *                             *      +
+##      +---------+--------+--------+--------+--------+---------+-+
+##      0         5       10       15       20       25        30  
 ## 
 ## e.cum.final  vs. row.in.file.plot 
 ##    +---------+---------+--------+---------+--------+---------+-+
@@ -70,22 +70,22 @@ title: 'Submitted data summary'
 ## e.rel.final   e.rel.final   e.rel.final   e.rel.final   e.rel.final   
 ## 
 ## e.rel.final  vs. pmid 
-##     ++--------------+---------------+--------------+-----------+
-## 0.5 +           *                                              +
-##     |  *           *                   *  *   *                |
-##     |                                                          |
-## 0.4 +                                                          +
-##     |                                                          |
-## 0.3 +                                                          +
-##     |                                                          |
-##     |                                                          |
-## 0.2 +                      *  *                             *  +
-##     |   *  *  *                  *  *   *            *   *     |
-##     |     *  *   *                                 *       *   |
-## 0.1 +               * *                    *                   +
-##     |                  * *  *  *  *  *       *  **    * *      |
-##     ++--------------+---------------+--------------+-----------+
-##      0             10              20             30            
+##      +--------+----------+----------+---------+----------+-----+
+##      |           *     *   *                                   |
+## 2440 +   **          *                                         +
+##      |     *    *                                              |
+##      |  **                                             *       |
+## 2430 +         *    *                                 *        +
+##      |    *          *                                  *      |
+##      |   *           *                                         |
+##      |  * *              *                                     |
+## 2420 +   *                *                                    +
+##      |     *  *                                        *       |
+##      |            *                                        *   |
+##      |          *  **                                          |
+## 2410 +            *    *                               *       +
+##      +--------+----------+----------+---------+----------+-----+
+##              0.1        0.2        0.3       0.4        0.5     
 ## 
 ## e.rel.final  vs. row.in.file.plot 
 ##    +---------+----------+----------+----------+----------+-----+
@@ -124,22 +124,22 @@ title: 'Submitted data summary'
 ## app.rate   app.rate   app.rate   app.rate   app.rate   
 ## 
 ## app.rate  vs. pmid 
-##    ++---------------+--------------+---------------+-----------+
-## 40 +                                                           +
-##    |                                                           |
-##    |                                                           |
-## 35 +                                                           +
-##    |                                                           |
-##    |                                                           |
-## 30 +  ** ** ** * ** ** ** ** * ** ** ** ** * ** ** ** ** * **  +
-##    |                                                           |
-##    |                                                           |
-## 25 +                                                           +
-##    |                                                           |
-##    |                                                           |
-## 20 +                                                           +
-##    ++---------------+--------------+---------------+-----------+
-##     0              10             20              30            
+##      +----+-----------+-----------+-----------+-----------+----+
+##      |                            *                            |
+## 2440 +                            *                            +
+##      |                            *                            |
+##      |                            *                            |
+## 2430 +                            *                            +
+##      |                            *                            |
+##      |                            *                            |
+##      |                            *                            |
+## 2420 +                            *                            +
+##      |                            *                            |
+##      |                            *                            |
+##      |                            *                            |
+## 2410 +                            *                            +
+##      +----+-----------+-----------+-----------+-----------+----+
+##          20          25          30          35          40     
 ## 
 ## app.rate  vs. row.in.file.plot 
 ##    +----+------------+-----------+-----------+------------+----+
@@ -179,8 +179,44 @@ title: 'Submitted data summary'
 
 ```
 ## 
-##  36 rows and 225 columns
+##  36 rows and 229 columns
 ##  36 unique rows
+##                    institute      proj     exper     field      plot       rep
+## Class              character character character character character character
+## Minimum                   AU       MAG       22H         A         1         1
+## Maximum                   AU       MAG       22K         A         9         3
+## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
+## Unique (excld. NA)         1         1         4         1         9         3
+## Missing values             0         0         0         0         0         0
+## Sorted                  TRUE      TRUE      TRUE      TRUE     FALSE     FALSE
+##                                                                               
+##                              app.start sub.period
+## Class                  POSIXct, POSIXt    numeric
+## Minimum            2022-06-08 12:56:00          3
+## Maximum            2022-06-29 14:37:00          3
+## Mean               2022-06-19 01:07:35          3
+## Unique (excld. NA)                  36          1
+## Missing values                       0          0
+## Sorted                           FALSE       TRUE
+##                                                  
+##                                                                                 file
+## Class                                                                      character
+## Minimum            ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
+## Maximum            ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
+## Mean                                                                            <NA>
+## Unique (excld. NA)                                                                 1
+## Missing values                                                                     0
+## Sorted                                                                          TRUE
+##                                                                                     
+##                        treat   meas.tech meas.tech.det    rep2
+## Class              character   character     character logical
+## Minimum               Plasma Wind tunnel          <NA>    <NA>
+## Maximum            Separated Wind tunnel          <NA>    <NA>
+## Mean                    <NA>        <NA>          <NA>    <NA>
+## Unique (excld. NA)         3           1             0       0
+## Missing values             0           0            36      36
+## Sorted                 FALSE        TRUE          <NA>    <NA>
+##                                                               
 ##                                                                                                                                                                          cpmid
 ## Class                                                                                                                                                                character
 ## Minimum            D:1.I:AU.Pr:MAG.F:../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx.E:22H.F:A.P:1.T:Reference.R:1.R2:.T:2022-06-08 12:56:00.M:Wind tunnelNA
@@ -190,51 +226,42 @@ title: 'Submitted data summary'
 ## Missing values                                                                                                                                                               0
 ## Sorted                                                                                                                                                                    TRUE
 ##                                                                                                                                                                               
-##                       pub.id      proj     exper     field      plot       rep
-## Class              character character character character character character
-## Minimum                 <NA>       MAG       22H         A         1         1
-## Maximum                 <NA>       MAG       22K         A         9         3
-## Mean                    <NA>      <NA>      <NA>      <NA>      <NA>      <NA>
-## Unique (excld. NA)         0         1         4         1         9         3
-## Missing values            36         0         0         0         0         0
-## Sorted                  <NA>      TRUE      TRUE      TRUE     FALSE     FALSE
-##                                                                               
-##                    plot.area     lat    long   country      topo    clay
-## Class                numeric numeric numeric character character numeric
-## Minimum                  0.2    56.5    9.57        DK      Flat       9
-## Maximum                  0.2    56.5    9.57        DK      Flat       9
-## Mean                     0.2    56.5    9.57      <NA>      <NA>       9
-## Unique (excld. NA)         1       1       1         1         1       1
-## Missing values             0       0       0         0         0       0
-## Sorted                  TRUE    TRUE    TRUE      TRUE      TRUE    TRUE
+##                       pub.id plot.area     lat    long   country      topo
+## Class              character   numeric numeric numeric character character
+## Minimum                 <NA>       0.2    56.5    9.57        DK      Flat
+## Maximum                 <NA>       0.2    56.5    9.57        DK      Flat
+## Mean                    <NA>       0.2    56.5    9.57      <NA>      <NA>
+## Unique (excld. NA)         0         1       1       1         1         1
+## Missing values            36         0       0       0         0         0
+## Sorted                  <NA>      TRUE    TRUE    TRUE      TRUE      TRUE
+##                                                                           
+##                       clay    silt    sand      oc soil.type soil.water
+## Class              numeric numeric numeric numeric character  character
+## Minimum                  9      24      65    <NA>      <NA>       0.19
+## Maximum                  9      24      65    <NA>      <NA>       0.31
+## Mean                     9      24      65    <NA>      <NA>       <NA>
+## Unique (excld. NA)       1       1       1       0         0          4
+## Missing values           0       0       0      36        36          0
+## Sorted                TRUE    TRUE    TRUE    <NA>      <NA>      FALSE
+##                                                                        
+##                    soil.water.v soil.moist   soil.ph soil.dens  crop.res
+## Class                   numeric  character character character character
+## Minimum                    <NA>        Dry       5.8      1.09       Yes
+## Maximum                    <NA>        Dry       5.8      1.09       Yes
+## Mean                       <NA>       <NA>      <NA>      <NA>      <NA>
+## Unique (excld. NA)            0          1         1         1         1
+## Missing values               36          0         0         0         0
+## Sorted                     <NA>       TRUE      TRUE      TRUE      TRUE
 ##                                                                         
-##                       silt    sand      oc soil.type soil.water soil.water.v
-## Class              numeric numeric numeric character  character      numeric
-## Minimum                 24      65    <NA>      <NA>       0.19         <NA>
-## Maximum                 24      65    <NA>      <NA>       0.31         <NA>
-## Mean                    24      65    <NA>      <NA>       <NA>         <NA>
-## Unique (excld. NA)       1       1       0         0          4            0
-## Missing values           0       0      36        36          0           36
-## Sorted                TRUE    TRUE    <NA>      <NA>      FALSE         <NA>
-##                                                                             
-##                    soil.moist   soil.ph soil.dens  crop.res      till
-## Class               character character character character character
-## Minimum                   Dry       5.8      1.09       Yes        No
-## Maximum                   Dry       5.8      1.09       Yes        No
-## Mean                     <NA>      <NA>      <NA>      <NA>      <NA>
-## Unique (excld. NA)          1         1         1         1         1
-## Missing values              0         0         0         0         0
-## Sorted                   TRUE      TRUE      TRUE      TRUE      TRUE
-##                                                                      
-##                    man.source
-## Class                  factor
-## Minimum                   cat
-## Maximum                  none
-## Mean                     mink
-## Unique (excld. NA)          2
-## Missing values              0
-## Sorted                  FALSE
-##                              
+##                         till man.source
+## Class              character     factor
+## Minimum                   No        cat
+## Maximum                   No       none
+## Mean                    <NA>       mink
+## Unique (excld. NA)         1          2
+## Missing values             0          0
+## Sorted                  TRUE      FALSE
+##                                        
 ##                                                                man.source.det
 ## Class                                                               character
 ## Minimum            mix of slurry co-digested with other agricultural residues
@@ -271,69 +298,42 @@ title: 'Submitted data summary'
 ## Missing values           0      36      36       0         0
 ## Sorted               FALSE    <NA>    <NA>   FALSE     FALSE
 ##                                                             
-##                              app.start             app.end app.method app.rate
-## Class                  POSIXct, POSIXt     POSIXct, POSIXt  character  numeric
-## Minimum            2022-06-08 12:56:00 2022-06-15 06:59:00       bsth       30
-## Maximum            2022-06-29 14:37:00 2022-07-06 07:09:00       bsth       30
-## Mean               2022-06-19 01:07:35 2022-06-25 20:19:41       <NA>       30
-## Unique (excld. NA)                  36                  36          1        1
-## Missing values                       0                   0          0        0
-## Sorted                           FALSE               FALSE       TRUE     TRUE
-##                                                                               
-##                    app.rate.unit    incorp time.incorp man.area dist.inj
-## Class                  character character     numeric  numeric  numeric
-## Minimum                     t/ha      none        <NA>     <NA>     <NA>
-## Maximum                     t/ha      none        <NA>     <NA>     <NA>
-## Mean                        <NA>      <NA>        <NA>     <NA>     <NA>
-## Unique (excld. NA)             1         1           0        0        0
-## Missing values                 0         0          36       36       36
-## Sorted                      TRUE      TRUE        <NA>     <NA>     <NA>
+##                                app.end app.method app.rate app.rate.unit
+## Class                  POSIXct, POSIXt  character  numeric     character
+## Minimum            2022-06-15 06:59:00       bsth       30          t/ha
+## Maximum            2022-07-06 07:09:00       bsth       30          t/ha
+## Mean               2022-06-25 20:19:41       <NA>       30          <NA>
+## Unique (excld. NA)                  36          1        1             1
+## Missing values                       0          0        0             0
+## Sorted                           FALSE       TRUE     TRUE          TRUE
 ##                                                                         
-##                    furrow.z furrow.w      crop  crop.z crop.area     lai
-## Class               numeric  logical character numeric   numeric logical
-## Minimum                <NA>     <NA>     grass       5      <NA>    <NA>
-## Maximum                <NA>     <NA>     grass      40      <NA>    <NA>
-## Mean                   <NA>     <NA>      <NA>    22.5      <NA>    <NA>
-## Unique (excld. NA)        0        0         1      36         0       0
-## Missing values           36       36         0       0        36      36
-## Sorted                 <NA>     <NA>      TRUE   FALSE      <NA>    <NA>
-##                                                                         
-##                    notes.plot row.in.file.plot  man.trt3 institute sub.period
-## Class               character          numeric character character    numeric
-## Minimum                     .                5    Plasma        AU          3
-## Maximum                     .               40    Plasma        AU          3
-## Mean                     <NA>             22.5      <NA>      <NA>          3
-## Unique (excld. NA)          1               36         1         1          1
-## Missing values             35                0        30         0          0
-## Sorted                   TRUE            FALSE      TRUE      TRUE       TRUE
-##                                                                              
-##                                                                                 file
-## Class                                                                      character
-## Minimum            ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
-## Maximum            ../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
-## Mean                                                                            <NA>
-## Unique (excld. NA)                                                                 1
-## Missing values                                                                     0
-## Sorted                                                                          TRUE
-##                                                                                     
-##                        treat   meas.tech meas.tech.det app.start.orig
-## Class              character   character     character      character
-## Minimum               Plasma Wind tunnel          <NA>     1654692960
-## Maximum            Separated Wind tunnel          <NA>     1656513420
-## Mean                    <NA>        <NA>          <NA>           <NA>
-## Unique (excld. NA)         3           1             0             36
-## Missing values             0           0            36              0
-## Sorted                 FALSE        TRUE          <NA>          FALSE
-##                                                                      
-##                    app.end.orig
-## Class                 character
-## Minimum              1655276340
-## Maximum              1657091340
-## Mean                       <NA>
-## Unique (excld. NA)           36
-## Missing values                0
-## Sorted                    FALSE
-##                                
+##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
+## Class              character     numeric  numeric  numeric  numeric  logical
+## Minimum                 none        <NA>     <NA>     <NA>     <NA>     <NA>
+## Maximum                 none        <NA>     <NA>     <NA>     <NA>     <NA>
+## Mean                    <NA>        <NA>     <NA>     <NA>     <NA>     <NA>
+## Unique (excld. NA)         1           0        0        0        0        0
+## Missing values             0          36       36       36       36       36
+## Sorted                  TRUE        <NA>     <NA>     <NA>     <NA>     <NA>
+##                                                                             
+##                         crop  crop.z crop.area     lai notes.plot
+## Class              character numeric   numeric logical  character
+## Minimum                grass       5      <NA>    <NA>          .
+## Maximum                grass      40      <NA>    <NA>          .
+## Mean                    <NA>    22.5      <NA>    <NA>       <NA>
+## Unique (excld. NA)         1      36         0       0          1
+## Missing values             0       0        36      36         35
+## Sorted                  TRUE   FALSE      <NA>    <NA>       TRUE
+##                                                                  
+##                    row.in.file.plot  man.trt3 app.start.orig app.end.orig
+## Class                       numeric character      character    character
+## Minimum                           5    Plasma     1654692960   1655276340
+## Maximum                          40    Plasma     1656513420   1657091340
+## Mean                           22.5      <NA>           <NA>         <NA>
+## Unique (excld. NA)               36         1             36           36
+## Missing values                    0        30              0            0
+## Sorted                        FALSE      TRUE          FALSE        FALSE
+##                                                                          
 ##                                                                                                                                                           cpid
 ## Class                                                                                                                                                character
 ## Minimum            D:1.I:AU.Pr:MAG.F:../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx.E:22H.F:A.P:1.T:Reference.R:1.R2:.T:2022-06-08 12:56:00
@@ -595,15 +595,15 @@ title: 'Submitted data summary'
 ## Missing values              36      36        36      36        36         36
 ## Sorted                    <NA>    <NA>      <NA>    <NA>      <NA>       <NA>
 ##                                                                              
-##                     exper2    rep2    acid meas.tech.orig meas.tech2 crop.orig
-## Class              logical logical logical      character  character character
-## Minimum               <NA>    <NA>   FALSE    Wind tunnel         wt     Grass
-## Maximum               <NA>    <NA>   FALSE    Wind tunnel         wt     Grass
-## Mean                  <NA>    <NA>  0 TRUE           <NA>       <NA>      <NA>
-## Unique (excld. NA)       0       0       1              1          1         1
-## Missing values          36      36       0              0          0         0
-## Sorted                <NA>    <NA>    TRUE           TRUE       TRUE      TRUE
-##                                                                               
+##                     exper2    acid meas.tech.orig meas.tech2 crop.orig
+## Class              logical logical      character  character character
+## Minimum               <NA>   FALSE    Wind tunnel         wt     Grass
+## Maximum               <NA>   FALSE    Wind tunnel         wt     Grass
+## Mean                  <NA>  0 TRUE           <NA>       <NA>      <NA>
+## Unique (excld. NA)       0       1              1          1         1
+## Missing values          36       0              0          0         0
+## Sorted                <NA>    TRUE           TRUE       TRUE      TRUE
+##                                                                       
 ##                                 app.method.orig incorp.orig man.source.orig
 ## Class                                 character   character       character
 ## Minimum            Band spread or trailing hose        None             Mix
@@ -613,14 +613,23 @@ title: 'Submitted data summary'
 ## Missing values                                0           0               0
 ## Sorted                                     TRUE        TRUE           FALSE
 ##                                                                            
-##                    date.start  flag.int soil.samp.z
-## Class                    Date character   character
-## Minimum            2022-06-08                0-5 cm
-## Maximum            2022-06-29                0-5 cm
-## Mean                     <NA>      <NA>        <NA>
-## Unique (excld. NA)          4         1           1
-## Missing values              0         0           0
-## Sorted                   TRUE      TRUE        TRUE
+##                    date.start  flag.int soil.samp.z    inst     pid    pmid
+## Class                    Date character   character numeric integer integer
+## Minimum            2022-06-08                0-5 cm     205    2400    2410
+## Maximum            2022-06-29                0-5 cm     205    2440    2440
+## Mean                     <NA>      <NA>        <NA>     205    2420    2430
+## Unique (excld. NA)          4         1           1       1      36      36
+## Missing values              0         0           0       0       0       0
+## Sorted                   TRUE      TRUE        TRUE    TRUE    TRUE    TRUE
+##                                                                            
+##                        eid
+## Class              integer
+## Minimum                404
+## Maximum                407
+## Mean                   406
+## Unique (excld. NA)       4
+## Missing values           0
+## Sorted                TRUE
 ## 
 ```
 
