@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.72' # Jan 2026
+version <- '2.73' # Jan 2026
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -64,3 +64,9 @@ sink('../../logs/03/check_version.txt')
   source('check_version.R')
 sink()
 source('check_version.R')
+
+# Run any main.R in analysis dir externally
+cat('\nRunning scripts in analysis dir...\n')
+owd <- setwd('../../analysis')
+system('./run_analysis.sh')
+setwd(owd)

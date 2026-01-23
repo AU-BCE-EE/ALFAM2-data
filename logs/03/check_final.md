@@ -14,8 +14,7 @@ for (i in 1:ncol(pdat.comb)) {
 ```
 
 ```
-## Error in `printVarSumm()`:
-## ! could not find function "printVarSumm"
+## Error in printVarSumm(pdat.comb[, i]): could not find function "printVarSumm"
 ```
 
 
