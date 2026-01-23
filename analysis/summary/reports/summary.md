@@ -2,51 +2,51 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "04 October, 2024"
+date: "23 January, 2026"
 ---
 
 
-```r
+``` r
 pdat$digested <- grepl('anaerobic digestion', tolower(paste(pdat$man.trt1, pdat$man.trt2)))
 ```
 
 
 
-```r
+``` r
 dim(pdat)
 ```
 
 ```
-## [1] 3069  221
+## [1] 3163  221
 ```
 
-```r
+``` r
 length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 3069
+## [1] 3163
 ```
 
-```r
+``` r
 length(unique(pdat$pid))
 ```
 
 ```
-## [1] 3065
+## [1] 3159
 ```
 
 
-```r
+``` r
 dim(idat)
 ```
 
 ```
-## [1] 92707    47
+## [1] 99653    50
 ```
 
 
-```r
+``` r
 up <- pdat[pdat$pid %in% unique(pdat$pid), ]
 table(pdat$sub.period)
 ```
@@ -54,20 +54,20 @@ table(pdat$sub.period)
 ```
 ## 
 ##    1    2    3 
-##  791 1103 1175
+##  791 1103 1269
 ```
 
-```r
+``` r
 table(up$sub.period)
 ```
 
 ```
 ## 
 ##    1    2    3 
-##  791 1103 1175
+##  791 1103 1269
 ```
 
-```r
+``` r
 table(country = up$country, sub.period = up$sub.period)
 ```
 
@@ -77,7 +77,7 @@ table(country = up$country, sub.period = up$sub.period)
 ##      CA   0 229  64
 ##      CH 121  47   0
 ##      DE   0 197 224
-##      DK  46 251 657
+##      DK  46 251 751
 ##      FR   0  25  21
 ##      IE   0  68   0
 ##      IT  75   8  17
@@ -88,45 +88,46 @@ table(country = up$country, sub.period = up$sub.period)
 ##      US   0   2   0
 ```
 
-```r
+``` r
 table(institute = up$institute, sub.period = up$sub.period)
 ```
 
 ```
-##           sub.period
-## institute    1   2   3
-##   AAFC       0 109   0
-##   ADAS      79   0   0
-##   ADAS-RR    0 109   0
-##   ARDC       0 120   0
-##   AT         0  26   0
-##   AU         0  87 754
-##   AU-BCE     0   0   4
-##   AUN        9   0   0
-##   CAU-LU     0 197   0
-##   CRPA      75   0   0
-##   DIAS      46   0   0
-##   DiSAA-IT   0   0   6
-##   IGER     263   0   0
-##   IMAG       2   0   0
-##   INH-HAFL   0  47   0
-##   INRA       0  25   0
-##   INRAE      0   0  21
-##   IUL/FAT  121   0   0
-##   JTI       88   0   0
-##   MU         0   8   0
-##   NMI-WUR    0  16   0
-##   SDU        0 138   0
-##   TEAGASC    0  68   0
-##   TI         0   0 224
-##   UNIMI      0   0   4
-##   UNINA      0   0   7
-##   USDA       0   2   0
-##   WUR      108 151 155
+##               sub.period
+## institute        1   2   3
+##   AAFC           0 109   0
+##   ADAS          79   0   0
+##   ADAS-RR        0 109   0
+##   ARDC           0 120   0
+##   AT             0  26   0
+##   AU             0  87 831
+##   AU-BCE         0   0   4
+##   AUN            9   0   0
+##   CAU-LU         0 197   0
+##   CRPA          75   0   0
+##   DIAS          46   0   0
+##   DiSAA-IT       0   0   6
+##   IGER         263   0   0
+##   IMAG           2   0   0
+##   INH-HAFL       0  47   0
+##   INRA           0  25   0
+##   INRAE          0   0  21
+##   IUL/FAT      121   0   0
+##   JTI           88   0   0
+##   MU             0   8   0
+##   NMI-WUR        0  16   0
+##   SDU            0 138   0
+##   TEAGASC        0  68   0
+##   TI             0   0 224
+##   UNIMI          0   0   4
+##   UNINA          0   0   7
+##   UNITO DISAFA   0   0  17
+##   USDA           0   2   0
+##   WUR          108 151 155
 ```
 
 
-```r
+``` r
 table(pdat$pdat$man.trt1)
 ```
 
@@ -134,124 +135,128 @@ table(pdat$pdat$man.trt1)
 ## < table of extent 0 >
 ```
 
-```r
+``` r
 table(pdat$man.trt2)
 ```
 
 ```
 ## 
 ##                               Acidification     Ammonia stripping 
-##                   201                    17                     3 
-##   Anaerobic digestion           Floculation Mechanical separation 
-##                    16                     9                    96 
-##                  none                  None                Plasma 
-##                  1262                   279                     6
+##                   201                    14                     3 
+##   Anaerobic digestion      Biochar addition            Disruption 
+##                    16                     6                     6 
+##           Floculation Mechanical separation                  none 
+##                     9                   144                  1262 
+##                  None                Plasma 
+##                   338                     6
 ```
 
 
-```r
+``` r
 u3 <- subset(pdat, sub.period == 3)
 up3 <- subset(up, sub.period == 3)
 table(paste(u3$sub.period, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
 ```
 
 ```
-##                                 
-##                                  FALSE TRUE
-##   3 CA AU cat wt                    64    0
-##   3 DE TI cat chamber              160    0
-##   3 DE TI digestate chamber         64    0
-##   3 DK AU cat chamber                9    0
-##   3 DK AU cat wt                    69   38
-##   3 DK AU mix chamber               75  248
-##   3 DK AU mix micro met              0   15
-##   3 DK AU mix wt                     0   43
-##   3 DK AU pig chamber                9    0
-##   3 DK AU pig wt                   147    0
-##   3 DK AU-BCE cat micro met          4    0
-##   3 FR INRAE cat micro met           7    0
-##   3 FR INRAE mix micro met           0   14
-##   3 IT DiSAA-IT sludge micro met     0    3
-##   3 IT DiSAA-IT urea micro met       3    0
-##   3 IT UNIMI cat micro met           0    4
-##   3 IT UNINA cat micro met           1    1
-##   3 IT UNINA cat wt                  2    3
-##   3 NL AU cat chamber                4    0
-##   3 NL AU cat micro met              6    0
-##   3 NL AU cat wt                     9    0
-##   3 NL WUR cat micro met            93    0
-##   3 NL WUR conc micro met           12    0
-##   3 NL WUR pig micro met            50    0
-##   3 SE AU cat wt                    12    0
-##   3 SE AU mix wt                     0    6
+##                                  
+##                                   FALSE TRUE
+##   3 CA AU cat wt                     64    0
+##   3 DE TI cat chamber               160    0
+##   3 DE TI digestate chamber          64    0
+##   3 DK AU cat chamber                 9    0
+##   3 DK AU cat wt                     69   38
+##   3 DK AU mix chamber                 0  323
+##   3 DK AU mix micro met               0   15
+##   3 DK AU mix wt                      0   84
+##   3 DK AU pig chamber                 9    0
+##   3 DK AU pig wt                    183    0
+##   3 DK AU-BCE cat micro met           4    0
+##   3 DK UNITO DISAFA pig chamber      16    0
+##   3 DK UNITO DISAFA pig micro met     1    0
+##   3 FR INRAE cat micro met            7    0
+##   3 FR INRAE mix micro met            0   14
+##   3 IT DiSAA-IT sludge micro met      0    3
+##   3 IT DiSAA-IT urea micro met        3    0
+##   3 IT UNIMI cat micro met            0    4
+##   3 IT UNINA cat micro met            1    1
+##   3 IT UNINA cat wt                   2    3
+##   3 NL AU cat chamber                 4    0
+##   3 NL AU cat micro met               6    0
+##   3 NL AU cat wt                      9    0
+##   3 NL WUR cat micro met             93    0
+##   3 NL WUR conc micro met            12    0
+##   3 NL WUR pig micro met             50    0
+##   3 SE AU cat wt                     12    0
+##   3 SE AU mix wt                      0    6
 ```
 
-```r
+``` r
 table(u3$digested)
 ```
 
 ```
 ## 
 ## FALSE  TRUE 
-##   800   375
+##   778   491
 ```
 
-```r
+``` r
 table(up3$digested)
 ```
 
 ```
 ## 
 ## FALSE  TRUE 
-##   800   375
+##   778   491
 ```
 
 
-```r
+``` r
 table(u3$meas.tech2)
 ```
 
 ```
 ## 
 ##   chamber micro met        wt 
-##       569       213       393
+##       585       214       470
 ```
 
-```r
+``` r
 table(up3$meas.tech2)
 ```
 
 ```
 ## 
 ##   chamber micro met        wt 
-##       569       213       393
+##       585       214       470
 ```
 
 
-```r
+``` r
 table(up3$country)
 ```
 
 ```
 ## 
 ##  CA  DE  DK  FR  IT  NL  SE 
-##  64 224 657  21  17 174  18
+##  64 224 751  21  17 174  18
 ```
 
-```r
+``` r
 table(u3$country)
 ```
 
 ```
 ## 
 ##  CA  DE  DK  FR  IT  NL  SE 
-##  64 224 657  21  17 174  18
+##  64 224 751  21  17 174  18
 ```
 
 Acidification table.
 
 
-```r
+``` r
 acidtab <- table(paste(pdat$man.trt1, pdat$man.trt2, pdat$man.trt3), pdat$acid)
 acidtab <- acidtab[order(-acidtab[, 'TRUE']), ]
 acidtab
@@ -260,32 +265,34 @@ acidtab
 ```
 ##                                                                  
 ##                                                                   FALSE TRUE
-##   Acidification NA NA                                                 0   78
+##   Acidification NA NA                                                 0   84
 ##   Acidification None NA                                               0   42
+##   Anaerobic digestion Mechanical separation Acidification             0   14
 ##   Field acidification  NA                                             0   14
 ##   Barn acidification  NA                                              0   12
 ##   Acidification Anaerobic digestion NA                                0    8
 ##   Acidification Mechanical separation NA                              0    8
 ##   Acidified NA NA                                                     0    8
 ##   Anaerobic digestion Acidification NA                                0    8
-##   Anaerobic digestion Mechanical separation Acidification             0    8
-##   Mechanical separation Acidification NA                              0    6
-##   Disruption Acidification NA                                         0    3
+##   Anaerobic digestion Acidification None                              0    6
+##   Anaerobic digestion Disruption Acidification                        0    3
 ##    none NA                                                           72    0
 ##   Anaerobic digestion  NA                                            26    0
 ##   Anaerobic digestion Ammonia stripping NA                            3    0
+##   Anaerobic digestion Disruption None                                 3    0
 ##   Anaerobic digestion Floculation NA                                  9    0
+##   Anaerobic digestion Mechanical separation Biochar addition          9    0
 ##   Anaerobic digestion Mechanical separation Mechanical separation     6    0
-##   Anaerobic digestion Mechanical separation NA                       42    0
-##   Anaerobic digestion Mechanical separation None                     18    0
+##   Anaerobic digestion Mechanical separation NA                       60    0
+##   Anaerobic digestion Mechanical separation None                     33    0
 ##   Anaerobic digestion Mechanical separation Plasma                    6    0
 ##   Anaerobic digestion NA NA                                         277    0
 ##   anaerobic digestion none NA                                         1    0
 ##   Anaerobic digestion none NA                                       137    0
-##   Anaerobic digestion None NA                                        13    0
+##   Anaerobic digestion None NA                                        21    0
+##   Anaerobic digestion None None                                      48    0
 ##   Diluted NA NA                                                      34    0
 ##   Dilution NA NA                                                      3    0
-##   Disruption NA NA                                                    3    0
 ##   Filtration  NA                                                     21    0
 ##   Floculation  NA                                                    10    0
 ##   Gravity separation  NA                                             21    0
@@ -294,16 +301,17 @@ acidtab
 ##   Irrigated NA NA                                                     5    0
 ##   Low DM none NA                                                     12    0
 ##   Low protein diet none NA                                            9    0
-##   Mechanical separation NA NA                                        15    0
+##   Mechanical separation Biochar addition NA                           6    0
+##   Mechanical separation NA NA                                        24    0
 ##   Mechanical separation none NA                                       4    0
-##   Mechanical separation None NA                                       6    0
+##   Mechanical separation None NA                                       9    0
 ##   Mechanical separation Plasma NA                                     6    0
 ##   NA NA NA                                                           27    0
 ##   Nitrification inhibitor NA NA                                      32    0
 ##   None  NA                                                           97    0
 ##   None Anaerobic digestion NA                                         8    0
 ##   None Mechanical separation NA                                       8    0
-##   None NA NA                                                        674    0
+##   None NA NA                                                        640    0
 ##   none none NA                                                      231    0
 ##   None none NA                                                      686    0
 ##   None None NA                                                      218    0
@@ -311,7 +319,7 @@ acidtab
 ```
 
 
-```r
+``` r
 trttab <- table(pdat$treat, pdat$acid)
 trttab <- trttab[order(-trttab[, 'TRUE']), ]
 trttab
@@ -343,6 +351,10 @@ trttab
 ##   A dis acid                                               0    3
 ##   B acid                                                   0    3
 ##   B screw acid                                             0    3
+##   High acid DFC                                            0    3
+##   Low acid DFC                                             0    3
+##   Medium acid DFC                                          0    3
+##   No acid DFC                                              0    3
 ##   16                                                       0    1
 ##   acidified_5.2                                            0    1
 ##   acidified_5.6                                            0    1
@@ -483,6 +495,12 @@ trttab
 ##   A MF liquid                                              3    0
 ##   A MF slurry                                              3    0
 ##   A screw                                                  4    0
+##   AD                                                       8    0
+##   AD-F                                                    12    0
+##   AD-FB                                                    3    0
+##   AD-L                                                    12    0
+##   AD-LB1                                                   3    0
+##   AD-LB2                                                   3    0
 ##   AER20                                                    2    0
 ##   AER25                                                    8    0
 ##   AER30                                                    2    0
@@ -614,6 +632,8 @@ trttab
 ##   LS CS1011                                                3    0
 ##   LS PS0910                                                3    0
 ##   M                                                       12    0
+##   Machine plot bLS                                         1    0
+##   Machine plot DFC                                         4    0
 ##   MD                                                       1    0
 ##   Medium Size                                              3    0
 ##   monof                                                   79    0
@@ -634,6 +654,11 @@ trttab
 ##   Plasma                                                  12    0
 ##   Prestorage                                               1    0
 ##   ps                                                      47    0
+##   PS                                                       9    0
+##   PS-F                                                     9    0
+##   PS-L                                                    12    0
+##   PS-LB1                                                   3    0
+##   PS-LB2                                                   3    0
 ##   Reference                                               12    0
 ##   Rønhave                                                  6    0
 ##   S                                                        8    0
@@ -727,84 +752,86 @@ trttab
 ```
 
 
-```r
+``` r
 unique(pdat[, c('inst', 'institute', 'country')])
 ```
 
 ```
-##      inst institute country
-## 1     101      ADAS      UK
-## 80    102       AUN      NO
-## 89    103      CRPA      IT
-## 164   104      DIAS      DK
-## 210   105      IGER      UK
-## 473   106      IMAG      NL
-## 475   107   IUL/FAT      CH
-## 596   108       JTI      SE
-## 684   201      AAFC      CA
-## 793   202   ADAS-RR      UK
-## 902   203      ARDC      CA
-## 1022  204        AT      DK
-## 1048  205        AU      DK
-## 1135  206    CAU-LU      DE
-## 1332  207  INH-HAFL      CH
-## 1379  208      INRA      FR
-## 1404  209        MU      IT
-## 1412  210   NMI-WUR      NL
-## 1428  211       SDU      DK
-## 1566  212   TEAGASC      IE
-## 1634  213      USDA      US
-## 1636  301    AU-BCE      DK
-## 1662  205        AU      NL
-## 1718  205        AU      CA
-## 1911  205        AU      SE
-## 1962  302  DiSAA-IT      IT
-## 1968  304     UNIMI      IT
-## 1972  305     UNINA      IT
-## 2164  208     INRAE      FR
-## 2185  214       WUR      NL
-## 2355  303        TI      DE
+##      inst    institute country
+## 1     101         ADAS      UK
+## 80    102          AUN      NO
+## 89    103         CRPA      IT
+## 164   104         DIAS      DK
+## 210   105         IGER      UK
+## 473   106         IMAG      NL
+## 475   107      IUL/FAT      CH
+## 596   108          JTI      SE
+## 684   201         AAFC      CA
+## 793   202      ADAS-RR      UK
+## 902   203         ARDC      CA
+## 1022  204           AT      DK
+## 1048  205           AU      DK
+## 1135  206       CAU-LU      DE
+## 1332  207     INH-HAFL      CH
+## 1379  208         INRA      FR
+## 1404  209           MU      IT
+## 1412  210      NMI-WUR      NL
+## 1428  211          SDU      DK
+## 1566  212      TEAGASC      IE
+## 1634  213         USDA      US
+## 1636  301       AU-BCE      DK
+## 1662  205           AU      NL
+## 1718  205           AU      CA
+## 1911  205           AU      SE
+## 1962  302     DiSAA-IT      IT
+## 1968  304        UNIMI      IT
+## 1972  305        UNINA      IT
+## 2164  208        INRAE      FR
+## 2185  214          WUR      NL
+## 2355  303           TI      DE
+## 2811  306 UNITO DISAFA      DK
 ```
 
 
-```r
+``` r
 table(pdat[, c('institute', 'app.method')])
 ```
 
 ```
-##           app.method
-## institute   bc bss bsth  cs  os  pi  ts
-##   AAFC     109   0    0   0   0   0   0
-##   ADAS      79   0    0   0   0   0   0
-##   ADAS-RR    0   0   63   0   0   0  46
-##   ARDC      60  60    0   0   0   0   0
-##   AT         8   0   11   0   7   0   0
-##   AU        16   0  538  16  83   0 173
-##   AU-BCE     4   0    0   0   0   0   0
-##   AUN        3   0    3   0   0   3   0
-##   CAU-LU     0   0  197   0   0   0   0
-##   CRPA      52   0   18   0   5   0   0
-##   DIAS      23   0   21   2   0   0   0
-##   DiSAA-IT   3   0    0   0   3   0   0
-##   IGER     245   0    3   0   6   0   9
-##   IMAG       1   0    0   0   1   0   0
-##   INH-HAFL  27   0   12   0   3   0   5
-##   INRA      10   0    8   0   0   0   1
-##   INRAE      4   0   17   0   0   0   0
-##   IUL/FAT  117   0    2   0   2   0   0
-##   JTI       17   0   34   3  26   0   8
-##   MU         7   0    0   0   1   0   0
-##   NMI-WUR   16   0    0   0   0   0   0
-##   SDU        0   0  106   4   0   0   0
-##   TEAGASC   20   0   18   0   0   0  30
-##   TI        32   0   64   0  64   0  64
-##   UNIMI      4   0    0   0   0   0   0
-##   UNINA      7   0    0   0   0   0   0
-##   USDA       2   0    0   0   0   0   0
-##   WUR      158   0    0   4 149   0 103
+##               app.method
+## institute       bc bss bsth  cs  os  pi  ts
+##   AAFC         109   0    0   0   0   0   0
+##   ADAS          79   0    0   0   0   0   0
+##   ADAS-RR        0   0   63   0   0   0  46
+##   ARDC          60  60    0   0   0   0   0
+##   AT             8   0   11   0   7   0   0
+##   AU            16   0  615  16  83   0 173
+##   AU-BCE         4   0    0   0   0   0   0
+##   AUN            3   0    3   0   0   3   0
+##   CAU-LU         0   0  197   0   0   0   0
+##   CRPA          52   0   18   0   5   0   0
+##   DIAS          23   0   21   2   0   0   0
+##   DiSAA-IT       3   0    0   0   3   0   0
+##   IGER         245   0    3   0   6   0   9
+##   IMAG           1   0    0   0   1   0   0
+##   INH-HAFL      27   0   12   0   3   0   5
+##   INRA          10   0    8   0   0   0   1
+##   INRAE          4   0   17   0   0   0   0
+##   IUL/FAT      117   0    2   0   2   0   0
+##   JTI           17   0   34   3  26   0   8
+##   MU             7   0    0   0   1   0   0
+##   NMI-WUR       16   0    0   0   0   0   0
+##   SDU            0   0  106   4   0   0   0
+##   TEAGASC       20   0   18   0   0   0  30
+##   TI            32   0   64   0  64   0  64
+##   UNIMI          4   0    0   0   0   0   0
+##   UNINA          7   0    0   0   0   0   0
+##   UNITO DISAFA   0   0   17   0   0   0   0
+##   USDA           2   0    0   0   0   0   0
+##   WUR          158   0    0   4 149   0 103
 ```
 
-```r
+``` r
 table(pdat[, c('sub.period', 'app.method')])
 ```
 
@@ -813,10 +840,10 @@ table(pdat[, c('sub.period', 'app.method')])
 ## sub.period  bc bss bsth  cs  os  pi  ts
 ##          1 583   0   81   5  73   3  46
 ##          2 351  60  476  24  76   0  82
-##          3  90   0  558   0 201   0 311
+##          3  90   0  652   0 201   0 311
 ```
 
-```r
+``` r
 table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ```
 
@@ -824,7 +851,7 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##            app.method
 ## corr.period   bc  bss bsth   cs   os   pi   ts <NA>
 ##        3     138    0    0    4   88    0   29    0
-##        <NA>  886   60 1115   25  262    3  410   49
+##        <NA>  886   60 1209   25  262    3  410   49
 ```
 
 
