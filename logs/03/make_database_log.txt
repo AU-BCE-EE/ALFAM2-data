@@ -1,35 +1,29 @@
 
-> # Load data from sub.periods 1 and 2 (the original "ALFAM2" work)
-> 
-> idat.old <- read.csv('../../data-output/02/ALFAM2_interval.csv')
+> idat.old <- read.csv("../../data-output/02/ALFAM2_interval.csv")
 
-> pdat.old <- read.csv('../../data-output/02/ALFAM2_plot.csv')
+> pdat.old <- read.csv("../../data-output/02/ALFAM2_plot.csv")
 
-> # Fix MF date problem
-> 
-> ## To find names to sort out:
-> #names(idat)[grepl('POS', lapply(idat, class))]
-> #names(pdat)[grepl('POS', lapply(pdat,  .... [TRUNCATED] 
+> for (i in c("app.start", "t.start", "t.end")) {
++     idat.old[, i] <- as.POSIXct(idat.old[, i], format = "%Y-%m-%d %H:%M", 
++         tz = "GMT")
++ .... [TRUNCATED] 
 
-> for(i in c('app.start', 't.start.p', 't.end.p')) {
-+   pdat.old[, i] <- as.POSIXct(pdat.old[, i], format = '%Y-%m-%d %H:%M', tz = 'GMT')
-+ }
+> for (i in c("app.start", "t.start.p", "t.end.p")) {
++     pdat.old[, i] <- as.POSIXct(pdat.old[, i], format = "%Y-%m-%d %H:%M", 
++         tz = "GMT ..." ... [TRUNCATED] 
 
-> # 
-> 
-> # Date record
 > print(Sys.time())
-[1] "2026-01-23 14:30:50 EST"
+[1] "2026-01-27 15:06:00 EST"
 
-> # Read and check data from files
-> ddir <- list.dirs('../../data-submitted/03', recursive = FALSE)
+> ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
 > dat <- list()
 
-> for(i in ddir) {
-+   cat('\nDirectory ', i,'\n')
-+   f <- list.files(i, pattern = 'xls', full.names = TRUE)
-+   # Omit temporary Excel files (create .... [TRUNCATED] 
+> for (i in ddir) {
++     cat("\nDirectory ", i, "\n")
++     f <- list.files(i, pattern = "xls", full.names = TRUE)
++     f <- f[!grepl("\\/~", f)]
++  .... [TRUNCATED] 
 
 Directory  ../../data-submitted/03/AU 
 
@@ -155,7 +149,6 @@ See cleanALFAM() function hoppidy2201.
 10    NA  <NA> NA    NA    NA    NA    NA    NA    NA    NA    NA    NA    NA   
 # ℹ 16 more rows
 # ℹ 5 more variables: `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>, `` <dbl>
-# ℹ Use `print(n = ...)` to see more rows
 
    file  ../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
@@ -218,7 +211,7 @@ Combinations missing from emis df:
   <chr>
 1 .    
 
-   file  ../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_13_Jan.xlsx 
+   file  ../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
   ``   
@@ -304,156 +297,128 @@ Directory  ../../data-submitted/03/WUR
 
 Directory  ../../data-submitted/03/WUR-wim 
 
-> cat('Done! Read', length(dat), ' directories\n')
+> cat("Done! Read", length(dat), " directories\n")
 Done! Read 10  directories
 
 > print(warnings())
 NULL
 
-> # Check for errors and create a log before merge
-> 
 > for (i in names(dat)) {
-+   for (j in names(dat[[i]])) {
-+ 
-+     # Check for errors and creat .... [TRUNCATED] 
++     for (j in names(dat[[i]])) {
++         fn <- strsplit(j, "/")
++         fn <- fn[[1]][length(fn[[1]])]
++         fn <- .... [TRUNCATED] 
 
-> # Sort out int- and plot-level flags
-> 
 > for (i in names(dat)) {
-+   for (j in names(dat[[i]])) {
-+ 
-+     dat[[i]][[j]] <- addFlags(dat[[i]][[j]]) .... [TRUNCATED] 
++     for (j in names(dat[[i]])) {
++         dat[[i]][[j]] <- addFlags(dat[[i]][[j]])
++         dat[[i]][[j]] <- fixFlags(da .... [TRUNCATED] 
 
-> # Pull new data from list
-> 
-> # Stack individual interval and plot level data frames from each file together
 > pdat <- idat <- data.frame()
 
-> # Extract and stack plot and interval level data
 > for (i in dat) {
-+   for (j in i) {
-+     pdat <- rbindf(pdat, j$plots)
-+     idat <- rbindf(idat .... [TRUNCATED] 
++     for (j in i) {
++         pdat <- rbindf(pdat, j$plots)
++         idat <- rbindf(idat, j$emis)
++     }
++ }
 
-> # Add plot and institute ID codes to new data
-> 
-> # Get original pmid from latest GitHub release
-> 
-> p <- paste0('https://github.com/sashahafner/A .... [TRUNCATED] 
+> p <- paste0("https://github.com/sashahafner/ALFAM2-data/raw/v", 
++     oldrelease)
 
-> pdatrelease <- data.table::fread(paste0(p, '/data-output/03/ALFAM2_plot.csv.gz'))
+> pdatrelease <- data.table::fread(paste0(p, "/data-output/03/ALFAM2_plot.csv.gz"))
 
-> # Fix name of uptake -> sub.period if needed (because of change around v2.47)
-> if (any(names(pdatrelease) == 'uptake')) {
-+   pdatrelease[, sub.per .... [TRUNCATED] 
+> if (any(names(pdatrelease) == "uptake")) {
++     pdatrelease[, `:=`(sub.period, uptake)]
++ }
 
-> pdatr <- as.data.frame(pdatrelease[sub.period == 3, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, .... [TRUNCATED] 
+> pdatr <- as.data.frame(pdatrelease[sub.period == 3, 
++     .(sub.period, institute, proj, file, exper, field, plot, 
++         treat, rep, rep2, app .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 1192   16
+[1] 1269   16
 
 > dim(pdat)
 [1] 1528  225
 
-> # Extract and reuse old institution codes
-> inst.old <- unique(pdat.old[, c('institute', 'inst')])
+> inst.old <- unique(pdat.old[, c("institute", "inst")])
 
-> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
+> pdat <- merge(pdat, inst.old, by = "institute", all.x = TRUE)
 
-> # Sort out institution codes for ones with changed names
-> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
+> pdat$inst[pdat$institute == "INRAE"] <- inst.old$inst[inst.old$institute == 
++     "INRA"]
 
-> # Create completely new 300s codes for new institutes
-> # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
+> pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
 
 > table(pdat$inst)
 
 205 208 214 301 302 303 304 305 306 
 831  21 414   4   6 224   4   7  17 
 
-> # ID codes created in plots data frame and then merged into interval level data frame
-> # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
+> pdat <- merge(pdat, pdatr, all.x = TRUE)
 
-> # Experiment ID (includes sub.period, inst, proj, exper)
-> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat. .... [TRUNCATED] 
+> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + 
++     max(c(pdat.old$eid, na.omit(pdat$eid)))
 
-> # Add plot and plot x meas tech IDs
-> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat .... [TRUNCATED] 
+> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + 
++     max(c(pdat.old$pid, na.omit(pdat$pid)))
 
-> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + max(c(pdat.old$pmid, na.omit(pdat$pmid)))
+> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + 
++     max(c(pdat.old$pmid, na.omit(pdat$pmid)))
 
-> # Merge IDs into interval level data
-> # Should alternatively be able to switch to interger directly in idat
-> idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
+> idat <- merge(idat, pdat[, c("cpmid", "eid", "pid", 
++     "pmid")], by = c("cpmid"), all.x = TRUE)
 
-> # Add observation ID
-> # Is not copied from earlier sub.period but because any new obs (should) have a large pmid, they will also have a higher oid
- .... [TRUNCATED] 
+> idat <- idat[order(idat$pmid, idat$int), ]
 
 > idat$oid <- 1:nrow(idat) + max(idat.old$oid)
 
-> # Combine new (sub.period 3) with old data
-> 
-> # First plot-level data
-> # Rename some old columns
-> names(pdat.old)[names(pdat.old) %in% c('first. .... [TRUNCATED] 
+> names(pdat.old)[names(pdat.old) %in% c("first.row.in.file", 
++     "last.row.in.file")] <- c("first.row.in.file.int", "last.row.in.file.int")
 
-> names(pdat.old)[names(pdat.old) == 'row.in.file'] <- 'row.in.file.plot'
+> names(pdat.old)[names(pdat.old) == "row.in.file"] <- "row.in.file.plot"
 
-> names(pdat.old)[names(pdat.old) == 'database'] <- 'sub.period'
+> names(pdat.old)[names(pdat.old) == "database"] <- "sub.period"
 
-> names(pdat.old)[names(pdat.old) == 'notes'] <- 'notes.plot'
+> names(pdat.old)[names(pdat.old) == "notes"] <- "notes.plot"
 
-> names(pdat.old)[names(pdat.old) == 'flag'] <- 'flag.plot'
+> names(pdat.old)[names(pdat.old) == "flag"] <- "flag.plot"
 
-> # And drop others
 > pdat.old$man.freeNH3 <- pdat.old$man.eq.gasNH3 <- NULL
 
-> # Combine
 > pdat.comb <- rbindf(pdat, pdat.old)
 
-> ## Checks:
-> ## Columns missing in new data
-> #names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
-> ## Columns missing i .... [TRUNCATED] 
+> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
 
-> # Combine old and new interval-level data
-> 
-> # Interval-level data
-> # Remove some old columns
-> idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- .... [TRUNCATED] 
+> names(idat.old)[names(idat.old) == "row.in.file"] <- "row.in.file.int"
 
-> # Rename some old columns
-> names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
+> names(idat.old)[names(idat.old) == "database"] <- "sub.period"
 
-> names(idat.old)[names(idat.old) == 'database'] <- 'sub.period'
+> names(idat.old)[names(idat.old) == "notes"] <- "notes.int"
 
-> names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
+> names(idat.old)[names(idat.old) == "flag"] <- "flag.int"
 
-> names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
-
-> # Combine
 > idat.comb <- rbindf(idat, idat.old)
 
-> # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
-> nn <- c('soil.temp.z', 'air.temp.z', 'wind .... [TRUNCATED] 
+> nn <- c("soil.temp.z", "air.temp.z", "wind.z", "wind.loc", 
++     "far.loc")
 
-> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
+> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, 
++     ".int")
 
-> ## Checks
-> ## Columns missing in new data
-> #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
-> ## Columns missing in .... [TRUNCATED] 
+> pdat.comb[pdat.comb$institute == "IMAG" & pdat.comb$crop == 
++     "grass", "exper"] <- paste0("G", pdat.comb[pdat.comb$institute == 
++     "IMAG" & .... [TRUNCATED] 
 
-> # Remove old NL results that have been updated in sub.period 3
-> # Note: Sub/correction period info, and whole correction is very much tailored to s .... [TRUNCATED] 
+> pdat.comb[pdat.comb$country == "NL" & pdat.comb$exper == 
++     "G2000-8", "exper"] <- "G2000-08"
 
-> # Missing 0 in 2 sub.period 2 experiment codes
-> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-8', 'exper'] <- 'G2000-08'
+> pdat.comb[pdat.comb$country == "NL" & pdat.comb$exper == 
++     "G2000-9", "exper"] <- "G2000-09"
 
-> pdat.comb[pdat.comb$country == 'NL' & pdat.comb$exper == 'G2000-9', 'exper'] <- 'G2000-09'
-
-> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+> pdat.nl <- pdat.comb[pdat.comb$country == "NL" & grepl("IMAG|NMI|WUR", 
++     pdat.comb$institute), ]
 
 > print(table(pdat.nl$exper, pdat.nl$sub.period))
            
@@ -630,28 +595,28 @@ NULL
   stubble     0  29  34
   wheat       0   0  37
 
-> # Get new results
-> exper.new <- pdat.nl[pdat.nl$sub.period == 3, 'exper']
+> exper.new <- pdat.nl[pdat.nl$sub.period == 3, "exper"]
 
-> # Find matching old ones that should be swapped out
-> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & pdat.nl$sub.period %in% 1:2, 'pmid']
+> pmid.old <- pdat.nl[pdat.nl$exper %in% exper.new & 
++     pdat.nl$sub.period %in% 1:2, "pmid"]
 
-> # Find sub.periods (original, could be 1 or 2) for new experiments
-> exper.old.in.new <- merge(unique(pdat.nl[pdat.nl$sub.period %in% 1:2, c('exper' .... [TRUNCATED] 
+> exper.old.in.new <- merge(unique(pdat.nl[pdat.nl$sub.period %in% 
++     1:2, c("exper", "sub.period")]), pdat.nl[pdat.nl$sub.period == 
++     3, c(" ..." ... [TRUNCATED] 
 
 > exper.old.in.new$corr.period <- 3
 
-> ## Sort out old experiments that are being replaced, to update sub.period
-> #exper.old <- unique(pdat.nl[pdat.nl$sub.period %in% 1:2, 'exper'])
-> #e .... [TRUNCATED] 
+> print(dim(pdat.comb))
 [1] 3427  230
 
 > print(dim(idat.comb))
 [1] 101905    143
 
-> pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, ]
+> pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, 
++     ]
 
-> idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, ]
+> idat.comb <- idat.comb[!idat.comb$pmid %in% pmid.old, 
++     ]
 
 > print(dim(pdat.comb))
 [1] 3163  230
@@ -659,23 +624,23 @@ NULL
 > print(dim(idat.comb))
 [1] 99653   143
 
-> # Set sub.period/period
-> pdat.comb <- merge(pdat.comb, exper.old.in.new, by = 'pmid', all.x = TRUE, suffixes = c('', '.nlmerge'))
+> pdat.comb <- merge(pdat.comb, exper.old.in.new, by = "pmid", 
++     all.x = TRUE, suffixes = c("", ".nlmerge"))
 
-> # nrow should not change
 > print(dim(pdat.comb))
 [1] 3163  233
 
-> # Check--should all be TRUE
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
 [1] TRUE
 
-> # Use old sub.period values
-> pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub.period'] <- pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 'sub. .... [TRUNCATED] 
+> pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), "sub.period"] <- pdat.comb[!is.na(pdat.comb$sub.period.nlmerge), 
++     "sub.period.nlmerge"]
 
-> pdat.nl <- pdat.comb[pdat.comb$country == 'NL' & grepl('IMAG|NMI|WUR', pdat.comb$institute), ]
+> pdat.nl <- pdat.comb[pdat.comb$country == "NL" & grepl("IMAG|NMI|WUR", 
++     pdat.comb$institute), ]
 
-> print(table(pdat.nl$exper, paste(pdat.nl$corr.period, pdat.nl$sub.period)))
+> print(table(pdat.nl$exper, paste(pdat.nl$corr.period, 
++     pdat.nl$sub.period)))
            
             3 1 3 2 NA 1 NA 2 NA 3
   B1990-15    0   3    0    0    0
@@ -854,8 +819,9 @@ NULL
   stubble   0  33   1
   wheat     0   0  37
 
-> # Which ones are remaining from sub.periods 1 and 2?
-> pdat.remain <- pdat.comb[is.na(pdat.comb$corr.period) & pdat.comb$sub.period %in% 1:2 & grepl .... [TRUNCATED] 
+> pdat.remain <- pdat.comb[is.na(pdat.comb$corr.period) & 
++     pdat.comb$sub.period %in% 1:2 & grepl("IMAG|NMI|WUR", pdat.comb$institute), 
++     ]
 
 > print(table(pdat.remain$exper, pdat.remain$sub.period))
           
@@ -869,98 +835,94 @@ NULL
   WIND_6   0 2
   WIND_8   0 2
 
-> print(table(pdat.remain$crop, pdat.remain$sub.period, exclude = NULL))
+> print(table(pdat.remain$crop, pdat.remain$sub.period, 
++     exclude = NULL))
        
          1  2
   grass  2 16
 
-> # Select and order columns (and order rows)
-> 
-> pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
-+   c('inst', 'eid', 'pid', 'pmid', 
-+     'sub.peri .... [TRUNCATED] 
+> pdat.comb <- pdat.comb[order(pdat.comb$pmid), c("inst", 
++     "eid", "pid", "pmid", "sub.period", "corr.period", "proj", 
++     "exper", "exper2",  .... [TRUNCATED] 
 
-> # Round
 > pdat.comb <- rounddf(pdat.comb, 5, func = signif)
 
-> # Order and select columns for database distribution
-> # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
+> idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int), 
++     c("pid", "pmid", "oid", "row.in.file.int", "interval", "t.start", 
++         "t. ..." ... [TRUNCATED] 
 
-> # Round 
 > idat.comb <- rounddf(idat.comb, 5, func = signif)
 
-> # Make text plot summaries for sub.period 3 only
-> 
 > for (i in unique(pdat$file)) {
-+ 
-+   fn <- strsplit(i, '/')
-+   fn <- fn[[1]][length(fn[[1]]) .... [TRUNCATED] 
++     fn <- strsplit(i, "/")
++     fn <- fn[[1]][length(fn[[1]])]
++     fn <- sub("\\.xlsx$", "", fn)
++     pds <- su .... [TRUNCATED] 
 
-> # Saves a copy of plot and internval data by flie
-> # Main purpose is to have a text-based (works with Git) record of submitted data
-> 
-> for (i in  .... [TRUNCATED] 
+> for (i in unique(pdat$file)) {
++     fn <- strsplit(i, "/")
++     fn <- fn[[1]][length(fn[[1]])]
++     fn <- sub("\\.xlsx$", "", fn)
++     pds <- su .... [TRUNCATED] 
 
-> knit('check_final.Rmd', output = '../../logs/03/check_final.md', quiet = TRUE)
+> knit("check_final.Rmd", output = "../../logs/03/check_final.md", 
++     quiet = TRUE)
 [1] "../../logs/03/check_final.md"
 
-> # Compare version number to what is on GitHub
-> 
-> # Latest pushed dev
-> lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/d .... [TRUNCATED] 
+> lastdev <- "https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/03/data_version.txt"
 
-> # Latest pushed main
-> lastmain <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/03/data_version.txt'
+> lastmain <- "https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/03/data_version.txt"
 
-> # Latest release
-> release <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/03/data_version.txt')
+> release <- paste0("https://github.com/sashahafner/ALFAM2-data/raw/v", 
++     oldrelease, "/data-output/03/data_version.txt")
 
-> # Latest pushed dev
-> vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])
+> vld <- gsub("\\.$", "", as.data.frame(data.table::fread(lastdev))[[3]])
 
-> # Latest pushed main
-> vlm <- gsub('\\.$', '', as.data.frame(data.table::fread(lastmain))[[3]])
+> vlm <- gsub("\\.$", "", as.data.frame(data.table::fread(lastmain))[[3]])
 
-> # Latest release
-> vr <- gsub('\\.$', '', as.data.frame(data.table::fread(release))[[3]])
+> vr <- gsub("\\.$", "", as.data.frame(data.table::fread(release))[[3]])
 
-> cat('Checking versions\n')
+> cat("Checking versions\n")
 Checking versions
 
 > if (oldrelease != vr) {
-+   cat('Version number in old release does not match release tag!\n')
++     cat("Version number in old release does not match release tag!\n")
 + }
 
-> vdat <- data.frame(Where = c('main.R (new version)', 'Release tag', 'Release', 'Main branch', 'Dev branch'),
-+                    Version = c(versio .... [TRUNCATED] 
+> vdat <- data.frame(Where = c("main.R (new version)", 
++     "Release tag", "Release", "Main branch", "Dev branch"), Version = c(version, 
++     oldr .... [TRUNCATED] 
 
-> cat('\n')
+> cat("\n")
 
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.73
-          Release tag    2.68
-              Release    2.68
-          Main branch    2.72
+ main.R (new version)    2.74
+          Release tag    2.73
+              Release    2.73
+          Main branch    2.73
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
-+   warning('Version number set in main.R matches\n   one or more existing version numbers!\n   Did  .... [TRUNCATED] 
++     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
 
 New version number seems OK.
 
-> # Write regular csv files
-> write.csv(pdat.comb, '../../data-output/03/ALFAM2_plot.csv', row.names = FALSE)
+> write.csv(pdat.comb, "../../data-output/03/ALFAM2_plot.csv", 
++     row.names = FALSE)
 
-> write.csv(idat.comb, '../../data-output/03/ALFAM2_interval.csv', row.names = FALSE)
+> write.csv(idat.comb, "../../data-output/03/ALFAM2_interval.csv", 
++     row.names = FALSE)
 
-> # And then compress them
-> R.utils::gzip('../../data-output/03/ALFAM2_plot.csv', overwrite = TRUE)
+> R.utils::gzip("../../data-output/03/ALFAM2_plot.csv", 
++     overwrite = TRUE)
 
-> R.utils::gzip('../../data-output/03/ALFAM2_interval.csv', overwrite = TRUE)
+> R.utils::gzip("../../data-output/03/ALFAM2_interval.csv", 
++     overwrite = TRUE)
 
-> # Record data version also
-> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../logs/03/data_version.txt')
+> cat(paste0("Database version: ", version, ". Date created: ", 
++     Sys.time()), file = "../../logs/03/data_version.txt")
 
-> cat(paste0('Database version: ', version, '. Date created: ', Sys.time()), file = '../../data-output/03/data_version.txt')
+> cat(paste0("Database version: ", version, ". Date created: ", 
++     Sys.time()), file = "../../data-output/03/data_version.txt")

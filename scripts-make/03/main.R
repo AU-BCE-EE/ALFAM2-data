@@ -63,7 +63,6 @@ source('check_version.R')
 sink('../../logs/03/check_version.txt')
   source('check_version.R')
 sink()
-source('check_version.R')
 
 # Run any main.R in analysis dir externally
 cat('\nRunning scripts in analysis dir...\n')

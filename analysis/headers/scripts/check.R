@@ -43,6 +43,6 @@ sink()
 # Throw a warning if there are any problems
 # And copy log file to somewhere I will notice it
 if (length(c(mph, rph, mih, rih)) > 0) {
-  warning('Variable definition (header) problem! Check analysis/headers/log.txt.')
+  stop('Variable definition (header) problem! Check analysis/headers/log.txt or the copy in this directory.')
   file.copy('../log/log.txt', '../../../header_warning_log.txt', overwrite = TRUE)
 }
