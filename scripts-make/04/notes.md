@@ -4,3 +4,4 @@
 2. Use data.table
 3. Convert all spreadsheets to csv files with ssconvert and dump the tidyverse Excel stuff (with pleasure)
 4. Always build database with `Rscript main.R` so that an error will stop the whole thing
+5. Have a single `make_database.sh` shell script that does everything right in `scripts-make`?

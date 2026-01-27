@@ -13,7 +13,7 @@
 +         tz = "GMT ..." ... [TRUNCATED] 
 
 > print(Sys.time())
-[1] "2026-01-27 15:06:00 EST"
+[1] "2026-01-27 15:22:13 EST"
 
 > ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
@@ -901,13 +901,15 @@ Checking versions
  main.R (new version)    2.74
           Release tag    2.73
               Release    2.73
-          Main branch    2.73
+          Main branch    2.74
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-
-New version number seems OK.
+  latest release latest main push  latest dev push 
+          "2.73"           "2.74"           "2.56" 
+Version number setting 
+                "2.74" 
 
 > write.csv(pdat.comb, "../../data-output/03/ALFAM2_plot.csv", 
 +     row.names = FALSE)
