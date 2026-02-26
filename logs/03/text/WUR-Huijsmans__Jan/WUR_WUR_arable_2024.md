@@ -200,7 +200,8 @@ title: 'Submitted data summary'
 ```
 
 ```
-## Error in txtplot(pds[, i], pds$pmid): x and y need to be of type numeric
+## Error in `txtplot()`:
+## ! x and y need to be of type numeric
 ```
 
 # Numeric summary
@@ -626,8 +627,8 @@ title: 'Submitted data summary'
 ##                       inst     pid    pmid     eid
 ## Class              numeric integer integer integer
 ## Minimum                214    2520    2530     452
-## Maximum                214    3500    3500     641
-## Mean                   214    3030    3030     548
+## Maximum                214    3520    3530     643
+## Mean                   214    3040    3040     549
 ## Unique (excld. NA)       1     120     120      41
 ## Missing values           0       0       0       0
 ## Sorted                TRUE   FALSE   FALSE   FALSE

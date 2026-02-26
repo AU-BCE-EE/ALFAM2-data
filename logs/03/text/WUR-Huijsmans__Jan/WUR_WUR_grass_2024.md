@@ -23,7 +23,7 @@ title: 'Submitted data summary'
 ##      +--+--------------+--------------+--------------+---------+
 ##      |  ******************** *      *   **                     |
 ## 3600 +  ********** *****  **** ****   *                        +
-##      |  *************** ** *  **      * *        *   *      *  |
+##      |  *************** ** *  **        *        *   *      *  |
 ##      |                                                         |
 ## 3400 +                                                         +
 ##      |                                                         |
@@ -89,8 +89,8 @@ title: 'Submitted data summary'
 ##      |                                                         |
 ## 3000 +                                                         +
 ##      |                                                         |
-##      |     **********  **** * ** **    *                       |
-## 2800 +   *** ************* **  *   *                           +
+##      |     **********  **** * ** **                            |
+## 2800 +   *** ************* **  *   *   *                       +
 ##      +-+----------+---------+----------+----------+---------+--+
 ##        0         0.2       0.4        0.6        0.8        1   
 ## 
@@ -153,8 +153,8 @@ title: 'Submitted data summary'
 ##      |                                                         |
 ## 3000 +                                                         +
 ##      |                                                         |
-##      |           * **************                              |
-## 2800 +      ** ** * ************ *  ** *****                *  +
+##      |             **************                              |
+## 2800 +      ** **** ************ *  ** *****                *  +
 ##      +-----+-----------+----------+----------+----------+------+
 ##           10          20         30         40         50       
 ## 
@@ -211,7 +211,8 @@ title: 'Submitted data summary'
 ```
 
 ```
-## Error in txtplot(pds[, i], pds$pmid): x and y need to be of type numeric
+## Error in `txtplot()`:
+## ! x and y need to be of type numeric
 ```
 
 # Numeric summary
@@ -637,8 +638,8 @@ title: 'Submitted data summary'
 ##                     flag.int soil.samp.z    inst     pid    pmid     eid
 ## Class              character   character numeric integer integer integer
 ## Minimum                             <NA>     214    2780    2780     540
-## Maximum                             <NA>     214    3700    3700     711
-## Mean                    <NA>        <NA>     214    3340    3350     641
+## Maximum                             <NA>     214    3720    3730     713
+## Mean                    <NA>        <NA>     214    3360    3360     642
 ## Unique (excld. NA)         1           0       1     294     294     113
 ## Missing values             0         294       0       0       0       0
 ## Sorted                  TRUE        <NA>    TRUE   FALSE   FALSE   FALSE

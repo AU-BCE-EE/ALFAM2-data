@@ -13,7 +13,7 @@
 +         tz = "GMT ..." ... [TRUNCATED] 
 
 > print(Sys.time())
-[1] "2026-01-27 15:22:13 EST"
+[1] "2026-02-26 15:26:21 EST"
 
 > ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
@@ -211,6 +211,13 @@ Combinations missing from emis df:
   <chr>
 1 .    
 
+   file  ../../data-submitted/03/AU/ALFAM2_template_8.3_SLU26.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
+# A tibble: 1 × 1
+  ``   
+  <chr>
+1 .    
+
    file  ../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .Did not find any publication info. . . might be good to double-check spreadsheet.
 # A tibble: 1 × 1
@@ -301,7 +308,6 @@ Directory  ../../data-submitted/03/WUR-wim
 Done! Read 10  directories
 
 > print(warnings())
-NULL
 
 > for (i in names(dat)) {
 +     for (j in names(dat[[i]])) {
@@ -340,7 +346,7 @@ NULL
 [1] 1269   16
 
 > dim(pdat)
-[1] 1528  225
+[1] 1552  225
 
 > inst.old <- unique(pdat.old[, c("institute", "inst")])
 
@@ -354,7 +360,7 @@ NULL
 > table(pdat$inst)
 
 205 208 214 301 302 303 304 305 306 
-831  21 414   4   6 224   4   7  17 
+855  21 414   4   6 224   4   7  17 
 
 > pdat <- merge(pdat, pdatr, all.x = TRUE)
 
@@ -607,10 +613,10 @@ NULL
 > exper.old.in.new$corr.period <- 3
 
 > print(dim(pdat.comb))
-[1] 3427  230
+[1] 3451  230
 
 > print(dim(idat.comb))
-[1] 101905    143
+[1] 103081    143
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, 
 +     ]
@@ -619,16 +625,16 @@ NULL
 +     ]
 
 > print(dim(pdat.comb))
-[1] 3163  230
+[1] 3187  230
 
 > print(dim(idat.comb))
-[1] 99653   143
+[1] 100829    143
 
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = "pmid", 
 +     all.x = TRUE, suffixes = c("", ".nlmerge"))
 
 > print(dim(pdat.comb))
-[1] 3163  233
+[1] 3187  233
 
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
 [1] TRUE
@@ -898,7 +904,7 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.74
+ main.R (new version)    2.75
           Release tag    2.73
               Release    2.73
           Main branch    2.74
@@ -906,10 +912,8 @@ Checking versions
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-  latest release latest main push  latest dev push 
-          "2.73"           "2.74"           "2.56" 
-Version number setting 
-                "2.74" 
+
+New version number seems OK.
 
 > write.csv(pdat.comb, "../../data-output/03/ALFAM2_plot.csv", 
 +     row.names = FALSE)
