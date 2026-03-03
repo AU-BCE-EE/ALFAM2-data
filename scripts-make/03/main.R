@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 3
-version <- '2.75' # Feb 2026
+version <- '2.76' # March 2026
 
 # GitHub release for pulling pmid
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -22,7 +22,7 @@ version <- '2.75' # Feb 2026
 oldrelease <- '2.73'
 
 # For checking only a particular new file (partial matching)
-#newsubmission <- 'SLU26'
+#newsubmission <- 'tabil26'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?

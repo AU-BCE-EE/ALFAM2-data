@@ -25,7 +25,7 @@ title: 'Submitted data summary'
 ## 3460 +   *            *   *     *         *                    +
 ##      |                        *  *    **   *  *                |
 ##      |     **                                     *            |
-## 3440 +   *  *                *  *      *   *                   +
+## 3440 +   *  *                *   *     *   *                   +
 ##      |    * *   * *                         *    *             |
 ##      |           ***     *   **                                |
 ##      |        *  * **    *                                     |
@@ -67,7 +67,7 @@ title: 'Submitted data summary'
 ##    8 | 25689
 ##   10 | 8034
 ##   12 | 5770189
-##   14 | 0234
+##   14 | 0244
 ##   16 | 888
 ##   18 | 6
 ## 
@@ -116,7 +116,7 @@ title: 'Submitted data summary'
 ##   -0 | 632222
 ##    0 | 1123334445556666799999
 ##    1 | 11123667789
-##    2 | 0011133477888
+##    2 | 0011133477889
 ##    3 | 44467788889
 ##    4 | 1334444588999
 ##    5 | 6
@@ -204,7 +204,7 @@ title: 'Submitted data summary'
 ## Class                  POSIXct, POSIXt    numeric
 ## Minimum            2022-04-05 14:17:00          3
 ## Maximum            2022-10-25 14:11:00          3
-## Mean               2022-07-28 05:28:12          3
+## Mean               2022-07-28 05:42:22          3
 ## Unique (excld. NA)                  68          1
 ## Missing values                       9          0
 ## Sorted                           FALSE       TRUE
@@ -303,7 +303,7 @@ title: 'Submitted data summary'
 ## Class              logical numeric character     POSIXct, POSIXt  character
 ## Minimum               <NA>    <NA>       6.6 2022-04-11 10:12:00       bsth
 ## Maximum               <NA>    <NA>       9.2 2022-10-31 07:43:00       bsth
-## Mean                  <NA>    <NA>      <NA> 2022-08-02 23:29:09       <NA>
+## Mean                  <NA>    <NA>      <NA> 2022-08-02 23:43:19       <NA>
 ## Unique (excld. NA)       0       0        24                  68          1
 ## Missing values          77      77         0                   9          0
 ## Sorted                <NA>    <NA>     FALSE               FALSE       TRUE
@@ -365,7 +365,7 @@ title: 'Submitted data summary'
 ##                    tan.app     e.1     e.4     e.6    e.12    e.24    e.48
 ## Class              numeric numeric numeric numeric numeric numeric numeric
 ## Minimum                4.3    <NA> -0.0163 -0.0287 -0.0664  -0.127    -0.2
-## Maximum               45.6    <NA>    6.36    7.03    10.7    14.2    17.2
+## Maximum               45.6    <NA>    6.38    7.06    10.7    14.2    17.2
 ## Mean                  24.6    <NA>    1.42    1.84    2.49    3.33    4.35
 ## Unique (excld. NA)      22       0      77      77      77      77      77
 ## Missing values           0      77       0       0       0       0       0
@@ -374,7 +374,7 @@ title: 'Submitted data summary'
 ##                       e.72    e.96   e.168 e.final   e.tot e.cum.1 e.cum.4
 ## Class              numeric numeric numeric numeric numeric numeric numeric
 ## Minimum             -0.258  -0.275    <NA>  -0.909  -0.909    <NA> -0.0163
-## Maximum               18.3      19    <NA>    19.6    19.6    <NA>    6.36
+## Maximum               18.3      19    <NA>    19.6    19.6    <NA>    6.38
 ## Mean                  4.98    5.39    <NA>    5.85    5.85    <NA>    1.42
 ## Unique (excld. NA)      77      77       0      77      77       0      77
 ## Missing values           0       0      77       0       0      77       0
@@ -383,7 +383,7 @@ title: 'Submitted data summary'
 ##                    e.cum.6 e.cum.12 e.cum.24 e.cum.48 e.cum.72 e.cum.96
 ## Class              numeric  numeric  numeric  numeric  numeric  numeric
 ## Minimum            -0.0287  -0.0664   -0.127     -0.2   -0.258   -0.275
-## Maximum               7.03     10.7     14.2     17.2     18.3       19
+## Maximum               7.06     10.7     14.2     17.2     18.3       19
 ## Mean                  1.84     2.49     3.33     4.35     4.98     5.39
 ## Unique (excld. NA)      77       77       77       77       77       77
 ## Missing values           0        0        0        0        0        0
@@ -402,7 +402,7 @@ title: 'Submitted data summary'
 ## Class               numeric  numeric  numeric  numeric  numeric   numeric
 ## Minimum            -0.00499 -0.00956   -0.015  -0.0194  -0.0207      <NA>
 ## Maximum               0.285    0.351    0.474    0.518    0.538      <NA>
-## Mean                 0.0898    0.119    0.157    0.179    0.194      <NA>
+## Mean                 0.0899    0.119    0.157    0.179    0.194      <NA>
 ## Unique (excld. NA)       77       77       77       77       77         0
 ## Missing values            0        0        0        0        0        77
 ## Sorted                FALSE    FALSE    FALSE    FALSE    FALSE      <NA>
@@ -429,7 +429,7 @@ title: 'Submitted data summary'
 ## Class                 numeric    numeric    numeric     numeric     numeric
 ## Minimum                  <NA>        4.6       3.97        2.47        2.05
 ## Maximum                  <NA>       16.2       15.2        12.9        12.3
-## Mean                     <NA>       11.7       10.9        8.86        8.49
+## Mean                     <NA>       11.5       10.6        8.69        8.47
 ## Unique (excld. NA)          0         77         77          77          77
 ## Missing values             77          0          0           0           0
 ## Sorted                   <NA>      FALSE      FALSE       FALSE       FALSE
@@ -438,7 +438,7 @@ title: 'Submitted data summary'
 ## Class                  numeric     numeric     numeric      numeric     numeric
 ## Minimum                   3.86        3.75        3.92         3.97        3.97
 ## Maximum                   12.5        12.5        12.6         12.8        12.8
-## Mean                      9.18        9.75        9.65         9.58        9.58
+## Mean                      9.17        9.75        9.65         9.58        9.58
 ## Unique (excld. NA)          77          77          77           77          77
 ## Missing values               0           0           0            0           0
 ## Sorted                   FALSE       FALSE       FALSE        FALSE       FALSE
@@ -581,7 +581,7 @@ title: 'Submitted data summary'
 ##                        dt1    j.rel1   j.NH31  dt.min  dt.max  ct.min  ct.max
 ## Class              numeric   numeric  numeric numeric numeric numeric numeric
 ## Minimum                1.6 -0.000215 -0.00286   0.133     1.6     1.6     136
-## Maximum               1.73    0.0796     2.75    1.73    25.1    1.73     140
+## Maximum               1.73    0.0797     2.76    1.73    25.1    1.73     140
 ## Mean                   1.7    0.0152    0.385    1.58    8.73     1.7     138
 ## Unique (excld. NA)      77        77       77      76      76      77      77
 ## Missing values           0         0        0       0       0       0       0
@@ -591,7 +591,7 @@ title: 'Submitted data summary'
 ## Class                  POSIXct, POSIXt     POSIXct, POSIXt    numeric
 ## Minimum            2022-04-05 14:17:00 2022-04-11 08:28:00          2
 ## Maximum            2022-10-25 14:11:00 2022-10-31 06:07:00          2
-## Mean               2022-07-16 14:11:17 2022-07-22 06:35:03          2
+## Mean               2022-07-16 14:23:48 2022-07-22 06:47:33          2
 ## Unique (excld. NA)                  77                  77          1
 ## Missing values                       0                   0          0
 ## Sorted                           FALSE               FALSE       TRUE

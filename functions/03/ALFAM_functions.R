@@ -1233,8 +1233,9 @@ fixDateTime <- function(x){
         tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
         if(is.na(year)) {
 	  cat('Date/time problem in fixDateTime(). Entering browser()')
+	  cat('Check the objects day, month, year and tt')
 	  cat('Value of x.orig:')
-	  print(x.orig)
+	  print(x.orig[i])
 	  browser()
 	}
         if(nchar(year) != 4) {

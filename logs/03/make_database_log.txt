@@ -13,7 +13,7 @@
 +         tz = "GMT ..." ... [TRUNCATED] 
 
 > print(Sys.time())
-[1] "2026-02-26 15:26:21 EST"
+[1] "2026-03-03 08:32:44 EST"
 
 > ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
@@ -904,10 +904,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.75
+ main.R (new version)    2.76
           Release tag    2.73
               Release    2.73
-          Main branch    2.74
+          Main branch    2.75
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
