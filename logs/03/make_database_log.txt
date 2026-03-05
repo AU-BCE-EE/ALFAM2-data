@@ -13,7 +13,7 @@
 +         tz = "GMT ..." ... [TRUNCATED] 
 
 > print(Sys.time())
-[1] "2026-03-03 08:32:44 EST"
+[1] "2026-03-05 10:14:09 EST"
 
 > ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
@@ -346,7 +346,7 @@ Done! Read 10  directories
 [1] 1269   16
 
 > dim(pdat)
-[1] 1552  225
+[1] 1550  225
 
 > inst.old <- unique(pdat.old[, c("institute", "inst")])
 
@@ -360,7 +360,7 @@ Done! Read 10  directories
 > table(pdat$inst)
 
 205 208 214 301 302 303 304 305 306 
-855  21 414   4   6 224   4   7  17 
+853  21 414   4   6 224   4   7  17 
 
 > pdat <- merge(pdat, pdatr, all.x = TRUE)
 
@@ -613,10 +613,10 @@ Done! Read 10  directories
 > exper.old.in.new$corr.period <- 3
 
 > print(dim(pdat.comb))
-[1] 3451  230
+[1] 3449  230
 
 > print(dim(idat.comb))
-[1] 103081    143
+[1] 102983    143
 
 > pdat.comb <- pdat.comb[!pdat.comb$pmid %in% pmid.old, 
 +     ]
@@ -625,16 +625,16 @@ Done! Read 10  directories
 +     ]
 
 > print(dim(pdat.comb))
-[1] 3187  230
+[1] 3185  230
 
 > print(dim(idat.comb))
-[1] 100829    143
+[1] 100731    143
 
 > pdat.comb <- merge(pdat.comb, exper.old.in.new, by = "pmid", 
 +     all.x = TRUE, suffixes = c("", ".nlmerge"))
 
 > print(dim(pdat.comb))
-[1] 3187  233
+[1] 3185  233
 
 > all(na.omit(pdat.comb$exper == pdat.comb$exper.nlmerge))
 [1] TRUE
@@ -904,10 +904,10 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)    2.76
+ main.R (new version)    2.77
           Release tag    2.73
               Release    2.73
-          Main branch    2.75
+          Main branch    2.76
            Dev branch    2.56
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

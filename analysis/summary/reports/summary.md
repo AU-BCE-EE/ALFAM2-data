@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "03 March, 2026"
+date: "05 March, 2026"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 3187  221
+## [1] 3185  221
 ```
 
 ``` r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 3187
+## [1] 3185
 ```
 
 ``` r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 3183
+## [1] 3181
 ```
 
 
@@ -42,7 +42,7 @@ dim(idat)
 ```
 
 ```
-## [1] 100829     50
+## [1] 100731     50
 ```
 
 
@@ -54,7 +54,7 @@ table(pdat$sub.period)
 ```
 ## 
 ##    1    2    3 
-##  791 1103 1293
+##  791 1103 1291
 ```
 
 ``` r
@@ -64,7 +64,7 @@ table(up$sub.period)
 ```
 ## 
 ##    1    2    3 
-##  791 1103 1293
+##  791 1103 1291
 ```
 
 ``` r
@@ -83,7 +83,7 @@ table(country = up$country, sub.period = up$sub.period)
 ##      IT  75   8  17
 ##      NL 110 167 174
 ##      NO   9   0   0
-##      SE  88   0  42
+##      SE  88   0  40
 ##      UK 342 109   0
 ##      US   0   2   0
 ```
@@ -100,7 +100,7 @@ table(institute = up$institute, sub.period = up$sub.period)
 ##   ADAS-RR        0 109   0
 ##   ARDC           0 120   0
 ##   AT             0  26   0
-##   AU             0  87 855
+##   AU             0  87 853
 ##   AU-BCE         0   0   4
 ##   AUN            9   0   0
 ##   CAU-LU         0 197   0
@@ -187,11 +187,11 @@ table(paste(u3$sub.period, u3$country, u3$institute, u3$man.source, u3$meas.tech
 ##   3 NL WUR cat micro met             93    0
 ##   3 NL WUR conc micro met            12    0
 ##   3 NL WUR pig micro met             50    0
-##   3 SE AU cat chamber                 0    6
+##   3 SE AU cat chamber                 0    5
 ##   3 SE AU cat wt                     12    0
 ##   3 SE AU mix chamber                 0   12
 ##   3 SE AU mix wt                      0    6
-##   3 SE AU pig chamber                 0    6
+##   3 SE AU pig chamber                 0    5
 ```
 
 ``` r
@@ -201,7 +201,7 @@ table(u3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   778   515
+##   778   513
 ```
 
 ``` r
@@ -211,7 +211,7 @@ table(up3$digested)
 ```
 ## 
 ## FALSE  TRUE 
-##   778   515
+##   778   513
 ```
 
 
@@ -222,7 +222,7 @@ table(u3$meas.tech2)
 ```
 ## 
 ##   chamber micro met        wt 
-##       609       214       470
+##       607       214       470
 ```
 
 ``` r
@@ -232,7 +232,7 @@ table(up3$meas.tech2)
 ```
 ## 
 ##   chamber micro met        wt 
-##       609       214       470
+##       607       214       470
 ```
 
 
@@ -243,7 +243,7 @@ table(up3$country)
 ```
 ## 
 ##  CA  DE  DK  FR  IT  NL  SE 
-##  64 224 751  21  17 174  42
+##  64 224 751  21  17 174  40
 ```
 
 ``` r
@@ -253,7 +253,7 @@ table(u3$country)
 ```
 ## 
 ##  CA  DE  DK  FR  IT  NL  SE 
-##  64 224 751  21  17 174  42
+##  64 224 751  21  17 174  40
 ```
 
 Acidification table.
@@ -289,7 +289,7 @@ acidtab
 ##   Anaerobic digestion Mechanical separation NA                       60    0
 ##   Anaerobic digestion Mechanical separation None                     33    0
 ##   Anaerobic digestion Mechanical separation Plasma                    6    0
-##   Anaerobic digestion NA NA                                         301    0
+##   Anaerobic digestion NA NA                                         299    0
 ##   anaerobic digestion none NA                                         1    0
 ##   Anaerobic digestion none NA                                       137    0
 ##   Anaerobic digestion None NA                                        21    0
@@ -528,10 +528,10 @@ trttab
 ##   BACK                                                     2    0
 ##   BACK                                                     2    0
 ##   Band                                                     3    0
-##   BDcat                                                    6    0
+##   BDcat                                                    5    0
 ##   BDmix-high                                               6    0
 ##   BDmix-low                                                6    0
-##   BDpig                                                    6    0
+##   BDpig                                                    5    0
 ##   bLS                                                      1    0
 ##   bLS_inj                                                  1    0
 ##   bLS_th                                                   1    0
@@ -812,7 +812,7 @@ table(pdat[, c('institute', 'app.method')])
 ##   ADAS-RR        0   0   63   0   0   0  46
 ##   ARDC          60  60    0   0   0   0   0
 ##   AT             8   0   11   0   7   0   0
-##   AU            16   0  639  16  83   0 173
+##   AU            16   0  637  16  83   0 173
 ##   AU-BCE         4   0    0   0   0   0   0
 ##   AUN            3   0    3   0   0   3   0
 ##   CAU-LU         0   0  197   0   0   0   0
@@ -847,7 +847,7 @@ table(pdat[, c('sub.period', 'app.method')])
 ## sub.period  bc bss bsth  cs  os  pi  ts
 ##          1 583   0   81   5  73   3  46
 ##          2 351  60  476  24  76   0  82
-##          3  90   0  676   0 201   0 311
+##          3  90   0  674   0 201   0 311
 ```
 
 ``` r
@@ -858,7 +858,7 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##            app.method
 ## corr.period   bc  bss bsth   cs   os   pi   ts <NA>
 ##        3     138    0    0    4   88    0   29    0
-##        <NA>  886   60 1233   25  262    3  410   49
+##        <NA>  886   60 1231   25  262    3  410   49
 ```
 
 

@@ -638,7 +638,7 @@ title: 'Submitted data summary'
 ##                     flag.int soil.samp.z    inst     pid    pmid     eid
 ## Class              character   character numeric integer integer integer
 ## Minimum                             <NA>     214    2780    2780     540
-## Maximum                             <NA>     214    3720    3730     713
+## Maximum                             <NA>     214    3720    3720     713
 ## Mean                    <NA>        <NA>     214    3360    3360     642
 ## Unique (excld. NA)         1           0       1     294     294     113
 ## Missing values             0         294       0       0       0       0

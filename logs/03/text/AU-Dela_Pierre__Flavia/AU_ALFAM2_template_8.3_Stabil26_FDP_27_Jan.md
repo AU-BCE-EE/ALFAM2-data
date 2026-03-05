@@ -28,8 +28,8 @@ title: 'Submitted data summary'
 ## 3440 +   *  *                *   *     *   *                   +
 ##      |    * *   * *                         *    *             |
 ##      |           ***     *   **                                |
-##      |        *  * **    *                                     |
-## 3420 +         *  *       *     *     *                        +
+## 3420 +        *  * **    *                                     +
+##      |         *  *       *     *     *                        |
 ##      |   ***              *                             *   *  |
 ##      |    *               *                   *         *      |
 ## 3400 +      *    *     *       *             *          *      +
@@ -82,8 +82,8 @@ title: 'Submitted data summary'
 ## 3440 +     *     *                  *    * *     *             +
 ##      |       * *    *        *              *     *            |
 ##      |              **     *  * *                              |
-##      |          **        *    *                     *     *   |
-## 3420 +           *  *      *       *     *       *             +
+## 3420 +          **        *    *                     *     *   +
+##      |           *  *      *       *     *       *             |
 ##      |    *  **              *               *  *              |
 ##      |    *     *        *                   *       *         |
 ## 3400 +             *   *    * *               *      *         +
@@ -132,8 +132,8 @@ title: 'Submitted data summary'
 ## 3440 +  *                                                   *  +
 ##      |  *                                                   *  |
 ##      |  *                                                   *  |
-##      |  *                                                   *  |
 ## 3420 +  *                                                   *  +
+##      |  *                                                   *  |
 ##      |  *                                                   *  |
 ##      |  *                                                   *  |
 ## 3400 +  *                                                   *  +
@@ -625,8 +625,8 @@ title: 'Submitted data summary'
 ##                                                                            
 ##                    date.start  flag.int soil.samp.z    inst     pid    pmid
 ## Class                    Date character   character numeric integer integer
-## Minimum            2022-04-05                   0-5     205    3390    3390
-## Maximum            2022-10-25                   0-5     205    3460    3470
+## Minimum            2022-04-05                   0-5     205    3380    3390
+## Maximum            2022-10-25                   0-5     205    3460    3460
 ## Mean                     <NA>      <NA>        <NA>     205    3420    3430
 ## Unique (excld. NA)          9         1           1       1      77      77
 ## Missing values              0         0           0       0       0       0
