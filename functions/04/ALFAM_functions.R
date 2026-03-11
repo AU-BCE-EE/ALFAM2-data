@@ -35,6 +35,13 @@ readALFAM2file <- function(file, institute, version) {
   nms <- c('contributor', 'institute')
   contrib <- fread(fnms[3], skip = 1, col.names = nms, na = na.strings)
   contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
+  # Add submitter 
+  if (!submitter[['submitter']][1] %in% contrib[['contributor']]) {
+    contrib <- rbind(contrib, data.table(contributer = submitter[['submitter']][1], institute = submitter[['institute']][1]))
+  }
+  # Add submission period and file
+  contrib[, `:=` (sub.period = sub.period, file = file)]
+  print(contrib)
 
   # Experiments
   cat('  Experiments . . .')
@@ -273,7 +280,6 @@ cleanALFAM <- function(obj, sub.period) {
 
   # Add submitter info
   plots$submitter <- submitter$submitter[1]
-  #plots$contribs <- paste(contrib[,1, drop = TRUE], collapse = '; ')
 
   # Applied TAN (kg N/ha)
   plots$tan.app <- plots$app.rate * plots$man.tan
@@ -321,7 +327,7 @@ cleanALFAM <- function(obj, sub.period) {
     cat('Error: Merge problem with plots and emis, probably a typo in project, experiment, etc.\n')
     cat('Entering browser. See ALFAM2_functions.R bb7124dhg around line 316')
     browser()
-    stop('Entering browser. See ALFAM2_functions.R bb7124dhg around line 316')
+    stop('See ALFAM2_functions.R bb7124dhg around line 316')
   }
 
   # Unique character plot IDs

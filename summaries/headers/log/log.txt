@@ -1,9 +1,0 @@
-Variable definition (header) check results
-
-1. Missing variables in plot-level header file: 
-
-2. Missing variables in interval-level header file: 
-
-3. Variables that should be removed from plot-level header file: 
-
-4. Variables that should be removed from interval-level header file: 
