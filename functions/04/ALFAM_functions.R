@@ -622,7 +622,6 @@ calcEmis <- function(obj, na = 'impute') {
   pubs <- obj$pubs
   file <- obj$file
 
-
   # Adjust wind speed to 2 m for use in plot-level means below
   # Roughness length (m) set to 1/10th canopy height
   z0 <- emis$crop.z / 10 / 100
@@ -635,7 +634,7 @@ calcEmis <- function(obj, na = 'impute') {
   # Drop intervals with missing emission measurements
   # NTS: how to handle this?
   if (na == 'drop') {
-    emis <- emis[!is.na(emis$j.NH3), ]
+    emis <- emis[!is.na(j.NH3), ]
   }
 
   # Calculate emission
@@ -648,8 +647,6 @@ calcEmis <- function(obj, na = 'impute') {
     emis[cpmid == i, e.int := j.NH3 * dt]
     emis[cpmid == i, e.cum := cumsum(e.int)]
   }
-  # Variable e is stuck from earlier (used in some analysis or fitting code)
-  emis$e <- emis$e.cum
 
   # Relative emission, fraction of applied TAN
   emis$e.rel <- emis$e.cum / emis$tan.app
@@ -658,37 +655,37 @@ calcEmis <- function(obj, na = 'impute') {
 
   # Interpolate cumulative emission etc. for addition to plot-level data
   # All by cpmid
-  pld <- data.frame(cpmid = unique(emis$cpmid))
-  for (i in unique(emis$cpmid)) {
-    dd <- emis[emis$cpmid == i, ]
-    # First cumulative variables
-    for (vv in c('e', 'e.cum', 'e.rel', 'rain.cum')) {
-      if (sum(!is.na(emis[cpmid == i, get(vv)])) > 2) {
-        for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
-          if (nrow(emis[cpmid == i, ]) %in% 0:1) {
-            message('< 2 rows, so cannot interpolate emission. Look for gjqoo81 in ALFAM_functions.R')
-            browser()
-          }
-          if (any(is.na(c(emis[cpmid == i, ct], emis[cpmid == i, get(vv)])))) {
-            message('Missing values. See hjhjhq1 in ALFAM_functions.R')
-            browser()
-          }
-          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[cpmid == i, ct], y = emis[cpmid == i, get(vv)], xout = tt)$y
-        }
-        pld[pld$cpmid == i, paste0(vv, '.final')] <- emis[cpmid == i & ct == max(emis[cpmid == i, ct]), get(vv)]
-        pld[pld$cpmid == i, paste0(vv, '.tot')]   <- emis[cpmid == i & ct == max(emis[cpmid == i, ct]), get(vv)]
+  time_points <- c(1, 4, 6, 12, 24, 48, 72, 96, 168)
+
+  pld <- emis[, {
+    result <- list()
+    # Cumulative variables: interpolate at fixed time points
+    for (vv in c('e.cum', 'e.rel', 'rain.cum')) {
+      if (sum(!is.na(get(vv))) > 2) {
+        vals      <- approx(x = ct, y = get(vv), xout = time_points)$y
+        final_val <- get(vv)[which.max(ct)]
+      } else {
+        vals      <- rep(NA_real_, length(time_points))
+        final_val <- NA_real_
       }
+      result[paste0(vv, '.', time_points)] <- as.list(vals)
+      result[[paste0(vv, '.final')]]       <- final_val
     }
-    # And then weighted averages
+    # Weighted averages
     for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')) {
-      if (sum(!is.na(emis[cpmid == i, get(vv)])) > 2) {
-        for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
-          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[cpmid == i & ct <= tt, dt] * emis[cpmid == i & ct <= tt, get(vv)]) / sum(emis[cpmid == i & ct <= tt, dt])
+      if (sum(!is.na(get(vv))) > 2) {
+        for (tt in time_points) {
+          idx <- ct <= tt
+          result[[paste0(vv, '.', tt)]] <- sum(dt[idx] * get(vv)[idx], na.rm = TRUE) / sum(dt[idx])
         }
-        pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[cpmid == i, dt] * emis[cpmid == i, get(vv)]) / sum(emis[cpmid == i, dt])
+        result[[paste0(vv, '.mn')]] <- sum(dt * get(vv), na.rm = TRUE) / sum(dt)
+      } else {
+        result[paste0(vv, '.', time_points)] <- as.list(rep(NA_real_, length(time_points)))
+        result[[paste0(vv, '.mn')]]          <- NA_real_
       }
     }
-  }
+    result
+  }, by = cpmid]
 
   # Merge interpolated results with plots
   plots <- merge(plots, pld, by = 'cpmid')
