@@ -56,6 +56,7 @@ sink('../../logs/03/make_database_log.txt')
   source('check_final.R', echo = TRUE)
   source('check_version.R', echo = TRUE)
   source('export.R', echo = TRUE)
+  source('contribs.R', echo = TRUE)
 sink()
 
 # Check version number
