@@ -5,6 +5,10 @@ output:
     toc: true
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.path = paste0(fn, '_files/figure-gfm/'))
+```
+
 # 0. Instructions for submitters
 Submitters should use this file to check for problems with submitted data.
 Send either a list of problems or confirmation that everything looks OK to Sasha by email.
