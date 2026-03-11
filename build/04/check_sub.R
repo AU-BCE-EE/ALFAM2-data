@@ -3,6 +3,7 @@
 for (i in names(dat)) {
   for (j in names(dat[[i]])) {
 
+	  stop()
     # Check for errors and create log with details
     # Note: the Rmd file overwrites object 'dd', so keep this script for last if possible
     fn <- strsplit(j, '/')

@@ -97,13 +97,12 @@ readALFAM2file <- function(file, institute, version) {
   # NTS: check why above does not work for other files above
 
   # Field commonly missing but needed for *id
-  # NTS: Convert to data.table approach
   if (all(is.na(c(plots$field, emis$field)))) {
-    plots$field <- ''
-    emis$field <- ''
+    plots[, field := '']
+    emis[, field := '']
   }
 
-  emis$j.type <- tolower(emis$j.type)
+  emis[, j.type := tolower(j.type)]
 
   # Publications
   cat('  Publications . . .')
@@ -625,11 +624,11 @@ calcEmis <- function(obj, na = 'impute') {
   # Adjust wind speed to 2 m for use in plot-level means below
   # Roughness length (m) set to 1/10th canopy height
   z0 <- emis$crop.z / 10 / 100
-  # Or min of 1 cm 
+  # Or min of 1 cm
   z0[is.na(z0)] <- 0.01
   z0[z0 < 0.01] <- 0.01
   # Adjust to height of 2 m
-  emis$wind.2m <- emis$wind * log(2.0 / z0) / log(emis$wind.z / z0)
+  emis[, wind.2m := wind * log(2.0 / z0) / log(wind.z / z0)]
 
   # Drop intervals with missing emission measurements
   # NTS: how to handle this?
@@ -638,7 +637,7 @@ calcEmis <- function(obj, na = 'impute') {
   }
 
   # Calculate emission
-  emis <- emis[order(emis$cpmid, emis$interval), ]
+  setorder(emis, cpmid, interval)
   for (i in unique(emis$cpmid)) {
     if (na == 'impute' & any(is.na(emis[cpmid == i, j.NH3]))) {
       emis[cpmid == i & is.na(j.NH3), flag.int := paste0(flag.int, ' m i')]
@@ -649,9 +648,9 @@ calcEmis <- function(obj, na = 'impute') {
   }
 
   # Relative emission, fraction of applied TAN
-  emis$e.rel <- emis$e.cum / emis$tan.app
+  emis[, e.rel := e.cum / tan.app]
   # Relative flux, fraction applied TAN per hour
-  emis$j.rel <- emis$j.NH3 / emis$tan.app
+  emis[, j.rel := j.NH3 / tan.app]
 
   # Interpolate cumulative emission etc. for addition to plot-level data
   # All by cpmid
@@ -691,7 +690,7 @@ calcEmis <- function(obj, na = 'impute') {
   plots <- merge(plots, pld, by = 'cpmid')
 
   # Rename rain.cum.24 etc.
-  names(plots) <- gsub('rain\\.cum', 'rain', names(plots))
+  setnames(plots, names(plots), gsub('rain\\.cum', 'rain', names(plots)))
 
   obj$plots <- plots
   obj$emis <- emis
