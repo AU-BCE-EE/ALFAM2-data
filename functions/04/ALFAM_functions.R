@@ -115,6 +115,16 @@ readALFAM2file <- function(file, institute, version) {
     pubs <- data.table(pub.id = NA, pub.info = NA)
   }
 
+  # Coerce ID columns to character to avoid type mismatch problems in merges
+  e_cols <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep')
+  p_cols <- c('proj', 'exper', 'field', 'plot', 'rep')
+  x_cols <- c('proj', 'exper', 'pub.id')
+  b_cols <- c('pub.id')
+  emis[,  (e_cols) := lapply(.SD, as.character), .SDcols = e_cols]
+  plots[, (p_cols) := lapply(.SD, as.character), .SDcols = p_cols]
+  exper[, (x_cols) := lapply(.SD, as.character), .SDcols = x_cols]
+  pubs[, (b_cols) := lapply(.SD, as.character), .SDcols = b_cols]
+
   return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file, tempver = tempver))
 
 }
@@ -534,10 +544,10 @@ addVars <- function(dat) {
   # Change dairy to cattle
   dat$man.source[grepl('dairy', dat$man.source)] <- 'cattle'
 
-  dat$man.source <- factor(dat$man.source, 
-			 levels = c('cattle', 'pig', 'poultry', 'mink', 'sewage sludge', 'mix', 'concentrate', 'digestate', 'urea', 'other', 'none'), 
-			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',      'digestate', 'urea', 'other', 'none')
-			 )
+  src_map <- c(cattle = 'cat', pig = 'pig', poultry = 'poultry', mink = 'mink',
+               'sewage sludge' = 'sludge', mix = 'mix', concentrate = 'conc',
+               digestate = 'digestate', urea = 'urea', other = 'other', none = 'none')
+  dat$man.source <- src_map[dat$man.source]
 
   if (any(wn <- is.na(dat$man.source))) {
     stop(paste('Problem with unmatched slurry sources for:', unique(dat$man.source.orig[wn]), '.\n    Add new values to addVars() func in ALFAM_functions.R'))
@@ -545,7 +555,7 @@ addVars <- function(dat) {
 
   # Manure consistency (reported)
   dat$man.con[dat$man.con == ''] <- NA
-  dat$man.con <- factor(tolower(dat$man.con), levels = c('slurry', 'liquid', 'solid'))
+  dat$man.con <- tolower(dat$man.con)
   
   return(dat)
 
@@ -589,10 +599,8 @@ getVars <- function(obj) {
   plots <- merge(plots, pld, by = 'cpmid')
 
   # Pub info
-  if (mjrver >= 7) {
-    plots <- merge(plots, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
-    emis <- merge(emis, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
-  }
+  plots <- merge(plots, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
+  emis <- merge(emis, exper[, c('proj', 'exper', 'pub.id')], by = c('proj', 'exper'), all.x = TRUE)
   plots <- merge(plots, pubs, by = 'pub.id', all.x = TRUE)
   emis <- merge(emis, pubs, by = 'pub.id', all.x = TRUE)
 
@@ -984,12 +992,6 @@ colmeans <- function(x, rows = 1:nrow(x), vals) {
   names(s) <- names(x)
   x <- rbind(x, s)
   if(!missing(vals)) x[nrow(x), which(!is.na(vals))] <- vals
-  return(x)
-}
-
-# Round complete data frame
-rounddf <- function(x, digits = 2) {
-  for(i in 1:ncol(x)) if(class(x[, i])[1] == 'numeric') x[, i] <- signif(x[, i], digits)
   return(x)
 }
 

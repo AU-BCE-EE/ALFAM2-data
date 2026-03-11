@@ -2,9 +2,9 @@
 
 # Get original pmid from latest GitHub release
 
-p <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease)
-pdatrelease <- data.table::fread(paste0(p, '/data-output/04/ALFAM2_plot.csv.gz'))
-pdatr <- as.data.frame(pdatrelease[sub.period == 4, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, meas.tech.det, pid, pmid, eid)])
+p <- paste0('https://github.com/AU-BCE-EE/ALFAM2-data/raw/v', oldrelease)
+pdatrelease <- data.table::fread(paste0(p, '/data-output/', sprintf('%02d', old.sub.period), '/ALFAM2_plot.csv.gz'))
+pdatr <- pdatrelease[sub.period == old.sub.period, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech, meas.tech.det, pid, pmid, eid)]
 
 dim(pdatr)
 dim(pdat)
@@ -18,14 +18,14 @@ pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INR
 
 # Create completely new 300s codes for new institutes
 # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped inst values)
-pdat$inst[is.na(pdat$inst)] <- 300 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
+pdat$inst[is.na(pdat$inst)] <- 400 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
 
 table(pdat$inst)
 
 # ID codes created in plots data frame and then merged into interval level data frame
 # First add ones already created in earlier release, to avoid changing existing keys with every release
 # For all, start with 1 + previous maximum from old (sub.period 1 + 2 *and* last sub.period 3 release (if any were actually merged in above))
-pdat <- merge(pdat, pdatr, all.x = TRUE)
+pdat <- merge(pdat, pdatr, all.x = TRUE, by = c('institute', 'proj', 'exper', 'field', 'plot', 'rep', 'app.start', 'sub.period', 'file', 'treat', 'meas.tech', 'meas.tech.det', 'rep2'))
 # Experiment ID (includes sub.period, inst, proj, exper)
 pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat.old$eid, na.omit(pdat$eid)))
 # Add plot and plot x meas tech IDs

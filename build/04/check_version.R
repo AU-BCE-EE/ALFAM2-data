@@ -1,11 +1,11 @@
 # Compare version number to what is on GitHub
 
 # Latest pushed dev
-lastdev <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/04/data_version.txt'
+lastdev  <- paste0('https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/', sprintf('%02d', old.sub.period), '/data_version.txt')
 # Latest pushed main
-lastmain <- 'https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/04/data_version.txt'
+lastmain <- paste0('https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/', sprintf('%02d', old.sub.period), '/data_version.txt')
 # Latest release
-release <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/04/data_version.txt')
+release  <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/', sprintf('%02d', old.sub.period), '/data_version.txt')
 
 # Latest pushed dev
 vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])

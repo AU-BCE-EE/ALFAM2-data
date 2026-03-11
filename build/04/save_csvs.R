@@ -20,8 +20,10 @@ for (i in unique(pdat$file)) {
     dir.create(idir)
   }
 
-  write.csv(rounddf(pds, func = signif, digits = 3), file = paste0(idir, '/', inst, '_', fn, '_plot.csv'), row.names = FALSE)
-  write.csv(rounddf(ids, func = signif, digits = 3), file = paste0(idir, '/', inst, '_', fn, '_interval.csv'), row.names = FALSE)
+  rounddt(pds, 3, func = signif)
+  fwrite(pds, file = paste0(idir, '/', inst, '_', fn, '_plot.csv.gz'))
+  rounddt(ids, 3, func = signif)
+  fwrite(ids, file = paste0(idir, '/', inst, '_', fn, '_interval.csv.gz'))
 
 }
 

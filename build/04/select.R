@@ -1,13 +1,13 @@
 # Select and order columns (and order rows)
 
-pdat.comb <- pdat.comb[order(pdat.comb$pmid), 
+setorder(pdat.comb, pmid)
+pdat.comb <- pdat.comb[, 
   c('inst', 'eid', 'pid', 'pmid', 
     'sub.period', 
     'corr.period', 
     'proj', 'exper', 'exper2', 
     'institute', 'country', 
     'submitter', 
-    #'submitter', 'contribs',
     'file',
     'first.row.in.file.int', 'last.row.in.file.int', 
     'row.in.file.plot', 
@@ -46,11 +46,12 @@ pdat.comb <- pdat.comb[order(pdat.comb$pmid),
     'notes.plot', 'flag.plot')]
 
 # Round
-pdat.comb <- rounddf(pdat.comb, 5, func = signif)
+rounddt(pdat.comb, 5, func = signif)
 
 # Order and select columns for database distribution
 # Note that objective is to keep file size small, so most columns in plot-level data frame are excluded
-idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int), 
+setorder(idat.comb, pmid, interval)
+idat.comb <- idat.comb[, 
   c('pid', 'pmid', 'oid', 
     'row.in.file.int', 
     'interval', 't.start', 't.end', 't.start.orig', 't.end.orig', 'dt', 'dt.calc', 'dt.diff', 'ct', 'mt', 'cta', 'bta', 
@@ -70,6 +71,6 @@ idat.comb <- idat.comb[order(idat.comb$pmid, idat.comb$int),
     'notes.int', 'flag.int')]
 
 # Round 
-idat.comb <- rounddf(idat.comb, 5, func = signif)
+rounddt(idat.comb, 5, func = signif)
 
 

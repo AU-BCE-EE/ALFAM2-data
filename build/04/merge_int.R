@@ -1,17 +1,11 @@
 # Combine old and new interval-level data
 
 # Interval-level data
-# Remove some old columns
-idat.old$man.freeNH3 <- idat.old$man.eq.gasNH3 <- NULL
-
-# Rename some old columns
-names(idat.old)[names(idat.old) == 'row.in.file'] <- 'row.in.file.int'
-names(idat.old)[names(idat.old) == 'database'] <- 'sub.period'
-names(idat.old)[names(idat.old) == 'notes'] <- 'notes.int'
-names(idat.old)[names(idat.old) == 'flag'] <- 'flag.int'
+# Remove some old columns (add later if needed)
+# Rename some old columns (add later if needed)
 
 # Combine
-idat.comb <- rbindf(idat, idat.old)
+idat.comb <- rbind(idat, idat.old, fill = TRUE)
 
 # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
 nn <- c('soil.temp.z', 'air.temp.z', 'wind.z', 'wind.loc', 'far.loc')
