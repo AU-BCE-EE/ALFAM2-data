@@ -1,9 +1,14 @@
 # Select and order columns (and order rows)
 
+# Add database version column to both
+pdat.comb[, version := version]
+idat.comb[, version := version]
+
 setorder(pdat.comb, pmid)
-pdat.comb <- pdat.comb[, 
-  c('inst', 'eid', 'pid', 'pmid', 
-    'sub.period', 
+pdat.comb <- pdat.comb[,
+  c('inst', 'eid', 'pid', 'pmid',
+    'version',
+    'sub.period',
     'corr.period', 
     'proj', 'exper', 'exper2', 
     'institute', 'country', 
@@ -52,7 +57,8 @@ rounddt(pdat.comb, 5, func = signif)
 # Note that objective is to keep file size small, so most columns in plot-level data frame are excluded
 setorder(idat.comb, pmid, interval)
 idat.comb <- idat.comb[, 
-  c('pid', 'pmid', 'oid', 
+  c('pid', 'pmid', 'oid',
+    'version',
     'row.in.file.int', 
     'interval', 't.start', 't.end', 't.start.orig', 't.end.orig', 'dt', 'dt.calc', 'dt.diff', 'ct', 'mt', 'cta', 'bta', 
     'bg.dl', 'bg.val', 'bg.unit', 
