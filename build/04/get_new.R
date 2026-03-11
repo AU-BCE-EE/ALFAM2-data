@@ -20,7 +20,6 @@ for(i in ddir) {
       check4missing(dd)
       # Basic data cleaning, add *character* IDs, add time (ct, etc) . . .
       dd <- cleanALFAM(dd, sub.period = sub.period)
-      dd$emis
       # Check again now that cpmid is available
       check4missing(dd)
       # Fix weather data, including rain calcs and interpolation as needed

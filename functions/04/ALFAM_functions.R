@@ -138,7 +138,8 @@ check4missing <- function(obj) {
   # Check for missing interval 0 or 1
   if ('cpmid' %in% names(emis)) {
     for (i in unique(emis$cpmid)) {
-      d <- emis[cpmid == ..i, ]
+      # NTS: Why does ..i *not* work below and i work?
+      d <- emis[cpmid == i, ]
       if (!min(d$interval[d$interval >= 0]) %in% 0:1) {
         cat('Missing interval 0 or 1. May just be problem with entry of interval numbers\n')
         cat('File ', d$file[1], '\n')
@@ -640,12 +641,12 @@ calcEmis <- function(obj, na = 'impute') {
   # Calculate emission
   emis <- emis[order(emis$cpmid, emis$interval), ]
   for (i in unique(emis$cpmid)) {
-    if (na == 'impute' & any(is.na(emis[emis$cpmid == i, 'j.NH3']))) {
-      emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'] <- paste0(emis[emis$cpmid == i & is.na(emis$j.NH3), 'flag.int'], ' m i')
-      emis[emis$cpmid == i, 'j.NH3'] <- imputeVars(emis[emis$cpmid == i, ], 'ct', 'j.NH3', method = 'linear')
+    if (na == 'impute' & any(is.na(emis[cpmid == i, j.NH3]))) {
+      emis[cpmid == i & is.na(j.NH3), flag.int := paste0(flag.int, ' m i')]
+      emis[cpmid == i, j.NH3 := imputeVars(emis[cpmid == i, ], 'ct', 'j.NH3', method = 'linear')]
     }
-    emis[emis$cpmid == i, 'e.int'] <- emis[emis$cpmid == i, 'j.NH3'] * emis[emis$cpmid == i, 'dt']
-    emis[emis$cpmid == i, 'e.cum'] <- cumsum(emis[emis$cpmid == i, 'e.int'])
+    emis[cpmid == i, e.int := j.NH3 * dt]
+    emis[cpmid == i, e.cum := cumsum(e.int)]
   }
   # Variable e is stuck from earlier (used in some analysis or fitting code)
   emis$e <- emis$e.cum
@@ -662,29 +663,29 @@ calcEmis <- function(obj, na = 'impute') {
     dd <- emis[emis$cpmid == i, ]
     # First cumulative variables
     for (vv in c('e', 'e.cum', 'e.rel', 'rain.cum')) {
-      if (sum(!is.na(emis[emis$cpmid == i, vv] > 2))) {
+      if (sum(!is.na(emis[cpmid == i, get(vv)])) > 2) {
         for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
-          if (nrow(emis[emis$cpmid == i, ]) %in% 0:1) {
+          if (nrow(emis[cpmid == i, ]) %in% 0:1) {
             message('< 2 rows, so cannot interpolate emission. Look for gjqoo81 in ALFAM_functions.R')
             browser()
           }
-          if (any(is.na(c(emis[emis$cpmid == i, 'ct'],emis[emis$cpmid == i, vv])))) {
+          if (any(is.na(c(emis[cpmid == i, ct], emis[cpmid == i, get(vv)])))) {
             message('Missing values. See hjhjhq1 in ALFAM_functions.R')
             browser()
           }
-          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[emis$cpmid == i, 'ct'], y =  emis[emis$cpmid == i, vv], xout = tt)$y
+          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- approx(x = emis[cpmid == i, ct], y = emis[cpmid == i, get(vv)], xout = tt)$y
         }
-        pld[pld$cpmid == i, paste0(vv, '.final')] <- emis[emis$cpmid == i & (emis[, 'ct'] == max(emis[emis$cpmid == i, 'ct'])), vv]
-        pld[pld$cpmid == i, paste0(vv, '.tot')] <-   emis[emis$cpmid == i & (emis[, 'ct'] == max(emis[emis$cpmid == i, 'ct'])), vv]
+        pld[pld$cpmid == i, paste0(vv, '.final')] <- emis[cpmid == i & ct == max(emis[cpmid == i, ct]), get(vv)]
+        pld[pld$cpmid == i, paste0(vv, '.tot')]   <- emis[cpmid == i & ct == max(emis[cpmid == i, ct]), get(vv)]
       }
     }
     # And then weighted averages
     for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')) {
-      if (sum(!is.na(emis[emis$cpmid == i, vv])) > 2) {
+      if (sum(!is.na(emis[cpmid == i, get(vv)])) > 2) {
         for (tt in c(1, 4, 6, 12, 24, 48, 72, 96, 168)) {
-          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt'] * emis[emis$cpmid == i & emis$ct <= tt, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
+          pld[pld$cpmid == i, paste0(vv, '.', tt)] <- sum(emis[cpmid == i & ct <= tt, dt] * emis[cpmid == i & ct <= tt, get(vv)]) / sum(emis[cpmid == i & ct <= tt, dt])
         }
-        pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[emis$cpmid == i, 'dt'] * emis[emis$cpmid == i, vv]) / sum(emis[emis$cpmid == i & emis$ct <= tt, 'dt']) 
+        pld[pld$cpmid == i, paste0(vv, '.mn')] <- sum(emis[cpmid == i, dt] * emis[cpmid == i, get(vv)]) / sum(emis[cpmid == i, dt])
       }
     }
   }
@@ -1271,11 +1272,16 @@ HM2DH <- function(x) {
 
 imputeVars <- function(d, tt, v, method = 'linear', rule = 2) {
 
-  d[is.na(d[, v]), v] <- approx(x = d[, tt], y = d[, v], xout = d[is.na(d[, v]), tt], method = method, rule = 2)$y
+  na_rows <- is.na(d[[v]])
+  d[na_rows, (v) := approx(
+    x    = as.numeric(d[[tt]]),
+    y    = d[[v]],
+    xout = as.numeric(d[[tt]][na_rows]),
+    method = method,
+    rule   = rule
+  )$y]
 
-  v <- d[, v]
-
-  return(v)
+  return(d[[v]])
 
 }
 
@@ -1300,11 +1306,11 @@ fixWeather <- function(obj, na = 'impute') {
   # Impute missing variables and calculate cumulative rainfall
   for (i in unique(emis$cpmid)) {
     for (j in c('air.temp', 'soil.temp', 'soil.temp.surf', 'rad', 'wind', 'air.pres', 'rh')) {
-      if (sum(!is.na(emis[emis$cpmid == i, j])) > 2) {
-        emis[emis$cpmid == i, j] <- imputeVars(emis[emis$cpmid == i, ], 'ct', j, method = 'linear')
+      if (sum(!is.na(emis[cpmid == i, get(j)])) > 2) {
+        emis[cpmid == i, (j) := imputeVars(emis[cpmid == i, ], 'ct', j, method = 'linear')]
       }
     }
-    emis[emis$cpmid == i, 'rain.cum'] <- cumsum(emis[emis$cpmid == i, 'rain'])
+    emis[cpmid == i, rain.cum := cumsum(rain)]
   }
 
   obj$emis <- emis
