@@ -52,7 +52,7 @@ print(j)
 ```
 
 # 4. Location
-```{r, echo = FALSE}
+```{r, echo = FALSE, results = 'asis'}
 plots <- dat[[i]][[j]]$plots
 ll <- unique(plots[, c('lat', 'long')])
 
@@ -573,11 +573,11 @@ if (nrow(plots) < 5) {
 # 10. Summary
 ## Plot-level data
 ```{r, echo=FALSE}
-summary(plots)
+dfsumm(plots)
 ```
 
 ## Interval-level emission data
 ```{r, echo=FALSE}
-summary(d)
+dfsumm(d)
 ```
 

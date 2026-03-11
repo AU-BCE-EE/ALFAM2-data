@@ -678,7 +678,7 @@ looks OK to Sasha by email. Be sure to reference the dataset version and
 file creation date/time when doing so. These are:</p>
 <pre><code>## Version:  3.0
 
-## [1] &quot;Date/time: 2026-03-11 07:38:21.067399&quot;</code></pre>
+## [1] &quot;Date/time: 2026-03-11 09:09:09.92208&quot;</code></pre>
 <p>Each of these files contains a summary of the data from a single
 submitted spreadsheet file. The html name is based on the name of the
 submitted file. Use the details below to check:</p>
@@ -753,7 +753,7 @@ checked.</p>
 
 ## [1] &quot;../../data-submitted/04/AU/test_file.xlsx&quot;</code></pre>
 <h1 id="id_4-location">4. Location</h1>
-<pre><code>## Location 1: lat=56.49316, long=9.56128  [View on map](https://maps.google.com/?q=56.49316,9.56128)</code></pre>
+<p>Location 1: lat=56.49316, long=9.56128 <a href="https://maps.google.com/?q=56.49316,9.56128">View on map</a></p>
 <h1 id="id_5keys-and-codes">5.Keys and codes</h1>
 <h2 id="codes-in-treatments-sheet">Codes in Treatments sheet</h2>
 <pre><code>## OK
@@ -1085,671 +1085,733 @@ emission</h2>
 <p><img src="data:image/png;base64,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" /><!-- --></p>
 <h1 id="id_10-summary">10. Summary</h1>
 <h2 id="plot-level-data">Plot-level data</h2>
-<pre><code>##   pub.id            proj               exper          cpmid          
-##  Mode:logical   Length:77          Min.   :1.000   Length:77         
-##  NA&#39;s:77        Class :character   1st Qu.:3.000   Class :character  
-##                 Mode  :character   Median :5.000   Mode  :character  
-##                                    Mean   :4.948                     
-##                                    3rd Qu.:7.000                     
-##                                    Max.   :9.000                     
-##                                                                      
-##     field               plot                rep          plot.area  
-##  Length:77          Length:77          Min.   :1.000   Min.   :0.2  
-##  Class :character   Class :character   1st Qu.:1.000   1st Qu.:0.2  
-##  Mode  :character   Mode  :character   Median :2.000   Median :0.2  
-##                                        Mean   :1.987   Mean   :0.2  
-##                                        3rd Qu.:3.000   3rd Qu.:0.2  
-##                                        Max.   :3.000   Max.   :0.2  
-##                                                                     
-##       lat             long         country              topo          
-##  Min.   :56.49   Min.   :9.561   Length:77          Length:77         
-##  1st Qu.:56.49   1st Qu.:9.561   Class :character   Class :character  
-##  Median :56.49   Median :9.561   Mode  :character   Mode  :character  
-##  Mean   :56.49   Mean   :9.561                                        
-##  3rd Qu.:56.49   3rd Qu.:9.561                                        
-##  Max.   :56.49   Max.   :9.561                                        
-##                                                                       
-##  soil.samp.z             clay        silt         sand       oc         
-##  Length:77          Min.   :9   Min.   :24   Min.   :65   Mode:logical  
-##  Class :character   1st Qu.:9   1st Qu.:24   1st Qu.:65   NA&#39;s:77       
-##  Mode  :character   Median :9   Median :24   Median :65                 
-##                     Mean   :9   Mean   :24   Mean   :65                 
-##                     3rd Qu.:9   3rd Qu.:24   3rd Qu.:65                 
-##                     Max.   :9   Max.   :24   Max.   :65                 
-##                                                                         
-##  soil.type        soil.water     soil.water.v   soil.moist        soil.ph     
-##  Mode:logical   Min.   :0.1300   Mode:logical   Mode:logical   Min.   :5.340  
-##  NA&#39;s:77        1st Qu.:0.1500   NA&#39;s:77        NA&#39;s:77        1st Qu.:5.690  
-##                 Median :0.1800                                 Median :5.720  
-##                 Mean   :0.1769                                 Mean   :5.817  
-##                 3rd Qu.:0.2000                                 3rd Qu.:5.950  
-##                 Max.   :0.2100                                 Max.   :6.530  
-##                                                                               
-##    soil.dens       crop.res           till           man.source
-##  Min.   :1.030   Length:77          Mode:logical   mix    :41  
-##  1st Qu.:1.100   Class :character   NA&#39;s:77        pig    :36  
-##  Median :1.150   Mode  :character                  cat    : 0  
-##  Mean   :1.172                                     poultry: 0  
-##  3rd Qu.:1.200                                     mink   : 0  
-##  Max.   :1.370                                     sludge : 0  
-##                                                    (Other): 0  
-##  man.source.det     man.bed          man.con     man.trt1        
-##  Length:77          Mode:logical   slurry:17   Length:77         
-##  Class :character   NA&#39;s:77        liquid:36   Class :character  
-##  Mode  :character                  solid :24   Mode  :character  
-##                                                                  
-##                                                                  
-##                                                                  
-##                                                                  
-##    man.trt2           man.trt3         man.stor           man.dm     
-##  Length:77          Length:77          Mode:logical   Min.   : 2.06  
-##  Class :character   Class :character   NA&#39;s:77        1st Qu.: 3.63  
-##  Mode  :character   Mode  :character                  Median : 5.35  
-##                                                       Mean   :13.01  
-##                                                       3rd Qu.:21.98  
-##                                                       Max.   :52.76  
-##                                                                      
-##      man.vs         man.tkn          man.tan      man.tic         man.ua       
-##  Min.   :59.81   Min.   : 1.510   Min.   :0.430   Mode:logical   Mode:logical  
-##  1st Qu.:69.53   1st Qu.: 2.030   1st Qu.:0.710   NA&#39;s:77        NA&#39;s:77       
-##  Median :76.89   Median : 2.610   Median :1.060                                
-##  Mean   :76.15   Mean   : 3.479   Mean   :1.097                                
-##  3rd Qu.:88.21   3rd Qu.: 3.100   3rd Qu.:1.280                                
-##  Max.   :92.80   Max.   :13.280   Max.   :3.460                                
-##                                                                                
-##  man.vfa            man.ph        app.start                  
-##  Mode:logical   Min.   :6.600   Min.   :2022-04-05 14:17:00  
-##  NA&#39;s:77        1st Qu.:7.530   1st Qu.:2022-04-12 16:32:00  
-##                 Median :7.860   Median :2022-09-14 15:56:00  
-##                 Mean   :7.829   Mean   :2022-07-28 05:42:22  
-##                 3rd Qu.:8.180   3rd Qu.:2022-10-19 15:00:00  
-##                 Max.   :9.200   Max.   :2022-10-25 14:11:00  
-##                                 NA&#39;s   :9                    
-##     app.end                     app.method           app.rate    
-##  Min.   :2022-04-11 10:12:00   Length:77          Min.   :10.00  
-##  1st Qu.:2022-04-18 10:55:00   Class :character   1st Qu.:10.00  
-##  Median :2022-09-20 09:28:00   Mode  :character   Median :30.00  
-##  Mean   :2022-08-02 23:43:19                      Mean   :23.77  
-##  3rd Qu.:2022-10-25 06:55:00                      3rd Qu.:30.00  
-##  Max.   :2022-10-31 07:43:00                      Max.   :30.00  
-##  NA&#39;s   :9                                                       
-##  app.rate.unit         incorp           time.incorp  man.area      
-##  Length:77          Length:77          Min.   : NA   Mode:logical  
-##  Class :character   Class :character   1st Qu.: NA   NA&#39;s:77       
-##  Mode  :character   Mode  :character   Median : NA                 
-##                                        Mean   :NaN                 
-##                                        3rd Qu.: NA                 
-##                                        Max.   : NA                 
-##                                        NA&#39;s   :77                  
-##  dist.inj       furrow.z       furrow.w           crop               crop.z   
-##  Mode:logical   Mode:logical   Mode:logical   Length:77          Min.   : NA  
-##  NA&#39;s:77        NA&#39;s:77        NA&#39;s:77        Class :character   1st Qu.: NA  
-##                                               Mode  :character   Median : NA  
-##                                                                  Mean   :NaN  
-##                                                                  3rd Qu.: NA  
-##                                                                  Max.   : NA  
-##                                                                  NA&#39;s   :77   
-##    crop.area     lai           notes.plot        row.in.file.plot
-##  Min.   : NA   Mode:logical   Length:77          Min.   : 5      
-##  1st Qu.: NA   NA&#39;s:77        Class :character   1st Qu.:24      
-##  Median : NA                  Mode  :character   Median :43      
-##  Mean   :NaN                                     Mean   :43      
-##  3rd Qu.: NA                                     3rd Qu.:62      
-##  Max.   : NA                                     Max.   :81      
-##  NA&#39;s   :77                                                      
-##   institute           sub.period     file              treat          
-##  Length:77          Min.   :4    Length:77          Length:77         
-##  Class :character   1st Qu.:4    Class :character   Class :character  
-##  Mode  :character   Median :4    Mode  :character   Mode  :character  
-##                     Mean   :4                                         
-##                     3rd Qu.:4                                         
-##                     Max.   :4                                         
-##                                                                       
-##   meas.tech         meas.tech.det  app.start.orig     app.end.orig      
-##  Length:77          Mode:logical   Length:77          Length:77         
-##  Class :character   NA&#39;s:77        Class :character   Class :character  
-##  Mode  :character                  Mode  :character   Mode  :character  
-##                                                                         
-##                                                                         
-##                                                                         
-##                                                                         
-##      cpid               ceid            flag.plot          submitter        
-##  Length:77          Length:77          Length:77          Length:77         
-##  Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                             
-##                                                                             
-##                                                                             
-##                                                                             
-##     tan.app         e.cum.1       e.cum.4            e.cum.6        
-##  Min.   : 4.30   Min.   : NA   Min.   :-0.01628   Min.   :-0.02874  
-##  1st Qu.:15.70   1st Qu.: NA   1st Qu.: 0.13867   1st Qu.: 0.17588  
-##  Median :29.10   Median : NA   Median : 0.96603   Median : 1.22397  
-##  Mean   :24.64   Mean   :NaN   Mean   : 1.41695   Mean   : 1.84169  
-##  3rd Qu.:33.90   3rd Qu.: NA   3rd Qu.: 1.75789   3rd Qu.: 2.41395  
-##  Max.   :45.60   Max.   : NA   Max.   : 6.37814   Max.   : 7.05958  
-##                  NA&#39;s   :77                                         
-##     e.cum.12           e.cum.24          e.cum.48          e.cum.72      
-##  Min.   :-0.06642   Min.   :-0.1272   Min.   :-0.1998   Min.   :-0.2576  
-##  1st Qu.: 0.22618   1st Qu.: 0.3827   1st Qu.: 0.5019   1st Qu.: 0.6286  
-##  Median : 1.70640   Median : 2.1236   Median : 2.7596   Median : 3.2075  
-##  Mean   : 2.48705   Mean   : 3.3325   Mean   : 4.3491   Mean   : 4.9809  
-##  3rd Qu.: 3.41015   3rd Qu.: 4.8682   3rd Qu.: 6.5669   3rd Qu.: 7.4864  
-##  Max.   :10.74491   Max.   :14.2457   Max.   :17.1662   Max.   :18.3371  
+<pre><code>## 
+##  77 rows and 210 columns
+##  77 unique rows
+##                     pub.id      proj   exper
+## Class              logical character integer
+## Minimum               &lt;NA&gt;  STABIL26       1
+## Maximum               &lt;NA&gt;  STABIL26       9
+## Mean                  &lt;NA&gt;      &lt;NA&gt;    4.95
+## Unique (excld. NA)       0         1       9
+## Missing values          77         0       0
+## Sorted                &lt;NA&gt;      TRUE    TRUE
+##                                             
+##                                                                                                                                                                  cpmid
+## Class                                                                                                                                                        character
+## Minimum                    D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:1.F:Foulumgård.P:1 AD.T:AD.R:1.R2:.T:2022-04-05 14:17:00.M:Wind tunnelNA
+## Maximum            D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:9.F:Foulumgård.P:9 PS-LB1.T:PS-LB1.R:2.R2:.T:2022-10-25 13:15:00.M:Wind tunnelNA
+## Mean                                                                                                                                                              &lt;NA&gt;
+## Unique (excld. NA)                                                                                                                                                  77
+## Missing values                                                                                                                                                       0
+## Sorted                                                                                                                                                            TRUE
+##                                                                                                                                                                       
+##                         field      plot     rep plot.area     lat    long
+## Class               character character integer   numeric numeric numeric
+## Minimum            Foulumgård      1 AD       1       0.2    56.5    9.56
+## Maximum            Foulumgård  9 PS-LB1       3       0.2    56.5    9.56
+## Mean                     &lt;NA&gt;      &lt;NA&gt;    1.99       0.2    56.5    9.56
+## Unique (excld. NA)          1        59       3         1       1       1
+## Missing values              0         0       0         0       0       0
+## Sorted                   TRUE     FALSE   FALSE      TRUE    TRUE    TRUE
 ##                                                                          
-##     e.cum.96         e.cum.168    e.cum.final         e.rel.1   
-##  Min.   :-0.2749   Min.   : NA   Min.   :-0.9094   Min.   : NA  
-##  1st Qu.: 0.6986   1st Qu.: NA   1st Qu.: 0.8353   1st Qu.: NA  
-##  Median : 3.5812   Median : NA   Median : 3.9691   Median : NA  
-##  Mean   : 5.3925   Mean   :NaN   Mean   : 5.8492   Mean   :NaN  
-##  3rd Qu.: 8.2090   3rd Qu.: NA   3rd Qu.: 8.8593   3rd Qu.: NA  
-##  Max.   :18.9895   Max.   : NA   Max.   :19.5669   Max.   : NA  
-##                    NA&#39;s   :77                      NA&#39;s   :77   
-##     e.rel.4             e.rel.6             e.rel.12        
-##  Min.   :-0.001224   Min.   :-0.002161   Min.   :-0.004994  
-##  1st Qu.: 0.010312   1st Qu.: 0.014271   1st Qu.: 0.019422  
-##  Median : 0.035549   Median : 0.046642   Median : 0.068410  
-##  Mean   : 0.053622   Mean   : 0.068397   Mean   : 0.089879  
-##  3rd Qu.: 0.068027   3rd Qu.: 0.099956   3rd Qu.: 0.141381  
-##  Max.   : 0.195309   Max.   : 0.231603   Max.   : 0.285153  
-##                                                             
-##     e.rel.24            e.rel.48           e.rel.72           e.rel.96       
-##  Min.   :-0.009563   Min.   :-0.01502   Min.   :-0.01937   Min.   :-0.02067  
-##  1st Qu.: 0.027338   1st Qu.: 0.03555   1st Qu.: 0.04303   1st Qu.: 0.04880  
-##  Median : 0.090302   Median : 0.11639   Median : 0.14637   Median : 0.15752  
-##  Mean   : 0.119039   Mean   : 0.15663   Mean   : 0.17939   Mean   : 0.19443  
-##  3rd Qu.: 0.197545   3rd Qu.: 0.26039   3rd Qu.: 0.29613   3rd Qu.: 0.33526  
-##  Max.   : 0.350860   Max.   : 0.47406   Max.   : 0.51771   Max.   : 0.53791  
+##                      country      topo soil.samp.z    clay    silt    sand
+## Class              character character   character integer integer integer
+## Minimum                   DK      flat         0-5       9      24      65
+## Maximum                   DK      flat         0-5       9      24      65
+## Mean                    &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;       9      24      65
+## Unique (excld. NA)         1         1           1       1       1       1
+## Missing values             0         0           0       0       0       0
+## Sorted                  TRUE      TRUE        TRUE    TRUE    TRUE    TRUE
+##                                                                           
+##                         oc soil.type soil.water soil.water.v soil.moist soil.ph
+## Class              logical   logical    numeric      logical    logical numeric
+## Minimum               &lt;NA&gt;      &lt;NA&gt;       0.13         &lt;NA&gt;       &lt;NA&gt;    5.34
+## Maximum               &lt;NA&gt;      &lt;NA&gt;       0.21         &lt;NA&gt;       &lt;NA&gt;    6.53
+## Mean                  &lt;NA&gt;      &lt;NA&gt;      0.177         &lt;NA&gt;       &lt;NA&gt;    5.82
+## Unique (excld. NA)       0         0          6            0          0       9
+## Missing values          77        77          0           77         77       0
+## Sorted                &lt;NA&gt;      &lt;NA&gt;      FALSE         &lt;NA&gt;       &lt;NA&gt;   FALSE
+##                                                                                
+##                    soil.dens  crop.res    till man.source
+## Class                numeric character logical     factor
+## Minimum                 1.03        No    &lt;NA&gt;        cat
+## Maximum                 1.37        No    &lt;NA&gt;       none
+## Mean                    1.17      &lt;NA&gt;    &lt;NA&gt;       mink
+## Unique (excld. NA)         9         1       0          2
+## Missing values             0         0      77          0
+## Sorted                 FALSE      TRUE    &lt;NA&gt;      FALSE
+##                                                          
+##                                                                                                        man.source.det
+## Class                                                                                                       character
+## Minimum                                                                finisher pigs, piglets or a mixture of the two
+## Maximum            mixture of manure, deep litter, meadow grass, grass, grass silage, straw, cereal, and corn silage 
+## Mean                                                                                                             &lt;NA&gt;
+## Unique (excld. NA)                                                                                                  2
+## Missing values                                                                                                      0
+## Sorted                                                                                                          FALSE
+##                                                                                                                      
+##                    man.bed man.con            man.trt1         man.trt2
+## Class              logical  factor           character        character
+## Minimum               &lt;NA&gt;  slurry Anaerobic digestion Biochar addition
+## Maximum               &lt;NA&gt;   solid                None             None
+## Mean                  &lt;NA&gt;  liquid                &lt;NA&gt;             &lt;NA&gt;
+## Unique (excld. NA)       0       3                   3                3
+## Missing values          77       0                   0               27
+## Sorted                &lt;NA&gt;   FALSE               FALSE            FALSE
+##                                                                        
+##                            man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
+## Class                     character  logical numeric numeric numeric numeric
+## Minimum            Biochar addition     &lt;NA&gt;    2.06    59.8    1.51    0.43
+## Maximum                        None     &lt;NA&gt;    52.8    92.8    13.3    3.46
+## Mean                           &lt;NA&gt;     &lt;NA&gt;      13    76.2    3.48     1.1
+## Unique (excld. NA)                2        0      19      19      18      22
+## Missing values                   62       77       0       0       0       0
+## Sorted                        FALSE     &lt;NA&gt;   FALSE   FALSE   FALSE   FALSE
+##                                                                             
+##                    man.tic  man.ua man.vfa  man.ph           app.start
+## Class              logical logical logical numeric     POSIXct, POSIXt
+## Minimum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     6.6 2022-04-05 14:17:00
+## Maximum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     9.2 2022-10-25 14:11:00
+## Mean                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    7.83 2022-07-28 05:42:22
+## Unique (excld. NA)       0       0       0      24                  68
+## Missing values          77      77      77       0                   9
+## Sorted                &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE               FALSE
+##                                                                       
+##                                app.end app.method app.rate app.rate.unit
+## Class                  POSIXct, POSIXt  character  integer     character
+## Minimum            2022-04-11 10:12:00       bsth       10          t/ha
+## Maximum            2022-10-31 07:43:00       bsth       30          t/ha
+## Mean               2022-08-02 23:43:19       &lt;NA&gt;     23.8          &lt;NA&gt;
+## Unique (excld. NA)                  68          1        2             1
+## Missing values                       9          0        0             0
+## Sorted                           FALSE       TRUE    FALSE          TRUE
+##                                                                         
+##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
+## Class              character     numeric  logical  logical  logical  logical
+## Minimum                 &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Maximum                 &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Mean                    &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Unique (excld. NA)         0           0        0        0        0        0
+## Missing values            77          77       77       77       77       77
+## Sorted                  &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+##                                                                             
+##                         crop  crop.z crop.area     lai notes.plot
+## Class              character numeric   numeric logical  character
+## Minimum                 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;          .
+## Maximum                 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;          .
+## Mean                    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)         0       0         0       0          1
+## Missing values            77      77        77      77         75
+## Sorted                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;       TRUE
+##                                                                  
+##                    row.in.file.plot institute sub.period
+## Class                       numeric character    numeric
+## Minimum                           5        AU          4
+## Maximum                          81        AU          4
+## Mean                             43      &lt;NA&gt;          4
+## Unique (excld. NA)               77         1          1
+## Missing values                    0         0          0
+## Sorted                         TRUE      TRUE       TRUE
+##                                                         
+##                                                         file     treat
+## Class                                              character character
+## Minimum            ../../data-submitted/04/AU/test_file.xlsx        AD
+## Maximum            ../../data-submitted/04/AU/test_file.xlsx    PS-LB2
+## Mean                                                    &lt;NA&gt;      &lt;NA&gt;
+## Unique (excld. NA)                                         1        11
+## Missing values                                             0         0
+## Sorted                                                  TRUE     FALSE
+##                                                                       
+##                      meas.tech meas.tech.det          app.start.orig
+## Class                character       logical               character
+## Minimum            Wind tunnel          &lt;NA&gt; 2022-04-05 14:17:02 UTC
+## Maximum            Wind tunnel          &lt;NA&gt; 2022-10-25 14:11:51 UTC
+## Mean                      &lt;NA&gt;          &lt;NA&gt;                    &lt;NA&gt;
+## Unique (excld. NA)           1             0                      77
+## Missing values               0            77                       0
+## Sorted                    TRUE          &lt;NA&gt;                   FALSE
+##                                                                     
+##                               app.end.orig
+## Class                            character
+## Minimum            2022-04-11 10:12:39 UTC
+## Maximum            2022-10-31 07:43:29 UTC
+## Mean                                  &lt;NA&gt;
+## Unique (excld. NA)                      77
+## Missing values                           0
+## Sorted                               FALSE
+##                                           
+##                                                                                                                                                   cpid
+## Class                                                                                                                                        character
+## Minimum                    D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:1.F:Foulumgård.P:1 AD.T:AD.R:1.R2:.T:2022-04-05 14:17:00
+## Maximum            D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:9.F:Foulumgård.P:9 PS-LB1.T:PS-LB1.R:2.R2:.T:2022-10-25 13:15:00
+## Mean                                                                                                                                              &lt;NA&gt;
+## Unique (excld. NA)                                                                                                                                  77
+## Missing values                                                                                                                                       0
+## Sorted                                                                                                                                            TRUE
+##                                                                                                                                                       
+##                                        ceid flag.plot           submitter
+## Class                             character character           character
+## Minimum            D:1.I:AU.Pr:STABIL26.E:1           Dela Pierre, Flavia
+## Maximum            D:1.I:AU.Pr:STABIL26.E:9           Dela Pierre, Flavia
+## Mean                                   &lt;NA&gt;      &lt;NA&gt;                &lt;NA&gt;
+## Unique (excld. NA)                        9         1                   1
+## Missing values                            0         0                   0
+## Sorted                                 TRUE      TRUE                TRUE
+##                                                                          
+##                    tan.app e.cum.1 e.cum.4 e.cum.6 e.cum.12 e.cum.24 e.cum.48
+## Class              numeric numeric numeric numeric  numeric  numeric  numeric
+## Minimum                4.3    &lt;NA&gt; -0.0163 -0.0287  -0.0664   -0.127     -0.2
+## Maximum               45.6    &lt;NA&gt;    6.38    7.06     10.7     14.2     17.2
+## Mean                  24.6    &lt;NA&gt;    1.42    1.84     2.49     3.33     4.35
+## Unique (excld. NA)      22       0      77      77       77       77       77
+## Missing values           0      77       0       0        0        0        0
+## Sorted               FALSE    &lt;NA&gt;   FALSE   FALSE    FALSE    FALSE    FALSE
 ##                                                                              
-##    e.rel.168    e.rel.final           rain.1        rain.4      rain.6 
-##  Min.   : NA   Min.   :-0.05613   Min.   : NA   Min.   :0   Min.   :0  
-##  1st Qu.: NA   1st Qu.: 0.05828   1st Qu.: NA   1st Qu.:0   1st Qu.:0  
-##  Median : NA   Median : 0.18637   Median : NA   Median :0   Median :0  
-##  Mean   :NaN   Mean   : 0.21043   Mean   :NaN   Mean   :0   Mean   :0  
-##  3rd Qu.: NA   3rd Qu.: 0.37440   3rd Qu.: NA   3rd Qu.:0   3rd Qu.:0  
-##  Max.   : NA   Max.   : 0.55903   Max.   : NA   Max.   :0   Max.   :0  
-##  NA&#39;s   :77                       NA&#39;s   :77                           
-##     rain.12     rain.24     rain.48     rain.72     rain.96     rain.168  
-##  Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   :0   Min.   : NA  
-##  1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.:0   1st Qu.: NA  
-##  Median :0   Median :0   Median :0   Median :0   Median :0   Median : NA  
-##  Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :0   Mean   :NaN  
-##  3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.:0   3rd Qu.: NA  
-##  Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   :0   Max.   : NA  
-##                                                              NA&#39;s   :77   
-##    rain.final   air.temp.1    air.temp.4      air.temp.6      air.temp.12    
-##  Min.   :0    Min.   : NA   Min.   : 4.60   Min.   : 3.967   Min.   : 2.467  
-##  1st Qu.:0    1st Qu.: NA   1st Qu.: 9.15   1st Qu.: 8.500   1st Qu.: 6.767  
-##  Median :0    Median : NA   Median :11.10   Median :10.700   Median :10.267  
-##  Mean   :0    Mean   :NaN   Mean   :11.47   Mean   :10.638   Mean   : 8.694  
-##  3rd Qu.:0    3rd Qu.: NA   3rd Qu.:14.70   3rd Qu.:13.767   3rd Qu.:11.429  
-##  Max.   :0    Max.   : NA   Max.   :16.20   Max.   :15.233   Max.   :12.900  
-##               NA&#39;s   :77                                                     
-##   air.temp.24      air.temp.48      air.temp.72      air.temp.96    
-##  Min.   : 2.054   Min.   : 3.861   Min.   : 3.748   Min.   : 3.916  
-##  1st Qu.: 7.638   1st Qu.: 7.453   1st Qu.: 8.920   1st Qu.: 8.525  
-##  Median : 9.946   Median :10.122   Median :10.400   Median :10.551  
-##  Mean   : 8.469   Mean   : 9.168   Mean   : 9.751   Mean   : 9.650  
-##  3rd Qu.:10.415   3rd Qu.:10.985   3rd Qu.:11.510   3rd Qu.:11.276  
-##  Max.   :12.254   Max.   :12.468   Max.   :12.548   Max.   :12.648  
-##                                                                     
-##   air.temp.168     air.temp.mn      soil.temp.1   soil.temp.4    
-##  Min.   : 3.968   Min.   : 3.968   Min.   : NA   Min.   : 4.700  
-##  1st Qu.: 8.495   1st Qu.: 8.495   1st Qu.: NA   1st Qu.: 7.950  
-##  Median :10.155   Median :10.155   Median : NA   Median :10.450  
-##  Mean   : 9.579   Mean   : 9.579   Mean   :NaN   Mean   : 9.754  
-##  3rd Qu.:11.120   3rd Qu.:11.120   3rd Qu.: NA   3rd Qu.:12.050  
-##  Max.   :12.771   Max.   :12.771   Max.   : NA   Max.   :14.850  
-##                                    NA&#39;s   :77                    
-##   soil.temp.6      soil.temp.12     soil.temp.24     soil.temp.48   
-##  Min.   : 4.800   Min.   : 4.767   Min.   : 4.377   Min.   : 4.527  
-##  1st Qu.: 8.100   1st Qu.: 8.133   1st Qu.: 7.808   1st Qu.: 7.930  
-##  Median :10.533   Median :10.414   Median : 9.787   Median : 9.587  
-##  Mean   : 9.808   Mean   : 9.743   Mean   : 9.373   Mean   : 9.359  
-##  3rd Qu.:12.167   3rd Qu.:12.183   3rd Qu.:11.823   3rd Qu.:12.089  
-##  Max.   :14.867   Max.   :14.783   Max.   :14.385   Max.   :13.995  
-##                                                                     
-##   soil.temp.72     soil.temp.96    soil.temp.168     soil.temp.mn   
-##  Min.   : 4.751   Min.   : 4.830   Min.   : 4.838   Min.   : 4.838  
-##  1st Qu.: 7.983   1st Qu.: 8.033   1st Qu.: 8.294   1st Qu.: 8.294  
-##  Median : 9.780   Median :10.083   Median :10.522   Median :10.522  
-##  Mean   : 9.525   Mean   : 9.607   Mean   : 9.716   Mean   : 9.716  
-##  3rd Qu.:12.105   3rd Qu.:12.075   3rd Qu.:12.210   3rd Qu.:12.210  
-##  Max.   :13.947   Max.   :13.884   Max.   :13.617   Max.   :13.617  
-##                                                                     
-##  soil.temp.surf.1 soil.temp.surf.4 soil.temp.surf.6 soil.temp.surf.12
-##  Min.   : NA      Min.   : NA      Min.   : NA      Min.   : NA      
-##  1st Qu.: NA      1st Qu.: NA      1st Qu.: NA      1st Qu.: NA      
-##  Median : NA      Median : NA      Median : NA      Median : NA      
-##  Mean   :NaN      Mean   :NaN      Mean   :NaN      Mean   :NaN      
-##  3rd Qu.: NA      3rd Qu.: NA      3rd Qu.: NA      3rd Qu.: NA      
-##  Max.   : NA      Max.   : NA      Max.   : NA      Max.   : NA      
-##  NA&#39;s   :77       NA&#39;s   :77       NA&#39;s   :77       NA&#39;s   :77       
-##  soil.temp.surf.24 soil.temp.surf.48 soil.temp.surf.72 soil.temp.surf.96
-##  Min.   : NA       Min.   : NA       Min.   : NA       Min.   : NA      
-##  1st Qu.: NA       1st Qu.: NA       1st Qu.: NA       1st Qu.: NA      
-##  Median : NA       Median : NA       Median : NA       Median : NA      
-##  Mean   :NaN       Mean   :NaN       Mean   :NaN       Mean   :NaN      
-##  3rd Qu.: NA       3rd Qu.: NA       3rd Qu.: NA       3rd Qu.: NA      
-##  Max.   : NA       Max.   : NA       Max.   : NA       Max.   : NA      
-##  NA&#39;s   :77        NA&#39;s   :77        NA&#39;s   :77        NA&#39;s   :77       
-##  soil.temp.surf.168 soil.temp.surf.mn     wind.1        wind.4        wind.6   
-##  Min.   : NA        Min.   : NA       Min.   : NA   Min.   : NA   Min.   : NA  
-##  1st Qu.: NA        1st Qu.: NA       1st Qu.: NA   1st Qu.: NA   1st Qu.: NA  
-##  Median : NA        Median : NA       Median : NA   Median : NA   Median : NA  
-##  Mean   :NaN        Mean   :NaN       Mean   :NaN   Mean   :NaN   Mean   :NaN  
-##  3rd Qu.: NA        3rd Qu.: NA       3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA  
-##  Max.   : NA        Max.   : NA       Max.   : NA   Max.   : NA   Max.   : NA  
-##  NA&#39;s   :77         NA&#39;s   :77        NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77   
-##     wind.12       wind.24       wind.48       wind.72       wind.96   
-##  Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA  
-##  1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA  
-##  Median : NA   Median : NA   Median : NA   Median : NA   Median : NA  
-##  Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN  
-##  3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA  
-##  Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA  
-##  NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77   
-##     wind.168      wind.mn      wind.2m.1     wind.2m.4     wind.2m.6  
-##  Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA  
-##  1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA  
-##  Median : NA   Median : NA   Median : NA   Median : NA   Median : NA  
-##  Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN  
-##  3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA  
-##  Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA  
-##  NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77   
-##    wind.2m.12    wind.2m.24    wind.2m.48    wind.2m.72    wind.2m.96 
-##  Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA   Min.   : NA  
-##  1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.: NA  
-##  Median : NA   Median : NA   Median : NA   Median : NA   Median : NA  
-##  Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :NaN  
-##  3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA  
-##  Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA   Max.   : NA  
-##  NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77   
-##   wind.2m.168    wind.2m.mn      rad.1         rad.4            rad.6       
-##  Min.   : NA   Min.   : NA   Min.   : NA   Min.   : 35.34   Min.   : 23.56  
-##  1st Qu.: NA   1st Qu.: NA   1st Qu.: NA   1st Qu.:127.30   1st Qu.: 96.33  
-##  Median : NA   Median : NA   Median : NA   Median :182.40   Median :122.03  
-##  Mean   :NaN   Mean   :NaN   Mean   :NaN   Mean   :191.68   Mean   :130.87  
-##  3rd Qu.: NA   3rd Qu.: NA   3rd Qu.: NA   3rd Qu.:256.45   3rd Qu.:171.96  
-##  Max.   : NA   Max.   : NA   Max.   : NA   Max.   :394.86   Max.   :267.50  
-##  NA&#39;s   :77    NA&#39;s   :77    NA&#39;s   :77                                     
-##      rad.12           rad.24           rad.48           rad.72      
-##  Min.   : 11.78   Min.   : 34.15   Min.   : 39.30   Min.   : 40.04  
-##  1st Qu.: 41.29   1st Qu.: 88.23   1st Qu.: 64.03   1st Qu.: 53.29  
-##  Median : 59.32   Median :112.35   Median :111.69   Median : 85.54  
-##  Mean   : 63.69   Mean   :119.24   Mean   :118.75   Mean   :136.65  
-##  3rd Qu.: 85.50   3rd Qu.:149.27   3rd Qu.:158.49   3rd Qu.:155.37  
-##  Max.   :134.02   Max.   :245.76   Max.   :263.05   Max.   :408.61  
-##                                                                     
-##      rad.96          rad.168           rad.mn        rain.rate.1   rain.rate.4
-##  Min.   : 42.02   Min.   : 36.16   Min.   : 36.16   Min.   : NA   Min.   :0   
-##  1st Qu.: 60.12   1st Qu.: 67.69   1st Qu.: 67.69   1st Qu.: NA   1st Qu.:0   
-##  Median :115.82   Median :135.52   Median :135.52   Median : NA   Median :0   
-##  Mean   :144.60   Mean   :136.55   Mean   :136.55   Mean   :NaN   Mean   :0   
-##  3rd Qu.:152.07   3rd Qu.:149.30   3rd Qu.:149.30   3rd Qu.: NA   3rd Qu.:0   
-##  Max.   :370.76   Max.   :304.68   Max.   :304.68   Max.   : NA   Max.   :0   
-##                                                     NA&#39;s   :77                
-##   rain.rate.6  rain.rate.12  rain.rate.24  rain.rate.48  rain.rate.72
-##  Min.   :0    Min.   :0     Min.   :0     Min.   :0     Min.   :0    
-##  1st Qu.:0    1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.:0    
-##  Median :0    Median :0     Median :0     Median :0     Median :0    
-##  Mean   :0    Mean   :0     Mean   :0     Mean   :0     Mean   :0    
-##  3rd Qu.:0    3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.:0    
-##  Max.   :0    Max.   :0     Max.   :0     Max.   :0     Max.   :0    
-##                                                                      
-##   rain.rate.96 rain.rate.168  rain.rate.mn      rh.1          rh.4      
-##  Min.   :0     Min.   :0     Min.   :0     Min.   : NA   Min.   :45.85  
-##  1st Qu.:0     1st Qu.:0     1st Qu.:0     1st Qu.: NA   1st Qu.:55.20  
-##  Median :0     Median :0     Median :0     Median : NA   Median :60.90  
-##  Mean   :0     Mean   :0     Mean   :0     Mean   :NaN   Mean   :64.05  
-##  3rd Qu.:0     3rd Qu.:0     3rd Qu.:0     3rd Qu.: NA   3rd Qu.:72.60  
-##  Max.   :0     Max.   :0     Max.   :0     Max.   : NA   Max.   :90.20  
-##                                            NA&#39;s   :77                   
-##       rh.6           rh.12           rh.24           rh.48      
-##  Min.   :48.37   Min.   :55.45   Min.   :63.34   Min.   :63.09  
-##  1st Qu.:60.03   1st Qu.:70.97   1st Qu.:77.86   1st Qu.:76.14  
-##  Median :64.47   Median :77.34   Median :82.91   Median :81.44  
-##  Mean   :68.06   Mean   :77.47   Mean   :80.87   Mean   :81.31  
-##  3rd Qu.:79.07   3rd Qu.:86.67   3rd Qu.:85.94   3rd Qu.:89.26  
-##  Max.   :90.93   Max.   :92.28   Max.   :92.95   Max.   :94.06  
-##                                                                 
-##      rh.72           rh.96           rh.168          rh.mn      
-##  Min.   :65.18   Min.   :67.43   Min.   :68.23   Min.   :68.23  
-##  1st Qu.:78.55   1st Qu.:78.97   1st Qu.:75.71   1st Qu.:75.71  
-##  Median :83.84   Median :80.65   Median :81.57   Median :81.57  
-##  Mean   :81.93   Mean   :81.36   Mean   :81.45   Mean   :81.45  
-##  3rd Qu.:89.48   3rd Qu.:90.27   3rd Qu.:89.83   3rd Qu.:89.83  
-##  Max.   :93.39   Max.   :92.95   Max.   :92.86   Max.   :92.86  
-##                                                                 
-##  first.row.in.file.int last.row.in.file.int     n.ints           dt1       
-##  Min.   :   5          Min.   :  62         Min.   :58.00   Min.   :1.599  
-##  1st Qu.:1333          1st Qu.:1416         1st Qu.:67.00   1st Qu.:1.732  
-##  Median :2722          Median :2787         Median :80.00   Median :1.732  
-##  Mean   :2774          Mean   :2849         Mean   :76.01   Mean   :1.701  
-##  3rd Qu.:4203          3rd Qu.:4282         3rd Qu.:84.00   3rd Qu.:1.732  
-##  Max.   :5772          Max.   :5857         Max.   :86.00   Max.   :1.733  
+##                    e.cum.72 e.cum.96 e.cum.168 e.cum.final e.rel.1  e.rel.4
+## Class               numeric  numeric   numeric     numeric numeric  numeric
+## Minimum              -0.258   -0.275      &lt;NA&gt;      -0.909    &lt;NA&gt; -0.00122
+## Maximum                18.3       19      &lt;NA&gt;        19.6    &lt;NA&gt;    0.195
+## Mean                   4.98     5.39      &lt;NA&gt;        5.85    &lt;NA&gt;   0.0536
+## Unique (excld. NA)       77       77         0          77       0       77
+## Missing values            0        0        77           0      77        0
+## Sorted                FALSE    FALSE      &lt;NA&gt;       FALSE    &lt;NA&gt;    FALSE
 ##                                                                            
-##      j.rel1               j.NH31              dt.min           dt.max      
-##  Min.   :-0.0002153   Min.   :-0.002864   Min.   :0.1329   Min.   : 1.599  
-##  1st Qu.: 0.0026538   1st Qu.: 0.033353   1st Qu.:1.5988   1st Qu.: 1.733  
-##  Median : 0.0093168   Median : 0.253622   Median :1.7320   Median : 1.733  
-##  Mean   : 0.0152497   Mean   : 0.384759   Mean   :1.5798   Mean   : 8.734  
-##  3rd Qu.: 0.0146591   3rd Qu.: 0.415150   3rd Qu.:1.7320   3rd Qu.:18.937  
-##  Max.   : 0.0796784   Max.   : 2.756871   Max.   :1.7322   Max.   :25.149  
+##                     e.rel.6 e.rel.12 e.rel.24 e.rel.48 e.rel.72 e.rel.96
+## Class               numeric  numeric  numeric  numeric  numeric  numeric
+## Minimum            -0.00216 -0.00499 -0.00956   -0.015  -0.0194  -0.0207
+## Maximum               0.232    0.285    0.351    0.474    0.518    0.538
+## Mean                 0.0684   0.0899    0.119    0.157    0.179    0.194
+## Unique (excld. NA)       77       77       77       77       77       77
+## Missing values            0        0        0        0        0        0
+## Sorted                FALSE    FALSE    FALSE    FALSE    FALSE    FALSE
+##                                                                         
+##                    e.rel.168 e.rel.final  rain.1  rain.4  rain.6 rain.12
+## Class                numeric     numeric numeric numeric numeric numeric
+## Minimum                 &lt;NA&gt;     -0.0561    &lt;NA&gt;       0       0       0
+## Maximum                 &lt;NA&gt;       0.559    &lt;NA&gt;       0       0       0
+## Mean                    &lt;NA&gt;        0.21    &lt;NA&gt;       0       0       0
+## Unique (excld. NA)         0          77       0       1       1       1
+## Missing values            77           0      77       0       0       0
+## Sorted                  &lt;NA&gt;       FALSE    &lt;NA&gt;    TRUE    TRUE    TRUE
+##                                                                         
+##                    rain.24 rain.48 rain.72 rain.96 rain.168 rain.final
+## Class              numeric numeric numeric numeric  numeric    numeric
+## Minimum                  0       0       0       0     &lt;NA&gt;          0
+## Maximum                  0       0       0       0     &lt;NA&gt;          0
+## Mean                     0       0       0       0     &lt;NA&gt;          0
+## Unique (excld. NA)       1       1       1       1        0          1
+## Missing values           0       0       0       0       77          0
+## Sorted                TRUE    TRUE    TRUE    TRUE     &lt;NA&gt;       TRUE
+##                                                                       
+##                    air.temp.1 air.temp.4 air.temp.6 air.temp.12 air.temp.24
+## Class                 numeric    numeric    numeric     numeric     numeric
+## Minimum                  &lt;NA&gt;        4.6       3.97        2.47        2.05
+## Maximum                  &lt;NA&gt;       16.2       15.2        12.9        12.3
+## Mean                     &lt;NA&gt;       11.5       10.6        8.69        8.47
+## Unique (excld. NA)          0         77         77          77          77
+## Missing values             77          0          0           0           0
+## Sorted                   &lt;NA&gt;      FALSE      FALSE       FALSE       FALSE
 ##                                                                            
-##      ct.min          ct.max        t.start.p                  
-##  Min.   :1.599   Min.   :135.9   Min.   :2022-04-05 14:17:00  
-##  1st Qu.:1.732   1st Qu.:137.5   1st Qu.:2022-04-19 15:28:00  
-##  Median :1.732   Median :138.4   Median :2022-09-14 15:12:00  
-##  Mean   :1.701   Mean   :138.1   Mean   :2022-07-16 14:23:48  
-##  3rd Qu.:1.732   3rd Qu.:138.6   3rd Qu.:2022-09-28 15:47:00  
-##  Max.   :1.733   Max.   :139.9   Max.   :2022-10-25 14:11:00  
-##                                                               
-##     t.end.p                      air.temp.z  soil.temp.z      wind.z 
-##  Min.   :2022-04-11 08:28:00   Min.   :2    Min.   :0.1   Min.   :2  
-##  1st Qu.:2022-04-25 08:20:00   1st Qu.:2    1st Qu.:0.1   1st Qu.:2  
-##  Median :2022-09-20 07:08:00   Median :2    Median :0.1   Median :2  
-##  Mean   :2022-07-22 06:47:33   Mean   :2    Mean   :0.1   Mean   :2  
-##  3rd Qu.:2022-10-04 08:39:00   3rd Qu.:2    3rd Qu.:0.1   3rd Qu.:2  
-##  Max.   :2022-10-31 06:07:00   Max.   :2    Max.   :0.1   Max.   :2  
-##                                                                      
-##  wind.loc       far.loc          pub.info         soil.type2      exper2       
-##  Mode:logical   Mode:logical   Length:77          Mode:logical   Mode:logical  
-##  NA&#39;s:77        NA&#39;s:77        Class :character   NA&#39;s:77        NA&#39;s:77       
-##                                Mode  :character                                
+##                    air.temp.48 air.temp.72 air.temp.96 air.temp.168 air.temp.mn
+## Class                  numeric     numeric     numeric      numeric     numeric
+## Minimum                   3.86        3.75        3.92         3.97        3.97
+## Maximum                   12.5        12.5        12.6         12.8        12.8
+## Mean                      9.17        9.75        9.65         9.58        9.58
+## Unique (excld. NA)          77          77          77           77          77
+## Missing values               0           0           0            0           0
+## Sorted                   FALSE       FALSE       FALSE        FALSE       FALSE
 ##                                                                                
+##                    soil.temp.1 soil.temp.4 soil.temp.6 soil.temp.12
+## Class                  numeric     numeric     numeric      numeric
+## Minimum                   &lt;NA&gt;         4.7         4.8         4.77
+## Maximum                   &lt;NA&gt;        14.9        14.9         14.8
+## Mean                      &lt;NA&gt;        9.75        9.81         9.74
+## Unique (excld. NA)           0          76          76           77
+## Missing values              77           0           0            0
+## Sorted                    &lt;NA&gt;       FALSE       FALSE        FALSE
+##                                                                    
+##                    soil.temp.24 soil.temp.48 soil.temp.72 soil.temp.96
+## Class                   numeric      numeric      numeric      numeric
+## Minimum                    4.38         4.53         4.75         4.83
+## Maximum                    14.4           14         13.9         13.9
+## Mean                       9.37         9.36         9.53         9.61
+## Unique (excld. NA)           77           77           77           77
+## Missing values                0            0            0            0
+## Sorted                    FALSE        FALSE        FALSE        FALSE
+##                                                                       
+##                    soil.temp.168 soil.temp.mn soil.temp.surf.1 soil.temp.surf.4
+## Class                    numeric      numeric          numeric          numeric
+## Minimum                     4.84         4.84             &lt;NA&gt;             &lt;NA&gt;
+## Maximum                     13.6         13.6             &lt;NA&gt;             &lt;NA&gt;
+## Mean                        9.72         9.72             &lt;NA&gt;             &lt;NA&gt;
+## Unique (excld. NA)            77           77                0                0
+## Missing values                 0            0               77               77
+## Sorted                     FALSE        FALSE             &lt;NA&gt;             &lt;NA&gt;
 ##                                                                                
+##                    soil.temp.surf.6 soil.temp.surf.12 soil.temp.surf.24
+## Class                       numeric           numeric           numeric
+## Minimum                        &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Maximum                        &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Mean                           &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Unique (excld. NA)                0                 0                 0
+## Missing values                   77                77                77
+## Sorted                         &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+##                                                                        
+##                    soil.temp.surf.48 soil.temp.surf.72 soil.temp.surf.96
+## Class                        numeric           numeric           numeric
+## Minimum                         &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Maximum                         &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Mean                            &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+## Unique (excld. NA)                 0                 0                 0
+## Missing values                    77                77                77
+## Sorted                          &lt;NA&gt;              &lt;NA&gt;              &lt;NA&gt;
+##                                                                         
+##                    soil.temp.surf.168 soil.temp.surf.mn  wind.1  wind.4  wind.6
+## Class                         numeric           numeric numeric numeric numeric
+## Minimum                          &lt;NA&gt;              &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Maximum                          &lt;NA&gt;              &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Mean                             &lt;NA&gt;              &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)                  0                 0       0       0       0
+## Missing values                     77                77      77      77      77
+## Sorted                           &lt;NA&gt;              &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;
 ##                                                                                
-##                                                                                
-##    rep2            acid         meas.tech.orig      meas.tech2       
-##  Mode:logical   Mode :logical   Length:77          Length:77         
-##  NA&#39;s:77        FALSE:77        Class :character   Class :character  
-##                                 Mode  :character   Mode  :character  
+##                    wind.12 wind.24 wind.48 wind.72 wind.96 wind.168 wind.mn
+## Class              numeric numeric numeric numeric numeric  numeric numeric
+## Minimum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;
+## Maximum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;
+## Mean                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)       0       0       0       0       0        0       0
+## Missing values          77      77      77      77      77       77      77
+## Sorted                &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     &lt;NA&gt;    &lt;NA&gt;
+##                                                                            
+##                    wind.2m.1 wind.2m.4 wind.2m.6 wind.2m.12 wind.2m.24
+## Class                numeric   numeric   numeric    numeric    numeric
+## Minimum                 &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;
+## Maximum                 &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;
+## Mean                    &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)         0         0         0          0          0
+## Missing values            77        77        77         77         77
+## Sorted                  &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;
+##                                                                       
+##                    wind.2m.48 wind.2m.72 wind.2m.96 wind.2m.168 wind.2m.mn
+## Class                 numeric    numeric    numeric     numeric    numeric
+## Minimum                  &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
+## Maximum                  &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
+## Mean                     &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)          0          0          0           0          0
+## Missing values             77         77         77          77         77
+## Sorted                   &lt;NA&gt;       &lt;NA&gt;       &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
+##                                                                           
+##                      rad.1   rad.4   rad.6  rad.12  rad.24  rad.48  rad.72
+## Class              numeric numeric numeric numeric numeric numeric numeric
+## Minimum               &lt;NA&gt;    35.3    23.6    11.8    34.2    39.3      40
+## Maximum               &lt;NA&gt;     395     267     134     246     263     409
+## Mean                  &lt;NA&gt;     192     131    63.7     119     119     137
+## Unique (excld. NA)       0      77      77      77      77      77      77
+## Missing values          77       0       0       0       0       0       0
+## Sorted                &lt;NA&gt;   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+##                                                                           
+##                     rad.96 rad.168  rad.mn rain.rate.1 rain.rate.4 rain.rate.6
+## Class              numeric numeric numeric     numeric     numeric     numeric
+## Minimum                 42    36.2    36.2        &lt;NA&gt;           0           0
+## Maximum                371     305     305        &lt;NA&gt;           0           0
+## Mean                   145     137     137        &lt;NA&gt;           0           0
+## Unique (excld. NA)      77      77      77           0           1           1
+## Missing values           0       0       0          77           0           0
+## Sorted               FALSE   FALSE   FALSE        &lt;NA&gt;        TRUE        TRUE
+##                                                                               
+##                    rain.rate.12 rain.rate.24 rain.rate.48 rain.rate.72
+## Class                   numeric      numeric      numeric      numeric
+## Minimum                       0            0            0            0
+## Maximum                       0            0            0            0
+## Mean                          0            0            0            0
+## Unique (excld. NA)            1            1            1            1
+## Missing values                0            0            0            0
+## Sorted                     TRUE         TRUE         TRUE         TRUE
+##                                                                       
+##                    rain.rate.96 rain.rate.168 rain.rate.mn    rh.1    rh.4
+## Class                   numeric       numeric      numeric numeric numeric
+## Minimum                       0             0            0    &lt;NA&gt;    45.8
+## Maximum                       0             0            0    &lt;NA&gt;    90.2
+## Mean                          0             0            0    &lt;NA&gt;    64.1
+## Unique (excld. NA)            1             1            1       0      77
+## Missing values                0             0            0      77       0
+## Sorted                     TRUE          TRUE         TRUE    &lt;NA&gt;   FALSE
+##                                                                           
+##                       rh.6   rh.12   rh.24   rh.48   rh.72   rh.96  rh.168
+## Class              numeric numeric numeric numeric numeric numeric numeric
+## Minimum               48.4    55.5    63.3    63.1    65.2    67.4    68.2
+## Maximum               90.9    92.3      93    94.1    93.4      93    92.9
+## Mean                  68.1    77.5    80.9    81.3    81.9    81.4    81.5
+## Unique (excld. NA)      77      77      77      77      77      77      77
+## Missing values           0       0       0       0       0       0       0
+## Sorted               FALSE   FALSE   FALSE   FALSE   FALSE   FALSE   FALSE
+##                                                                           
+##                      rh.mn first.row.in.file.int last.row.in.file.int  n.ints
+## Class              numeric               numeric              numeric integer
+## Minimum               68.2                     5                   62      58
+## Maximum               92.9                  5770                 5860      86
+## Mean                  81.5                  2770                 2850      76
+## Unique (excld. NA)      77                    77                   77      14
+## Missing values           0                     0                    0       0
+## Sorted               FALSE                  TRUE                 TRUE   FALSE
+##                                                                              
+##                        dt1    j.rel1   j.NH31  dt.min  dt.max  ct.min  ct.max
+## Class              numeric   numeric  numeric numeric numeric numeric numeric
+## Minimum                1.6 -0.000215 -0.00286   0.133     1.6     1.6     136
+## Maximum               1.73    0.0797     2.76    1.73    25.1    1.73     140
+## Mean                   1.7    0.0152    0.385    1.58    8.73     1.7     138
+## Unique (excld. NA)      77        77       77      76      76      77      77
+## Missing values           0         0        0       0       0       0       0
+## Sorted               FALSE     FALSE    FALSE   FALSE   FALSE   FALSE   FALSE
+##                                                                              
+##                              t.start.p             t.end.p air.temp.z
+## Class                  POSIXct, POSIXt     POSIXct, POSIXt    integer
+## Minimum            2022-04-05 14:17:00 2022-04-11 08:28:00          2
+## Maximum            2022-10-25 14:11:00 2022-10-31 06:07:00          2
+## Mean               2022-07-16 14:23:48 2022-07-22 06:47:33          2
+## Unique (excld. NA)                  77                  77          1
+## Missing values                       0                   0          0
+## Sorted                           FALSE               FALSE       TRUE
 ##                                                                      
-##                                                                      
-##                                                                      
-##                                                                      
-##  crop.orig      app.method.orig    incorp.orig    man.source.orig   
-##  Mode:logical   Length:77          Mode:logical   Length:77         
-##  NA&#39;s:77        Class :character   NA&#39;s:77        Class :character  
-##                 Mode  :character                  Mode  :character  
-##                                                                     
-##                                                                     
-##                                                                     
-##                                                                     
-##    date.start        
-##  Min.   :2022-04-05  
-##  1st Qu.:2022-04-19  
-##  Median :2022-09-14  
-##  Mean   :2022-07-15  
-##  3rd Qu.:2022-09-28  
-##  Max.   :2022-10-25  
+##                    soil.temp.z  wind.z wind.loc far.loc  pub.info soil.type2
+## Class                  numeric integer  logical logical character    logical
+## Minimum                    0.1       2     &lt;NA&gt;    &lt;NA&gt;         .       &lt;NA&gt;
+## Maximum                    0.1       2     &lt;NA&gt;    &lt;NA&gt;         .       &lt;NA&gt;
+## Mean                       0.1       2     &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)           1       1        0       0         1          0
+## Missing values               0       0       77      77         0         77
+## Sorted                    TRUE    TRUE     &lt;NA&gt;    &lt;NA&gt;      TRUE       &lt;NA&gt;
+##                                                                             
+##                     exper2    rep2    acid meas.tech.orig meas.tech2 crop.orig
+## Class              logical logical logical      character  character   logical
+## Minimum               &lt;NA&gt;    &lt;NA&gt;   FALSE    Wind tunnel         wt      &lt;NA&gt;
+## Maximum               &lt;NA&gt;    &lt;NA&gt;   FALSE    Wind tunnel         wt      &lt;NA&gt;
+## Mean                  &lt;NA&gt;    &lt;NA&gt;  0 TRUE           &lt;NA&gt;       &lt;NA&gt;      &lt;NA&gt;
+## Unique (excld. NA)       0       0       1              1          1         0
+## Missing values          77      77       0              0          0        77
+## Sorted                &lt;NA&gt;    &lt;NA&gt;    TRUE           TRUE       TRUE      &lt;NA&gt;
+##                                                                               
+##                                 app.method.orig incorp.orig man.source.orig
+## Class                                 character     logical       character
+## Minimum            Band spread or trailing hose        &lt;NA&gt;             Mix
+## Maximum            Band spread or trailing hose        &lt;NA&gt;             Pig
+## Mean                                       &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+## Unique (excld. NA)                            1           0               2
+## Missing values                                0          77               0
+## Sorted                                     TRUE        &lt;NA&gt;           FALSE
+##                                                                            
+##                    date.start
+## Class                    Date
+## Minimum            2022-04-05
+## Maximum            2022-10-25
+## Mean                     &lt;NA&gt;
+## Unique (excld. NA)          9
+## Missing values              0
+## Sorted                  FALSE
 ## </code></pre>
 <h2 id="interval-level-emission-data">Interval-level emission data</h2>
-<pre><code>##     cpmid            pub.id            proj               exper      
-##  Length:5853        Mode:logical   Length:5853        Min.   :1.000  
-##  Class :character   NA&#39;s:5853      Class :character   1st Qu.:3.000  
-##  Mode  :character                  Mode  :character   Median :5.000  
-##                                                       Mean   :5.132  
-##                                                       3rd Qu.:8.000  
-##                                                       Max.   :9.000  
-##                                                                      
-##     field               plot                rep           treat          
-##  Length:5853        Length:5853        Min.   :1.000   Length:5853       
-##  Class :character   Class :character   1st Qu.:1.000   Class :character  
-##  Mode  :character   Mode  :character   Median :2.000   Mode  :character  
-##                                        Mean   :1.989                     
-##                                        3rd Qu.:3.000                     
-##                                        Max.   :3.000                     
+<pre><code>## 
+##  5853 rows and 139 columns
+##  5853 unique rows
+##                                                                                                                                                                  cpmid
+## Class                                                                                                                                                        character
+## Minimum                    D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:1.F:Foulumgård.P:1 AD.T:AD.R:1.R2:.T:2022-04-05 14:17:00.M:Wind tunnelNA
+## Maximum            D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:9.F:Foulumgård.P:9 PS-LB1.T:PS-LB1.R:2.R2:.T:2022-10-25 13:15:00.M:Wind tunnelNA
+## Mean                                                                                                                                                              &lt;NA&gt;
+## Unique (excld. NA)                                                                                                                                                  77
+## Missing values                                                                                                                                                       0
+## Sorted                                                                                                                                                            TRUE
+##                                                                                                                                                                       
+##                     pub.id      proj   exper      field      plot     rep
+## Class              logical character integer  character character integer
+## Minimum               &lt;NA&gt;  STABIL26       1 Foulumgård      1 AD       1
+## Maximum               &lt;NA&gt;  STABIL26       9 Foulumgård  9 PS-LB1       3
+## Mean                  &lt;NA&gt;      &lt;NA&gt;    5.13       &lt;NA&gt;      &lt;NA&gt;    1.99
+## Unique (excld. NA)       0         1       9          1        59       3
+## Missing values        5853         0       0          0         0       0
+## Sorted                &lt;NA&gt;      TRUE    TRUE       TRUE     FALSE   FALSE
 ##                                                                          
-##   meas.tech         meas.tech.det    plot.area        lat       
-##  Length:5853        Mode:logical   Min.   :0.2   Min.   :56.49  
-##  Class :character   NA&#39;s:5853      1st Qu.:0.2   1st Qu.:56.49  
-##  Mode  :character                  Median :0.2   Median :56.49  
-##                                    Mean   :0.2   Mean   :56.49  
-##                                    3rd Qu.:0.2   3rd Qu.:56.49  
-##                                    Max.   :0.2   Max.   :56.49  
-##                                                                 
-##       long         country              topo           soil.samp.z       
-##  Min.   :9.561   Length:5853        Length:5853        Length:5853       
-##  1st Qu.:9.561   Class :character   Class :character   Class :character  
-##  Median :9.561   Mode  :character   Mode  :character   Mode  :character  
-##  Mean   :9.561                                                           
-##  3rd Qu.:9.561                                                           
-##  Max.   :9.561                                                           
-##                                                                          
-##       clay        silt         sand       oc          soil.type     
-##  Min.   :9   Min.   :24   Min.   :65   Mode:logical   Mode:logical  
-##  1st Qu.:9   1st Qu.:24   1st Qu.:65   NA&#39;s:5853      NA&#39;s:5853     
-##  Median :9   Median :24   Median :65                                
-##  Mean   :9   Mean   :24   Mean   :65                                
-##  3rd Qu.:9   3rd Qu.:24   3rd Qu.:65                                
-##  Max.   :9   Max.   :24   Max.   :65                                
-##                                                                     
-##    soil.water    soil.water.v   soil.moist        soil.ph        soil.dens   
-##  Min.   :0.130   Mode:logical   Mode:logical   Min.   :5.340   Min.   :1.03  
-##  1st Qu.:0.150   NA&#39;s:5853      NA&#39;s:5853      1st Qu.:5.690   1st Qu.:1.10  
-##  Median :0.180                                 Median :5.720   Median :1.15  
-##  Mean   :0.177                                 Mean   :5.814   Mean   :1.17  
-##  3rd Qu.:0.200                                 3rd Qu.:5.950   3rd Qu.:1.20  
-##  Max.   :0.210                                 Max.   :6.530   Max.   :1.37  
-##                                                                              
-##    crop.res           till           man.source   man.source.det    
-##  Length:5853        Mode:logical   mix    :3108   Length:5853       
-##  Class :character   NA&#39;s:5853      pig    :2745   Class :character  
-##  Mode  :character                  cat    :   0   Mode  :character  
-##                                    poultry:   0                     
-##                                    mink   :   0                     
-##                                    sludge :   0                     
-##                                    (Other):   0                     
-##  man.bed          man.con       man.trt1           man.trt2        
-##  Mode:logical   slurry:1244   Length:5853        Length:5853       
-##  NA&#39;s:5853      liquid:2812   Class :character   Class :character  
-##                 solid :1797   Mode  :character   Mode  :character  
-##                                                                    
-##                                                                    
-##                                                                    
-##                                                                    
-##    man.trt3         man.stor           man.dm          man.vs     
-##  Length:5853        Mode:logical   Min.   : 2.06   Min.   :59.81  
-##  Class :character   NA&#39;s:5853      1st Qu.: 3.63   1st Qu.:69.53  
-##  Mode  :character                  Median : 5.35   Median :76.89  
-##                                    Mean   :13.12   Mean   :75.80  
-##                                    3rd Qu.:21.98   3rd Qu.:88.21  
-##                                    Max.   :52.76   Max.   :92.80  
-##                                                                   
-##     man.tkn          man.tan      man.tic         man.ua        man.vfa       
-##  Min.   : 1.510   Min.   :0.430   Mode:logical   Mode:logical   Mode:logical  
-##  1st Qu.: 2.020   1st Qu.:0.710   NA&#39;s:5853      NA&#39;s:5853      NA&#39;s:5853     
-##  Median : 2.610   Median :1.060                                               
-##  Mean   : 3.527   Mean   :1.104                                               
-##  3rd Qu.: 3.100   3rd Qu.:1.280                                               
-##  Max.   :13.280   Max.   :3.460                                               
-##                                                                               
-##      man.ph        app.start                      app.end                   
-##  Min.   :6.600   Min.   :2022-04-05 14:17:00   Min.   :2022-04-11 10:12:00  
-##  1st Qu.:7.530   1st Qu.:2022-04-26 16:29:00   1st Qu.:2022-05-02 10:14:00  
-##  Median :7.880   Median :2022-09-21 14:03:00   Median :2022-09-27 08:39:00  
-##  Mean   :7.836   Mean   :2022-08-07 17:29:22   Mean   :2022-08-13 11:24:33  
-##  3rd Qu.:8.180   3rd Qu.:2022-10-19 15:30:00   3rd Qu.:2022-10-25 07:25:00  
-##  Max.   :9.200   Max.   :2022-10-25 14:11:00   Max.   :2022-10-31 07:43:00  
-##                  NA&#39;s   :721                   NA&#39;s   :721                  
-##   app.method           app.rate     app.rate.unit         incorp         
-##  Length:5853        Min.   :10.00   Length:5853        Length:5853       
-##  Class :character   1st Qu.:10.00   Class :character   Class :character  
-##  Mode  :character   Median :30.00   Mode  :character   Mode  :character  
-##                     Mean   :23.86                                        
-##                     3rd Qu.:30.00                                        
-##                     Max.   :30.00                                        
-##                                                                          
-##   time.incorp   man.area       dist.inj       furrow.z       furrow.w      
-##  Min.   : NA    Mode:logical   Mode:logical   Mode:logical   Mode:logical  
-##  1st Qu.: NA    NA&#39;s:5853      NA&#39;s:5853      NA&#39;s:5853      NA&#39;s:5853     
-##  Median : NA                                                               
-##  Mean   :NaN                                                               
-##  3rd Qu.: NA                                                               
-##  Max.   : NA                                                               
-##  NA&#39;s   :5853                                                              
-##      crop               crop.z       crop.area      lai         
-##  Length:5853        Min.   : NA    Min.   : NA    Mode:logical  
-##  Class :character   1st Qu.: NA    1st Qu.: NA    NA&#39;s:5853     
-##  Mode  :character   Median : NA    Median : NA                  
-##                     Mean   :NaN    Mean   :NaN                  
-##                     3rd Qu.: NA    3rd Qu.: NA                  
-##                     Max.   : NA    Max.   : NA                  
-##                     NA&#39;s   :5853   NA&#39;s   :5853                 
-##   notes.plot        row.in.file.plot  institute           sub.period
-##  Length:5853        Min.   : 5.00    Length:5853        Min.   :4   
-##  Class :character   1st Qu.:25.00    Class :character   1st Qu.:4   
-##  Mode  :character   Median :46.00    Mode  :character   Median :4   
-##                     Mean   :44.58                       Mean   :4   
-##                     3rd Qu.:64.00                       3rd Qu.:4   
-##                     Max.   :81.00                       Max.   :4   
-##                                                                     
-##      file           app.start.orig     app.end.orig           cpid          
-##  Length:5853        Length:5853        Length:5853        Length:5853       
-##  Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                                                             
-##                                                                             
-##                                                                             
-##                                                                             
-##      ceid            flag.plot          submitter            tan.app     
-##  Length:5853        Length:5853        Length:5853        Min.   : 4.30  
-##  Class :character   Class :character   Class :character   1st Qu.:15.70  
-##  Mode  :character   Mode  :character   Mode  :character   Median :29.10  
-##                                                           Mean   :24.59  
-##                                                           3rd Qu.:33.90  
-##                                                           Max.   :45.60  
-##                                                                          
-##     interval        t.start                        t.end                    
-##  Min.   : 1.00   Min.   :2022-04-05 14:17:00   Min.   :2022-04-05 16:00:00  
-##  1st Qu.:20.00   1st Qu.:2022-04-22 04:46:00   1st Qu.:2022-04-22 06:30:00  
-##  Median :39.00   Median :2022-09-18 16:53:00   Median :2022-09-18 18:29:00  
-##  Mean   :39.06   Mean   :2022-07-28 01:15:33   Mean   :2022-07-28 03:04:33  
-##  3rd Qu.:58.00   3rd Qu.:2022-10-20 04:17:00   3rd Qu.:2022-10-20 05:53:00  
-##  Max.   :86.00   Max.   :2022-10-31 06:07:00   Max.   :2022-10-31 07:43:00  
-##                                                                             
-##        dt           bg.dl             bg.val            bg.unit         
-##  Min.   : 0.1329   Mode:logical   Min.   :0.0006283   Length:5853       
-##  1st Qu.: 1.5993   NA&#39;s:5853      1st Qu.:0.0034056   Class :character  
-##  Median : 1.7323                  Median :0.0062600   Mode  :character  
-##  Mean   : 1.8166                  Mean   :0.0083562                     
-##  3rd Qu.: 1.7325                  3rd Qu.:0.0115937                     
-##  Max.   :25.1490                  Max.   :0.0283826                     
+##                        treat   meas.tech meas.tech.det plot.area     lat
+## Class              character   character       logical   numeric numeric
+## Minimum                   AD Wind tunnel          &lt;NA&gt;       0.2    56.5
+## Maximum               PS-LB2 Wind tunnel          &lt;NA&gt;       0.2    56.5
+## Mean                    &lt;NA&gt;        &lt;NA&gt;          &lt;NA&gt;       0.2    56.5
+## Unique (excld. NA)        11           1             0         1       1
+## Missing values             0           0          5853         0       0
+## Sorted                 FALSE        TRUE          &lt;NA&gt;      TRUE    TRUE
 ##                                                                         
-##     j.type              j.NH3            j.NH3.unit        pH.surf       
-##  Length:5853        Min.   :-0.030343   Length:5853        Mode:logical  
-##  Class :character   1st Qu.: 0.003291   Class :character   NA&#39;s:5853     
-##  Mode  :character   Median : 0.013999   Mode  :character                 
-##                     Mean   : 0.042665                                    
-##                     3rd Qu.: 0.040548                                    
-##                     Max.   : 2.756871                                    
-##                                                                          
-##     air.temp        air.temp.z   soil.temp     soil.temp.z  soil.temp.surf
-##  Min.   :-1.900   Min.   :2    Min.   : 3.9   Min.   :0.1   Mode:logical  
-##  1st Qu.: 7.000   1st Qu.:2    1st Qu.: 7.9   1st Qu.:0.1   NA&#39;s:5853     
-##  Median :10.300   Median :2    Median :11.0   Median :0.1                 
-##  Mean   : 9.705   Mean   :2    Mean   :10.0   Mean   :0.1                 
-##  3rd Qu.:12.500   3rd Qu.:2    3rd Qu.:12.3   3rd Qu.:0.1                 
-##  Max.   :16.700   Max.   :2    Max.   :14.9   Max.   :0.1                 
+##                       long   country      topo soil.samp.z    clay    silt
+## Class              numeric character character   character integer integer
+## Minimum               9.56        DK      flat         0-5       9      24
+## Maximum               9.56        DK      flat         0-5       9      24
+## Mean                  9.56      &lt;NA&gt;      &lt;NA&gt;        &lt;NA&gt;       9      24
+## Unique (excld. NA)       1         1         1           1       1       1
+## Missing values           0         0         0           0       0       0
+## Sorted                TRUE      TRUE      TRUE        TRUE    TRUE    TRUE
 ##                                                                           
-##       rad          wind             wind.z    MOL           ustar        
-##  Min.   :  0.0   Mode:logical   Min.   :2   Mode:logical   Mode:logical  
-##  1st Qu.:  0.0   NA&#39;s:5853      1st Qu.:2   NA&#39;s:5853      NA&#39;s:5853     
-##  Median :  5.1                  Median :2                                
-##  Mean   :126.0                  Mean   :2                                
-##  3rd Qu.:195.4                  3rd Qu.:2                                
-##  Max.   :775.8                  Max.   :2                                
-##                                                                          
-##     rl             air.pres      air.pres.unit           rain         rh       
-##  Mode:logical   Min.   : 967.1   Length:5853        Min.   :0   Min.   :31.20  
-##  NA&#39;s:5853      1st Qu.: 998.0   Class :character   1st Qu.:0   1st Qu.:72.00  
-##                 Median :1006.0   Mode  :character   Median :0   Median :91.20  
-##                 Mean   :1004.3                      Mean   :0   Mean   :82.29  
-##                 3rd Qu.:1011.8                      3rd Qu.:0   3rd Qu.:94.10  
-##                 Max.   :1029.5                      Max.   :0   Max.   :97.90  
+##                       sand      oc soil.type soil.water soil.water.v soil.moist
+## Class              integer logical   logical    numeric      logical    logical
+## Minimum                 65    &lt;NA&gt;      &lt;NA&gt;       0.13         &lt;NA&gt;       &lt;NA&gt;
+## Maximum                 65    &lt;NA&gt;      &lt;NA&gt;       0.21         &lt;NA&gt;       &lt;NA&gt;
+## Mean                    65    &lt;NA&gt;      &lt;NA&gt;      0.177         &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)       1       0         0          6            0          0
+## Missing values           0    5853      5853          0         5853       5853
+## Sorted                TRUE    &lt;NA&gt;      &lt;NA&gt;      FALSE         &lt;NA&gt;       &lt;NA&gt;
 ##                                                                                
-##  wind.loc       far.loc         chamber.vol    chamber.flow   chamber.AER  
-##  Mode:logical   Mode:logical   Min.   :0.08   Min.   :0.02   Min.   :0.25  
-##  NA&#39;s:5853      NA&#39;s:5853      1st Qu.:0.08   1st Qu.:0.02   1st Qu.:0.25  
-##                                Median :0.08   Median :0.02   Median :0.25  
-##                                Mean   :0.08   Mean   :0.02   Mean   :0.25  
-##                                3rd Qu.:0.08   3rd Qu.:0.02   3rd Qu.:0.25  
-##                                Max.   :0.08   Max.   :0.02   Max.   :0.25  
-##                                NA&#39;s   :765    NA&#39;s   :765    NA&#39;s   :765   
-##   notes.int         row.in.file.int t.start.orig        t.end.orig       
-##  Length:5853        Min.   :   5    Length:5853        Length:5853       
-##  Class :character   1st Qu.:1468    Class :character   Class :character  
-##  Mode  :character   Median :2931    Mode  :character   Mode  :character  
-##                     Mean   :2931                                         
-##                     3rd Qu.:4394                                         
-##                     Max.   :5857                                         
+##                    soil.ph soil.dens  crop.res    till man.source
+## Class              numeric   numeric character logical     factor
+## Minimum               5.34      1.03        No    &lt;NA&gt;        cat
+## Maximum               6.53      1.37        No    &lt;NA&gt;       none
+## Mean                  5.81      1.17      &lt;NA&gt;    &lt;NA&gt;       mink
+## Unique (excld. NA)       9         9         1       0          2
+## Missing values           0         0         0    5853          0
+## Sorted               FALSE     FALSE      TRUE    &lt;NA&gt;      FALSE
+##                                                                  
+##                                                                                                        man.source.det
+## Class                                                                                                       character
+## Minimum                                                                finisher pigs, piglets or a mixture of the two
+## Maximum            mixture of manure, deep litter, meadow grass, grass, grass silage, straw, cereal, and corn silage 
+## Mean                                                                                                             &lt;NA&gt;
+## Unique (excld. NA)                                                                                                  2
+## Missing values                                                                                                      0
+## Sorted                                                                                                          FALSE
+##                                                                                                                      
+##                    man.bed man.con            man.trt1         man.trt2
+## Class              logical  factor           character        character
+## Minimum               &lt;NA&gt;  slurry Anaerobic digestion Biochar addition
+## Maximum               &lt;NA&gt;   solid                None             None
+## Mean                  &lt;NA&gt;  liquid                &lt;NA&gt;             &lt;NA&gt;
+## Unique (excld. NA)       0       3                   3                3
+## Missing values        5853       0                   0             1971
+## Sorted                &lt;NA&gt;   FALSE               FALSE            FALSE
+##                                                                        
+##                            man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
+## Class                     character  logical numeric numeric numeric numeric
+## Minimum            Biochar addition     &lt;NA&gt;    2.06    59.8    1.51    0.43
+## Maximum                        None     &lt;NA&gt;    52.8    92.8    13.3    3.46
+## Mean                           &lt;NA&gt;     &lt;NA&gt;    13.1    75.8    3.53     1.1
+## Unique (excld. NA)                2        0      19      19      18      22
+## Missing values                 4652     5853       0       0       0       0
+## Sorted                        FALSE     &lt;NA&gt;   FALSE   FALSE   FALSE   FALSE
+##                                                                             
+##                    man.tic  man.ua man.vfa  man.ph           app.start
+## Class              logical logical logical numeric     POSIXct, POSIXt
+## Minimum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     6.6 2022-04-05 14:17:00
+## Maximum               &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;     9.2 2022-10-25 14:11:00
+## Mean                  &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    7.84 2022-08-07 17:29:22
+## Unique (excld. NA)       0       0       0      24                  68
+## Missing values        5853    5853    5853       0                 721
+## Sorted                &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE               FALSE
+##                                                                       
+##                                app.end app.method app.rate app.rate.unit
+## Class                  POSIXct, POSIXt  character  integer     character
+## Minimum            2022-04-11 10:12:00       bsth       10          t/ha
+## Maximum            2022-10-31 07:43:00       bsth       30          t/ha
+## Mean               2022-08-13 11:24:33       &lt;NA&gt;     23.9          &lt;NA&gt;
+## Unique (excld. NA)                  68          1        2             1
+## Missing values                     721          0        0             0
+## Sorted                           FALSE       TRUE    FALSE          TRUE
+##                                                                         
+##                       incorp time.incorp man.area dist.inj furrow.z furrow.w
+## Class              character     numeric  logical  logical  logical  logical
+## Minimum                 &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Maximum                 &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Mean                    &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+## Unique (excld. NA)         0           0        0        0        0        0
+## Missing values          5853        5853     5853     5853     5853     5853
+## Sorted                  &lt;NA&gt;        &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;     &lt;NA&gt;
+##                                                                             
+##                         crop  crop.z crop.area     lai notes.plot
+## Class              character numeric   numeric logical  character
+## Minimum                 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;          .
+## Maximum                 &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;          .
+## Mean                    &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;       &lt;NA&gt;
+## Unique (excld. NA)         0       0         0       0          1
+## Missing values          5853    5853      5853    5853       5736
+## Sorted                  &lt;NA&gt;    &lt;NA&gt;      &lt;NA&gt;    &lt;NA&gt;       TRUE
+##                                                                  
+##                    row.in.file.plot institute sub.period
+## Class                       numeric character    numeric
+## Minimum                           5        AU          4
+## Maximum                          81        AU          4
+## Mean                           44.6      &lt;NA&gt;          4
+## Unique (excld. NA)               77         1          1
+## Missing values                    0         0          0
+## Sorted                         TRUE      TRUE       TRUE
+##                                                         
+##                                                         file
+## Class                                              character
+## Minimum            ../../data-submitted/04/AU/test_file.xlsx
+## Maximum            ../../data-submitted/04/AU/test_file.xlsx
+## Mean                                                    &lt;NA&gt;
+## Unique (excld. NA)                                         1
+## Missing values                                             0
+## Sorted                                                  TRUE
+##                                                             
+##                             app.start.orig            app.end.orig
+## Class                            character               character
+## Minimum            2022-04-05 14:17:02 UTC 2022-04-11 10:12:39 UTC
+## Maximum            2022-10-25 14:11:51 UTC 2022-10-31 07:43:29 UTC
+## Mean                                  &lt;NA&gt;                    &lt;NA&gt;
+## Unique (excld. NA)                      77                      77
+## Missing values                           0                       0
+## Sorted                               FALSE                   FALSE
+##                                                                   
+##                                                                                                                                                   cpid
+## Class                                                                                                                                        character
+## Minimum                    D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:1.F:Foulumgård.P:1 AD.T:AD.R:1.R2:.T:2022-04-05 14:17:00
+## Maximum            D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:9.F:Foulumgård.P:9 PS-LB1.T:PS-LB1.R:2.R2:.T:2022-10-25 13:15:00
+## Mean                                                                                                                                              &lt;NA&gt;
+## Unique (excld. NA)                                                                                                                                  77
+## Missing values                                                                                                                                       0
+## Sorted                                                                                                                                            TRUE
+##                                                                                                                                                       
+##                                        ceid flag.plot           submitter
+## Class                             character character           character
+## Minimum            D:1.I:AU.Pr:STABIL26.E:1           Dela Pierre, Flavia
+## Maximum            D:1.I:AU.Pr:STABIL26.E:9           Dela Pierre, Flavia
+## Mean                                   &lt;NA&gt;      &lt;NA&gt;                &lt;NA&gt;
+## Unique (excld. NA)                        9         1                   1
+## Missing values                            0         0                   0
+## Sorted                                 TRUE      TRUE                TRUE
 ##                                                                          
-##    j.NH3.orig        j.NH3.conv.fact j.NH3.unit.orig       dt.calc       
-##  Min.   :-0.030343   Min.   :1       Length:5853        Min.   : 0.1333  
-##  1st Qu.: 0.003291   1st Qu.:1       Class :character   1st Qu.: 1.6000  
-##  Median : 0.013999   Median :1       Mode  :character   Median : 1.7333  
-##  Mean   : 0.042665   Mean   :1                          Mean   : 1.8166  
-##  3rd Qu.: 0.040548   3rd Qu.:1                          3rd Qu.: 1.7333  
-##  Max.   : 2.756871   Max.   :1                          Max.   :25.1500  
-##                                                                          
-##     dt.diff                 ct                mt                cta        
-##  Min.   :-1.343e-02   Min.   :  1.599   Min.   :  0.7994   Min.   :  1.60  
-##  1st Qu.:-9.867e-04   1st Qu.: 33.582   1st Qu.: 32.7828   1st Qu.: 33.58  
-##  Median :-8.619e-04   Median : 72.762   Median : 71.8962   Median : 72.76  
-##  Mean   : 1.779e-05   Mean   : 70.971   Mean   : 70.0625   Mean   : 70.97  
-##  3rd Qu.:-7.256e-04   3rd Qu.:107.011   3rd Qu.:106.1451   3rd Qu.:107.02  
-##  Max.   : 1.623e-02   Max.   :139.927   Max.   :139.0613   Max.   :139.93  
+##                    tan.app interval             t.start               t.end
+## Class              numeric  numeric     POSIXct, POSIXt     POSIXct, POSIXt
+## Minimum                4.3        1 2022-04-05 14:17:00 2022-04-05 16:00:00
+## Maximum               45.6       86 2022-10-31 06:07:00 2022-10-31 07:43:00
+## Mean                  24.6     39.1 2022-07-28 01:15:33 2022-07-28 03:04:33
+## Unique (excld. NA)      22       86                5852                5852
+## Missing values           0        0                   0                   0
+## Sorted               FALSE    FALSE               FALSE               FALSE
 ##                                                                            
-##       bta           flag.int           rain.rate    rain.cum    wind.2m    
-##  Min.   :  0.00   Length:5853        Min.   :0   Min.   :0   Min.   : NA   
-##  1st Qu.: 31.18   Class :character   1st Qu.:0   1st Qu.:0   1st Qu.: NA   
-##  Median : 71.03   Mode  :character   Median :0   Median :0   Median : NA   
-##  Mean   : 69.25                      Mean   :0   Mean   :0   Mean   :NaN   
-##  3rd Qu.:105.48                      3rd Qu.:0   3rd Qu.:0   3rd Qu.: NA   
-##  Max.   :138.20                      Max.   :0   Max.   :0   Max.   : NA   
-##  NA&#39;s   :721                                                 NA&#39;s   :5853  
-##      e.int              e.cum             e.rel              j.rel           
-##  Min.   :-0.04853   Min.   :-0.9094   Min.   :-0.05613   Min.   :-0.0028030  
-##  1st Qu.: 0.00565   1st Qu.: 0.5020   1st Qu.: 0.03440   1st Qu.: 0.0001842  
-##  Median : 0.02401   Median : 2.8979   Median : 0.12317   Median : 0.0005934  
-##  Mean   : 0.07695   Mean   : 4.6355   Mean   : 0.16486   Mean   : 0.0015197  
-##  3rd Qu.: 0.06998   3rd Qu.: 7.5104   3rd Qu.: 0.27561   3rd Qu.: 0.0015286  
-##  Max.   : 4.40922   Max.   :19.5669   Max.   : 0.56114   Max.   : 0.0796784  
-##                                                                              
-##    pub.info         soil.type2      exper2          rep2        
-##  Length:5853        Mode:logical   Mode:logical   Mode:logical  
-##  Class :character   NA&#39;s:5853      NA&#39;s:5853      NA&#39;s:5853     
-##  Mode  :character                                               
-##                                                                 
-##                                                                 
-##                                                                 
-##                                                                 
-##     acid         meas.tech.orig      meas.tech2        crop.orig     
-##  Mode :logical   Length:5853        Length:5853        Mode:logical  
-##  FALSE:5853      Class :character   Class :character   NA&#39;s:5853     
-##                  Mode  :character   Mode  :character                 
-##                                                                      
-##                                                                      
-##                                                                      
-##                                                                      
-##  app.method.orig    incorp.orig    man.source.orig      date.start        
-##  Length:5853        Mode:logical   Length:5853        Min.   :2022-04-05  
-##  Class :character   NA&#39;s:5853      Class :character   1st Qu.:2022-04-05  
-##  Mode  :character                  Mode  :character   Median :2022-04-05  
-##                                                       Mean   :2022-04-05  
-##                                                       3rd Qu.:2022-04-05  
-##                                                       Max.   :2022-04-05  
+##                         dt   bg.dl   bg.val   bg.unit        j.type   j.NH3
+## Class              numeric logical  numeric character     character numeric
+## Minimum              0.133    &lt;NA&gt; 0.000628       ppm emission rate -0.0303
+## Maximum               25.1    &lt;NA&gt;   0.0284       ppm emission rate    2.76
+## Mean                  1.82    &lt;NA&gt;  0.00836      &lt;NA&gt;          &lt;NA&gt;  0.0427
+## Unique (excld. NA)    3898       0      690         1             1    5853
+## Missing values           0    5853        0         0             0       0
+## Sorted               FALSE    &lt;NA&gt;    FALSE      TRUE          TRUE   FALSE
+##                                                                            
+##                    j.NH3.unit pH.surf air.temp air.temp.z soil.temp soil.temp.z
+## Class               character logical  numeric    integer   numeric     numeric
+## Minimum            kg N/ha-hr    &lt;NA&gt;     -1.9          2       3.9         0.1
+## Maximum            kg N/ha-hr    &lt;NA&gt;     16.7          2      14.9         0.1
+## Mean                     &lt;NA&gt;    &lt;NA&gt;      9.7          2        10         0.1
+## Unique (excld. NA)          1       0      169          1       111           1
+## Missing values              0    5853        0          0         0           0
+## Sorted                   TRUE    &lt;NA&gt;    FALSE       TRUE     FALSE        TRUE
+##                                                                                
+##                    soil.temp.surf     rad    wind  wind.z     MOL   ustar
+## Class                     logical numeric logical integer logical logical
+## Minimum                      &lt;NA&gt;       0    &lt;NA&gt;       2    &lt;NA&gt;    &lt;NA&gt;
+## Maximum                      &lt;NA&gt;     776    &lt;NA&gt;       2    &lt;NA&gt;    &lt;NA&gt;
+## Mean                         &lt;NA&gt;     126    &lt;NA&gt;       2    &lt;NA&gt;    &lt;NA&gt;
+## Unique (excld. NA)              0     585       0       1       0       0
+## Missing values               5853       0    5853       0    5853    5853
+## Sorted                       &lt;NA&gt;   FALSE    &lt;NA&gt;    TRUE    &lt;NA&gt;    &lt;NA&gt;
+##                                                                          
+##                         rl air.pres air.pres.unit    rain      rh wind.loc
+## Class              logical  numeric     character numeric numeric  logical
+## Minimum               &lt;NA&gt;      967           hPa       0    31.2     &lt;NA&gt;
+## Maximum               &lt;NA&gt;     1030           hPa       0    97.9     &lt;NA&gt;
+## Mean                  &lt;NA&gt;     1000          &lt;NA&gt;       0    82.3     &lt;NA&gt;
+## Unique (excld. NA)       0      399             1       1     393        0
+## Missing values        5853        0             0       0       0     5853
+## Sorted                &lt;NA&gt;    FALSE          TRUE    TRUE   FALSE     &lt;NA&gt;
 ##                                                                           
-##  first.row.int     row.plot                   first.rows        ggplotgroup  
-##  Min.   :   5   Min.   : 5.00   Plots 73 Emis. 5084:  86   (75.2,81.1]: 516  
-##  1st Qu.:1417   1st Qu.:25.00   Plots 74 Emis. 5170:  86   (51.8,57.6]: 510  
-##  Median :2920   Median :46.00   Plots 75 Emis. 5256:  86   (69.3,75.2]: 498  
-##  Mean   :2893   Mean   :44.58   Plots 76 Emis. 5342:  86   (22.5,28.4]: 486  
-##  3rd Qu.:4363   3rd Qu.:64.00   Plots 77 Emis. 5428:  86   (63.5,69.3]: 481  
-##  Max.   :5772   Max.   :81.00   Plots 78 Emis. 5514:  86   (16.7,22.5]: 480  
-##                                 (Other)            :5337   (Other)    :2882</code></pre>
+##                    far.loc chamber.vol chamber.flow chamber.AER notes.int
+## Class              logical     numeric      numeric     numeric character
+## Minimum               &lt;NA&gt;        0.08         0.02        0.25         .
+## Maximum               &lt;NA&gt;        0.08         0.02        0.25         .
+## Mean                  &lt;NA&gt;        0.08         0.02        0.25      &lt;NA&gt;
+## Unique (excld. NA)       0           1            1           1         1
+## Missing values        5853         765          765         765      5851
+## Sorted                &lt;NA&gt;        TRUE         TRUE        TRUE      TRUE
+##                                                                          
+##                    row.in.file.int            t.start.orig
+## Class                      numeric               character
+## Minimum                          5 2022-04-05 14:17:02 UTC
+## Maximum                       5860 2022-10-31 06:07:31 UTC
+## Mean                          2930                    &lt;NA&gt;
+## Unique (excld. NA)            5853                    5853
+## Missing values                   0                       0
+## Sorted                        TRUE                   FALSE
+##                                                           
+##                                 t.end.orig j.NH3.orig j.NH3.conv.fact
+## Class                            character    numeric         numeric
+## Minimum            2022-04-05 14:17:02 UTC    -0.0303               1
+## Maximum            2022-10-31 06:07:31 UTC       2.76               1
+## Mean                                  &lt;NA&gt;     0.0427               1
+## Unique (excld. NA)                    5853       5853               1
+## Missing values                           0          0               0
+## Sorted                               FALSE      FALSE            TRUE
+##                                                                      
+##                    j.NH3.unit.orig dt.calc  dt.diff      ct      mt     cta
+## Class                    character numeric  numeric numeric numeric numeric
+## Minimum                 kg N/ha-hr   0.133  -0.0134     1.6   0.799     1.6
+## Maximum                 kg N/ha-hr    25.2   0.0162     140     139     140
+## Mean                          &lt;NA&gt;    1.82 1.78e-05      71    70.1      71
+## Unique (excld. NA)               1      23     4070    5847    5853    1199
+## Missing values                   0       0        0       0       0       0
+## Sorted                        TRUE   FALSE    FALSE   FALSE   FALSE   FALSE
+##                                                                            
+##                        bta  flag.int rain.rate rain.cum wind.2m   e.int   e.cum
+## Class              numeric character   numeric  numeric numeric numeric numeric
+## Minimum                  0                   0        0    &lt;NA&gt; -0.0485  -0.909
+## Maximum                138                   0        0    &lt;NA&gt;    4.41    19.6
+## Mean                  69.3      &lt;NA&gt;         0        0    &lt;NA&gt;  0.0769    4.64
+## Unique (excld. NA)     471         1         1        1       0    5853    5853
+## Missing values         721         0         0        0    5853       0       0
+## Sorted               FALSE      TRUE      TRUE     TRUE    &lt;NA&gt;   FALSE   FALSE
+##                                                                                
+##                      e.rel   j.rel  pub.info soil.type2  exper2    rep2    acid
+## Class              numeric numeric character    logical logical logical logical
+## Minimum            -0.0561 -0.0028         .       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE
+## Maximum              0.561  0.0797         .       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   FALSE
+## Mean                 0.165 0.00152      &lt;NA&gt;       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;  0 TRUE
+## Unique (excld. NA)    5853    5853         1          0       0       0       1
+## Missing values           0       0         0       5853    5853    5853       0
+## Sorted               FALSE   FALSE      TRUE       &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;    TRUE
+##                                                                                
+##                    meas.tech.orig meas.tech2 crop.orig
+## Class                   character  character   logical
+## Minimum               Wind tunnel         wt      &lt;NA&gt;
+## Maximum               Wind tunnel         wt      &lt;NA&gt;
+## Mean                         &lt;NA&gt;       &lt;NA&gt;      &lt;NA&gt;
+## Unique (excld. NA)              1          1         0
+## Missing values                  0          0      5853
+## Sorted                       TRUE       TRUE      &lt;NA&gt;
+##                                                       
+##                                 app.method.orig incorp.orig man.source.orig
+## Class                                 character     logical       character
+## Minimum            Band spread or trailing hose        &lt;NA&gt;             Mix
+## Maximum            Band spread or trailing hose        &lt;NA&gt;             Pig
+## Mean                                       &lt;NA&gt;        &lt;NA&gt;            &lt;NA&gt;
+## Unique (excld. NA)                            1           0               2
+## Missing values                                0        5853               0
+## Sorted                                     TRUE        &lt;NA&gt;           FALSE
+##                                                                            
+##                    date.start first.row.int row.plot          first.rows
+## Class                    Date       numeric  numeric              factor
+## Minimum            2022-04-05             5        5  Plots 10 Emis. 298
+## Maximum            2022-04-05          5770       81   Plots 9 Emis. 239
+## Mean                     &lt;NA&gt;          2890     44.6 Plots 49 Emis. 3118
+## Unique (excld. NA)          1            77       77                  77
+## Missing values              0             0        0                   0
+## Sorted                   TRUE          TRUE     TRUE               FALSE
+##                                                                         
+##                    ggplotgroup
+## Class                   factor
+## Minimum            (4.92,10.8]
+## Maximum            (75.2,81.1]
+## Mean               (40.1,45.9]
+## Unique (excld. NA)          13
+## Missing values               0
+## Sorted                    TRUE
+## </code></pre>
 
 </body>
 </html>
