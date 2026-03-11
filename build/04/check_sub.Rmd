@@ -1,7 +1,7 @@
 ---
 title: 'Submitted data error checks'
-output: 
-  html_document:
+output:
+  github_document:
     toc: true
 ---
 
@@ -16,7 +16,7 @@ cat('Version: ', version, '\n')
 print(paste('Date/time:', Sys.time()))
 ```
 
-Each of these html files contains a summary of the data from a single submitted spreadsheet file.
+Each of these files contains a summary of the data from a single submitted spreadsheet file.
 The html name is based on the name of the submitted file.
 Use the details below to check:
 
@@ -49,26 +49,17 @@ print(j)
 
 # 4. Location
 ```{r, echo = FALSE}
-library( leaflet )
-library( magrittr )
-```
-
-```{r, echo = FALSE}
 plots <- dat[[i]][[j]]$plots
 ll <- unique(plots[, c('lat', 'long')])
 
-subscr <- data.frame(lat=c(ll$lat),
-                    lon=c(ll$long))
-
-if (all(!is.na(subscr))) {
-leaflet() %>% addTiles() %>% 
-  addCircleMarkers(data = subscr,
-                   lat = ~lat, lng = ~lon,
-                   color = "blue")
+if (all(!is.na(ll))) {
+  for (k in 1:nrow(ll)) {
+    cat(sprintf('Location %d: lat=%.5f, long=%.5f  [View on map](https://maps.google.com/?q=%.5f,%.5f)\n\n',
+                k, ll$lat[k], ll$long[k], ll$lat[k], ll$long[k]))
+  }
 } else {
-  cat('Skipping map because lat/long not provided.')
+  cat('Skipping map: lat/long not provided.\n')
 }
-
 ```
 
 # 5.Keys and codes 
@@ -140,8 +131,7 @@ if (any(duplicated(emis))) {
 }
 
 m1 <- merge(exper, treat, all = TRUE)
-m2 <- merge(m1, emis, all = TRUE)
-#intersect(names(m1), names(emis))
+m2 <- merge(m1, emis, all = TRUE, by = c('proj', 'exper', 'pub.id', 'treat'))
 
 if (nrow(m1) == nrow(treat)) {
   cat('OK\n')
@@ -166,7 +156,7 @@ if (sum(is.na(c(m2$proj, m2$exper, m2$treat, m2$field, m2$plot))) == 0) {
   cat('OK\n')
 } else {
   print('Merge problem 4')
-  md <- m2[is.na(m2$proj) | is.na(m2$exper) | is.na(m2$field) | is.na(m2$plot), c('row.in.file.plot', 'row.in.file.int', 'proj', 'exper', 'pub.id', 'treat', 'field', 'plot')]
+  md <- m2[is.na(proj) | is.na(exper) | is.na(field) | is.na(plot), .(row.in.file.plot, row.in.file.int, proj, exper, pub.id, treat, field, plot)]
   md <- unique(md)
   print(md)
   #unique(emis[, c('proj', 'exper', 'pub.id', 'treat', 'field', 'plot')])
@@ -257,7 +247,7 @@ d <- merge(d, xx, by = 'cpmid', all.x = TRUE)
 
 ## Duplicated intervals
 ```{r, echo = FALSE}
-s <- ddply(d, 'cpmid', summarise, n.int.duplicates = sum(duplicated(interval)))
+s <- d[, .(n.int.duplicates = sum(duplicated(interval))), by = cpmid]
 x <- subset(s, n.int.duplicates > 1)
 if (nrow(x) > 0) {
   y <- subset(d, cpmid == x$cpmid)
@@ -362,7 +352,7 @@ lim <- data.frame(vari = c('wind', 'rain.rate', 'air.temp', 'soil.temp', 'soil.t
 
 for (k in lim$vari) {
   cat(k, ': ')
-  vv <- na.omit(d[, k])
+  vv <- na.omit(d[[k]])
   if (length(vv) > 0) {
     if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
       cat('OK\n')
@@ -390,7 +380,7 @@ lim <- data.frame(vari = c('man.stor', 'man.dm', 'man.vs', 'man.tkn', 'man.tan',
 
 for (k in lim$vari) {
   cat(k, ': ')
-  vv <- na.omit(d[, k])
+  vv <- na.omit(d[[k]])
   if (length(vv) > 0) {
     if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
       cat('OK\n')
@@ -412,7 +402,7 @@ lim <- data.frame(vari = c('j.NH3', 'e.int', 'e.rel'),
 
 for (k in lim$vari) {
   cat(k, ': ')
-  vv <- na.omit(d[, k])
+  vv <- na.omit(d[[k]])
   if (length(vv) > 0) {
     if (all(vv >= lim[lim$vari == k, 'lwr'] & vv <= lim[lim$vari == k, 'upr'])) {
       cat('OK\n')
@@ -526,7 +516,7 @@ ggplot(plots, aes(e.rel.final, fill = factor(treat))) + geom_histogram() + facet
 ## Relative versus absolute emission
 
 ```{r, echo = FALSE}
-ggplot(plots, aes(e.rel.final, e.final)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)', y = 'Final cum. emission (kg N/ha)')
+ggplot(plots, aes(e.rel.final, e.cum.final)) + geom_point() + facet_grid(meas.tech ~ .) + labs(x = 'Final cum. emission (frac. app. TAN)', y = 'Final cum. emission (kg N/ha)')
 ```
 
 ## Flux
@@ -576,14 +566,14 @@ if (nrow(plots) < 5) {
 }
 ```
 
-# 10. `dfsumm` summary 
+# 10. Summary
 ## Plot-level data
 ```{r, echo=FALSE}
-dfsumm(plots)
+summary(plots)
 ```
 
 ## Interval-level emission data
 ```{r, echo=FALSE}
-dfsumm(d)
+summary(d)
 ```
 

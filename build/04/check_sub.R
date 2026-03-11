@@ -3,7 +3,6 @@
 for (i in names(dat)) {
   for (j in names(dat[[i]])) {
 
-	  stop()
     # Check for errors and create log with details
     # Note: the Rmd file overwrites object 'dd', so keep this script for last if possible
     fn <- strsplit(j, '/')
@@ -19,15 +18,15 @@ for (i in names(dat)) {
     fn <- gsub('__', '_', fn)
 
     ## Check and make institution directory if needed
-    #idir <- paste0('../../logs/04/html/', inst, '-', gsub(' |,', '_', submitter))
+    #idir <- paste0('../../logs/04/md/', inst, '-', gsub(' |,', '_', submitter))
     #if (!dir.exists(idir)) {
     #  dir.create(idir)
     #}
 
     # Skip if log file already exists unless all were requested
-    if (!file.exists(paste0('../../logs/04/html/', fn, '.html')) | alllogs) { 
+    if (!file.exists(paste0('../../logs/04/md/', fn, '.md')) | alllogs) { 
       options(warn = 1) 
-      render('check_sub.Rmd', output_file = fn, output_dir = '../../logs/04/html/', quiet = TRUE)
+      render('check_sub.Rmd', output_file = fn, output_dir = '../../logs/04/md/', quiet = TRUE)
       options(warn = 2) 
     } 
 

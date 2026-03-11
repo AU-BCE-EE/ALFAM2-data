@@ -37,6 +37,6 @@ for (i in c('e.cum.final', 'e.rel.final',
 
 # Numeric summary
 ```{r, echo = FALSE}
-dfsumm(pds)
+summary(pds)
 ```
 
