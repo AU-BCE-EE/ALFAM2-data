@@ -8,8 +8,7 @@ makeCSV <- function(xfile) {
     jcsv <- gsub(' ', '', jcsv)
     # Remove parentheses
     jcsv <- gsub('\\(|\\)', '', jcsv)
-    jcsvdir <- gsub(strsplit(jcsv, '\\/')[[1]][5], '', jcsv)
-    # NTS try dirname(jcsv)
+    jcsvdir <- dirname(jcsv)
 
     # Create directory if needed
     if (!dir.exists(jcsvdir)) {

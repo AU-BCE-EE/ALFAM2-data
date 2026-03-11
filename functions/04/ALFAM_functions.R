@@ -5,14 +5,20 @@ countries <- c(`United Kingdom` = 'UK', Norway = 'NO', Italy = 'IT',  Denmark = 
                `The Netherlands` = 'NL', Switzerland = 'CH', Sweden = 'SE', Canada = 'CA', Germany = 'DE',
                France = 'FR', Ireland = 'IE', `United States` = 'US')
 
-readALFAM2File <- function(file, institute, version = '3.3') {
+readALFAM2file <- function(file, institute, version) {
+
+  # First make csv files
+  # Create csv versions of file
+  # Store sheets as individual csv files and store those names in jc
+  fnms <- makeCSV(file)
 
   # Read in data from multiple sheets ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   na.strings <- c('', 'NA', 'na', 'Na', 'NaN')
 
   cat('  Starting. . .')
   nms <- c('date', 'who', 'version', 'what')
-  chnglog <- as.data.frame(read_xlsx(file, sheet = 11, col_names = nms, skip = 0))
+  args(fread)
+  chnglog <- fread(fnms[11], col.names = nms, skip = 0)
   tempver <- as.character(chnglog[nrow(chnglog), 'version'])
   sver <- strsplit(tempver, '\\.')[[1]]
   mjrver <- sver[1]
@@ -20,88 +26,52 @@ readALFAM2File <- function(file, institute, version = '3.3') {
 
   # Submitter info
   cat('  Submitter info . . .')
-  submitter <- read_xlsx(file, sheet = 2, skip = 1, col_names = c('x', 'y'), na = na.strings)
-  submitter <- data.frame(t(submitter[, 2]))
-  submitter <- data.frame(submitter)
+  submitter <- fread(fnms[2], skip = 0, header = FALSE, col.names = c('x', 'y'), na = na.strings)
+  submitter <- data.table(t(submitter[, 2]))
   names(submitter) <- c('institute', 'inst.abbrev', 'submitter', 'version', 'date')
-  # Read date again to get correct format
-  sdate <- as.vector(read_xlsx(file, sheet = 2, skip = 5, col_names = c('x', 'y'), na = na.strings)[1, 2])
-  sdate <- sdate[[1]]
-  sdate <- format(sdate, format = '%Y-%m-%d')
-  submitter$date <- sdate
 
   # Contributers - to save by institute and file eventually
   cat('  Contributors . . .')
   nms <- c('contributor', 'institute')
-  contrib <- read_xlsx(file, sheet = 3, skip = 1, col_names = nms, na = na.strings)
+  contrib <- fread(fnms[3], skip = 1, col.names = nms, na = na.strings)
   contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
 
   # Experiments
   cat('  Experiments . . .')
   nms <- c('proj', 'exper', 'pub.id', 'varied', 'emis.tech', 'conc.tech', 'det.lim', 'man.pH.tech', 'soil.pH.tech', 'notes.exper')
-  exper <- read_xlsx(file, sheet = 4, skip = 1, col_names = nms, na = na.strings)
-  exper <- data.frame(exper)
-  exper <- exper[rowSums(!is.na(exper)) > 0, ]
+  exper <- fread(fnms[4], skip = 1, col.names = nms, na = na.strings)
+  #exper <- exper[rowSums(!is.na(exper)) > 0, ]
 
   # Treatments
   cat('  Treatments . . .')
   nms <- c('proj', 'exper', 'treat', 'treat.descrip')
-  treat <- read_xlsx(file, sheet = 5, skip = 1, col_names = nms, na = na.strings)
-  treat <- data.frame(treat)
-  treat <- treat[rowSums(!is.na(treat)) > 0, ]
+  treat <- fread(fnms[5], skip = 1, col.names = nms, na = na.strings)
+  #treat <- treat[rowSums(!is.na(matrix(treat))) > 0, ]
 
   # Plots
   cat('  Plots . . .')
-  if (mjrver < 6) {
-    nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.stor', 
-             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
-  } else if (mjrver < 7) {
-    nms <- c('proj', 'pub.id', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 
-             'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
-             'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
-             'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
-             'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
-             'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
-  } else {
+  if (mjrver < 9) {
     nms <- c('proj', 'exper', 'field', 'plot', 'rep', 'plot.area', 'lat', 'long', 'country', 'topo', 'soil.samp.z', 
              'clay', 'silt', 'sand', 'oc', 'soil.type', 'soil.water', 'soil.water.v', 'soil.moist', 'soil.ph', 'soil.dens', 
              'crop.res', 'till', 'man.source', 'man.source.det', 'man.bed', 'man.con', 'man.trt1', 'man.trt2', 'man.trt3', 'man.stor', 
              'man.dm', 'man.vs', 'man.tkn', 'man.tan', 'man.tic', 'man.ua', 'man.vfa', 'man.ph', 
              'app.start', 'app.end', 'app.method', 'app.rate', 'app.rate.unit', 'incorp', 'time.incorp', 
              'man.area', 'dist.inj', 'furrow.z', 'furrow.w', 'crop', 'crop.z', 'crop.area', 'lai', 'notes.plot')
+  } else {
+    stop('Need to update function for new template!')
   }
 
-  plots <- read_xlsx(file, sheet = 6, skip = 4, col_names = nms, na = na.strings)
-  # No idea why man.tan is character for one particular file
-  # Need to replace the moronic tibble functions with something decent
-  plots$man.tan <- as.numeric(plots$man.tan)
-  plots <- data.frame(plots)
-  plots$row.in.file.plot <- 1:nrow(plots) + 4
-
+  plots <- fread(fnms[6], skip = 4, col.names = nms, na = na.strings)
+  plots[, row.in.file.plot := 1:.N + 4]
   # Drop blank rows
-  plots <- plots[rowSums(!is.na(plots)) > 1, ]
-
-  # Add col to v < 6. where new col was missing, makes stacking easier
-  if (mjrver < 6) {
-    plots$man.trt3 <- NA
-  }
+  plots <- plots[!is.na(plot), ]
 
   # Rename country with abbreviation
-  plots$country[nchar(plots$country) > 2] <- countries[plots$country[nchar(plots$country) > 2]]
+  plots[nchar(country) > 2, country := countries[country]]
 
   # Emission
   cat('  Emission . . .')
-  if (mjrver < 8) {
-    nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
-             'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
-             'air.temp', 'air.temp.z', 'soil.temp', 'soil.temp.z', 'soil.temp.surf', 
-             'rad', 'wind', 'wind.z', 
-             'MOL', 'ustar', 'rl', 'air.pres', 'air.pres.unit', 'rain', 'rh', 'wind.loc', 'far.loc', 'notes.int')
-  } else if (mjrver == 8) {
+  if  (mjrver == 8) {
     if (mnrver < 2) {
       nms <- c('proj', 'exper', 'field', 'plot', 'treat', 'rep', 'interval', 't.start', 't.end', 'dt', 
                'meas.tech', 'meas.tech.det', 'bg.dl', 'bg.val', 'bg.unit', 'j.type', 'j.NH3', 'j.NH3.unit', 'pH.surf', 
@@ -121,41 +91,30 @@ readALFAM2File <- function(file, institute, version = '3.3') {
     stop('See readALFAM2File() function. Missing header info for new template version. xlq128')
   }
 
-  # NTS: Here and above, will need to specify column types in order to avoid blank columns taken as logical mode
-  emis <- read_xlsx(file, sheet = 7, skip = 4, col_names = nms, na = na.strings)
-  emis <- data.frame(emis)
-  emis$row.in.file.int <- 1:nrow(emis) + 4
-  emis <- emis[rowSums(!is.na(emis)) > 1, ]
-
-  # Fix some column type problems
-  # NTS need to do this in read call!
-  emis$soil.temp <- as.numeric(emis$soil.temp)
-  emis$air.temp.z <- as.numeric(emis$air.temp.z)
-  emis$rain <- as.numeric(emis$rain)
-  emis$wind.z <- as.numeric(emis$wind.z)
+  emis <- fread(fnms[7], skip = 4, col.names = nms, na = na.strings)
+  emis[, row.in.file.int := 1:.N + 4]
+  #emis <- emis[rowSums(!is.na(emis)) > 1, ]
+  # NTS: check why above does not work for other files above
 
   # Field commonly missing but needed for *id
+  # NTS: Convert to data.table approach
   if (all(is.na(c(plots$field, emis$field)))) {
     plots$field <- ''
     emis$field <- ''
   }
 
-  if (mjrver < 8) {
-    emis$j.type <- 'Emission rate'
-  }
   emis$j.type <- tolower(emis$j.type)
 
   # Publications
   cat('  Publications . . .')
-  pubs <- read_xlsx(file, sheet = 8, skip = 2, col_names = FALSE, na = na.strings, .name_repair = 'minimal')
+  pubs <- fread(fnms[8], skip = 2, header = FALSE, na = na.strings)
   if (nrow(pubs) > 0 & ncol(pubs) == 2) {
     names(pubs) <- c('pub.id', 'pub.info')
   } else {
     cat('Did not find any publication info. . . might be good to double-check spreadsheet.\n')
     print(pubs)
-    pubs <- data.frame(pub.id = NA, pub.info = NA)
+    pubs <- data.table(pub.id = NA, pub.info = NA)
   }
-  pubs <- data.frame(pubs)
 
   return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file, tempver = tempver))
 
@@ -168,10 +127,10 @@ check4missing <- function(obj) {
   # Emission sheet
   emis <- obj$emis
   for (i in c('proj', 'exper', 'field', 'plot', 'treat', 'interval', 'meas.tech')) {
-    if (any(ii <- is.na(emis[, i]))) {
+    if (any(ii <- is.na(emis[, ..i]))) {
       cat('Error in\n')
       print('First 10 rows:')
-      print(emis[ii, c('row.in.file.int', i)][1:min(10, length(ii)), ])
+      print(emis[..ii, c('row.in.file.int', i)][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -179,7 +138,7 @@ check4missing <- function(obj) {
   # Check for missing interval 0 or 1
   if ('cpmid' %in% names(emis)) {
     for (i in unique(emis$cpmid)) {
-      d <- emis[emis$cpmid == i, ]
+      d <- emis[cpmid == ..i, ]
       if (!min(d$interval[d$interval >= 0]) %in% 0:1) {
         cat('Missing interval 0 or 1. May just be problem with entry of interval numbers\n')
         cat('File ', d$file[1], '\n')
@@ -196,7 +155,7 @@ check4missing <- function(obj) {
     if (any(is.na(c(emis$t.start, emis$t.end)))) {
       cat('Error in dt\n')
       print('First 10 rows:')
-      print(emis[ii, c('row.in.file.int', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
+      print(emis[..ii, c('row.in.file.int', 't.start', 't.end', 'dt')][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
@@ -204,13 +163,15 @@ check4missing <- function(obj) {
   # Check for missing application time in plots
   plots <- obj$plots
   for (i in c('proj', 'exper', 'field', 'plot', 'app.method')) {
-    if (any(ii <- is.na(plots[, i]))) {
+    if (any(ii <- is.na(plots[, ..i]))) {
       cat('Error in\n')
       print('First 10 rows:')
-      print(plots[ii, c('row.in.file.plot', i)][1:min(10, length(ii)), ])
+      print(plots[..ii, c('row.in.file.plot', ..i)][1:min(10, length(ii)), ])
       stop('Missing values in ', i)
     }
   }
+
+  return(invisible(NULL))
 
 }
 

@@ -40,7 +40,6 @@ source('functions.R')
 # NAs by coercion issue. . .
 sink('../../logs/04/make_database_log.txt')
   source('load_old.R', echo = TRUE)
-  source('old_date.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
   source('log_pages.R', echo = FALSE)

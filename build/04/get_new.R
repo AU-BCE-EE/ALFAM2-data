@@ -14,14 +14,13 @@ for(i in ddir) {
   dat[[i]] <- list()
   for(j in f) {
     cat('\n   file ', j,'\n')
-    # Create csv versions of file
-    jc <- makeCSV(j)
     if (!exists('newsubmission') || grepl(newsubmission, j)) { 
-      dd <- readALFAM2File(jc)
+      dd <- readALFAM2file(j)
       # Simple error check to save searching
       check4missing(dd)
       # Basic data cleaning, add *character* IDs, add time (ct, etc) . . .
       dd <- cleanALFAM(dd, sub.period = sub.period)
+      dd$emis
       # Check again now that cpmid is available
       check4missing(dd)
       # Fix weather data, including rain calcs and interpolation as needed

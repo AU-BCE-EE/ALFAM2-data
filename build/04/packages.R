@@ -1,7 +1,6 @@
 # Packages
 
-library(readxl)
-library(plyr)
+library(data.table)
 library(rmarkdown)
 library(knitr)
 library(leaflet)
