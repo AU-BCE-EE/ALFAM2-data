@@ -20,6 +20,10 @@ readALFAM2file <- function(file, institute, version) {
   args(fread)
   chnglog <- fread(fnms[11], col.names = nms, skip = 0)
   tempver <- as.character(chnglog[nrow(chnglog), 'version'])
+  # Add minor 0 if missing
+  if (!grepl('\\.[0-9]', tempver)) {
+    tempver <- paste0(tempver, '.0')
+  }
   sver <- strsplit(tempver, '\\.')[[1]]
   mjrver <- sver[1]
   mnrver <- sver[2]
@@ -37,11 +41,10 @@ readALFAM2file <- function(file, institute, version) {
   contrib <- contrib[rowSums(!is.na(contrib)) > 0, ]
   # Add submitter 
   if (!submitter[['submitter']][1] %in% contrib[['contributor']]) {
-    contrib <- rbind(contrib, data.table(contributer = submitter[['submitter']][1], institute = submitter[['institute']][1]))
+    contrib <- rbind(contrib, data.table(contributor = submitter[['submitter']][1], institute = submitter[['institute']][1]))
   }
   # Add submission period and file
   contrib[, `:=` (sub.period = sub.period, file = file)]
-  print(contrib)
 
   # Experiments
   cat('  Experiments . . .')
@@ -127,10 +130,12 @@ readALFAM2file <- function(file, institute, version) {
   p_cols <- c('proj', 'exper', 'field', 'plot', 'rep')
   x_cols <- c('proj', 'exper', 'pub.id')
   b_cols <- c('pub.id')
+  t_cols <- c('proj', 'exper')
   emis[,  (e_cols) := lapply(.SD, as.character), .SDcols = e_cols]
   plots[, (p_cols) := lapply(.SD, as.character), .SDcols = p_cols]
   exper[, (x_cols) := lapply(.SD, as.character), .SDcols = x_cols]
   pubs[, (b_cols) := lapply(.SD, as.character), .SDcols = b_cols]
+  treat[, (t_cols) := lapply(.SD, as.character), .SDcols = t_cols]
 
   return(list(submitter = submitter, contrib = contrib, exper = exper, treat = treat, plots = plots, emis = emis, pubs = pubs, file = file, tempver = tempver))
 

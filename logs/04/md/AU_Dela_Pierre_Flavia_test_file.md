@@ -52,7 +52,7 @@ file creation date/time when doing so. These are:
 
     ## Version:  3.0
 
-    ## [1] "Date/time: 2026-03-11 09:18:32.495583"
+    ## [1] "Date/time: 2026-03-11 15:19:08.512904"
 
 Each of these files contains a summary of the data from a single
 submitted spreadsheet file. The html name is based on the name of the
@@ -84,12 +84,12 @@ help in pinpointing problems, but typically does not need to be checked.
 
 # 2. Contributors
 
-| contributor         | institute         |
-|:--------------------|:------------------|
-| Pedersen, Johanna   | Aarhus University |
-| Dela Pierre, Flavia | Aarhus University |
-| Kamp, Jesper Nørlem | Aarhus University |
-| Feilberg, Anders    | Aarhus University |
+| contributor         | institute         | sub.period | file                                      |
+|:--------------------|:------------------|-----------:|:------------------------------------------|
+| Pedersen, Johanna   | Aarhus University |          4 | ../../data-submitted/04/AU/test_file.xlsx |
+| Dela Pierre, Flavia | Aarhus University |          4 | ../../data-submitted/04/AU/test_file.xlsx |
+| Kamp, Jesper Nørlem | Aarhus University |          4 | ../../data-submitted/04/AU/test_file.xlsx |
+| Feilberg, Anders    | Aarhus University |          4 | ../../data-submitted/04/AU/test_file.xlsx |
 
 # 3. File and directory names
 
@@ -427,29 +427,29 @@ facilitate checking for problems, e.g., comparing plot to each other or
 checking application dates. The same colors should be be used for
 particular field plots throughout this section.
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-3.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-4.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-5.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-6.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-7.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-8.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-9.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-10.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-11.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-12.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-13.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-3.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-4.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-5.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-6.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-7.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-8.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-9.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-10.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-11.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-12.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-30-13.png)<!-- -->
 
 ## Final cumulative emission
 
     ## `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
 
 ## Relative versus absolute emission
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 ## Flux
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-3.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-4.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-5.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-6.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-7.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-8.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-9.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-10.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-11.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-12.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-13.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-14.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-15.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-16.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-17.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-18.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-19.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-20.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-21.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-22.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-23.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-24.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-25.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-26.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-27.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-28.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-29.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-30.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-31.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-32.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-33.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-34.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-35.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-36.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-37.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-38.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-39.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-3.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-4.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-5.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-6.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-7.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-8.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-9.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-10.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-11.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-12.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-13.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-14.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-15.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-16.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-17.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-18.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-19.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-20.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-21.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-22.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-23.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-24.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-25.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-26.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-27.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-28.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-29.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-30.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-31.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-32.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-33.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-34.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-35.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-36.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-37.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-38.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-33-39.png)<!-- -->
 
 ## Weather data
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-3.png)<!-- -->![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-4.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-3.png)<!-- -->![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-34-4.png)<!-- -->
 
 ## Manure and application
 
-![](AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
+![](../../logs/04/md/AU_Dela_Pierre_Flavia_test_file_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
 
 # 10. Summary
 
@@ -458,15 +458,15 @@ particular field plots throughout this section.
     ## 
     ##  77 rows and 210 columns
     ##  77 unique rows
-    ##                     pub.id      proj   exper
-    ## Class              logical character integer
-    ## Minimum               <NA>  STABIL26       1
-    ## Maximum               <NA>  STABIL26       9
-    ## Mean                  <NA>      <NA>    4.95
-    ## Unique (excld. NA)       0         1       9
-    ## Missing values          77         0       0
-    ## Sorted                <NA>      TRUE    TRUE
-    ##                                             
+    ##                       pub.id      proj     exper
+    ## Class              character character character
+    ## Minimum                 <NA>  STABIL26         1
+    ## Maximum                 <NA>  STABIL26         9
+    ## Mean                    <NA>      <NA>      <NA>
+    ## Unique (excld. NA)         0         1         9
+    ## Missing values            77         0         0
+    ## Sorted                  <NA>      TRUE      TRUE
+    ##                                                 
     ##                                                                                                                                                                  cpmid
     ## Class                                                                                                                                                        character
     ## Minimum                    D:1.I:AU.Pr:STABIL26.F:../../data-submitted/04/AU/test_file.xlsx.E:1.F:Foulumgård.P:1 AD.T:AD.R:1.R2:.T:2022-04-05 14:17:00.M:Wind tunnelNA
@@ -476,15 +476,15 @@ particular field plots throughout this section.
     ## Missing values                                                                                                                                                       0
     ## Sorted                                                                                                                                                            TRUE
     ##                                                                                                                                                                       
-    ##                         field      plot     rep plot.area     lat    long
-    ## Class               character character integer   numeric numeric numeric
-    ## Minimum            Foulumgård      1 AD       1       0.2    56.5    9.56
-    ## Maximum            Foulumgård  9 PS-LB1       3       0.2    56.5    9.56
-    ## Mean                     <NA>      <NA>    1.99       0.2    56.5    9.56
-    ## Unique (excld. NA)          1        59       3         1       1       1
-    ## Missing values              0         0       0         0       0       0
-    ## Sorted                   TRUE     FALSE   FALSE      TRUE    TRUE    TRUE
-    ##                                                                          
+    ##                         field      plot       rep plot.area     lat    long
+    ## Class               character character character   numeric numeric numeric
+    ## Minimum            Foulumgård      1 AD         1       0.2    56.5    9.56
+    ## Maximum            Foulumgård  9 PS-LB1         3       0.2    56.5    9.56
+    ## Mean                     <NA>      <NA>      <NA>       0.2    56.5    9.56
+    ## Unique (excld. NA)          1        59         3         1       1       1
+    ## Missing values              0         0         0         0       0       0
+    ## Sorted                   TRUE     FALSE     FALSE      TRUE    TRUE    TRUE
+    ##                                                                            
     ##                      country      topo soil.samp.z    clay    silt    sand
     ## Class              character character   character integer integer integer
     ## Minimum                   DK      flat         0-5       9      24      65
@@ -504,10 +504,10 @@ particular field plots throughout this section.
     ## Sorted                <NA>      <NA>      FALSE         <NA>       <NA>   FALSE
     ##                                                                                
     ##                    soil.dens  crop.res    till man.source
-    ## Class                numeric character logical     factor
-    ## Minimum                 1.03        No    <NA>        cat
-    ## Maximum                 1.37        No    <NA>       none
-    ## Mean                    1.17      <NA>    <NA>       mink
+    ## Class                numeric character logical  character
+    ## Minimum                 1.03        No    <NA>        mix
+    ## Maximum                 1.37        No    <NA>        pig
+    ## Mean                    1.17      <NA>    <NA>       <NA>
     ## Unique (excld. NA)         9         1       0          2
     ## Missing values             0         0      77          0
     ## Sorted                 FALSE      TRUE    <NA>      FALSE
@@ -521,15 +521,15 @@ particular field plots throughout this section.
     ## Missing values                                                                                                      0
     ## Sorted                                                                                                          FALSE
     ##                                                                                                                      
-    ##                    man.bed man.con            man.trt1         man.trt2
-    ## Class              logical  factor           character        character
-    ## Minimum               <NA>  slurry Anaerobic digestion Biochar addition
-    ## Maximum               <NA>   solid                None             None
-    ## Mean                  <NA>  liquid                <NA>             <NA>
-    ## Unique (excld. NA)       0       3                   3                3
-    ## Missing values          77       0                   0               27
-    ## Sorted                <NA>   FALSE               FALSE            FALSE
-    ##                                                                        
+    ##                    man.bed   man.con            man.trt1         man.trt2
+    ## Class              logical character           character        character
+    ## Minimum               <NA>    liquid Anaerobic digestion Biochar addition
+    ## Maximum               <NA>     solid                None             None
+    ## Mean                  <NA>      <NA>                <NA>             <NA>
+    ## Unique (excld. NA)       0         3                   3                3
+    ## Missing values          77         0                   0               27
+    ## Sorted                <NA>     FALSE               FALSE            FALSE
+    ##                                                                          
     ##                            man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
     ## Class                     character  logical numeric numeric numeric numeric
     ## Minimum            Biochar addition     <NA>    2.06    59.8    1.51    0.43
@@ -896,15 +896,15 @@ particular field plots throughout this section.
     ## Missing values                                                                                                                                                       0
     ## Sorted                                                                                                                                                            TRUE
     ##                                                                                                                                                                       
-    ##                     pub.id      proj   exper      field      plot     rep
-    ## Class              logical character integer  character character integer
-    ## Minimum               <NA>  STABIL26       1 Foulumgård      1 AD       1
-    ## Maximum               <NA>  STABIL26       9 Foulumgård  9 PS-LB1       3
-    ## Mean                  <NA>      <NA>    5.13       <NA>      <NA>    1.99
-    ## Unique (excld. NA)       0         1       9          1        59       3
-    ## Missing values        5853         0       0          0         0       0
-    ## Sorted                <NA>      TRUE    TRUE       TRUE     FALSE   FALSE
-    ##                                                                          
+    ##                       pub.id      proj     exper      field      plot       rep
+    ## Class              character character character  character character character
+    ## Minimum                 <NA>  STABIL26         1 Foulumgård      1 AD         1
+    ## Maximum                 <NA>  STABIL26         9 Foulumgård  9 PS-LB1         3
+    ## Mean                    <NA>      <NA>      <NA>       <NA>      <NA>      <NA>
+    ## Unique (excld. NA)         0         1         9          1        59         3
+    ## Missing values          5853         0         0          0         0         0
+    ## Sorted                  <NA>      TRUE      TRUE       TRUE     FALSE     FALSE
+    ##                                                                                
     ##                        treat   meas.tech meas.tech.det plot.area     lat
     ## Class              character   character       logical   numeric numeric
     ## Minimum                   AD Wind tunnel          <NA>       0.2    56.5
@@ -933,10 +933,10 @@ particular field plots throughout this section.
     ## Sorted                TRUE    <NA>      <NA>      FALSE         <NA>       <NA>
     ##                                                                                
     ##                    soil.ph soil.dens  crop.res    till man.source
-    ## Class              numeric   numeric character logical     factor
-    ## Minimum               5.34      1.03        No    <NA>        cat
-    ## Maximum               6.53      1.37        No    <NA>       none
-    ## Mean                  5.81      1.17      <NA>    <NA>       mink
+    ## Class              numeric   numeric character logical  character
+    ## Minimum               5.34      1.03        No    <NA>        mix
+    ## Maximum               6.53      1.37        No    <NA>        pig
+    ## Mean                  5.81      1.17      <NA>    <NA>       <NA>
     ## Unique (excld. NA)       9         9         1       0          2
     ## Missing values           0         0         0    5853          0
     ## Sorted               FALSE     FALSE      TRUE    <NA>      FALSE
@@ -950,15 +950,15 @@ particular field plots throughout this section.
     ## Missing values                                                                                                      0
     ## Sorted                                                                                                          FALSE
     ##                                                                                                                      
-    ##                    man.bed man.con            man.trt1         man.trt2
-    ## Class              logical  factor           character        character
-    ## Minimum               <NA>  slurry Anaerobic digestion Biochar addition
-    ## Maximum               <NA>   solid                None             None
-    ## Mean                  <NA>  liquid                <NA>             <NA>
-    ## Unique (excld. NA)       0       3                   3                3
-    ## Missing values        5853       0                   0             1971
-    ## Sorted                <NA>   FALSE               FALSE            FALSE
-    ##                                                                        
+    ##                    man.bed   man.con            man.trt1         man.trt2
+    ## Class              logical character           character        character
+    ## Minimum               <NA>    liquid Anaerobic digestion Biochar addition
+    ## Maximum               <NA>     solid                None             None
+    ## Mean                  <NA>      <NA>                <NA>             <NA>
+    ## Unique (excld. NA)       0         3                   3                3
+    ## Missing values        5853         0                   0             1971
+    ## Sorted                <NA>     FALSE               FALSE            FALSE
+    ##                                                                          
     ##                            man.trt3 man.stor  man.dm  man.vs man.tkn man.tan
     ## Class                     character  logical numeric numeric numeric numeric
     ## Minimum            Biochar addition     <NA>    2.06    59.8    1.51    0.43

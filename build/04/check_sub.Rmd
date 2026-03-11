@@ -3,10 +3,11 @@ title: 'Submitted data error checks'
 output:
   github_document:
     toc: true
+    html_preview: false
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.path = paste0(fn, '_files/figure-gfm/'))
+knitr::opts_chunk$set(fig.path = paste0('../../logs/04/md/', fn, '_files/figure-gfm/'))
 ```
 
 # 0. Instructions for submitters

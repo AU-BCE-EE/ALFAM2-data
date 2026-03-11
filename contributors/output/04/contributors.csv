@@ -1,53 +1,126 @@
 contributor,institute,sub.period,file
-"Pedersen, Johanna",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Dela Pierre, Flavia",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Kamp, Jesper Nørlem",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Feilberg, Anders",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Pedersen, Johanna",Aarhus University,3,../../data-submitted/04/AU/test_file.xlsx
-"Dela Pierre, Flavia",Aarhus University,3,../../data-submitted/04/AU/test_file.xlsx
-"Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/04/AU/test_file.xlsx
-"Feilberg, Anders",Aarhus University,3,../../data-submitted/04/AU/test_file.xlsx
-"Hafner, Sasha D.",Aarhus University,"1, 2, 3",
+??,WUR,3,../../data-submitted/03/WUR/WUR_arable_2024.xlsx
+??,WUR,3,../../data-submitted/03/WUR/WUR_grass_2024.xlsx
 "Adani, Fabrizio","",3,
+"Andersson, Karin",Swedish University of Agricultural Sciences,3,../../data-submitted/03/AU/ALFAM2_template_8.3_SLU26.xlsx
 "Bittman, Shabtai","",2,
 "Burchill, William","",2,
 "Bussink, Wim",Wageningen University and Research,"1, 2",
 "Carozzi, Marco","","2, 3",
 "Carton, Owen T.",Teagasc,1,
 "Chantigny, Martin","",2,
+"Dela Pierre, Flavia",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
+"Dela Pierre, Flavia","University of Turin, Department of Agriculture, Forest and Food Science",4,../../data-submitted/04/UNITO-DISAFA/test.xlsx
+"Dela Pierre, Flavia",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
 "Dela Pierre, Flavia",Aarhus University,3,
+"Delin, Sofia",Swedish University of Agricultural Sciences,3,../../data-submitted/03/AU/ALFAM2_template_8.3_SLU26.xlsx
+Derek Hunt,"Agassiz Research and Development Center, BC, Canada",3,../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx
+"Décuq, Céline",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
 "Döhler, Helmut","",1,
+"Essich, Christoph","Institute of Crop Science, Department “Fertilization and Soil Matter Dynamics”, University of Hohenheim",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+Ester Scotto di Perta,"Department of Agricultural Sciences, University of Naples, Federico II",3,../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx
+Fabrizio Adani,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Via Celoria 2, 20133 Milan, Italy",3,../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx
+"Feilberg, Anders",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
+"Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
+"Flessa, Heinz","Thünen Institute of Climate-Smart Agriculture, Federal Research Institute for Rural Areas, Forestry and Fisheries",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 "Génermont, Sophie","","1, 2",
-"Häni, Christoph","",2,
+"Götze, Hannah","Thünen Institute for Climate-Smart Agriculture, Braunschweig, Germany",3,../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx
+"Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
+"Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
+"Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx
+"Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.2_MAGspring24_240901.xlsx
+"Hafner, Sasha D.",Aarhus University,"1, 2, 3",
 "Hansen, Martin N.","",2,
+"Houot, Sabine",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
+"Huijsmans, Jan","Wageningen University and Research, Wageningen, The Netherlands",3,../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx
 "Huijsmans, Jan",Wageningen University and Research,"1, 2",
 "Hunt, Derek","",2,
 "Hutchings, Nicholas, J.",Aarhus University,1,
+"Häni, Christoph",Bern University of Applied Sciences,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
+"Häni, Christoph",Bern University of Applied Sciences,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
+"Häni, Christoph","",2,
+"Kamp, Jesper",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
+"Kamp, Jesper Nørlem",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
+"Kamp, Jesper Nørlem","Aarhus University, Department of Biological and Chemical Engineering",4,../../data-submitted/04/UNITO-DISAFA/test.xlsx
+"Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
+"Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
+"Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
+"Kamp, Jesper Nørlem","Aarhus University, Department of Biological and Chemical Engineering",3,../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx
 "Kamp, Jesper Nørlem","",3,
+"Kluß, Christof","Institute of Crop Science and Plant Breeding, Grass and Forage Science/Organic Agriculture, Christian-Albrechts-University Kiel",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 "Kupper, Thomas","",2,
 "Lanigan, Gary","",2,
+"Lemes, Yolanda Maria",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
+"Loubet, Benjamin",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
 "Loubet, Benjamin","",2,
+Marco Carozzi,"INRAE, Thiverval-Grignon, France",3,../../data-submitted/03/UNINI/ALFAM2_template_6.1_ARMOSA2013_V1.xlsx
+Martin Nørregård Hansen,"SEGES, Aarhus, Denmark",3,../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx
 "Martinez, Jose","",1,
+Massimo Zilio,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Via Celoria 2, 20133 Milan, Italy",3,../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx
 "Meisinger, John J.","",2,
 "Menzi, Harald","",1,
 "Misselbrook, Tom","","1, 2",
+"Moinard,Victor",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
 "Morken, John","",1,
 "Neftel, Albrecht","",2,
 "Nicholson, Fiona A.","",1,
+"Nyameasem, John Kormla","Institute of Crop Science and Plant Breeding, Grass and Forage Science/Organic Agriculture, Christian-Albrechts-University Kiel",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+"Nyord, Tavs",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
+"Nyord, Tavs",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18ABC.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18GHI.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18KLRS.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_18NOP.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_5_2_211012_JP_19BCHI.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_6_0_220126_JP_20CD21A_JP.xlsx
+"Nyord, Tavs",Aarhus Universitet,3,../../data-submitted/03/AU/ALFAM2_template_6_0_220310_JP_20EFGH_v2.xlsx
+"Nyord, Tavs",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
+"Nyord, Tavs",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_19G20AB.xlsx
 "Nyord, Tavs","",2,
+"Olfs, Hans-Werner","Faculty of Agricultural Sciences and Landscape Architecture, University of Applied Sciences Osnabrück",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+"Pacholski, Andreas","Thünen Institute for Climate-Smart Agriculture, Braunschweig, Germany",3,../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx
+"Pacholski, Andreas",Thünen Institute,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
+"Pacholski, Andreas",Thünen Institute,3,../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx
+"Pacholski, Andreas",Thünen Institute,3,../../data-submitted/03/AU/ALFAM2_template_8.2_MAGspring24_240901.xlsx
 "Pacholski, Andreas","",2,
 "Pain, Brian","",1,
+"Pedersen, Johanna",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.2_MAGspring24_240901.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_SLU26.xlsx
+"Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
+"Pedersen, Johanna","Aarhus University, Department of Biological and Chemical Engineering",3,../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx
 "Pedersen, Johanna","",3,
-"Vilms Pedersen, Simon","",2,
+"Reinsch, Thorsten","Institute of Crop Science and Plant Breeding, Grass and Forage Science/Organic Agriculture, Christian-Albrechts-University Kiel",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 "Rodhe, Lena","",1,
+"Ruser, Reiner","Institute of Crop Science, Department “Fertilization and Soil Matter Dynamics”, University of Hohenheim",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+"Savoie, Antoine",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
 "Scotto di Perta, Ester","",3,
+Shabtai Bittman,"Agassiz Research and Development Center, BC, Canada",3,../../data-submitted/03/AU/ALFAM2_template_5_2_210929_JP_CanadianData.xlsx
 "Sintermann, Jörg","",2,
 "Smith, Ken","",1,
 "Sommer, Sven G.","Aarhus University, Aarhus Denmark","1, 2, 3",
+Stefania Pindozzi,"Department of Agricultural Sciences, University of Naples, Federico II",3,../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx
+"Støckler, Anna Holm",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
+Sven G. Sommer,"Aarhus University, Denmark",3,../../data-submitted/03/AU/ALFAM2_template_6.1 SGS(Rev).xlsx
+"Sørensen, Lise Lotte",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
+"Sørensen, Lise Lotte",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
 "Thomson, Rodney B.","",2,
 "Valli, Laura","",1,
 "Vermeulen, Bert","",2,
 "Vestergaard, Annette V.","",2,
+"Vilms Pedersen, Simon","",2,
 "Voylokov, Polina","",2,
+"Voylokova, Polina",INRAE,3,../../data-submitted/03/INRAE/ALFAM2_template_8.0_META_METHA_Vf_v4.xlsx
 "Williams, John R.","",2,
 "Zilio, Massimo","",3,
+"Zutz, Mareike","Institute of Crop Science and Plant Breeding, Grass and Forage Science/Organic Agriculture, Christian-Albrechts-University Kiel",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+"ten Huf, Martin","Faculty of Agricultural Sciences and Landscape Architecture, University of Applied Sciences Osnabrück",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
+"van Boheemen, Koen","Wageningen University and Research, Wageningen, The Netherlands",3,../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx
