@@ -9,8 +9,6 @@ contributor,institute,sub.period,file
 "Carozzi, Marco","","2, 3",
 "Carton, Owen T.",Teagasc,1,
 "Chantigny, Martin","",2,
-"Dela Pierre, Flavia",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Dela Pierre, Flavia","University of Turin, Department of Agriculture, Forest and Food Science",4,../../data-submitted/04/UNITO-DISAFA/test.xlsx
 "Dela Pierre, Flavia",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
 "Dela Pierre, Flavia",Aarhus University,3,
 "Delin, Sofia",Swedish University of Agricultural Sciences,3,../../data-submitted/03/AU/ALFAM2_template_8.3_SLU26.xlsx
@@ -20,7 +18,6 @@ Derek Hunt,"Agassiz Research and Development Center, BC, Canada",3,../../data-su
 "Essich, Christoph","Institute of Crop Science, Department “Fertilization and Soil Matter Dynamics”, University of Hohenheim",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 Ester Scotto di Perta,"Department of Agricultural Sciences, University of Naples, Federico II",3,../../data-submitted/03/UNINA/ALFAM2_UNINA_5_6_1_ver6.xlsx
 Fabrizio Adani,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Via Celoria 2, 20133 Milan, Italy",3,../../data-submitted/03/DiSSA-IT/ALFAM2_data from Adani-Zilio_2.xlsx
-"Feilberg, Anders",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
 "Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
 "Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
 "Feilberg, Anders",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
@@ -30,6 +27,7 @@ Fabrizio Adani,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Vi
 "Flessa, Heinz","Thünen Institute of Climate-Smart Agriculture, Federal Research Institute for Rural Areas, Forestry and Fisheries",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 "Génermont, Sophie","","1, 2",
 "Götze, Hannah","Thünen Institute for Climate-Smart Agriculture, Braunschweig, Germany",3,../../data-submitted/03/AU/ALFAM2_template_7_0_eGylle_NL_DE_JK.xlsx
+"Hafner, Sasha",AU,4,../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass1+2.xlsx
 "Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_6_1_230726_JP_18EF.xlsx
 "Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
 "Hafner, Sasha",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx
@@ -45,8 +43,6 @@ Fabrizio Adani,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Vi
 "Häni, Christoph",Bern University of Applied Sciences,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
 "Häni, Christoph","",2,
 "Kamp, Jesper",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
-"Kamp, Jesper Nørlem",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
-"Kamp, Jesper Nørlem","Aarhus University, Department of Biological and Chemical Engineering",4,../../data-submitted/04/UNITO-DISAFA/test.xlsx
 "Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_Aug_5_5_b.xlsx
 "Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_JNK_2019_May_5_6_a.xlsx
 "Kamp, Jesper Nørlem",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
@@ -89,7 +85,6 @@ Massimo Zilio,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Via
 "Pacholski, Andreas",Thünen Institute,3,../../data-submitted/03/AU/ALFAM2_template_8.2_MAGspring24_240901.xlsx
 "Pacholski, Andreas","",2,
 "Pain, Brian","",1,
-"Pedersen, Johanna",Aarhus University,4,../../data-submitted/04/AU/test_file.xlsx
 "Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_22HIJK_240208.xlsx
 "Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_DFCtest_JP_231108_JK.xlsx
 "Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_7.0_MAGspring23_231117.xlsx
@@ -98,6 +93,7 @@ Massimo Zilio,"Gruppo Ricicla labs, DiSAA-Università degli Studi di Milano, Via
 "Pedersen, Johanna",Aarhus University,3,../../data-submitted/03/AU/ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx
 "Pedersen, Johanna","Aarhus University, Department of Biological and Chemical Engineering",3,../../data-submitted/03/UNITO-DISAFA/ALFAM2_AM.VOC_jk_jp_fd.xlsx
 "Pedersen, Johanna","",3,
+"Pedersen, Johanna ",Aarhus University,4,../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass1+2.xlsx
 "Reinsch, Thorsten","Institute of Crop Science and Plant Breeding, Grass and Forage Science/Organic Agriculture, Christian-Albrechts-University Kiel",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
 "Rodhe, Lena","",1,
 "Ruser, Reiner","Institute of Crop Science, Department “Fertilization and Soil Matter Dynamics”, University of Hohenheim",3,../../data-submitted/03/TI/ALFAM2_template_7.0_GülleBest_BW_HOH_20240415.xlsx
