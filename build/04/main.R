@@ -13,12 +13,13 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.0'
+version <- '3.0-dev'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
+cat('Remember to update old.sub.period!')
 old.sub.period <- 3
 oldrelease <- '2.77'
 

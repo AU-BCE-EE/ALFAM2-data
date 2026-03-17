@@ -8,3 +8,6 @@
 
 # csv files created from submissions
 data-csv
+
+# LibreOffice lock files
+.~lock*
