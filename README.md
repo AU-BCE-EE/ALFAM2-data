@@ -105,7 +105,6 @@ The record of R and add-on package versions in `logs/*/R_package_version.txt` sh
 * `data-ALFAM1` the original ALFAM database, developed by Sven G. Sommer et al., considered submission period 1
 * `data-output` output: ALFAM2 database files, with latest version in subdirectory with highest submission period number
 * `data-submitted` data as submitted by data submitters, in spreadsheet templates, in some cases with data processing etc. by database developers
-* `demos` demo code for reading and working with the data in R or Python
 * `functions` R functions for building database, organized by submission period; some from <https://github.com/sashahafner/jumbled>
 * `logs` logs created when database is built, including per-submission data check reports
 * `summaries` scripts and output for summaries and averages of the database

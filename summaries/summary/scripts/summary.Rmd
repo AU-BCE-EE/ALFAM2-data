@@ -6,7 +6,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
 ```{r}
-pdat$digested <- grepl('anaerobic digestion', tolower(paste(pdat$man.trt1, pdat$man.trt2)))
+pdat[, digested := grepl('anaerobic digestion', tolower(paste(man.trt1, man.trt2)))]
 ```
 
 
@@ -21,40 +21,34 @@ dim(idat)
 ```
 
 ```{r}
-up <- pdat[pdat$pid %in% unique(pdat$pid), ]
 table(pdat$sub.period)
-table(up$sub.period)
 table(country = up$country, sub.period = up$sub.period)
 table(institute = up$institute, sub.period = up$sub.period)
 ```
 
 ```{r}
-table(pdat$pdat$man.trt1)
+table(pdat$man.trt1)
 table(pdat$man.trt2)
 ```
 
 ```{r}
-u3 <- subset(pdat, sub.period == 3)
-up3 <- subset(up, sub.period == 3)
-table(paste(u3$sub.period, u3$country, u3$institute, u3$man.source, u3$meas.tech2), u3$digested)
-table(u3$digested)
-table(up3$digested)
+upl <- subset(pdat, sub.period == max(sub.period))
+table(paste(upl$sub.period, upl$country, upl$institute, upl$man.source, upl$meas.tech2), upl$digested)
+table(upl$digested)
 ```
 
 ```{r}
-table(u3$meas.tech2)
-table(up3$meas.tech2)
+table(upl$meas.tech2)
 ```
 
 ```{r}
-table(up3$country)
-table(u3$country)
+table(upl$country)
 ```
 
 Acidification table.
 
 ```{r}
-acidtab <- table(paste(pdat$man.trt1, pdat$man.trt2, pdat$man.trt3), pdat$acid)
+acidtab <- table(paste(pdat$man.trt1, pdat$man.trt2, pdat$man.trt3, sep = ', '), pdat$acid)
 acidtab <- acidtab[order(-acidtab[, 'TRUE']), ]
 acidtab
 ```

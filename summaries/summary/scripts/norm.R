@@ -1,2 +1,2 @@
 
-cdat$j.NH3.norm <- cdat$j.NH3 / cdat$tan.app
+cdat[, j.NH3.norm := j.NH3 / tan.app]

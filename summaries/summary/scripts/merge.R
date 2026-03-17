@@ -1,2 +1,2 @@
 
-cdat <- merge(pdat, idat, by = c('pid', 'pmid'))
+cdat <- merge(pdat, idat, by = c('pid', 'pmid', 'version'))
