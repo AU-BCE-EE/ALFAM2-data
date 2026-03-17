@@ -15,7 +15,7 @@ Files can be merged on the two plot keys or identification codes: `pid` and `pmi
 
 Files are saved in a compressed format with the extension `.gz` (gzip) in order to reduce file size.
 The easiest way to get the data into R is to read the files directly with `data.table::fread()`.
-Alternatively, various utilies can be used to extract (unzip) the files, which are regular comma-separated ASCII text files.
+Alternatively, various utilities can be used to extract (unzip) the files, which are regular comma-separated ASCII text files.
 
 The ALFAM2 data are organized into submission periods: 1 is for the original ALFAM work, 2 for the work described in [this paper](https://doi.org/10.1016/j.agrformet.2017.11.027), 3 was for a major expansion, and 4 is the current ongoing effort to expand the database and improve the data processing workflow.
 The latest version will always be in the highest submission period number (4 currently).
@@ -37,7 +37,7 @@ The best way to refer to this work if you use the data in a publication is to ci
 In addition to a digital object identifier (doi), this Zenodo version includes an author list.
 Alternatively, individual [releases](https://github.com/sashahafner/ALFAM2-data/releases) can be cited.
 In either case, be sure to **note the version number used** in any citation.
-If you have used a version not included in a release or a Zenodo dataset, please contact me ([here](https://au.dk/sasha.hafner@bce.au.dk))and I will create the necessary release or dataset.
+If you have used a version not included in a release or a Zenodo dataset, please contact me ([here](https://au.dk/sasha.hafner@bce.au.dk)) and I will create the necessary release or dataset.
 Authors may also want to cite the references listed in the next section.
 But again, include the dataset version number in any citation.
 
