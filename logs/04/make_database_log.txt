@@ -4,7 +4,7 @@
 > pdat.old <- data.table::fread("../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-03-17 05:09:17 EDT"
+[1] "2026-03-17 05:26:33 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 

@@ -7,7 +7,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(fig.path = paste0('../../logs/04/md/', fn, '_files/figure-gfm/'))
+knitr::opts_knit$set(base.dir = normalizePath('../../logs/04/md/'))
+knitr::opts_chunk$set(fig.path = paste0(fn, '_files/figure-gfm/'))
 ```
 
 # 0. Instructions for submitters

@@ -52,7 +52,7 @@ file creation date/time when doing so. These are:
 
     ## Version:  3.0
 
-    ## [1] "Date/time: 2026-03-17 05:08:39.384305"
+    ## [1] "Date/time: 2026-03-17 05:26:36.924912"
 
 Each of these files contains a summary of the data from a single
 submitted spreadsheet file. The html name is based on the name of the
@@ -333,37 +333,37 @@ facilitate checking for problems, e.g., comparing plot to each other or
 checking application dates. The same colors should be be used for
 particular field plots throughout this section.
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-3.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-4.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-5.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-6.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-1.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-2.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-3.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-4.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-5.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-30-6.png)<!-- -->
 
 ## Final cumulative emission
 
     ## `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-31-1.png)<!-- -->
 
 ## Relative versus absolute emission
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-32-1.png)<!-- -->
 
 ## Flux
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-3.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-4.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-5.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-6.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-7.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-8.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-9.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-10.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-11.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-12.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-13.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-14.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-15.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-16.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-17.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-18.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-1.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-2.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-3.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-4.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-5.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-6.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-7.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-8.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-9.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-10.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-11.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-12.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-13.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-14.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-15.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-16.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-17.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-33-18.png)<!-- -->
 
 ## Weather data
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-1.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-2.png)<!-- -->
 
     ## Warning: Removed 1 row containing missing values or values outside the scale
     ## range (`geom_line()`).
 
-    ## Warning: Removed 1 row containing missing values or values outside the scale
-    ## range (`geom_point()`).
+    ## Warning: Removed 1 row containing missing values or values outside the scale range
+    ## (`geom_point()`).
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-3.png)<!-- -->![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-4.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-3.png)<!-- -->![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-34-4.png)<!-- -->
 
 ## Manure and application
 
-![](../../logs/04/md/AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
+![](AU_Pedersen_Johanna_ALFAM2_template_8.3_NGrass1+2_files/figure-gfm/unnamed-chunk-35-1.png)<!-- -->
 
 # 10. Summary
 
