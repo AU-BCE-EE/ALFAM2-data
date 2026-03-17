@@ -1,9 +1,0 @@
-Date,Who,File,Sheet,What
-"12 Jan 2026",,ALFAM2_template_8.3_Stabil26_FDP_09_Jan.xlsx,All,"New file from Flavia by email, does not included edits in earlier one (see below)"
-"12 Jan 2026",Sasha,ALFAM2_template_8.3_Stabil26_FDP_09_Jan.xlsx,"Plots and Emission","Add “.” in last col, first two rows"
-2026/01/13,Flavia,ALFAM2_template_8.3_Stabil26_FDP_13_Jan.xlsx,Emissions,"Delete ""soil"" plots and uniform project name across rows"
-2026/01/27,Flavia,ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx,"Plots and Emissions","Fixed replicate numbers in experiment 2"
-"27 Jan 2026",Sasha,ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx,"Plots and Emission","Convert the 4 (2 each) date/time columns to character w/ copy/paste/ctrl+1 format/copy/paste"
-"27 Jan 2026",Sasha,ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx,Emission,"Column AG L 537 + replace “rain” with “0”"
-2026/03/03,Flavia,ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx,"Plots and Emission",
-"3 March 2026",Sasha,ALFAM2_template_8.3_Stabil26_FDP_27_Jan.xlsx,Emission,"Fix date/time format issue (copy 2 columns, paste in text editor, back in spreadsheet, format the two columns as “text”, then copy/paste columns from text editor)"

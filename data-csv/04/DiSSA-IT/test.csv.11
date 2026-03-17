@@ -1,9 +1,0 @@
-Date,Who,File,Sheet,What
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Plots,"Covert TAN and TN to g/kg from g/kg DM by multiplying by DM."
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Emission,"Change measurement method, was given at ALPHA samplers"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx","Emission & Experiments","Moved note at end column to Epxeriments."
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx","Plots & Emission","Add numbers to plot ID"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Submitter,"Add institution abbreviation"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Plots,"Remove incorporation method (injection was used)."
-"1 June 2022",Sasha,"ALFAM2_data from Adani-Zilio_2.xlsx",Several,"Received new version from Massimo. See uptake notes."
-"1 June 2022",Sasha,"ALFAM2_data from Adani-Zilio_2.xlsx",Submitter,"Add v2"

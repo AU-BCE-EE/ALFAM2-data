@@ -1,7 +1,0 @@
-Date,Who,File,Sheet,Issue,Comments,Resolved
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Plots,"Missing DM and TAN for urea",,"1 June 2022"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx","Emission ","Missing wind height",,"1 June 2022"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx","Plots & Emission","Check plot numbers I added","I undid this change","1 June 2022"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Submitter,"Check institution abbreviation",,"1 June 2022"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Plots,"Check removal of incorporation method.",,"1 June 2022"
-"24 May 2022",Sasha,"ALFAM2_data from Adani-Zilio.xlsx",Plots,"Check application times—they are much earlier than first measurement intervals for some rows",,"1 June 2022"
