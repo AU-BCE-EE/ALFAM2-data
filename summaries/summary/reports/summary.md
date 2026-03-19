@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "17 March, 2026"
+date: "19 March, 2026"
 ---
 
 
@@ -42,7 +42,7 @@ dim(idat)
 ```
 
 ```
-## [1] 103020     51
+## [1] 102989     51
 ```
 
 
