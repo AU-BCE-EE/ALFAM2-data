@@ -52,7 +52,7 @@ file creation date/time when doing so. These are:
 
     ## Version:  3.0-dev
 
-    ## [1] "Date/time: 2026-03-19 12:10:44.984405"
+    ## [1] "Date/time: 2026-03-20 11:09:11.18512"
 
 Each of these files contains a summary of the data from a single
 submitted spreadsheet file. The html name is based on the name of the
@@ -208,7 +208,8 @@ map](https://maps.google.com/?q=56.48427,9.58356)
     ## OK
     ## OK
     ## OK
-    ## OK
+    ## [1] "Problem, see following rows (compare start time to end time in previous rows):"
+    ## [1] 345
     ## OK
     ## OK
     ## OK
@@ -236,13 +237,13 @@ Measurement technique:
 
 | Method          | Frequency |
 |:----------------|----------:|
-| Dynamic chamber |      2258 |
+| Dynamic chamber |      2257 |
 
 Measurement technique classification:
 
 | Classification | Frequency |
 |:---------------|----------:|
-| chamber        |      2258 |
+| chamber        |      2257 |
 
 Emission units and conversion factors.
 
@@ -293,23 +294,23 @@ Check for missing values.
     ## Some values missing:
     ## Table below has number of missing observations by variable:
     ##         pub.id  meas.tech.det             oc      soil.type   soil.water.v 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ## man.source.det        man.bed       man.trt2       man.trt3       man.stor 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##        man.tic         man.ua        man.vfa    time.incorp       man.area 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##       dist.inj       furrow.z       furrow.w      crop.area            lai 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##     notes.plot          bg.dl        pH.surf      soil.temp    soil.temp.z 
-    ##           2189           2258           2258           2258           2258 
+    ##           2188           2257           2257           2257           2257 
     ## soil.temp.surf            rad           wind         wind.z            MOL 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##          ustar             rl       air.pres  air.pres.unit             rh 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##       wind.loc        far.loc      notes.int        wind.2m     soil.type2 
-    ##           2258           2258           2258           2258           2258 
+    ##           2257           2257           2257           2257           2257 
     ##         exper2           rep2 
-    ##           2258           2258
+    ##           2257           2257
 
 ## Application method and measurement method
 
@@ -527,7 +528,7 @@ particular field plots throughout this section.
     ## Class               numeric  numeric   numeric     numeric numeric  numeric
     ## Minimum                   3     3.98       6.3        6.74    <NA> -0.00211
     ## Maximum                41.1     44.4      51.2        52.2    <NA>    0.153
-    ## Mean                   22.2     24.3      28.2        28.8    <NA>   0.0754
+    ## Mean                   22.2     24.3      28.2        28.7    <NA>   0.0754
     ## Unique (excld. NA)       32       32        32          32       0       32
     ## Missing values            0        0         0           0      32        0
     ## Sorted                FALSE    FALSE     FALSE       FALSE    <NA>    FALSE
@@ -545,7 +546,7 @@ particular field plots throughout this section.
     ## Class                numeric     numeric numeric numeric numeric numeric
     ## Minimum                0.115       0.124    <NA>       0       0       0
     ## Maximum                0.937       0.955    <NA>       0       0       0
-    ## Mean                   0.491         0.5    <NA>       0       0       0
+    ## Mean                    0.49         0.5    <NA>       0       0       0
     ## Unique (excld. NA)        32          32       0       1       1       1
     ## Missing values             0           0      32       0       0       0
     ## Sorted                 FALSE       FALSE    <NA>    TRUE    TRUE    TRUE
@@ -707,8 +708,8 @@ particular field plots throughout this section.
     ## Class              numeric               numeric              numeric integer
     ## Minimum               <NA>                     5                   73      66
     ## Maximum               <NA>                  2190                 2260      74
-    ## Mean                  <NA>                  1110                 1170    70.6
-    ## Unique (excld. NA)       0                    32                   32       6
+    ## Mean                  <NA>                  1100                 1170    70.5
+    ## Unique (excld. NA)       0                    32                   32       5
     ## Missing values          32                     0                    0       0
     ## Sorted                <NA>                 FALSE                FALSE   FALSE
     ##                                                                              
@@ -716,8 +717,8 @@ particular field plots throughout this section.
     ## Class              numeric   numeric numeric numeric numeric numeric numeric
     ## Minimum               2.53 -0.000427 -0.0233   0.283    2.53    2.53     185
     ## Maximum               2.53    0.0486    2.91    2.52    16.9    2.53     188
-    ## Mean                  2.53    0.0209    1.21    2.38    9.17    2.53     186
-    ## Unique (excld. NA)       1        32      32       3       3       1       4
+    ## Mean                  2.53    0.0209    1.21    2.45    9.17    2.53     186
+    ## Unique (excld. NA)       1        32      32       2       3       1       5
     ## Missing values           0         0       0       0       0       0       0
     ## Sorted                TRUE     FALSE   FALSE   FALSE   FALSE    TRUE   FALSE
     ##                                                                             
@@ -770,8 +771,8 @@ particular field plots throughout this section.
 ## Interval-level emission data
 
     ## 
-    ##  2258 rows and 139 columns
-    ##  2258 unique rows
+    ##  2257 rows and 139 columns
+    ##  2257 unique rows
     ##                                                                                                                                                                                         cpmid
     ## Class                                                                                                                                                                               character
     ## Minimum             D:1.I:AU.Pr:N-Grass.F:../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass1+2.xlsx.E:Trial 1.F:semi-field.P:1.T:Røn-TH.R:1.R2:.T:2025-05-13 10:00:00.M:Dynamic chamberNA
@@ -787,7 +788,7 @@ particular field plots throughout this section.
     ## Maximum                 <NA>   N-Grass   Trial 2 semi-field         8         4
     ## Mean                    <NA>      <NA>      <NA>       <NA>      <NA>      <NA>
     ## Unique (excld. NA)         0         1         2          1        17         4
-    ## Missing values          2258         0         0          0         0         0
+    ## Missing values          2257         0         0          0         0         0
     ## Sorted                  <NA>      TRUE      TRUE       TRUE     FALSE     FALSE
     ##                                                                                
     ##                        treat       meas.tech meas.tech.det plot.area     lat
@@ -796,7 +797,7 @@ particular field plots throughout this section.
     ## Maximum               Røn-TH Dynamic chamber          <NA>      0.38    56.5
     ## Mean                    <NA>            <NA>          <NA>      0.38    56.5
     ## Unique (excld. NA)         4               1             0         1       1
-    ## Missing values             0               0          2258         0       0
+    ## Missing values             0               0          2257         0       0
     ## Sorted                 FALSE            TRUE          <NA>      TRUE    TRUE
     ##                                                                             
     ##                       long   country      topo soil.samp.z    clay    silt
@@ -814,7 +815,7 @@ particular field plots throughout this section.
     ## Maximum                 89    <NA>      <NA>       0.16         <NA>        Dry
     ## Mean                    69    <NA>      <NA>     0.0737         <NA>       <NA>
     ## Unique (excld. NA)       2       0         0          4            0          1
-    ## Missing values           0    2258      2258          0         2258          0
+    ## Missing values           0    2257      2257          0         2257          0
     ## Sorted               FALSE    <NA>      <NA>      FALSE         <NA>       TRUE
     ##                                                                                
     ##                    soil.ph soil.dens  crop.res      till man.source
@@ -832,7 +833,7 @@ particular field plots throughout this section.
     ## Maximum                      <NA>    <NA>    slurry      None     <NA>     <NA>
     ## Mean                         <NA>    <NA>      <NA>      <NA>     <NA>     <NA>
     ## Unique (excld. NA)              0       0         1         1        0        0
-    ## Missing values               2258    2258         0         0     2258     2258
+    ## Missing values               2257    2257         0         0     2257     2257
     ## Sorted                       <NA>    <NA>      TRUE      TRUE     <NA>     <NA>
     ##                                                                                
     ##                    man.stor  man.dm  man.vs man.tkn man.tan man.tic  man.ua
@@ -841,16 +842,16 @@ particular field plots throughout this section.
     ## Maximum                <NA>    9.28    7.15    3.37       2    <NA>    <NA>
     ## Mean                   <NA>    8.43    6.65    3.33    1.91    <NA>    <NA>
     ## Unique (excld. NA)        0       2       2       2       2       0       0
-    ## Missing values         2258       0       0       0       0    2258    2258
+    ## Missing values         2257       0       0       0       0    2257    2257
     ## Sorted                 <NA>   FALSE   FALSE   FALSE   FALSE    <NA>    <NA>
     ##                                                                            
     ##                    man.vfa  man.ph           app.start             app.end
     ## Class              logical numeric     POSIXct, POSIXt     POSIXct, POSIXt
     ## Minimum               <NA>    6.89 2025-05-13 10:00:00 2025-05-13 10:42:00
     ## Maximum               <NA>    6.92 2025-07-29 10:15:00 2025-07-29 10:51:00
-    ## Mean                  <NA>     6.9 2025-06-22 14:13:59 2025-06-22 14:52:51
+    ## Mean                  <NA>     6.9 2025-06-22 14:39:37 2025-06-22 15:18:29
     ## Unique (excld. NA)       0       2                   2                   2
-    ## Missing values        2258       0                   0                   0
+    ## Missing values        2257       0                   0                   0
     ## Sorted                <NA>   FALSE                TRUE                TRUE
     ##                                                                           
     ##                    app.method app.rate app.rate.unit    incorp time.incorp
@@ -859,7 +860,7 @@ particular field plots throughout this section.
     ## Maximum                    os       30          t/ha      none        <NA>
     ## Mean                     <NA>       30          <NA>      <NA>        <NA>
     ## Unique (excld. NA)          2        1             1         1           0
-    ## Missing values              0        0             0         0        2258
+    ## Missing values              0        0             0         0        2257
     ## Sorted                  FALSE     TRUE          TRUE      TRUE        <NA>
     ##                                                                           
     ##                    man.area dist.inj furrow.z furrow.w      crop  crop.z
@@ -868,7 +869,7 @@ particular field plots throughout this section.
     ## Maximum                <NA>     <NA>     <NA>     <NA>     grass       7
     ## Mean                   <NA>     <NA>     <NA>     <NA>      <NA>       7
     ## Unique (excld. NA)        0        0        0        0         1       1
-    ## Missing values         2258     2258     2258     2258         0       0
+    ## Missing values         2257     2257     2257     2257         0       0
     ## Sorted                 <NA>     <NA>     <NA>     <NA>      TRUE    TRUE
     ##                                                                         
     ##                    crop.area     lai notes.plot row.in.file.plot institute
@@ -877,7 +878,7 @@ particular field plots throughout this section.
     ## Maximum                 <NA>    <NA>          .               36        AU
     ## Mean                    <NA>    <NA>       <NA>             20.8      <NA>
     ## Unique (excld. NA)         0       0          1               32         1
-    ## Missing values          2258    2258       2189                0         0
+    ## Missing values          2257    2257       2188                0         0
     ## Sorted                  <NA>    <NA>       TRUE            FALSE      TRUE
     ##                                                                           
     ##                    sub.period
@@ -929,8 +930,8 @@ particular field plots throughout this section.
     ## Class              numeric  numeric     POSIXct, POSIXt     POSIXct, POSIXt
     ## Minimum               54.6        1 2025-05-13 10:52:00 2025-05-13 13:24:00
     ## Maximum                 60       74 2025-08-06 05:20:00 2025-08-06 07:52:00
-    ## Mean                  57.2     35.9 2025-06-26 13:54:32 2025-06-26 16:33:05
-    ## Unique (excld. NA)       2       74                2258                2258
+    ## Mean                  57.2     35.8 2025-06-26 14:18:42 2025-06-26 16:57:19
+    ## Unique (excld. NA)       2       74                2257                2257
     ## Missing values           0        0                   0                   0
     ## Sorted               FALSE    FALSE               FALSE               FALSE
     ##                                                                            
@@ -938,9 +939,9 @@ particular field plots throughout this section.
     ## Class              numeric logical numeric character     character numeric
     ## Minimum              0.283    <NA>   0.011       ppm emission rate -0.0384
     ## Maximum               16.9    <NA>   0.125       ppm emission rate    2.91
-    ## Mean                  2.64    <NA>  0.0355      <NA>          <NA>   0.148
-    ## Unique (excld. NA)      10       0     143         1             1    2258
-    ## Missing values           0    2258       0         0             0       0
+    ## Mean                  2.64    <NA>  0.0355      <NA>          <NA>   0.147
+    ## Unique (excld. NA)       9       0     143         1             1    2257
+    ## Missing values           0    2257       0         0             0       0
     ## Sorted               FALSE    <NA>   FALSE      TRUE          TRUE   FALSE
     ##                                                                           
     ##                    j.NH3.unit pH.surf air.temp air.temp.z soil.temp soil.temp.z
@@ -949,7 +950,7 @@ particular field plots throughout this section.
     ## Maximum            kg N/ha-hr    <NA>     22.3          2      <NA>        <NA>
     ## Mean                     <NA>    <NA>     14.6          2      <NA>        <NA>
     ## Unique (excld. NA)          1       0      131          1         0           0
-    ## Missing values              0    2258        0          0      2258        2258
+    ## Missing values              0    2257        0          0      2257        2257
     ## Sorted                   TRUE    <NA>    FALSE       TRUE      <NA>        <NA>
     ##                                                                                
     ##                    soil.temp.surf     rad    wind  wind.z     MOL   ustar
@@ -958,7 +959,7 @@ particular field plots throughout this section.
     ## Maximum                      <NA>    <NA>    <NA>    <NA>    <NA>    <NA>
     ## Mean                         <NA>    <NA>    <NA>    <NA>    <NA>    <NA>
     ## Unique (excld. NA)              0       0       0       0       0       0
-    ## Missing values               2258    2258    2258    2258    2258    2258
+    ## Missing values               2257    2257    2257    2257    2257    2257
     ## Sorted                       <NA>    <NA>    <NA>    <NA>    <NA>    <NA>
     ##                                                                          
     ##                         rl air.pres air.pres.unit    rain      rh wind.loc
@@ -967,7 +968,7 @@ particular field plots throughout this section.
     ## Maximum               <NA>     <NA>          <NA>       0    <NA>     <NA>
     ## Mean                  <NA>     <NA>          <NA>       0    <NA>     <NA>
     ## Unique (excld. NA)       0        0             0       1       0        0
-    ## Missing values        2258     2258          2258       0    2258     2258
+    ## Missing values        2257     2257          2257       0    2257     2257
     ## Sorted                <NA>     <NA>          <NA>    TRUE    <NA>     <NA>
     ##                                                                           
     ##                    far.loc chamber.vol chamber.flow chamber.AER notes.int
@@ -976,15 +977,15 @@ particular field plots throughout this section.
     ## Maximum               <NA>        0.15        0.032       0.213      <NA>
     ## Mean                  <NA>        0.15        0.032       0.213      <NA>
     ## Unique (excld. NA)       0           1            1           1         0
-    ## Missing values        2258           0            0           0      2258
+    ## Missing values        2257           0            0           0      2257
     ## Sorted                <NA>        TRUE         TRUE        TRUE      <NA>
     ##                                                                          
     ##                    row.in.file.int     t.start.orig       t.end.orig j.NH3.orig
     ## Class                      numeric        character        character    numeric
     ## Minimum                          5 01-08-2025 00:04 01-08-2025 00:04    -0.0384
     ## Maximum                       2260 31-07-2025 23:56 31-07-2025 23:56       2.91
-    ## Mean                          1130             <NA>             <NA>      0.148
-    ## Unique (excld. NA)            2258             2258             2258       2258
+    ## Mean                          1130             <NA>             <NA>      0.147
+    ## Unique (excld. NA)            2257             2257             2257       2257
     ## Missing values                   0                0                0          0
     ## Sorted                       FALSE            FALSE            FALSE      FALSE
     ##                                                                                
@@ -993,7 +994,7 @@ particular field plots throughout this section.
     ## Minimum                          1      kg N/ha-hr   0.283       0    2.53
     ## Maximum                          1      kg N/ha-hr    16.9       0     188
     ## Mean                             1            <NA>    2.64       0    96.3
-    ## Unique (excld. NA)               1               1      10       1     154
+    ## Unique (excld. NA)               1               1       9       1     169
     ## Missing values                   0               0       0       0       0
     ## Sorted                        TRUE            TRUE   FALSE    TRUE   FALSE
     ##                                                                           
@@ -1001,18 +1002,18 @@ particular field plots throughout this section.
     ## Class              numeric numeric numeric character   numeric  numeric numeric
     ## Minimum               1.27    3.32   0.783                   0        0    <NA>
     ## Maximum                187     190     187                   0        0    <NA>
-    ## Mean                    95    98.3    95.7      <NA>         0        0    <NA>
-    ## Unique (excld. NA)     172    2258    2258         1         1        1       0
-    ## Missing values           0       0       0         0         0        0    2258
+    ## Mean                  94.9    98.3    95.7      <NA>         0        0    <NA>
+    ## Unique (excld. NA)     186    2257    2257         1         1        1       0
+    ## Missing values           0       0       0         0         0        0    2257
     ## Sorted               FALSE   FALSE   FALSE      TRUE      TRUE     TRUE    <NA>
     ##                                                                                
     ##                      e.int   e.cum    e.rel     j.rel  pub.info soil.type2
     ## Class              numeric numeric  numeric   numeric character    logical
     ## Minimum            -0.0973  -0.156 -0.00287 -0.000704         .       <NA>
     ## Maximum               11.1    52.2    0.955    0.0486         .       <NA>
-    ## Mean                 0.407    22.1    0.385   0.00258      <NA>       <NA>
-    ## Unique (excld. NA)    2258    2258     2258      2258         1          0
-    ## Missing values           0       0        0         0         0       2258
+    ## Mean                 0.407    22.1    0.385   0.00257      <NA>       <NA>
+    ## Unique (excld. NA)    2257    2257     2257      2257         1          0
+    ## Missing values           0       0        0         0         0       2257
     ## Sorted               FALSE   FALSE    FALSE     FALSE      TRUE       <NA>
     ##                                                                           
     ##                     exper2    rep2    acid  meas.tech.orig meas.tech2 crop.orig
@@ -1021,7 +1022,7 @@ particular field plots throughout this section.
     ## Maximum               <NA>    <NA>   FALSE Dynamic chamber    chamber     Grass
     ## Mean                  <NA>    <NA>  0 TRUE            <NA>       <NA>      <NA>
     ## Unique (excld. NA)       0       0       1               1          1         1
-    ## Missing values        2258    2258       0               0          0         0
+    ## Missing values        2257    2257       0               0          0         0
     ## Sorted                <NA>    <NA>    TRUE            TRUE       TRUE      TRUE
     ##                                                                                
     ##                                 app.method.orig incorp.orig man.source.orig
@@ -1035,9 +1036,9 @@ particular field plots throughout this section.
     ##                                                                            
     ##                    date.start first.row.int row.plot         first.rows
     ## Class                    Date       numeric  numeric             factor
-    ## Minimum            2025-05-13             5        5 Plots 10 Emis. 721
-    ## Maximum            2025-05-13          2190       36  Plots 9 Emis. 578
-    ## Mean                     <NA>          1100     20.8 Plots 26 Emis. 790
+    ## Minimum            2025-05-13             5        5 Plots 10 Emis. 720
+    ## Maximum            2025-05-13          2190       36  Plots 9 Emis. 577
+    ## Mean                     <NA>          1100     20.8 Plots 26 Emis. 789
     ## Unique (excld. NA)          1            32       32                 32
     ## Missing values              0             0        0                  0
     ## Sorted                   TRUE         FALSE    FALSE              FALSE
