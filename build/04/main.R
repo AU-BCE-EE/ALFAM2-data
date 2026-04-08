@@ -24,7 +24,7 @@ old.sub.period <- 3
 oldrelease <- '2.77'
 
 # For checking only a particular new file (partial matching)
-#newsubmission <- 'tabil26'
+#newsubmission <- 'Acid'
 #rm('newsubmission')
 
 # Create all html log files (otherwise just missing ones)?

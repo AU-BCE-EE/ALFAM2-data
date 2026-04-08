@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "20 March, 2026"
+date: "08 April, 2026"
 ---
 
 
@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 3217  222
+## [1] 3241  222
 ```
 
 ``` r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 3217
+## [1] 3241
 ```
 
 ``` r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 3213
+## [1] 3237
 ```
 
 
@@ -42,7 +42,7 @@ dim(idat)
 ```
 
 ```
-## [1] 102988     51
+## [1] 104828     51
 ```
 
 
@@ -53,7 +53,7 @@ table(pdat$sub.period)
 ```
 ## 
 ##    1    2    3    4 
-##  791 1103 1291   32
+##  791 1103 1291   56
 ```
 
 ``` r
@@ -82,7 +82,7 @@ table(pdat$man.trt1)
 ```
 ## 
 ##                                   Acidification               Acidified 
-##                      99                     142                       8 
+##                      99                     154                       8 
 ##     anaerobic digestion     Anaerobic digestion      Barn acidification 
 ##                       1                     691                      12 
 ##                 Diluted                Dilution     Field acidification 
@@ -94,7 +94,7 @@ table(pdat$man.trt1)
 ##        Low protein diet   Mechanical separation Nitrification inhibitor 
 ##                       9                      49                      32 
 ##                    none                    None                 Surface 
-##                     231                    1689                      48
+##                     231                    1701                      48
 ```
 
 ``` r
@@ -104,7 +104,7 @@ table(pdat$man.trt2)
 ```
 ## 
 ##                               Acidification     Ammonia stripping 
-##                  1413                    14                     3 
+##                  1437                    14                     3 
 ##   Anaerobic digestion      Biochar addition            Disruption 
 ##                    16                     6                     6 
 ##           Floculation Mechanical separation                  none 
@@ -122,7 +122,8 @@ table(paste(upl$sub.period, upl$country, upl$institute, upl$man.source, upl$meas
 ```
 ##                      
 ##                       FALSE
-##   4 DK AU cat chamber    32
+##   4 DK AU cat chamber    41
+##   4 DK AU pig chamber    15
 ```
 
 ``` r
@@ -132,7 +133,7 @@ table(upl$digested)
 ```
 ## 
 ## FALSE 
-##    32
+##    56
 ```
 
 
@@ -143,7 +144,7 @@ table(upl$meas.tech2)
 ```
 ## 
 ## chamber 
-##      32
+##      56
 ```
 
 
@@ -154,7 +155,7 @@ table(upl$country)
 ```
 ## 
 ## DK 
-## 32
+## 56
 ```
 
 Acidification table.
@@ -169,7 +170,7 @@ acidtab
 ```
 ##                                                                    
 ##                                                                     FALSE TRUE
-##   Acidification, ,                                                      0   84
+##   Acidification, ,                                                      0   96
 ##   Acidification, None,                                                  0   42
 ##   Anaerobic digestion, Mechanical separation, Acidification             0   14
 ##   Field acidification, ,                                                0   14
@@ -210,7 +211,7 @@ acidtab
 ##   Mechanical separation, None,                                          9    0
 ##   Mechanical separation, Plasma,                                        6    0
 ##   Nitrification inhibitor, ,                                           32    0
-##   None, ,                                                             769    0
+##   None, ,                                                             781    0
 ##   None, Anaerobic digestion,                                            8    0
 ##   None, Mechanical separation,                                          8    0
 ##   none, none,                                                         231    0
@@ -243,7 +244,9 @@ trttab
 ##   PA                                                       0    8
 ##   SA                                                       0    8
 ##   TS-TSBacid                                               0    8
+##   AA                                                       0    6
 ##   acidified                                                0    6
+##   H2SO4                                                    0    6
 ##   1                                                      308    4
 ##   2                                                      275    4
 ##   ES                                                       0    4
@@ -550,7 +553,7 @@ trttab
 ##   none                                                    18    0
 ##   NUGA                                                     9    0
 ##   NUGA-tine                                                3    0
-##   OSI                                                      8    0
+##   OSI                                                     11    0
 ##   P                                                        8    0
 ##   PE CS1011                                                3    0
 ##   PE PS1011                                                3    0
@@ -565,6 +568,7 @@ trttab
 ##   PS-L                                                    12    0
 ##   PS-LB1                                                   3    0
 ##   PS-LB2                                                   3    0
+##   RAW                                                      6    0
 ##   Reference                                               12    0
 ##   Røn-OSI                                                  8    0
 ##   Røn-TH                                                   8    0
@@ -614,7 +618,7 @@ trttab
 ##   Summer CS10                                              3    0
 ##   Summer CS1011                                            3    0
 ##   SURF                                                     2    0
-##   TH                                                      54    0
+##   TH                                                      57    0
 ##   TH-12                                                    8    0
 ##   TH-4                                                     8    0
 ##   TH:BD                                                   16    0
@@ -716,7 +720,7 @@ table(pdat[, c('institute', 'app.method')])
 ##   ADAS-RR        0   0   0   63   0   0   0  46
 ##   ARDC           0  60  60    0   0   0   0   0
 ##   AT             0   8   0   11   0   7   0   0
-##   AU            15  16   0  653  16  99   0 173
+##   AU            15  16   0  674  16 102   0 173
 ##   AU-BCE         0   4   0    0   0   0   0   0
 ##   AUN            0   3   0    3   0   0   3   0
 ##   CAU-LU         0   0   0  197   0   0   0   0
@@ -752,7 +756,7 @@ table(pdat[, c('sub.period', 'app.method')])
 ##          1   0 583   0   81   5  73   3  46
 ##          2  34 351  60  476  24  76   0  82
 ##          3  15  90   0  674   0 201   0 311
-##          4   0   0   0   16   0  16   0   0
+##          4   0   0   0   37   0  19   0   0
 ```
 
 ``` r
@@ -763,7 +767,7 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##            app.method
 ## corr.period        bc  bss bsth   cs   os   pi   ts
 ##        3       0  138    0    0    4   88    0   29
-##        <NA>   49  886   60 1247   25  278    3  410
+##        <NA>   49  886   60 1268   25  281    3  410
 ```
 
 
