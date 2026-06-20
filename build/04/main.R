@@ -19,9 +19,11 @@ version <- '3.0'
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
-cat('Remember to update old.sub.period!')
 old.sub.period <- 4
 oldrelease <- '3.0-dev'
+
+cat(paste('Sub period:', sub.period, '\n'))
+cat(paste('Old sub period (version comp):', old.sub.period, '\n'))
 
 # For checking only a particular new file (partial matching)
 #newsubmission <- 'Acid'
@@ -40,7 +42,7 @@ source('functions.R')
 
 # Make database files
 # NAs by coercion issue. . .
-sink('../../logs/04/make_database_log.txt')
+sink('../../logs/04/make_database_log.txt', split = TRUE)
   source('load_old.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
@@ -59,7 +61,7 @@ sink('../../logs/04/make_database_log.txt')
 sink()
 
 # Check version number
-sink('../../logs/04/check_version.txt')
+sink('../../logs/04/check_version.txt', split = TRUE)
   source('check_version.R')
 sink()
 
@@ -68,3 +70,6 @@ cat('\nRunning scripts in analysis dir...\n')
 owd <- setwd('../../summaries')
 system('./run_analysis.sh')
 setwd(owd)
+
+# Message
+cat('Done. Check logs dir to confirm everything worked.\n')

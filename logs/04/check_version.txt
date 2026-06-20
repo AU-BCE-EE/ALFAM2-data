@@ -1,0 +1,12 @@
+Checking versions
+
+                Where Version
+ main.R (new version)     3.0
+          Release tag 3.0-dev
+              Release 3.0-dev
+          Main branch     3.0
+           Dev branch     3.0
+  latest release latest main push  latest dev push 
+       "3.0-dev"            "3.0"            "3.0" 
+Version number setting 
+                 "3.0" 
