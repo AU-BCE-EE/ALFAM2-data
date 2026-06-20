@@ -1,5 +1,4 @@
 # Functions for reading in ALFAM2 data
-# S. Hafner
 
 countries <- c(`United Kingdom` = 'UK', Norway = 'NO', Italy = 'IT',  Denmark = 'DK', Netherlands = 'NL', 
                `The Netherlands` = 'NL', Switzerland = 'CH', Sweden = 'SE', Canada = 'CA', Germany = 'DE',

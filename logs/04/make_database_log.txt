@@ -1,20 +1,25 @@
 
-> idat.old <- data.table::fread("../../data-output/03/ALFAM2_interval.csv.gz")
+> # Load data from sub.periods 1-3
+> 
+> idat.old <- data.table::fread('../../data-output/03/ALFAM2_interval.csv.gz')
 
-> pdat.old <- data.table::fread("../../data-output/03/ALFAM2_plot.csv.gz")
+> pdat.old <- data.table::fread('../../data-output/03/ALFAM2_plot.csv.gz')
 
+> # 
+> 
+> # Date record
 > print(Sys.time())
-[1] "2026-04-08 10:49:02 EDT"
+[1] "2026-06-20 10:08:14 CEST"
 
-> ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
+> # Read and check data from files
+> ddir <- list.dirs('../../data-submitted/04', recursive = FALSE)
 
 > dat <- list()
 
-> for (i in ddir) {
-+     cat("\nDirectory ", i, "\n")
-+     f <- list.files(i, pattern = "xls", full.names = TRUE)
-+     f <- f[!grepl("\\/~", f)]
-+  .... [TRUNCATED] 
+> for(i in ddir) {
++   cat('\nDirectory ', i,'\n')
++   f <- list.files(i, pattern = 'xls', full.names = TRUE)
++   # Omit temporary Excel files (create .... [TRUNCATED] 
 
 Directory  ../../data-submitted/04/AU 
 
@@ -26,247 +31,265 @@ Directory  ../../data-submitted/04/AU
 
  file  ../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass1+2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
-> cat("Done! Read", length(dat), " directories\n")
+> cat('Done! Read', length(dat), ' directories\n')
 Done! Read 1  directories
 
 > print(warnings())
+Warning message:
+In dir.create(jcsvdir) :
+  cannot create dir '../../data-csv/04/AU', reason 'No such file or directory'
 
+> # Check for errors and create a log before merge
+> 
 > for (i in names(dat)) {
-+     for (j in names(dat[[i]])) {
-+         fn <- strsplit(j, "/")
-+         fn <- fn[[1]][length(fn[[1]])]
-+         fn <- .... [TRUNCATED] 
++   for (j in names(dat[[i]])) {
++ 
++     # Check for errors and creat .... [TRUNCATED] 
 
+> # Sort out int- and plot-level flags
+> 
 > for (i in names(dat)) {
-+     for (j in names(dat[[i]])) {
-+         dat[[i]][[j]] <- addFlags(dat[[i]][[j]])
-+         dat[[i]][[j]] <- fixFlags(da .... [TRUNCATED] 
++   for (j in names(dat[[i]])) {
++ 
++     dat[[i]][[j]] <- addFlags(dat[[i]][[j]]) .... [TRUNCATED] 
 
-> pdat <- idat <- contribs <- data.table()
+> # Pull new data from list
+> 
+> # Stack individual interval and plot level data frames from each file together
+> pdat <- idat <- contribs <- data.tab .... [TRUNCATED] 
 
+> # Extract and stack plot and interval level data
 > for (i in dat) {
-+     for (j in i) {
-+         pdat <- rbind(pdat, j$plots, fill = TRUE)
-+         idat <- rbind(idat, j$emis, fill = TRUE)
-+       .... [TRUNCATED] 
++   for (j in i) {
++     pdat <- rbind(pdat, j$plots, fill = TRUE)
++     idat <- .... [TRUNCATED] 
 
-> p <- paste0("https://github.com/AU-BCE-EE/ALFAM2-data/raw/v", 
-+     oldrelease)
+> # Add plot and institute ID codes to new data
+> 
+> # Get original pmid from latest GitHub release
+> 
+> p <- paste0('https://github.com/AU-BCE-EE/ALF .... [TRUNCATED] 
 
-> pdatrelease <- data.table::fread(paste0(p, "/data-output/", 
-+     sprintf("%02d", old.sub.period), "/ALFAM2_plot.csv.gz"))
+> pdatrelease <- data.table::fread(paste0(p, '/data-output/', sprintf('%02d', old.sub.period), '/ALFAM2_plot.csv.gz'))
 
-> pdatr <- pdatrelease[sub.period == old.sub.period, 
-+     .(sub.period, institute, proj, file, exper, field, plot, 
-+         treat, rep, rep2, app. .... [TRUNCATED] 
+> pdatr <- pdatrelease[sub.period == old.sub.period, .(sub.period, institute, proj, file, exper, field, plot, treat, rep, rep2, app.start, meas.tech,  .... [TRUNCATED] 
 
 > dim(pdatr)
-[1] 1291   16
+[1] 56 16
 
 > dim(pdat)
 [1]  56 211
 
-> inst.old <- unique(pdat.old[, c("institute", "inst")])
+> # Extract and reuse old institution codes
+> inst.old <- unique(pdat.old[, c('institute', 'inst')])
 
-> pdat <- merge(pdat, inst.old, by = "institute", all.x = TRUE)
+> pdat <- merge(pdat, inst.old, by = 'institute', all.x = TRUE)
 
-> pdat$inst[pdat$institute == "INRAE"] <- inst.old$inst[inst.old$institute == 
-+     "INRA"]
+> # Sort out institution codes for ones with changed names
+> pdat$inst[pdat$institute == 'INRAE'] <- inst.old$inst[inst.old$institute == 'INRA']
 
-> pdat$inst[is.na(pdat$inst)] <- 400 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
+> # Create completely new 300s codes for new institutes
+> # Note placement of indexing on RHS to avoid a 301 that is later skipped (or similar dropped .... [TRUNCATED] 
 
 > table(pdat$inst)
 
 205 
  56 
 
-> pdat <- merge(pdat, pdatr, all.x = TRUE, by = c("institute", 
-+     "proj", "exper", "field", "plot", "rep", "app.start", "sub.period", 
-+     "file ..." ... [TRUNCATED] 
+> # ID codes created in plots data frame and then merged into interval level data frame
+> # First add ones already created in earlier release, to avoi .... [TRUNCATED] 
 
-> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + 
-+     max(c(pdat.old$eid, na.omit(pdat$eid)))
+> # Experiment ID (includes sub.period, inst, proj, exper)
+> pdat$eid[is.na(pdat$eid)] <- as.integer(factor(pdat$ceid[is.na(pdat$eid)])) + max(c(pdat. .... [TRUNCATED] 
 
-> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + 
-+     max(c(pdat.old$pid, na.omit(pdat$pid)))
+> # Add plot and plot x meas tech IDs
+> pdat$pid[is.na(pdat$pid)] <- as.integer(factor(pdat$cpid[is.na(pdat$pid)])) + max(c(pdat.old$pid, na.omit(pdat .... [TRUNCATED] 
 
-> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + 
-+     max(c(pdat.old$pmid, na.omit(pdat$pmid)))
+> pdat$pmid[is.na(pdat$pmid)] <- as.integer(factor(pdat$cpmid[is.na(pdat$pmid)])) + max(c(pdat.old$pmid, na.omit(pdat$pmid)))
 
-> idat <- merge(idat, pdat[, c("cpmid", "eid", "pid", 
-+     "pmid")], by = c("cpmid"), all.x = TRUE)
+> # Merge IDs into interval level data
+> # Should alternatively be able to switch to interger directly in idat
+> idat <- merge(idat, pdat[, c('cpmid', .... [TRUNCATED] 
 
-> idat <- idat[order(idat$pmid, idat$int), ]
+> # Add observation ID
+> # Is not copied from earlier sub.period but because any new obs (should) have a large pmid, they will also have a higher oid
+ .... [TRUNCATED] 
 
 > idat$oid <- 1:nrow(idat) + max(idat.old$oid)
 
-> pdat.comb <- rbind(pdat, pdat.old, fill = TRUE)
+> # Combine new (sub.period 4) with old data
+> 
+> # First plot-level data
+> # Rename some old columns (add these later if needed)
+> # And drop others
+ .... [TRUNCATED] 
 
-> idat.comb <- rbind(idat, idat.old, fill = TRUE)
+> ## Checks:
+> ## Columns missing in new data
+> #names(pdat.old)[!names(pdat.old) %in% intersect(names(pdat), names(pdat.old))]
+> ## Columns missing i .... [TRUNCATED] 
 
-> nn <- c("soil.temp.z", "air.temp.z", "wind.z", "wind.loc", 
-+     "far.loc")
+> # Combine old and new interval-level data
+> 
+> # Interval-level data
+> # Remove some old columns (add later if needed)
+> # Rename some old columns ( .... [TRUNCATED] 
 
-> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, 
-+     ".int")
+> # Add int suffix to weather height info (because it is also in plot data frame, pulled from emis row 1)
+> nn <- c('soil.temp.z', 'air.temp.z', 'wind .... [TRUNCATED] 
 
-> pdat.comb[, `:=`(version, version)]
+> names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, '.int')
 
-> idat.comb[, `:=`(version, version)]
+> ## Checks
+> ## Columns missing in new data
+> #names(idat.old)[!names(idat.old) %in% intersect(names(idat), names(idat.old))]
+> ## Columns missing in .... [TRUNCATED] 
+
+> # Select and order columns (and order rows)
+> 
+> # Add database version column to both
+> pdat.comb[, version := version]
+
+> idat.comb[, version := version]
 
 > setorder(pdat.comb, pmid)
 
-> pdat.comb <- pdat.comb[, c("inst", "eid", "pid", "pmid", 
-+     "version", "sub.period", "corr.period", "proj", "exper", 
-+     "exper2", "institute ..." ... [TRUNCATED] 
+> pdat.comb <- pdat.comb[,
++   c('inst', 'eid', 'pid', 'pmid',
++     'version',
++     'sub.period',
++     'corr.period', 
++     'proj', 'exper', 'expe .... [TRUNCATED] 
 
+> # Round
 > rounddt(pdat.comb, 5, func = signif)
 
-> setorder(idat.comb, pmid, interval)
+> # Order and select columns for database distribution
+> # Note that objective is to keep file size small, so most columns in plot-level data frame ar .... [TRUNCATED] 
 
-> idat.comb <- idat.comb[, c("pid", "pmid", "oid", "version", 
-+     "row.in.file.int", "interval", "t.start", "t.end", "t.start.orig", 
-+     "t.end. ..." ... [TRUNCATED] 
+> idat.comb <- idat.comb[, 
++   c('pid', 'pmid', 'oid',
++     'version',
++     'row.in.file.int', 
++     'interval', 't.start', 't.end', 't.start.orig .... [TRUNCATED] 
 
+> # Round 
 > rounddt(idat.comb, 5, func = signif)
 
-> for (i in unique(pdat$file)) {
-+     fn <- strsplit(i, "/")
-+     fn <- fn[[1]][length(fn[[1]])]
-+     fn <- sub("\\.xlsx$", "", fn)
-+     pds <- su .... [TRUNCATED] 
+> # Saves a copy of plot and internval data by flie
+> # Main purpose is to have a text-based (works with Git) record of submitted data
+> 
+> for (i in  .... [TRUNCATED] 
 
-> knit("check_final.Rmd", output = "../../logs/04/check_final.md", 
-+     quiet = TRUE)
+> knit('check_final.Rmd', output = '../../logs/04/check_final.md', quiet = TRUE)
 [1] "../../logs/04/check_final.md"
 
-> ivar <- data.table::fread("../../variables/interval-level_variables.csv")
+> # Check that all columns in the output data files are described in variables/ CSVs
+> 
+> ivar <- data.table::fread('../../variables/interval-level_va .... [TRUNCATED] 
 
-> pvar <- data.table::fread("../../variables/plot-level_variables.csv")
+> pvar <- data.table::fread('../../variables/plot-level_variables.csv')
 
-> pnames <- gsub("\\.[0-9]+$", "\\.(time)", names(pdat.comb))
+> # Variables like e.6, e.24 etc. are documented as e.(time) -- normalize both sides
+> pnames <- gsub('\\.[0-9]+$', '\\.(time)', names(pdat.comb))
 
-> inames <- gsub("\\.[0-9]+$", "\\.(time)", names(idat.comb))
+> inames <- gsub('\\.[0-9]+$', '\\.(time)', names(idat.comb))
 
-> pvar$Name <- gsub("\\.[0-9]+$", "\\.(time)", pvar$Name)
+> pvar$Name <- gsub('\\.[0-9]+$', '\\.(time)', pvar$Name)
 
-> ivar$Name <- gsub("\\.[0-9]+$", "\\.(time)", ivar$Name)
+> ivar$Name <- gsub('\\.[0-9]+$', '\\.(time)', ivar$Name)
 
+> # Missing from variable definition files
 > mph <- unique(pnames)[!unique(pnames) %in% pvar$Name]
 
 > mih <- unique(inames)[!unique(inames) %in% ivar$Name]
 
+> # Defined but no longer in the data (stale entries)
 > rph <- pvar$Name[!pvar$Name %in% pnames]
 
 > rih <- ivar$Name[!ivar$Name %in% inames]
 
-> cat("Variable definition check results\n\n")
+> cat('Variable definition check results\n\n')
 Variable definition check results
 
 
-> cat("1. Missing from plot-level variable file: ")
+> cat('1. Missing from plot-level variable file: ')
 1. Missing from plot-level variable file: 
-> cat(if (length(mph) > 0) mph else "none")
+> cat(if (length(mph) > 0) mph else 'none')
 none
-> cat("\n\n2. Missing from interval-level variable file: ")
+> cat('\n\n2. Missing from interval-level variable file: ')
 
 
 2. Missing from interval-level variable file: 
-> cat(if (length(mih) > 0) mih else "none")
+> cat(if (length(mih) > 0) mih else 'none')
 none
-> cat("\n\n3. Stale entries in plot-level variable file: ")
+> cat('\n\n3. Stale entries in plot-level variable file: ')
 
 
 3. Stale entries in plot-level variable file: 
-> cat(if (length(rph) > 0) rph else "none")
+> cat(if (length(rph) > 0) rph else 'none')
 none
-> cat("\n\n4. Stale entries in interval-level variable file: ")
+> cat('\n\n4. Stale entries in interval-level variable file: ')
 
 
 4. Stale entries in interval-level variable file: 
-> cat(if (length(rih) > 0) rih else "none")
+> cat(if (length(rih) > 0) rih else 'none')
 none
-> cat("\n")
+> cat('\n')
 
 
 > if (length(c(mph, mih, rph, rih)) > 0) {
-+     warning("Variable definition mismatch! See make_database_log.txt for details.")
++   warning('Variable definition mismatch! See make_database_log.txt for details.')
 + }
 
-> lastdev <- paste0("https://raw.githubusercontent.com/sashahafner/ALFAM2-data/dev/data-output/", 
-+     sprintf("%02d", old.sub.period), "/data_versi ..." ... [TRUNCATED] 
+> # Compare version number to what is on GitHub
+> 
+> # Latest pushed dev
+> lastdev  <- paste0('https://raw.githubusercontent.com/sashahafner/ALFAM2-da .... [TRUNCATED] 
 
-> lastmain <- paste0("https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/", 
-+     sprintf("%02d", old.sub.period), "/data_v ..." ... [TRUNCATED] 
+> # Latest pushed main
+> lastmain <- paste0('https://raw.githubusercontent.com/sashahafner/ALFAM2-data/master/data-output/', sprintf('%02d', old.sub.p .... [TRUNCATED] 
 
-> release <- paste0("https://github.com/sashahafner/ALFAM2-data/raw/v", 
-+     oldrelease, "/data-output/", sprintf("%02d", old.sub.period), 
-+     "/ ..." ... [TRUNCATED] 
+> # Latest release
+> release  <- paste0('https://github.com/sashahafner/ALFAM2-data/raw/v', oldrelease, '/data-output/', sprintf('%02d', old.sub.perio .... [TRUNCATED] 
 
-> vld <- gsub("\\.$", "", as.data.frame(data.table::fread(lastdev))[[3]])
+> # Latest pushed dev
+> vld <- gsub('\\.$', '', as.data.frame(data.table::fread(lastdev))[[3]])
 
-> vlm <- gsub("\\.$", "", as.data.frame(data.table::fread(lastmain))[[3]])
+> # Write compressed csv files
+> fwrite(pdat.comb, paste0('../../data-output/', sprintf('%02d', sub.period), '/ALFAM2_plot.csv.gz'))
 
-> vr <- gsub("\\.$", "", as.data.frame(data.table::fread(release))[[3]])
+> fwrite(idat.comb, paste0('../../data-output/', sprintf('%02d', sub.period), '/ALFAM2_interval.csv.gz'))
 
-> cat("Checking versions\n")
-Checking versions
+> # Record data version also
+> ver_line <- paste0('Database version: ', version, '. Created by: ', Sys.info()['user'], '. Date: ', Sys.time())
 
-> if (oldrelease != vr) {
-+     cat("Version number in old release does not match release tag!\n")
-+ }
+> cat(ver_line, file = '../../logs/04/data_version.txt')
 
-> vdat <- data.frame(Where = c("main.R (new version)", 
-+     "Release tag", "Release", "Main branch", "Dev branch"), Version = c(version, 
-+     oldr .... [TRUNCATED] 
+> cat(ver_line, file = '../../data-output/04/data_version.txt')
 
-> cat("\n")
+> # Sort out cumulative contributors
+> 
+> # Previous period cumulative contributors
+> oldcontribs <- fread(paste0('../../contributors/output/', sprint .... [TRUNCATED] 
 
+> # Manual contributors
+> mancontribs <- fread(paste0('../../contributors/manual/contributors.csv'))
 
-> print(vdat, row.names = FALSE)
-                Where Version
- main.R (new version) 3.0-dev
-          Release tag    2.77
-              Release    2.77
-          Main branch    2.77
-           Dev branch    2.56
+> # Stack both with current period contributors
+> contribs <- rbind(contribs, oldcontribs, mancontribs, fill = TRUE)
 
-> if (version %in% c(oldrelease, vr, vlm, vld)) {
-+     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-
-New version number seems OK.
-
-> fwrite(pdat.comb, paste0("../../data-output/", sprintf("%02d", 
-+     sub.period), "/ALFAM2_plot.csv.gz"))
-
-> fwrite(idat.comb, paste0("../../data-output/", sprintf("%02d", 
-+     sub.period), "/ALFAM2_interval.csv.gz"))
-
-> ver_line <- paste0("Database version: ", version, 
-+     ". Created by: ", Sys.info()["user"], ". Date: ", Sys.time())
-
-> cat(ver_line, file = "../../logs/04/data_version.txt")
-
-> cat(ver_line, file = "../../data-output/04/data_version.txt")
-
-> oldcontribs <- fread(paste0("../../contributors/output/", 
-+     sprintf("%02d", old.sub.period), "/contributors.csv"))
-
-> mancontribs <- fread(paste0("../../contributors/manual/contributors.csv"))
-
-> contribs <- rbind(contribs, oldcontribs, mancontribs, 
-+     fill = TRUE)
-
+> # Remove duplicates, but leave same name different sub.period etc.
 > contribunq <- unique(contribs)
 
+> # Subset to unique names, ignoring other columns
 > contribnms <- unique(contribs[, .(contributor)])
 
+> # Sort and export
 > setorder(contribunq, contributor)
 
 > setorder(contribnms, contributor)
 
-> fwrite(contribunq, paste0("../../contributors/output/", 
-+     sprintf("%02d", sub.period), "/contributors.csv"))
+> fwrite(contribunq, paste0('../../contributors/output/', sprintf('%02d', sub.period), '/contributors.csv'))
 
-> fwrite(contribnms, paste0("../../contributors/output/", 
-+     sprintf("%02d", sub.period), "/contributor_names.csv"))
+> fwrite(contribnms, paste0('../../contributors/output/', sprintf('%02d', sub.period), '/contributor_names.csv'))
