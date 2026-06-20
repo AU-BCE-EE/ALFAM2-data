@@ -13,21 +13,21 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.0-dev'
+version <- '3.0'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
 cat('Remember to update old.sub.period!')
-old.sub.period <- 3
-oldrelease <- '2.77'
+old.sub.period <- 4
+oldrelease <- '3.0-dev'
 
 # For checking only a particular new file (partial matching)
 #newsubmission <- 'Acid'
 #rm('newsubmission')
 
-# Create all html log files (otherwise just missing ones)?
+# Create all md log files (otherwise just missing ones)?
 # To replace individual ones (if input file was updated for example) delete old version before running script
 alllogs <- FALSE
 
