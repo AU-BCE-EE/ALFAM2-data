@@ -4,7 +4,7 @@
 > pdat.old <- data.table::fread("../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-06-20 11:23:03 CEST"
+[1] "2026-07-21 16:36:08 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -216,6 +216,7 @@ Checking versions
 > if (oldrelease != vr) {
 +     cat("Version number in old release does not match release tag!\n")
 + }
+Version number in old release does not match release tag!
 
 > vdat <- data.frame(Where = c("main.R (new version)", 
 +     "Release tag", "Release", "Main branch", "Dev branch"), Version = c(version, 
@@ -226,18 +227,16 @@ Checking versions
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.0
-          Release tag 3.0-dev
+ main.R (new version)     3.1
+          Release tag     3.0
               Release 3.0-dev
           Main branch     3.0
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-  latest release latest main push  latest dev push 
-       "3.0-dev"            "3.0"            "3.0" 
-Version number setting 
-                 "3.0" 
+
+New version number seems OK.
 
 > fwrite(pdat.comb, paste0("../../data-output/", sprintf("%02d", 
 +     sub.period), "/ALFAM2_plot.csv.gz"))
