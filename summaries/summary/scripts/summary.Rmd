@@ -32,6 +32,14 @@ table(pdat$man.trt2)
 ```
 
 ```{r}
+table(pdat$man.source)
+```
+
+```{r}
+table(pdat$app.method)
+```
+
+```{r}
 upl <- subset(pdat, sub.period == max(sub.period))
 table(paste(upl$sub.period, upl$country, upl$institute, upl$man.source, upl$meas.tech2), upl$digested)
 table(upl$digested)
