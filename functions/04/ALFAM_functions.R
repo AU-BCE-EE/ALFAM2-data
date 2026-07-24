@@ -521,13 +521,13 @@ addVars <- function(dat) {
   dat$app.method.orig <- dat$app.method
   am <- c(
            Broadcast                          = 'bc',
-	  `Band spread or trailing hose`      = 'bsth',
+          `Band spread or trailing hose`      = 'bsth',
           `Trailing hose`                     = 'bsth',
           `Wide band`                         = 'bsth',
           `Trailing shoe`                     = 'ts',
            NUGA                               = 'ts',
           `NUGA-tine`                         = 'tslt',
-	  `Trailing shoe with harrowing tine` = 'tsft',
+          `Trailing shoe with harrowing tine` = 'tsft',
           `Open slot injection`               = 'os',
           `Closed slot injection`             = 'cs'
   )
@@ -588,14 +588,14 @@ updateLevels <- function(dat) {
            broadcast                          = 'bc',
           `broad spread`                      = 'bc',
            broadspread                        = 'bc',
-	  `band spread or trailing hose`      = 'bsth',
+          `band spread or trailing hose`      = 'bsth',
           `trailing hose`                     = 'bsth',
           `wide band`                         = 'bsth',
-	  `band spread on slots`              = 'bss',
+          `band spread on slots`              = 'bss',
           `trailing shoe`                     = 'ts',
            nuga                               = 'ts',
           `nuga-tine`                         = 'tslt',
-	  `trailing shoe with harrowing tine` = 'tsft',
+          `trailing shoe with harrowing tine` = 'tsft',
           `open slot injection`               = 'os',
           `open slot`                         = 'os',
           `closed slot injection`             = 'cs',
@@ -778,9 +778,9 @@ fixALFAMFactors <- function(d) {
   d$man.source[grepl('dairy', tolower(d$man.source))] <- 'Cattle'
 
   d$man.source <- factor(d$man.source, 
-			 levels = c('Cattle', 'Pig', 'Poultry', 'Mink', 'Sewage sludge', 'Mixed', 'Concentrate', 'Other', 'None'), 
-			 labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',        'other', 'none')
-			 )
+                         levels = c('Cattle', 'Pig', 'Poultry', 'Mink', 'Sewage sludge', 'Mixed', 'Concentrate', 'Other', 'None'), 
+                         labels = c('cat',    'pig', 'poultry', 'mink', 'sludge',        'mix',   'conc',        'other', 'none')
+  )
 
   # Manure consistency (reported)
   d$man.con[d$man.con == ''] <- NA
@@ -791,9 +791,9 @@ fixALFAMFactors <- function(d) {
   d$app.method[tolower(d$app.method) == 'broad spread'] <- 'Broadcast'
   d$app.method[tolower(d$app.method) == 'trailing hose'] <- 'Band spread or trailing hose'
   d$app.method <- factor(d$app.method, 
-			 levels = c('Broadcast', 'Trailing shoe', 'Open slot', 'Closed slot', 'Band spread or trailing hose', 'Band spread on slots', 'Pressurized injection'), 
-			 labels = c('bc', 'ts', 'os', 'cs', 'bsth', 'bss', 'pi')
-			 )
+                         levels = c('Broadcast', 'Trailing shoe', 'Open slot', 'Closed slot', 'Band spread or trailing hose', 'Band spread on slots', 'Pressurized injection'), 
+                         labels = c('bc', 'ts', 'os', 'cs', 'bsth', 'bss', 'pi')
+  )
 
   # Simplify application methods--group bsth and ts into one to use as a universal reference level in model building
   d$app.method2 <- factor(ifelse(d$app.method %in% c('bsth', 'ts'), 'band', as.character(d$app.method)), levels = c('bc', 'band', 'os', 'cs'))
@@ -1245,12 +1245,12 @@ fixDateTime <- function(x){
         year <- as.numeric(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][3]))
         tt <- as.character(lapply(x[i], function(x) strsplit(x, '[- ]')[[1]][4]))
         if(is.na(year)) {
-	  cat('Date/time problem in fixDateTime(). Entering browser()')
-	  cat('Check the objects day, month, year and tt')
-	  cat('Value of x.orig:')
-	  print(x.orig[i])
-	  browser()
-	}
+          cat('Date/time problem in fixDateTime(). Entering browser()')
+          cat('Check the objects day, month, year and tt')
+          cat('Value of x.orig:')
+          print(x.orig[i])
+          browser()
+        }
         if(nchar(year) != 4) {
           #x[i, paste0(i, '.flag')] <- paste0(x[i, paste0(i, '.flag')], ', 2 digit year')
           if(year > 50) {
