@@ -1,5 +1,5 @@
 Name,Description,Type,Units,Notes
-inst,Unique institute identification code,integer,,"100 < inst < 200 is used for original ALFAM data, 200 < x is used for new data."
+inst,Unique institute identification code,integer,,"100 < inst < 200 is used for original ALFAM data, 200 < inst < 300 for new institutions in submission period 3, etc."
 eid,Unique experiment identification code,integer,,
 pid,Unique plot identification code,integer,,
 pmid,Unique plot-measurement technique identification code,integer,,
@@ -8,10 +8,10 @@ corr.period,Correct period identification code,integer,,"Gives submission period
 proj,Project code,character,,Unique within institute only
 exper,Experiment code,character,,Unique within institute only
 exper2,Second experiment code,character,,From ALFAM
-institute,Institute abbreviation,character,,
+institute,Institution abbreviation,character,,
 country,Country abbreviation,character,,
 submitter,Name of person who submitted data,character,,
-file,Name of data file (completed template),character,,
+file,Name of data file (completed/submitted template),character,,
 first.row.in.file.int,Location of data within interval/emission sheet within submitted file,integer,,
 last.row.in.file.int,Location of data within interval/emission sheet within submitted file,integer,,
 row.in.file.plot,Location of data within plot sheet within submitted filed,integer,,
@@ -34,9 +34,9 @@ dt.min,Duration of the shortest measurement interval,numeric,h,
 dt.max,Duration of the longest measurement interval,numeric,h,
 ct.min,Minimum cumulative time,numeric,h,
 ct.max,Maximum cumulative time,numeric,h,
-meas.tech,Measurement technique,character,,
-meas.tech.det,Measurement technique detailed description,character,,
-meas.tech2,Measurement technique (grouped),character,,
+meas.tech,Measurement technique (as entered in template),character,,See meas.tech.det or publications (pub.info) for more information on meaning
+meas.tech.det,Measurement technique detailed description (as entered in template),character,,
+meas.tech2,Measurement technique (grouped),character,,"chamber = static or dynmic chamber, cps = calibrated passive samplers, micro met = any of the many micrometeorological methods, wt = wind tunnels"
 meas.tech.orig,Measurement technique (as entered in template),character,,
 j.NH31,Average ammonia flux in first measurement interval,numeric,kg/(ha-h) as N,
 j.rel1,Average relative ammonia flux in first measurement interval,numeric,Fraction of applied TAN per h,

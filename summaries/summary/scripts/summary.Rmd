@@ -36,6 +36,10 @@ table(pdat$man.source)
 ```
 
 ```{r}
+table(pdat[, c('meas.tech', 'meas.tech2')])
+```
+
+```{r}
 table(pdat$app.method)
 ```
 
