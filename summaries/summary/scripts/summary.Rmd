@@ -36,25 +36,23 @@ table(pdat$man.source)
 ```
 
 ```{r}
+table(pdat[, c('meas.tech')])
 table(pdat[, c('meas.tech', 'meas.tech2')])
 ```
 
 ```{r}
-table(pdat$app.method)
-```
-
-```{r}
-upl <- subset(pdat, sub.period == max(sub.period))
-table(paste(upl$sub.period, upl$country, upl$institute, upl$man.source, upl$meas.tech2), upl$digested)
-table(upl$digested)
-```
-
-```{r}
-table(upl$meas.tech2)
+table(pdat[, c('app.method')], exclude = NULL)
+table(pdat[, c('app.method.orig', 'app.method')], exclude = NULL)
 ```
 
 ```{r}
 table(upl$country)
+```
+
+```{r}
+table(pdat$meas.tech)
+table(pdat$meas.tech.orig)
+table(pdat$meas.tech2)
 ```
 
 Acidification table.
@@ -76,8 +74,8 @@ unique(pdat[, c('inst', 'institute', 'country')])
 ```
 
 ```{r}
-table(pdat[, c('institute', 'app.method')])
-table(pdat[, c('sub.period', 'app.method')])
+table(pdat[, c('institute', 'app.method')], exclude = NULL)
+table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ```
 

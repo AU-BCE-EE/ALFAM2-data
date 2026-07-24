@@ -496,20 +496,14 @@ addCEID <- function(d) {
 }
 
 addVars <- function(dat) {
-  # Other variables to prepare for merge with sub.period 2 data
-  # Fill in some columns no longer used, just to be explicit about it
-
-  dat$soil.type2 <- NA
-  dat$exper2 <- NA
-  dat$rep2 <- NA
+  # Other variables 
   dat$acid <- grepl('acid', tolower(paste(dat$man.trt1, dat$man.trt2, dat$man.trt3)))
   
   # Some other derived columns
-  # NTS: Use a function here, can apply to idat too
   dat$meas.tech.orig <- dat$meas.tech
   mtl <- tolower(dat$meas.tech)
   dat$meas.tech2 <- NA
-  dat$meas.tech2[mtl %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fidates', 'ec')] <- 'micro met'
+  dat$meas.tech2[mtl %in% c('ihf', 'zinst', 'micro met', 'bls', 'agm', 'fides', 'ec')] <- 'micro met'
   dat$meas.tech2[mtl %in% c('wind tunnel', 'windtunnel')] <- 'wt'
   dat$meas.tech2[grep('chamber', mtl)] <- 'chamber'
   dat$meas.tech2[grep('dtm', mtl)] <- 'chamber'
@@ -524,16 +518,19 @@ addVars <- function(dat) {
   
   dat$soil.type2 <- NA
   
-  am <- c(`Band spread or trailing hose` = 'bsth',
-          Broadcast = 'bc',
-          `NUGA-tine` = 'ts', # NTS: Check with JMP
-          `NUGA` = 'ts', # NTS: Check with JMP
-          `Open slot injection` = 'os',
-          `Closed slot injection` = 'cs',
-          `Trailing shoe` = 'ts',
-          `Trailing hose` = 'bsth',
-          `Wide band` = 'bsth')
   dat$app.method.orig <- dat$app.method
+  am <- c(
+           Broadcast                          = 'bc',
+	  `Band spread or trailing hose`      = 'bsth',
+          `Trailing hose`                     = 'bsth',
+          `Wide band`                         = 'bsth',
+          `Trailing shoe`                     = 'ts',
+           NUGA                               = 'ts',
+          `NUGA-tine`                         = 'tslt',
+	  `Trailing shoe with harrowing tine` = 'tsft',
+          `Open slot injection`               = 'os',
+          `Closed slot injection`             = 'cs'
+  )
   dat$app.method <- am[dat$app.method.orig]
   #dat$app.method2 <- dat$app.method
   
@@ -570,6 +567,48 @@ addVars <- function(dat) {
   return(dat)
 
 }
+
+fillOldCols <- function(dat) {
+
+  # Fill in some columns no longer used, just to be explicit about it
+  dat$soil.type2 <- NA
+  dat$exper2 <- NA
+  dat$rep2 <- NA
+
+  return(dat)
+
+}
+
+updateLevels <- function(dat) {
+
+  # Meant to overwrite earlier grouping in some cases
+  # Expect this to be expanded over time
+
+  am <- c(
+           broadcast                          = 'bc',
+          `broad spread`                      = 'bc',
+           broadspread                        = 'bc',
+	  `band spread or trailing hose`      = 'bsth',
+          `trailing hose`                     = 'bsth',
+          `wide band`                         = 'bsth',
+	  `band spread on slots`              = 'bss',
+          `trailing shoe`                     = 'ts',
+           nuga                               = 'ts',
+          `nuga-tine`                         = 'tslt',
+	  `trailing shoe with harrowing tine` = 'tsft',
+          `open slot injection`               = 'os',
+          `open slot`                         = 'os',
+          `closed slot injection`             = 'cs',
+          `closed slot`                       = 'cs',
+          `pressurized injection`             = 'pi'
+  )
+
+  dat$app.method <- am[tolower(dat$app.method.orig)]
+ 
+  return(dat)
+
+}
+
 
 getVars <- function(obj) {
 
@@ -615,8 +654,12 @@ getVars <- function(obj) {
   emis <- merge(emis, pubs, by = 'pub.id', all.x = TRUE)
 
   # Add other vars to plots 
+  # NTS: emis does not need all these columns! 
+  # NTS: Why does it have them?
   plots <- addVars(plots)
   emis <- addVars(emis)
+  plots <- fillOldCols(plots)
+  emis <- fillOldCols(emis)
 
   # Starting date
   plots$date.start <- as.Date(plots$t.start.p)

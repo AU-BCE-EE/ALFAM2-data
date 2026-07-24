@@ -4,7 +4,7 @@
 > pdat.old <- data.table::fread("../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-07-21 16:48:48 EDT"
+[1] "2026-07-24 14:15:09 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -61,12 +61,6 @@ NULL
 +     .(sub.period, institute, proj, file, exper, field, plot, 
 +         treat, rep, rep2, app. .... [TRUNCATED] 
 
-> dim(pdatr)
-[1] 56 16
-
-> dim(pdat)
-[1]  56 211
-
 > inst.old <- unique(pdat.old[, c("institute", "inst")])
 
 > pdat <- merge(pdat, inst.old, by = "institute", all.x = TRUE)
@@ -75,11 +69,6 @@ NULL
 +     "INRA"]
 
 > pdat$inst[is.na(pdat$inst)] <- 400 + as.integer(factor(pdat$institute[is.na(pdat$inst)]))
-
-> table(pdat$inst)
-
-205 
- 56 
 
 > pdat <- merge(pdat, pdatr, all.x = TRUE, by = c("institute", 
 +     "proj", "exper", "field", "plot", "rep", "app.start", "sub.period", 
@@ -110,6 +99,8 @@ NULL
 
 > names(idat.comb)[names(idat.comb) %in% nn] <- paste0(nn, 
 +     ".int")
+
+> pdat.comb <- updateLevels(pdat.comb)
 
 > pdat.comb[, `:=`(version, version)]
 
@@ -227,7 +218,7 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.1
+ main.R (new version)     3.2
           Release tag     3.0
               Release 3.0-dev
           Main branch     3.1
@@ -235,10 +226,8 @@ Version number in old release does not match release tag!
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-  latest release latest main push  latest dev push 
-       "3.0-dev"            "3.1"            "3.0" 
-Version number setting 
-                 "3.1" 
+
+New version number seems OK.
 
 > fwrite(pdat.comb, paste0("../../data-output/", sprintf("%02d", 
 +     sub.period), "/ALFAM2_plot.csv.gz"))

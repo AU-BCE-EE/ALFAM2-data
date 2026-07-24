@@ -105,7 +105,7 @@ app.start,Manure or fertilizer application start,character,yyyy-mm-dd hh:mm:ss,
 app.end,Manure or fertilizer application end,character,yyyy-mm-dd hh:mm:ss,
 app.start.orig,Application start (as entered in template),character,(may vary),
 app.end.orig,Application end (as entered in template),character,(may vary),
-app.method,Application method,character,,"bc = broadcast, bsth = band application (trailing hose), ts = trailing shoe, os = open slot injection, cs = closed slot injection, bss = band spreading over slots"
+app.method,Application method,character,,"bc = broadcast, bsth = band application (trailing hose), bss = band application on slots, ts = trailing shoe, tslt = trailing shoe with leading tine, tsft = trailing shoe with following tine, os = open slot injection, cs = closed slot injection"
 app.method.orig,Application method (as entered in template),character,,
 app.rate,Manure application rate,numeric,t/ha or m3/ha,
 tan.app,TAN application rate,numeric,kg/ha as N,

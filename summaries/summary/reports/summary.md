@@ -2,7 +2,7 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "21 July, 2026"
+date: "24 July, 2026"
 ---
 
 
@@ -115,36 +115,130 @@ table(pdat$man.trt2)
 
 
 ``` r
-upl <- subset(pdat, sub.period == max(sub.period))
-table(paste(upl$sub.period, upl$country, upl$institute, upl$man.source, upl$meas.tech2), upl$digested)
-```
-
-```
-##                      
-##                       FALSE
-##   4 DK AU cat chamber    41
-##   4 DK AU pig chamber    15
-```
-
-``` r
-table(upl$digested)
+table(pdat$man.source)
 ```
 
 ```
 ## 
-## FALSE 
-##    56
+##       cat      conc digestate      mink       mix      none     other       pig 
+##      1611        13        64        16       527        32        81       888 
+##   poultry    sludge      urea 
+##         2         4         3
 ```
 
 
 ``` r
-table(upl$meas.tech2)
+table(pdat[, c('meas.tech')])
 ```
 
 ```
-## 
-## chamber 
-##      56
+## meas.tech
+##                              agm                              AGM 
+##                               21                                2 
+##                              bls                              bLS 
+##                               62                               28 
+##                          chamber                              cps 
+##                              132                              318 
+##                              CPS                              DTM 
+##                              224                                3 
+##                  Dynamic chamber             Dynamic flux chamber 
+##                              414                               22 
+##                               ec                               EC 
+##                                2                                1 
+##                            fides                              ihf 
+##                                2                              230 
+##                              IHF Inversion Dispersion small plots 
+##                              417                               21 
+##                        micro met                      Wind tunnel 
+##                               39                              470 
+##                               wt                            zinst 
+##                              682                              147 
+##                            ZINST 
+##                                4
+```
+
+``` r
+table(pdat[, c('meas.tech', 'meas.tech2')])
+```
+
+```
+##                                   meas.tech2
+## meas.tech                          chamber cps micro met  wt
+##   agm                                    0   0        21   0
+##   AGM                                    0   0         2   0
+##   bls                                    0   0        62   0
+##   bLS                                    0   0        28   0
+##   chamber                              132   0         0   0
+##   cps                                    0 318         0   0
+##   CPS                                  224   0         0   0
+##   DTM                                    3   0         0   0
+##   Dynamic chamber                      414   0         0   0
+##   Dynamic flux chamber                  22   0         0   0
+##   ec                                     0   0         2   0
+##   EC                                     0   0         1   0
+##   fides                                  0   0         2   0
+##   ihf                                    0   0       230   0
+##   IHF                                    0   0       417   0
+##   Inversion Dispersion small plots       0   0        21   0
+##   micro met                              0   0        39   0
+##   Wind tunnel                            0   0         0 470
+##   wt                                     0   0         0 682
+##   zinst                                  0   0       147   0
+##   ZINST                                  0   0         4   0
+```
+
+
+``` r
+table(pdat[, c('app.method')], exclude = NULL)
+```
+
+```
+## app.method
+##        bc  bss bsth   cs   os   pi   ts tsft tslt 
+##   34 1024   60 1268   29  369    3  436   15    3
+```
+
+``` r
+table(pdat[, c('app.method.orig', 'app.method')], exclude = NULL)
+```
+
+```
+##                                    app.method
+## app.method.orig                            bc  bss bsth   cs   os   pi   ts
+##                                       34    0    0    0    0    0    0    0
+##   Band spread on slots                 0    0   60    0    0    0    0    0
+##   Band spread or trailing hose         0    0    0 1259    0    0    0    0
+##   Broad spread                         0   15    0    0    0    0    0    0
+##   Broadcast                            0 1009    0    0    0    0    0    0
+##   Closed slot                          0    0    0    0   25    0    0    0
+##   Closed slot injection                0    0    0    0    4    0    0    0
+##   NUGA                                 0    0    0    0    0    0    0    9
+##   NUGA-tine                            0    0    0    0    0    0    0    0
+##   Open slot                            0    0    0    0    0   61    0    0
+##   Open slot injection                  0    0    0    0    0  308    0    0
+##   Pressurized injection                0    0    0    0    0    0    3    0
+##   trailing hose                        0    0    0    1    0    0    0    0
+##   Trailing shoe                        0    0    0    0    0    0    0  427
+##   Trailing shoe with harrowing tine    0    0    0    0    0    0    0    0
+##   Wide band                            0    0    0    8    0    0    0    0
+##                                    app.method
+## app.method.orig                     tsft tslt
+##                                        0    0
+##   Band spread on slots                 0    0
+##   Band spread or trailing hose         0    0
+##   Broad spread                         0    0
+##   Broadcast                            0    0
+##   Closed slot                          0    0
+##   Closed slot injection                0    0
+##   NUGA                                 0    0
+##   NUGA-tine                            0    3
+##   Open slot                            0    0
+##   Open slot injection                  0    0
+##   Pressurized injection                0    0
+##   trailing hose                        0    0
+##   Trailing shoe                        0    0
+##   Trailing shoe with harrowing tine   15    0
+##   Wide band                            0    0
 ```
 
 
@@ -153,9 +247,75 @@ table(upl$country)
 ```
 
 ```
+## Error:
+## ! object 'upl' not found
+```
+
+
+``` r
+table(pdat$meas.tech)
+```
+
+```
 ## 
-## DK 
-## 56
+##                              agm                              AGM 
+##                               21                                2 
+##                              bls                              bLS 
+##                               62                               28 
+##                          chamber                              cps 
+##                              132                              318 
+##                              CPS                              DTM 
+##                              224                                3 
+##                  Dynamic chamber             Dynamic flux chamber 
+##                              414                               22 
+##                               ec                               EC 
+##                                2                                1 
+##                            fides                              ihf 
+##                                2                              230 
+##                              IHF Inversion Dispersion small plots 
+##                              417                               21 
+##                        micro met                      Wind tunnel 
+##                               39                              470 
+##                               wt                            zinst 
+##                              682                              147 
+##                            ZINST 
+##                                4
+```
+
+``` r
+table(pdat$meas.tech.orig)
+```
+
+```
+## 
+##                              AGM                              bLS 
+##                               23                               34 
+##                    bLS: WindTrax                              cps 
+##                               47                              318 
+##                              CPS                              DTM 
+##                              224                                3 
+##                  Dynamic chamber             Dynamic flux chamber 
+##                              546                               22 
+##                               EC                  Eddy Covariance 
+##                                1                                2 
+##                            FIDES                              IHF 
+##                                2                              612 
+## Inversion Dispersion small plots                        Micro met 
+##                               21                              129 
+##                   open path FTIR                      Wind tunnel 
+##                                1                             1152 
+##                            ZINST                        ZINST/bls 
+##                               96                                8
+```
+
+``` r
+table(pdat$meas.tech2)
+```
+
+```
+## 
+##   chamber       cps micro met        wt 
+##       795       318       976      1152
 ```
 
 Acidification table.
@@ -709,54 +869,54 @@ unique(pdat[, c('inst', 'institute', 'country')])
 
 
 ``` r
-table(pdat[, c('institute', 'app.method')])
+table(pdat[, c('institute', 'app.method')], exclude = NULL)
 ```
 
 ```
 ##               app.method
-## institute           bc bss bsth  cs  os  pi  ts
-##   AAFC           0 109   0    0   0   0   0   0
-##   ADAS           0  79   0    0   0   0   0   0
-##   ADAS-RR        0   0   0   63   0   0   0  46
-##   ARDC           0  60  60    0   0   0   0   0
-##   AT             0   8   0   11   0   7   0   0
-##   AU            15  16   0  674  16 102   0 173
-##   AU-BCE         0   4   0    0   0   0   0   0
-##   AUN            0   3   0    3   0   0   3   0
-##   CAU-LU         0   0   0  197   0   0   0   0
-##   CRPA           0  52   0   18   0   5   0   0
-##   DIAS           0  23   0   21   2   0   0   0
-##   DiSAA-IT       0   3   0    0   0   3   0   0
-##   IGER           0 245   0    3   0   6   0   9
-##   IMAG           0   1   0    0   0   1   0   0
-##   INH-HAFL       0  27   0   12   0   3   0   5
-##   INRA           6  10   0    8   0   0   0   1
-##   INRAE          0   4   0   17   0   0   0   0
-##   IUL/FAT        0 117   0    2   0   2   0   0
-##   JTI            0  17   0   34   3  26   0   8
-##   MU             0   7   0    0   0   1   0   0
-##   NMI-WUR        0  16   0    0   0   0   0   0
-##   SDU           28   0   0  106   4   0   0   0
-##   TEAGASC        0  20   0   18   0   0   0  30
-##   TI             0  32   0   64   0  64   0  64
-##   UNIMI          0   4   0    0   0   0   0   0
-##   UNINA          0   7   0    0   0   0   0   0
-##   UNITO DISAFA   0   0   0   17   0   0   0   0
-##   USDA           0   2   0    0   0   0   0   0
-##   WUR            0 158   0    0   4 149   0 103
+## institute           bc bss bsth  cs  os  pi  ts tsft tslt
+##   AAFC           0 109   0    0   0   0   0   0    0    0
+##   ADAS           0  79   0    0   0   0   0   0    0    0
+##   ADAS-RR        0   0   0   63   0   0   0  46    0    0
+##   ARDC           0  60  60    0   0   0   0   0    0    0
+##   AT             0   8   0   11   0   7   0   0    0    0
+##   AU             0  16   0  674  16 102   0 170   15    3
+##   AU-BCE         0   4   0    0   0   0   0   0    0    0
+##   AUN            0   3   0    3   0   0   3   0    0    0
+##   CAU-LU         0   0   0  197   0   0   0   0    0    0
+##   CRPA           0  52   0   18   0   5   0   0    0    0
+##   DIAS           0  23   0   21   2   0   0   0    0    0
+##   DiSAA-IT       0   3   0    0   0   3   0   0    0    0
+##   IGER           0 245   0    3   0   6   0   9    0    0
+##   IMAG           0   1   0    0   0   1   0   0    0    0
+##   INH-HAFL       0  27   0   12   0   3   0   5    0    0
+##   INRA           6  10   0    8   0   0   0   1    0    0
+##   INRAE          0   4   0   17   0   0   0   0    0    0
+##   IUL/FAT        0 117   0    2   0   2   0   0    0    0
+##   JTI            0  17   0   34   3  26   0   8    0    0
+##   MU             0   7   0    0   0   1   0   0    0    0
+##   NMI-WUR        0  16   0    0   0   0   0   0    0    0
+##   SDU           28   0   0  106   4   0   0   0    0    0
+##   TEAGASC        0  20   0   18   0   0   0  30    0    0
+##   TI             0  32   0   64   0  64   0  64    0    0
+##   UNIMI          0   4   0    0   0   0   0   0    0    0
+##   UNINA          0   7   0    0   0   0   0   0    0    0
+##   UNITO DISAFA   0   0   0   17   0   0   0   0    0    0
+##   USDA           0   2   0    0   0   0   0   0    0    0
+##   WUR            0 158   0    0   4 149   0 103    0    0
 ```
 
 ``` r
-table(pdat[, c('sub.period', 'app.method')])
+table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 ```
 
 ```
 ##           app.method
-## sub.period      bc bss bsth  cs  os  pi  ts
-##          1   0 583   0   81   5  73   3  46
-##          2  34 351  60  476  24  76   0  82
-##          3  15  90   0  674   0 201   0 311
-##          4   0   0   0   37   0  19   0   0
+## sub.period      bc bss bsth  cs  os  pi  ts tsft tslt
+##          1   0 583   0   81   5  73   3  46    0    0
+##          2  34 351  60  476  24  76   0  82    0    0
+##          3   0  90   0  674   0 201   0 308   15    3
+##          4   0   0   0   37   0  19   0   0    0    0
 ```
 
 ``` r
@@ -765,9 +925,9 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 
 ```
 ##            app.method
-## corr.period        bc  bss bsth   cs   os   pi   ts
-##        3       0  138    0    0    4   88    0   29
-##        <NA>   49  886   60 1268   25  281    3  410
+## corr.period        bc  bss bsth   cs   os   pi   ts tsft tslt
+##        3       0  138    0    0    4   88    0   29    0    0
+##        <NA>   34  886   60 1268   25  281    3  407   15    3
 ```
 
 
