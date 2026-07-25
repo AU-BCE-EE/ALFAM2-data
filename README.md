@@ -59,7 +59,7 @@ pdat <- data.table::fread('ALFAM2_plot.csv.gz')
 Once these two data frames (data.tables) are created, they can be combined (if needed) with `base::merge()` or `data.table::merge()` function.
 
 ```
-cdat <- merge(idat, pdat, by = c('pid', 'pmid'))
+cdat <- merge(idat, pdat, by = c('pid', 'pmid', 'version'))
 ```
 
 (The `by` argument is optional here, but it is good practice to be aware of the columns used for merging.)
@@ -70,6 +70,11 @@ In Python, the `read_csv()` function from the pandas package can be used to read
 import pandas as pd
 
 idat = pd.read_csv('ALFAM2_interval.csv.gz')
+pdat = pd.read_csv('ALFAM2_plot.csv.gz')
+```
+
+```
+cdat = pd.merge(idat, pdat, on=['pid', 'pmid', 'version'])
 ```
 
 For some more information, see the `summaries` directory.
