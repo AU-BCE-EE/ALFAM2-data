@@ -4,6 +4,20 @@ countries <- c(`United Kingdom` = 'UK', Norway = 'NO', Italy = 'IT',  Denmark = 
                `The Netherlands` = 'NL', Switzerland = 'CH', Sweden = 'SE', Canada = 'CA', Germany = 'DE',
                France = 'FR', Ireland = 'IE', `United States` = 'US')
 
+fixEncoding <- function(dt, file) {
+  char_cols <- names(dt)[sapply(dt, is.character)]
+  for (col in char_cols) {
+    x <- dt[[col]]
+    bad <- is.na(iconv(x, from = 'UTF-8', to = 'UTF-8')) & !is.na(x)
+    if (any(bad)) {
+      message('Non-UTF-8 string(s) in column "', col, '" of file ', basename(file),
+              ' -- assuming Latin-1. Value(s): ', paste(x[bad], collapse = '; '))
+      set(dt, which(bad), col, iconv(x[bad], from = 'latin1', to = 'UTF-8'))
+    }
+  }
+  invisible(dt)
+}
+
 readALFAM2file <- function(file, institute, version) {
 
   # First make csv files
@@ -71,6 +85,7 @@ readALFAM2file <- function(file, institute, version) {
   }
 
   plots <- fread(fnms[6], skip = 4, col.names = nms, na = na.strings)
+  fixEncoding(plots, file)
   plots[, row.in.file.plot := 1:.N + 4]
   # Drop blank rows
   plots <- plots[!is.na(plot), ]
@@ -101,6 +116,7 @@ readALFAM2file <- function(file, institute, version) {
   }
 
   emis <- fread(fnms[7], skip = 4, col.names = nms, na = na.strings)
+  fixEncoding(emis, file)
   emis[, row.in.file.int := 1:.N + 4]
   #emis <- emis[rowSums(!is.na(emis)) > 1, ]
   # NTS: check why above does not work for other files above
@@ -116,6 +132,7 @@ readALFAM2file <- function(file, institute, version) {
   # Publications
   cat('  Publications . . .')
   pubs <- fread(fnms[8], skip = 2, header = FALSE, na = na.strings)
+  fixEncoding(pubs, file)
   if (nrow(pubs) > 0 & ncol(pubs) == 2) {
     names(pubs) <- c('pub.id', 'pub.info')
   } else {

@@ -1,10 +1,14 @@
 
 > idat.old <- data.table::fread("../../data-output/03/ALFAM2_interval.csv.gz")
 
+> fixEncoding(idat.old, "../../data-output/03/ALFAM2_interval.csv.gz")
+
 > pdat.old <- data.table::fread("../../data-output/03/ALFAM2_plot.csv.gz")
 
+> fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
+
 > print(Sys.time())
-[1] "2026-07-24 14:15:09 EDT"
+[1] "2026-07-25 07:23:15 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -218,10 +222,10 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.2
+ main.R (new version)     3.3
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.1
+          Main branch     3.2
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

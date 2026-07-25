@@ -2,10 +2,10 @@ Checking versions
 Version number in old release does not match release tag!
 
                 Where Version
- main.R (new version)     3.2
+ main.R (new version)     3.3
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.1
+          Main branch     3.2
            Dev branch     3.0
 
 New version number seems OK.

@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.2'
+version <- '3.3'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
