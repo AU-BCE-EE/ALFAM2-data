@@ -65,8 +65,8 @@ sink('../../logs/03/check_version.txt')
   source('check_version.R')
 sink()
 
-# Run any main.R in analysis dir externally
-cat('\nRunning scripts in analysis dir...\n')
-owd <- setwd('../../analysis')
+# Run any main.R in summaries dir externally
+cat('\nRunning scripts in summaries dir...\n')
+owd <- setwd('../../summaries')
 system('./run_analysis.sh')
 setwd(owd)
