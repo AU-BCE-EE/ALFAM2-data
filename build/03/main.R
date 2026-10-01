@@ -43,7 +43,7 @@ sink('../../logs/03/make_database_log.txt')
   source('old_date.R', echo = TRUE)
   source('get_new.R', echo = TRUE)
   source('check_sub.R', echo = TRUE)
-  source('log_pages.R', echo = FALSE)
+  #source('log_pages.R', echo = FALSE) # With new structure for period 4 this no longer works. See logs locally or download; GH Pages is no longer used.
   source('flags.R', echo = TRUE)
   source('stack_new.R', echo = TRUE)
   source('add_ID.R', echo = TRUE)
