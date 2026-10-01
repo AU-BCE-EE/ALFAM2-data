@@ -13,7 +13,7 @@
 +         tz = "GMT ..." ... [TRUNCATED] 
 
 > print(Sys.time())
-[1] "2026-03-05 10:14:09 EST"
+[1] "2026-10-01 07:33:48 EDT"
 
 > ddir <- list.dirs("../../data-submitted/03", recursive = FALSE)
 
@@ -320,14 +320,14 @@ Done! Read 10  directories
 +         dat[[i]][[j]] <- addFlags(dat[[i]][[j]])
 +         dat[[i]][[j]] <- fixFlags(da .... [TRUNCATED] 
 
-> pdat <- idat <- data.frame()
+> pdat <- idat <- contribs <- data.frame()
 
 > for (i in dat) {
 +     for (j in i) {
 +         pdat <- rbindf(pdat, j$plots)
 +         idat <- rbindf(idat, j$emis)
-+     }
-+ }
++         cb <- j$contrib
++     .... [TRUNCATED] 
 
 > p <- paste0("https://github.com/sashahafner/ALFAM2-data/raw/v", 
 +     oldrelease)
@@ -907,13 +907,15 @@ Checking versions
  main.R (new version)    2.77
           Release tag    2.73
               Release    2.73
-          Main branch    2.76
-           Dev branch    2.56
+          Main branch    2.77
+           Dev branch    2.77
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-
-New version number seems OK.
+  latest release latest main push  latest dev push 
+          "2.73"           "2.77"           "2.77" 
+Version number setting 
+                "2.77" 
 
 > write.csv(pdat.comb, "../../data-output/03/ALFAM2_plot.csv", 
 +     row.names = FALSE)
@@ -932,3 +934,29 @@ New version number seems OK.
 
 > cat(paste0("Database version: ", version, ". Date created: ", 
 +     Sys.time()), file = "../../data-output/03/data_version.txt")
+
+> mancontribs <- read.csv("../../contributors/manual/contributors.csv")
+
+> contribs.all <- rbindf(contribs, mancontribs)
+
+> contribunq <- unique(contribs.all)
+
+> contribnms <- unique(contribs.all[, "contributor", 
++     drop = FALSE])
+
+> contribunq <- contribunq[order(contribunq$contributor), 
++     ]
+
+> contribnms <- contribnms[order(contribnms$contributor), 
++     , drop = FALSE]
+
+> odir <- paste0("../../contributors/output/", sprintf("%02d", 
++     sub.period))
+
+> if (!dir.exists(odir)) dir.create(odir, recursive = TRUE)
+
+> write.csv(contribunq, file.path(odir, "contributors.csv"), 
++     row.names = FALSE)
+
+> write.csv(contribnms, file.path(odir, "contributor_names.csv"), 
++     row.names = FALSE)

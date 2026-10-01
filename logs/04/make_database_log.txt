@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-07-25 07:23:15 EDT"
+[1] "2026-10-01 07:45:14 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -34,7 +34,6 @@ Directory  ../../data-submitted/04/AU
 Done! Read 1  directories
 
 > print(warnings())
-NULL
 
 > for (i in names(dat)) {
 +     for (j in names(dat[[i]])) {
@@ -222,10 +221,10 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.3
+ main.R (new version)     3.4
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.2
+          Main branch     3.3
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

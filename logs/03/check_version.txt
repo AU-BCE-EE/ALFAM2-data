@@ -4,7 +4,9 @@ Checking versions
  main.R (new version)    2.77
           Release tag    2.73
               Release    2.73
-          Main branch    2.76
-           Dev branch    2.56
-
-New version number seems OK.
+          Main branch    2.77
+           Dev branch    2.77
+  latest release latest main push  latest dev push 
+          "2.73"           "2.77"           "2.77" 
+Version number setting 
+                "2.77" 
