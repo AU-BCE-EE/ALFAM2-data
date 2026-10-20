@@ -17,7 +17,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 3241  222
+## [1] 3237  222
 ```
 
 ``` r
@@ -25,7 +25,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 3241
+## [1] 3237
 ```
 
 ``` r
@@ -33,7 +33,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 3237
+## [1] 3233
 ```
 
 
@@ -42,7 +42,7 @@ dim(idat)
 ```
 
 ```
-## [1] 104830     51
+## [1] 104806     51
 ```
 
 
@@ -53,7 +53,7 @@ table(pdat$sub.period)
 ```
 ## 
 ##    1    2    3    4 
-##  791 1103 1291   56
+##  791 1103 1287   56
 ```
 
 ``` r
@@ -94,7 +94,7 @@ table(pdat$man.trt1)
 ##        Low protein diet   Mechanical separation Nitrification inhibitor 
 ##                       9                      49                      32 
 ##                    none                    None                 Surface 
-##                     231                    1701                      48
+##                     231                    1697                      48
 ```
 
 ``` r
@@ -104,7 +104,7 @@ table(pdat$man.trt2)
 ```
 ## 
 ##                               Acidification     Ammonia stripping 
-##                  1437                    14                     3 
+##                  1433                    14                     3 
 ##   Anaerobic digestion      Biochar addition            Disruption 
 ##                    16                     6                     6 
 ##           Floculation Mechanical separation                  none 
@@ -121,7 +121,7 @@ table(pdat$man.source)
 ```
 ## 
 ##       cat      conc digestate      mink       mix      none     other       pig 
-##      1611        13        64        16       527        32        81       888 
+##      1607        13        64        16       527        32        81       888 
 ##   poultry    sludge      urea 
 ##         2         4         3
 ```
@@ -152,9 +152,7 @@ table(pdat[, c('meas.tech')])
 ##                        micro met                      Wind tunnel 
 ##                               39                              470 
 ##                               wt                            zinst 
-##                              682                              147 
-##                            ZINST 
-##                                4
+##                              682                              147
 ```
 
 ``` r
@@ -184,7 +182,6 @@ table(pdat[, c('meas.tech', 'meas.tech2')])
 ##   Wind tunnel                            0   0         0 470
 ##   wt                                     0   0         0 682
 ##   zinst                                  0   0       147   0
-##   ZINST                                  0   0         4   0
 ```
 
 
@@ -195,7 +192,7 @@ table(pdat[, c('app.method')], exclude = NULL)
 ```
 ## app.method
 ##        bc  bss bsth   cs   os   pi   ts tsft tslt 
-##   34 1024   60 1268   29  369    3  436   15    3
+##   34 1020   60 1268   29  369    3  436   15    3
 ```
 
 ``` r
@@ -209,7 +206,7 @@ table(pdat[, c('app.method.orig', 'app.method')], exclude = NULL)
 ##   Band spread on slots                 0    0   60    0    0    0    0    0
 ##   Band spread or trailing hose         0    0    0 1259    0    0    0    0
 ##   Broad spread                         0   15    0    0    0    0    0    0
-##   Broadcast                            0 1009    0    0    0    0    0    0
+##   Broadcast                            0 1005    0    0    0    0    0    0
 ##   Closed slot                          0    0    0    0   25    0    0    0
 ##   Closed slot injection                0    0    0    0    4    0    0    0
 ##   NUGA                                 0    0    0    0    0    0    0    9
@@ -277,9 +274,7 @@ table(pdat$meas.tech)
 ##                        micro met                      Wind tunnel 
 ##                               39                              470 
 ##                               wt                            zinst 
-##                              682                              147 
-##                            ZINST 
-##                                4
+##                              682                              147
 ```
 
 ``` r
@@ -305,7 +300,7 @@ table(pdat$meas.tech.orig)
 ##                   open path FTIR                      Wind tunnel 
 ##                                1                             1152 
 ##                            ZINST                        ZINST/bls 
-##                               96                                8
+##                               92                                8
 ```
 
 ``` r
@@ -315,7 +310,7 @@ table(pdat$meas.tech2)
 ```
 ## 
 ##   chamber       cps micro met        wt 
-##       795       318       976      1152
+##       795       318       972      1152
 ```
 
 Acidification table.
@@ -371,7 +366,7 @@ acidtab
 ##   Mechanical separation, None,                                          9    0
 ##   Mechanical separation, Plasma,                                        6    0
 ##   Nitrification inhibitor, ,                                           32    0
-##   None, ,                                                             781    0
+##   None, ,                                                             777    0
 ##   None, Anaerobic digestion,                                            8    0
 ##   None, Mechanical separation,                                          8    0
 ##   none, none,                                                         231    0
@@ -407,8 +402,8 @@ trttab
 ##   AA                                                       0    6
 ##   acidified                                                0    6
 ##   H2SO4                                                    0    6
-##   1                                                      308    4
-##   2                                                      275    4
+##   1                                                      307    4
+##   2                                                      274    4
 ##   ES                                                       0    4
 ##   A acid                                                   0    3
 ##   A dec acid                                               0    3
@@ -470,7 +465,7 @@ trttab
 ##   27                                                       2    0
 ##   28                                                       2    0
 ##   29                                                       2    0
-##   3                                                      179    0
+##   3                                                      178    0
 ##   3-BLD                                                    4    0
 ##   30                                                       5    0
 ##   31                                                       2    0
@@ -482,7 +477,7 @@ trttab
 ##   37                                                       1    0
 ##   38                                                       1    0
 ##   39                                                       1    0
-##   4                                                      106    0
+##   4                                                      105    0
 ##   40                                                       1    0
 ##   400                                                      1    0
 ##   41                                                       2    0
@@ -852,17 +847,16 @@ unique(pdat[, c('inst', 'institute', 'country')])
 ## 19:   211          SDU      DK
 ## 20:   212      TEAGASC      IE
 ## 21:   213         USDA      US
-## 22:   301       AU-BCE      DK
-## 23:   205           AU      NL
-## 24:   205           AU      CA
-## 25:   205           AU      SE
-## 26:   302     DiSAA-IT      IT
-## 27:   304        UNIMI      IT
-## 28:   305        UNINA      IT
-## 29:   208        INRAE      FR
-## 30:   214          WUR      NL
-## 31:   303           TI      DE
-## 32:   306 UNITO DISAFA      DK
+## 22:   205           AU      NL
+## 23:   205           AU      CA
+## 24:   205           AU      SE
+## 25:   302     DiSAA-IT      IT
+## 26:   304        UNIMI      IT
+## 27:   305        UNINA      IT
+## 28:   208        INRAE      FR
+## 29:   214          WUR      NL
+## 30:   303           TI      DE
+## 31:   306 UNITO DISAFA      DK
 ##      inst    institute country
 ##     <int>       <char>  <char>
 ```
@@ -881,7 +875,6 @@ table(pdat[, c('institute', 'app.method')], exclude = NULL)
 ##   ARDC           0  60  60    0   0   0   0   0    0    0
 ##   AT             0   8   0   11   0   7   0   0    0    0
 ##   AU             0  16   0  674  16 102   0 170   15    3
-##   AU-BCE         0   4   0    0   0   0   0   0    0    0
 ##   AUN            0   3   0    3   0   0   3   0    0    0
 ##   CAU-LU         0   0   0  197   0   0   0   0    0    0
 ##   CRPA           0  52   0   18   0   5   0   0    0    0
@@ -915,7 +908,7 @@ table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 ## sub.period      bc bss bsth  cs  os  pi  ts tsft tslt
 ##          1   0 583   0   81   5  73   3  46    0    0
 ##          2  34 351  60  476  24  76   0  82    0    0
-##          3   0  90   0  674   0 201   0 308   15    3
+##          3   0  86   0  674   0 201   0 308   15    3
 ##          4   0   0   0   37   0  19   0   0    0    0
 ```
 
@@ -927,7 +920,7 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##            app.method
 ## corr.period        bc  bss bsth   cs   os   pi   ts tsft tslt
 ##        3       0  138    0    0    4   88    0   29    0    0
-##        <NA>   34  886   60 1268   25  281    3  407   15    3
+##        <NA>   34  882   60 1268   25  281    3  407   15    3
 ```
 
 

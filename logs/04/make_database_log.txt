@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-10-20 18:44:19 EDT"
+[1] "2026-10-20 18:57:38 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -126,6 +126,12 @@ NULL
 
 > rounddt(idat.comb, 5, func = signif)
 
+> pmid.drop <- unique(pdat.comb[eid == 342, ][["pmid"]])
+
+> pdat.comb <- pdat.comb[eid != 342, ]
+
+> idat.comb <- idat.comb[!pmid %in% pmid.drop, ]
+
 > for (i in unique(pdat$file)) {
 +     fn <- strsplit(i, "/")
 +     fn <- fn[[1]][length(fn[[1]])]
@@ -225,13 +231,15 @@ Version number in old release does not match release tag!
  main.R (new version)     3.5
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.4
+          Main branch     3.5
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-
-New version number seems OK.
+  latest release latest main push  latest dev push 
+       "3.0-dev"            "3.5"            "3.0" 
+Version number setting 
+                 "3.5" 
 
 > fwrite(pdat.comb, paste0("../../data-output/", sprintf("%02d", 
 +     sub.period), "/ALFAM2_plot.csv.gz"))
