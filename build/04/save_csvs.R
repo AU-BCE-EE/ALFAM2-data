@@ -1,4 +1,4 @@
-# Saves a copy of plot and internval data by flie
+# Saves a copy of plot and interval data by file
 # Main purpose is to have a text-based (works with Git) record of submitted data
 
 for (i in unique(pdat$file)) {
@@ -21,9 +21,9 @@ for (i in unique(pdat$file)) {
   }
 
   rounddt(pds, 3, func = signif)
-  fwrite(pds, file = paste0(idir, '/', inst, '_', fn, '_plot.csv.gz'))
+  fwrite(pds, file = paste0(idir, '/', inst, '_', fn, '_plot.csv'))
   rounddt(ids, 3, func = signif)
-  fwrite(ids, file = paste0(idir, '/', inst, '_', fn, '_interval.csv.gz'))
+  fwrite(ids, file = paste0(idir, '/', inst, '_', fn, '_interval.csv'))
 
 }
 
