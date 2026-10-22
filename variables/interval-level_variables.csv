@@ -37,7 +37,7 @@ pH.surf,Surface pH,numeric,pH units,
 rad,Solar radiation,numeric,W/m2,
 wind,Average wind speed within measurement interval,numeric,m/s,
 wind.z.int,Wind speed measurement height,numeric,m,
-wind.2m,Average wind speed adjusted to 2 m height,numeric,m/s,Wind speed estimated at 1 m height
+wind.2m,Average wind speed adjusted to 2 m height,numeric,m/s,
 wind.loc.int,Location of wind speed measurements,character,,
 far.loc.int,Location of whichever weather measurements were farthest from plot,character,,
 rain,Rainfall within interval,numeric,mm,
