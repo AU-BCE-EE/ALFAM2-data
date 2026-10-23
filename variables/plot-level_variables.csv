@@ -43,7 +43,7 @@ j.rel1,Average relative ammonia flux in first measurement interval,numeric,Fract
 e.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours",numeric,kg/ha as N,Interpolated
 e.cum.1,"Cumulative emission after 1 h, in general, e.x = same but after x hours (duplicate of e.1)",numeric,kg/ha as N,Interpolated
 e.final,Cumulative emission at the end of the measurements,numeric,kg/ha as N,
-e.cum.final,Cumulative emission at the end of the measurements (duplicate of e.cum.final),numeric,kg/ha as N,
+e.cum.final,Cumulative emission at the end of the measurements (duplicate of e.final),numeric,kg/ha as N,
 e.rel.1,"Relative cumulative emission after 1 h, in general, e.rel.x = same but after x hours",numeric,Fraction of applied TAN,Interpolated
 e.rel.final,Relative cumulative emission at the end of the measurements,numeric,Fraction of applied TAN,
 clay,Clay content of soil,numeric,Percentage,
@@ -69,8 +69,8 @@ soil.temp.surf.6,"Average soil surface temperature over first 6 h, weighted by i
 soil.temp.surf.mn,Average soil surface temperature,numeric,degrees C,
 rad.6,"Average solar radiation over first 6 h, and rad.x = same after x hours",numeric,W/m2,
 rad.mn,Average solar radiation,numeric,W/m2,
-wind.6,"Average wind speed over first 6 h, and wind.x = same after x hours",numeric,m/s,
-wind.mn,Average wind speed,numeric,m/s,
+wind.6,"Average wind speed over first 6 h, and wind.x = same after x hours",numeric,m/s,Wind speed as measured (no height adjustment)
+wind.mn,Average wind speed,numeric,m/s,Wind speed as measured (no height adjustment)
 wind.z,Wind speed measurement height,numeric,m,
 wind.2m.6,"Average adjusted wind speed over first 6 h, and wind.2m.x = same after x hours",numeric,m/s,Wind speed estimated at 2 m height
 wind.2m.mn,Average adjusted wind speed,numeric,m/s,Wind speed estimated at 2 m height
