@@ -2,14 +2,13 @@
 title: 'Summary of new ALFAM2 data'
 output: pdf_document
 author: Sasha D. Hafner
-date: "20 October, 2026"
+date: "23 October, 2026"
 ---
 
 
 ``` r
 pdat[, digested := grepl('anaerobic digestion', tolower(paste(man.trt1, man.trt2)))]
 ```
-
 
 
 ``` r
@@ -923,4 +922,33 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##        <NA>   34  882   60 1268   25  281    3  407   15    3
 ```
 
+Some variables
+
+
+``` r
+hist(pdat$wind.2m.6)
+```
+
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
+
+``` r
+hist(pdat$wind.2m.24)
+```
+
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-2.png)
+
+Without height adjustment.
+
+
+``` r
+hist(pdat$wind.6)
+```
+
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
+
+``` r
+hist(pdat$wind.24)
+```
+
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-2.png)
 

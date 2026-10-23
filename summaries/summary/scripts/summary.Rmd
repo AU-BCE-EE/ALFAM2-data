@@ -9,7 +9,6 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 pdat[, digested := grepl('anaerobic digestion', tolower(paste(man.trt1, man.trt2)))]
 ```
 
-
 ```{r}
 dim(pdat)
 length(unique(pdat$pmid))
@@ -79,4 +78,17 @@ table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ```
 
+Some variables
+
+```{r}
+hist(pdat$wind.2m.6)
+hist(pdat$wind.2m.24)
+```
+
+Without height adjustment.
+
+```{r}
+hist(pdat$wind.6)
+hist(pdat$wind.24)
+```
 
