@@ -921,34 +921,3 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##        3       0  138    0    0    4   88    0   29    0    0
 ##        <NA>   34  882   60 1268   25  281    3  407   15    3
 ```
-
-Some variables
-
-
-``` r
-hist(pdat$wind.2m.6)
-```
-
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
-
-``` r
-hist(pdat$wind.2m.24)
-```
-
-![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-2.png)
-
-Without height adjustment.
-
-
-``` r
-hist(pdat$wind.6)
-```
-
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
-
-``` r
-hist(pdat$wind.24)
-```
-
-![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-2.png)
-
