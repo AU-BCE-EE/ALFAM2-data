@@ -1466,3 +1466,26 @@ fixFlags <- function(obj) {
   return(obj)
 
 }
+
+# Variable summary function
+
+printVarSumm <- function(x) {
+
+    cat(paste('Class:', class(x), '\n'))
+    cat(paste('Length:', length(x), '\n'))
+    cat(paste('Missing values:', sum(is.na(x)), '\n'))
+
+    if (is.numeric(x)) {
+      cat(paste('Minimum:', min(x), '\n'))
+      cat(paste('Maximum:', max(x), '\n'))
+      cat(paste('Mean:', mean(x), '\n'))
+      cat(paste('Median:', median(x), '\n'))
+      cat('Quantiles\n')
+      print(quantile(na.omit(x)))
+    } else {
+      cat(paste('Unique values:', paste(unique(x), collapse = ', '), '\n'))
+    }
+
+    return(invisible(NULL))
+
+}

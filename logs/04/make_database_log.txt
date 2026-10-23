@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-10-20 18:57:38 EDT"
+[1] "2026-10-23 11:40:53 EDT"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -30,11 +30,14 @@ Directory  ../../data-submitted/04/AU
 
  file  ../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass1+2.xlsx 
   Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
+   file  ../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass3+4.xlsx 
+
+ file  ../../data-submitted/04/AU/ALFAM2_template_8.3_NGrass3+4.xlsx 
+  Starting. . .  Submitter info . . .  Contributors . . .  Experiments . . .  Treatments . . .  Plots . . .  Emission . . .  Publications . . .
 > cat("Done! Read", length(dat), " directories\n")
 Done! Read 1  directories
 
 > print(warnings())
-NULL
 
 > for (i in names(dat)) {
 +     for (j in names(dat[[i]])) {
@@ -228,7 +231,7 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.5
+ main.R (new version)     3.6
           Release tag     3.0
               Release 3.0-dev
           Main branch     3.5
@@ -236,10 +239,8 @@ Version number in old release does not match release tag!
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
 +     warning("Version number set in main.R matches\n   one or more existing version numbers!\n   Di ..." ... [TRUNCATED] 
-  latest release latest main push  latest dev push 
-       "3.0-dev"            "3.5"            "3.0" 
-Version number setting 
-                 "3.5" 
+
+New version number seems OK.
 
 > fwrite(pdat.comb, paste0("../../data-output/", sprintf("%02d", 
 +     sub.period), "/ALFAM2_plot.csv.gz"))

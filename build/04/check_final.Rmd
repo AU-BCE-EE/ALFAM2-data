@@ -1,16 +1,14 @@
 ---
-title: 'Combined data error checks'
+title: 'Combined data checks'
 ---
 
-Get unique values and ranges for all variables.
+Summaries for all plot-level variables.
 
 ```{r}
 for (i in 1:ncol(pdat.comb)) {
 
-  printVarSumm(pdat.comb[, i])
+  cat(paste('\n', names(pdat.comb)[i], '\n'))
+  printVarSumm(pdat.comb[[i]])
 
 }
-
 ```
-
-

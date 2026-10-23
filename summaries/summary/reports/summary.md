@@ -16,7 +16,7 @@ dim(pdat)
 ```
 
 ```
-## [1] 3237  222
+## [1] 3268  222
 ```
 
 ``` r
@@ -24,7 +24,7 @@ length(unique(pdat$pmid))
 ```
 
 ```
-## [1] 3237
+## [1] 3268
 ```
 
 ``` r
@@ -32,7 +32,7 @@ length(unique(pdat$pid))
 ```
 
 ```
-## [1] 3233
+## [1] 3264
 ```
 
 
@@ -41,7 +41,7 @@ dim(idat)
 ```
 
 ```
-## [1] 104806     51
+## [1] 106943     51
 ```
 
 
@@ -52,7 +52,7 @@ table(pdat$sub.period)
 ```
 ## 
 ##    1    2    3    4 
-##  791 1103 1287   56
+##  791 1103 1287   87
 ```
 
 ``` r
@@ -93,7 +93,7 @@ table(pdat$man.trt1)
 ##        Low protein diet   Mechanical separation Nitrification inhibitor 
 ##                       9                      49                      32 
 ##                    none                    None                 Surface 
-##                     231                    1697                      48
+##                     231                    1728                      48
 ```
 
 ``` r
@@ -103,7 +103,7 @@ table(pdat$man.trt2)
 ```
 ## 
 ##                               Acidification     Ammonia stripping 
-##                  1433                    14                     3 
+##                  1464                    14                     3 
 ##   Anaerobic digestion      Biochar addition            Disruption 
 ##                    16                     6                     6 
 ##           Floculation Mechanical separation                  none 
@@ -120,7 +120,7 @@ table(pdat$man.source)
 ```
 ## 
 ##       cat      conc digestate      mink       mix      none     other       pig 
-##      1607        13        64        16       527        32        81       888 
+##      1638        13        64        16       527        32        81       888 
 ##   poultry    sludge      urea 
 ##         2         4         3
 ```
@@ -141,7 +141,7 @@ table(pdat[, c('meas.tech')])
 ##                              CPS                              DTM 
 ##                              224                                3 
 ##                  Dynamic chamber             Dynamic flux chamber 
-##                              414                               22 
+##                              445                               22 
 ##                               ec                               EC 
 ##                                2                                1 
 ##                            fides                              ihf 
@@ -169,7 +169,7 @@ table(pdat[, c('meas.tech', 'meas.tech2')])
 ##   cps                                    0 318         0   0
 ##   CPS                                  224   0         0   0
 ##   DTM                                    3   0         0   0
-##   Dynamic chamber                      414   0         0   0
+##   Dynamic chamber                      445   0         0   0
 ##   Dynamic flux chamber                  22   0         0   0
 ##   ec                                     0   0         2   0
 ##   EC                                     0   0         1   0
@@ -191,7 +191,7 @@ table(pdat[, c('app.method')], exclude = NULL)
 ```
 ## app.method
 ##        bc  bss bsth   cs   os   pi   ts tsft tslt 
-##   34 1020   60 1268   29  369    3  436   15    3
+##   34 1020   60 1268   29  400    3  436   15    3
 ```
 
 ``` r
@@ -211,7 +211,7 @@ table(pdat[, c('app.method.orig', 'app.method')], exclude = NULL)
 ##   NUGA                                 0    0    0    0    0    0    0    9
 ##   NUGA-tine                            0    0    0    0    0    0    0    0
 ##   Open slot                            0    0    0    0    0   61    0    0
-##   Open slot injection                  0    0    0    0    0  308    0    0
+##   Open slot injection                  0    0    0    0    0  339    0    0
 ##   Pressurized injection                0    0    0    0    0    0    3    0
 ##   trailing hose                        0    0    0    1    0    0    0    0
 ##   Trailing shoe                        0    0    0    0    0    0    0  427
@@ -263,7 +263,7 @@ table(pdat$meas.tech)
 ##                              CPS                              DTM 
 ##                              224                                3 
 ##                  Dynamic chamber             Dynamic flux chamber 
-##                              414                               22 
+##                              445                               22 
 ##                               ec                               EC 
 ##                                2                                1 
 ##                            fides                              ihf 
@@ -289,7 +289,7 @@ table(pdat$meas.tech.orig)
 ##                              CPS                              DTM 
 ##                              224                                3 
 ##                  Dynamic chamber             Dynamic flux chamber 
-##                              546                               22 
+##                              577                               22 
 ##                               EC                  Eddy Covariance 
 ##                                1                                2 
 ##                            FIDES                              IHF 
@@ -309,7 +309,7 @@ table(pdat$meas.tech2)
 ```
 ## 
 ##   chamber       cps micro met        wt 
-##       795       318       972      1152
+##       826       318       972      1152
 ```
 
 Acidification table.
@@ -365,7 +365,7 @@ acidtab
 ##   Mechanical separation, None,                                          9    0
 ##   Mechanical separation, Plasma,                                        6    0
 ##   Nitrification inhibitor, ,                                           32    0
-##   None, ,                                                             777    0
+##   None, ,                                                             808    0
 ##   None, Anaerobic digestion,                                            8    0
 ##   None, Mechanical separation,                                          8    0
 ##   none, none,                                                         231    0
@@ -681,7 +681,9 @@ trttab
 ##   JL_combi                                                 1    0
 ##   JOS_d                                                    2    0
 ##   JOS_e                                                    1    0
-##   Jyn-OSI                                                  8    0
+##   Jyn-OSI                                                 15    0
+##   Jyn-OSI-P1                                               4    0
+##   Jyn-OSI-P2                                               4    0
 ##   Jyn-TH                                                   8    0
 ##   Jyndevad                                                 3    0
 ##   Jyndevand                                                3    0
@@ -724,7 +726,9 @@ trttab
 ##   PS-LB2                                                   3    0
 ##   RAW                                                      6    0
 ##   Reference                                               12    0
-##   Røn-OSI                                                  8    0
+##   Røn-OSI                                                 16    0
+##   Røn-OSI-P1                                               4    0
+##   Røn-OSI-P2                                               4    0
 ##   Røn-TH                                                   8    0
 ##   Rønhave                                                  6    0
 ##   S                                                        8    0
@@ -873,7 +877,7 @@ table(pdat[, c('institute', 'app.method')], exclude = NULL)
 ##   ADAS-RR        0   0   0   63   0   0   0  46    0    0
 ##   ARDC           0  60  60    0   0   0   0   0    0    0
 ##   AT             0   8   0   11   0   7   0   0    0    0
-##   AU             0  16   0  674  16 102   0 170   15    3
+##   AU             0  16   0  674  16 133   0 170   15    3
 ##   AUN            0   3   0    3   0   0   3   0    0    0
 ##   CAU-LU         0   0   0  197   0   0   0   0    0    0
 ##   CRPA           0  52   0   18   0   5   0   0    0    0
@@ -908,7 +912,7 @@ table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 ##          1   0 583   0   81   5  73   3  46    0    0
 ##          2  34 351  60  476  24  76   0  82    0    0
 ##          3   0  86   0  674   0 201   0 308   15    3
-##          4   0   0   0   37   0  19   0   0    0    0
+##          4   0   0   0   37   0  50   0   0    0    0
 ```
 
 ``` r
@@ -919,7 +923,7 @@ table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ##            app.method
 ## corr.period        bc  bss bsth   cs   os   pi   ts tsft tslt
 ##        3       0  138    0    0    4   88    0   29    0    0
-##        <NA>   34  882   60 1268   25  281    3  407   15    3
+##        <NA>   34  882   60 1268   25  312    3  407   15    3
 ```
 
 Some variables
