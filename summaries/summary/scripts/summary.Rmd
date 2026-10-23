@@ -77,3 +77,18 @@ table(pdat[, c('institute', 'app.method')], exclude = NULL)
 table(pdat[, c('sub.period', 'app.method')], exclude = NULL)
 table(pdat[, c('corr.period', 'app.method')], exclude = NULL)
 ```
+
+Some variables
+
+```{r}
+quantile(na.omit(pdat$wind.2m.6))
+quantile(na.omit(pdat$wind.2m.24))
+```
+
+Without height adjustment.
+
+```{r}
+quantile(na.omit(pdat$wind.6))
+quantile(na.omit(pdat$wind.24))
+```
+
