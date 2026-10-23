@@ -30,7 +30,7 @@ cat(paste('Old sub period (version comp):', old.sub.period, '\n'))
 #rm('newsubmission')
 
 # Create all md log files (otherwise just missing ones)?
-# To replace individual ones (if input file was updated for example) delete old version before running script
+# To replace individual ones (if input file was updated for example) delete old version *and images in figure-gfm dir* before running script
 alllogs <- FALSE
 
 # End settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
