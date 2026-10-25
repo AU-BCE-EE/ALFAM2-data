@@ -715,10 +715,11 @@ calcEmis <- function(obj, na = 'impute') {
   }
 
   # Calculate emission
+  # Flag of i is used for imputed values, same as interpolated submitted values 
   setorder(emis, cpmid, interval)
   for (i in unique(emis$cpmid)) {
     if (na == 'impute' & any(is.na(emis[cpmid == i, j.NH3]))) {
-      emis[cpmid == i & is.na(j.NH3), flag.int := paste0(flag.int, ' m i')]
+      emis[cpmid == i & is.na(j.NH3), flag.int := paste0(flag.int, ' i')]
       emis[cpmid == i, j.NH3 := imputeVars(emis[cpmid == i, ], 'ct', 'j.NH3', method = 'linear')]
     }
     emis[cpmid == i, e.int := j.NH3 * dt]
@@ -1403,31 +1404,17 @@ collapseFlags <- function(f) {
 }
 
 # Add flags based on keywords in notes columns
-# NTS: row-by-row, probably slow
-addFlags <- function(obj, keys = list(m = c('modeled', 'interpolat'), i = 'interpolat')) {
+addFlags <- function(obj, keys = list(m = c('modeled', 'modelled'), i = c('interpolated', 'imputed'), e = c('error'), a = c('application problem'))) {
 
   keys <- lapply(keys, tolower)
 
   emis <- obj$emis
   plots <- obj$plots
 
-  for (i in 1:nrow(plots)) {
-    for (j in 1:length(keys)) {
-      for (k in 1:length(keys[[j]])) {
-        if (grepl(keys[[j]][k], tolower(plots[i, 'notes.plot']))) {
-          plots[i, 'flag.plot'] <- paste(plots[i, 'flag.plot'], names(keys)[j])
-        }
-      }
-    }
-  }
-
-  for (i in 1:nrow(emis)) {
-    for (j in 1:length(keys)) {
-      for (k in 1:length(keys[[j]])) {
-        if (grepl(keys[[j]][k], tolower(emis[i, 'notes.int']))) {
-          emis[i, 'flag.int'] <- paste(emis[i, 'flag.int'], names(keys)[j])
-        }
-      }
+  for (j in 1:length(keys)) {
+    for (k in 1:length(keys[[j]])) {
+      plots[grep(keys[[j]][k], tolower(notes.plot)), 'flag.plot'] <- paste(plots[grep(keys[[j]][k], tolower(notes.plot)), 'flag.plot'], names(keys)[j])
+      emis[grep(keys[[j]][k], tolower(notes.int)), 'flag.int'] <- paste(emis[grep(keys[[j]][k], tolower(notes.int)), 'flag.int'], names(keys)[j])
     }
   }
 
@@ -1446,7 +1433,6 @@ fixFlags <- function(obj) {
   plots <- obj$plots
 
   # Extract interval flags for plot data
-
   intsumm <- aggregate(flag.int ~ cpmid, data = emis, FUN = collapseFlags)
   plots <- merge(plots, intsumm, by = 'cpmid')
   plots$flag.plot <- paste(plots$flag.plot, plots$flag.int)

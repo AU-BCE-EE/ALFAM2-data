@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.6'
+version <- '3.7'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -75,3 +75,4 @@ setwd(owd)
 
 # Message
 cat('Done. Check logs dir to confirm everything worked.\n')
+

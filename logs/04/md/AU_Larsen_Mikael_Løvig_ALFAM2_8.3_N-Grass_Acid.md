@@ -50,9 +50,9 @@ data. Send either a list of problems or confirmation that everything
 looks OK to Sasha by email. Be sure to reference the dataset version and
 file creation date/time when doing so. These are:
 
-    ## Version:  3.0-dev
+    ## Version:  3.6
 
-    ## [1] "Date/time: 2026-04-08 10:49:07.152658"
+    ## [1] "Date/time: 2026-10-23 15:15:32.348074"
 
 Each of these files contains a summary of the data from a single
 submitted spreadsheet file. The html name is based on the name of the
@@ -84,9 +84,9 @@ help in pinpointing problems, but typically does not need to be checked.
 
 # 2. Contributors
 
-| contributor          | institute         | sub.period | file                                                    |
-|:---------------------|:------------------|-----------:|:--------------------------------------------------------|
-| Larsen, Mikael Løvig | Aarhus University |          4 | ../../data-submitted/04/AU/ALFAM2_8.3_N-Grass_Acid.xlsx |
+| contributor | institute | sub.period | file |
+|:---|:---|---:|:---|
+| Larsen, Mikael Løvig | Aarhus University | 4 | ../../data-submitted/04/AU/ALFAM2_8.3_N-Grass_Acid.xlsx |
 
 # 3. File and directory names
 
@@ -728,41 +728,32 @@ particular field plots throughout this section.
     ## Missing values                  24          0           0      24       24
     ## Sorted                        <NA>       TRUE        TRUE    <NA>     <NA>
     ##                                                                           
-    ##                    far.loc  pub.info soil.type2  exper2    rep2     acid
-    ## Class              logical character    logical logical logical  logical
-    ## Minimum               <NA>         .       <NA>    <NA>    <NA>    FALSE
-    ## Maximum               <NA>         .       <NA>    <NA>    <NA>     TRUE
-    ## Mean                  <NA>      <NA>       <NA>    <NA>    <NA> 0.5 TRUE
-    ## Unique (excld. NA)       0         1          0       0       0        2
-    ## Missing values          24         0         24      24      24        0
-    ## Sorted                <NA>      TRUE       <NA>    <NA>    <NA>    FALSE
+    ##                    far.loc  pub.info     acid  meas.tech.orig meas.tech2
+    ## Class              logical character  logical       character  character
+    ## Minimum               <NA>         .    FALSE Dynamic chamber    chamber
+    ## Maximum               <NA>         .     TRUE Dynamic chamber    chamber
+    ## Mean                  <NA>      <NA> 0.5 TRUE            <NA>       <NA>
+    ## Unique (excld. NA)       0         1        2               1          1
+    ## Missing values          24         0        0               0          0
+    ## Sorted                <NA>      TRUE    FALSE            TRUE       TRUE
     ##                                                                         
-    ##                     meas.tech.orig meas.tech2 crop.orig
-    ## Class                    character  character character
-    ## Minimum            Dynamic chamber    chamber     Grass
-    ## Maximum            Dynamic chamber    chamber     Grass
-    ## Mean                          <NA>       <NA>      <NA>
-    ## Unique (excld. NA)               1          1         1
-    ## Missing values                   0          0         0
-    ## Sorted                        TRUE       TRUE      TRUE
-    ##                                                        
-    ##                                 app.method.orig incorp.orig man.source.orig
-    ## Class                                 character   character       character
-    ## Minimum            Band spread or trailing hose        None          Cattle
-    ## Maximum                     Open slot injection        None             Pig
-    ## Mean                                       <NA>        <NA>            <NA>
-    ## Unique (excld. NA)                            2           1               2
-    ## Missing values                                0           0               0
-    ## Sorted                                    FALSE        TRUE            TRUE
-    ##                                                                            
-    ##                    date.start
-    ## Class                    Date
-    ## Minimum                  <NA>
-    ## Maximum                  <NA>
-    ## Mean                     <NA>
-    ## Unique (excld. NA)          0
-    ## Missing values             24
-    ## Sorted                   <NA>
+    ##                    crop.orig soil.type2              app.method.orig
+    ## Class              character    logical                    character
+    ## Minimum                Grass       <NA> Band spread or trailing hose
+    ## Maximum                Grass       <NA>          Open slot injection
+    ## Mean                    <NA>       <NA>                         <NA>
+    ## Unique (excld. NA)         1          0                            2
+    ## Missing values             0         24                            0
+    ## Sorted                  TRUE       <NA>                        FALSE
+    ##                                                                     
+    ##                    incorp.orig man.source.orig  exper2    rep2 date.start
+    ## Class                character       character logical logical       Date
+    ## Minimum                   None          Cattle    <NA>    <NA>       <NA>
+    ## Maximum                   None             Pig    <NA>    <NA>       <NA>
+    ## Mean                      <NA>            <NA>    <NA>    <NA>       <NA>
+    ## Unique (excld. NA)           1               2       0       0          0
+    ## Missing values               0               0      24      24         24
+    ## Sorted                    TRUE            TRUE    <NA>    <NA>       <NA>
     ## 
 
 ## Interval-level emission data
@@ -1013,42 +1004,42 @@ particular field plots throughout this section.
     ## Missing values           0       0    1840         0         0        0    1840
     ## Sorted               FALSE   FALSE    <NA>     FALSE     FALSE    FALSE    <NA>
     ##                                                                                
-    ##                      e.int   e.cum    e.rel    j.rel  pub.info soil.type2
-    ## Class              numeric numeric  numeric  numeric character    logical
-    ## Minimum            -0.0174  -0.466 -0.00751 -0.00016         .       <NA>
-    ## Maximum              0.632      12    0.191  0.00451         .       <NA>
-    ## Mean                 0.054    2.96   0.0475 0.000455      <NA>       <NA>
-    ## Unique (excld. NA)    1840    1840     1840     1822         1          0
-    ## Missing values           0       0        0        0         0       1840
-    ## Sorted               FALSE   FALSE    FALSE    FALSE      TRUE       <NA>
-    ##                                                                          
-    ##                     exper2    rep2                   acid  meas.tech.orig
-    ## Class              logical logical                logical       character
-    ## Minimum               <NA>    <NA>                  FALSE Dynamic chamber
-    ## Maximum               <NA>    <NA>                   TRUE Dynamic chamber
-    ## Mean                  <NA>    <NA> 0.526086956521739 TRUE            <NA>
-    ## Unique (excld. NA)       0       0                      2               1
-    ## Missing values        1840    1840                      0               0
-    ## Sorted                <NA>    <NA>                  FALSE            TRUE
-    ##                                                                          
-    ##                    meas.tech2 crop.orig              app.method.orig
-    ## Class               character character                    character
-    ## Minimum               chamber     Grass Band spread or trailing hose
-    ## Maximum               chamber     Grass          Open slot injection
-    ## Mean                     <NA>      <NA>                         <NA>
-    ## Unique (excld. NA)          1         1                            2
-    ## Missing values              0         0                            0
-    ## Sorted                   TRUE      TRUE                        FALSE
-    ##                                                                     
-    ##                    incorp.orig man.source.orig date.start first.row.int
-    ## Class                character       character       Date       numeric
-    ## Minimum                   None          Cattle       <NA>             5
-    ## Maximum                   None             Pig       <NA>          1780
-    ## Mean                      <NA>            <NA>       <NA>           885
-    ## Unique (excld. NA)           1               2          0            24
-    ## Missing values               0               0       1840             0
-    ## Sorted                    TRUE            TRUE       <NA>         FALSE
-    ##                                                                        
+    ##                      e.int   e.cum    e.rel    j.rel  pub.info
+    ## Class              numeric numeric  numeric  numeric character
+    ## Minimum            -0.0174  -0.466 -0.00751 -0.00016         .
+    ## Maximum              0.632      12    0.191  0.00451         .
+    ## Mean                 0.054    2.96   0.0475 0.000455      <NA>
+    ## Unique (excld. NA)    1840    1840     1840     1822         1
+    ## Missing values           0       0        0        0         0
+    ## Sorted               FALSE   FALSE    FALSE    FALSE      TRUE
+    ##                                                               
+    ##                                      acid  meas.tech.orig meas.tech2 crop.orig
+    ## Class                             logical       character  character character
+    ## Minimum                             FALSE Dynamic chamber    chamber     Grass
+    ## Maximum                              TRUE Dynamic chamber    chamber     Grass
+    ## Mean               0.526086956521739 TRUE            <NA>       <NA>      <NA>
+    ## Unique (excld. NA)                      2               1          1         1
+    ## Missing values                          0               0          0         0
+    ## Sorted                              FALSE            TRUE       TRUE      TRUE
+    ##                                                                               
+    ##                    soil.type2              app.method.orig incorp.orig
+    ## Class                 logical                    character   character
+    ## Minimum                  <NA> Band spread or trailing hose        None
+    ## Maximum                  <NA>          Open slot injection        None
+    ## Mean                     <NA>                         <NA>        <NA>
+    ## Unique (excld. NA)          0                            2           1
+    ## Missing values           1840                            0           0
+    ## Sorted                   <NA>                        FALSE        TRUE
+    ##                                                                       
+    ##                    man.source.orig  exper2    rep2 date.start first.row.int
+    ## Class                    character logical logical       Date       numeric
+    ## Minimum                     Cattle    <NA>    <NA>       <NA>             5
+    ## Maximum                        Pig    <NA>    <NA>       <NA>          1780
+    ## Mean                          <NA>    <NA>    <NA>       <NA>           885
+    ## Unique (excld. NA)               2       0       0          0            24
+    ## Missing values                   0    1840    1840       1840             0
+    ## Sorted                        TRUE    <NA>    <NA>       <NA>         FALSE
+    ##                                                                            
     ##                    row.plot          first.rows ggplotgroup
     ## Class               numeric              factor      factor
     ## Minimum                   5  Plots 10 Emis. 783 (4.98,10.8]

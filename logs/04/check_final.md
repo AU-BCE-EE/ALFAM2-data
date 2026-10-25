@@ -68,7 +68,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: 3.6 
+## Unique values: 3.7 
 ## 
 ##  sub.period 
 ## Class: numeric 
@@ -2359,5 +2359,5 @@ for (i in 1:ncol(pdat.comb)) {
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: , e, a, m, d, m i
+## Unique values: , e, a, m, d, m i, i
 ```
