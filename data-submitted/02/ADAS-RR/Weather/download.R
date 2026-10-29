@@ -12,7 +12,6 @@ bins[, start := as.POSIXct(start, format = '%d-%m-%Y %H:%M')]
 bins[, end := as.POSIXct(end, format = '%d-%m-%Y %H:%M')]
 
 for (i in 1:nrow(bins)) {
-for (i in 1:10) {
 
     print(i)
 
@@ -42,3 +41,5 @@ for (i in 1:10) {
   bins[i, wind.2m := mean(d$wind.2m)]
 
 }
+
+fwrite(bins, 'output.csv')
