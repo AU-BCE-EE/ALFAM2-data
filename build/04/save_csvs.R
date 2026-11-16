@@ -7,9 +7,12 @@ for (i in unique(pdat$file)) {
   fn <- fn[[1]][length(fn[[1]])]
   fn <- sub('\\.xlsx$', '', fn)
 
-  pds <- subset(pdat, file == i)
+  pds <- subset(pdat.comb, file == i)
   pp <- unique(pds$pmid)
   ids <- subset(idat.comb, pmid %in% pp)
+  # Remove version to avoid meaningless git diff
+  pds[, version := NULL]
+  ids[, version := NULL]
 
   inst <- pds$institute[1]
   submitter <- pds$submitter[1]
