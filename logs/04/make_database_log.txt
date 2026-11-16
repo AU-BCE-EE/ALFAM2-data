@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-10-24 21:45:49 EDT"
+[1] "2026-11-16 15:25:25 EST"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -135,6 +135,65 @@ Done! Read 1  directories
 
 > idat.comb <- idat.comb[!pmid %in% pmid.drop, ]
 
+> wnew <- fread("../../data-submitted/02/ADAS-RR/Weather/weather_output_bins.csv")
+
+> wnew <- wnew[, .(row.in.file, air.temp, wind.2m)]
+
+> wnew[, `:=`(file, "ALFAM2_ADAS_RRes_v2.xlsx")]
+
+> pmid.cor <- pdat.comb[file == "ALFAM2_ADAS_RRes_v2.xlsx", 
++     pmid]
+
+> oid.cor <- idat.comb[pmid %in% pmid.cor, oid]
+
+> idat.comb[, `:=`(correction, oid %in% oid.cor)]
+
+> wnew[, `:=`(correction, TRUE)]
+
+> wind.orig <- idat.comb[correction == TRUE, wind.2m]
+
+> idat.comb[wnew, on = .(correction, row.in.file.int = row.in.file), 
++     `:=`(wind.2m, i.wind.2m)]
+
+> wind.new <- idat.comb[correction == TRUE, wind.2m]
+
+> idat.comb[correction == TRUE, `:=`(wind, NA)]
+
+> idat.comb[correction == TRUE, `:=`(notes.int, paste(notes.int, 
++     "Wind values downloaded and updated in 2026. See Weather dir in 02 subdir for  ..." ... [TRUNCATED] 
+
+> idat.comb[correction == TRUE, `:=`(flag.int, collapseFlags(paste(flag.int, 
++     "w")))]
+
+> idat.comb[, `:=`(correction, NULL)]
+
+> if (any(wind.orig == wind.new)) {
++     stop("ADAS wind speed update did not work!")
++ }
+
+> pdat.cor <- pdat.comb[pmid %in% pmid.cor, ]
+
+> idat.cor <- idat.comb[pmid %in% pmid.cor, ]
+
+> pdat.cor <- interpPlotVars(pdat.cor, idat.cor, what = c("wind.2m"), 
++     time_points = c(1, 4, 6, 12, 24, 48, 72, 96, 168), id = "pmid")
+
+> tp <- c(1, 4, 6, 12, 24, 48, 72, 96, 168)
+
+> drop.cols <- paste0("wind", ".", c(tp, "mn"))
+
+> pdat.cor[, `:=`((drop.cols), NULL)]
+
+> pdat.cor[, `:=`(notes.plot, paste(notes.plot, "Wind values downloaded and updated in 2026. See Weather dir in 02 subdir for original submission"))]
+
+> pdat.cor[, `:=`(flag.plot, collapseFlags(paste(flag.plot, 
++     "w")))]
+
+> pdat.comb <- rbind(pdat.comb[!pmid %in% pmid.cor, 
++     ], pdat.cor, fill = TRUE)
+
+> setorder(pdat.comb, pmid)
+
 > for (i in unique(pdat$file)) {
 +     fn <- strsplit(i, "/")
 +     fn <- fn[[1]][length(fn[[1]])]
@@ -231,10 +290,10 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.7
+ main.R (new version)     3.8
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.6
+          Main branch     3.7
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

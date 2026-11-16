@@ -742,6 +742,7 @@ calcEmis <- function(obj, na = 'impute') {
 
   obj$plots <- plots
   obj$emis <- emis
+
   return(obj)
  
 }
@@ -1457,7 +1458,7 @@ interpPlotVars <- function(
   # All by cpmid or pmid
 
   # First drop any columns that already exist
-  drop.cols <- paste0(rep(what, each = length(tp) + 1), '.', c(tp, 'mn'))
+  drop.cols <- paste0(rep(what, each = length(time_points) + 1), '.', c(time_points, 'mn'))
   plots[, (drop.cols) := NULL]
 
   pld <- emis[, {

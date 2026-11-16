@@ -57,6 +57,7 @@ pdat.cor <- interpPlotVars(
 )
 
 # Remove wind values
+tp <- c(1, 4, 6, 12, 24, 48, 72, 96, 168)
 drop.cols <- paste0('wind', '.', c(tp, 'mn'))
 pdat.cor[, (drop.cols) := NULL]
 

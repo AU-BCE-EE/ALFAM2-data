@@ -68,7 +68,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: 3.7 
+## Unique values: 3.8 
 ## 
 ##  sub.period 
 ## Class: numeric 
@@ -1414,62 +1414,62 @@ for (i in 1:ncol(pdat.comb)) {
 ##  wind.6 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 682 
+## Missing values: 790 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
 ##       0%      25%      50%      75%     100% 
-##  0.10000  1.03000  2.14085  3.61240 16.02200 
+##  0.10000  1.00000  2.08605  3.50000 11.62300 
 ## 
 ##  wind.12 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 645 
+## Missing values: 753 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
 ##       0%      25%      50%      75%     100% 
-##  0.10000  1.04145  2.21000  3.68440 16.02200 
+##  0.10000  1.00995  2.09270  3.52375 10.64200 
 ## 
 ##  wind.24 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 613 
+## Missing values: 722 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##   0%  25%  50%  75% 100% 
-## 0.10 1.00 1.70 3.24 9.50 
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.000000 1.619800 3.003325 9.449300 
 ## 
 ##  wind.48 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 609 
+## Missing values: 718 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##      0%     25%     50%     75%    100% 
-##  0.1000  1.0000  1.7200  3.1519 10.9910 
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.000000 1.626200 2.965175 7.583800 
 ## 
 ##  wind.72 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 558 
+## Missing values: 667 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.100000  1.028225  1.806100  3.321750 10.991000 
+##     0%    25%    50%    75%   100% 
+## 0.1000 1.0049 1.6797 3.2249 7.5838 
 ## 
 ##  wind.96 
 ## Class: numeric 
@@ -1498,14 +1498,14 @@ for (i in 1:ncol(pdat.comb)) {
 ##  wind.mn 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 530 
+## Missing values: 639 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.107940  1.087000  1.968500  3.440225 19.939000 
+##      0%     25%     50%     75%    100% 
+## 0.10794 1.04600 1.90000 3.40090 7.58380 
 ## 
 ##  wind.z 
 ## Class: numeric 
@@ -1522,26 +1522,26 @@ for (i in 1:ncol(pdat.comb)) {
 ##  wind.2m.1 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 2915 
+## Missing values: 2863 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.06497 2.10860 2.90730 4.20000 8.00000 
+##       0%      25%      50%      75%     100% 
+## 0.064970 2.151100 2.929978 4.134184 8.000000 
 ## 
 ##  wind.2m.4 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 2516 
+## Missing values: 2409 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
 ##        0%       25%       50%       75%      100% 
-##  0.100000  1.365075  2.497650  3.715500 11.158000 
+##  0.100000  1.708300  2.650000  3.918784 11.158000 
 ## 
 ##  wind.2m.6 
 ## Class: numeric 
@@ -1552,8 +1552,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##      0%     25%     50%     75%    100% 
-##  0.1000  1.8859  2.7000  4.3495 16.3470 
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.885008  2.684500  4.295875 11.623000 
 ## 
 ##  wind.2m.12 
 ## Class: numeric 
@@ -1565,7 +1565,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Median: NA 
 ## Quantiles
 ##      0%     25%     50%     75%    100% 
-##  0.1000  1.8663  2.6823  4.3317 16.3470 
+##  0.1000  1.8663  2.6501  4.3000 10.6420 
 ## 
 ##  wind.2m.24 
 ## Class: numeric 
@@ -1576,8 +1576,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##     0%    25%    50%    75%   100% 
-## 0.1000 1.5631 2.2654 4.0935 9.6927 
+##      0%     25%     50%     75%    100% 
+## 0.10000 1.56165 2.26540 4.02915 8.55930 
 ## 
 ##  wind.2m.48 
 ## Class: numeric 
@@ -1589,7 +1589,7 @@ for (i in 1:ncol(pdat.comb)) {
 ## Median: NA 
 ## Quantiles
 ##       0%      25%      50%      75%     100% 
-##  0.10000  1.56370  2.27890  3.77155 11.21400 
+## 0.100000 1.565200 2.288800 3.718801 8.559300 
 ## 
 ##  wind.2m.72 
 ## Class: numeric 
@@ -1600,32 +1600,32 @@ for (i in 1:ncol(pdat.comb)) {
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.100000  1.559525  2.323950  3.812500 11.214000 
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.563700 2.339000 3.744475 8.559300 
 ## 
 ##  wind.2m.96 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 2486 
+## Missing values: 2377 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
 ##      0%     25%     50%     75%    100% 
-## 0.10000 1.29830 2.11845 3.28860 7.58380 
+## 0.10000 1.36670 2.25010 3.38085 7.58380 
 ## 
 ##  wind.2m.168 
 ## Class: numeric 
 ## Length: 3268 
-## Missing values: 2486 
+## Missing values: 2377 
 ## Minimum: NA 
 ## Maximum: NA 
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
 ##       0%      25%      50%      75%     100% 
-## 0.100000 1.286525 2.113200 3.264475 7.583800 
+## 0.100000 1.306250 2.278200 3.372984 7.583800 
 ## 
 ##  wind.2m.mn 
 ## Class: numeric 
@@ -1636,8 +1636,8 @@ for (i in 1:ncol(pdat.comb)) {
 ## Mean: NA 
 ## Median: NA 
 ## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.107940  1.663600  2.546100  3.836225 20.343000 
+##       0%      25%      50%      75%     100% 
+## 0.107940 1.672100 2.532450 3.816925 8.559300 
 ## 
 ##  wind.loc 
 ## Class: character 
@@ -2353,11 +2353,11 @@ for (i in 1:ncol(pdat.comb)) {
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 1539 
-## Unique values: , NA  Incorporation (incorp/incorp.orig) not entered and was assumed to be none., Emission error. Emission measurements are thought to be inaccurate. See ALFAM2 database paper along with Haeni et al. (2016) (Atmos. Environ. 125: 92-99)., Emission error. Emission data are thought to be inaccurate. See ALFAM2 database paper along with Haeni et al. (2016) (Atmos. Environ. 125: 92-99)., ,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation. Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. ,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation.  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. Wind tunnel was removed during rain, flux set to zero.,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation. Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. Wind tunnel was removed during rain, flux set to zero., AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Mean of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covering multiple shifts.; SolRad - Manually Filled. Single weather observation covers multiple shifts.; SoilTemp - Mean of two nearest datapoints. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.;  , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Nearest datapoint chosen. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  AirTemp - Manually Filled. Closest matching observation chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  AirTemp - Manually Filled. Closest matching observation chosen.; SolRad - Manually Filled. Averaging of two nearest datapoints.;   SolRad - Manually Corrected. Infeasible datapoint obscuring results.; , AirTemp - Manually Filled. Single nearest weatherobservation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Single weather observation covering multiple shifts AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp  - Manually filled. Average of nearest datapoints.  AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Average of nearest datapoints., AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observation covering multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually filled. Encompassing weather observation. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually filled. Average of nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Closest observation assigned.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Nearest datapoint chosen. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Nearest datapoint chosen.; SoilTemp - Filled Manually. Nearest datapoint chosen.  SolRad - Manually Corrected. Infeasible datapoint obscuring results.; , AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest datapoint. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest datapoint. AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  , AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest Datapoint. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Average of two nearest datapoints; SolRad - Manually Filled. Averaging two nearest datapoints.;  , AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observations covering multiple shifts. AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Nearest datapoint. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Averaging of two nearest datapoints.;  , AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observations covering shift. , AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts.  SolRad - Manually Corrected. Infeasible datapoint obscuring results.; ,  0.4 mm of precipitation added manually to this shift. C.f. Notes.txt., Manually filled out c.f. \2004-2005_Rhum_Per_Shift.nb\, Unclassified Items.  Soil Temperature - Manually filled out by averaging two nearest datapoints. 0.65 mm of precipitation added manually to this shift. C.f. Notes.txt. 0.85 mm of precipitation added manually to this shift. C.f. Notes.txt.,  0.2 mm of precipitation added manually to this shift. C.f. Notes.txt. 0.4 mm of precipitation added manually to this shift. C.f. Notes.txt., Kent_2001_bio_sep, Kent_2001_raa, Kent_2001_bio_sep_deluted, Kent_2001_raa_deluted, Kent_2001_bio, Kent _02_bio, Kent _02_raw, Kent _02_bio_sep, OBS: Application done in a winter wheat field , Application problem. Improper injector operation. Exclude data from analysis., D1 D2 D3 D4 D5 D6, D1 D2 D3 D4 D5 D6 , Modeled flux ,  Modeled flux,  Rain and relative humidity average of previous and subsequent values,  Radiation, rain (0), and relative humidity average or previous and subsequent, Also part of experiment 1990-24 for inst 106. See 1990-24 for non-acidified results., Duplicate observation. These will be removed in the make_database.R script., Surface applied acidified and incorporated (rotary cultivator) before sowing spring barley., Surface applied, non acidified and incoporated (rotary cultivator) before sowing spring barley., Direct injection before sowing before sowing., Control., Surface applied, non acidified and non incoporated before sowing spring barley., Control. beside the field (further distant background)., Surface applied on standing crop (spring barley)., Crop tube was winter wheat at the end of tillering stage. , Anerobic digested as well! Crop tube was winter wheat at the end of tillering stage. Anerobic digested as well!, Mink slurry. Crop tube was winter wheat at the end of tillering stage. Mink slurry., Crop tube was winter wheat at the end of tillering stage. Control. Control., Crop tube was winter wheat at the end of tillering stage., Control. beside the field (further distant background). Winter wheat at the beginning of flag leaf emergence., Winter wheat at the beginning of flag leaf emergence. , Winter wheat at the beginning of flag leaf emergence. Control. Contol., Anerobic digested as well! Winter wheat at the beginning of flag leaf emergence. Anerobic digested as well!, Anerobic digested as well!, Winter wheat at the beginning of flag leaf emergence.,  Precip - Manually added 0.6096 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.1524 mm precipitation. Data covers multiple shifts.,  Precip - Manually added 3.175 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.381 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.0635 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.381 mm precipitation. Data covers multiple shifts; Precip - Manually added 0.1905 mm precipitation. Data covers multiple shifts., ., NA, The plot for Digestate experiments is the same. We carried out measurements on the same plot in 3 consecutve years, The plot for Urea experiments is the same. We carried out measurements on the same plot in 3 consecutve years, manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 3 wind tunnels are used as replicates., manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 3 wind tunnels are used as replicates, the reported emission is the mean values., manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 2 wind tunnels are used as replicates, the reported emission is the mean values., crop heights change between measurement series: S1: 5; S2:5; S3:5; S4: 15; S5: 25; S6:35, crop height changes between measurement series: S1: 5; S2:5; S3:5; S4: 15; S5: 25; S6:35, 15 cm of crop residues, Height (cm): 15 cm of crop residues, no plant present in the field, crop height changes between measurement series: S1: 60; S2:35; S3:75; S4: 100; S5: 130, permanent grassland, application rate: 100 kg N/ha, permanent grassland, application rate: 70 kg N/ha, winter wheat, application rate: 85 kg N/ha 
+## Unique values: , NA  Incorporation (incorp/incorp.orig) not entered and was assumed to be none., Emission error. Emission measurements are thought to be inaccurate. See ALFAM2 database paper along with Haeni et al. (2016) (Atmos. Environ. 125: 92-99)., Emission error. Emission data are thought to be inaccurate. See ALFAM2 database paper along with Haeni et al. (2016) (Atmos. Environ. 125: 92-99)., ,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation. Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. ,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation.  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. Wind tunnel was removed during rain, flux set to zero.,  Wind tunnel was removed during rain, flux set to zero. Manually Added 0.675 ml precipitation. Wind tunnel was removed during rain, flux set to zero. Manually Added 0.225 ml precipitation. Wind tunnel was removed during rain, flux set to zero., AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Mean of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covering multiple shifts.; SolRad - Manually Filled. Single weather observation covers multiple shifts.; SoilTemp - Mean of two nearest datapoints. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.;  , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Nearest datapoint chosen. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  AirTemp - Manually Filled. Closest matching observation chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  AirTemp - Manually Filled. Closest matching observation chosen.; SolRad - Manually Filled. Averaging of two nearest datapoints.;   SolRad - Manually Corrected. Infeasible datapoint obscuring results.; , AirTemp - Manually Filled. Single nearest weatherobservation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Single weather observation covering multiple shifts AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp  - Manually filled. Average of nearest datapoints.  AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Encompassing weather observation chosen. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Nearest observation chosen.; SoilTemp  - Manually filled. Average of nearest datapoints., AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observation covering multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually filled. Encompassing weather observation. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually filled. Average of nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Closest observation assigned.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Nearest datapoint chosen. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Nearest datapoint chosen.; SoilTemp - Filled Manually. Nearest datapoint chosen.  SolRad - Manually Corrected. Infeasible datapoint obscuring results.; , AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest datapoint. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest datapoint. AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.;  , AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Nearest Datapoint. AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Average of two nearest datapoints; SolRad - Manually Filled. Averaging two nearest datapoints.;  , AirTemp - Manually Filled. Single nearest weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observations covering multiple shifts. AirTemp - Manually Filled. Nearest datapoint chosen.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Nearest datapoint. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. , AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts. AirTemp - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Averaging of two nearest datapoints.;  , AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Manually Filled. Average of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Manually Filled. Single nearest weather observation covers multiple shifts.; SoilTemp - Manually Filled. Single weather observations covering shift. , AirTemp - Manually Filled. Averaging of two nearest datapoints.; SolRad - Manually Filled. Averaging of two nearest datapoints.; SoilTemp - Filled Manually. Averaging of two nearest datapoints. AirTemp - Manually Filled. Single weather observation covers multiple shifts.; SolRad - Single nearest weather observation covers multiple shifts.; SoilTemp - Filled Manually. Single weather observation covers multiple shifts.  SolRad - Manually Corrected. Infeasible datapoint obscuring results.; ,  0.4 mm of precipitation added manually to this shift. C.f. Notes.txt., Manually filled out c.f. \2004-2005_Rhum_Per_Shift.nb\, Unclassified Items.  Soil Temperature - Manually filled out by averaging two nearest datapoints. 0.65 mm of precipitation added manually to this shift. C.f. Notes.txt. 0.85 mm of precipitation added manually to this shift. C.f. Notes.txt.,  0.2 mm of precipitation added manually to this shift. C.f. Notes.txt. 0.4 mm of precipitation added manually to this shift. C.f. Notes.txt.,  Wind values downloaded and updated in 2026. See Weather dir in 02 subdir for original submission, Kent_2001_bio_sep, Kent_2001_raa, Kent_2001_bio_sep_deluted, Kent_2001_raa_deluted, Kent_2001_bio, Kent _02_bio, Kent _02_raw, Kent _02_bio_sep, OBS: Application done in a winter wheat field , Application problem. Improper injector operation. Exclude data from analysis., D1 D2 D3 D4 D5 D6, D1 D2 D3 D4 D5 D6 , Modeled flux ,  Modeled flux,  Rain and relative humidity average of previous and subsequent values,  Radiation, rain (0), and relative humidity average or previous and subsequent, Also part of experiment 1990-24 for inst 106. See 1990-24 for non-acidified results., Duplicate observation. These will be removed in the make_database.R script., Surface applied acidified and incorporated (rotary cultivator) before sowing spring barley., Surface applied, non acidified and incoporated (rotary cultivator) before sowing spring barley., Direct injection before sowing before sowing., Control., Surface applied, non acidified and non incoporated before sowing spring barley., Control. beside the field (further distant background)., Surface applied on standing crop (spring barley)., Crop tube was winter wheat at the end of tillering stage. , Anerobic digested as well! Crop tube was winter wheat at the end of tillering stage. Anerobic digested as well!, Mink slurry. Crop tube was winter wheat at the end of tillering stage. Mink slurry., Crop tube was winter wheat at the end of tillering stage. Control. Control., Crop tube was winter wheat at the end of tillering stage., Control. beside the field (further distant background). Winter wheat at the beginning of flag leaf emergence., Winter wheat at the beginning of flag leaf emergence. , Winter wheat at the beginning of flag leaf emergence. Control. Contol., Anerobic digested as well! Winter wheat at the beginning of flag leaf emergence. Anerobic digested as well!, Anerobic digested as well!, Winter wheat at the beginning of flag leaf emergence.,  Precip - Manually added 0.6096 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.1524 mm precipitation. Data covers multiple shifts.,  Precip - Manually added 3.175 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.381 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.0635 mm precipitation. Data covers multiple shifts. Precip - Manually added 0.381 mm precipitation. Data covers multiple shifts; Precip - Manually added 0.1905 mm precipitation. Data covers multiple shifts., ., NA, The plot for Digestate experiments is the same. We carried out measurements on the same plot in 3 consecutve years, The plot for Urea experiments is the same. We carried out measurements on the same plot in 3 consecutve years, manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 3 wind tunnels are used as replicates., manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 3 wind tunnels are used as replicates, the reported emission is the mean values., manual application was done for the rectangular areas, 40 cm wide and 80 cm long (0.32m2), covered by wind tunnels. 2 wind tunnels are used as replicates, the reported emission is the mean values., crop heights change between measurement series: S1: 5; S2:5; S3:5; S4: 15; S5: 25; S6:35, crop height changes between measurement series: S1: 5; S2:5; S3:5; S4: 15; S5: 25; S6:35, 15 cm of crop residues, Height (cm): 15 cm of crop residues, no plant present in the field, crop height changes between measurement series: S1: 60; S2:35; S3:75; S4: 100; S5: 130, permanent grassland, application rate: 100 kg N/ha, permanent grassland, application rate: 70 kg N/ha, winter wheat, application rate: 85 kg N/ha 
 ## 
 ##  flag.plot 
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: , e, a, m, d, m i, i
+## Unique values: , e, w, a, m, d, m i, i
 ```
