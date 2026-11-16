@@ -93,5 +93,5 @@ ggplot(bins, aes(air.temp, air.temp.rep, colour = factor(far.loc))) +
     geom_point() +
     geom_abline(intercept = 0, slope = 1) +
     theme_bw()
-ggsave('wind_comp.png')
+ggsave('air_temp_comp.png')
 

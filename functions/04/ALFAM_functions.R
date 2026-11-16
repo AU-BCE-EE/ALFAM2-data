@@ -731,45 +731,14 @@ calcEmis <- function(obj, na = 'impute') {
   # Relative flux, fraction applied TAN per hour
   emis[, j.rel := j.NH3 / tan.app]
 
-  # Interpolate cumulative emission etc. for addition to plot-level data
-  # All by cpmid
-  time_points <- c(1, 4, 6, 12, 24, 48, 72, 96, 168)
-
-  pld <- emis[, {
-    result <- list()
-    # Cumulative variables: interpolate at fixed time points
-    for (vv in c('e.cum', 'e.rel', 'rain.cum')) {
-      if (sum(!is.na(get(vv))) > 2) {
-        vals      <- approx(x = ct, y = get(vv), xout = time_points)$y
-        final_val <- get(vv)[which.max(ct)]
-      } else {
-        vals      <- rep(NA_real_, length(time_points))
-        final_val <- NA_real_
-      }
-      result[paste0(vv, '.', time_points)] <- as.list(vals)
-      result[[paste0(vv, '.final')]]       <- final_val
-    }
-    # Weighted averages
-    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')) {
-      if (sum(!is.na(get(vv))) > 2) {
-        for (tt in time_points) {
-          idx <- ct <= tt
-          result[[paste0(vv, '.', tt)]] <- sum(dt[idx] * get(vv)[idx], na.rm = TRUE) / sum(dt[idx])
-        }
-        result[[paste0(vv, '.mn')]] <- sum(dt * get(vv), na.rm = TRUE) / sum(dt)
-      } else {
-        result[paste0(vv, '.', time_points)] <- as.list(rep(NA_real_, length(time_points)))
-        result[[paste0(vv, '.mn')]]          <- NA_real_
-      }
-    }
-    result
-  }, by = cpmid]
-
-  # Merge interpolated results with plots
-  plots <- merge(plots, pld, by = 'cpmid')
-
-  # Rename rain.cum.24 etc.
-  setnames(plots, names(plots), gsub('rain\\.cum', 'rain', names(plots)))
+  # Get interpolated interval vars into plots
+  plots <- interpPlotVars(
+    plots, 
+    emis,
+    what = c('e.cum', 'e.rel', 'rain.cum', 'air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh'),
+    time_points = c(1, 4, 6, 12, 24, 48, 72, 96, 168),
+    id = 'cpmid'
+  )
 
   obj$plots <- plots
   obj$emis <- emis
@@ -1473,5 +1442,60 @@ printVarSumm <- function(x) {
     }
 
     return(invisible(NULL))
+
+}
+
+interpPlotVars <- function(
+  plots, 
+  emis, 
+  what, 
+  time_points,
+  id
+) {
+
+  # Interpolate cumulative emission etc. for addition to plot-level data
+  # All by cpmid or pmid
+
+  # First drop any columns that already exist
+  drop.cols <- paste0(rep(what, each = length(tp) + 1), '.', c(tp, 'mn'))
+  plots[, (drop.cols) := NULL]
+
+  pld <- emis[, {
+    result <- list()
+    # Cumulative variables: interpolate at fixed time points
+    for (vv in c('e.cum', 'e.rel', 'rain.cum')[c('e.cum', 'e.rel', 'rain.cum') %in% what]) {
+      if (sum(!is.na(get(vv))) > 2) {
+        vals      <- approx(x = ct, y = get(vv), xout = time_points)$y
+        final_val <- get(vv)[which.max(ct)]
+      } else {
+        vals      <- rep(NA_real_, length(time_points))
+        final_val <- NA_real_
+      }
+      result[paste0(vv, '.', time_points)] <- as.list(vals)
+      result[[paste0(vv, '.final')]]       <- final_val
+    }
+    # Weighted averages
+    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')[ c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')%in% what]) {
+      if (sum(!is.na(get(vv))) > 2) {
+        for (tt in time_points) {
+          idx <- ct <= tt
+          result[[paste0(vv, '.', tt)]] <- sum(dt[idx] * get(vv)[idx], na.rm = TRUE) / sum(dt[idx])
+        }
+        result[[paste0(vv, '.mn')]] <- sum(dt * get(vv), na.rm = TRUE) / sum(dt)
+      } else {
+        result[paste0(vv, '.', time_points)] <- as.list(rep(NA_real_, length(time_points)))
+        result[[paste0(vv, '.mn')]]          <- NA_real_
+      }
+    }
+    result
+  }, by = id]
+
+  # Merge interpolated results with plots
+  plots <- merge(plots, pld, by = id)
+
+  # Rename rain.cum.24 etc.
+  setnames(plots, names(plots), gsub('rain\\.cum', 'rain', names(plots)))
+
+  return(plots)
 
 }

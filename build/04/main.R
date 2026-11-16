@@ -13,7 +13,7 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.7'
+version <- '3.8'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
@@ -53,7 +53,7 @@ sink('../../logs/04/make_database_log.txt', split = TRUE)
   source('merge_int.R', echo = TRUE)
   source('update_levels.R', echo = TRUE)
   source('select.R', echo = TRUE)
-  source('drop.R', echo = TRUE)
+  source('corrections.R', echo = TRUE)
   source('save_csvs.R', echo = TRUE)
   source('check_final.R', echo = TRUE)
   source('check_vars.R', echo = TRUE)
