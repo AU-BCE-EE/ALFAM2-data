@@ -73,6 +73,8 @@ setorder(pdat.comb, pmid)
 # 3. Apparent errors in plot-level mean weather data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # See issue # 72
 
+# Note: may want to consider doing this instead of in calcEmis() called in get_new.R in the future, e.g., sub period 5
+
 # Recalculate *all* values
 pdat.comb <- interpPlotVars(
   pdat.comb,
