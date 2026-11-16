@@ -1460,6 +1460,10 @@ interpPlotVars <- function(
   # First drop any columns that already exist
   drop.cols <- paste0(rep(what, each = length(time_points) + 1), '.', c(time_points, 'mn'))
   plots[, (drop.cols) := NULL]
+  if ('rain.cum' %in% what) {
+    drop.cols <- paste0('rain', '.', c(time_points, 'mn'))
+    plots[, (drop.cols) := NULL]
+  }
 
   pld <- emis[, {
     result <- list()

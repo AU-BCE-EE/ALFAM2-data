@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-11-16 15:39:04 EST"
+[1] "2026-11-16 16:11:24 EST"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -194,6 +194,10 @@ Done! Read 1  directories
 
 > setorder(pdat.comb, pmid)
 
+> pdat.comb <- interpPlotVars(pdat.comb, idat.comb, 
++     what = c("rain.cum", "air.temp", "soil.temp", "soil.temp.surf", 
++         "wind", "wind.2m ..." ... [TRUNCATED] 
+
 > for (i in unique(pdat$file)) {
 +     fn <- strsplit(i, "/")
 +     fn <- fn[[1]][length(fn[[1]])]
@@ -231,7 +235,7 @@ Variable definition check results
 > cat("1. Missing from plot-level variable file: ")
 1. Missing from plot-level variable file: 
 > cat(if (length(mph) > 0) mph else "none")
-none
+rain.final
 > cat("\n\n2. Missing from interval-level variable file: ")
 
 
@@ -290,10 +294,10 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.8
+ main.R (new version)     3.9
           Release tag     3.0
               Release 3.0-dev
-          Main branch     3.7
+          Main branch     3.8
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {

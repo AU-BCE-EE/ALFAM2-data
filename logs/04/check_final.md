@@ -16,6 +16,18 @@ for (i in 1:ncol(pdat.comb)) {
 
 ```
 ## 
+##  pmid 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 0 
+## Minimum: 1 
+## Maximum: 3811 
+## Mean: 1898.8864749082 
+## Median: 1751.5 
+## Quantiles
+##      0%     25%     50%     75%    100% 
+##    1.00  934.75 1751.50 2994.25 3811.00 
+## 
 ##  inst 
 ## Class: numeric 
 ## Length: 3268 
@@ -52,23 +64,11 @@ for (i in 1:ncol(pdat.comb)) {
 ##      0%     25%     50%     75%    100% 
 ##    1.00  934.75 1747.50 2990.25 3807.00 
 ## 
-##  pmid 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 0 
-## Minimum: 1 
-## Maximum: 3811 
-## Mean: 1898.8864749082 
-## Median: 1751.5 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##    1.00  934.75 1751.50 2994.25 3811.00 
-## 
 ##  version 
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: 3.8 
+## Unique values: 3.9 
 ## 
 ##  sub.period 
 ## Class: numeric 
@@ -889,126 +889,6 @@ for (i in 1:ncol(pdat.comb)) {
 ## Missing values: 393 
 ## Unique values: No, Yes, no, yes, NA 
 ## 
-##  air.temp.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2910 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##    0%   25%   50%   75%  100% 
-##  2.40 10.51 14.80 18.40 28.66 
-## 
-##  air.temp.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1693 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000 10.6000 15.3500 18.7285 32.6200 
-## 
-##  air.temp.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 355 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## -2.9688 10.3500 14.9480 19.2000 35.0000 
-## 
-##  air.temp.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 317 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## -2.8371 10.1300 14.3000 18.8225 35.5050 
-## 
-##  air.temp.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 285 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## -4.1838  8.7259 12.6560 16.3200 29.2000 
-## 
-##  air.temp.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 282 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-## -3.969600  8.846525 12.487000 16.175500 29.125000 
-## 
-##  air.temp.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 237 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## -3.5854  8.8695 12.3920 16.1740 29.7500 
-## 
-##  air.temp.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1658 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.672850  8.218425 12.386500 15.741750 28.158000 
-## 
-##  air.temp.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1658 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.07560  8.26345 12.76100 15.80075 28.15800 
-## 
-##  air.temp.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 245 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## -3.5964  8.5795 12.5000 16.1725 49.5560 
-## 
 ##  air.temp.z 
 ## Class: numeric 
 ## Length: 3268 
@@ -1021,491 +901,11 @@ for (i in 1:ncol(pdat.comb)) {
 ##   0%  25%  50%  75% 100% 
 ##  0.0  1.0  1.5  2.0 10.0 
 ## 
-##  soil.temp.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3227 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##  1.000 10.200 13.800 14.675 17.800 
-## 
-##  soil.temp.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2539 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  8.3962 12.2000 15.8880 25.9900 
-## 
-##  soil.temp.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1588 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  9.1333 12.9410 17.5865 34.9530 
-## 
-##  soil.temp.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1574 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000  9.23540 13.08600 17.42075 30.88400 
-## 
-##  soil.temp.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1578 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000  8.69020 12.43350 16.37225 26.81500 
-## 
-##  soil.temp.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1586 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000  8.69695 12.26100 16.05200 25.89700 
-## 
-##  soil.temp.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1541 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##  1.000  8.874 12.507 15.984 26.062 
-## 
-##  soil.temp.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2529 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000  8.33785 12.07500 15.27900 19.26100 
-## 
-##  soil.temp.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2529 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000  8.30145 12.30200 15.12650 19.26100 
-## 
-##  soil.temp.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1549 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.28063  8.77480 12.60300 16.14500 27.40400 
-## 
-##  soil.temp.surf.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##  1.000  2.625 14.900 16.700 19.175 
-## 
-##  soil.temp.surf.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  1.7188 14.2620 15.2500 16.6190 
-## 
-##  soil.temp.surf.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  1.3667 13.4080 15.4670 16.1750 
-## 
-##  soil.temp.surf.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  1.1292 12.8170 14.6420 16.5150 
-## 
-##  soil.temp.surf.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  1.0000  1.3427 12.5230 14.4000 15.2170 
-## 
-##  soil.temp.surf.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## -0.58073  1.00000 11.66000 15.16900 15.30600 
-## 
-##  soil.temp.surf.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-## -0.081597  1.000000 11.714000 15.424000 15.765000 
-## 
-##  soil.temp.surf.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.13099  1.00000 11.64600 15.25100 16.14700 
-## 
-##  soil.temp.surf.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.45268  0.97619 11.23700 14.91700 15.56700 
-## 
-##  soil.temp.surf.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3255 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.78869  2.59200 11.23700 14.91700 21.09500 
-## 
 ##  soil.temp.z 
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 1501 
 ## Unique values: NA, 0.01, 0.05, 0.15, 0.1, 0.03, 0, 0.02, 0.075, 0.025, FALSE 
-## 
-##  rad.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3021 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##   0.00 169.34 352.78 520.00 867.62 
-## 
-##  rad.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2922 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##    0.0000  233.0300  484.7250  832.9125 1382.8000 
-## 
-##  rad.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1886 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##    0.000  178.670  395.420  666.075 1389.700 
-## 
-##  rad.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1864 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##    0.000  176.880  362.905  568.350 1538.300 
-## 
-##  rad.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1855 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##    0.00  117.63  206.53  318.60 1502.40 
-## 
-##  rad.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1855 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##   0.00 107.84 185.99 275.99 990.92 
-## 
-##  rad.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1855 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##   0.00 117.96 183.61 268.66 971.37 
-## 
-##  rad.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2899 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##   0.35417 159.90000 348.24000 558.23000 990.52000 
-## 
-##  rad.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2899 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##   0.33929 159.71000 359.30000 561.78000 990.52000 
-## 
-##  rad.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1857 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##   0.000 134.560 193.200 278.395 990.520 
-## 
-##  wind.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2912 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.06115 2.10000 2.90000 4.18545 8.00000 
-## 
-##  wind.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2142 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  0.1000  0.3300  1.4853  3.0798 11.1580 
-## 
-##  wind.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 790 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.10000  1.00000  2.08605  3.50000 11.62300 
-## 
-##  wind.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 753 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  0.10000  1.00995  2.09270  3.52375 10.64200 
-## 
-##  wind.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 722 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.100000 1.000000 1.619800 3.003325 9.449300 
-## 
-##  wind.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 718 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.100000 1.000000 1.626200 2.965175 7.583800 
-## 
-##  wind.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 667 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-## 0.1000 1.0049 1.6797 3.2249 7.5838 
-## 
-##  wind.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2107 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-## 0.1000 0.4924 1.3308 2.6185 7.5838 
-## 
-##  wind.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2107 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.10000 0.56123 1.29500 2.66000 7.58380 
-## 
-##  wind.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 639 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.10794 1.04600 1.90000 3.40090 7.58380 
 ## 
 ##  wind.z 
 ## Class: numeric 
@@ -1519,239 +919,11 @@ for (i in 1:ncol(pdat.comb)) {
 ##     0%    25%    50%    75%   100% 
 ##  0.125  0.250  2.000  2.000 10.000 
 ## 
-##  wind.2m.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2863 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.064970 2.151100 2.929978 4.134184 8.000000 
-## 
-##  wind.2m.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2409 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.100000  1.708300  2.650000  3.918784 11.158000 
-## 
-##  wind.2m.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1058 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##  0.100000  1.885008  2.684500  4.295875 11.623000 
-## 
-##  wind.2m.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1023 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##  0.1000  1.8663  2.6501  4.3000 10.6420 
-## 
-##  wind.2m.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 993 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.10000 1.56165 2.26540 4.02915 8.55930 
-## 
-##  wind.2m.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 993 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.100000 1.565200 2.288800 3.718801 8.559300 
-## 
-##  wind.2m.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 942 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.100000 1.563700 2.339000 3.744475 8.559300 
-## 
-##  wind.2m.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2377 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.10000 1.36670 2.25010 3.38085 7.58380 
-## 
-##  wind.2m.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2377 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.100000 1.306250 2.278200 3.372984 7.583800 
-## 
-##  wind.2m.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 914 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-## 0.107940 1.672100 2.532450 3.816925 8.559300 
-## 
 ##  wind.loc 
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 2054 
 ## Unique values: NA, Plot, Field, Nearest station, on site, , plot 
-## 
-##  rain.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2506 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0  3.5 
-## 
-##  rain.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1670 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0  7.8 
-## 
-##  rain.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 597 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##    0    0    0    0   15 
-## 
-##  rain.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 569 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##    0    0    0    0   15 
-## 
-##  rain.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 555 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0 36.1 
-## 
-##  rain.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 585 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0 55.9 
-## 
-##  rain.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 596 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0 55.9 
-## 
-##  rain.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2098 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0 28.6 
-## 
-##  rain.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3028 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0 24.6 
 ## 
 ##  rain.tot 
 ## Class: numeric 
@@ -1764,246 +936,6 @@ for (i in 1:ncol(pdat.comb)) {
 ## Quantiles
 ##    0%   25%   50%   75%  100% 
 ##   0.0   0.0   0.0   0.0 113.2 
-## 
-##  rain.rate.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2506 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-##  0.0  0.0  0.0  0.0  3.5 
-## 
-##  rain.rate.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1670 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##   0%  25%  50%  75% 100% 
-## 0.00 0.00 0.00 0.00 1.95 
-## 
-##  rain.rate.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 597 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##    0%   25%   50%   75%  100% 
-## 0.000 0.000 0.000 0.000 2.719 
-## 
-##  rain.rate.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 559 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##    0%   25%   50%   75%  100% 
-## 0.000 0.000 0.000 0.000 2.719 
-## 
-##  rain.rate.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 535 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-## 0.0000 0.0000 0.0000 0.0000 1.7499 
-## 
-##  rain.rate.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 524 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##    0%   25%   50%   75%  100% 
-## 0.000 0.000 0.000 0.000 1.231 
-## 
-##  rain.rate.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 469 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.00000 0.00000 0.00000 0.00000 0.80734 
-## 
-##  rain.rate.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1635 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.00000 0.00000 0.00000 0.00000 0.33407 
-## 
-##  rain.rate.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 1635 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.00000 0.00000 0.00000 0.00000 0.22679 
-## 
-##  rain.rate.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 441 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-## 0.00000 0.00000 0.00000 0.00000 0.77801 
-## 
-##  rh.1 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3250 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000 59.80000 69.45000 79.63125 91.90000 
-## 
-##  rh.4 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3167 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##     0%    25%    50%    75%   100% 
-##  1.000 55.200 62.850 78.301 92.700 
-## 
-##  rh.6 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2434 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##   1.0000  54.0000  64.5855  77.2235 100.5000 
-## 
-##  rh.12 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2405 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##      0%     25%     50%     75%    100% 
-##   1.000  55.931  65.123  78.886 100.000 
-## 
-##  rh.24 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2382 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##   1.0000  64.0290  73.5400  81.7505 100.0000 
-## 
-##  rh.48 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2372 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##   1.0000  65.1115  75.4085  82.1580 100.0000 
-## 
-##  rh.72 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2372 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##   1.00000  66.01200  75.52350  83.09325 100.00000 
-## 
-##  rh.96 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3144 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000 68.04700 80.63250 88.49975 97.90400 
-## 
-##  rh.168 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 3144 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##       0%      25%      50%      75%     100% 
-##  1.00000 69.67325 80.68000 86.43875 92.86000 
-## 
-##  rh.mn 
-## Class: numeric 
-## Length: 3268 
-## Missing values: 2372 
-## Minimum: NA 
-## Maximum: NA 
-## Mean: NA 
-## Median: NA 
-## Quantiles
-##        0%       25%       50%       75%      100% 
-##   1.00300  69.35200  76.63800  81.97025 354.02000 
 ## 
 ##  far.loc 
 ## Class: character 
@@ -2359,5 +1291,1085 @@ for (i in 1:ncol(pdat.comb)) {
 ## Class: character 
 ## Length: 3268 
 ## Missing values: 0 
-## Unique values: , e, w, a, m, d, m i, i
+## Unique values: , e, w, a, m, d, m i, i 
+## 
+##  rain.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2506 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##  0.0  0.0  0.0  0.0  3.5 
+## 
+##  rain.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 738 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##    0    0    0    0   15 
+## 
+##  rain.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 601 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##    0    0    0    0   15 
+## 
+##  rain.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 573 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##    0    0    0    0   15 
+## 
+##  rain.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 561 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  0.00000  0.00000  0.00000  0.00000 38.79274 
+## 
+##  rain.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 715 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##  0.0  0.0  0.0  0.0 55.9 
+## 
+##  rain.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1047 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##  0.0  0.0  0.0  0.0 55.9 
+## 
+##  rain.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1506 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##          0%         25%         50%         75%        100% 
+##  0.00000000  0.00000000  0.00000000  0.03822263 55.00000000 
+## 
+##  rain.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2704 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##    0%   25%   50%   75%  100% 
+##  0.00  0.00  0.00  3.45 69.20 
+## 
+##  rain.final 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 533 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##    0%   25%   50%   75%  100% 
+##   0.0   0.0   0.0   0.0 113.2 
+## 
+##  air.temp.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2454 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##      0%     25%     50%     75%    100% 
+## -3.4100 10.9025 15.5000 19.8000 35.5000 
+## 
+##  air.temp.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 497 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.312805 10.600000 15.166667 19.133333 35.500000 
+## 
+##  air.temp.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 349 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -2.968798 10.321206 14.933985 19.195833 35.000000 
+## 
+##  air.temp.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 311 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -2.837127 10.099928 14.285000 18.804420 35.504834 
+## 
+##  air.temp.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 283 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -4.183825  8.698208 12.655556 16.318887 29.200000 
+## 
+##  air.temp.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 273 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.969581  8.735585 12.486957 16.165461 29.125000 
+## 
+##  air.temp.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 273 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.585382  8.648289 12.337265 16.248941 29.750000 
+## 
+##  air.temp.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 273 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.596358  8.336186 12.321854 15.954100 29.750000 
+## 
+##  air.temp.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 273 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.596358  8.344581 12.346997 15.954100 29.750000 
+## 
+##  air.temp.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 273 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## -3.596358  8.348371 12.435182 15.977614 29.750000 
+## 
+##  soil.temp.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2871 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##    0%   25%   50%   75%  100% 
+##  1.00 10.30 14.82 19.40 32.29 
+## 
+##  soil.temp.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1678 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##      0%     25%     50%     75%    100% 
+##  0.0000  8.6925 12.6000 16.9625 32.6250 
+## 
+##  soil.temp.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1594 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  0.00000  9.02244 12.90000 17.41250 34.95333 
+## 
+##  soil.temp.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1580 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.000000  8.983341 12.943030 17.368452 30.884167 
+## 
+##  soil.temp.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  0.00000  8.50000 12.40385 16.36750 26.81504 
+## 
+##  soil.temp.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  1.000000  8.347983 12.253421 16.027677 25.897188 
+## 
+##  soil.temp.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  1.000000  8.335795 12.228086 15.940740 26.062079 
+## 
+##  soil.temp.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.2799265  8.3747183 12.1285730 15.8930576 26.1399886 
+## 
+##  soil.temp.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.1604427  8.2994990 12.3758286 15.4645833 26.1618172 
+## 
+##  soil.temp.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1572 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.2806254  8.2893452 12.3377773 15.5850774 27.4044530 
+## 
+##  soil.temp.surf.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##     0%    25%    50%    75%   100% 
+##  1.000  2.625 14.900 16.700 19.175 
+## 
+##  soil.temp.surf.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000  1.71875 14.26250 15.25000 16.61875 
+## 
+##  soil.temp.surf.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  1.000000  1.366667 13.408333 15.466667 16.175000 
+## 
+##  soil.temp.surf.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  1.000000  1.129167 12.816667 14.641667 16.514583 
+## 
+##  soil.temp.surf.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  1.000000  1.342708 12.522917 14.400000 15.216667 
+## 
+##  soil.temp.surf.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+## -0.5807292  1.0000000 11.6598958 15.1687500 15.3062500 
+## 
+##  soil.temp.surf.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##          0%         25%         50%         75%        100% 
+## -0.08159722  1.00000000 11.71423611 15.42361111 15.76458333 
+## 
+##  soil.temp.surf.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.1309896  1.0000000 11.6460938 15.2505208 16.1471354 
+## 
+##  soil.temp.surf.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.4526786  0.9761905 11.2370690 14.9168224 15.5674107 
+## 
+##  soil.temp.surf.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 3255 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##         0%        25%        50%        75%       100% 
+##  0.7863501  1.8608974 11.2370690 14.9168224 15.2427957 
+## 
+##  wind.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2502 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.061150 1.300000 2.500000 3.555725 9.600000 
+## 
+##  wind.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 941 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.000000  1.990000  3.276914 11.158000 
+## 
+##  wind.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 794 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.000000  2.080585  3.500000 11.622625 
+## 
+##  wind.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 756 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.009139  2.087031  3.520000 10.641811 
+## 
+##  wind.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 729 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.000000 1.619572 3.000658 9.449251 
+## 
+##  wind.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 719 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.000000 1.625316 2.959529 7.583839 
+## 
+##  wind.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 719 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.000000 1.610000 3.170762 7.583839 
+## 
+##  wind.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 719 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.010940 1.653704 3.258351 7.583839 
+## 
+##  wind.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 719 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.012896 1.770000 3.240000 7.583839 
+## 
+##  wind.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 719 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.011840 1.776359 3.288015 7.583839 
+## 
+##  wind.2m.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2454 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##      0%     25%     50%     75%    100% 
+## 0.06497 2.19670 2.58420 3.90000 8.07550 
+## 
+##  wind.2m.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1212 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.837919  2.584200  4.218650 11.158000 
+## 
+##  wind.2m.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1065 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.883012  2.683000  4.293878 11.622625 
+## 
+##  wind.2m.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1029 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##  0.100000  1.863800  2.650100  4.295803 10.641811 
+## 
+##  wind.2m.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1001 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.562258 2.265400 4.027401 8.559300 
+## 
+##  wind.2m.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 991 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.565684 2.280143 3.708865 8.559300 
+## 
+##  wind.2m.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 991 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.550178 2.304582 3.762448 8.559300 
+## 
+##  wind.2m.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 991 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.612179 2.318638 3.799810 8.559300 
+## 
+##  wind.2m.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 991 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.643069 2.328234 3.810360 8.559300 
+## 
+##  wind.2m.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 991 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.100000 1.612179 2.328931 3.817134 8.559300 
+## 
+##  rad.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2723 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##     0%    25%    50%    75%   100% 
+##   0.00 238.89 465.00 652.00 936.00 
+## 
+##  rad.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1978 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##    0.0000  200.0000  420.0110  685.3067 1382.8260 
+## 
+##  rad.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1886 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##    0.0000  179.0531  395.4198  666.0771 1389.7383 
+## 
+##  rad.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1864 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##    0.0000  176.8800  362.9036  568.3483 1538.2872 
+## 
+##  rad.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##    0.0000  117.6300  206.5250  318.6042 1502.4361 
+## 
+##  rad.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##   0.0000 107.8449 185.9917 275.9877 990.9187 
+## 
+##  rad.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##   0.0000 117.9612 183.6113 268.6649 971.3672 
+## 
+##  rad.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##   0.0000 120.7253 184.7213 276.5809 990.5113 
+## 
+##  rad.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##   0.0000 130.0292 191.5198 278.1532 990.5113 
+## 
+##  rad.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 1855 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##   0.0000 134.3512 192.7930 274.7428 990.5113 
+## 
+##  rain.rate.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2506 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##   0%  25%  50%  75% 100% 
+##  0.0  0.0  0.0  0.0  3.5 
+## 
+##  rain.rate.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 737 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##      0%     25%     50%     75%    100% 
+## 0.00000 0.00000 0.00000 0.00000 4.12837 
+## 
+##  rain.rate.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 600 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.000000 0.000000 0.000000 0.000000 2.719021 
+## 
+##  rain.rate.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 562 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.000000 0.000000 0.000000 0.000000 2.719021 
+## 
+##  rain.rate.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 539 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.000000 0.000000 0.000000 0.000000 1.749853 
+## 
+##  rain.rate.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 529 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+## 0.000000 0.000000 0.000000 0.000000 1.230994 
+## 
+##  rain.rate.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 529 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## 0.0000000 0.0000000 0.0000000 0.0000000 0.8073285 
+## 
+##  rain.rate.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 529 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## 0.0000000 0.0000000 0.0000000 0.0000000 0.6004235 
+## 
+##  rain.rate.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 529 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## 0.0000000 0.0000000 0.0000000 0.0000000 0.6004235 
+## 
+##  rain.rate.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 529 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+## 0.0000000 0.0000000 0.0000000 0.0000000 0.6004235 
+## 
+##  rh.1 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2963 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##   1.00000  55.15000  66.98305  78.80000 100.00000 
+## 
+##  rh.4 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2548 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##   1.00000  55.00000  65.55079  77.80112 100.50000 
+## 
+##  rh.6 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2438 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##   1.00000  54.00000  64.57088  77.11389 100.50000 
+## 
+##  rh.12 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2409 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##        0%       25%       50%       75%      100% 
+##   1.00000  55.91965  65.12340  78.83286 100.00000 
+## 
+##  rh.24 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2386 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 64.02894 73.53979 81.75067 98.66579 
+## 
+##  rh.48 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2376 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 65.11148 75.40879 82.15802 98.66579 
+## 
+##  rh.72 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2376 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 66.01164 75.52352 83.09290 97.90440 
+## 
+##  rh.96 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2376 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 67.93158 75.52936 82.43729 97.90440 
+## 
+##  rh.168 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2376 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 67.92969 76.45782 82.41922 97.23474 
+## 
+##  rh.mn 
+## Class: numeric 
+## Length: 3268 
+## Missing values: 2376 
+## Minimum: NA 
+## Maximum: NA 
+## Mean: NA 
+## Median: NA 
+## Quantiles
+##       0%      25%      50%      75%     100% 
+##  1.00000 69.35175 76.63830 81.78175 97.23474
 ```

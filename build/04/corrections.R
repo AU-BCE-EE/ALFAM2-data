@@ -68,3 +68,18 @@ pdat.cor[, flag.plot := collapseFlags(paste(flag.plot, 'w'))]
 # Combine back into pdat
 pdat.comb <- rbind(pdat.comb[!pmid %in% pmid.cor, ], pdat.cor, fill = TRUE)
 setorder(pdat.comb, pmid)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# 3. Apparent errors in plot-level mean weather data ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# See issue # 72
+
+# Recalculate *all* values
+pdat.comb <- interpPlotVars(
+  pdat.comb,
+  idat.comb,
+  what = c('rain.cum', 'air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh'),
+  time_points = c(1, 4, 6, 12, 24, 48, 72, 96, 168),
+  id = 'pmid'
+)
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
