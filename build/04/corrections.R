@@ -75,6 +75,9 @@ setorder(pdat.comb, pmid)
 
 # Note: may want to consider doing this instead of in calcEmis() called in get_new.R in the future, e.g., sub period 5
 
+# Make sure no plots are dropped (should not happen)
+n0 <- nrow(pdat.comb)
+
 # Recalculate *all* values
 pdat.comb <- interpPlotVars(
   pdat.comb,
@@ -83,5 +86,7 @@ pdat.comb <- interpPlotVars(
   time_points = c(1, 4, 6, 12, 24, 48, 72, 96, 168),
   id = 'pmid'
 )
+
+stopifnot(nrow(pdat.comb) == n0)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

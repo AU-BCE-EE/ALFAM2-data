@@ -1457,19 +1457,30 @@ interpPlotVars <- function(
   # Interpolate cumulative emission etc. for addition to plot-level data
   # All by cpmid or pmid
 
-  # First drop any columns that already exist
-  drop.cols <- paste0(rep(what, each = length(time_points) + 1), '.', c(time_points, 'mn'))
-  plots[, (drop.cols) := NULL]
-  if ('rain.cum' %in% what) {
-    drop.cols <- paste0('rain', '.', c(time_points, 'mn'))
-    plots[, (drop.cols) := NULL]
+  # Make a copy to avoid changing caller's version before returning output (only has a noticable effect if function eval ends early, columns will be dropped)
+  plots <- copy(plots)
+
+  # Create vectors of actual new column names
+  cum.all <- c('e.cum', 'e.rel', 'rain.cum')
+  mn.all  <- c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')
+  cum.vars <- intersect(cum.all, what)
+  mn.vars  <- intersect(mn.all, what)
+  if (length(setdiff(what, c(cum.all, mn.all))) > 0) {
+    stop('Unknown variable(s) in what: ', paste(setdiff(what, c(cum.all, mn.all)), collapse = ', '))
   }
+
+  # First drop any columns that already exist
+  drop.cols <- c(paste0(rep(cum.vars, each = length(time_points) + 1), '.', c(time_points, 'final')),
+                 paste0(rep(mn.vars,  each = length(time_points) + 1), '.', c(time_points, 'mn')))
+  drop.cols <- sub('^rain\\.cum\\.', 'rain.', drop.cols)
+  drop.cols <- intersect(drop.cols, names(plots))
+  plots[, (drop.cols) := NULL]
 
   pld <- emis[, {
     result <- list()
     # Cumulative variables: interpolate at fixed time points
-    for (vv in c('e.cum', 'e.rel', 'rain.cum')[c('e.cum', 'e.rel', 'rain.cum') %in% what]) {
-      if (sum(!is.na(get(vv))) > 2) {
+    for (vv in cum.vars) {
+      if (sum(!is.na(get(vv))) > 1) {
         vals      <- approx(x = ct, y = get(vv), xout = time_points)$y
         final_val <- get(vv)[which.max(ct)]
       } else {
@@ -1480,13 +1491,18 @@ interpPlotVars <- function(
       result[[paste0(vv, '.final')]]       <- final_val
     }
     # Weighted averages
-    for (vv in c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')[ c('air.temp', 'soil.temp', 'soil.temp.surf', 'wind', 'wind.2m', 'rad', 'rain.rate', 'rh')%in% what]) {
-      if (sum(!is.na(get(vv))) > 2) {
+    for (vv in mn.vars) {
+      if (sum(!is.na(get(vv))) > 0) {
         for (tt in time_points) {
-          idx <- ct <= tt
-          result[[paste0(vv, '.', tt)]] <- sum(dt[idx] * get(vv)[idx], na.rm = TRUE) / sum(dt[idx])
+          idx <- ct <= tt & !is.na(get(vv))
+          if (sum(idx) > 0) {
+            result[[paste0(vv, '.', tt)]] <- sum(dt[idx] * get(vv)[idx]) / sum(dt[idx])
+          } else {
+            result[[paste0(vv, '.', tt)]] <- NA_real_
+          }
         }
-        result[[paste0(vv, '.mn')]] <- sum(dt * get(vv), na.rm = TRUE) / sum(dt)
+        idx <- !is.na(get(vv))
+        result[[paste0(vv, '.mn')]] <- sum(dt[idx] * get(vv)[idx]) / sum(dt[idx])
       } else {
         result[paste0(vv, '.', time_points)] <- as.list(rep(NA_real_, length(time_points)))
         result[[paste0(vv, '.mn')]]          <- NA_real_
