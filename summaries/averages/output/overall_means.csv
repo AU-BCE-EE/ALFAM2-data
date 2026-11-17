@@ -1,4 +1,4 @@
 variable,mean_overall,med_overall,n_obs,n_country,s_overall,s_overall_md
-air.temp.24,13.3,13.3,2286,22,2.86,3.35
-wind.24,2.2,1.6,2107,21,1.15,1.26
-rain.rate.24,0.1,0,2030,21,0.14,0.14
+air.temp.24,13.3,13.3,2281,22,2.82,3.35
+wind.24,2.2,1.6,2112,21,1.16,1.22
+rain.rate.24,0.1,0,2032,21,0.14,0.14

@@ -13,14 +13,14 @@ rm(list = ls())
 
 # Set submission period number and new database version
 sub.period <- 4
-version <- '3.9'
+version <- '3.10'
 
 # GitHub release for pulling pmid and checking version numbers
 # pmid and other keys will be taken from this version for any observations that are already present
 # This may not be the latest pushed version if there was no associated release
 # That should be OK as long as this release number never decreases
 old.sub.period <- 4
-oldrelease <- '3.0'
+oldrelease <- '3.9'
 
 cat(paste('Sub period:', sub.period, '\n'))
 cat(paste('Old sub period (version comp):', old.sub.period, '\n'))
@@ -75,4 +75,3 @@ setwd(owd)
 
 # Message
 cat('Done. Check logs dir to confirm everything worked.\n')
-

@@ -8,7 +8,7 @@
 > fixEncoding(pdat.old, "../../data-output/03/ALFAM2_plot.csv.gz")
 
 > print(Sys.time())
-[1] "2026-11-16 16:11:24 EST"
+[1] "2026-11-17 07:13:58 EST"
 
 > ddir <- list.dirs("../../data-submitted/04", recursive = FALSE)
 
@@ -194,9 +194,13 @@ Done! Read 1  directories
 
 > setorder(pdat.comb, pmid)
 
+> n0 <- nrow(pdat.comb)
+
 > pdat.comb <- interpPlotVars(pdat.comb, idat.comb, 
 +     what = c("rain.cum", "air.temp", "soil.temp", "soil.temp.surf", 
 +         "wind", "wind.2m ..." ... [TRUNCATED] 
+
+> stopifnot(nrow(pdat.comb) == n0)
 
 > for (i in unique(pdat$file)) {
 +     fn <- strsplit(i, "/")
@@ -283,7 +287,6 @@ Checking versions
 > if (oldrelease != vr) {
 +     cat("Version number in old release does not match release tag!\n")
 + }
-Version number in old release does not match release tag!
 
 > vdat <- data.frame(Where = c("main.R (new version)", 
 +     "Release tag", "Release", "Main branch", "Dev branch"), Version = c(version, 
@@ -294,10 +297,10 @@ Version number in old release does not match release tag!
 
 > print(vdat, row.names = FALSE)
                 Where Version
- main.R (new version)     3.9
-          Release tag     3.0
-              Release 3.0-dev
-          Main branch     3.8
+ main.R (new version)    3.10
+          Release tag     3.9
+              Release     3.9
+          Main branch     3.9
            Dev branch     3.0
 
 > if (version %in% c(oldrelease, vr, vlm, vld)) {
